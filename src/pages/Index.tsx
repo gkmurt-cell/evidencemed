@@ -7,6 +7,7 @@ import ResearchSection from "@/components/sections/ResearchSection";
 import CompoundsSection from "@/components/sections/CompoundsSection";
 import PricingSection from "@/components/sections/PricingSection";
 import CTASection from "@/components/sections/CTASection";
+import { RightSidebar } from "@/components/layout/RightSidebar";
 
 const Index = () => {
   return (
@@ -42,17 +43,25 @@ const Index = () => {
         </script>
       </Helmet>
 
-      <div className="min-h-screen bg-background">
+      <div className="min-h-screen bg-background flex flex-col">
         <Navbar />
-        <main>
-          <HeroSection />
-          <ConditionsSection />
-          <ResearchSection />
-          <CompoundsSection />
-          <PricingSection />
-          <CTASection />
-        </main>
-        <Footer />
+        <div className="flex-1 flex">
+          {/* Main Content */}
+          <main className="flex-1 min-w-0">
+            <HeroSection />
+            <ConditionsSection />
+            <ResearchSection />
+            <CompoundsSection />
+            <PricingSection />
+            <CTASection />
+            <Footer />
+          </main>
+          
+          {/* Right Sidebar - Hidden on mobile/tablet, visible on large screens */}
+          <div className="hidden lg:block">
+            <RightSidebar variant="split" />
+          </div>
+        </div>
       </div>
     </>
   );
