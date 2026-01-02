@@ -46,23 +46,28 @@ const Index = () => {
 
       <div className="min-h-screen bg-background flex flex-col">
         <Navbar />
-        <div className="flex-1 flex pt-16 lg:pt-20">
-          {/* Main Content */}
-          <main className="flex-1 min-w-0">
-            <HeroSection />
-            <ConditionsSection />
-            <ResearchSection />
-            <CompoundsSection />
-            <PricingSection />
-            {/* Mobile/Tablet Books Section */}
-            <MobileBooksSection />
-            <CTASection />
-            <Footer />
-          </main>
+        <div className="pt-16 lg:pt-20">
+          {/* Hero Section - Full Width */}
+          <HeroSection />
           
-          {/* Right Sidebar - Hidden on mobile/tablet, visible on large screens */}
-          <div className="hidden lg:block sticky top-20 h-[calc(100vh-5rem)] overflow-y-auto">
-            <RightSidebar variant="split" />
+          {/* Content with Sidebar */}
+          <div className="flex">
+            {/* Main Content */}
+            <main className="flex-1 min-w-0">
+              <ConditionsSection />
+              <ResearchSection />
+              <CompoundsSection />
+              <PricingSection />
+              {/* Mobile/Tablet Books Section */}
+              <MobileBooksSection />
+              <CTASection />
+              <Footer />
+            </main>
+            
+            {/* Right Sidebar - Starts at Conditions section */}
+            <div className="hidden lg:block sticky top-20 h-[calc(100vh-5rem)] overflow-y-auto">
+              <RightSidebar variant="split" />
+            </div>
           </div>
         </div>
       </div>
