@@ -30,6 +30,7 @@ interface Resource {
   type: string;
   description: string;
   url: string;
+  categories?: string[];
 }
 
 interface VideoResource {
@@ -39,6 +40,7 @@ interface VideoResource {
   topic: string;
   url: string;
   thumbnail?: string;
+  categories?: string[];
 }
 
 interface RightSidebarProps {
@@ -163,49 +165,56 @@ const resources: Resource[] = [
     name: "NMN (Nicotinamide Mononucleotide)",
     type: "Longevity",
     description: "NAD+ precursor for cellular energy",
-    url: "#"
+    url: "#",
+    categories: ["Longevity", "General Health", "Cognitive Health"]
   },
   {
     id: "2",
     name: "NAD+ Supplements",
     type: "Longevity",
     description: "Direct NAD+ supplementation",
-    url: "#"
+    url: "#",
+    categories: ["Longevity", "General Health"]
   },
   {
     id: "3",
     name: "Lion's Mane Mushroom",
     type: "Cognitive",
     description: "Nootropic mushroom extract",
-    url: "#"
+    url: "#",
+    categories: ["Cognitive Health", "Neurological", "General Health"]
   },
   {
     id: "4",
     name: "Vitamin D3 + K2",
     type: "Essential",
     description: "Bone & immune support",
-    url: "#"
+    url: "#",
+    categories: ["Immune Support", "Autoimmune", "General Health"]
   },
   {
     id: "5",
     name: "Ashwagandha Extract",
     type: "Adaptogen",
     description: "Stress & anxiety support",
-    url: "#"
+    url: "#",
+    categories: ["Stress & Anxiety", "General Health"]
   },
   {
     id: "6",
     name: "Curcumin (Turmeric)",
     type: "Anti-inflammatory",
     description: "Bioavailable turmeric extract",
-    url: "#"
+    url: "#",
+    categories: ["Inflammation", "Autoimmune", "Cancer", "General Health"]
   },
   {
     id: "7",
     name: "Berberine",
     type: "Metabolic",
     description: "Blood sugar support",
-    url: "#"
+    url: "#",
+    categories: ["Metabolic Health", "General Health"]
   }
 ];
 
@@ -215,68 +224,97 @@ const videoResources: VideoResource[] = [
     title: "Repurposing Existing Medications",
     speaker: "Dr. John Campbell",
     topic: "Drug Repurposing",
-    url: "https://www.youtube.com/@DrJohnCampbell"
+    url: "https://www.youtube.com/@DrJohnCampbell",
+    categories: ["General Health", "Immune Support"]
   },
   {
     id: "2",
     title: "New Findings in Cancer Treatment",
     speaker: "Dr. Paul Marik",
     topic: "Integrative Oncology",
-    url: "#"
+    url: "#",
+    categories: ["Cancer", "General Health"]
   },
   {
     id: "3",
     title: "Metabolic Health Breakthroughs",
     speaker: "Dr. Peter Attia",
     topic: "Longevity Medicine",
-    url: "#"
+    url: "#",
+    categories: ["Metabolic Health", "Longevity", "General Health"]
   },
   {
     id: "4",
     title: "Autoimmune Protocol Updates",
     speaker: "Dr. Terry Wahls",
     topic: "Autoimmune Research",
-    url: "#"
+    url: "#",
+    categories: ["Autoimmune", "Inflammation", "General Health"]
   },
   {
     id: "5",
     title: "NAD+ and Aging Research",
     speaker: "Dr. David Sinclair",
     topic: "Longevity Science",
-    url: "#"
+    url: "#",
+    categories: ["Longevity", "Cognitive Health", "General Health"]
   },
   {
     id: "6",
     title: "Gut Microbiome Insights",
     speaker: "Dr. Will Bulsiewicz",
     topic: "Gut Health",
-    url: "#"
+    url: "#",
+    categories: ["Immune Support", "Inflammation", "General Health"]
   },
   {
     id: "7",
     title: "Fasting and Cellular Repair",
     speaker: "Dr. Jason Fung",
     topic: "Metabolic Health",
-    url: "#"
+    url: "#",
+    categories: ["Metabolic Health", "Longevity", "General Health"]
   }
 ];
 
-export function RightSidebar({ variant = "split", relatedCategory }: RightSidebarProps) {
-  const [researchOpen, setResearchOpen] = useState(false);
-  const [booksOpen, setBooksOpen] = useState(false);
-  const [resourcesOpen, setResourcesOpen] = useState(false);
-  const [videosOpen, setVideosOpen] = useState(false);
+type SectionType = "research" | "books" | "resources" | "videos" | null;
 
+export function RightSidebar({ variant = "split", relatedCategory }: RightSidebarProps) {
+  const [openSection, setOpenSection] = useState<SectionType>(null);
+
+  const handleSectionToggle = (section: SectionType) => {
+    setOpenSection(prev => prev === section ? null : section);
+  };
+
+  // Filter content based on relatedCategory
   const displayBooks = relatedCategory 
     ? popularBooks.filter(book => book.category === relatedCategory || book.category === "General Health")
     : popularBooks;
+
+  const displayResearch = relatedCategory
+    ? researchUpdates.filter(update => update.category === relatedCategory || update.category === "General Health")
+    : researchUpdates;
+
+  const displayResources = relatedCategory
+    ? resources.filter(resource => resource.categories?.includes(relatedCategory) || resource.categories?.includes("General Health"))
+    : resources;
+
+  const displayVideos = relatedCategory
+    ? videoResources.filter(video => video.categories?.includes(relatedCategory) || video.categories?.includes("General Health"))
+    : videoResources;
+
+  // Get the first relevant item for each section (for preview)
+  const previewBook = displayBooks[0] || popularBooks[0];
+  const previewResearch = displayResearch[0] || researchUpdates[0];
+  const previewResource = displayResources[0] || resources[0];
+  const previewVideo = displayVideos[0] || videoResources[0];
 
   return (
     <aside className="w-80 xl:w-96 bg-card border-l border-border h-full overflow-y-auto sticky top-0">
       {variant === "split" ? (
         <div className="divide-y divide-border">
           {/* Research Updates Section */}
-          <Collapsible open={researchOpen} onOpenChange={setResearchOpen}>
+          <Collapsible open={openSection === "research"} onOpenChange={() => handleSectionToggle("research")}>
             <CollapsibleTrigger className="w-full p-4 bg-muted/30 hover:bg-muted/50 transition-colors cursor-pointer">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2 text-primary">
@@ -285,27 +323,27 @@ export function RightSidebar({ variant = "split", relatedCategory }: RightSideba
                 </div>
                 <ChevronDown className={cn(
                   "h-4 w-4 text-muted-foreground transition-transform",
-                  researchOpen && "rotate-180"
+                  openSection === "research" && "rotate-180"
                 )} />
               </div>
               <p className="text-xs text-muted-foreground mt-1 text-left">Peer-reviewed updates</p>
             </CollapsibleTrigger>
             
             {/* Preview item when collapsed */}
-            {!researchOpen && (
+            {openSection !== "research" && (
               <article className="p-4 hover:bg-muted/30 transition-colors cursor-pointer group border-b border-border/50">
                 <span className="inline-block text-xs font-medium text-accent-foreground bg-accent/20 px-2 py-0.5 rounded mb-2">
-                  {researchUpdates[0].category}
+                  {previewResearch.category}
                 </span>
                 <h4 className="text-sm font-medium text-foreground leading-snug group-hover:text-primary transition-colors line-clamp-2">
-                  {researchUpdates[0].title}
+                  {previewResearch.title}
                 </h4>
                 <div className="flex items-center gap-2 mt-2 text-xs text-muted-foreground">
-                  <span className="font-medium">{researchUpdates[0].source}</span>
+                  <span className="font-medium">{previewResearch.source}</span>
                   <span>•</span>
                   <div className="flex items-center gap-1">
                     <Calendar className="h-3 w-3" />
-                    {researchUpdates[0].date}
+                    {previewResearch.date}
                   </div>
                 </div>
               </article>
@@ -313,7 +351,7 @@ export function RightSidebar({ variant = "split", relatedCategory }: RightSideba
             
             <CollapsibleContent>
               <div className="divide-y divide-border/50">
-                {researchUpdates.map((update) => (
+                {displayResearch.map((update) => (
                   <article key={update.id} className="p-4 hover:bg-muted/30 transition-colors cursor-pointer group">
                     <span className="inline-block text-xs font-medium text-accent-foreground bg-accent/20 px-2 py-0.5 rounded mb-2">
                       {update.category}
@@ -336,7 +374,7 @@ export function RightSidebar({ variant = "split", relatedCategory }: RightSideba
           </Collapsible>
 
           {/* Books Section */}
-          <Collapsible open={booksOpen} onOpenChange={setBooksOpen}>
+          <Collapsible open={openSection === "books"} onOpenChange={() => handleSectionToggle("books")}>
             <CollapsibleTrigger className="w-full p-4 bg-muted/30 hover:bg-muted/50 transition-colors cursor-pointer">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2 text-primary">
@@ -345,30 +383,30 @@ export function RightSidebar({ variant = "split", relatedCategory }: RightSideba
                 </div>
                 <ChevronDown className={cn(
                   "h-4 w-4 text-muted-foreground transition-transform",
-                  booksOpen && "rotate-180"
+                  openSection === "books" && "rotate-180"
                 )} />
               </div>
               <p className="text-xs text-muted-foreground mt-1 text-left">Popular health & wellness reads</p>
             </CollapsibleTrigger>
             
             {/* Preview item when collapsed */}
-            {!booksOpen && (
+            {openSection !== "books" && (
               <a 
-                href={displayBooks[0].affiliateUrl}
+                href={previewBook.affiliateUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex gap-3 p-4 hover:bg-muted/50 transition-colors group border-b border-border/50"
               >
                 <img 
-                  src={displayBooks[0].cover} 
-                  alt={displayBooks[0].title}
+                  src={previewBook.cover} 
+                  alt={previewBook.title}
                   className="w-14 h-20 object-cover rounded shadow-sm flex-shrink-0"
                 />
                 <div className="flex-1 min-w-0">
                   <h4 className="text-sm font-medium text-foreground line-clamp-2 group-hover:text-primary transition-colors">
-                    {displayBooks[0].title}
+                    {previewBook.title}
                   </h4>
-                  <p className="text-xs text-muted-foreground mt-1">{displayBooks[0].author}</p>
+                  <p className="text-xs text-muted-foreground mt-1">{previewBook.author}</p>
                   <div className="flex items-center gap-1 mt-2 text-xs text-primary">
                     <ExternalLink className="h-3 w-3" />
                     <span>View on Amazon</span>
@@ -409,7 +447,7 @@ export function RightSidebar({ variant = "split", relatedCategory }: RightSideba
           </Collapsible>
 
           {/* Resources Section */}
-          <Collapsible open={resourcesOpen} onOpenChange={setResourcesOpen}>
+          <Collapsible open={openSection === "resources"} onOpenChange={() => handleSectionToggle("resources")}>
             <CollapsibleTrigger className="w-full p-4 bg-muted/30 hover:bg-muted/50 transition-colors cursor-pointer">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2 text-primary">
@@ -418,16 +456,16 @@ export function RightSidebar({ variant = "split", relatedCategory }: RightSideba
                 </div>
                 <ChevronDown className={cn(
                   "h-4 w-4 text-muted-foreground transition-transform",
-                  resourcesOpen && "rotate-180"
+                  openSection === "resources" && "rotate-180"
                 )} />
               </div>
               <p className="text-xs text-muted-foreground mt-1 text-left">Vitamins, herbs & supplements</p>
             </CollapsibleTrigger>
             
             {/* Preview item when collapsed */}
-            {!resourcesOpen && (
+            {openSection !== "resources" && (
               <a 
-                href={resources[0].url}
+                href={previewResource.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block p-4 hover:bg-muted/50 transition-colors group border-b border-border/50"
@@ -435,12 +473,12 @@ export function RightSidebar({ variant = "split", relatedCategory }: RightSideba
                 <div className="flex items-start justify-between">
                   <div>
                     <span className="inline-block text-xs font-medium text-accent-foreground bg-accent/20 px-2 py-0.5 rounded mb-2">
-                      {resources[0].type}
+                      {previewResource.type}
                     </span>
                     <h4 className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">
-                      {resources[0].name}
+                      {previewResource.name}
                     </h4>
-                    <p className="text-xs text-muted-foreground mt-1">{resources[0].description}</p>
+                    <p className="text-xs text-muted-foreground mt-1">{previewResource.description}</p>
                   </div>
                   <ExternalLink className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors flex-shrink-0" />
                 </div>
@@ -449,7 +487,7 @@ export function RightSidebar({ variant = "split", relatedCategory }: RightSideba
             
             <CollapsibleContent>
               <div className="divide-y divide-border/50">
-                {resources.map((resource) => (
+                {displayResources.map((resource) => (
                   <a 
                     key={resource.id}
                     href={resource.url}
@@ -476,7 +514,7 @@ export function RightSidebar({ variant = "split", relatedCategory }: RightSideba
           </Collapsible>
 
           {/* YouTube Videos Section */}
-          <Collapsible open={videosOpen} onOpenChange={setVideosOpen}>
+          <Collapsible open={openSection === "videos"} onOpenChange={() => handleSectionToggle("videos")}>
             <CollapsibleTrigger className="w-full p-4 bg-muted/30 hover:bg-muted/50 transition-colors cursor-pointer">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2 text-primary">
@@ -485,16 +523,16 @@ export function RightSidebar({ variant = "split", relatedCategory }: RightSideba
                 </div>
                 <ChevronDown className={cn(
                   "h-4 w-4 text-muted-foreground transition-transform",
-                  videosOpen && "rotate-180"
+                  openSection === "videos" && "rotate-180"
                 )} />
               </div>
               <p className="text-xs text-muted-foreground mt-1 text-left">Practitioner insights & research</p>
             </CollapsibleTrigger>
             
             {/* Preview item when collapsed */}
-            {!videosOpen && (
+            {openSection !== "videos" && (
               <a 
-                href={videoResources[0].url}
+                href={previewVideo.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block p-4 hover:bg-muted/50 transition-colors group border-b border-border/50"
@@ -505,11 +543,11 @@ export function RightSidebar({ variant = "split", relatedCategory }: RightSideba
                   </div>
                   <div className="flex-1 min-w-0">
                     <h4 className="text-sm font-medium text-foreground group-hover:text-primary transition-colors line-clamp-1">
-                      {videoResources[0].title}
+                      {previewVideo.title}
                     </h4>
-                    <p className="text-xs text-muted-foreground mt-1">{videoResources[0].speaker}</p>
+                    <p className="text-xs text-muted-foreground mt-1">{previewVideo.speaker}</p>
                     <span className="inline-block text-xs font-medium text-accent-foreground bg-accent/20 px-2 py-0.5 rounded mt-2">
-                      {videoResources[0].topic}
+                      {previewVideo.topic}
                     </span>
                   </div>
                 </div>
@@ -518,7 +556,7 @@ export function RightSidebar({ variant = "split", relatedCategory }: RightSideba
             
             <CollapsibleContent>
               <div className="divide-y divide-border/50">
-                {videoResources.map((video) => (
+                {displayVideos.map((video) => (
                   <a 
                     key={video.id}
                     href={video.url}
