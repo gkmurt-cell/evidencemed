@@ -116,7 +116,7 @@ const HeroSection = () => {
         </svg>
       </div>
 
-      <div className="container mx-auto px-4 pt-32 pb-32 lg:pt-40 lg:pb-40 relative z-10">
+      <div className="container mx-auto px-4 pt-20 pb-32 lg:pt-24 lg:pb-40 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-foreground/10 border border-primary-foreground/20 mb-8 animate-fade-up">
