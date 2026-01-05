@@ -37,7 +37,7 @@ const featuredStudies = [
 
 const ResearchSection = () => {
   return (
-    <section id="research" className="py-20 lg:py-32 bg-secondary/30">
+    <section id="research" className="py-10 lg:py-16 bg-secondary/30">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center mb-16">

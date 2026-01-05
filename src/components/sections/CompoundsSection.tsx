@@ -50,11 +50,35 @@ const compounds = [
     image: "🍃",
     highlights: ["Platelet research", "Dengue studies", "Enzyme content"],
   },
+  {
+    name: "Nitric Oxide",
+    latinName: "NO (Endogenous)",
+    category: "Signaling Molecule",
+    studies: 1250,
+    image: "💨",
+    highlights: ["Vasodilation", "Cardiovascular", "Exercise performance"],
+  },
+  {
+    name: "Methylene Blue",
+    latinName: "Methylthioninium chloride",
+    category: "Nootropic",
+    studies: 620,
+    image: "🔵",
+    highlights: ["Mitochondrial function", "Cognitive enhancement", "Neuroprotection"],
+  },
+  {
+    name: "Carbon 60",
+    latinName: "Buckminsterfullerene (C60)",
+    category: "Antioxidant",
+    studies: 145,
+    image: "⚫",
+    highlights: ["Free radical scavenging", "Longevity research", "Cellular protection"],
+  },
 ];
 
 const CompoundsSection = () => {
   return (
-    <section id="compounds" className="py-20 lg:py-32 bg-background">
+    <section id="compounds" className="py-10 lg:py-16 bg-background">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center mb-16">
