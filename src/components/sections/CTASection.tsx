@@ -3,7 +3,7 @@ import { ArrowRight, BookOpen, Mail } from "lucide-react";
 
 const CTASection = () => {
   return (
-    <section className="py-20 lg:py-32 bg-background">
+    <section className="py-10 lg:py-16 bg-background">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           {/* Main CTA Card */}
