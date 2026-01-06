@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import AffiliateDisclosure from "@/components/layout/AffiliateDisclosure";
 import HeroSection from "@/components/sections/HeroSection";
 import ConditionsSection from "@/components/sections/ConditionsSection";
 import ResearchSection from "@/components/sections/ResearchSection";
@@ -63,6 +64,7 @@ const Index = () => {
               {/* Mobile/Tablet Books Section */}
               <MobileBooksSection />
               <CTASection />
+              <AffiliateDisclosure />
               <Footer />
             </main>
             

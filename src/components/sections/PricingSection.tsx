@@ -3,9 +3,9 @@ import { Check, Sparkles } from "lucide-react";
 
 const plans = [
   {
-    name: "Free",
-    price: "$0",
-    period: "forever",
+    name: "Starter",
+    price: "$5",
+    period: "per month",
     description: "Basic access to explore the platform",
     features: [
       "10 condition summaries",
@@ -32,7 +32,7 @@ const plans = [
       "Export & citation tools",
       "Priority email support",
     ],
-    cta: "Start 7-Day Free Trial",
+    cta: "Start 7-Day Trial",
     variant: "default" as const,
     popular: true,
   },
