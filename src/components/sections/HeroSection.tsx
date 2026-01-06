@@ -135,7 +135,7 @@ const HeroSection = () => {
 
           {/* Subtitle */}
           <p className="text-lg md:text-xl text-primary-foreground/80 max-w-2xl mx-auto mb-8 animate-fade-up delay-200">
-            Explore peer-reviewed research on alternative therapies, natural compounds, 
+            Explore peer-reviewed research on alternative and integrated therapies, natural compounds, 
             and investigational treatments. Summarized, sourced, and organized for 
             practitioners and educated consumers.
           </p>
