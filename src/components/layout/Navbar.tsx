@@ -14,6 +14,7 @@ const Navbar = () => {
     { name: "Research Library", href: "#research", icon: FlaskConical },
     { name: "Natural Compounds", href: "#compounds", icon: Leaf },
     { name: "Integrative Therapies", href: "/integrative-therapies", icon: Heart, isLink: true },
+    { name: "Ayurveda", href: "/ayurveda", icon: Leaf, isLink: true },
     { name: "Pricing", href: "#pricing" },
   ];
 
