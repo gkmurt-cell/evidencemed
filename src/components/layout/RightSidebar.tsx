@@ -196,6 +196,46 @@ const popularBooks: Book[] = [
     cover: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=120&h=180&fit=crop",
     affiliateUrl: "#",
     category: "energetic"
+  },
+  {
+    id: "13",
+    title: "The Complete Book of Ayurvedic Home Remedies",
+    author: "Vasant Lad",
+    cover: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=120&h=180&fit=crop",
+    affiliateUrl: "#",
+    category: "ayurveda"
+  },
+  {
+    id: "14",
+    title: "Prakriti: Your Ayurvedic Constitution",
+    author: "Robert Svoboda",
+    cover: "https://images.unsplash.com/photo-1512820790803-83ca734da794?w=120&h=180&fit=crop",
+    affiliateUrl: "#",
+    category: "ayurveda"
+  },
+  {
+    id: "15",
+    title: "Ayurveda: The Science of Self-Healing",
+    author: "Vasant Lad",
+    cover: "https://images.unsplash.com/photo-1543002588-bfa74002ed7e?w=120&h=180&fit=crop",
+    affiliateUrl: "#",
+    category: "ayurveda"
+  },
+  {
+    id: "16",
+    title: "The Yoga of Herbs",
+    author: "Vasant Lad & David Frawley",
+    cover: "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?w=120&h=180&fit=crop",
+    affiliateUrl: "#",
+    category: "ayurveda"
+  },
+  {
+    id: "17",
+    title: "Ayurvedic Cooking for Self-Healing",
+    author: "Usha Lad & Vasant Lad",
+    cover: "https://images.unsplash.com/photo-1532012197267-da84d127e765?w=120&h=180&fit=crop",
+    affiliateUrl: "#",
+    category: "ayurveda"
   }
 ];
 
