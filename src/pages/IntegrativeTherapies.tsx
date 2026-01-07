@@ -133,16 +133,21 @@ const IntegrativeTherapies = () => {
                 <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground mb-6">
                   Explore Integrative Therapies
                 </h1>
-                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-4">
                   Discover the research behind complementary and alternative healing modalities. 
                   From ancient practices to emerging technologies.
+                </p>
+                <p className="text-sm text-muted-foreground/80 max-w-2xl mx-auto flex items-center justify-center gap-2">
+                  <BookOpen className="h-4 w-4 shrink-0" />
+                  Stanford University maintains an integrative medicine arm within its research and development sciences, 
+                  validating the growing academic interest in these emerging technologies.
                 </p>
               </div>
             </div>
           </section>
 
           {/* Tree Visualization Section */}
-          <section className="py-12 lg:py-16">
+          <section className="py-6 lg:py-8">
             <div className="container mx-auto px-4">
               <div className="max-w-5xl mx-auto">
                 <h2 className="font-serif text-2xl md:text-3xl font-semibold text-foreground text-center mb-12">

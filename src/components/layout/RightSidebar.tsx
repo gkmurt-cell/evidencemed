@@ -156,6 +156,46 @@ const popularBooks: Book[] = [
     cover: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=120&h=180&fit=crop",
     affiliateUrl: "#",
     category: "Longevity"
+  },
+  {
+    id: "8",
+    title: "Energy Medicine",
+    author: "Donna Eden",
+    cover: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&h=180&fit=crop",
+    affiliateUrl: "#",
+    category: "energetic"
+  },
+  {
+    id: "9",
+    title: "The Body Electric",
+    author: "Robert Becker",
+    cover: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=120&h=180&fit=crop",
+    affiliateUrl: "#",
+    category: "energetic"
+  },
+  {
+    id: "10",
+    title: "Vibrational Medicine",
+    author: "Richard Gerber",
+    cover: "https://images.unsplash.com/photo-1516979187457-637abb4f9353?w=120&h=180&fit=crop",
+    affiliateUrl: "#",
+    category: "energetic"
+  },
+  {
+    id: "11",
+    title: "The Rife Handbook",
+    author: "Nenah Sylver",
+    cover: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=120&h=180&fit=crop",
+    affiliateUrl: "#",
+    category: "energetic"
+  },
+  {
+    id: "12",
+    title: "Wheels of Light",
+    author: "Rosalyn Bruyere",
+    cover: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=120&h=180&fit=crop",
+    affiliateUrl: "#",
+    category: "energetic"
   }
 ];
 
