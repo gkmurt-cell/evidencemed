@@ -86,7 +86,7 @@ const ConditionsSection = () => {
           {conditions.map((condition, index) => (
             <div
               key={condition.name}
-              className="group p-6 rounded-xl bg-card border border-border hover:border-primary/30 hover:shadow-medium transition-all duration-300 cursor-pointer"
+              className="group p-6 rounded-xl bg-card border border-border shadow-md hover:border-primary/30 hover:shadow-lg transition-all duration-300 cursor-pointer"
               style={{ animationDelay: `${index * 50}ms` }}
             >
               <div className={`w-12 h-12 rounded-lg ${condition.color} flex items-center justify-center mb-4`}>
