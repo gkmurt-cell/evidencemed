@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { BookOpen, ExternalLink, TrendingUp, Calendar, ChevronDown, ShoppingBag, Youtube, Play } from "lucide-react";
+import { BookOpen, ExternalLink, TrendingUp, Calendar, ChevronDown, ShoppingBag, Youtube, Play, Shirt } from "lucide-react";
+import herbNerdTshirt from "@/assets/herb-nerd-tshirt.png";
 import {
   Collapsible,
   CollapsibleContent,
@@ -717,6 +718,36 @@ export function RightSidebar({ variant = "split", relatedCategory }: RightSideba
             ))}
           </div>
           
+          {/* Merch Section */}
+          <div className="p-4 border-t border-border">
+            <div className="flex items-center gap-2 text-primary mb-3">
+              <Shirt className="h-5 w-5" />
+              <h3 className="font-heading font-semibold text-sm">Herb Lover Merch</h3>
+            </div>
+            <a 
+              href="https://printify.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="block group"
+            >
+              <div className="relative rounded-lg overflow-hidden bg-muted/30 p-3 hover:bg-muted/50 transition-colors">
+                <img 
+                  src={herbNerdTshirt} 
+                  alt="I identify as a herb loving nerd t-shirt"
+                  className="w-full h-auto rounded-md shadow-sm group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="mt-3 text-center">
+                  <p className="text-sm font-medium text-foreground">"I identify as a herb loving nerd"</p>
+                  <p className="text-xs text-muted-foreground mt-1">Available on Printify</p>
+                  <div className="flex items-center justify-center gap-1 mt-2 text-xs text-primary font-medium">
+                    <ExternalLink className="h-3 w-3" />
+                    <span>Shop Now</span>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+
           {/* Affiliate Disclosure */}
           <div className="p-4 bg-muted/20 border-t border-border mt-auto">
             <p className="text-[10px] text-muted-foreground leading-relaxed">
