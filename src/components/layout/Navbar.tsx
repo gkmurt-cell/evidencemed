@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Menu, X, BookOpen, FlaskConical, Leaf, Search, Heart } from "lucide-react";
+import { Menu, X, BookOpen, FlaskConical, Leaf, Search, Heart, ShoppingBag } from "lucide-react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,6 +15,7 @@ const Navbar = () => {
     { name: "Natural Compounds", href: "#compounds", icon: Leaf },
     { name: "Integrative Therapies", href: "/integrative-therapies", icon: Heart, isLink: true },
     { name: "Ayurveda", href: "/ayurveda", icon: Leaf, isLink: true },
+    { name: "Merch", href: "/merch", icon: ShoppingBag, isLink: true },
     { name: "Pricing", href: "#pricing" },
   ];
 
