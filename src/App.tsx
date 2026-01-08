@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import About from "./pages/About";
 import IntegrativeTherapies from "./pages/IntegrativeTherapies";
 import Ayurveda from "./pages/Ayurveda";
+import Merch from "./pages/Merch";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -24,6 +25,7 @@ const App = () => (
             <Route path="/about" element={<About />} />
             <Route path="/integrative-therapies" element={<IntegrativeTherapies />} />
             <Route path="/ayurveda" element={<Ayurveda />} />
+            <Route path="/merch" element={<Merch />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
