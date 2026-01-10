@@ -26,6 +26,51 @@ const therapyCategories = [
   { id: "psychotherapy", name: "Psychotherapy", icon: Brain, color: "bg-teal-500", description: "Mind-body approaches" },
 ];
 
+// Modalities list
+const modalities = [
+  "Accelerated Resolution Therapy (ART)",
+  "Acupuncture",
+  "Akashic Records",
+  "Alexander Technique",
+  "Art Therapy",
+  "Auricular Acupuncture",
+  "Ayurveda Wellness Consultations",
+  "Biophoton Therapy (Biontology)",
+  "Brennan Healing Science",
+  "Chiropractic",
+  "Colon Hydrotherapy",
+  "Craniosacral Therapy",
+  "Energetic Chiropractic",
+  "Feldenkrais",
+  "Flower Essence Therapy",
+  "Health Coaching",
+  "Herbal Health Consultation",
+  "Holistic Medicine",
+  "Holistic Optometry",
+  "Homeopathic Inquiry",
+  "Hypnotherapy/Past Life Regression",
+  "IET: Integrated Energy Therapy",
+  "Jin Shin Jyutsu",
+  "Jyorei",
+  "Lightfield",
+  "Marma Therapy",
+  "Massage",
+  "Matrix Energetics",
+  "MediSounds®",
+  "One Light Healing Touch",
+  "Psychotherapy/Art Therapy",
+  "Reconnective Healing",
+  "Reflexology",
+  "Reiki",
+  "Rubenfeld Synergy®",
+  "Soma Veda Thai Yoga",
+  "Spinal Balancing",
+  "Thai Massage",
+  "Thai Yoga Bodywork",
+  "Vibrational Attunement: Tuning Forks",
+  "Yoga Therapy",
+];
+
 // Energetic treatments list
 const energeticTreatments = [
   {
@@ -142,6 +187,34 @@ const IntegrativeTherapies = () => {
                   Stanford University maintains an integrative medicine arm within its research and development sciences, 
                   validating the growing academic interest in these emerging technologies.
                 </p>
+              </div>
+            </div>
+          </section>
+
+          {/* Modalities Section */}
+          <section className="py-8 lg:py-12 bg-secondary/20">
+            <div className="container mx-auto px-4">
+              <div className="max-w-6xl mx-auto">
+                <h2 className="font-serif text-2xl md:text-3xl font-semibold text-foreground text-center mb-8">
+                  Modalities
+                </h2>
+                <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
+                  Explore our comprehensive directory of integrative healing modalities. Click on any modality to learn more.
+                </p>
+                
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+                  {modalities.map((modality) => (
+                    <a
+                      key={modality}
+                      href="#energetic"
+                      className="group p-4 rounded-lg bg-card border border-border shadow-md hover:shadow-lg hover:border-primary/30 transition-all duration-300 cursor-pointer text-center"
+                    >
+                      <span className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">
+                        {modality}
+                      </span>
+                    </a>
+                  ))}
+                </div>
               </div>
             </div>
           </section>
