@@ -13,8 +13,12 @@ import {
   Waves,
   ExternalLink,
   BookOpen,
-  FileText
+  FileText,
+  ChevronDown,
+  ChevronUp
 } from "lucide-react";
+import { useState } from "react";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 // Tree visualization categories
 const therapyCategories = [
@@ -153,6 +157,13 @@ const energeticTreatments = [
 ];
 
 const IntegrativeTherapies = () => {
+  const [isModalitiesOpen, setIsModalitiesOpen] = useState(false);
+  const [selectedModality, setSelectedModality] = useState<string | null>(null);
+
+  const handleModalityClick = (modality: string) => {
+    setSelectedModality(selectedModality === modality ? null : modality);
+  };
+
   return (
     <>
       <Helmet>
@@ -191,29 +202,73 @@ const IntegrativeTherapies = () => {
             </div>
           </section>
 
-          {/* Modalities Section */}
-          <section className="py-8 lg:py-12 bg-secondary/20">
+          {/* Modalities Collapsible Tile */}
+          <section className="py-6 lg:py-8">
             <div className="container mx-auto px-4">
-              <div className="max-w-6xl mx-auto">
-                <h2 className="font-serif text-2xl md:text-3xl font-semibold text-foreground text-center mb-8">
-                  Modalities
-                </h2>
-                <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
-                  Explore our comprehensive directory of integrative healing modalities. Click on any modality to learn more.
-                </p>
-                
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
-                  {modalities.map((modality) => (
-                    <a
-                      key={modality}
-                      href="#energetic"
-                      className="group p-4 rounded-lg bg-card border border-border shadow-md hover:shadow-lg hover:border-primary/30 transition-all duration-300 cursor-pointer text-center"
-                    >
-                      <span className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">
-                        {modality}
-                      </span>
-                    </a>
-                  ))}
+              <div className="max-w-4xl mx-auto">
+                <div className="bg-card border border-border rounded-xl shadow-lg overflow-hidden">
+                  {/* Collapsible Header */}
+                  <button
+                    onClick={() => setIsModalitiesOpen(!isModalitiesOpen)}
+                    className="w-full flex items-center justify-between p-5 hover:bg-secondary/30 transition-colors"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                        <BookOpen className="w-5 h-5 text-primary" />
+                      </div>
+                      <div className="text-left">
+                        <h2 className="font-serif text-xl md:text-2xl font-semibold text-foreground">
+                          Modalities
+                        </h2>
+                        <p className="text-sm text-muted-foreground">
+                          {modalities.length} integrative healing practices
+                        </p>
+                      </div>
+                    </div>
+                    {isModalitiesOpen ? (
+                      <ChevronUp className="w-6 h-6 text-muted-foreground" />
+                    ) : (
+                      <ChevronDown className="w-6 h-6 text-muted-foreground" />
+                    )}
+                  </button>
+
+                  {/* Collapsible Content */}
+                  {isModalitiesOpen && (
+                    <div className="border-t border-border">
+                      <ScrollArea className="h-80">
+                        <div className="p-4 space-y-2">
+                          {modalities.map((modality) => (
+                            <div key={modality}>
+                              <button
+                                onClick={() => handleModalityClick(modality)}
+                                className={`w-full text-left p-3 rounded-lg border transition-all duration-200 ${
+                                  selectedModality === modality
+                                    ? 'bg-primary/10 border-primary/30 shadow-md'
+                                    : 'bg-secondary/30 border-border hover:bg-secondary/50 hover:border-primary/20'
+                                }`}
+                              >
+                                <span className="font-medium text-foreground">{modality}</span>
+                              </button>
+                              {selectedModality === modality && (
+                                <div className="mt-2 ml-4 p-4 bg-secondary/20 rounded-lg border-l-2 border-primary">
+                                  <p className="text-sm text-muted-foreground">
+                                    Detailed information about {modality} will be available soon. 
+                                    This modality is part of integrative medicine practices.
+                                  </p>
+                                  <a 
+                                    href="#energetic" 
+                                    className="inline-flex items-center gap-1 mt-2 text-sm text-primary hover:underline"
+                                  >
+                                    Learn more <ExternalLink className="w-3 h-3" />
+                                  </a>
+                                </div>
+                              )}
+                            </div>
+                          ))}
+                        </div>
+                      </ScrollArea>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
