@@ -222,12 +222,12 @@ const Ayurveda = () => {
   return (
     <>
       <Helmet>
-        <title>Ayurveda | Ancient Wisdom for Modern Health | EvidenceMed</title>
+        <title>Ayurveda | Alternative Medicine & Ancient Healing Wisdom | EvidenceMed</title>
         <meta 
           name="description" 
-          content="Explore Ayurvedic medicine - discover your dosha, learn about traditional treatments, herbs, and lifestyle practices for holistic health and balance." 
+          content="Explore Ayurvedic alternative medicine - discover your dosha, learn about traditional alternative therapy treatments, herbs, and lifestyle practices. A cornerstone of complementary and alternative medicine for holistic health." 
         />
-        <meta name="keywords" content="Ayurveda, dosha, Vata, Pitta, Kapha, Panchakarma, Ayurvedic herbs, holistic health" />
+        <meta name="keywords" content="Ayurveda, alternative medicine, alternative therapy, complementary and alternative medicine, dosha, Vata, Pitta, Kapha, Panchakarma, Ayurvedic herbs, holistic health" />
         <link rel="canonical" href="https://evidencemed.com/ayurveda" />
       </Helmet>
 
@@ -245,8 +245,8 @@ const Ayurveda = () => {
                   Ayurveda: The Science of Life
                 </h1>
                 <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                  Ancient Indian system of medicine focusing on balance, prevention, and individualized treatment 
-                  based on your unique constitution.
+                  Ancient Indian alternative medicine system focusing on balance, prevention, and individualized 
+                  alternative therapy based on your unique constitution. A foundational practice in complementary and alternative medicine.
                 </p>
               </div>
             </div>

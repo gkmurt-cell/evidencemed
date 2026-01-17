@@ -546,12 +546,12 @@ const IntegrativeTherapies = () => {
   return (
     <>
       <Helmet>
-        <title>Integrative Therapies | EvidenceMed - Research-Based Alternative Medicine</title>
+        <title>Alternative Medicine & Integrative Therapies | EvidenceMed - Complementary Therapy Research</title>
         <meta 
           name="description" 
-          content="Explore integrative therapies including energetic treatments, herbal medicine, bodywork, and more. Evidence-based information on Rife, Reiki, Acupuncture, and other modalities." 
+          content="Explore alternative medicine including energetic treatments, herbal medicine, bodywork, and alternative cancer treatments. Evidence-based research on complementary and alternative medicine modalities like Rife, Reiki, Acupuncture." 
         />
-        <meta name="keywords" content="integrative therapies, Rife therapy, Reiki, acupuncture, energy healing, PEMF, kinesiology, quantum healing" />
+        <meta name="keywords" content="alternative medicine, alternative therapy, complementary and alternative medicine, alternative cancer treatments, integrative therapies, Rife therapy, Reiki, acupuncture, energy healing, PEMF" />
         <link rel="canonical" href="https://evidencemed.com/integrative-therapies" />
       </Helmet>
 
@@ -563,19 +563,19 @@ const IntegrativeTherapies = () => {
             <div className="container mx-auto px-4">
               <div className="max-w-4xl mx-auto text-center">
                 <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
-                  Integrative Medicine
+                  Alternative Medicine & Integrative Therapies
                 </span>
                 <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground mb-6">
-                  Explore Integrative Therapies
+                  Explore Alternative Medicine & Therapy
                 </h1>
                 <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-4">
-                  Discover the research behind complementary and alternative healing modalities. 
-                  From ancient practices to emerging technologies.
+                  Discover the research behind complementary and alternative medicine modalities, 
+                  including alternative cancer treatments. From ancient alternative therapy practices to emerging technologies.
                 </p>
                 <p className="text-sm text-muted-foreground/80 max-w-2xl mx-auto flex items-center justify-center gap-2">
                   <BookOpen className="h-4 w-4 shrink-0" />
-                  Stanford University maintains an integrative medicine arm within its research and development sciences, 
-                  validating the growing academic interest in these emerging technologies.
+                  Stanford University maintains an integrative medicine arm researching alternative medicine within its 
+                  research and development sciences, validating growing academic interest in alternative therapy.
                 </p>
               </div>
             </div>
