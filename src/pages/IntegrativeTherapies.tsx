@@ -361,6 +361,140 @@ const energeticTreatments = [
   },
 ];
 
+// Herbal treatments list
+const herbalTreatments = [
+  {
+    name: "Ayurveda",
+    description: "Ancient Indian system of medicine emphasizing balance between body, mind, and spirit through diet, herbal treatments, and lifestyle practices. Categorizes individuals by doshas (Vata, Pitta, Kapha) to personalize treatment.",
+    implementation: "Initial consultation determines constitution and imbalances. Treatment includes herbal formulations, dietary changes, daily routines, and cleansing protocols (Panchakarma).",
+    studies: 156,
+    tags: ["traditional", "holistic", "dosha-based"],
+  },
+  {
+    name: "Traditional Chinese Herbalism",
+    description: "Complex system using combinations of herbs in formulas tailored to individual patterns of disharmony. Herbs are categorized by temperature, taste, and organ meridian to create balanced prescriptions.",
+    implementation: "Practitioner diagnoses through pulse and tongue examination. Custom formulas are prepared as decoctions, powders, or pills, typically taken 2-3 times daily.",
+    studies: 320,
+    tags: ["traditional", "formula-based", "TCM"],
+  },
+  {
+    name: "Western Herbalism",
+    description: "Plant-based healing tradition using single herbs or simple combinations. Emphasizes gentle, whole-plant preparations that work with the body's natural healing processes.",
+    implementation: "Herbalist assesses symptoms and constitution. Treatments may include tinctures, teas, capsules, or topical preparations. Often combined with dietary recommendations.",
+    studies: 89,
+    tags: ["western", "gentle", "whole-plant"],
+  },
+  {
+    name: "Flower Essence Therapy",
+    description: "Vibrational remedies prepared from flower essences to address emotional and spiritual imbalances. Developed by Dr. Edward Bach, these work on subtle energy levels to shift consciousness.",
+    implementation: "Practitioner selects essences based on emotional states. Drops are taken under the tongue or in water, typically 4 drops 4 times daily for several weeks.",
+    studies: 12,
+    tags: ["vibrational", "emotional", "Bach"],
+  },
+  {
+    name: "Aromatherapy",
+    description: "Therapeutic use of essential oils extracted from plants for physical and psychological well-being. Oils can be inhaled, applied topically, or used in baths to affect mood, reduce pain, and promote healing.",
+    implementation: "Essential oils selected for specific concerns are used in diffusers, massage oils, or added to baths. Sessions with practitioners may include full-body massage with custom blends.",
+    studies: 178,
+    tags: ["essential-oils", "aromatic", "topical"],
+  },
+  {
+    name: "Homeopathy",
+    description: "System based on 'like cures like' using highly diluted substances to trigger the body's natural healing response. Remedies are matched to the totality of symptoms including mental and emotional states.",
+    implementation: "Detailed case-taking identifies the simillimum (most similar remedy). Pellets or liquid doses are taken according to potency and sensitivity, with careful observation of response.",
+    studies: 142,
+    tags: ["dilution", "vital-force", "individualized"],
+  },
+  {
+    name: "Adaptogenic Herbs",
+    description: "Category of herbs that help the body adapt to stress and restore balance. Includes ashwagandha, rhodiola, ginseng, and holy basil. These normalize physiological functions and enhance resilience.",
+    implementation: "Daily supplementation with appropriate adaptogens based on constitution and stress patterns. Typically taken for 4-12 weeks with cycling periods.",
+    studies: 234,
+    tags: ["stress", "adaptogen", "resilience"],
+  },
+  {
+    name: "Medicinal Mushrooms",
+    description: "Fungi with therapeutic properties including immune modulation, cognitive enhancement, and anti-cancer effects. Includes reishi, lion's mane, chaga, cordyceps, and turkey tail.",
+    implementation: "Extracts or powders taken daily as supplements, teas, or added to foods. Quality sourcing and dual extraction (water and alcohol) methods are important for efficacy.",
+    studies: 287,
+    tags: ["fungi", "immune", "nootropic"],
+  },
+];
+
+// Bodywork treatments list
+const bodyworkTreatments = [
+  {
+    name: "Massage Therapy",
+    description: "Systematic manipulation of soft tissues to enhance function, promote relaxation, and reduce muscle tension. Various techniques include Swedish, deep tissue, sports massage, and trigger point therapy.",
+    implementation: "Sessions range from 30-90 minutes. Client lies on massage table while therapist uses hands, forearms, or elbows to work muscles and connective tissue.",
+    studies: 425,
+    tags: ["manual", "relaxation", "therapeutic"],
+  },
+  {
+    name: "Chiropractic",
+    description: "Healthcare discipline focusing on musculoskeletal disorders, particularly spine-related issues. Uses manual adjustments to restore proper alignment and improve nervous system function.",
+    implementation: "Initial assessment includes posture analysis and imaging if needed. Adjustments are targeted to misaligned vertebrae, often with complementary soft tissue work.",
+    studies: 380,
+    tags: ["spinal", "adjustment", "nervous-system"],
+  },
+  {
+    name: "Craniosacral Therapy",
+    description: "Gentle technique working with the craniosacral system—membranes and cerebrospinal fluid surrounding brain and spinal cord. Uses light touch to detect and release restrictions.",
+    implementation: "Practitioner applies subtle pressure (5 grams or less) to skull, spine, and sacrum. Sessions are deeply relaxing and typically last 45-60 minutes.",
+    studies: 67,
+    tags: ["gentle", "cranial", "cerebrospinal"],
+  },
+  {
+    name: "Alexander Technique",
+    description: "Educational method teaching improved posture and movement habits. Helps release unconscious patterns of tension that cause pain and limit performance in daily activities.",
+    implementation: "One-on-one lessons where teacher guides student through everyday movements, using gentle hands-on guidance and verbal instruction. Typically 30-45 minute sessions.",
+    studies: 45,
+    tags: ["posture", "movement", "education"],
+  },
+  {
+    name: "Feldenkrais Method",
+    description: "Movement-based approach developing awareness through movement to improve flexibility, coordination, and self-image. Named after physicist Dr. Moshe Feldenkrais.",
+    implementation: "Awareness Through Movement (ATM) group classes or individual Functional Integration sessions. Uses gentle, exploratory movements to create new neural pathways.",
+    studies: 38,
+    tags: ["awareness", "neuroplasticity", "somatic"],
+  },
+  {
+    name: "Reflexology",
+    description: "Therapeutic technique applying pressure to specific points on feet, hands, and ears that correspond to organs and body systems. Promotes relaxation and supports natural healing.",
+    implementation: "Practitioner works reflex points primarily on the feet in sessions lasting 45-60 minutes. Regular sessions recommended for chronic conditions.",
+    studies: 52,
+    tags: ["feet", "reflex-points", "relaxation"],
+  },
+  {
+    name: "Rolfing/Structural Integration",
+    description: "Deep tissue manipulation reorganizing the body's connective tissue (fascia) to restore natural alignment and balance. Developed by Dr. Ida Rolf.",
+    implementation: "Traditional 10-session series progressively addresses different body segments. Sessions involve deep, slow pressure to release fascial restrictions.",
+    studies: 28,
+    tags: ["fascia", "deep-tissue", "alignment"],
+  },
+  {
+    name: "Thai Massage",
+    description: "Ancient healing system combining acupressure, Indian Ayurvedic principles, and assisted yoga postures. Performed on floor mat with client fully clothed.",
+    implementation: "Sessions last 60-120 minutes. Practitioner uses thumbs, palms, elbows, knees, and feet to apply pressure along energy lines while moving client through stretches.",
+    studies: 73,
+    tags: ["stretching", "energy-lines", "floor-based"],
+  },
+  {
+    name: "Myofascial Release",
+    description: "Technique applying sustained pressure to myofascial connective tissue restrictions. Addresses chronic pain, improves range of motion, and releases emotional holding patterns.",
+    implementation: "Therapist applies gentle sustained pressure into restrictions, waiting for tissue to release. No oils are used to allow proper grip on tissue.",
+    studies: 89,
+    tags: ["fascia", "sustained-pressure", "chronic-pain"],
+  },
+  {
+    name: "Yoga Therapy",
+    description: "Therapeutic application of yoga practices customized to individual health conditions. Integrates physical postures, breathing techniques, and meditation for healing.",
+    implementation: "One-on-one sessions assess needs and create personalized practice. Home practice is assigned and refined over multiple sessions. Often 60-90 minute sessions.",
+    studies: 312,
+    tags: ["yoga", "personalized", "mind-body"],
+  },
+];
+
 const IntegrativeTherapies = () => {
   const [isModalitiesOpen, setIsModalitiesOpen] = useState(false);
   const [selectedModality, setSelectedModality] = useState<string | null>(null);
@@ -628,7 +762,7 @@ const IntegrativeTherapies = () => {
                 </div>
               </section>
 
-              {/* Herbal Section Placeholder */}
+              {/* Herbal Medicine Section */}
               <section id="herbal" className="py-12 lg:py-16">
                 <div className="container mx-auto px-4">
                   <div className="max-w-4xl">
@@ -643,17 +777,52 @@ const IntegrativeTherapies = () => {
                         <p className="text-muted-foreground">Plant-based remedies and natural therapies</p>
                       </div>
                     </div>
-                    <div className="p-8 rounded-xl bg-card border border-border text-center">
-                      <p className="text-muted-foreground">
-                        Detailed herbal medicine content coming soon. This section will cover traditional herbalism, 
-                        modern phytotherapy, and evidence-based botanical treatments.
-                      </p>
+
+                    <div className="space-y-6">
+                      {herbalTreatments.map((treatment) => (
+                        <div
+                          key={treatment.name}
+                          className="p-6 rounded-xl bg-card border border-border hover:border-emerald-500/30 hover:shadow-medium transition-all"
+                        >
+                          <div className="flex items-start justify-between gap-4 mb-4">
+                            <h3 className="font-serif text-xl font-semibold text-foreground">
+                              {treatment.name}
+                            </h3>
+                            <div className="flex items-center gap-1 text-xs text-muted-foreground bg-secondary px-2 py-1 rounded-full">
+                              <FileText className="w-3 h-3" />
+                              {treatment.studies} studies
+                            </div>
+                          </div>
+                          
+                          <p className="text-muted-foreground mb-4">
+                            {treatment.description}
+                          </p>
+                          
+                          <div className="bg-emerald-500/10 rounded-lg p-4 mb-4">
+                            <h4 className="text-sm font-medium text-foreground mb-2">Implementation</h4>
+                            <p className="text-sm text-muted-foreground">
+                              {treatment.implementation}
+                            </p>
+                          </div>
+
+                          <div className="flex flex-wrap gap-2">
+                            {treatment.tags.map((tag) => (
+                              <span
+                                key={tag}
+                                className="px-2 py-1 text-xs rounded-full bg-emerald-500/10 text-emerald-700 dark:text-emerald-400"
+                              >
+                                {tag}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
                     </div>
                   </div>
                 </div>
               </section>
 
-              {/* Bodywork Section Placeholder */}
+              {/* Bodywork Therapies Section */}
               <section id="bodywork" className="py-12 lg:py-16 bg-secondary/30">
                 <div className="container mx-auto px-4">
                   <div className="max-w-4xl">
@@ -668,11 +837,46 @@ const IntegrativeTherapies = () => {
                         <p className="text-muted-foreground">Physical manipulation and movement therapies</p>
                       </div>
                     </div>
-                    <div className="p-8 rounded-xl bg-card border border-border text-center">
-                      <p className="text-muted-foreground">
-                        Detailed bodywork content coming soon. This section will cover massage, chiropractic, 
-                        craniosacral therapy, and other physical modalities.
-                      </p>
+
+                    <div className="space-y-6">
+                      {bodyworkTreatments.map((treatment) => (
+                        <div
+                          key={treatment.name}
+                          className="p-6 rounded-xl bg-card border border-border hover:border-amber-500/30 hover:shadow-medium transition-all"
+                        >
+                          <div className="flex items-start justify-between gap-4 mb-4">
+                            <h3 className="font-serif text-xl font-semibold text-foreground">
+                              {treatment.name}
+                            </h3>
+                            <div className="flex items-center gap-1 text-xs text-muted-foreground bg-secondary px-2 py-1 rounded-full">
+                              <FileText className="w-3 h-3" />
+                              {treatment.studies} studies
+                            </div>
+                          </div>
+                          
+                          <p className="text-muted-foreground mb-4">
+                            {treatment.description}
+                          </p>
+                          
+                          <div className="bg-amber-500/10 rounded-lg p-4 mb-4">
+                            <h4 className="text-sm font-medium text-foreground mb-2">Implementation</h4>
+                            <p className="text-sm text-muted-foreground">
+                              {treatment.implementation}
+                            </p>
+                          </div>
+
+                          <div className="flex flex-wrap gap-2">
+                            {treatment.tags.map((tag) => (
+                              <span
+                                key={tag}
+                                className="px-2 py-1 text-xs rounded-full bg-amber-500/10 text-amber-700 dark:text-amber-400"
+                              >
+                                {tag}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
                     </div>
                   </div>
                 </div>
