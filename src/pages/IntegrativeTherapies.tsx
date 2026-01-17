@@ -278,6 +278,18 @@ const modalities = [
     category: "bodywork",
     link: "https://holistichealthcommunity.org/healing-modalities/yoga-therapy"
   },
+  {
+    name: "Sai Vibrionics",
+    description: "A spiritual healing system based on the teachings of Sri Sathya Sai Baba using vibrational remedies. Practitioners use specialized equipment to prepare potentized remedies that address physical, mental, emotional, and spiritual imbalances through divine healing energy.",
+    category: "energetic",
+    link: "https://www.vibrionics.org"
+  },
+  {
+    name: "Chinese Medicine",
+    description: "A comprehensive medical system developed over 2,500 years including acupuncture, herbal medicine, dietary therapy, Tui Na massage, and Qigong. Based on balancing Yin and Yang, promoting Qi flow through meridians, and the Five Element theory for diagnosis and treatment.",
+    category: "herbal",
+    link: "https://nccih.nih.gov/health/chinesemedicine"
+  },
 ];
 
 // Energetic treatments list
