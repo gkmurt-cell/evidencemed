@@ -16,17 +16,17 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>EvidenceMed | Research-Based Alternative & Complementary Medicine Platform</title>
+        <title>EvidenceMed | Alternative Medicine & Complementary Therapy Research Platform</title>
         <meta 
           name="description" 
-          content="Explore peer-reviewed research on alternative therapies, natural compounds, and investigational treatments. Educational platform for practitioners, researchers, and health-conscious consumers." 
+          content="Explore peer-reviewed research on alternative medicine, complementary and alternative medicine therapies, natural compounds, and alternative cancer treatments. Evidence-based alternative therapy education for practitioners and health-conscious consumers." 
         />
-        <meta name="keywords" content="alternative medicine research, complementary therapy, natural compounds, peer-reviewed studies, integrative health, herbal medicine research" />
+        <meta name="keywords" content="alternative medicine, complementary and alternative medicine, alternative therapy, alternative cancer treatments, natural compounds, peer-reviewed studies, integrative health, herbal medicine research" />
         <link rel="canonical" href="https://evidencemed.com" />
         
         {/* Open Graph */}
-        <meta property="og:title" content="EvidenceMed | Research-Based Alternative Medicine Platform" />
-        <meta property="og:description" content="Explore peer-reviewed research on alternative therapies and natural compounds. Educational content sourced from PubMed, NIH, and leading journals." />
+        <meta property="og:title" content="EvidenceMed | Alternative Medicine Research Platform" />
+        <meta property="og:description" content="Explore peer-reviewed research on alternative medicine and complementary therapies. Evidence-based alternative therapy content sourced from PubMed, NIH, and leading journals." />
         <meta property="og:type" content="website" />
         
         {/* Structured Data */}
@@ -35,7 +35,7 @@ const Index = () => {
             "@context": "https://schema.org",
             "@type": "WebApplication",
             "name": "EvidenceMed",
-            "description": "Research-based educational platform for alternative and complementary medicine",
+            "description": "Research-based educational platform for alternative medicine and complementary and alternative medicine therapies",
             "applicationCategory": "HealthApplication",
             "offers": {
               "@type": "Offer",

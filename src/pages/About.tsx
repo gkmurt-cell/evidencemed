@@ -99,8 +99,8 @@ const About = () => {
   return (
     <>
       <Helmet>
-        <title>About - My 52-Year Health Journey | EvidenceMed</title>
-        <meta name="description" content="Discover the personal health journey behind EvidenceMed. 52 years of vegetarian living, exploring healing modalities, and evidence-based research." />
+        <title>About - My 52-Year Alternative Medicine Journey | EvidenceMed</title>
+        <meta name="description" content="Discover the personal health journey behind EvidenceMed. 52 years exploring alternative medicine, complementary and alternative medicine therapies, and evidence-based natural healing." />
       </Helmet>
       
       <div className="min-h-screen bg-background">
@@ -117,9 +117,9 @@ const About = () => {
                 </h1>
                 <p className="text-xl text-muted-foreground leading-relaxed">
                   I'm 71 years old and have been vegetarian since I was 19. Over five decades, 
-                  I've explored every healing modality imaginable—from ancient practices to 
-                  cutting-edge longevity research. EvidenceMed is everything I wish existed 
-                  when I started this journey.
+                  I've explored every alternative medicine and alternative therapy modality imaginable—from ancient 
+                  complementary and alternative medicine practices to cutting-edge longevity research. EvidenceMed 
+                  is the evidence-based resource I wish existed when I started this journey.
                 </p>
               </div>
             </div>
@@ -202,22 +202,22 @@ const About = () => {
                 </h2>
                 <div className="space-y-4 text-muted-foreground text-left">
                   <p>
-                    After spending decades researching, experimenting, and learning from practitioners 
-                    around the world, I noticed something troubling: the gap between what research 
-                    actually shows and what gets marketed to people is enormous.
+                    After spending decades researching alternative medicine, experimenting with alternative therapy, 
+                    and learning from complementary and alternative medicine practitioners around the world, I noticed 
+                    something troubling: the gap between what research actually shows and what gets marketed to people is enormous.
                   </p>
                   <p>
-                    Supplement companies make bold claims. Social media influencers push unproven 
-                    remedies. And people desperate for answers waste money on products that don't work—
+                    Supplement companies make bold claims about alternative cancer treatments. Social media influencers 
+                    push unproven remedies. And people desperate for answers waste money on products that don't work—
                     or worse, could harm them.
                   </p>
                   <p>
-                    EvidenceMed is my attempt to fix this. Every compound, therapy, and condition 
-                    on this site is backed by peer-reviewed research. I rate the evidence honestly, 
+                    EvidenceMed is my attempt to fix this. Every alternative medicine compound, alternative therapy, 
+                    and condition on this site is backed by peer-reviewed research. I rate the evidence honestly, 
                     including when it's weak or inconclusive. No affiliate deals influence our ratings.
                   </p>
                   <p className="font-medium text-foreground">
-                    This is the resource I wish existed when I started my health journey 52 years ago.
+                    This is the complementary and alternative medicine resource I wish existed when I started my health journey 52 years ago.
                   </p>
                 </div>
               </div>

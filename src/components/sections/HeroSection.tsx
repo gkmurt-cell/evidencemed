@@ -130,14 +130,14 @@ const HeroSection = () => {
           <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold text-primary-foreground leading-tight mb-6 animate-fade-up delay-100">
             Research-Backed
             <br />
-            <span className="opacity-90">Complementary Medicine</span>
+            <span className="opacity-90">Alternative Medicine</span>
           </h1>
 
           {/* Subtitle */}
           <p className="text-lg md:text-xl text-primary-foreground/80 max-w-2xl mx-auto mb-8 animate-fade-up delay-200">
-            Explore peer-reviewed research on alternative and integrated therapies, natural compounds, 
-            and investigational treatments. Summarized, sourced, and organized for 
-            practitioners and educated consumers.
+            Explore peer-reviewed research on alternative therapy, complementary and alternative medicine, 
+            natural compounds, and alternative cancer treatments. Evidence-based information 
+            for practitioners and health-conscious consumers.
           </p>
 
           {/* Feature Pills */}
