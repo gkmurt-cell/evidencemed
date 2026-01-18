@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -189,10 +189,6 @@ const Ayurveda = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState<Record<number, string>>({});
   const [result, setResult] = useState<string | null>(null);
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
 
   const handleAnswer = (value: string) => {
     setAnswers(prev => ({ ...prev, [currentQuestion]: value }));
