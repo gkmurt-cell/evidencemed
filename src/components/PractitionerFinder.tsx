@@ -57,7 +57,7 @@ export function PractitionerFinder({ variant = "sidebar" }: PractitionerFinderPr
       <div className="p-4 bg-gradient-to-br from-emerald-500/5 to-teal-500/5 border-b border-border">
         <div className="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 mb-2">
           <MapPin className="h-5 w-5" />
-          <h3 className="font-heading font-semibold text-sm">Find a Practitioner</h3>
+          <h3 className="font-heading font-semibold text-base">Find a Practitioner</h3>
         </div>
         <p className="text-xs text-muted-foreground mb-3">
           Locate integrative medicine providers near you
