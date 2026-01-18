@@ -358,6 +358,15 @@ const videoResources: VideoResource[] = [
   }
 ];
 
+// Quick navigation links
+const navLinks = [
+  { name: "Home", href: "/" },
+  { name: "About", href: "/about" },
+  { name: "Ayurveda", href: "/ayurveda" },
+  { name: "Integrative Therapies", href: "/integrative-therapies" },
+  { name: "Merch", href: "/merch" },
+];
+
 type SectionType = "research" | "books" | "resources" | "videos" | null;
 
 export function RightSidebar({ variant = "split", relatedCategory }: RightSidebarProps) {
@@ -392,6 +401,22 @@ export function RightSidebar({ variant = "split", relatedCategory }: RightSideba
 
   return (
     <aside className="w-80 xl:w-96 bg-card border-l border-border h-full overflow-y-auto sticky top-0">
+      {/* Quick Navigation - Always at top */}
+      <div className="p-4 border-b border-border bg-muted/50">
+        <h3 className="font-heading font-semibold text-sm text-foreground mb-3">Quick Navigation</h3>
+        <nav className="flex flex-wrap gap-2">
+          {navLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className="px-3 py-1.5 text-xs rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
+            >
+              {link.name}
+            </a>
+          ))}
+        </nav>
+      </div>
+
       {variant === "split" ? (
         <div className="divide-y divide-border">
           {/* Research Updates Section */}

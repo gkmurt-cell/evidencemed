@@ -9,6 +9,8 @@ import CompoundsSection from "@/components/sections/CompoundsSection";
 import PricingSection from "@/components/sections/PricingSection";
 import CTASection from "@/components/sections/CTASection";
 import SocialProofSection from "@/components/sections/SocialProofSection";
+import CommentsSection from "@/components/sections/CommentsSection";
+import TrialSignupSection from "@/components/sections/TrialSignupSection";
 import { RightSidebar } from "@/components/layout/RightSidebar";
 import { MobileBooksSection } from "@/components/layout/MobileBooksSection";
 
@@ -61,8 +63,10 @@ const Index = () => {
               <CompoundsSection />
               <SocialProofSection />
               <PricingSection />
+              <TrialSignupSection />
               {/* Mobile/Tablet Books Section */}
               <MobileBooksSection />
+              <CommentsSection />
               <CTASection />
               <AffiliateDisclosure />
               <Footer />
