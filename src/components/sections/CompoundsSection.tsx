@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Leaf, Info } from "lucide-react";
+import EducationalDisclaimer from "@/components/layout/EducationalDisclaimer";
 
 const compounds = [
   {
@@ -8,7 +9,7 @@ const compounds = [
     category: "Functional Mushroom",
     studies: 340,
     image: "🍄",
-    highlights: ["Neuroprotection", "Cognitive support", "NGF synthesis"],
+    highlights: ["Neuroprotection studies", "Cognitive research", "NGF pathway research"],
   },
   {
     name: "Turkey Tail",
@@ -16,7 +17,7 @@ const compounds = [
     category: "Functional Mushroom",
     studies: 280,
     image: "🍄",
-    highlights: ["Immune modulation", "PSK research", "Gut health"],
+    highlights: ["Immune response studies", "PSK research", "Gut microbiome studies"],
   },
   {
     name: "Curcumin",
@@ -24,7 +25,7 @@ const compounds = [
     category: "Herbal Compound",
     studies: 890,
     image: "🌿",
-    highlights: ["Anti-inflammatory", "Antioxidant", "Bioavailability"],
+    highlights: ["Inflammatory marker studies", "Antioxidant research", "Bioavailability research"],
   },
   {
     name: "Berberine",
@@ -32,7 +33,7 @@ const compounds = [
     category: "Alkaloid",
     studies: 420,
     image: "🌱",
-    highlights: ["Metabolic research", "AMPK activation", "Gut microbiome"],
+    highlights: ["Metabolic pathway research", "AMPK studies", "Microbiome research"],
   },
   {
     name: "Ashwagandha",
@@ -40,7 +41,7 @@ const compounds = [
     category: "Adaptogen",
     studies: 510,
     image: "🌿",
-    highlights: ["Stress response", "Cortisol modulation", "Sleep quality"],
+    highlights: ["Stress marker studies", "Cortisol research", "Sleep quality research"],
   },
   {
     name: "Green Papaya Leaf",
@@ -48,7 +49,7 @@ const compounds = [
     category: "Herbal",
     studies: 180,
     image: "🍃",
-    highlights: ["Platelet research", "Dengue studies", "Enzyme content"],
+    highlights: ["Platelet studies", "Dengue research", "Enzyme analysis"],
   },
   {
     name: "Nitric Oxide",
@@ -56,23 +57,23 @@ const compounds = [
     category: "Signaling Molecule",
     studies: 1250,
     image: "💨",
-    highlights: ["Vasodilation", "Cardiovascular", "Exercise performance"],
+    highlights: ["Vasodilation research", "Cardiovascular studies", "Exercise physiology"],
   },
   {
     name: "Methylene Blue",
     latinName: "Methylthioninium chloride",
-    category: "Nootropic",
+    category: "Investigational Compound",
     studies: 620,
     image: "🔵",
-    highlights: ["Mitochondrial function", "Cognitive enhancement", "Neuroprotection"],
+    highlights: ["Mitochondrial research", "Cognitive studies", "Neuroprotection research"],
   },
   {
     name: "Carbon 60",
     latinName: "Buckminsterfullerene (C60)",
-    category: "Antioxidant",
+    category: "Experimental Compound",
     studies: 145,
     image: "⚫",
-    highlights: ["Free radical scavenging", "Longevity research", "Cellular protection"],
+    highlights: ["Antioxidant studies", "Longevity research", "Cellular research"],
   },
 ];
 
@@ -91,11 +92,12 @@ const CompoundsSection = () => {
             <br />
             <span className="text-muted-foreground">Medicine Library</span>
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-lg text-muted-foreground mb-6">
             Comprehensive research profiles for herbs, nutraceuticals, and functional mushrooms. 
-            Each entry includes traditional use context, mechanistic research, and published 
+            Each entry includes traditional use context, mechanistic research summaries, and published 
             safety considerations.
           </p>
+          <EducationalDisclaimer />
         </div>
 
         {/* Compounds Grid */}

@@ -1,37 +1,38 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ExternalLink, FileText, FlaskConical, Users, TestTube } from "lucide-react";
+import EducationalDisclaimer from "@/components/layout/EducationalDisclaimer";
 
 const researchTypes = [
-  { name: "In Vitro", icon: TestTube, count: "4,200+" },
-  { name: "Animal Studies", icon: FlaskConical, count: "3,800+" },
-  { name: "Human Observational", icon: Users, count: "2,100+" },
-  { name: "Randomized Trials", icon: FileText, count: "890+" },
+  { name: "In Vitro Studies", icon: TestTube, count: "4,200+" },
+  { name: "Animal Models", icon: FlaskConical, count: "3,800+" },
+  { name: "Observational Studies", icon: Users, count: "2,100+" },
+  { name: "Controlled Trials", icon: FileText, count: "890+" },
 ];
 
 const featuredStudies = [
   {
-    title: "Curcumin's Role in Inflammatory Response Modulation",
+    title: "Curcumin and Inflammatory Biomarkers: A Controlled Study",
     journal: "Journal of Natural Products",
     year: "2024",
     type: "Randomized Controlled Trial",
     institution: "Stanford University",
-    abstract: "This study examined the anti-inflammatory properties of curcumin in patients with chronic inflammation markers...",
+    abstract: "This study examined associations between curcumin supplementation and inflammatory biomarker levels in participants with elevated baseline markers...",
   },
   {
-    title: "Lion's Mane Mushroom and Cognitive Function",
+    title: "Associations Between Lion's Mane Supplementation and Cognitive Measures",
     journal: "Frontiers in Aging Neuroscience",
     year: "2024",
     type: "Human Observational",
     institution: "Tokyo Medical University",
-    abstract: "A 12-month observational study investigating the effects of Hericium erinaceus supplementation on mild cognitive impairment...",
+    abstract: "A 12-month observational study investigating correlations between Hericium erinaceus supplementation and cognitive assessment scores in adults with mild cognitive changes...",
   },
   {
-    title: "Green Tea Catechins in Metabolic Health",
+    title: "Green Tea Catechins and Metabolic Parameters: A Meta-Analysis",
     journal: "Nutrients",
     year: "2023",
     type: "Meta-Analysis",
     institution: "Harvard School of Public Health",
-    abstract: "Comprehensive meta-analysis of 47 studies examining the metabolic effects of EGCG and other green tea polyphenols...",
+    abstract: "Comprehensive meta-analysis of 47 studies examining associations between EGCG intake and metabolic parameters across diverse populations...",
   },
 ];
 
@@ -49,11 +50,12 @@ const ResearchSection = () => {
             <br />
             <span className="text-muted-foreground">Summarized & Sourced</span>
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-lg text-muted-foreground mb-6">
             Every research entry includes study type, institution, journal, publication year, 
             and direct links to original sources. Plain-language summaries make complex 
             research accessible.
           </p>
+          <EducationalDisclaimer />
         </div>
 
         {/* Research Type Stats */}

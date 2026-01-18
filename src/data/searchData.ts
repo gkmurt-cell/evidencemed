@@ -80,7 +80,7 @@ export const compounds: SearchItem[] = [
   {
     id: "lions-mane",
     title: "Lion's Mane (Hericium erinaceus)",
-    description: "Neuroprotection, cognitive support, NGF synthesis - functional mushroom",
+    description: "Research on neuroprotective properties, cognitive function associations, and NGF pathway studies",
     category: "compound",
     tags: ["lions mane", "mushroom", "brain", "cognitive", "neuroprotection", "memory", "ngf"],
     link: "/#compounds",
@@ -89,7 +89,7 @@ export const compounds: SearchItem[] = [
   {
     id: "turkey-tail",
     title: "Turkey Tail (Trametes versicolor)",
-    description: "Immune modulation, PSK research, gut health - functional mushroom",
+    description: "Studies on immune response modulation, PSK research, and gut microbiome associations",
     category: "compound",
     tags: ["turkey tail", "mushroom", "immune", "psk", "gut", "cancer"],
     link: "/#compounds",
@@ -98,7 +98,7 @@ export const compounds: SearchItem[] = [
   {
     id: "curcumin",
     title: "Curcumin (Turmeric)",
-    description: "Anti-inflammatory, antioxidant properties from Curcuma longa",
+    description: "Research on inflammatory biomarkers and antioxidant properties from Curcuma longa",
     category: "compound",
     tags: ["curcumin", "turmeric", "anti-inflammatory", "antioxidant", "inflammation", "herbal"],
     link: "/#compounds",
@@ -107,7 +107,7 @@ export const compounds: SearchItem[] = [
   {
     id: "berberine",
     title: "Berberine",
-    description: "Metabolic research, AMPK activation, gut microbiome support",
+    description: "Studies on metabolic pathways, AMPK activation, and gut microbiome interactions",
     category: "compound",
     tags: ["berberine", "metabolic", "blood sugar", "diabetes", "ampk", "gut"],
     link: "/#compounds",
@@ -116,7 +116,7 @@ export const compounds: SearchItem[] = [
   {
     id: "ashwagandha",
     title: "Ashwagandha (Withania somnifera)",
-    description: "Stress response, cortisol modulation, sleep quality - adaptogen",
+    description: "Research on stress biomarkers, cortisol associations, and sleep quality measures",
     category: "compound",
     tags: ["ashwagandha", "adaptogen", "stress", "cortisol", "sleep", "anxiety", "ayurveda"],
     link: "/#compounds",
@@ -125,7 +125,7 @@ export const compounds: SearchItem[] = [
   {
     id: "papaya-leaf",
     title: "Green Papaya Leaf",
-    description: "Platelet research, dengue studies, enzyme content",
+    description: "Studies on platelet parameters, dengue research, and enzyme content analysis",
     category: "compound",
     tags: ["papaya", "platelet", "dengue", "enzyme", "herbal"],
     link: "/#compounds",
@@ -134,7 +134,7 @@ export const compounds: SearchItem[] = [
   {
     id: "nitric-oxide",
     title: "Nitric Oxide",
-    description: "Vasodilation, cardiovascular support, exercise performance",
+    description: "Research on vasodilation mechanisms, cardiovascular associations, and exercise physiology",
     category: "compound",
     tags: ["nitric oxide", "cardiovascular", "blood flow", "exercise", "vasodilation"],
     link: "/#compounds",
@@ -143,7 +143,7 @@ export const compounds: SearchItem[] = [
   {
     id: "methylene-blue",
     title: "Methylene Blue",
-    description: "Mitochondrial function, cognitive enhancement, neuroprotection",
+    description: "Studies on mitochondrial pathways and cognitive function associations (investigational)",
     category: "compound",
     tags: ["methylene blue", "mitochondria", "cognitive", "nootropic", "brain"],
     link: "/#compounds",
@@ -152,7 +152,7 @@ export const compounds: SearchItem[] = [
   {
     id: "c60",
     title: "Carbon 60 (Buckminsterfullerene)",
-    description: "Free radical scavenging, longevity research, cellular protection",
+    description: "Preliminary research on antioxidant properties and cellular studies (limited human data)",
     category: "compound",
     tags: ["c60", "carbon 60", "antioxidant", "longevity", "free radical"],
     link: "/#compounds",

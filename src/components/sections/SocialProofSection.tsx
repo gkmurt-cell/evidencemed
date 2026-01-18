@@ -1,4 +1,5 @@
 import { ExternalLink, Play, CheckCircle, AlertTriangle } from "lucide-react";
+import EducationalDisclaimer from "@/components/layout/EducationalDisclaimer";
 
 interface SocialReel {
   id: string;
@@ -14,62 +15,62 @@ interface SocialReel {
 const socialReels: SocialReel[] = [
   {
     id: "1",
-    title: "NMN Anti-Aging Benefits",
+    title: "NMN and Aging Research",
     brand: "ProHealth Longevity",
     claim: "NMN increases NAD+ levels and reverses aging markers",
     platform: "youtube",
     researchVerdict: "supported",
-    researchSummary: "Multiple human trials show NMN supplementation increases NAD+ levels. A 2022 Cell study showed improved muscle function in older adults.",
+    researchSummary: "Multiple human trials indicate NMN supplementation is associated with increased NAD+ levels. A 2022 Cell study observed associations with muscle function measures in older adults.",
     url: "#"
   },
   {
     id: "2",
-    title: "Lion's Mane for Brain Health",
+    title: "Lion's Mane Cognitive Research",
     brand: "Real Mushrooms",
     claim: "Improves memory and cognitive function",
     platform: "instagram",
     researchVerdict: "supported",
-    researchSummary: "A 2020 study in Frontiers in Aging Neuroscience showed improved cognitive scores in adults with mild cognitive impairment after 12 weeks.",
+    researchSummary: "A 2020 study in Frontiers in Aging Neuroscience observed associations between supplementation and cognitive assessment scores in adults with mild cognitive changes after 12 weeks.",
     url: "#"
   },
   {
     id: "3",
-    title: "Berberine as Nature's Ozempic",
+    title: "Berberine Metabolic Claims",
     brand: "Various Creators",
     claim: "Works as well as prescription diabetes medications",
     platform: "tiktok",
     researchVerdict: "mixed",
-    researchSummary: "While berberine shows glucose-lowering effects in studies, the 'nature's Ozempic' claim is oversimplified. Different mechanisms and efficacy levels.",
+    researchSummary: "While studies suggest berberine may influence glucose metabolism, comparisons to prescription medications are not supported by current evidence. Different mechanisms are involved.",
     url: "#"
   },
   {
     id: "4",
-    title: "Ashwagandha Stress Relief",
+    title: "Ashwagandha Stress Studies",
     brand: "NOW Foods",
     claim: "Reduces cortisol and improves sleep quality",
     platform: "instagram",
     researchVerdict: "supported",
-    researchSummary: "A 2019 randomized controlled trial showed significant cortisol reduction and improved sleep in adults taking 600mg daily for 8 weeks.",
+    researchSummary: "A 2019 randomized controlled trial observed associations between 600mg daily supplementation and cortisol levels, as well as self-reported sleep quality measures.",
     url: "#"
   },
   {
     id: "5",
-    title: "Methylene Blue Nootropic",
+    title: "Methylene Blue Research",
     brand: "Biohacker Community",
     claim: "Enhances mitochondrial function and focus",
     platform: "youtube",
     researchVerdict: "mixed",
-    researchSummary: "Research shows mitochondrial support at low doses, but optimal human dosing and safety for long-term cognitive use needs more study.",
+    researchSummary: "Preclinical research suggests mitochondrial pathway involvement at low doses. Human data on cognitive applications and long-term safety remains limited.",
     url: "#"
   },
   {
     id: "6",
-    title: "Carbon 60 Olive Oil",
+    title: "Carbon 60 Claims Review",
     brand: "C60 Purple Power",
     claim: "Extends lifespan and neutralizes free radicals",
     platform: "instagram",
     researchVerdict: "unverified",
-    researchSummary: "The famous 2012 rat study had methodological issues. Human trials are lacking. Antioxidant properties exist but lifespan claims are premature.",
+    researchSummary: "The 2012 rodent study had methodological limitations. Human evidence is lacking. Antioxidant properties have been observed in vitro, but lifespan claims lack human data.",
     url: "#"
   },
 ];
@@ -127,10 +128,11 @@ const SocialProofSection = () => {
             <br />
             <span className="text-muted-foreground">Fact-Checked</span>
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-lg text-muted-foreground mb-6">
             Popular health product claims from social media, cross-referenced with peer-reviewed research. 
-            Building trust through transparency.
+            Promoting informed decision-making through transparency.
           </p>
+          <EducationalDisclaimer />
         </div>
 
         {/* Reels Grid */}

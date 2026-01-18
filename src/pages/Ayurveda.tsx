@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
+import EducationalDisclaimer from "@/components/layout/EducationalDisclaimer";
 import { 
   Leaf, 
   Sun, 
@@ -244,10 +245,11 @@ const Ayurveda = () => {
                 <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground mb-6">
                   Ayurveda: The Science of Life
                 </h1>
-                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                  Ancient Indian alternative medicine system focusing on balance, prevention, and individualized 
-                  alternative therapy based on your unique constitution. A foundational practice in complementary and alternative medicine.
+                <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-6">
+                  Traditional Indian wellness system emphasizing balance, individualized approaches, 
+                  and lifestyle practices. Presented for educational purposes—not medical advice.
                 </p>
+                <EducationalDisclaimer />
               </div>
             </div>
           </section>
