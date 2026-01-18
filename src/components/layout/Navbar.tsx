@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Menu, X, BookOpen, FlaskConical, Leaf, Search, Heart, ShoppingBag, LogOut, User } from "lucide-react";
@@ -13,8 +13,18 @@ import {
 
 const Navbar = () => {
   const { user, signOut } = useAuth();
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      navigate(`/search?q=${encodeURIComponent(searchQuery.trim())}`);
+      setSearchQuery("");
+      setIsOpen(false);
+    }
+  };
 
   const navLinks = [
     { name: "Conditions", href: "#conditions", icon: BookOpen },
@@ -66,7 +76,7 @@ const Navbar = () => {
           {/* Desktop Actions */}
           <div className="hidden lg:flex items-center gap-3">
             {/* Always Visible Search Bar */}
-            <div className="relative">
+            <form onSubmit={handleSearch} className="relative">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
               <Input
                 type="text"
@@ -75,7 +85,7 @@ const Navbar = () => {
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-72 h-9 pl-10 bg-secondary/50 border-transparent focus:border-primary focus:bg-background"
               />
-            </div>
+            </form>
             {user ? (
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
@@ -118,16 +128,18 @@ const Navbar = () => {
         {isOpen && (
           <div className="lg:hidden py-4 border-t border-border animate-fade-in">
             {/* Mobile Search */}
-            <div className="px-4 pb-4">
+            <form onSubmit={handleSearch} className="px-4 pb-4">
               <div className="relative">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                 <Input
                   type="text"
                   placeholder="Search conditions, research..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
                   className="pl-10 w-full"
                 />
               </div>
-            </div>
+            </form>
             <div className="flex flex-col gap-2">
               {navLinks.map((link) => (
                 link.isLink ? (
