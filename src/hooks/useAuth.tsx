@@ -1,6 +1,6 @@
 import { useState, useEffect, createContext, useContext, ReactNode } from "react";
 import { User, Session } from "@supabase/supabase-js";
-import { supabase } from "@/integrations/supabase/client";
+import { getBackendClient } from "@/lib/backend";
 
 interface AuthContextType {
   user: User | null;
@@ -22,27 +22,49 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Set up auth state listener FIRST
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      (event, session) => {
-        setSession(session);
-        setUser(session?.user ?? null);
-        setLoading(false);
+    let isMounted = true;
+    let unsubscribe: (() => void) | null = null;
+
+    (async () => {
+      const client = await getBackendClient();
+      if (!client) {
+        if (isMounted) setLoading(false);
+        return;
       }
-    );
 
-    // THEN check for existing session
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setSession(session);
-      setUser(session?.user ?? null);
+      // Set up auth state listener FIRST
+      const {
+        data: { subscription },
+      } = client.auth.onAuthStateChange((_event, nextSession) => {
+        if (!isMounted) return;
+        setSession(nextSession);
+        setUser(nextSession?.user ?? null);
+        setLoading(false);
+      });
+
+      unsubscribe = () => subscription.unsubscribe();
+
+      // THEN check for existing session
+      const {
+        data: { session: existingSession },
+      } = await client.auth.getSession();
+
+      if (!isMounted) return;
+      setSession(existingSession);
+      setUser(existingSession?.user ?? null);
       setLoading(false);
-    });
+    })();
 
-    return () => subscription.unsubscribe();
+    return () => {
+      isMounted = false;
+      unsubscribe?.();
+    };
   }, []);
 
   const signOut = async () => {
-    await supabase.auth.signOut();
+    const client = await getBackendClient();
+    if (!client) return;
+    await client.auth.signOut();
   };
 
   return (
