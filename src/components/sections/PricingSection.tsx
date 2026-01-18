@@ -137,11 +137,21 @@ const PricingSection = () => {
                 >
                   <Link to="/pricing#institutional">{plan.cta}</Link>
                 </Button>
+              ) : plan.name === "Professional" ? (
+                <Button
+                  variant={plan.variant}
+                  size="lg"
+                  className="w-full"
+                  onClick={() => document.getElementById('trial-signup')?.scrollIntoView({ behavior: 'smooth' })}
+                >
+                  {plan.cta}
+                </Button>
               ) : (
                 <Button
                   variant={plan.variant}
                   size="lg"
                   className="w-full"
+                  onClick={() => document.getElementById('trial-signup')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                   {plan.cta}
                 </Button>
