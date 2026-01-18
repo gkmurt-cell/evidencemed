@@ -65,8 +65,8 @@ const SearchPage = () => {
   return (
     <>
       <Helmet>
-        <title>{query ? `Search: ${query}` : "Search"} | EvidenceMed</title>
-        <meta name="description" content="Search for alternative medicine research, natural compounds, and integrative therapies." />
+        <title>{query ? `Search: ${query}` : "Search"} | EvidenceMed: Integrative & Complementary Therapies</title>
+        <meta name="description" content="Search for integrative medicine research, natural compounds, and complementary therapies." />
       </Helmet>
 
       <div className="min-h-screen bg-background flex flex-col">

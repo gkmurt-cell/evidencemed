@@ -99,8 +99,8 @@ const About = () => {
   return (
     <>
       <Helmet>
-        <title>About - My 52-Year Alternative Medicine Journey | EvidenceMed</title>
-        <meta name="description" content="Discover the personal health journey behind EvidenceMed. 52 years exploring alternative medicine, complementary and alternative medicine therapies, and evidence-based natural healing." />
+        <title>About - My 52-Year Integrative Medicine Journey | EvidenceMed</title>
+        <meta name="description" content="Discover the personal health journey behind IntegrativeEvidence.com. 52 years exploring integrative medicine, complementary therapies, and evidence-based natural healing." />
       </Helmet>
       
       <div className="min-h-screen bg-background">

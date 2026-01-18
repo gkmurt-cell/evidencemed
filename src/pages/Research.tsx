@@ -124,7 +124,7 @@ const Research = () => {
   return (
     <>
       <Helmet>
-        <title>Research Library | EvidenceMed - Peer-Reviewed Natural Medicine Studies</title>
+        <title>Research Library | EvidenceMed: Integrative & Complementary Therapies Research</title>
         <meta
           name="description"
           content="Browse our comprehensive library of peer-reviewed research on natural compounds, herbal medicine, and integrative therapies. Filter by study type, evidence level, and compounds."
