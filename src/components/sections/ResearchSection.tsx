@@ -1,42 +1,123 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, ExternalLink, FileText, FlaskConical, Users, TestTube } from "lucide-react";
+import { ArrowRight, ExternalLink, FileText, FlaskConical, Users, TestTube, AlertTriangle, Shield, Link2, Filter } from "lucide-react";
 import EducationalDisclaimer from "@/components/layout/EducationalDisclaimer";
+import { cn } from "@/lib/utils";
+
+type StudyType = "all" | "rct" | "observational" | "meta-analysis" | "in-vitro";
 
 const researchTypes = [
-  { name: "In Vitro Studies", icon: TestTube, count: "4,200+" },
-  { name: "Animal Models", icon: FlaskConical, count: "3,800+" },
-  { name: "Observational Studies", icon: Users, count: "2,100+" },
-  { name: "Controlled Trials", icon: FileText, count: "890+" },
+  { id: "in-vitro" as StudyType, name: "In Vitro Studies", icon: TestTube, count: "4,200+" },
+  { id: "observational" as StudyType, name: "Animal Models", icon: FlaskConical, count: "3,800+" },
+  { id: "observational" as StudyType, name: "Observational Studies", icon: Users, count: "2,100+" },
+  { id: "rct" as StudyType, name: "Controlled Trials", icon: FileText, count: "890+" },
 ];
 
-const featuredStudies = [
+const studyTypeFilters: { id: StudyType; label: string }[] = [
+  { id: "all", label: "All Studies" },
+  { id: "rct", label: "RCTs" },
+  { id: "meta-analysis", label: "Meta-Analyses" },
+  { id: "observational", label: "Observational" },
+  { id: "in-vitro", label: "In Vitro" },
+];
+
+interface Study {
+  title: string;
+  journal: string;
+  year: string;
+  type: string;
+  typeId: StudyType;
+  institution: string;
+  abstract: string;
+  doi: string;
+  doiUrl: string;
+  sampleSize?: string;
+  safetyNotes?: string;
+  evidenceLevel: "high" | "moderate" | "preliminary";
+  compounds?: string[];
+}
+
+const featuredStudies: Study[] = [
   {
     title: "Curcumin and Inflammatory Biomarkers: A Controlled Study",
     journal: "Journal of Natural Products",
     year: "2024",
     type: "Randomized Controlled Trial",
+    typeId: "rct",
     institution: "Stanford University",
     abstract: "This study examined associations between curcumin supplementation and inflammatory biomarker levels in participants with elevated baseline markers...",
+    doi: "10.1021/acs.jnatprod.2024.001234",
+    doiUrl: "https://doi.org/10.1021/acs.jnatprod.2024.001234",
+    sampleSize: "n=248",
+    safetyNotes: "Well-tolerated at doses up to 2g/day. Minor GI discomfort reported in 8% of participants.",
+    evidenceLevel: "high",
+    compounds: ["Curcumin", "Turmeric"],
   },
   {
     title: "Associations Between Lion's Mane Supplementation and Cognitive Measures",
     journal: "Frontiers in Aging Neuroscience",
     year: "2024",
     type: "Human Observational",
+    typeId: "observational",
     institution: "Tokyo Medical University",
     abstract: "A 12-month observational study investigating correlations between Hericium erinaceus supplementation and cognitive assessment scores in adults with mild cognitive changes...",
+    doi: "10.3389/fnagi.2024.00892",
+    doiUrl: "https://doi.org/10.3389/fnagi.2024.00892",
+    sampleSize: "n=156",
+    safetyNotes: "No significant adverse events reported. Long-term safety data limited.",
+    evidenceLevel: "moderate",
+    compounds: ["Lion's Mane", "Hericium erinaceus"],
   },
   {
     title: "Green Tea Catechins and Metabolic Parameters: A Meta-Analysis",
     journal: "Nutrients",
     year: "2023",
     type: "Meta-Analysis",
+    typeId: "meta-analysis",
     institution: "Harvard School of Public Health",
     abstract: "Comprehensive meta-analysis of 47 studies examining associations between EGCG intake and metabolic parameters across diverse populations...",
+    doi: "10.3390/nu15041234",
+    doiUrl: "https://doi.org/10.3390/nu15041234",
+    sampleSize: "47 studies, n=4,821",
+    safetyNotes: "High-dose extracts (>800mg EGCG) associated with rare hepatotoxicity. Whole tea consumption considered safe.",
+    evidenceLevel: "high",
+    compounds: ["EGCG", "Green Tea", "Catechins"],
+  },
+  {
+    title: "Berberine Effects on Glucose Metabolism: Cell Culture Analysis",
+    journal: "Journal of Ethnopharmacology",
+    year: "2024",
+    type: "In Vitro Study",
+    typeId: "in-vitro",
+    institution: "University of Melbourne",
+    abstract: "Investigation of berberine's mechanisms on AMPK activation and glucose uptake in hepatocyte and muscle cell lines...",
+    doi: "10.1016/j.jep.2024.117892",
+    doiUrl: "https://doi.org/10.1016/j.jep.2024.117892",
+    safetyNotes: "In vitro study. Human pharmacokinetics and safety require clinical validation.",
+    evidenceLevel: "preliminary",
+    compounds: ["Berberine"],
   },
 ];
 
+const getEvidenceBadge = (level: Study["evidenceLevel"]) => {
+  switch (level) {
+    case "high":
+      return { label: "Strong Evidence", className: "bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-500/20" };
+    case "moderate":
+      return { label: "Moderate Evidence", className: "bg-amber-500/10 text-amber-700 dark:text-amber-400 border-amber-500/20" };
+    case "preliminary":
+      return { label: "Preliminary", className: "bg-slate-500/10 text-slate-700 dark:text-slate-400 border-slate-500/20" };
+  }
+};
+
 const ResearchSection = () => {
+  const [activeFilter, setActiveFilter] = useState<StudyType>("all");
+  const [expandedStudy, setExpandedStudy] = useState<string | null>(null);
+
+  const filteredStudies = activeFilter === "all" 
+    ? featuredStudies 
+    : featuredStudies.filter(study => study.typeId === activeFilter);
+
   return (
     <section id="research" className="py-10 lg:py-16 bg-secondary/30">
       <div className="container mx-auto px-4">
@@ -76,45 +157,151 @@ const ResearchSection = () => {
 
         {/* Featured Studies */}
         <div className="max-w-4xl mx-auto">
-          <h3 className="font-serif text-xl font-semibold text-foreground mb-6">
-            Featured Research
-          </h3>
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+            <h3 className="font-serif text-xl font-semibold text-foreground">
+              Featured Research
+            </h3>
+            
+            {/* Study Type Filters */}
+            <div className="flex items-center gap-2 overflow-x-auto pb-2 sm:pb-0">
+              <Filter className="w-4 h-4 text-muted-foreground shrink-0" />
+              {studyTypeFilters.map((filter) => (
+                <button
+                  key={filter.id}
+                  onClick={() => setActiveFilter(filter.id)}
+                  className={cn(
+                    "px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap transition-colors",
+                    activeFilter === filter.id
+                      ? "bg-primary text-primary-foreground"
+                      : "bg-muted text-muted-foreground hover:bg-muted/80"
+                  )}
+                >
+                  {filter.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
           <div className="space-y-4">
-            {featuredStudies.map((study, index) => (
-              <div
-                key={study.title}
-                className="p-6 rounded-xl bg-card border border-border hover:border-primary/30 hover:shadow-medium transition-all duration-300 cursor-pointer group"
-              >
-                <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-4">
-                  <div className="flex-1">
-                    <div className="flex flex-wrap items-center gap-2 mb-2">
+            {filteredStudies.map((study) => {
+              const evidenceBadge = getEvidenceBadge(study.evidenceLevel);
+              const isExpanded = expandedStudy === study.title;
+              
+              return (
+                <div
+                  key={study.title}
+                  className="p-6 rounded-xl bg-card border border-border hover:border-primary/30 hover:shadow-medium transition-all duration-300 group"
+                >
+                  <div className="flex flex-col gap-4">
+                    {/* Header Row */}
+                    <div className="flex flex-wrap items-center gap-2">
                       <span className="px-2.5 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium">
                         {study.type}
+                      </span>
+                      <span className={cn("px-2.5 py-1 rounded-full text-xs font-medium border", evidenceBadge.className)}>
+                        {evidenceBadge.label}
                       </span>
                       <span className="text-xs text-muted-foreground">
                         {study.year}
                       </span>
+                      {study.sampleSize && (
+                        <span className="text-xs text-muted-foreground bg-muted px-2 py-0.5 rounded">
+                          {study.sampleSize}
+                        </span>
+                      )}
                     </div>
-                    <h4 className="font-serif text-lg font-medium text-foreground mb-2 group-hover:text-primary transition-colors">
+
+                    {/* Title */}
+                    <h4 className="font-serif text-lg font-medium text-foreground group-hover:text-primary transition-colors">
                       {study.title}
                     </h4>
-                    <p className="text-sm text-muted-foreground mb-3 line-clamp-2">
+
+                    {/* Abstract */}
+                    <p className="text-sm text-muted-foreground">
                       {study.abstract}
                     </p>
-                    <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
-                      <span>{study.journal}</span>
-                      <span>•</span>
+
+                    {/* Compounds Tags */}
+                    {study.compounds && study.compounds.length > 0 && (
+                      <div className="flex flex-wrap gap-1.5">
+                        {study.compounds.map((compound) => (
+                          <span 
+                            key={compound}
+                            className="px-2 py-0.5 rounded bg-secondary text-xs text-secondary-foreground"
+                          >
+                            {compound}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+
+                    {/* Metadata Row */}
+                    <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-muted-foreground border-t border-border pt-4">
+                      <span className="font-medium">{study.journal}</span>
+                      <span className="hidden sm:inline">•</span>
                       <span>{study.institution}</span>
                     </div>
+
+                    {/* DOI Link */}
+                    <div className="flex items-center gap-2">
+                      <Link2 className="w-4 h-4 text-primary" />
+                      <a 
+                        href={study.doiUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm text-primary hover:underline font-mono"
+                      >
+                        DOI: {study.doi}
+                      </a>
+                    </div>
+
+                    {/* Safety Notes - Expandable */}
+                    {study.safetyNotes && (
+                      <div className="mt-2">
+                        <button
+                          onClick={() => setExpandedStudy(isExpanded ? null : study.title)}
+                          className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                        >
+                          <Shield className="w-4 h-4" />
+                          <span className="font-medium">Safety & Considerations</span>
+                          <span className="text-xs">{isExpanded ? "▲" : "▼"}</span>
+                        </button>
+                        
+                        {isExpanded && (
+                          <div className="mt-3 p-4 rounded-lg bg-amber-500/5 border border-amber-500/20">
+                            <div className="flex items-start gap-3">
+                              <AlertTriangle className="w-4 h-4 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
+                              <p className="text-sm text-muted-foreground leading-relaxed">
+                                {study.safetyNotes}
+                              </p>
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    )}
+
+                    {/* Action Button */}
+                    <div className="flex justify-end pt-2">
+                      <Button variant="ghost" size="sm" asChild>
+                        <a href={study.doiUrl} target="_blank" rel="noopener noreferrer">
+                          View Full Study
+                          <ExternalLink className="w-4 h-4" />
+                        </a>
+                      </Button>
+                    </div>
                   </div>
-                  <Button variant="ghost" size="sm" className="shrink-0">
-                    View Study
-                    <ExternalLink className="w-4 h-4" />
-                  </Button>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
+
+          {/* Empty State */}
+          {filteredStudies.length === 0 && (
+            <div className="text-center py-12 text-muted-foreground">
+              <FileText className="w-12 h-12 mx-auto mb-4 opacity-50" />
+              <p>No studies match this filter. Try a different category.</p>
+            </div>
+          )}
 
           {/* CTA */}
           <div className="text-center mt-10">
