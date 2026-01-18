@@ -3,6 +3,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { RightSidebar } from "@/components/layout/RightSidebar";
 import { Button } from "@/components/ui/button";
+import EducationalDisclaimer from "@/components/layout/EducationalDisclaimer";
 import { 
   Zap, 
   Leaf, 
@@ -575,14 +576,15 @@ const IntegrativeTherapies = () => {
                   Explore Alternative Medicine & Therapy
                 </h1>
                 <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-4">
-                  Discover the research behind complementary and alternative medicine modalities, 
-                  including alternative cancer treatments. From ancient alternative therapy practices to emerging technologies.
+                  Explore research summaries on complementary and alternative medicine modalities. 
+                  From traditional practices to emerging approaches—evidence presented for educational purposes.
                 </p>
-                <p className="text-sm text-muted-foreground/80 max-w-2xl mx-auto flex items-center justify-center gap-2">
+                <p className="text-sm text-muted-foreground/80 max-w-2xl mx-auto flex items-center justify-center gap-2 mb-6">
                   <BookOpen className="h-4 w-4 shrink-0" />
-                  Stanford University maintains an integrative medicine arm researching alternative medicine within its 
-                  research and development sciences, validating growing academic interest in alternative therapy.
+                  Stanford University maintains an integrative medicine research arm within its 
+                  research and development sciences, reflecting growing academic interest in this field.
                 </p>
+                <EducationalDisclaimer />
               </div>
             </div>
           </section>

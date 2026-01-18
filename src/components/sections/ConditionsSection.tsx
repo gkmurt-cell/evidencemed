@@ -1,59 +1,60 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Brain, Heart, Activity, Pill, Dna, Shield, Zap, Bone } from "lucide-react";
+import EducationalDisclaimer from "@/components/layout/EducationalDisclaimer";
 
 const conditions = [
   {
     name: "Cancer Research",
-    description: "Complementary therapy studies including herbal compounds and adjunct treatments",
+    description: "Published studies on complementary approaches including herbal compounds and adjunct protocols",
     studies: "2,400+",
     icon: Dna,
     color: "bg-rose-500/10 text-rose-600",
   },
   {
-    name: "Neurological",
-    description: "Dementia, Parkinson's, Alzheimer's and cognitive health research",
+    name: "Neurological Studies",
+    description: "Research on dementia, Parkinson's, Alzheimer's and cognitive health markers",
     studies: "1,800+",
     icon: Brain,
     color: "bg-violet-500/10 text-violet-600",
   },
   {
-    name: "Cardiovascular",
-    description: "Heart disease, hypertension, and circulatory system studies",
+    name: "Cardiovascular Research",
+    description: "Studies on heart health, blood pressure, and circulatory system parameters",
     studies: "1,500+",
     icon: Heart,
     color: "bg-red-500/10 text-red-600",
   },
   {
-    name: "Metabolic",
-    description: "Diabetes, obesity, and metabolic syndrome research",
+    name: "Metabolic Studies",
+    description: "Research on glucose metabolism, weight management, and metabolic markers",
     studies: "1,200+",
     icon: Activity,
     color: "bg-amber-500/10 text-amber-600",
   },
   {
-    name: "Autoimmune",
-    description: "Lupus, rheumatoid arthritis, and immune system disorders",
+    name: "Immune System Research",
+    description: "Studies on lupus, rheumatoid arthritis, and immune function markers",
     studies: "900+",
     icon: Shield,
     color: "bg-teal-500/10 text-teal-600",
   },
   {
-    name: "Infectious Disease",
-    description: "Long-COVID, viral infections, and emerging health conditions",
+    name: "Infectious Disease Studies",
+    description: "Research on Long-COVID, viral response, and emerging health conditions",
     studies: "750+",
     icon: Zap,
     color: "bg-blue-500/10 text-blue-600",
   },
   {
-    name: "Musculoskeletal",
-    description: "Arthritis, osteoporosis, and joint health research",
+    name: "Musculoskeletal Research",
+    description: "Studies on arthritis markers, bone density, and joint health parameters",
     studies: "650+",
     icon: Bone,
     color: "bg-orange-500/10 text-orange-600",
   },
   {
     name: "Drug Research",
-    description: "Investigational and repurposed drug studies (non-prescriptive)",
+    description: "Studies on investigational and repurposed compounds (non-prescriptive overview)",
     studies: "500+",
     icon: Pill,
     color: "bg-emerald-500/10 text-emerald-600",
@@ -74,11 +75,12 @@ const ConditionsSection = () => {
             <br />
             <span className="text-muted-foreground">Research Coverage</span>
           </h2>
-          <p className="text-lg text-muted-foreground">
-            Each condition includes peer-reviewed research on complementary therapies, 
-            natural compounds, and investigational treatments—all sourced and linked 
+          <p className="text-lg text-muted-foreground mb-6">
+            Each condition includes peer-reviewed research on complementary approaches, 
+            natural compounds, and investigational studies—all sourced and linked 
             to original publications.
           </p>
+          <EducationalDisclaimer />
         </div>
 
         {/* Conditions Grid */}
