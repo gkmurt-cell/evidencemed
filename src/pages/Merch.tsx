@@ -187,6 +187,56 @@ const supplements: Supplement[] = [
 const videoContent: VideoContent[] = [
   {
     id: "1",
+    title: "Ivermectin: The Evidence",
+    speaker: "Dr. John Campbell",
+    description: "Comprehensive review of ivermectin research and its potential applications as a repurposed drug.",
+    duration: "25 min",
+    type: "free",
+    url: "https://www.youtube.com/@DrJohnCampbell",
+    category: "Repurposed Drugs"
+  },
+  {
+    id: "2",
+    title: "Vitamin D and Immune Function",
+    speaker: "Dr. John Campbell",
+    description: "The science behind vitamin D deficiency and its critical role in immune system regulation.",
+    duration: "30 min",
+    type: "free",
+    url: "https://www.youtube.com/@DrJohnCampbell",
+    category: "Vitamins"
+  },
+  {
+    id: "3",
+    title: "Repurposing Existing Medications",
+    speaker: "Dr. John Campbell",
+    description: "How existing approved drugs are being studied for new therapeutic applications.",
+    duration: "28 min",
+    type: "free",
+    url: "https://www.youtube.com/@DrJohnCampbell",
+    category: "Repurposed Drugs"
+  },
+  {
+    id: "4",
+    title: "Fluvoxamine Research Update",
+    speaker: "Dr. John Campbell",
+    description: "Analysis of clinical trials examining fluvoxamine as a repurposed therapeutic agent.",
+    duration: "22 min",
+    type: "free",
+    url: "https://www.youtube.com/@DrJohnCampbell",
+    category: "Repurposed Drugs"
+  },
+  {
+    id: "5",
+    title: "Metformin: Beyond Diabetes",
+    speaker: "Dr. John Campbell",
+    description: "Exploring research on metformin's potential benefits for longevity and other conditions.",
+    duration: "32 min",
+    type: "free",
+    url: "https://www.youtube.com/@DrJohnCampbell",
+    category: "Repurposed Drugs"
+  },
+  {
+    id: "6",
     title: "Understanding NAD+ and Cellular Aging",
     speaker: "Dr. David Sinclair",
     description: "Harvard professor explains the science of longevity and NAD+ metabolism.",
@@ -196,7 +246,7 @@ const videoContent: VideoContent[] = [
     category: "Longevity"
   },
   {
-    id: "2",
+    id: "7",
     title: "Metabolic Health Masterclass",
     speaker: "Dr. Peter Attia",
     description: "Deep dive into metabolic health, glucose regulation, and longevity medicine.",
@@ -206,7 +256,7 @@ const videoContent: VideoContent[] = [
     category: "Metabolic"
   },
   {
-    id: "3",
+    id: "8",
     title: "Autoimmune Protocol Explained",
     speaker: "Dr. Terry Wahls",
     description: "How to use nutrition and lifestyle to address autoimmune conditions.",
@@ -216,7 +266,7 @@ const videoContent: VideoContent[] = [
     category: "Autoimmune"
   },
   {
-    id: "4",
+    id: "9",
     title: "Gut Microbiome & Immunity",
     speaker: "Dr. Will Bulsiewicz",
     description: "The connection between gut health, fiber, and immune function.",
@@ -226,7 +276,7 @@ const videoContent: VideoContent[] = [
     category: "Gut Health"
   },
   {
-    id: "5",
+    id: "10",
     title: "Integrative Oncology Webinar",
     speaker: "Dr. Paul Marik",
     description: "Evidence-based integrative approaches in cancer care.",
@@ -236,7 +286,7 @@ const videoContent: VideoContent[] = [
     category: "Oncology"
   },
   {
-    id: "6",
+    id: "11",
     title: "Fasting Science Deep Dive",
     speaker: "Dr. Jason Fung",
     description: "Understanding intermittent fasting and therapeutic fasting protocols.",
@@ -244,6 +294,16 @@ const videoContent: VideoContent[] = [
     type: "free",
     url: "https://youtube.com",
     category: "Metabolic"
+  },
+  {
+    id: "12",
+    title: "Low Dose Naltrexone Research",
+    speaker: "Dr. John Campbell",
+    description: "Reviewing the evidence for LDN as a repurposed drug for autoimmune and chronic conditions.",
+    duration: "26 min",
+    type: "free",
+    url: "https://www.youtube.com/@DrJohnCampbell",
+    category: "Repurposed Drugs"
   }
 ];
 
