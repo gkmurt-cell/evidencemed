@@ -34,14 +34,29 @@ const Footer = () => {
 
   return (
     <footer className="bg-card border-t border-border">
-      {/* Disclaimer Banner */}
-      <div className="bg-secondary/50 border-b border-border">
-        <div className="container mx-auto px-4 py-4">
-          <p className="text-sm text-muted-foreground text-center max-w-4xl mx-auto">
-            <strong className="text-foreground">Medical Disclaimer:</strong> This platform is for educational and research purposes only. 
-            It does not provide medical advice, diagnosis, or treatment. Always consult qualified healthcare professionals 
-            before making any health-related decisions.
-          </p>
+      {/* Legal Disclaimer Banner */}
+      <div className="bg-muted/70 border-b border-border">
+        <div className="container mx-auto px-4 py-6">
+          <div className="max-w-4xl mx-auto">
+            <h3 className="text-sm font-semibold text-foreground mb-2 text-center">
+              Important Medical & Legal Disclaimer
+            </h3>
+            <p className="text-xs text-muted-foreground text-center leading-relaxed mb-3">
+              The information provided on this website is for <strong className="text-foreground">general educational and informational purposes only</strong> and 
+              does not constitute medical advice, diagnosis, treatment recommendations, or endorsement of any specific therapy, product, or practitioner. 
+              Content is derived from published research and does not represent the views of any medical institution.
+            </p>
+            <p className="text-xs text-muted-foreground text-center leading-relaxed mb-3">
+              <strong className="text-foreground">This content is not a substitute for professional medical advice.</strong> Always seek the guidance of a qualified 
+              healthcare provider with any questions regarding a medical condition, treatment options, or before starting any new health regimen. 
+              Never disregard professional medical advice or delay seeking treatment because of information you have read on this website.
+            </p>
+            <p className="text-xs text-muted-foreground text-center leading-relaxed">
+              Research summaries may not reflect the complete body of evidence on any topic. Individual results may vary. 
+              EvidenceMed assumes no liability for actions taken based on information presented herein. 
+              <strong className="text-foreground"> If you are experiencing a medical emergency, call your local emergency services immediately.</strong>
+            </p>
+          </div>
         </div>
       </div>
 
