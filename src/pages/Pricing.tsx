@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import { Check, X, Sparkles, Building2, User, Users, ArrowRight, Shield, BookOpen, GraduationCap, Send, Briefcase } from "lucide-react";
@@ -148,9 +149,17 @@ const Pricing = () => {
     message: "",
   });
 
+  const location = useLocation();
+
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+    if (location.hash === '#institutional') {
+      setTimeout(() => {
+        document.getElementById('institutional')?.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [location]);
 
   const handleQuoteFormChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>

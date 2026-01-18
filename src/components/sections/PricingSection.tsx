@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Check, Sparkles } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const plans = [
   {
@@ -127,13 +128,24 @@ const PricingSection = () => {
                 ))}
               </ul>
 
-              <Button
-                variant={plan.variant}
-                size="lg"
-                className="w-full"
-              >
-                {plan.cta}
-              </Button>
+              {plan.name === "Institution" ? (
+                <Button
+                  variant={plan.variant}
+                  size="lg"
+                  className="w-full"
+                  asChild
+                >
+                  <Link to="/pricing#institutional">{plan.cta}</Link>
+                </Button>
+              ) : (
+                <Button
+                  variant={plan.variant}
+                  size="lg"
+                  className="w-full"
+                >
+                  {plan.cta}
+                </Button>
+              )}
             </div>
           ))}
         </div>
