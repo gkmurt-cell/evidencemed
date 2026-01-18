@@ -219,7 +219,7 @@ export function RightSidebar({ variant = "split", relatedCategory }: RightSideba
           {/* Preview item when collapsed */}
           {openSection !== "research" && (
             <article className="p-4 hover:bg-muted/30 transition-colors cursor-pointer group border-b border-border/50">
-              <span className="inline-block text-xs font-medium text-accent-foreground bg-accent/20 px-2 py-0.5 rounded mb-2">
+              <span className="inline-block text-xs font-medium text-primary-foreground bg-primary/80 px-2 py-0.5 rounded mb-2">
                 {previewResearch.category}
               </span>
               <h4 className="text-sm font-medium text-foreground leading-snug group-hover:text-primary transition-colors line-clamp-2">
@@ -240,7 +240,7 @@ export function RightSidebar({ variant = "split", relatedCategory }: RightSideba
             <div className="divide-y divide-border/50">
               {displayResearch.map((update) => (
                 <article key={update.id} className="p-4 hover:bg-muted/30 transition-colors cursor-pointer group">
-                  <span className="inline-block text-xs font-medium text-accent-foreground bg-accent/20 px-2 py-0.5 rounded mb-2">
+                  <span className="inline-block text-xs font-medium text-primary-foreground bg-primary/80 px-2 py-0.5 rounded mb-2">
                     {update.category}
                   </span>
                   <h4 className="text-sm font-medium text-foreground leading-snug group-hover:text-primary transition-colors line-clamp-2">
@@ -293,7 +293,7 @@ export function RightSidebar({ variant = "split", relatedCategory }: RightSideba
                     {previewVideo.title}
                   </h4>
                   <p className="text-xs text-muted-foreground mt-1">{previewVideo.speaker}</p>
-                  <span className="inline-block text-xs font-medium text-accent-foreground bg-accent/20 px-2 py-0.5 rounded mt-2">
+                  <span className="inline-block text-xs font-medium text-primary-foreground bg-primary/80 px-2 py-0.5 rounded mt-2">
                     {previewVideo.topic}
                   </span>
                 </div>
@@ -320,7 +320,7 @@ export function RightSidebar({ variant = "split", relatedCategory }: RightSideba
                         {video.title}
                       </h4>
                       <p className="text-xs text-muted-foreground mt-1">{video.speaker}</p>
-                      <span className="inline-block text-xs font-medium text-accent-foreground bg-accent/20 px-2 py-0.5 rounded mt-2">
+                      <span className="inline-block text-xs font-medium text-primary-foreground bg-primary/80 px-2 py-0.5 rounded mt-2">
                         {video.topic}
                       </span>
                     </div>
