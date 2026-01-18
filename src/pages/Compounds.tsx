@@ -92,8 +92,8 @@ const Compounds = () => {
               </h1>
               <p className="text-lg text-muted-foreground mb-6">
                 Comprehensive research profiles for herbs, nutraceuticals, and functional compounds.
-                Each entry includes traditional use context, mechanisms, dosage research, and safety
-                considerations.
+                Each entry includes traditional use context, mechanisms of action, research summaries, 
+                and safety considerations. All information is for educational purposes only.
               </p>
               <EducationalDisclaimer />
             </div>

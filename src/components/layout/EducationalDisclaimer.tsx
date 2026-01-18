@@ -9,7 +9,9 @@ const EducationalDisclaimer = ({ variant = "banner", className = "" }: Education
   if (variant === "inline") {
     return (
       <p className={`text-xs text-muted-foreground italic ${className}`}>
-        This content is for educational purposes only and does not constitute medical advice, diagnosis, or treatment recommendations.
+        This content is for educational and research purposes only. It does not constitute medical advice, 
+        diagnosis, treatment recommendations, or prescriptive guidance. Do not use this information to 
+        self-treat any health condition.
       </p>
     );
   }
@@ -22,12 +24,13 @@ const EducationalDisclaimer = ({ variant = "banner", className = "" }: Education
         </div>
         <div>
           <p className="text-sm font-medium text-foreground mb-1">
-            Educational Information Only
+            Educational & Research Information Only
           </p>
           <p className="text-xs text-muted-foreground leading-relaxed">
             The information presented here summarizes published research and does not constitute medical advice, 
-            diagnosis, or treatment recommendations. Always consult a qualified healthcare provider before making 
-            health decisions. Research findings may not apply to individual circumstances.
+            diagnosis, treatment recommendations, or prescriptive guidance. Any dosages, protocols, or treatment 
+            information mentioned reflect research study parameters only and are NOT recommendations for personal use. 
+            Always consult a qualified healthcare provider before making health decisions.
           </p>
         </div>
       </div>
