@@ -2,6 +2,11 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Check, Building2, Users, Briefcase, Sparkles } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/hooks/use-toast";
+import { z } from "zod";
+
+const emailSchema = z.string().email("Please enter a valid email address");
 
 const licensePlans = [
   {
@@ -31,6 +36,7 @@ const licensePlans = [
 ];
 
 const TrialSignupSection = () => {
+  const { toast } = useToast();
   const [selectedPlan, setSelectedPlan] = useState("individual");
   const [formData, setFormData] = useState({
     email: "",
@@ -39,12 +45,57 @@ const TrialSignupSection = () => {
     couponCode: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [errors, setErrors] = useState<{ email?: string; name?: string }>({});
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const validateForm = (): boolean => {
+    const newErrors: { email?: string; name?: string } = {};
+
+    if (!formData.name.trim()) {
+      newErrors.name = "Name is required";
+    }
+
+    const emailResult = emailSchema.safeParse(formData.email);
+    if (!emailResult.success) {
+      newErrors.email = emailResult.error.errors[0].message;
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // In production, this would register for trial and capture email
-    console.log("Trial signup:", { ...formData, plan: selectedPlan });
-    setSubmitted(true);
+
+    if (!validateForm()) return;
+
+    setLoading(true);
+
+    try {
+      const { error } = await supabase.from("trial_signups").insert({
+        email: formData.email,
+        name: formData.name,
+        organization: formData.organization || null,
+        license_type: selectedPlan as "individual" | "practice" | "institution",
+        coupon_code: formData.couponCode || null,
+      });
+
+      if (error) throw error;
+
+      setSubmitted(true);
+      toast({
+        title: "Trial signup successful!",
+        description: "Check your email for next steps.",
+      });
+    } catch (error: any) {
+      toast({
+        title: "Error",
+        description: "Failed to submit. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (submitted) {
@@ -61,9 +112,17 @@ const TrialSignupSection = () => {
             <p className="text-muted-foreground mb-6">
               Check your email ({formData.email}) for your trial access credentials and getting started guide.
             </p>
-            <Button variant="outline" onClick={() => setSubmitted(false)}>
-              Sign up another account
-            </Button>
+            <div className="flex gap-4 justify-center">
+              <Button asChild>
+                <a href="/auth">Create Account</a>
+              </Button>
+              <Button variant="outline" onClick={() => {
+                setSubmitted(false);
+                setFormData({ email: "", name: "", organization: "", couponCode: "" });
+              }}>
+                Sign up another
+              </Button>
+            </div>
           </div>
         </div>
       </section>
@@ -139,9 +198,16 @@ const TrialSignupSection = () => {
                 <Input
                   placeholder="Dr. Jane Doe"
                   value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  onChange={(e) => {
+                    setFormData({ ...formData, name: e.target.value });
+                    if (errors.name) setErrors({ ...errors, name: undefined });
+                  }}
+                  className={errors.name ? "border-destructive" : ""}
                   required
                 />
+                {errors.name && (
+                  <p className="text-sm text-destructive mt-1">{errors.name}</p>
+                )}
               </div>
               <div>
                 <label className="text-sm font-medium text-foreground mb-2 block">
@@ -151,9 +217,16 @@ const TrialSignupSection = () => {
                   type="email"
                   placeholder="jane@practice.com"
                   value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  onChange={(e) => {
+                    setFormData({ ...formData, email: e.target.value });
+                    if (errors.email) setErrors({ ...errors, email: undefined });
+                  }}
+                  className={errors.email ? "border-destructive" : ""}
                   required
                 />
+                {errors.email && (
+                  <p className="text-sm text-destructive mt-1">{errors.email}</p>
+                )}
               </div>
             </div>
 
@@ -187,8 +260,8 @@ const TrialSignupSection = () => {
               <p className="text-sm text-muted-foreground">
                 By signing up, you agree to receive trial-related emails and updates.
               </p>
-              <Button type="submit" size="lg">
-                Start 7-Day Free Trial
+              <Button type="submit" size="lg" disabled={loading}>
+                {loading ? "Submitting..." : "Start 7-Day Free Trial"}
               </Button>
             </div>
           </form>
