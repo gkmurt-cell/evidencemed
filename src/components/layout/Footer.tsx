@@ -17,6 +17,7 @@ const Footer = () => {
       { name: "For Practitioners", href: "#" },
       { name: "For Researchers", href: "#" },
       { name: "API Access", href: "#" },
+      { name: "Shop / Support the Platform", href: "/merch", isLink: true },
     ],
     company: [
       { name: "About Us", href: "/about", isLink: true },

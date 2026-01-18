@@ -101,8 +101,11 @@ const Navbar = () => {
     { name: "Natural Compounds", href: "#compounds", icon: Leaf },
     { name: "Integrative Therapies", href: "/integrative-therapies", icon: Heart, isLink: true },
     { name: "Ayurveda", href: "/ayurveda", icon: Leaf, isLink: true },
-    { name: "Merch", href: "/merch", icon: ShoppingBag, isLink: true },
     { name: "Pricing", href: "#pricing" },
+  ];
+
+  const resourcesDropdown = [
+    { name: "Educational Shop", href: "/merch", icon: ShoppingBag, description: "Books & branded items" },
   ];
 
   return (
@@ -140,6 +143,26 @@ const Navbar = () => {
                 </a>
               )
             ))}
+            
+            {/* Resources Dropdown */}
+            <DropdownMenu>
+              <DropdownMenuTrigger className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-secondary">
+                Resources
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-56">
+                {resourcesDropdown.map((item) => (
+                  <DropdownMenuItem key={item.name} asChild>
+                    <Link to={item.href} className="flex items-center gap-2">
+                      <item.icon className="h-4 w-4" />
+                      <div>
+                        <span className="font-medium">{item.name}</span>
+                        <p className="text-xs text-muted-foreground">{item.description}</p>
+                      </div>
+                    </Link>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
 
           {/* Desktop Actions */}

@@ -358,13 +358,12 @@ const videoResources: VideoResource[] = [
   }
 ];
 
-// Quick navigation links
+// Quick navigation links - Note: Merch removed per compliance guidelines (not shown on research pages)
 const navLinks = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
   { name: "Ayurveda", href: "/ayurveda" },
   { name: "Integrative Therapies", href: "/integrative-therapies" },
-  { name: "Merch", href: "/merch" },
 ];
 
 type SectionType = "research" | "books" | "resources" | "videos" | null;
