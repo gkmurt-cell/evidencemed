@@ -13,6 +13,8 @@ import Merch from "./pages/Merch";
 import Auth from "./pages/Auth";
 import Search from "./pages/Search";
 import Research from "./pages/Research";
+import Compounds from "./pages/Compounds";
+import CompoundPage from "./pages/Compound";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -34,6 +36,8 @@ const App = () => (
               <Route path="/auth" element={<Auth />} />
               <Route path="/search" element={<Search />} />
               <Route path="/research" element={<Research />} />
+              <Route path="/compounds" element={<Compounds />} />
+              <Route path="/compound/:id" element={<CompoundPage />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>

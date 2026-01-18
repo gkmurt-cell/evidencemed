@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Leaf, Info } from "lucide-react";
 import EducationalDisclaimer from "@/components/layout/EducationalDisclaimer";
@@ -102,9 +103,10 @@ const CompoundsSection = () => {
 
         {/* Compounds Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          {compounds.map((compound, index) => (
-            <div
+          {compounds.map((compound) => (
+            <Link
               key={compound.name}
+              to={`/compound/${compound.name.toLowerCase().replace(/['\s]/g, '-').replace(/--/g, '-')}`}
               className="group relative p-6 rounded-xl bg-card border border-border hover:border-primary/30 hover:shadow-medium transition-all duration-300 cursor-pointer overflow-hidden"
             >
               {/* Background Decoration */}
@@ -142,7 +144,7 @@ const CompoundsSection = () => {
                   <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all" />
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
 
@@ -167,9 +169,11 @@ const CompoundsSection = () => {
 
         {/* CTA */}
         <div className="text-center mt-10">
-          <Button size="lg">
-            Browse All Compounds
-            <ArrowRight className="w-4 h-4" />
+          <Button size="lg" asChild>
+            <Link to="/compounds">
+              Browse All Compounds
+              <ArrowRight className="w-4 h-4" />
+            </Link>
           </Button>
         </div>
       </div>
