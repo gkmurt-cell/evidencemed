@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BookOpen, ExternalLink, TrendingUp, Calendar, ChevronDown, ShoppingBag, Youtube, Play, Shirt } from "lucide-react";
+import { BookOpen, ExternalLink, TrendingUp, Calendar, ChevronDown, ShoppingBag, Video, Play, Shirt } from "lucide-react";
 import herbNerdTshirt from "@/assets/herb-nerd-tshirt.png";
 import {
   Collapsible,
@@ -483,7 +483,7 @@ export function RightSidebar({ variant = "split", relatedCategory }: RightSideba
             <CollapsibleTrigger className="w-full p-4 bg-muted/30 hover:bg-muted/50 transition-colors cursor-pointer">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2 text-primary">
-                  <Youtube className="h-5 w-5" />
+                  <Video className="h-5 w-5" />
                   <h3 className="font-heading font-semibold">Expert Talks</h3>
                 </div>
                 <ChevronDown className={cn(
