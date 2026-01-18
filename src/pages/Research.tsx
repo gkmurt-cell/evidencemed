@@ -182,7 +182,7 @@ const Research = () => {
           </div>
 
           {/* Filters */}
-          <div className="bg-gradient-to-r from-primary/10 via-accent/10 to-primary/5 border-2 border-primary/20 rounded-xl p-4 mb-8 shadow-sm">
+          <div className="bg-gradient-to-r from-primary/20 via-primary/15 to-accent/20 border-2 border-primary/40 rounded-xl p-4 mb-8 shadow-md">
             <div className="flex flex-col lg:flex-row gap-4">
               {/* Search */}
               <div className="relative flex-1">
