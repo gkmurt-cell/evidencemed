@@ -762,7 +762,7 @@ const IntegrativeTherapies = () => {
                             <h3 className="font-serif text-xl font-semibold text-foreground">
                               {treatment.name}
                             </h3>
-                            <div className="flex items-center gap-1 text-xs text-muted-foreground bg-secondary px-2 py-1 rounded-full">
+                            <div className="flex items-center gap-1 text-xs font-medium text-white bg-violet-500 px-2.5 py-1 rounded-full">
                               <FileText className="w-3 h-3" />
                               {treatment.studies} studies
                             </div>
@@ -822,7 +822,7 @@ const IntegrativeTherapies = () => {
                             <h3 className="font-serif text-xl font-semibold text-foreground">
                               {treatment.name}
                             </h3>
-                            <div className="flex items-center gap-1 text-xs text-muted-foreground bg-secondary px-2 py-1 rounded-full">
+                            <div className="flex items-center gap-1 text-xs font-medium text-white bg-emerald-500 px-2.5 py-1 rounded-full">
                               <FileText className="w-3 h-3" />
                               {treatment.studies} studies
                             </div>
@@ -882,7 +882,7 @@ const IntegrativeTherapies = () => {
                             <h3 className="font-serif text-xl font-semibold text-foreground">
                               {treatment.name}
                             </h3>
-                            <div className="flex items-center gap-1 text-xs text-muted-foreground bg-secondary px-2 py-1 rounded-full">
+                            <div className="flex items-center gap-1 text-xs font-medium text-white bg-amber-500 px-2.5 py-1 rounded-full">
                               <FileText className="w-3 h-3" />
                               {treatment.studies} studies
                             </div>
