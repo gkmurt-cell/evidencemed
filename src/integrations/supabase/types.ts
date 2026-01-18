@@ -14,7 +14,208 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      licenses: {
+        Row: {
+          created_at: string
+          created_by: string | null
+          current_users: number
+          expires_at: string | null
+          id: string
+          is_active: boolean
+          license_type: Database["public"]["Enums"]["license_type"]
+          master_code: string | null
+          name: string
+          updated_at: string
+          user_limit: number
+        }
+        Insert: {
+          created_at?: string
+          created_by?: string | null
+          current_users?: number
+          expires_at?: string | null
+          id?: string
+          is_active?: boolean
+          license_type?: Database["public"]["Enums"]["license_type"]
+          master_code?: string | null
+          name: string
+          updated_at?: string
+          user_limit?: number
+        }
+        Update: {
+          created_at?: string
+          created_by?: string | null
+          current_users?: number
+          expires_at?: string | null
+          id?: string
+          is_active?: boolean
+          license_type?: Database["public"]["Enums"]["license_type"]
+          master_code?: string | null
+          name?: string
+          updated_at?: string
+          user_limit?: number
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          avatar_url: string | null
+          created_at: string
+          display_name: string | null
+          id: string
+          organization: string | null
+          professional_title: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          avatar_url?: string | null
+          created_at?: string
+          display_name?: string | null
+          id?: string
+          organization?: string | null
+          professional_title?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          avatar_url?: string | null
+          created_at?: string
+          display_name?: string | null
+          id?: string
+          organization?: string | null
+          professional_title?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      review_helpful: {
+        Row: {
+          created_at: string
+          id: string
+          review_id: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          review_id: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          review_id?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "review_helpful_review_id_fkey"
+            columns: ["review_id"]
+            isOneToOne: false
+            referencedRelation: "reviews"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      reviews: {
+        Row: {
+          comment: string
+          created_at: string
+          helpful_count: number
+          id: string
+          is_approved: boolean
+          name: string
+          rating: number
+          user_id: string
+        }
+        Insert: {
+          comment: string
+          created_at?: string
+          helpful_count?: number
+          id?: string
+          is_approved?: boolean
+          name: string
+          rating: number
+          user_id: string
+        }
+        Update: {
+          comment?: string
+          created_at?: string
+          helpful_count?: number
+          id?: string
+          is_approved?: boolean
+          name?: string
+          rating?: number
+          user_id?: string
+        }
+        Relationships: []
+      }
+      trial_signups: {
+        Row: {
+          converted_at: string | null
+          coupon_code: string | null
+          created_at: string
+          email: string
+          id: string
+          license_type: Database["public"]["Enums"]["license_type"]
+          name: string
+          organization: string | null
+          user_id: string | null
+        }
+        Insert: {
+          converted_at?: string | null
+          coupon_code?: string | null
+          created_at?: string
+          email: string
+          id?: string
+          license_type?: Database["public"]["Enums"]["license_type"]
+          name: string
+          organization?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          converted_at?: string | null
+          coupon_code?: string | null
+          created_at?: string
+          email?: string
+          id?: string
+          license_type?: Database["public"]["Enums"]["license_type"]
+          name?: string
+          organization?: string | null
+          user_id?: string | null
+        }
+        Relationships: []
+      }
+      user_licenses: {
+        Row: {
+          id: string
+          joined_at: string
+          license_id: string
+          user_id: string
+        }
+        Insert: {
+          id?: string
+          joined_at?: string
+          license_id: string
+          user_id: string
+        }
+        Update: {
+          id?: string
+          joined_at?: string
+          license_id?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "user_licenses_license_id_fkey"
+            columns: ["license_id"]
+            isOneToOne: false
+            referencedRelation: "licenses"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never
@@ -23,7 +224,7 @@ export type Database = {
       [_ in never]: never
     }
     Enums: {
-      [_ in never]: never
+      license_type: "individual" | "practice" | "institution"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +351,8 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      license_type: ["individual", "practice", "institution"],
+    },
   },
 } as const
