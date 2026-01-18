@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, BookOpen, Shield, CheckCircle } from "lucide-react";
 
@@ -126,13 +125,6 @@ const HeroSection = () => {
               Evidence-Based • Peer-Reviewed • Educational
             </span>
           </div>
-
-          {/* Site Title */}
-          <Link to="/" className="inline-block mb-4 animate-fade-up delay-75">
-            <span className="font-serif text-2xl md:text-3xl font-semibold text-primary-foreground/90 hover:text-primary-foreground transition-colors">
-              EvidenceMed
-            </span>
-          </Link>
 
           {/* Main Heading */}
           <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold text-primary-foreground leading-tight mb-6 animate-fade-up delay-100">
