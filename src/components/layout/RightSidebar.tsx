@@ -154,6 +154,27 @@ const navLinks = [
 
 type SectionType = "research" | "videos" | null;
 
+// Category color mapping for badges
+const getCategoryColors = (category: string): string => {
+  const colorMap: Record<string, string> = {
+    "Cognitive Health": "bg-blue-500 text-white",
+    "Immune Support": "bg-green-500 text-white",
+    "Inflammation": "bg-orange-500 text-white",
+    "Stress & Anxiety": "bg-purple-500 text-white",
+    "Longevity": "bg-amber-500 text-white",
+    "Autoimmune": "bg-rose-500 text-white",
+    "Metabolic Health": "bg-teal-500 text-white",
+    "Drug Repurposing": "bg-indigo-500 text-white",
+    "Integrative Oncology": "bg-red-500 text-white",
+    "Longevity Medicine": "bg-cyan-500 text-white",
+    "Autoimmune Research": "bg-pink-500 text-white",
+    "Longevity Science": "bg-yellow-600 text-white",
+    "Gut Health": "bg-lime-600 text-white",
+    "General Health": "bg-slate-500 text-white",
+  };
+  return colorMap[category] || "bg-primary/80 text-primary-foreground";
+};
+
 export function RightSidebar({ variant = "split", relatedCategory }: RightSidebarProps) {
   const [openSection, setOpenSection] = useState<SectionType>(null);
   const location = useLocation();
@@ -219,7 +240,7 @@ export function RightSidebar({ variant = "split", relatedCategory }: RightSideba
           {/* Preview item when collapsed */}
           {openSection !== "research" && (
             <article className="p-4 hover:bg-muted/30 transition-colors cursor-pointer group border-b border-border/50">
-              <span className="inline-block text-xs font-medium text-primary-foreground bg-primary/80 px-2 py-0.5 rounded mb-2">
+              <span className={`inline-block text-xs font-medium px-2 py-0.5 rounded mb-2 ${getCategoryColors(previewResearch.category)}`}>
                 {previewResearch.category}
               </span>
               <h4 className="text-sm font-medium text-foreground leading-snug group-hover:text-primary transition-colors line-clamp-2">
@@ -240,7 +261,7 @@ export function RightSidebar({ variant = "split", relatedCategory }: RightSideba
             <div className="divide-y divide-border/50">
               {displayResearch.map((update) => (
                 <article key={update.id} className="p-4 hover:bg-muted/30 transition-colors cursor-pointer group">
-                  <span className="inline-block text-xs font-medium text-primary-foreground bg-primary/80 px-2 py-0.5 rounded mb-2">
+                  <span className={`inline-block text-xs font-medium px-2 py-0.5 rounded mb-2 ${getCategoryColors(update.category)}`}>
                     {update.category}
                   </span>
                   <h4 className="text-sm font-medium text-foreground leading-snug group-hover:text-primary transition-colors line-clamp-2">
@@ -293,7 +314,7 @@ export function RightSidebar({ variant = "split", relatedCategory }: RightSideba
                     {previewVideo.title}
                   </h4>
                   <p className="text-xs text-muted-foreground mt-1">{previewVideo.speaker}</p>
-                  <span className="inline-block text-xs font-medium text-primary-foreground bg-primary/80 px-2 py-0.5 rounded mt-2">
+                  <span className={`inline-block text-xs font-medium px-2 py-0.5 rounded mt-2 ${getCategoryColors(previewVideo.topic)}`}>
                     {previewVideo.topic}
                   </span>
                 </div>
@@ -320,7 +341,7 @@ export function RightSidebar({ variant = "split", relatedCategory }: RightSideba
                         {video.title}
                       </h4>
                       <p className="text-xs text-muted-foreground mt-1">{video.speaker}</p>
-                      <span className="inline-block text-xs font-medium text-primary-foreground bg-primary/80 px-2 py-0.5 rounded mt-2">
+                      <span className={`inline-block text-xs font-medium px-2 py-0.5 rounded mt-2 ${getCategoryColors(video.topic)}`}>
                         {video.topic}
                       </span>
                     </div>
