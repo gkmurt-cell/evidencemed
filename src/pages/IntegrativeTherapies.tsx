@@ -946,8 +946,10 @@ const IntegrativeTherapies = () => {
               </section>
             </main>
 
-            {/* Right Sidebar */}
-            <RightSidebar />
+            {/* Right Sidebar - Contextual for Integrative Therapies */}
+            <div className="hidden lg:block sticky top-20 h-[calc(100vh-5rem)] overflow-y-auto">
+              <RightSidebar variant="split" relatedCategory="energetic" />
+            </div>
           </div>
         </div>
         <Footer />

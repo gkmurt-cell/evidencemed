@@ -419,7 +419,7 @@ export function RightSidebar({ variant = "split", relatedCategory }: RightSideba
 
       {variant === "split" ? (
         <div className="divide-y divide-border">
-          {/* Research Updates Section */}
+          {/* 1. Research Updates Section - Primary, non-commercial */}
           <Collapsible open={openSection === "research"} onOpenChange={() => handleSectionToggle("research")}>
             <CollapsibleTrigger className="w-full p-4 bg-muted/30 hover:bg-muted/50 transition-colors cursor-pointer">
               <div className="flex items-center justify-between">
@@ -479,147 +479,7 @@ export function RightSidebar({ variant = "split", relatedCategory }: RightSideba
             </CollapsibleContent>
           </Collapsible>
 
-          {/* Books Section */}
-          <Collapsible open={openSection === "books"} onOpenChange={() => handleSectionToggle("books")}>
-            <CollapsibleTrigger className="w-full p-4 bg-muted/30 hover:bg-muted/50 transition-colors cursor-pointer">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2 text-primary">
-                  <BookOpen className="h-5 w-5" />
-                  <h3 className="font-heading font-semibold">Recommended Books</h3>
-                </div>
-                <ChevronDown className={cn(
-                  "h-4 w-4 text-muted-foreground transition-transform",
-                  openSection === "books" && "rotate-180"
-                )} />
-              </div>
-              <p className="text-xs text-muted-foreground mt-1 text-left">Popular health & wellness reads</p>
-            </CollapsibleTrigger>
-            
-            {/* Preview item when collapsed */}
-            {openSection !== "books" && (
-              <a 
-                href={previewBook.affiliateUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex gap-3 p-4 hover:bg-muted/50 transition-colors group border-b border-border/50"
-              >
-                <img 
-                  src={previewBook.cover} 
-                  alt={previewBook.title}
-                  className="w-14 h-20 object-cover rounded shadow-sm flex-shrink-0"
-                />
-                <div className="flex-1 min-w-0">
-                  <h4 className="text-sm font-medium text-foreground line-clamp-2 group-hover:text-primary transition-colors">
-                    {previewBook.title}
-                  </h4>
-                  <p className="text-xs text-muted-foreground mt-1">{previewBook.author}</p>
-                  <div className="flex items-center gap-1 mt-2 text-xs text-primary">
-                    <ExternalLink className="h-3 w-3" />
-                    <span>View on Amazon</span>
-                  </div>
-                </div>
-              </a>
-            )}
-            
-            <CollapsibleContent>
-              <div className="p-4 space-y-4">
-                {displayBooks.map((book) => (
-                  <a 
-                    key={book.id} 
-                    href={book.affiliateUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex gap-3 p-2 -mx-2 rounded-lg hover:bg-muted/50 transition-colors group"
-                  >
-                    <img 
-                      src={book.cover} 
-                      alt={book.title}
-                      className="w-14 h-20 object-cover rounded shadow-sm flex-shrink-0"
-                    />
-                    <div className="flex-1 min-w-0">
-                      <h4 className="text-sm font-medium text-foreground line-clamp-2 group-hover:text-primary transition-colors">
-                        {book.title}
-                      </h4>
-                      <p className="text-xs text-muted-foreground mt-1">{book.author}</p>
-                      <div className="flex items-center gap-1 mt-2 text-xs text-primary">
-                        <ExternalLink className="h-3 w-3" />
-                        <span>View on Amazon</span>
-                      </div>
-                    </div>
-                  </a>
-                ))}
-              </div>
-            </CollapsibleContent>
-          </Collapsible>
-
-          {/* Resources Section */}
-          <Collapsible open={openSection === "resources"} onOpenChange={() => handleSectionToggle("resources")}>
-            <CollapsibleTrigger className="w-full p-4 bg-muted/30 hover:bg-muted/50 transition-colors cursor-pointer">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2 text-primary">
-                  <ShoppingBag className="h-5 w-5" />
-                  <h3 className="font-heading font-semibold">Resources</h3>
-                </div>
-                <ChevronDown className={cn(
-                  "h-4 w-4 text-muted-foreground transition-transform",
-                  openSection === "resources" && "rotate-180"
-                )} />
-              </div>
-              <p className="text-xs text-muted-foreground mt-1 text-left">Vitamins, herbs & supplements</p>
-            </CollapsibleTrigger>
-            
-            {/* Preview item when collapsed */}
-            {openSection !== "resources" && (
-              <a 
-                href={previewResource.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block p-4 hover:bg-muted/50 transition-colors group border-b border-border/50"
-              >
-                <div className="flex items-start justify-between">
-                  <div>
-                    <span className="inline-block text-xs font-medium text-accent-foreground bg-accent/20 px-2 py-0.5 rounded mb-2">
-                      {previewResource.type}
-                    </span>
-                    <h4 className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">
-                      {previewResource.name}
-                    </h4>
-                    <p className="text-xs text-muted-foreground mt-1">{previewResource.description}</p>
-                  </div>
-                  <ExternalLink className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors flex-shrink-0" />
-                </div>
-              </a>
-            )}
-            
-            <CollapsibleContent>
-              <div className="divide-y divide-border/50">
-                {displayResources.map((resource) => (
-                  <a 
-                    key={resource.id}
-                    href={resource.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block p-4 hover:bg-muted/50 transition-colors group"
-                  >
-                    <div className="flex items-start justify-between">
-                      <div>
-                        <span className="inline-block text-xs font-medium text-accent-foreground bg-accent/20 px-2 py-0.5 rounded mb-2">
-                          {resource.type}
-                        </span>
-                        <h4 className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">
-                          {resource.name}
-                        </h4>
-                        <p className="text-xs text-muted-foreground mt-1">{resource.description}</p>
-                      </div>
-                      <ExternalLink className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors flex-shrink-0" />
-                    </div>
-                  </a>
-                ))}
-              </div>
-            </CollapsibleContent>
-          </Collapsible>
-
-          {/* YouTube Videos Section */}
+          {/* 2. Expert Videos Section - Educational content */}
           <Collapsible open={openSection === "videos"} onOpenChange={() => handleSectionToggle("videos")}>
             <CollapsibleTrigger className="w-full p-4 bg-muted/30 hover:bg-muted/50 transition-colors cursor-pointer">
               <div className="flex items-center justify-between">
@@ -690,10 +550,152 @@ export function RightSidebar({ variant = "split", relatedCategory }: RightSideba
             </CollapsibleContent>
           </Collapsible>
 
+          {/* 3. Books Section - Affiliate labeled */}
+          <Collapsible open={openSection === "books"} onOpenChange={() => handleSectionToggle("books")}>
+            <CollapsibleTrigger className="w-full p-4 bg-muted/30 hover:bg-muted/50 transition-colors cursor-pointer">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2 text-primary">
+                  <BookOpen className="h-5 w-5" />
+                  <h3 className="font-heading font-semibold">Recommended Books</h3>
+                  <span className="text-[10px] px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-700 dark:text-amber-400">Affiliate</span>
+                </div>
+                <ChevronDown className={cn(
+                  "h-4 w-4 text-muted-foreground transition-transform",
+                  openSection === "books" && "rotate-180"
+                )} />
+              </div>
+              <p className="text-xs text-muted-foreground mt-1 text-left">Health & wellness reads</p>
+            </CollapsibleTrigger>
+            
+            {/* Preview item when collapsed */}
+            {openSection !== "books" && (
+              <a 
+                href={previewBook.affiliateUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex gap-3 p-4 hover:bg-muted/50 transition-colors group border-b border-border/50"
+              >
+                <img 
+                  src={previewBook.cover} 
+                  alt={previewBook.title}
+                  className="w-14 h-20 object-cover rounded shadow-sm flex-shrink-0"
+                />
+                <div className="flex-1 min-w-0">
+                  <h4 className="text-sm font-medium text-foreground line-clamp-2 group-hover:text-primary transition-colors">
+                    {previewBook.title}
+                  </h4>
+                  <p className="text-xs text-muted-foreground mt-1">{previewBook.author}</p>
+                  <div className="flex items-center gap-1 mt-2 text-xs text-primary">
+                    <ExternalLink className="h-3 w-3" />
+                    <span>View on Amazon</span>
+                  </div>
+                </div>
+              </a>
+            )}
+            
+            <CollapsibleContent>
+              <div className="p-4 space-y-4">
+                {displayBooks.map((book) => (
+                  <a 
+                    key={book.id} 
+                    href={book.affiliateUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex gap-3 p-2 -mx-2 rounded-lg hover:bg-muted/50 transition-colors group"
+                  >
+                    <img 
+                      src={book.cover} 
+                      alt={book.title}
+                      className="w-14 h-20 object-cover rounded shadow-sm flex-shrink-0"
+                    />
+                    <div className="flex-1 min-w-0">
+                      <h4 className="text-sm font-medium text-foreground line-clamp-2 group-hover:text-primary transition-colors">
+                        {book.title}
+                      </h4>
+                      <p className="text-xs text-muted-foreground mt-1">{book.author}</p>
+                      <div className="flex items-center gap-1 mt-2 text-xs text-primary">
+                        <ExternalLink className="h-3 w-3" />
+                        <span>View on Amazon</span>
+                      </div>
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </CollapsibleContent>
+          </Collapsible>
+
+          {/* 4. Resources/Supplements Section - Commercial, at bottom */}
+          <Collapsible open={openSection === "resources"} onOpenChange={() => handleSectionToggle("resources")}>
+            <CollapsibleTrigger className="w-full p-4 bg-muted/30 hover:bg-muted/50 transition-colors cursor-pointer">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2 text-primary">
+                  <ShoppingBag className="h-5 w-5" />
+                  <h3 className="font-heading font-semibold">Supplements</h3>
+                  <span className="text-[10px] px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-700 dark:text-amber-400">Affiliate</span>
+                </div>
+                <ChevronDown className={cn(
+                  "h-4 w-4 text-muted-foreground transition-transform",
+                  openSection === "resources" && "rotate-180"
+                )} />
+              </div>
+              <p className="text-xs text-muted-foreground mt-1 text-left">Vitamins, herbs & supplements</p>
+            </CollapsibleTrigger>
+            
+            {/* Preview item when collapsed */}
+            {openSection !== "resources" && (
+              <a 
+                href={previewResource.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block p-4 hover:bg-muted/50 transition-colors group border-b border-border/50"
+              >
+                <div className="flex items-start justify-between">
+                  <div>
+                    <span className="inline-block text-xs font-medium text-accent-foreground bg-accent/20 px-2 py-0.5 rounded mb-2">
+                      {previewResource.type}
+                    </span>
+                    <h4 className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">
+                      {previewResource.name}
+                    </h4>
+                    <p className="text-xs text-muted-foreground mt-1">{previewResource.description}</p>
+                  </div>
+                  <ExternalLink className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors flex-shrink-0" />
+                </div>
+              </a>
+            )}
+            
+            <CollapsibleContent>
+              <div className="divide-y divide-border/50">
+                {displayResources.map((resource) => (
+                  <a 
+                    key={resource.id}
+                    href={resource.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block p-4 hover:bg-muted/50 transition-colors group"
+                  >
+                    <div className="flex items-start justify-between">
+                      <div>
+                        <span className="inline-block text-xs font-medium text-accent-foreground bg-accent/20 px-2 py-0.5 rounded mb-2">
+                          {resource.type}
+                        </span>
+                        <h4 className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">
+                          {resource.name}
+                        </h4>
+                        <p className="text-xs text-muted-foreground mt-1">{resource.description}</p>
+                      </div>
+                      <ExternalLink className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors flex-shrink-0" />
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </CollapsibleContent>
+          </Collapsible>
+
           {/* Affiliate Disclosure */}
           <div className="p-4 bg-muted/20">
             <p className="text-[10px] text-muted-foreground leading-relaxed">
-              <strong>Affiliate Disclosure:</strong> Links may be affiliate links. We earn a small commission at no extra cost to you. Content is for educational purposes only.
+              <strong>Affiliate Disclosure:</strong> Links marked "Affiliate" may earn us a small commission at no extra cost to you. All content is for educational purposes only and does not constitute medical advice.
             </p>
           </div>
         </div>
