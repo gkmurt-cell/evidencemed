@@ -1,10 +1,14 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
-import { Check, X, Sparkles, Building2, User, Users, ArrowRight, Shield, BookOpen } from "lucide-react";
+import { Check, X, Sparkles, Building2, User, Users, ArrowRight, Shield, BookOpen, GraduationCap, Send, Briefcase } from "lucide-react";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { toast } from "sonner";
 
 const plans = [
   {
@@ -134,9 +138,51 @@ const FeatureValue = ({ value }: { value: boolean | string }) => {
 };
 
 const Pricing = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [quoteForm, setQuoteForm] = useState({
+    institutionName: "",
+    department: "",
+    contactName: "",
+    contactEmail: "",
+    numberOfUsers: "",
+    message: "",
+  });
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const handleQuoteFormChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setQuoteForm((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const handleQuoteSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    // Simulate form submission
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    
+    toast.success("Quote request submitted!", {
+      description: "Our team will contact you within 24 hours.",
+    });
+    
+    setQuoteForm({
+      institutionName: "",
+      department: "",
+      contactName: "",
+      contactEmail: "",
+      numberOfUsers: "",
+      message: "",
+    });
+    setIsSubmitting(false);
+  };
+
 
   return (
     <>
@@ -304,6 +350,240 @@ const Pricing = () => {
                   ))}
                 </tbody>
               </table>
+            </div>
+          </div>
+        </section>
+
+        {/* Institutional Pricing Section */}
+        <section id="institutional" className="py-20 bg-gradient-to-b from-muted/30 to-background">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto text-center mb-12">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-6">
+                <GraduationCap className="w-4 h-4" />
+                Institutional Access
+              </div>
+              <h2 className="font-serif text-3xl md:text-4xl font-semibold text-foreground mb-4">
+                Flexible Access for Institutions, Universities & Research Centers
+              </h2>
+              <p className="text-lg text-muted-foreground italic">
+                "Scale your access based on the number of users in your organization."
+              </p>
+            </div>
+
+            <div className="max-w-4xl mx-auto mb-12">
+              <p className="text-center text-muted-foreground leading-relaxed">
+                EvidenceMed offers research-backed educational access to over <span className="font-semibold text-foreground">100 health conditions</span>, <span className="font-semibold text-foreground">4,000+ peer-reviewed studies</span>, and natural compound profiles. Institutional packages are customized based on the number of users, ensuring that your team receives appropriate access, support, and tools for research and evidence-based decision-making.
+              </p>
+            </div>
+
+            {/* Institutional Tiers Table */}
+            <div className="max-w-5xl mx-auto mb-12">
+              <div className="overflow-x-auto rounded-xl border border-border bg-card">
+                <table className="w-full">
+                  <thead>
+                    <tr className="bg-muted/50 border-b border-border">
+                      <th className="text-left py-4 px-6 font-semibold text-foreground">Tier</th>
+                      <th className="text-center py-4 px-6 font-semibold text-foreground">Users</th>
+                      <th className="text-left py-4 px-6 font-semibold text-foreground">Features</th>
+                      <th className="text-center py-4 px-6 font-semibold text-foreground">Price</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr className="border-b border-border/50 hover:bg-muted/20 transition-colors">
+                      <td className="py-5 px-6">
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                            <User className="w-5 h-5 text-primary" />
+                          </div>
+                          <span className="font-semibold text-foreground">Starter</span>
+                        </div>
+                      </td>
+                      <td className="py-5 px-6 text-center">
+                        <span className="text-lg font-medium text-foreground">1–10</span>
+                      </td>
+                      <td className="py-5 px-6">
+                        <p className="text-sm text-muted-foreground">
+                          Full access to all conditions, research library, natural compounds, video resources, export & citation tools
+                        </p>
+                      </td>
+                      <td className="py-5 px-6 text-center">
+                        <span className="inline-flex items-center px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium">
+                          Custom Quote
+                        </span>
+                      </td>
+                    </tr>
+                    <tr className="border-b border-border/50 hover:bg-muted/20 transition-colors">
+                      <td className="py-5 px-6">
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 rounded-lg bg-secondary/50 flex items-center justify-center">
+                            <Users className="w-5 h-5 text-secondary-foreground" />
+                          </div>
+                          <span className="font-semibold text-foreground">Standard</span>
+                        </div>
+                      </td>
+                      <td className="py-5 px-6 text-center">
+                        <span className="text-lg font-medium text-foreground">11–50</span>
+                      </td>
+                      <td className="py-5 px-6">
+                        <p className="text-sm text-muted-foreground">
+                          Everything in Starter + advanced search & filters, priority email support
+                        </p>
+                      </td>
+                      <td className="py-5 px-6 text-center">
+                        <span className="inline-flex items-center px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium">
+                          Custom Quote
+                        </span>
+                      </td>
+                    </tr>
+                    <tr className="hover:bg-muted/20 transition-colors">
+                      <td className="py-5 px-6">
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
+                            <Building2 className="w-5 h-5 text-primary-foreground" />
+                          </div>
+                          <div>
+                            <span className="font-semibold text-foreground">Enterprise</span>
+                            <span className="ml-2 text-xs px-2 py-0.5 bg-primary/20 text-primary rounded-full">Popular</span>
+                          </div>
+                        </div>
+                      </td>
+                      <td className="py-5 px-6 text-center">
+                        <span className="text-lg font-medium text-foreground">51+</span>
+                      </td>
+                      <td className="py-5 px-6">
+                        <p className="text-sm text-muted-foreground">
+                          Everything in Standard + multi-seat licensing, API access, admin dashboard, analytics, dedicated support & training
+                        </p>
+                      </td>
+                      <td className="py-5 px-6 text-center">
+                        <span className="inline-flex items-center px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium">
+                          Custom Quote
+                        </span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p className="text-center text-sm text-muted-foreground mt-4">
+                All pricing is based on the number of users. Contact our team for a tailored quote to fit your organization's needs.
+              </p>
+            </div>
+
+            {/* Quote Request Form */}
+            <div className="max-w-2xl mx-auto">
+              <div className="p-8 rounded-2xl bg-card border border-border shadow-lg">
+                <div className="text-center mb-8">
+                  <h3 className="font-serif text-2xl font-semibold text-foreground mb-2">
+                    Request a Custom Quote
+                  </h3>
+                  <p className="text-muted-foreground text-sm">
+                    Fill out the form below and our team will get back to you within 24 hours.
+                  </p>
+                </div>
+
+                <form onSubmit={handleQuoteSubmit} className="space-y-5">
+                  <div className="grid md:grid-cols-2 gap-5">
+                    <div className="space-y-2">
+                      <Label htmlFor="institutionName">Institution Name *</Label>
+                      <Input
+                        id="institutionName"
+                        name="institutionName"
+                        placeholder="University of..."
+                        required
+                        value={quoteForm.institutionName}
+                        onChange={handleQuoteFormChange}
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="department">Department</Label>
+                      <Input
+                        id="department"
+                        name="department"
+                        placeholder="e.g., School of Medicine"
+                        value={quoteForm.department}
+                        onChange={handleQuoteFormChange}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid md:grid-cols-2 gap-5">
+                    <div className="space-y-2">
+                      <Label htmlFor="contactName">Contact Name *</Label>
+                      <Input
+                        id="contactName"
+                        name="contactName"
+                        placeholder="Your full name"
+                        required
+                        value={quoteForm.contactName}
+                        onChange={handleQuoteFormChange}
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="contactEmail">Contact Email *</Label>
+                      <Input
+                        id="contactEmail"
+                        name="contactEmail"
+                        type="email"
+                        placeholder="you@institution.edu"
+                        required
+                        value={quoteForm.contactEmail}
+                        onChange={handleQuoteFormChange}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="numberOfUsers">Estimated Number of Users *</Label>
+                    <Input
+                      id="numberOfUsers"
+                      name="numberOfUsers"
+                      placeholder="e.g., 25"
+                      required
+                      value={quoteForm.numberOfUsers}
+                      onChange={handleQuoteFormChange}
+                    />
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="message">Additional Information</Label>
+                    <Textarea
+                      id="message"
+                      name="message"
+                      placeholder="Tell us about your institution's needs..."
+                      rows={3}
+                      value={quoteForm.message}
+                      onChange={handleQuoteFormChange}
+                    />
+                  </div>
+
+                  <Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>
+                    {isSubmitting ? (
+                      "Submitting..."
+                    ) : (
+                      <>
+                        <Send className="w-4 h-4 mr-2" />
+                        Request Custom Quote
+                      </>
+                    )}
+                  </Button>
+                </form>
+
+                {/* Supporting Copy */}
+                <div className="mt-8 pt-6 border-t border-border space-y-2">
+                  <div className="flex items-start gap-2 text-sm text-muted-foreground">
+                    <Check className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                    <span>Discounts available for academic institutions and research programs</span>
+                  </div>
+                  <div className="flex items-start gap-2 text-sm text-muted-foreground">
+                    <Check className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                    <span>Access can be expanded at any time as your team grows</span>
+                  </div>
+                  <div className="flex items-start gap-2 text-sm text-muted-foreground">
+                    <Shield className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                    <span>All access is non-prescriptive and for educational purposes only</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
