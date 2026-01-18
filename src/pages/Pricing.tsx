@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import { Check, X, Sparkles, Building2, User, Users, ArrowRight, Shield, BookOpen } from "lucide-react";
@@ -133,6 +134,10 @@ const FeatureValue = ({ value }: { value: boolean | string }) => {
 };
 
 const Pricing = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
       <Helmet>
