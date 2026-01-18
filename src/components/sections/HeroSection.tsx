@@ -154,15 +154,23 @@ const HeroSection = () => {
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-up delay-400">
-            <Button variant="hero" size="xl">
-              <BookOpen className="w-5 h-5" />
-              Explore Research Library
-              <ArrowRight className="w-5 h-5" />
-            </Button>
-            <Button variant="heroOutline" size="xl">
-              Start 7-Day Free Trial
-            </Button>
+          <div className="flex flex-col items-center gap-3 animate-fade-up delay-400">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Button variant="hero" size="xl">
+                <BookOpen className="w-5 h-5" />
+                Explore Research Library
+                <ArrowRight className="w-5 h-5" />
+              </Button>
+              <Button variant="heroOutline" size="xl">
+                Start 7-Day Free Trial
+              </Button>
+            </div>
+            <a 
+              href="#pricing" 
+              className="text-sm text-primary-foreground/70 hover:text-primary-foreground underline underline-offset-2 transition-colors"
+            >
+              See pricing for individuals and institutions
+            </a>
           </div>
 
           {/* Trust Indicators */}
