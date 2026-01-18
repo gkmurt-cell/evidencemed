@@ -182,7 +182,7 @@ export function RightSidebar({ variant = "split", relatedCategory }: RightSideba
     <aside className="w-80 xl:w-96 bg-card border-l border-border h-full overflow-y-auto sticky top-0">
       {/* Quick Navigation - Always at top */}
       <div className="p-4 border-b border-border bg-muted/50">
-        <h3 className="font-heading font-semibold text-sm text-foreground mb-3">Quick Navigation</h3>
+        <h3 className="font-heading font-semibold text-base text-foreground mb-3">Quick Navigation</h3>
         <nav className="flex flex-wrap gap-2">
           {navLinks.map((link) => (
             <a
@@ -206,7 +206,7 @@ export function RightSidebar({ variant = "split", relatedCategory }: RightSideba
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2 text-primary">
                 <TrendingUp className="h-5 w-5" />
-                <h3 className="font-heading font-semibold">Latest Research</h3>
+                <h3 className="font-heading font-semibold text-base">Latest Research</h3>
               </div>
               <ChevronDown className={cn(
                 "h-4 w-4 text-muted-foreground transition-transform",
@@ -266,7 +266,7 @@ export function RightSidebar({ variant = "split", relatedCategory }: RightSideba
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2 text-primary">
                 <Video className="h-5 w-5" />
-                <h3 className="font-heading font-semibold">Expert Talks</h3>
+                <h3 className="font-heading font-semibold text-base">Expert Talks</h3>
               </div>
               <ChevronDown className={cn(
                 "h-4 w-4 text-muted-foreground transition-transform",
@@ -335,7 +335,7 @@ export function RightSidebar({ variant = "split", relatedCategory }: RightSideba
         <div className="p-4 bg-gradient-to-br from-primary/5 to-accent/5">
           <div className="flex items-center gap-2 text-primary mb-2">
             <ShoppingBag className="h-5 w-5" />
-            <h3 className="font-heading font-semibold">Shop & Resources</h3>
+            <h3 className="font-heading font-semibold text-base">Shop & Resources</h3>
           </div>
           <p className="text-xs text-muted-foreground mb-3">
             Books, supplements, videos & educational materials
