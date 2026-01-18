@@ -1,8 +1,8 @@
 import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { RightSidebar } from "@/components/layout/RightSidebar";
-import { Button } from "@/components/ui/button";
 import EducationalDisclaimer from "@/components/layout/EducationalDisclaimer";
 import { 
   Zap, 
@@ -70,10 +70,11 @@ const modalities = [
     link: "https://holistichealthcommunity.org/healing-modalities/auricular-acupuncture"
   },
   {
-    name: "Ayurveda Wellness Consultations",
-    description: "The science of life and the language of alignment. This holistic framework brings true health and wellness through simple changes in daily living practices including herbs, healing food, harmony of seasons, minerals, oil, detoxification, yoga, meditation and daily regimen.",
+    name: "Ayurveda",
+    description: "Ancient Indian system of medicine emphasizing balance between body, mind, and spirit through diet, herbal treatments, and lifestyle practices.",
     category: "herbal",
-    link: "https://holistichealthcommunity.org/healing-modalities/ayurvedic-medicine"
+    link: "/ayurveda",
+    isInternalLink: true
   },
   {
     name: "Biophoton Therapy (Biontology)",
@@ -659,14 +660,23 @@ const IntegrativeTherapies = () => {
                                   <p className="text-sm text-foreground leading-relaxed mb-3">
                                     {modality.description}
                                   </p>
-                                  <a 
-                                    href={modality.link}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-1 text-sm text-primary hover:underline font-medium"
-                                  >
-                                    Learn more & find practitioners <ExternalLink className="w-3 h-3" />
-                                  </a>
+                                  {modality.isInternalLink ? (
+                                    <Link 
+                                      to={modality.link}
+                                      className="inline-flex items-center gap-1 text-sm text-primary hover:underline font-medium"
+                                    >
+                                      Explore Ayurveda <ExternalLink className="w-3 h-3" />
+                                    </Link>
+                                  ) : (
+                                    <a 
+                                      href={modality.link}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      className="inline-flex items-center gap-1 text-sm text-primary hover:underline font-medium"
+                                    >
+                                      Learn more & find practitioners <ExternalLink className="w-3 h-3" />
+                                    </a>
+                                  )}
                                 </div>
                               )}
                             </div>
