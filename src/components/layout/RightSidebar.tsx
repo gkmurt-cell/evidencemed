@@ -149,7 +149,6 @@ const videoResources: VideoResource[] = [
 const navLinks = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
-  { name: "Ayurveda", href: "/ayurveda" },
   { name: "Integrative Therapies", href: "/integrative-therapies" },
 ];
 
