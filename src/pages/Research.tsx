@@ -487,9 +487,14 @@ const StudyCard = ({ study, isExpanded, onToggle }: StudyCardProps) => {
               <div className="mt-3 p-4 rounded-lg bg-amber-500/5 border border-amber-500/20">
                 <div className="flex items-start gap-3">
                   <AlertTriangle className="w-4 h-4 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    {study.safetyNotes}
-                  </p>
+                  <div>
+                    <p className="text-xs font-medium text-amber-700 dark:text-amber-300 mb-1">
+                      Research Context Only — Not Medical Advice
+                    </p>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {study.safetyNotes}
+                    </p>
+                  </div>
                 </div>
               </div>
             )}

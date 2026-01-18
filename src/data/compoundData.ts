@@ -39,7 +39,7 @@ export const compoundsData: Compound[] = [
       "Supports neuroplasticity and brain-derived neurotrophic factor (BDNF)",
       "Exhibits antioxidant and anti-inflammatory properties"
     ],
-    dosage: "Typical research doses range from 500mg to 3000mg daily of fruiting body extract. Standardized to contain beta-glucans and/or hericenones.",
+    dosage: "Research studies have reported doses ranging from 500mg to 3000mg daily of fruiting body extract, standardized to contain beta-glucans and/or hericenones. These figures are provided for research context only and do not constitute a recommendation for personal use.",
     safetyNotes: [
       "Generally well-tolerated in clinical studies",
       "Rare reports of GI discomfort or skin sensitivity",
@@ -76,7 +76,7 @@ export const compoundsData: Compound[] = [
       "Beta-glucans activate immune cells",
       "Supports beneficial gut bacteria growth"
     ],
-    dosage: "Research doses typically range from 1-3g daily of extract. PSK studies often used 3g daily in divided doses.",
+    dosage: "Published research has reported doses of 1-3g daily of extract. PSK studies have documented 3g daily in divided doses. These figures are provided for research context only and do not constitute a recommendation for personal use.",
     safetyNotes: [
       "Generally considered safe with low toxicity",
       "Rare GI symptoms reported",
@@ -113,12 +113,12 @@ export const compoundsData: Compound[] = [
       "Potent free radical scavenger",
       "Supports healthy inflammatory response"
     ],
-    dosage: "Standard curcumin doses range from 500mg-2000mg daily. Enhanced absorption formulations (with piperine, phospholipids, or nanoparticles) may be effective at lower doses.",
+    dosage: "Clinical studies have reported curcumin doses ranging from 500mg-2000mg daily. Enhanced absorption formulations (with piperine, phospholipids, or nanoparticles) have been studied at lower doses. These figures are provided for research context only and do not constitute a recommendation for personal use.",
     safetyNotes: [
-      "Well-tolerated up to 8g/day in short-term studies",
+      "Research indicated tolerability at studied doses",
       "May cause GI discomfort in some individuals",
-      "Poor bioavailability without enhancement",
-      "Avoid high doses before surgery (bleeding risk)"
+      "Poor bioavailability without enhancement noted in literature",
+      "Research protocols typically avoided high doses before surgery (bleeding risk)"
     ],
     interactions: [
       "May enhance effects of blood thinners (warfarin, aspirin)",
@@ -151,7 +151,7 @@ export const compoundsData: Compound[] = [
       "Modulates gut microbiota composition",
       "Inhibits intestinal glucose absorption"
     ],
-    dosage: "Typical research doses: 500mg 2-3 times daily with meals (1000-1500mg total). Best absorbed when divided throughout the day.",
+    dosage: "Published research has documented doses of 500mg 2-3 times daily with meals (1000-1500mg total), noting improved absorption when divided throughout the day. These figures are provided for research context only and do not constitute a recommendation for personal use.",
     safetyNotes: [
       "GI side effects common initially (cramping, diarrhea)",
       "May cause constipation in some individuals",
@@ -189,7 +189,7 @@ export const compoundsData: Compound[] = [
       "GABAergic activity for calming effects",
       "Antioxidant and anti-inflammatory properties"
     ],
-    dosage: "Research doses typically range from 300-600mg daily of root extract standardized to 5-10% withanolides. KSM-66 and Sensoril are common standardized forms.",
+    dosage: "Clinical trials have reported doses of 300-600mg daily of root extract standardized to 5-10% withanolides, using forms such as KSM-66 and Sensoril. These figures are provided for research context only and do not constitute a recommendation for personal use.",
     safetyNotes: [
       "Generally well-tolerated in clinical trials",
       "May cause mild drowsiness",
@@ -227,7 +227,7 @@ export const compoundsData: Compound[] = [
       "Research on platelet membrane stabilization",
       "Antioxidant compounds protect cellular integrity"
     ],
-    dosage: "Research varies widely: 25-1100mg of leaf extract. Traditional use often involves fresh leaf juice. No standardized dosing established.",
+    dosage: "Published research has documented a wide range of doses from 25-1100mg of leaf extract. Traditional use has involved fresh leaf juice. No standardized protocol has been established. These figures are provided for research context only and do not constitute a recommendation for personal use.",
     safetyNotes: [
       "Limited clinical safety data",
       "May cause GI upset",
@@ -264,7 +264,7 @@ export const compoundsData: Compound[] = [
       "Modulates cell membrane fluidity",
       "Reduces triglyceride synthesis in liver"
     ],
-    dosage: "General health: 250-500mg combined EPA/DHA daily. Therapeutic doses: 1-4g daily for specific conditions. Higher EPA ratios often used for mood support.",
+    dosage: "Research literature has documented 250-500mg combined EPA/DHA daily in general population studies, with clinical trials reporting 1-4g daily for specific research outcomes. These figures are provided for research context only and do not constitute a recommendation for personal use.",
     safetyNotes: [
       "Generally very safe at recommended doses",
       "May cause fishy burps or GI upset",
@@ -301,7 +301,7 @@ export const compoundsData: Compound[] = [
       "Modulates calcium channel function",
       "Supports healthy inflammatory response"
     ],
-    dosage: "RDA: 310-420mg daily (varies by age/sex). Therapeutic doses: 200-400mg of elemental magnesium. Different forms have different absorption and effects.",
+    dosage: "Government RDA values are 310-420mg daily (varying by demographic). Clinical studies have documented 200-400mg of elemental magnesium with varying absorption by form. These figures are provided for research context only and do not constitute a recommendation for personal use.",
     safetyNotes: [
       "High doses cause GI effects (diarrhea)",
       "Magnesium oxide poorly absorbed",
@@ -339,12 +339,12 @@ export const compoundsData: Compound[] = [
       "Modulates innate and adaptive immunity",
       "Influences gene expression (over 1000 genes)"
     ],
-    dosage: "Maintenance: 1000-2000 IU daily for most adults. Correction of deficiency may require higher doses (5000+ IU) under medical supervision. Test levels periodically.",
+    dosage: "Research literature has documented 1000-2000 IU daily in maintenance studies, with deficiency correction studies reporting higher amounts under clinical supervision. Blood level testing is commonly recommended in research protocols. These figures are provided for research context only and do not constitute a recommendation for personal use.",
     safetyNotes: [
-      "Toxicity possible with very high doses (>10,000 IU/day long-term)",
-      "Symptoms of excess: hypercalcemia, kidney stones",
-      "Test blood levels to guide dosing",
-      "D3 (cholecalciferol) preferred over D2"
+      "Toxicity concerns noted in literature with very high long-term supplementation",
+      "Research documented symptoms of excess including hypercalcemia, kidney stones",
+      "Blood level testing recommended in research protocols",
+      "D3 (cholecalciferol) form commonly used in research over D2"
     ],
     interactions: [
       "Some medications reduce vitamin D levels (steroids, anticonvulsants)",
@@ -376,7 +376,7 @@ export const compoundsData: Compound[] = [
       "Regenerates other antioxidants (vitamin E)",
       "Protects cell membranes from oxidation"
     ],
-    dosage: "General wellness: 100-200mg daily. Heart health/statin users: 100-300mg daily. Ubiquinol form may be better absorbed, especially in older adults.",
+    dosage: "Clinical studies have documented 100-200mg daily in wellness research, with cardiology studies reporting 100-300mg daily. Ubiquinol form absorption has been studied particularly in older populations. These figures are provided for research context only and do not constitute a recommendation for personal use.",
     safetyNotes: [
       "Very safe with long track record",
       "Rare GI upset or insomnia",
@@ -414,7 +414,7 @@ export const compoundsData: Compound[] = [
       "Modulates inflammatory pathways",
       "Supports mitochondrial biogenesis"
     ],
-    dosage: "Research doses vary widely: 150-500mg daily for general wellness. Trans-resveratrol is the active form. Higher doses may be needed due to poor bioavailability.",
+    dosage: "Research literature has documented doses of 150-500mg daily, noting trans-resveratrol as the studied form. Bioavailability considerations are frequently discussed in the literature. These figures are provided for research context only and do not constitute a recommendation for personal use.",
     safetyNotes: [
       "Generally well-tolerated",
       "GI upset possible at higher doses",
@@ -452,7 +452,7 @@ export const compoundsData: Compound[] = [
       "Modulate immune responses",
       "Produce neurotransmitter precursors"
     ],
-    dosage: "Highly strain-specific. General range: 1-10 billion CFU daily for maintenance. Specific strains studied at specific doses for specific conditions.",
+    dosage: "Research is highly strain-specific. Published studies have documented ranges of 1-10 billion CFU daily, with specific strains studied at specific doses for particular research outcomes. These figures are provided for research context only and do not constitute a recommendation for personal use.",
     safetyNotes: [
       "Generally very safe for healthy individuals",
       "May cause initial GI symptoms (gas, bloating)",

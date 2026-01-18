@@ -206,24 +206,36 @@ const CompoundPage = () => {
                 </ul>
               </section>
 
-              {/* Dosage */}
+              {/* Research-Reported Dosages */}
               <section className="bg-card border border-border rounded-xl p-6">
                 <div className="flex items-center gap-2 text-primary mb-4">
                   <Pill className="w-5 h-5" />
-                  <h2 className="font-serif text-xl font-semibold">Research Dosages</h2>
+                  <h2 className="font-serif text-xl font-semibold">Research-Reported Dosages</h2>
                 </div>
-                <p className="text-muted-foreground leading-relaxed mb-4">
-                  {compound.dosage}
-                </p>
-                <div className="p-4 rounded-lg bg-amber-500/5 border border-amber-500/20">
+                <div className="p-4 rounded-lg bg-amber-500/10 border border-amber-500/30 mb-4">
                   <div className="flex items-start gap-3">
                     <AlertTriangle className="w-5 h-5 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
-                    <p className="text-sm text-muted-foreground">
-                      Dosage information is based on research literature and does not constitute
-                      medical advice. Always consult a healthcare provider before starting any
-                      supplement regimen.
-                    </p>
+                    <div>
+                      <p className="text-sm font-medium text-amber-700 dark:text-amber-300 mb-1">
+                        Research Context Only — Not Medical Advice
+                      </p>
+                      <p className="text-xs text-muted-foreground">
+                        The following information reflects dosages reported in published research studies. 
+                        This is NOT a recommendation for personal use. Always consult a qualified healthcare 
+                        provider before starting any supplement regimen.
+                      </p>
+                    </div>
                   </div>
+                </div>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm">
+                  {compound.dosage}
+                </p>
+                <div className="p-3 rounded-lg bg-muted/50 border border-border">
+                  <p className="text-xs text-muted-foreground italic">
+                    Individual responses vary significantly. Factors including age, health status, 
+                    medications, and individual biochemistry can affect outcomes. Research settings 
+                    differ from real-world conditions.
+                  </p>
                 </div>
               </section>
 
