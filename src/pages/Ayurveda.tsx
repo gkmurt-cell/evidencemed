@@ -472,9 +472,12 @@ const Ayurveda = () => {
               <section className="py-12 lg:py-16 bg-secondary/30">
                 <div className="container mx-auto px-4">
                   <div className="max-w-4xl">
-                    <h2 className="font-serif text-2xl md:text-3xl font-semibold text-foreground mb-8">
+                    <h2 className="font-serif text-2xl md:text-3xl font-semibold text-foreground mb-2">
                       Ayurvedic Treatments
                     </h2>
+                    <p className="text-sm text-muted-foreground mb-8">
+                      Traditional therapies used by Ayurvedic practitioners. For educational purposes only—not medical recommendations.
+                    </p>
                     <div className="space-y-4">
                       {treatments.map((treatment) => (
                         <div
