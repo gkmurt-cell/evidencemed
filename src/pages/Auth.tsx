@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { Leaf, Mail, Lock, User, Building2 } from "lucide-react";
 import { z } from "zod";
+import { getBackendClient, isBackendAvailable } from "@/lib/backend";
 
 const emailSchema = z.string().email("Please enter a valid email address");
 const passwordSchema = z.string().min(6, "Password must be at least 6 characters");
@@ -24,24 +24,36 @@ const Auth = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
 
+  const backendAvailable = isBackendAvailable();
+
   useEffect(() => {
-    // Set up auth state listener
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      (event, session) => {
+    let unsubscribe: (() => void) | null = null;
+
+    (async () => {
+      const client = await getBackendClient();
+      if (!client) return;
+
+      // Set up auth state listener
+      const {
+        data: { subscription },
+      } = client.auth.onAuthStateChange((_event, session) => {
         if (session?.user) {
           navigate("/");
         }
-      }
-    );
+      });
 
-    // Check for existing session
-    supabase.auth.getSession().then(({ data: { session } }) => {
+      unsubscribe = () => subscription.unsubscribe();
+
+      // Check for existing session
+      const {
+        data: { session },
+      } = await client.auth.getSession();
       if (session?.user) {
         navigate("/");
       }
-    });
+    })();
 
-    return () => subscription.unsubscribe();
+    return () => unsubscribe?.();
   }, [navigate]);
 
   const validateForm = (): boolean => {
@@ -69,8 +81,13 @@ const Auth = () => {
     setLoading(true);
 
     try {
+      const client = await getBackendClient();
+      if (!client) {
+        throw new Error("Backend unavailable");
+      }
+
       if (isLogin) {
-        const { error } = await supabase.auth.signInWithPassword({
+        const { error } = await client.auth.signInWithPassword({
           email,
           password,
         });
@@ -83,8 +100,8 @@ const Auth = () => {
         });
       } else {
         const redirectUrl = `${window.location.origin}/`;
-        
-        const { error } = await supabase.auth.signUp({
+
+        const { error } = await client.auth.signUp({
           email,
           password,
           options: {
@@ -104,15 +121,19 @@ const Auth = () => {
         });
       }
     } catch (error: any) {
-      let message = error.message;
-      
+      let message = error?.message || "Unknown error";
+
+      if (message === "Backend unavailable") {
+        message = "The backend is still loading. Please refresh and try again.";
+      }
+
       // Friendly error messages
       if (message.includes("User already registered")) {
         message = "An account with this email already exists. Try signing in instead.";
       } else if (message.includes("Invalid login credentials")) {
         message = "Invalid email or password. Please check your credentials.";
       }
-      
+
       toast({
         title: "Authentication Error",
         description: message,

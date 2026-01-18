@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
 import { MessageCircle, Star, ThumbsUp, User, LogIn } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
+import { getBackendClient } from "@/lib/backend";
 import { useAuth } from "@/hooks/useAuth";
 import { useToast } from "@/hooks/use-toast";
 
@@ -29,7 +29,14 @@ const CommentsSection = () => {
   // Fetch approved reviews
   useEffect(() => {
     const fetchReviews = async () => {
-      const { data, error } = await supabase
+      const client = await getBackendClient();
+      if (!client) {
+        setReviews([]);
+        setLoading(false);
+        return;
+      }
+
+      const { data, error } = await client
         .from("reviews")
         .select("*")
         .order("created_at", { ascending: false })
@@ -49,13 +56,16 @@ const CommentsSection = () => {
     if (!user) return;
 
     const fetchHelpfulMarks = async () => {
-      const { data } = await supabase
+      const client = await getBackendClient();
+      if (!client) return;
+
+      const { data } = await client
         .from("review_helpful")
         .select("review_id")
         .eq("user_id", user.id);
 
       if (data) {
-        setHelpfulMarks(new Set(data.map(h => h.review_id)));
+        setHelpfulMarks(new Set(data.map((h) => h.review_id)));
       }
     };
 
@@ -85,7 +95,18 @@ const CommentsSection = () => {
 
     setSubmitting(true);
 
-    const { error } = await supabase.from("reviews").insert({
+    const client = await getBackendClient();
+    if (!client) {
+      toast({
+        title: "Temporarily unavailable",
+        description: "The backend is still loading. Please refresh and try again.",
+        variant: "destructive",
+      });
+      setSubmitting(false);
+      return;
+    }
+
+    const { error } = await client.from("reviews").insert({
       user_id: user.id,
       name: newReview.name,
       rating: newReview.rating,
@@ -122,7 +143,17 @@ const CommentsSection = () => {
     const isMarked = helpfulMarks.has(reviewId);
 
     if (isMarked) {
-      await supabase
+      const client = await getBackendClient();
+      if (!client) {
+        toast({
+          title: "Temporarily unavailable",
+          description: "The backend is still loading. Please refresh and try again.",
+          variant: "destructive",
+        });
+        return;
+      }
+
+      await client
         .from("review_helpful")
         .delete()
         .eq("review_id", reviewId)
@@ -134,7 +165,17 @@ const CommentsSection = () => {
         return next;
       });
     } else {
-      await supabase.from("review_helpful").insert({
+      const client = await getBackendClient();
+      if (!client) {
+        toast({
+          title: "Temporarily unavailable",
+          description: "The backend is still loading. Please refresh and try again.",
+          variant: "destructive",
+        });
+        return;
+      }
+
+      await client.from("review_helpful").insert({
         review_id: reviewId,
         user_id: user.id,
       });

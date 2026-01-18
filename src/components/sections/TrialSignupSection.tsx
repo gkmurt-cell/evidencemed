@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Check, Building2, Users, Briefcase, Sparkles } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
+import { getBackendClient } from "@/lib/backend";
 import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
 
@@ -72,7 +72,12 @@ const TrialSignupSection = () => {
     setLoading(true);
 
     try {
-      const { error } = await supabase.from("trial_signups").insert({
+      const client = await getBackendClient();
+      if (!client) {
+        throw new Error("Backend unavailable");
+      }
+
+      const { error } = await client.from("trial_signups").insert({
         email: formData.email,
         name: formData.name,
         organization: formData.organization || null,
