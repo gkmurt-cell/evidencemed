@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ExternalLink, FileText, FlaskConical, Users, TestTube, AlertTriangle, Shield, Link2, Filter } from "lucide-react";
 import EducationalDisclaimer from "@/components/layout/EducationalDisclaimer";
@@ -305,9 +306,11 @@ const ResearchSection = () => {
 
           {/* CTA */}
           <div className="text-center mt-10">
-            <Button size="lg">
-              Explore Full Library
-              <ArrowRight className="w-4 h-4" />
+            <Button size="lg" asChild>
+              <Link to="/research">
+                Explore Full Library
+                <ArrowRight className="w-4 h-4" />
+              </Link>
             </Button>
           </div>
         </div>

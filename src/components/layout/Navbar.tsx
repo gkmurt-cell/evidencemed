@@ -97,7 +97,7 @@ const Navbar = () => {
 
   const navLinks = [
     { name: "Conditions", href: "#conditions", icon: BookOpen },
-    { name: "Research Library", href: "#research", icon: FlaskConical },
+    { name: "Research Library", href: "/research", icon: FlaskConical, isLink: true },
     { name: "Natural Compounds", href: "#compounds", icon: Leaf },
     { name: "Integrative Therapies", href: "/integrative-therapies", icon: Heart, isLink: true },
     { name: "Ayurveda", href: "/ayurveda", icon: Leaf, isLink: true },
