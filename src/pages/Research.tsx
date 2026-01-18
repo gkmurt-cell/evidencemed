@@ -182,17 +182,17 @@ const Research = () => {
           </div>
 
           {/* Filters */}
-          <div className="bg-card border border-border rounded-xl p-4 mb-8">
+          <div className="bg-gradient-to-r from-primary/10 via-accent/10 to-primary/5 border-2 border-primary/20 rounded-xl p-4 mb-8 shadow-sm">
             <div className="flex flex-col lg:flex-row gap-4">
               {/* Search */}
               <div className="relative flex-1">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-primary" />
                 <Input
                   type="text"
                   placeholder="Search studies, compounds, conditions..."
                   value={searchQuery}
                   onChange={(e) => handleFilterChange(setSearchQuery, e.target.value)}
-                  className="pl-10"
+                  className="pl-10 bg-background border-primary/30 focus:border-primary"
                 />
               </div>
 
