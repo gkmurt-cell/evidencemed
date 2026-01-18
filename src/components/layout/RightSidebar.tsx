@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { TrendingUp, Calendar, ChevronDown, Video, Play, ShoppingBag } from "lucide-react";
+import { useLocation } from "react-router-dom";
+import { PractitionerFinder } from "@/components/PractitionerFinder";
 import { Link } from "react-router-dom";
 import {
   Collapsible,
@@ -155,6 +157,10 @@ type SectionType = "research" | "videos" | null;
 
 export function RightSidebar({ variant = "split", relatedCategory }: RightSidebarProps) {
   const [openSection, setOpenSection] = useState<SectionType>(null);
+  const location = useLocation();
+  
+  // Show practitioner finder on integrative therapies page
+  const showPractitionerFinder = location.pathname === "/integrative-therapies";
 
   const handleSectionToggle = (section: SectionType) => {
     setOpenSection(prev => prev === section ? null : section);
@@ -190,6 +196,9 @@ export function RightSidebar({ variant = "split", relatedCategory }: RightSideba
           ))}
         </nav>
       </div>
+
+      {/* Practitioner Finder - Only on Integrative Therapies page */}
+      {showPractitionerFinder && <PractitionerFinder />}
 
       <div className="divide-y divide-border">
         {/* 1. Research Updates Section - Primary, non-commercial */}
