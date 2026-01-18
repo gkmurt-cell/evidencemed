@@ -88,6 +88,12 @@ const modalities = [
     link: "https://holistichealthcommunity.org/healing-modalities/brennan-healing-science"
   },
   {
+    name: "Bowen Technique",
+    description: "A gentle, non-invasive bodywork therapy that uses subtle rolling movements over muscles, tendons, ligaments, and fascia to stimulate the body's self-healing mechanisms and reset the autonomic nervous system.",
+    category: "energetic",
+    link: "https://holistichealthcommunity.org/healing-modalities/bowen-technique"
+  },
+  {
     name: "Chiropractic",
     description: "A healthcare discipline emphasizing the body's instinctive power to heal itself without drugs or surgery. Focuses on diagnosis, treatment, and prevention of mechanical disorders of the musculoskeletal system and their effects on the nervous system through manual treatments including spinal adjustment.",
     category: "bodywork",
@@ -377,6 +383,13 @@ const energeticTreatments = [
     implementation: "Licensed practitioner inserts sterile needles at strategic points. Sessions last 30-60 minutes with needles in place for 15-30 minutes.",
     studies: 450,
     tags: ["traditional", "meridian", "needle"],
+  },
+  {
+    name: "Bowen Technique",
+    description: "A gentle, non-invasive bodywork therapy that uses subtle rolling movements over muscles, tendons, ligaments, and fascia to stimulate the body's self-healing mechanisms and reset the autonomic nervous system.",
+    implementation: "Practitioner makes precise rolling moves at specific points on the body with rest periods between sequences. Sessions typically last 45-60 minutes, with clients remaining clothed.",
+    studies: 22,
+    tags: ["gentle", "fascia", "nervous-system"],
   },
 ];
 
