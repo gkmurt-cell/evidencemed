@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import { ExternalLink, ShoppingBag, Leaf, BookOpen, Video, Play, Package, AlertTriangle, Pill, Filter } from "lucide-react";
+import { ExternalLink, ShoppingBag, Leaf, BookOpen, Video, Play, Package, AlertTriangle, Pill, Filter, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
@@ -462,6 +462,16 @@ function EmptyState({ category }: { category: string }) {
 
 export default function Merch() {
   const [activeTab, setActiveTab] = useState("all");
+  const [visibleVideos, setVisibleVideos] = useState(6);
+  
+  const VIDEOS_PER_PAGE = 6;
+  const hasMoreVideos = visibleVideos < videoContent.length;
+  
+  const loadMoreVideos = () => {
+    setVisibleVideos(prev => Math.min(prev + VIDEOS_PER_PAGE, videoContent.length));
+  };
+  
+  const displayedVideos = videoContent.slice(0, visibleVideos);
 
   return (
     <>
@@ -575,10 +585,22 @@ export default function Merch() {
                       <Badge variant="outline" className="ml-2">Webinars & Talks</Badge>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                      {videoContent.map((video) => (
+                      {displayedVideos.map((video) => (
                         <VideoCard key={video.id} video={video} />
                       ))}
                     </div>
+                    {hasMoreVideos && (
+                      <div className="flex justify-center mt-8">
+                        <Button 
+                          variant="outline" 
+                          onClick={loadMoreVideos}
+                          className="rounded-full px-6"
+                        >
+                          <ChevronDown className="h-4 w-4 mr-2" />
+                          Load More Videos ({videoContent.length - visibleVideos} remaining)
+                        </Button>
+                      </div>
+                    )}
                   </div>
                 </TabsContent>
 
@@ -626,11 +648,25 @@ export default function Merch() {
                     <Badge variant="outline" className="ml-2">Webinars & Partner Content</Badge>
                   </div>
                   {videoContent.length > 0 ? (
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                      {videoContent.map((video) => (
-                        <VideoCard key={video.id} video={video} />
-                      ))}
-                    </div>
+                    <>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {displayedVideos.map((video) => (
+                          <VideoCard key={video.id} video={video} />
+                        ))}
+                      </div>
+                      {hasMoreVideos && (
+                        <div className="flex justify-center mt-8">
+                          <Button 
+                            variant="outline" 
+                            onClick={loadMoreVideos}
+                            className="rounded-full px-6"
+                          >
+                            <ChevronDown className="h-4 w-4 mr-2" />
+                            Load More Videos ({videoContent.length - visibleVideos} remaining)
+                          </Button>
+                        </div>
+                      )}
+                    </>
                   ) : (
                     <EmptyState category="videos" />
                   )}
