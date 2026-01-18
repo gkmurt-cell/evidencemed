@@ -290,6 +290,12 @@ const modalities = [
     category: "herbal",
     link: "https://nccih.nih.gov/health/chinesemedicine"
   },
+  {
+    name: "Essential Oils & Aromatherapy",
+    description: "Therapeutic use of concentrated plant extracts for physical and emotional wellness. Essential oils are used through inhalation, topical application, and diffusion to support immune function, reduce stress, and promote healing through the olfactory system and skin absorption.",
+    category: "herbal",
+    link: "https://nccih.nih.gov/health/aromatherapy"
+  },
 ];
 
 // Energetic treatments list
