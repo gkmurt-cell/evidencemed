@@ -89,6 +89,45 @@ export type Database = {
         }
         Relationships: []
       }
+      quote_requests: {
+        Row: {
+          contact_email: string
+          contact_name: string
+          created_at: string
+          department: string | null
+          id: string
+          institution_name: string
+          message: string | null
+          number_of_users: string
+          status: string
+          updated_at: string
+        }
+        Insert: {
+          contact_email: string
+          contact_name: string
+          created_at?: string
+          department?: string | null
+          id?: string
+          institution_name: string
+          message?: string | null
+          number_of_users: string
+          status?: string
+          updated_at?: string
+        }
+        Update: {
+          contact_email?: string
+          contact_name?: string
+          created_at?: string
+          department?: string | null
+          id?: string
+          institution_name?: string
+          message?: string | null
+          number_of_users?: string
+          status?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       review_helpful: {
         Row: {
           created_at: string
