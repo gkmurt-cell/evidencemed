@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, BookOpen, Shield, CheckCircle } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   const features = [
@@ -165,12 +166,12 @@ const HeroSection = () => {
                 Start 7-Day Free Trial
               </Button>
             </div>
-            <a 
-              href="#pricing" 
+            <Link 
+              to="/pricing" 
               className="text-sm text-primary-foreground/70 hover:text-primary-foreground underline underline-offset-2 transition-colors"
             >
               See pricing for individuals and institutions
-            </a>
+            </Link>
           </div>
 
           {/* Trust Indicators */}
