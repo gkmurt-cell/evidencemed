@@ -18,18 +18,19 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>EvidenceMed | Alternative Medicine & Complementary Therapy Research Platform</title>
+        <title>EvidenceMed: Integrative & Complementary Therapies Research</title>
         <meta 
           name="description" 
-          content="Explore peer-reviewed research on alternative medicine, complementary and alternative medicine therapies, natural compounds, and alternative cancer treatments. Evidence-based alternative therapy education for practitioners and health-conscious consumers." 
+          content="Explore peer-reviewed research on integrative medicine, complementary therapies, natural compounds, and alternative treatments. Evidence-based education for practitioners and health-conscious individuals." 
         />
-        <meta name="keywords" content="alternative medicine, complementary and alternative medicine, alternative therapy, alternative cancer treatments, natural compounds, peer-reviewed studies, integrative health, herbal medicine research" />
-        <link rel="canonical" href="https://evidencemed.com" />
+        <meta name="keywords" content="integrative medicine, complementary therapies, alternative medicine, natural compounds, peer-reviewed studies, integrative health, herbal medicine research, evidence-based medicine" />
+        <link rel="canonical" href="https://integrativeevidence.com" />
         
         {/* Open Graph */}
-        <meta property="og:title" content="EvidenceMed | Alternative Medicine Research Platform" />
-        <meta property="og:description" content="Explore peer-reviewed research on alternative medicine and complementary therapies. Evidence-based alternative therapy content sourced from PubMed, NIH, and leading journals." />
+        <meta property="og:title" content="EvidenceMed: Integrative & Complementary Therapies Research" />
+        <meta property="og:description" content="Explore peer-reviewed research on integrative medicine and complementary therapies. Evidence-based content sourced from PubMed, NIH, and leading journals." />
         <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://integrativeevidence.com" />
         
         {/* Structured Data */}
         <script type="application/ld+json">
@@ -37,7 +38,9 @@ const Index = () => {
             "@context": "https://schema.org",
             "@type": "WebApplication",
             "name": "EvidenceMed",
-            "description": "Research-based educational platform for alternative medicine and complementary and alternative medicine therapies",
+            "alternateName": "Integrative Evidence",
+            "url": "https://integrativeevidence.com",
+            "description": "Research-based educational platform for integrative medicine and complementary therapies",
             "applicationCategory": "HealthApplication",
             "offers": {
               "@type": "Offer",

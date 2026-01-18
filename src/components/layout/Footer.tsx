@@ -54,7 +54,7 @@ const Footer = () => {
             </p>
             <p className="text-xs text-muted-foreground text-center leading-relaxed">
               Research summaries may not reflect the complete body of evidence on any topic. Individual results may vary. 
-              EvidenceMed assumes no liability for actions taken based on information presented herein. 
+              IntegrativeEvidence.com assumes no liability for actions taken based on information presented herein. 
               <strong className="text-foreground"> If you are experiencing a medical emergency, call your local emergency services immediately.</strong>
             </p>
           </div>
@@ -79,7 +79,7 @@ const Footer = () => {
             </p>
             <div className="flex items-center gap-3">
               <a
-                href="https://instagram.com/evidencemed"
+                href="https://instagram.com/integrativeevidence"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-secondary/80 transition-colors"
@@ -88,7 +88,7 @@ const Footer = () => {
                 <Instagram className="w-5 h-5" />
               </a>
               <a
-                href="https://facebook.com/evidencemed"
+                href="https://facebook.com/integrativeevidence"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-secondary/80 transition-colors"
@@ -97,7 +97,7 @@ const Footer = () => {
                 <Facebook className="w-5 h-5" />
               </a>
               <a
-                href="mailto:contact@evidencemed.com"
+                href="mailto:contact@integrativeevidence.com"
                 className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-secondary/80 transition-colors"
                 aria-label="Email us"
               >
@@ -196,7 +196,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">
-            © {currentYear} EvidenceMed. All rights reserved.
+            © {currentYear} IntegrativeEvidence.com. All rights reserved.
           </p>
           <p className="text-sm text-muted-foreground">
             Research aggregated from PubMed, NIH, and peer-reviewed journals.
