@@ -45,7 +45,7 @@ const plans = [
     period: "",
     description: "For universities, hospitals, clinics, and healthcare organizations",
     cta: "Contact Sales",
-    variant: "outline" as const,
+    variant: "secondary" as const,
   },
 ];
 
@@ -291,9 +291,9 @@ const Pricing = () => {
                       variant={plan.variant}
                       size="lg"
                       className="w-full"
+                      asChild
                     >
-                      {plan.cta}
-                      <ArrowRight className="w-4 h-4 ml-2" />
+                      <Link to="/auth">{plan.cta}</Link>
                     </Button>
                   )}
                 </div>
