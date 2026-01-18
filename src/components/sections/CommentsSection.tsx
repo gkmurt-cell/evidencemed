@@ -1,57 +1,146 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
-import { MessageCircle, Star, ThumbsUp, User } from "lucide-react";
+import { MessageCircle, Star, ThumbsUp, User, LogIn } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
+import { useAuth } from "@/hooks/useAuth";
+import { useToast } from "@/hooks/use-toast";
 
 interface Review {
   id: string;
   name: string;
   rating: number;
   comment: string;
-  date: string;
-  helpful: number;
+  created_at: string;
+  helpful_count: number;
+  user_id: string;
 }
 
-const sampleReviews: Review[] = [
-  {
-    id: "1",
-    name: "Dr. Sarah M.",
-    rating: 5,
-    comment: "This platform has transformed how I research alternative therapies for my patients. The peer-reviewed focus gives me confidence in the information.",
-    date: "Jan 15, 2026",
-    helpful: 24,
-  },
-  {
-    id: "2",
-    name: "James T.",
-    rating: 5,
-    comment: "Finally, a resource that takes evidence-based alternative medicine seriously. The research summaries save me hours of work.",
-    date: "Jan 12, 2026",
-    helpful: 18,
-  },
-  {
-    id: "3",
-    name: "Linda R., ND",
-    rating: 4,
-    comment: "Great compilation of integrative therapies. Would love to see more on essential oils and aromatherapy research.",
-    date: "Jan 8, 2026",
-    helpful: 12,
-  },
-];
-
 const CommentsSection = () => {
-  const [reviews] = useState<Review[]>(sampleReviews);
-  const [newReview, setNewReview] = useState({ name: "", email: "", rating: 5, comment: "" });
-  const [submitted, setSubmitted] = useState(false);
+  const { user } = useAuth();
+  const { toast } = useToast();
+  const [reviews, setReviews] = useState<Review[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [submitting, setSubmitting] = useState(false);
+  const [newReview, setNewReview] = useState({ name: "", rating: 5, comment: "" });
+  const [helpfulMarks, setHelpfulMarks] = useState<Set<string>>(new Set());
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // Fetch approved reviews
+  useEffect(() => {
+    const fetchReviews = async () => {
+      const { data, error } = await supabase
+        .from("reviews")
+        .select("*")
+        .order("created_at", { ascending: false })
+        .limit(10);
+
+      if (!error && data) {
+        setReviews(data);
+      }
+      setLoading(false);
+    };
+
+    fetchReviews();
+  }, []);
+
+  // Fetch user's helpful marks
+  useEffect(() => {
+    if (!user) return;
+
+    const fetchHelpfulMarks = async () => {
+      const { data } = await supabase
+        .from("review_helpful")
+        .select("review_id")
+        .eq("user_id", user.id);
+
+      if (data) {
+        setHelpfulMarks(new Set(data.map(h => h.review_id)));
+      }
+    };
+
+    fetchHelpfulMarks();
+  }, [user]);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // In production, this would save to database
-    console.log("Review submitted:", newReview);
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 3000);
-    setNewReview({ name: "", email: "", rating: 5, comment: "" });
+    
+    if (!user) {
+      toast({
+        title: "Sign in required",
+        description: "Please sign in to submit a review.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    if (!newReview.name.trim() || !newReview.comment.trim()) {
+      toast({
+        title: "Missing information",
+        description: "Please fill in your name and review.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setSubmitting(true);
+
+    const { error } = await supabase.from("reviews").insert({
+      user_id: user.id,
+      name: newReview.name,
+      rating: newReview.rating,
+      comment: newReview.comment,
+    });
+
+    if (error) {
+      toast({
+        title: "Error",
+        description: "Failed to submit review. Please try again.",
+        variant: "destructive",
+      });
+    } else {
+      toast({
+        title: "Thank you!",
+        description: "Your review has been submitted and will be published after moderation.",
+      });
+      setNewReview({ name: "", rating: 5, comment: "" });
+    }
+
+    setSubmitting(false);
+  };
+
+  const handleHelpful = async (reviewId: string) => {
+    if (!user) {
+      toast({
+        title: "Sign in required",
+        description: "Please sign in to mark reviews as helpful.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    const isMarked = helpfulMarks.has(reviewId);
+
+    if (isMarked) {
+      await supabase
+        .from("review_helpful")
+        .delete()
+        .eq("review_id", reviewId)
+        .eq("user_id", user.id);
+
+      setHelpfulMarks(prev => {
+        const next = new Set(prev);
+        next.delete(reviewId);
+        return next;
+      });
+    } else {
+      await supabase.from("review_helpful").insert({
+        review_id: reviewId,
+        user_id: user.id,
+      });
+
+      setHelpfulMarks(prev => new Set([...prev, reviewId]));
+    }
   };
 
   const renderStars = (rating: number, interactive = false, onRate?: (r: number) => void) => {
@@ -68,6 +157,14 @@ const CommentsSection = () => {
         ))}
       </div>
     );
+  };
+
+  const formatDate = (dateString: string) => {
+    return new Date(dateString).toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+    });
   };
 
   return (
@@ -89,30 +186,45 @@ const CommentsSection = () => {
 
           {/* Reviews List */}
           <div className="space-y-6 mb-10">
-            {reviews.map((review) => (
-              <div
-                key={review.id}
-                className="p-6 rounded-xl bg-card border border-border"
-              >
-                <div className="flex items-start justify-between gap-4 mb-3">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                      <User className="w-5 h-5 text-primary" />
-                    </div>
-                    <div>
-                      <h4 className="font-medium text-foreground">{review.name}</h4>
-                      <p className="text-xs text-muted-foreground">{review.date}</p>
-                    </div>
-                  </div>
-                  {renderStars(review.rating)}
-                </div>
-                <p className="text-muted-foreground mb-4">{review.comment}</p>
-                <button className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors">
-                  <ThumbsUp className="w-4 h-4" />
-                  <span>Helpful ({review.helpful})</span>
-                </button>
+            {loading ? (
+              <div className="text-center py-8 text-muted-foreground">Loading reviews...</div>
+            ) : reviews.length === 0 ? (
+              <div className="text-center py-8">
+                <p className="text-muted-foreground">No reviews yet. Be the first to share your experience!</p>
               </div>
-            ))}
+            ) : (
+              reviews.map((review) => (
+                <div
+                  key={review.id}
+                  className="p-6 rounded-xl bg-card border border-border"
+                >
+                  <div className="flex items-start justify-between gap-4 mb-3">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                        <User className="w-5 h-5 text-primary" />
+                      </div>
+                      <div>
+                        <h4 className="font-medium text-foreground">{review.name}</h4>
+                        <p className="text-xs text-muted-foreground">{formatDate(review.created_at)}</p>
+                      </div>
+                    </div>
+                    {renderStars(review.rating)}
+                  </div>
+                  <p className="text-muted-foreground mb-4">{review.comment}</p>
+                  <button 
+                    onClick={() => handleHelpful(review.id)}
+                    className={`flex items-center gap-2 text-sm transition-colors ${
+                      helpfulMarks.has(review.id) 
+                        ? "text-primary" 
+                        : "text-muted-foreground hover:text-primary"
+                    }`}
+                  >
+                    <ThumbsUp className={`w-4 h-4 ${helpfulMarks.has(review.id) ? "fill-current" : ""}`} />
+                    <span>Helpful ({review.helpful_count + (helpfulMarks.has(review.id) ? 1 : 0)})</span>
+                  </button>
+                </div>
+              ))
+            )}
           </div>
 
           {/* Submit Review Form */}
@@ -121,40 +233,26 @@ const CommentsSection = () => {
               Leave a Review
             </h3>
             
-            {submitted ? (
+            {!user ? (
               <div className="text-center py-8">
-                <div className="w-16 h-16 rounded-full bg-green-500/10 flex items-center justify-center mx-auto mb-4">
-                  <MessageCircle className="w-8 h-8 text-green-500" />
-                </div>
-                <p className="text-lg font-medium text-foreground">Thank you for your feedback!</p>
-                <p className="text-muted-foreground">Your review will be published after moderation.</p>
+                <LogIn className="w-12 h-12 text-muted-foreground mx-auto mb-4" />
+                <p className="text-muted-foreground mb-4">Sign in to leave a review</p>
+                <Button asChild>
+                  <a href="/auth">Sign In</a>
+                </Button>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="text-sm font-medium text-foreground mb-2 block">
-                      Your Name
-                    </label>
-                    <Input
-                      placeholder="Dr. Jane Doe"
-                      value={newReview.name}
-                      onChange={(e) => setNewReview({ ...newReview, name: e.target.value })}
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label className="text-sm font-medium text-foreground mb-2 block">
-                      Email (for follow-up, not published)
-                    </label>
-                    <Input
-                      type="email"
-                      placeholder="jane@example.com"
-                      value={newReview.email}
-                      onChange={(e) => setNewReview({ ...newReview, email: e.target.value })}
-                      required
-                    />
-                  </div>
+                <div>
+                  <label className="text-sm font-medium text-foreground mb-2 block">
+                    Your Name (as displayed)
+                  </label>
+                  <Input
+                    placeholder="Dr. Jane Doe"
+                    value={newReview.name}
+                    onChange={(e) => setNewReview({ ...newReview, name: e.target.value })}
+                    required
+                  />
                 </div>
 
                 <div>
@@ -177,8 +275,8 @@ const CommentsSection = () => {
                   />
                 </div>
 
-                <Button type="submit" className="w-full md:w-auto">
-                  Submit Review
+                <Button type="submit" className="w-full md:w-auto" disabled={submitting}>
+                  {submitting ? "Submitting..." : "Submit Review"}
                 </Button>
               </form>
             )}
