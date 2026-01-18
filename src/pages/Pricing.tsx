@@ -199,7 +199,7 @@ const Pricing = () => {
         <Navbar />
 
         {/* Hero Section */}
-        <section className="pt-24 pb-16 bg-gradient-to-b from-primary/5 to-background">
+        <section className="pt-20 pb-8 bg-gradient-to-b from-primary/5 to-background">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center">
               <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
@@ -218,7 +218,7 @@ const Pricing = () => {
         </section>
 
         {/* Pricing Cards */}
-        <section className="py-16">
+        <section className="py-8">
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
               {plans.map((plan) => (
@@ -294,7 +294,7 @@ const Pricing = () => {
         </section>
 
         {/* Feature Comparison Table */}
-        <section className="py-16 bg-secondary/30">
+        <section className="py-10 bg-secondary/30">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center mb-12">
               <h2 className="font-serif text-3xl md:text-4xl font-semibold text-foreground mb-4">
