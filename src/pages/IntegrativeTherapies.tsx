@@ -657,25 +657,16 @@ const IntegrativeTherapies = () => {
                               </button>
                               {selectedModality === modality.name && (
                                 <div className={`mt-2 ml-4 p-4 bg-secondary/20 rounded-lg border-l-4 ${getCategoryColor(modality.category)}`}>
-                                  <p className="text-sm text-foreground leading-relaxed mb-3">
+                                  <p className="text-sm text-foreground leading-relaxed">
                                     {modality.description}
                                   </p>
-                                  {modality.isInternalLink ? (
+                                  {modality.isInternalLink && (
                                     <Link 
                                       to={modality.link}
-                                      className="inline-flex items-center gap-1 text-sm text-primary hover:underline font-medium"
+                                      className="inline-flex items-center gap-1 text-sm text-primary hover:underline font-medium mt-3"
                                     >
                                       Explore Ayurveda <ExternalLink className="w-3 h-3" />
                                     </Link>
-                                  ) : (
-                                    <a 
-                                      href={modality.link}
-                                      target="_blank"
-                                      rel="noopener noreferrer"
-                                      className="inline-flex items-center gap-1 text-sm text-primary hover:underline font-medium"
-                                    >
-                                      Learn more & find practitioners <ExternalLink className="w-3 h-3" />
-                                    </a>
                                   )}
                                 </div>
                               )}
