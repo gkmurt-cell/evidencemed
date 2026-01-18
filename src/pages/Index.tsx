@@ -58,13 +58,17 @@ const Index = () => {
           <div className="flex">
             {/* Main Content */}
             <main className="flex-1 min-w-0">
-              <ConditionsSection />
+              {/* Primary: Research-focused content */}
               <ResearchSection />
+              <ConditionsSection />
               <CompoundsSection />
+              
+              {/* Secondary: Social proof & conversion */}
               <SocialProofSection />
               <PricingSection />
               <TrialSignupSection />
-              {/* Mobile/Tablet Books Section */}
+              
+              {/* Tertiary: Supplementary content */}
               <MobileBooksSection />
               <CommentsSection />
               <CTASection />
