@@ -101,11 +101,11 @@ const Navbar = () => {
     { name: "Natural Compounds", href: "/compounds", icon: Leaf, isLink: true },
     { name: "Integrative Therapies", href: "/integrative-therapies", icon: Heart, isLink: true },
     { name: "Ayurveda", href: "/ayurveda", icon: Leaf, isLink: true },
-    { name: "Pricing", href: "#pricing" },
   ];
 
   const resourcesDropdown = [
     { name: "Educational Shop", href: "/merch", icon: ShoppingBag, description: "Books & branded items" },
+    { name: "Pricing & Plans", href: "#pricing", icon: BookOpen, description: "Individual, professional & institutional plans" },
   ];
 
   return (
