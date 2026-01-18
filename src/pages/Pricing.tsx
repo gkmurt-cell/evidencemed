@@ -267,14 +267,26 @@ const Pricing = () => {
                     {plan.description}
                   </p>
 
-                  <Button
-                    variant={plan.variant}
-                    size="lg"
-                    className="w-full"
-                  >
-                    {plan.cta}
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </Button>
+                  {plan.id === "institution" ? (
+                    <Button
+                      variant={plan.variant}
+                      size="lg"
+                      className="w-full"
+                      onClick={() => document.getElementById('institutional')?.scrollIntoView({ behavior: 'smooth' })}
+                    >
+                      {plan.cta}
+                      <ArrowRight className="w-4 h-4 ml-2" />
+                    </Button>
+                  ) : (
+                    <Button
+                      variant={plan.variant}
+                      size="lg"
+                      className="w-full"
+                    >
+                      {plan.cta}
+                      <ArrowRight className="w-4 h-4 ml-2" />
+                    </Button>
+                  )}
                 </div>
               ))}
             </div>
