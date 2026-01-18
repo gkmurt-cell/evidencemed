@@ -100,7 +100,6 @@ const Navbar = () => {
     { name: "Research Library", href: "/research", icon: FlaskConical, isLink: true },
     { name: "Natural Compounds", href: "/compounds", icon: Leaf, isLink: true },
     { name: "Integrative Therapies", href: "/integrative-therapies", icon: Heart, isLink: true },
-    { name: "Ayurveda", href: "/ayurveda", icon: Leaf, isLink: true },
   ];
 
   const resourcesDropdown = [
