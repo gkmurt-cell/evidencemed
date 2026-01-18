@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
-import { Check, X, Sparkles, Building2, User, Users, ArrowRight, Shield, BookOpen, GraduationCap, Send, Briefcase } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Check, X, Sparkles, Building2, User, Users, ArrowRight, Shield, BookOpen, GraduationCap, Send } from "lucide-react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { Input } from "@/components/ui/input";
@@ -45,7 +44,7 @@ const plans = [
     period: "",
     description: "For universities, hospitals, clinics, and healthcare organizations",
     cta: "Contact Sales",
-    variant: "secondary" as const,
+    variant: "default" as const,
   },
 ];
 
