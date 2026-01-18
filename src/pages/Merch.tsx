@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import { ExternalLink, ShoppingBag, Leaf, BookOpen, Pill, ShoppingCart, Shirt, Package } from "lucide-react";
+import { ExternalLink, ShoppingBag, Leaf, BookOpen, ShoppingCart, Shirt, Package } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
@@ -31,19 +31,21 @@ interface AffiliatePartner {
   categories: string[];
 }
 
+// Only educational/non-therapeutic affiliate partners per compliance guidelines
+// EXCLUDED: iHerb, Vitacost (supplements/wellness products)
 const affiliatePartners: AffiliatePartner[] = [
   {
     id: "amazon",
     name: "Amazon",
-    description: "Books, health products, and herbal supplies from the world's largest marketplace.",
+    description: "Educational books on herbalism, natural medicine, and health research.",
     icon: <ShoppingCart className="h-6 w-6" />,
     url: "https://amazon.com",
-    categories: ["Books", "Health", "Supplies"]
+    categories: ["Books", "Reference", "Education"]
   },
   {
     id: "printify",
     name: "Printify",
-    description: "Custom herbal-themed apparel, mugs, and accessories designed for plant medicine enthusiasts.",
+    description: "Branded educational merchandise designed for plant medicine enthusiasts.",
     icon: <Shirt className="h-6 w-6" />,
     url: "https://printify.com",
     categories: ["Apparel", "Accessories", "Drinkware"]
@@ -51,26 +53,10 @@ const affiliatePartners: AffiliatePartner[] = [
   {
     id: "smashwords",
     name: "Smashwords",
-    description: "Independent ebooks on herbalism, natural medicine, and integrative health practices.",
+    description: "Independent ebooks on herbalism, natural medicine, and research guides.",
     icon: <BookOpen className="h-6 w-6" />,
     url: "https://smashwords.com",
     categories: ["Ebooks", "Research", "Guides"]
-  },
-  {
-    id: "iherb",
-    name: "iHerb",
-    description: "Premium supplements, herbs, and natural health products at competitive prices.",
-    icon: <Pill className="h-6 w-6" />,
-    url: "https://iherb.com",
-    categories: ["Supplements", "Herbs", "Wellness"]
-  },
-  {
-    id: "vitacost",
-    name: "Vitacost",
-    description: "Vitamins, supplements, and natural health products for your wellness journey.",
-    icon: <Leaf className="h-6 w-6" />,
-    url: "https://vitacost.com",
-    categories: ["Vitamins", "Supplements", "Natural"]
   },
   {
     id: "bookdepository",
@@ -82,12 +68,14 @@ const affiliatePartners: AffiliatePartner[] = [
   }
 ];
 
+// Only allowed product types: Branded educational items, Books, Non-therapeutic tools
+// EXCLUDED: Supplements, "Wellness" products, anything implying treatment
 const products: Product[] = [
-  // Printify Products
+  // Printify Products - Branded Educational Items
   {
     id: "1",
     name: "Herb Loving Nerd Tee",
-    description: "Show your love for herbal medicine with this comfortable, eco-friendly t-shirt.",
+    description: "Show your passion for herbal education with this comfortable, eco-friendly t-shirt.",
     price: "$24.99",
     image: herbNerdTshirt,
     category: "Apparel",
@@ -97,7 +85,7 @@ const products: Product[] = [
   {
     id: "2",
     name: "Plant Medicine Advocate Hoodie",
-    description: "Stay cozy while advocating for natural health solutions. Perfect for cool evenings.",
+    description: "Stay cozy while advocating for natural health education. Perfect for cool evenings.",
     price: "$44.99",
     image: herbHoodie,
     category: "Apparel",
@@ -134,11 +122,11 @@ const products: Product[] = [
     platform: "printify",
     platformUrl: "https://printify.com"
   },
-  // Amazon Products
+  // Amazon Products - Books & Non-therapeutic Tools Only
   {
     id: "6",
     name: "The Herbal Medicine-Maker's Handbook",
-    description: "A comprehensive guide to making herbal remedies at home by James Green.",
+    description: "A comprehensive educational guide to understanding herbal preparations by James Green.",
     price: "$18.95",
     image: "/placeholder.svg",
     category: "Books",
@@ -148,7 +136,7 @@ const products: Product[] = [
   {
     id: "7",
     name: "Rosemary Gladstar's Medicinal Herbs",
-    description: "A beginner's guide to growing, harvesting, and using healing plants.",
+    description: "An educational guide to growing, harvesting, and understanding healing plants.",
     price: "$16.99",
     image: "/placeholder.svg",
     category: "Books",
@@ -157,50 +145,39 @@ const products: Product[] = [
   },
   {
     id: "8",
-    name: "Herb Drying Rack",
-    description: "Multi-layer mesh drying rack for preserving your homegrown herbs.",
-    price: "$24.99",
+    name: "Encyclopedia of Herbal Medicine",
+    description: "Comprehensive reference guide covering 550+ herbs and their traditional uses.",
+    price: "$29.99",
     image: "/placeholder.svg",
-    category: "Supplies",
+    category: "Books",
     platform: "amazon",
     platformUrl: "https://amazon.com"
   },
-  // iHerb Products
   {
     id: "9",
-    name: "Organic Ashwagandha Root",
-    description: "Premium organic ashwagandha root powder for stress support.",
-    price: "$12.99",
+    name: "The Modern Herbal Dispensatory",
+    description: "Evidence-based reference for understanding herbal preparations and formulations.",
+    price: "$24.95",
     image: "/placeholder.svg",
-    category: "Supplements",
-    platform: "iherb",
-    platformUrl: "https://iherb.com"
+    category: "Books",
+    platform: "amazon",
+    platformUrl: "https://amazon.com"
   },
   {
     id: "10",
-    name: "Lion's Mane Mushroom Extract",
-    description: "Organic lion's mane extract for cognitive support.",
+    name: "Herb Drying Rack",
+    description: "Multi-layer mesh drying rack for preserving your homegrown herbs. Non-therapeutic tool.",
     price: "$24.99",
     image: "/placeholder.svg",
-    category: "Supplements",
-    platform: "iherb",
-    platformUrl: "https://iherb.com"
+    category: "Tools",
+    platform: "amazon",
+    platformUrl: "https://amazon.com"
   },
+  // Smashwords Products - Educational Ebooks
   {
     id: "11",
-    name: "Turmeric Curcumin Complex",
-    description: "High-potency turmeric with enhanced bioavailability.",
-    price: "$19.99",
-    image: "/placeholder.svg",
-    category: "Supplements",
-    platform: "iherb",
-    platformUrl: "https://iherb.com"
-  },
-  // Smashwords Products
-  {
-    id: "12",
     name: "Modern Herbalism: Evidence-Based Guide",
-    description: "An ebook exploring the science behind traditional herbal remedies.",
+    description: "An ebook exploring the science behind traditional herbal knowledge.",
     price: "$9.99",
     image: "/placeholder.svg",
     category: "Ebooks",
@@ -208,14 +185,35 @@ const products: Product[] = [
     platformUrl: "https://smashwords.com"
   },
   {
-    id: "13",
-    name: "Adaptogens: Nature's Stress Response",
-    description: "Deep dive into adaptogenic herbs and their research-backed benefits.",
+    id: "12",
+    name: "Understanding Adaptogens",
+    description: "Educational deep dive into adaptogenic herbs and their research history.",
     price: "$7.99",
     image: "/placeholder.svg",
     category: "Ebooks",
     platform: "smashwords",
     platformUrl: "https://smashwords.com"
+  },
+  // Book Depository Products - Academic Books
+  {
+    id: "13",
+    name: "Principles of Ayurvedic Medicine",
+    description: "Academic textbook covering the foundational concepts of Ayurvedic practice.",
+    price: "$34.99",
+    image: "/placeholder.svg",
+    category: "Books",
+    platform: "bookdepository",
+    platformUrl: "https://bookdepository.com"
+  },
+  {
+    id: "14",
+    name: "The Complete Guide to Herbal Research",
+    description: "Reference guide for understanding and evaluating herbal medicine studies.",
+    price: "$27.99",
+    image: "/placeholder.svg",
+    category: "Books",
+    platform: "bookdepository",
+    platformUrl: "https://bookdepository.com"
   }
 ];
 
@@ -223,9 +221,7 @@ const getPlatformColor = (platform: string) => {
   switch (platform) {
     case "amazon": return "bg-amber-500/90";
     case "printify": return "bg-emerald-500/90";
-    case "iherb": return "bg-green-600/90";
     case "smashwords": return "bg-blue-500/90";
-    case "vitacost": return "bg-teal-500/90";
     case "bookdepository": return "bg-red-500/90";
     default: return "bg-primary/90";
   }
@@ -239,8 +235,8 @@ export default function Merch() {
   return (
     <>
       <Helmet>
-        <title>Shop & Resources | Natural Health Store</title>
-        <meta name="description" content="Shop herbal-themed merchandise, books, supplements, and resources from trusted partners including Amazon, iHerb, Smashwords, and Printify." />
+        <title>Educational Shop | EvidenceMed</title>
+        <meta name="description" content="Educational merchandise, books, and resources for plant medicine enthusiasts. Revenue supports platform maintenance and natural health education." />
       </Helmet>
 
       <div className="min-h-screen bg-background flex flex-col">
@@ -251,15 +247,15 @@ export default function Merch() {
           <section className="bg-gradient-to-br from-primary/10 via-accent/10 to-secondary/20 py-16">
             <div className="container mx-auto px-4 text-center">
               <div className="flex items-center justify-center gap-2 mb-4">
-                <Leaf className="h-8 w-8 text-primary" />
+                <BookOpen className="h-8 w-8 text-primary" />
                 <ShoppingBag className="h-8 w-8 text-primary" />
               </div>
               <h1 className="font-heading text-4xl md:text-5xl font-bold text-foreground mb-4">
-                Shop & Resources
+                Educational Shop
               </h1>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-6">
-                Discover herbal-themed merchandise, evidence-based books, quality supplements, and resources 
-                from our trusted affiliate partners. Every purchase supports natural health education.
+                Educational merchandise and affiliate resources. Revenue supports platform maintenance 
+                and natural health education initiatives.
               </p>
               <p className="text-sm text-muted-foreground/80 bg-muted/50 inline-block px-4 py-2 rounded-full">
                 <span className="font-medium">Affiliate Disclosure:</span> Links on this page may earn us a commission at no extra cost to you.
@@ -273,7 +269,7 @@ export default function Merch() {
               <h2 className="font-heading text-2xl font-bold text-foreground mb-6 text-center">
                 Our Trusted Partners
               </h2>
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
                 {affiliatePartners.map((partner) => (
                   <a
                     key={partner.id}
@@ -307,34 +303,28 @@ export default function Merch() {
                   <TabsTrigger value="all" className="rounded-full data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
                     All Products
                   </TabsTrigger>
+                  <TabsTrigger value="books" className="rounded-full data-[state=active]:bg-amber-500 data-[state=active]:text-white">
+                    <BookOpen className="h-4 w-4 mr-1" /> Books
+                  </TabsTrigger>
                   <TabsTrigger value="printify" className="rounded-full data-[state=active]:bg-emerald-500 data-[state=active]:text-white">
-                    <Shirt className="h-4 w-4 mr-1" /> Printify
+                    <Shirt className="h-4 w-4 mr-1" /> Branded Merch
                   </TabsTrigger>
-                  <TabsTrigger value="amazon" className="rounded-full data-[state=active]:bg-amber-500 data-[state=active]:text-white">
-                    <ShoppingCart className="h-4 w-4 mr-1" /> Amazon
-                  </TabsTrigger>
-                  <TabsTrigger value="iherb" className="rounded-full data-[state=active]:bg-green-600 data-[state=active]:text-white">
-                    <Pill className="h-4 w-4 mr-1" /> iHerb
-                  </TabsTrigger>
-                  <TabsTrigger value="smashwords" className="rounded-full data-[state=active]:bg-blue-500 data-[state=active]:text-white">
-                    <BookOpen className="h-4 w-4 mr-1" /> Smashwords
+                  <TabsTrigger value="ebooks" className="rounded-full data-[state=active]:bg-blue-500 data-[state=active]:text-white">
+                    <BookOpen className="h-4 w-4 mr-1" /> Ebooks
                   </TabsTrigger>
                 </TabsList>
 
                 <TabsContent value="all">
                   <ProductGrid products={products} />
                 </TabsContent>
+                <TabsContent value="books">
+                  <ProductGrid products={products.filter(p => p.category === "Books")} />
+                </TabsContent>
                 <TabsContent value="printify">
                   <ProductGrid products={products.filter(p => p.platform === "printify")} />
                 </TabsContent>
-                <TabsContent value="amazon">
-                  <ProductGrid products={products.filter(p => p.platform === "amazon")} />
-                </TabsContent>
-                <TabsContent value="iherb">
-                  <ProductGrid products={products.filter(p => p.platform === "iherb")} />
-                </TabsContent>
-                <TabsContent value="smashwords">
-                  <ProductGrid products={products.filter(p => p.platform === "smashwords")} />
+                <TabsContent value="ebooks">
+                  <ProductGrid products={products.filter(p => p.category === "Ebooks")} />
                 </TabsContent>
               </Tabs>
             </div>
@@ -347,7 +337,7 @@ export default function Merch() {
                 Custom Orders Welcome
               </h2>
               <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
-                Want a custom design or bulk order for your wellness practice? We'd love to help bring your vision to life.
+                Want a custom design or bulk order for your educational practice? We'd love to help bring your vision to life.
               </p>
               <Button size="lg" className="rounded-full">
                 Contact Us
