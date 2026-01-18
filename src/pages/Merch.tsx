@@ -242,7 +242,7 @@ export default function Merch() {
       <div className="min-h-screen bg-background flex flex-col">
         <Navbar />
         
-        <main className="flex-1">
+        <main className="flex-1 pt-16 lg:pt-20">
           {/* Hero Section */}
           <section className="bg-gradient-to-br from-primary/10 via-accent/10 to-secondary/20 py-16">
             <div className="container mx-auto px-4 text-center">
