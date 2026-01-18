@@ -41,7 +41,7 @@ const plans = [
     name: "Institution",
     icon: Building2,
     price: "Custom",
-    period: "pricing",
+    period: "",
     description: "For universities, hospitals, clinics, and healthcare organizations",
     cta: "Contact Sales",
     variant: "outline" as const,

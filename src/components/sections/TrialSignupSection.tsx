@@ -8,7 +8,14 @@ import { z } from "zod";
 
 const emailSchema = z.string().email("Please enter a valid email address");
 
-const licensePlans = [
+const licensePlans: {
+  id: string;
+  name: string;
+  icon: typeof Users;
+  userLimit: number | null;
+  price: string;
+  features: string[];
+}[] = [
   {
     id: "individual",
     name: "Individual",
@@ -29,7 +36,7 @@ const licensePlans = [
     id: "institution",
     name: "Institution",
     icon: Building2,
-    userLimit: 50,
+    userLimit: null,
     price: "Custom",
     features: ["Unlimited users", "API access", "Admin dashboard", "Dedicated support", "Training sessions"],
   },
@@ -144,10 +151,10 @@ const TrialSignupSection = () => {
               Start Your Free Trial
             </span>
             <h2 className="font-serif text-2xl md:text-3xl font-semibold text-foreground mb-4">
-              Choose Your License Type
+              Ready to Get Started?
             </h2>
             <p className="text-muted-foreground">
-              Select the plan that fits your practice. All trials include full access for 7 days.
+              Select your plan and begin your 7-day free trial.
               Use a coupon code for special institutional or practitioner discounts.
             </p>
           </div>
@@ -176,7 +183,9 @@ const TrialSignupSection = () => {
                     </div>
                     <div>
                       <h3 className="font-semibold text-foreground">{plan.name}</h3>
-                      <p className="text-sm text-muted-foreground">Up to {plan.userLimit} user{plan.userLimit > 1 ? "s" : ""}</p>
+                      <p className="text-sm text-muted-foreground">
+                        {plan.userLimit === null ? "Unlimited users" : `Up to ${plan.userLimit} user${plan.userLimit > 1 ? "s" : ""}`}
+                      </p>
                     </div>
                   </div>
                   <p className="text-2xl font-bold text-foreground mb-4">{plan.price}</p>

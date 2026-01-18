@@ -39,7 +39,7 @@ const plans = [
   {
     name: "Institution",
     price: "Custom",
-    period: "pricing",
+    period: "",
     description: "For universities & healthcare organizations",
     features: [
       "Everything in Professional",
