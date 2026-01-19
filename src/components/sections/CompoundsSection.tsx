@@ -80,7 +80,7 @@ const compounds = [
 
 const CompoundsSection = () => {
   return (
-    <section id="compounds" className="py-10 lg:py-16 bg-background">
+    <section id="compounds" className="pt-6 lg:pt-8 pb-10 lg:pb-16 bg-background">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center mb-16">
