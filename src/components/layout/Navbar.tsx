@@ -96,11 +96,34 @@ const Navbar = () => {
   };
 
   const navLinks = [
-    { name: "Medical Conditions", href: "/#conditions", icon: BookOpen, isLink: true },
+    { name: "Medical Conditions", href: "/#conditions", icon: BookOpen, isLink: true, isHashLink: true },
     { name: "Research Library", href: "/research", icon: FlaskConical, isLink: true },
     { name: "Natural Compounds", href: "/compounds", icon: Leaf, isLink: true },
     { name: "Integrative Therapies", href: "/integrative-therapies", icon: Heart, isLink: true },
   ];
+
+  const handleHashLinkClick = (e: React.MouseEvent, href: string) => {
+    const hash = href.split('#')[1];
+    if (hash) {
+      // If already on home page, scroll directly
+      if (window.location.pathname === '/') {
+        e.preventDefault();
+        const element = document.getElementById(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      } else {
+        // Navigate to home, then scroll after load
+        navigate('/');
+        setTimeout(() => {
+          const element = document.getElementById(hash);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 100);
+      }
+    }
+  };
 
   const resourcesDropdown = [
     { name: "Educational Shop", href: "/merch", icon: ShoppingBag, description: "Books & branded items" },
@@ -124,7 +147,16 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-1">
             {navLinks.map((link) => (
-              link.isLink ? (
+              link.isHashLink ? (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onClick={(e) => handleHashLinkClick(e, link.href)}
+                  className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-secondary"
+                >
+                  {link.name}
+                </a>
+              ) : link.isLink ? (
                 <Link
                   key={link.name}
                   to={link.href}
@@ -314,7 +346,20 @@ const Navbar = () => {
             
             <div className="flex flex-col gap-2">
               {navLinks.map((link) => (
-                link.isLink ? (
+                link.isHashLink ? (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    className="px-4 py-3 text-base font-medium text-muted-foreground hover:text-foreground hover:bg-secondary rounded-lg transition-colors flex items-center gap-3"
+                    onClick={(e) => {
+                      handleHashLinkClick(e, link.href);
+                      setIsOpen(false);
+                    }}
+                  >
+                    {link.icon && <link.icon className="w-5 h-5" />}
+                    {link.name}
+                  </a>
+                ) : link.isLink ? (
                   <Link
                     key={link.name}
                     to={link.href}
