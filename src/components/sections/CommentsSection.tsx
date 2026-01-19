@@ -209,12 +209,12 @@ const CommentsSection = () => {
   };
 
   return (
-    <section className="py-12 lg:py-16 bg-secondary/30">
+    <section className="py-8 lg:py-12 bg-secondary/30">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-10">
-            <div className="flex items-center justify-center gap-2 mb-4">
+          <div className="text-center mb-6">
+            <div className="flex items-center justify-center gap-2 mb-2">
               <MessageCircle className="w-6 h-6 text-primary" />
               <h2 className="font-serif text-2xl md:text-3xl font-semibold text-foreground">
                 Community Feedback & Reviews
@@ -226,11 +226,11 @@ const CommentsSection = () => {
           </div>
 
           {/* Reviews List */}
-          <div className="space-y-6 mb-10">
+          <div className="space-y-4 mb-6">
             {loading ? (
-              <div className="text-center py-8 text-muted-foreground">Loading reviews...</div>
+              <div className="text-center py-4 text-muted-foreground">Loading reviews...</div>
             ) : reviews.length === 0 ? (
-              <div className="text-center py-8">
+              <div className="text-center py-4">
                 <p className="text-muted-foreground">No reviews yet. Be the first to share your experience!</p>
               </div>
             ) : (
