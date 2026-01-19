@@ -8,6 +8,7 @@ import ResearchSection from "@/components/sections/ResearchSection";
 import CompoundsSection from "@/components/sections/CompoundsSection";
 import PricingSection from "@/components/sections/PricingSection";
 import SocialProofSection from "@/components/sections/SocialProofSection";
+import CommentsSection from "@/components/sections/CommentsSection";
 import { RightSidebar } from "@/components/layout/RightSidebar";
 import { MobileBooksSection } from "@/components/layout/MobileBooksSection";
 
@@ -69,6 +70,7 @@ const Index = () => {
               
               {/* Tertiary: Supplementary content */}
               <MobileBooksSection />
+              <CommentsSection />
               <AffiliateDisclosure />
               <Footer />
             </main>
