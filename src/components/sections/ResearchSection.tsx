@@ -191,25 +191,33 @@ const ResearchSection = () => {
               return (
                 <div
                   key={study.title}
-                  className="p-6 rounded-xl bg-card border border-border hover:border-primary/30 hover:shadow-medium transition-all duration-300 group"
+                  className="p-4 rounded-xl bg-card border border-border hover:border-primary/30 hover:shadow-medium transition-all duration-300 group"
                 >
-                  <div className="flex flex-col gap-4">
+                  <div className="flex flex-col gap-3">
                     {/* Header Row */}
-                    <div className="flex flex-wrap items-center gap-2">
-                      <span className="px-2.5 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium">
-                        {study.type}
-                      </span>
-                      <span className={cn("px-2.5 py-1 rounded-full text-xs font-medium border", evidenceBadge.className)}>
-                        {evidenceBadge.label}
-                      </span>
-                      <span className="text-xs text-muted-foreground">
-                        {study.year}
-                      </span>
-                      {study.sampleSize && (
-                        <span className="text-xs text-muted-foreground bg-muted px-2 py-0.5 rounded">
-                          {study.sampleSize}
+                    <div className="flex flex-wrap items-center justify-between gap-2">
+                      <div className="flex flex-wrap items-center gap-2">
+                        <span className="px-2.5 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium">
+                          {study.type}
                         </span>
-                      )}
+                        <span className={cn("px-2.5 py-1 rounded-full text-xs font-medium border", evidenceBadge.className)}>
+                          {evidenceBadge.label}
+                        </span>
+                        <span className="text-xs text-muted-foreground">
+                          {study.year}
+                        </span>
+                        {study.sampleSize && (
+                          <span className="text-xs text-muted-foreground bg-muted px-2 py-0.5 rounded">
+                            {study.sampleSize}
+                          </span>
+                        )}
+                      </div>
+                      <Button variant="ghost" size="sm" asChild>
+                        <a href={study.doiUrl} target="_blank" rel="noopener noreferrer">
+                          View Full Study
+                          <ExternalLink className="w-4 h-4" />
+                        </a>
+                      </Button>
                     </div>
 
                     {/* Title */}
@@ -281,15 +289,6 @@ const ResearchSection = () => {
                       </div>
                     )}
 
-                    {/* Action Button */}
-                    <div className="flex justify-end pt-2">
-                      <Button variant="ghost" size="sm" asChild>
-                        <a href={study.doiUrl} target="_blank" rel="noopener noreferrer">
-                          View Full Study
-                          <ExternalLink className="w-4 h-4" />
-                        </a>
-                      </Button>
-                    </div>
                   </div>
                 </div>
               );
