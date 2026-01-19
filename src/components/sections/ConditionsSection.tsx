@@ -111,7 +111,7 @@ const ConditionsSection = () => {
         </div>
 
         {/* CTA */}
-        <div className="text-center mt-12">
+        <div className="text-center mt-8">
           <Button size="lg">
             Browse All Conditions
             <ArrowRight className="w-4 h-4" />
