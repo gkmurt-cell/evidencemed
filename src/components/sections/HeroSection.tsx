@@ -157,13 +157,17 @@ const HeroSection = () => {
           {/* CTA Buttons */}
           <div className="flex flex-col items-center gap-3 animate-fade-up delay-400">
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button variant="hero" size="xl">
-                <BookOpen className="w-5 h-5" />
-                Explore Research Library
-                <ArrowRight className="w-5 h-5" />
+              <Button variant="hero" size="xl" asChild>
+                <Link to="/research">
+                  <BookOpen className="w-5 h-5" />
+                  Explore Research Library
+                  <ArrowRight className="w-5 h-5" />
+                </Link>
               </Button>
-              <Button variant="heroOutline" size="xl">
-                Start 7-Day Free Trial
+              <Button variant="heroOutline" size="xl" asChild>
+                <Link to="/auth">
+                  Start 7-Day Free Trial
+                </Link>
               </Button>
             </div>
             <Link 
