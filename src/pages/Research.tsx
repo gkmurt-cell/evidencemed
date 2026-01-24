@@ -15,7 +15,8 @@ import {
   ArrowLeft,
   X,
   ChevronLeft,
-  ChevronRight
+  ChevronRight,
+  Database
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -31,6 +32,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import EducationalDisclaimer from "@/components/layout/EducationalDisclaimer";
 import DemoDisclaimer from "@/components/layout/DemoDisclaimer";
+import PubMedSearchPanel from "@/components/research/PubMedSearchPanel";
 import { cn } from "@/lib/utils";
 import {
   allStudies,
@@ -302,12 +304,31 @@ const Research = () => {
             )}
           </div>
 
+          {/* PubMed Live Search Section */}
+          <div className="bg-card border border-border rounded-xl p-6 mb-8">
+            <div className="flex items-center gap-2 mb-4">
+              <Database className="w-5 h-5 text-primary" />
+              <h2 className="font-serif text-xl font-semibold">Search PubMed Directly</h2>
+            </div>
+            <p className="text-sm text-muted-foreground mb-4">
+              Search real peer-reviewed research from the National Library of Medicine database.
+            </p>
+            <PubMedSearchPanel maxResults={10} />
+          </div>
+
+          {/* Divider */}
+          <div className="flex items-center gap-4 mb-8">
+            <div className="flex-1 h-px bg-border" />
+            <span className="text-sm text-muted-foreground">Sample Studies (Demo Content)</span>
+            <div className="flex-1 h-px bg-border" />
+          </div>
+
           {/* Results Count */}
           <div className="flex items-center justify-between mb-6">
             <p className="text-muted-foreground">
               Showing <span className="font-medium text-foreground">{paginatedStudies.length}</span>{" "}
               of <span className="font-medium text-foreground">{filteredStudies.length}</span>{" "}
-              studies
+              sample studies
             </p>
           </div>
 
