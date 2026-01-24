@@ -17,7 +17,7 @@ export const conditions: SearchItem[] = [
     description: "Complementary therapy studies including herbal compounds and adjunct treatments",
     category: "condition",
     tags: ["cancer", "oncology", "herbal", "complementary", "alternative cancer treatments"],
-    link: "/#conditions",
+    link: "/condition/cancer",
     studies: 2400,
   },
   {
@@ -26,7 +26,7 @@ export const conditions: SearchItem[] = [
     description: "Dementia, Parkinson's, Alzheimer's and cognitive health research",
     category: "condition",
     tags: ["brain", "dementia", "alzheimers", "parkinsons", "cognitive", "neurological", "memory"],
-    link: "/#conditions",
+    link: "/condition/neurological",
     studies: 1800,
   },
   {
@@ -35,7 +35,7 @@ export const conditions: SearchItem[] = [
     description: "Heart disease, hypertension, and circulatory system studies",
     category: "condition",
     tags: ["heart", "cardiovascular", "blood pressure", "hypertension", "circulation"],
-    link: "/#conditions",
+    link: "/condition/cardiovascular",
     studies: 1500,
   },
   {
@@ -44,7 +44,7 @@ export const conditions: SearchItem[] = [
     description: "Diabetes, obesity, and metabolic syndrome research",
     category: "condition",
     tags: ["diabetes", "obesity", "metabolic", "blood sugar", "weight", "insulin"],
-    link: "/#conditions",
+    link: "/condition/metabolic",
     studies: 1200,
   },
   {
@@ -53,7 +53,7 @@ export const conditions: SearchItem[] = [
     description: "Lupus, rheumatoid arthritis, and immune system disorders",
     category: "condition",
     tags: ["autoimmune", "lupus", "arthritis", "rheumatoid", "immune", "inflammation"],
-    link: "/#conditions",
+    link: "/condition/autoimmune",
     studies: 900,
   },
   {
@@ -62,7 +62,7 @@ export const conditions: SearchItem[] = [
     description: "Long-COVID, viral infections, and emerging health conditions",
     category: "condition",
     tags: ["covid", "virus", "infection", "long covid", "viral", "immune"],
-    link: "/#conditions",
+    link: "/condition/infectious",
     studies: 750,
   },
   {
@@ -71,7 +71,7 @@ export const conditions: SearchItem[] = [
     description: "Arthritis, osteoporosis, and joint health research",
     category: "condition",
     tags: ["arthritis", "osteoporosis", "joints", "bones", "muscle", "pain"],
-    link: "/#conditions",
+    link: "/condition/musculoskeletal",
     studies: 650,
   },
 ];

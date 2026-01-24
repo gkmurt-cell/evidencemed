@@ -30,6 +30,7 @@ import { Badge } from "@/components/ui/badge";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import EducationalDisclaimer from "@/components/layout/EducationalDisclaimer";
+import DemoDisclaimer from "@/components/layout/DemoDisclaimer";
 import { cn } from "@/lib/utils";
 import {
   allStudies,
@@ -157,6 +158,7 @@ const Research = () => {
                 and direct links to original sources. Filter by evidence level, study type, or
                 search for specific compounds.
               </p>
+              <DemoDisclaimer className="mb-4" />
               <EducationalDisclaimer />
             </div>
           </div>
