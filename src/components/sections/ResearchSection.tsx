@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ExternalLink, FileText, FlaskConical, Users, TestTube, AlertTriangle, Shield, Link2, Filter } from "lucide-react";
 import EducationalDisclaimer from "@/components/layout/EducationalDisclaimer";
+import DemoDisclaimer from "@/components/layout/DemoDisclaimer";
 import { cn } from "@/lib/utils";
 
 type StudyType = "all" | "rct" | "observational" | "meta-analysis" | "in-vitro";
@@ -137,6 +138,7 @@ const ResearchSection = () => {
             and direct links to original sources. Plain-language summaries make complex 
             research accessible.
           </p>
+          <DemoDisclaimer compact className="mb-4" />
           <EducationalDisclaimer />
         </div>
 

@@ -1,6 +1,8 @@
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Brain, Heart, Activity, Pill, Dna, Shield, Zap, Bone } from "lucide-react";
 import EducationalDisclaimer from "@/components/layout/EducationalDisclaimer";
+import DemoDisclaimer from "@/components/layout/DemoDisclaimer";
 
 const conditions = [
   {
@@ -66,7 +68,7 @@ const ConditionsSection = () => {
     <section id="conditions" className="py-10 lg:py-16 bg-background">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <div className="max-w-3xl mx-auto text-center mb-16">
+        <div className="max-w-3xl mx-auto text-center mb-12">
           <span className="inline-block px-4 py-1.5 rounded-full bg-secondary text-secondary-foreground text-sm font-medium mb-4">
             Conditions Database
           </span>
@@ -80,15 +82,17 @@ const ConditionsSection = () => {
             natural compounds, and investigational studies—all sourced and linked 
             to original publications.
           </p>
+          <DemoDisclaimer compact className="mb-4" />
           <EducationalDisclaimer />
         </div>
 
         {/* Conditions Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {conditions.map((condition, index) => (
-            <div
+            <Link
               key={condition.name}
-              className="group p-6 rounded-xl bg-card border border-border shadow-md hover:border-primary/30 hover:shadow-lg transition-all duration-300 cursor-pointer"
+              to={`/condition/${condition.name.toLowerCase().replace(/\s+research|studies/gi, '').replace(/\s+/g, '-').replace(/-+/g, '')}`}
+              className="group p-6 rounded-xl bg-card border border-border shadow-md hover:border-primary/30 hover:shadow-lg transition-all duration-300"
               style={{ animationDelay: `${index * 50}ms` }}
             >
               <div className={`w-12 h-12 rounded-lg ${condition.color} flex items-center justify-center mb-4`}>
@@ -106,7 +110,7 @@ const ConditionsSection = () => {
                 </span>
                 <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all" />
               </div>
-            </div>
+            </Link>
           ))}
         </div>
 
