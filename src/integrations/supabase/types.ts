@@ -89,6 +89,39 @@ export type Database = {
         }
         Relationships: []
       }
+      pubmed_cache: {
+        Row: {
+          articles: Json
+          cache_key: string
+          condition: string | null
+          created_at: string
+          expires_at: string
+          id: string
+          query: string
+          total_count: number
+        }
+        Insert: {
+          articles: Json
+          cache_key: string
+          condition?: string | null
+          created_at?: string
+          expires_at?: string
+          id?: string
+          query: string
+          total_count?: number
+        }
+        Update: {
+          articles?: Json
+          cache_key?: string
+          condition?: string | null
+          created_at?: string
+          expires_at?: string
+          id?: string
+          query?: string
+          total_count?: number
+        }
+        Relationships: []
+      }
       quote_requests: {
         Row: {
           contact_email: string

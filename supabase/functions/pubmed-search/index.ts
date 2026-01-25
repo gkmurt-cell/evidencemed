@@ -1,4 +1,5 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -8,6 +9,9 @@ const corsHeaders = {
 // PubMed E-utilities base URLs
 const ESEARCH_URL = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi";
 const EFETCH_URL = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi";
+
+// Cache duration in hours
+const CACHE_HOURS = 24;
 
 interface PubMedArticle {
   pmid: string;
@@ -136,6 +140,12 @@ function getConditionSearchTerms(condition: string): string {
   return conditionMap[condition.toLowerCase()] || condition;
 }
 
+// Generate cache key from search parameters
+function generateCacheKey(query: string, condition: string | undefined, maxResults: number): string {
+  const normalized = `${query.toLowerCase().trim()}|${condition || ""}|${maxResults}`;
+  return normalized;
+}
+
 serve(async (req) => {
   // Handle CORS preflight
   if (req.method === "OPTIONS") {
@@ -152,11 +162,42 @@ serve(async (req) => {
       );
     }
 
+    // Initialize Supabase client with service role for cache operations
+    const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
+    const supabaseServiceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
+    const supabase = createClient(supabaseUrl, supabaseServiceKey);
+
     // Build search query
     let searchQuery = query || "";
     if (condition) {
       searchQuery = getConditionSearchTerms(condition);
     }
+    
+    const cacheKey = generateCacheKey(searchQuery, condition, maxResults);
+    
+    // Check cache first
+    const { data: cachedResult } = await supabase
+      .from("pubmed_cache")
+      .select("*")
+      .eq("cache_key", cacheKey)
+      .gt("expires_at", new Date().toISOString())
+      .maybeSingle();
+    
+    if (cachedResult) {
+      console.log("Cache hit for:", cacheKey);
+      return new Response(
+        JSON.stringify({ 
+          articles: cachedResult.articles, 
+          totalCount: cachedResult.total_count, 
+          query: searchQuery,
+          source: "PubMed/NCBI",
+          cached: true
+        }),
+        { headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
+    }
+    
+    console.log("Cache miss, fetching from PubMed:", cacheKey);
     
     // Add filters for quality: human studies, English, recent
     const fullQuery = `${searchQuery} AND (humans[MeSH] OR clinical trial[pt] OR review[pt]) AND english[la]`;
@@ -209,12 +250,30 @@ serve(async (req) => {
     
     console.log(`Parsed ${articles.length} articles`);
 
+    // Store in cache (upsert to handle concurrent requests)
+    const expiresAt = new Date();
+    expiresAt.setHours(expiresAt.getHours() + CACHE_HOURS);
+    
+    await supabase
+      .from("pubmed_cache")
+      .upsert({
+        cache_key: cacheKey,
+        query: searchQuery,
+        condition: condition || null,
+        articles: articles,
+        total_count: totalCount,
+        expires_at: expiresAt.toISOString()
+      }, { onConflict: "cache_key" });
+    
+    console.log("Cached results for:", cacheKey);
+
     return new Response(
       JSON.stringify({ 
         articles, 
         totalCount, 
         query: searchQuery,
-        source: "PubMed/NCBI"
+        source: "PubMed/NCBI",
+        cached: false
       }),
       { headers: { ...corsHeaders, "Content-Type": "application/json" } }
     );
