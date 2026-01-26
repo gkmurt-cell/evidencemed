@@ -466,6 +466,43 @@ export const compoundsData: Compound[] = [
     ],
     sources: ["Lactobacillus strains", "Bifidobacterium strains", "Saccharomyces boulardii", "Fermented foods"],
     relatedCompounds: ["Prebiotics", "Postbiotics", "Digestive enzymes", "L-glutamine"]
+  },
+  {
+    id: "cacao",
+    name: "Cacao",
+    latinName: "Theobroma cacao",
+    category: "Functional Food",
+    studies: 680,
+    image: "🍫",
+    description: "Raw cacao is the unprocessed form of chocolate, rich in flavanols, theobromine, and other bioactive compounds. It has been studied extensively for cardiovascular, cognitive, and mood-related benefits.",
+    traditionalUse: "Revered by ancient Mesoamerican civilizations as 'food of the gods.' The Aztecs and Mayans used cacao in ceremonial drinks for energy, mood enhancement, and as a form of currency.",
+    keyBenefits: [
+      "Cardiovascular health support",
+      "Cognitive function enhancement",
+      "Mood and emotional wellbeing",
+      "Antioxidant protection",
+      "Blood flow improvement"
+    ],
+    mechanisms: [
+      "Flavanols improve endothelial function and nitric oxide production",
+      "Theobromine provides mild stimulant effects",
+      "Phenylethylamine (PEA) affects mood neurotransmitters",
+      "High ORAC value for antioxidant capacity"
+    ],
+    dosage: "Research has documented 200-900mg of cocoa flavanols daily in cardiovascular studies. Dark chocolate with 70%+ cacao content has been used in clinical research. These figures are provided for research context only and do not constitute a recommendation for personal use.",
+    safetyNotes: [
+      "Generally very safe as a food",
+      "Contains caffeine and theobromine - may cause stimulant effects",
+      "May trigger migraines in susceptible individuals",
+      "High oxalate content - caution with kidney stones"
+    ],
+    interactions: [
+      "Caffeine content may interact with stimulant medications",
+      "MAOIs may interact with tyramine in chocolate",
+      "May enhance effects of blood pressure medications"
+    ],
+    sources: ["Raw cacao powder", "Cacao nibs", "Dark chocolate (70%+)", "Cocoa flavanol supplements"],
+    relatedCompounds: ["Resveratrol", "EGCG", "Quercetin", "Coffee"]
   }
 ];
 
