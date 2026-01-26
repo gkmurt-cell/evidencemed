@@ -16,7 +16,8 @@ import {
   X,
   ChevronLeft,
   ChevronRight,
-  Database
+  Database,
+  BookOpen
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -28,6 +29,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import EducationalDisclaimer from "@/components/layout/EducationalDisclaimer";
@@ -55,12 +57,14 @@ const researchStats = [
 ];
 
 const Research = () => {
+  const [activeTab, setActiveTab] = useState("pubmed");
   const [searchQuery, setSearchQuery] = useState("");
   const [typeFilter, setTypeFilter] = useState<StudyType>("all");
   const [evidenceFilter, setEvidenceFilter] = useState<EvidenceLevel | "all">("all");
   const [compoundFilter, setCompoundFilter] = useState<string>("");
   const [currentPage, setCurrentPage] = useState(1);
   const [expandedStudy, setExpandedStudy] = useState<string | null>(null);
+  const [pubmedSearchQuery, setPubmedSearchQuery] = useState("");
 
   // Get unique compounds for filter dropdown
   const allCompounds = useMemo(() => {
@@ -165,246 +169,255 @@ const Research = () => {
             </div>
           </div>
 
-          {/* Stats Cards */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-            {researchStats.map((stat) => (
-              <button
-                key={stat.id}
-                onClick={() => handleFilterChange(setTypeFilter, stat.id as StudyType)}
-                className={cn(
-                  "p-6 rounded-xl bg-card border border-border text-center transition-all hover:border-primary/50 hover:shadow-md",
-                  typeFilter === stat.id && "border-primary bg-primary/5"
-                )}
-              >
-                <stat.icon className="w-8 h-8 text-primary mx-auto mb-3" />
-                <p className="font-serif text-2xl font-semibold text-foreground mb-1">
-                  {stat.count}
-                </p>
-                <p className="text-sm text-muted-foreground">{stat.name}</p>
-              </button>
-            ))}
-          </div>
+          {/* Main Tabs */}
+          <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+            <TabsList className="w-full max-w-md mx-auto grid grid-cols-2 mb-8">
+              <TabsTrigger value="pubmed" className="flex items-center gap-2">
+                <Database className="w-4 h-4" />
+                PubMed Search
+              </TabsTrigger>
+              <TabsTrigger value="curated" className="flex items-center gap-2">
+                <BookOpen className="w-4 h-4" />
+                Curated Studies
+              </TabsTrigger>
+            </TabsList>
 
-          {/* Filters */}
-          <div className="bg-gradient-to-r from-primary/20 via-primary/15 to-accent/20 border-2 border-primary/40 rounded-xl p-4 mb-8 shadow-md">
-            <div className="flex flex-col lg:flex-row gap-4">
-              {/* Search */}
-              <div className="relative flex-1">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-primary" />
-                <Input
-                  type="text"
-                  placeholder="Search studies, compounds, conditions..."
-                  value={searchQuery}
-                  onChange={(e) => handleFilterChange(setSearchQuery, e.target.value)}
-                  className="pl-10 bg-background border-primary/30 focus:border-primary"
-                />
-              </div>
-
-              {/* Type Filter */}
-              <Select
-                value={typeFilter}
-                onValueChange={(v) => handleFilterChange(setTypeFilter, v as StudyType)}
-              >
-                <SelectTrigger className="w-full lg:w-48">
-                  <SelectValue placeholder="Study Type" />
-                </SelectTrigger>
-                <SelectContent>
-                  {studyTypeFilters.map((filter) => (
-                    <SelectItem key={filter.id} value={filter.id}>
-                      {filter.label}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-
-              {/* Evidence Level Filter */}
-              <Select
-                value={evidenceFilter}
-                onValueChange={(v) =>
-                  handleFilterChange(setEvidenceFilter, v as EvidenceLevel | "all")
-                }
-              >
-                <SelectTrigger className="w-full lg:w-48">
-                  <SelectValue placeholder="Evidence Level" />
-                </SelectTrigger>
-                <SelectContent>
-                  {evidenceLevelFilters.map((filter) => (
-                    <SelectItem key={filter.id} value={filter.id}>
-                      {filter.label}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-
-              {/* Compound Filter */}
-              <Select
-                value={compoundFilter}
-                onValueChange={(v) => handleFilterChange(setCompoundFilter, v === "all" ? "" : v)}
-              >
-                <SelectTrigger className="w-full lg:w-48">
-                  <SelectValue placeholder="Compound" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="all">All Compounds</SelectItem>
-                  {allCompounds.map((compound) => (
-                    <SelectItem key={compound} value={compound}>
-                      {compound}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
-
-            {/* Active Filters & Clear */}
-            {hasActiveFilters && (
-              <div className="flex items-center gap-2 mt-4 pt-4 border-t border-border">
-                <span className="text-sm text-muted-foreground">Active filters:</span>
-                <div className="flex flex-wrap gap-2">
-                  {searchQuery && (
-                    <Badge variant="secondary" className="gap-1">
-                      Search: {searchQuery}
-                      <X
-                        className="w-3 h-3 cursor-pointer"
-                        onClick={() => handleFilterChange(setSearchQuery, "")}
-                      />
-                    </Badge>
-                  )}
-                  {typeFilter !== "all" && (
-                    <Badge variant="secondary" className="gap-1">
-                      {studyTypeFilters.find((f) => f.id === typeFilter)?.label}
-                      <X
-                        className="w-3 h-3 cursor-pointer"
-                        onClick={() => handleFilterChange(setTypeFilter, "all")}
-                      />
-                    </Badge>
-                  )}
-                  {evidenceFilter !== "all" && (
-                    <Badge variant="secondary" className="gap-1">
-                      {evidenceLevelFilters.find((f) => f.id === evidenceFilter)?.label}
-                      <X
-                        className="w-3 h-3 cursor-pointer"
-                        onClick={() => handleFilterChange(setEvidenceFilter, "all")}
-                      />
-                    </Badge>
-                  )}
-                  {compoundFilter && (
-                    <Badge variant="secondary" className="gap-1">
-                      {compoundFilter}
-                      <X
-                        className="w-3 h-3 cursor-pointer"
-                        onClick={() => handleFilterChange(setCompoundFilter, "")}
-                      />
-                    </Badge>
-                  )}
+            {/* PubMed Search Tab */}
+            <TabsContent value="pubmed" className="mt-0">
+              <div className="bg-card border border-border rounded-xl p-6">
+                <div className="flex items-center gap-2 mb-4">
+                  <Database className="w-5 h-5 text-primary" />
+                  <h2 className="font-serif text-xl font-semibold">Search PubMed Database</h2>
                 </div>
-                <Button variant="ghost" size="sm" onClick={clearFilters} className="ml-auto">
-                  Clear all
-                </Button>
+                <p className="text-sm text-muted-foreground mb-4">
+                  Search millions of peer-reviewed research articles from the National Library of Medicine database.
+                  Enter specific terms like "curcumin inflammation" or "ashwagandha anxiety" for targeted results.
+                </p>
+                <PubMedSearchPanel maxResults={20} />
               </div>
-            )}
-          </div>
+            </TabsContent>
 
-          {/* PubMed Live Search Section */}
-          <div className="bg-card border border-border rounded-xl p-6 mb-8">
-            <div className="flex items-center gap-2 mb-4">
-              <Database className="w-5 h-5 text-primary" />
-              <h2 className="font-serif text-xl font-semibold">Search PubMed Directly</h2>
-            </div>
-            <p className="text-sm text-muted-foreground mb-4">
-              Search real peer-reviewed research from the National Library of Medicine database.
-            </p>
-            <PubMedSearchPanel maxResults={10} />
-          </div>
+            {/* Curated Studies Tab */}
+            <TabsContent value="curated" className="mt-0 space-y-8">
+              {/* Stats Cards */}
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                {researchStats.map((stat) => (
+                  <button
+                    key={stat.id}
+                    onClick={() => handleFilterChange(setTypeFilter, stat.id as StudyType)}
+                    className={cn(
+                      "p-6 rounded-xl bg-card border border-border text-center transition-all hover:border-primary/50 hover:shadow-md",
+                      typeFilter === stat.id && "border-primary bg-primary/5"
+                    )}
+                  >
+                    <stat.icon className="w-8 h-8 text-primary mx-auto mb-3" />
+                    <p className="font-serif text-2xl font-semibold text-foreground mb-1">
+                      {stat.count}
+                    </p>
+                    <p className="text-sm text-muted-foreground">{stat.name}</p>
+                  </button>
+                ))}
+              </div>
 
-          {/* Divider */}
-          <div className="flex items-center gap-4 mb-8">
-            <div className="flex-1 h-px bg-border" />
-            <span className="text-sm text-muted-foreground">Sample Studies (Demo Content)</span>
-            <div className="flex-1 h-px bg-border" />
-          </div>
+              {/* Filters */}
+              <div className="bg-gradient-to-r from-primary/20 via-primary/15 to-accent/20 border-2 border-primary/40 rounded-xl p-4 shadow-md">
+                <div className="flex flex-col lg:flex-row gap-4">
+                  {/* Search */}
+                  <div className="relative flex-1">
+                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-primary" />
+                    <Input
+                      type="text"
+                      placeholder="Search studies, compounds, conditions..."
+                      value={searchQuery}
+                      onChange={(e) => handleFilterChange(setSearchQuery, e.target.value)}
+                      className="pl-10 bg-background border-primary/30 focus:border-primary"
+                    />
+                  </div>
 
-          {/* Results Count */}
-          <div className="flex items-center justify-between mb-6">
-            <p className="text-muted-foreground">
-              Showing <span className="font-medium text-foreground">{paginatedStudies.length}</span>{" "}
-              of <span className="font-medium text-foreground">{filteredStudies.length}</span>{" "}
-              sample studies
-            </p>
-          </div>
+                  {/* Type Filter */}
+                  <Select
+                    value={typeFilter}
+                    onValueChange={(v) => handleFilterChange(setTypeFilter, v as StudyType)}
+                  >
+                    <SelectTrigger className="w-full lg:w-48">
+                      <SelectValue placeholder="Study Type" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {studyTypeFilters.map((filter) => (
+                        <SelectItem key={filter.id} value={filter.id}>
+                          {filter.label}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
 
-          {/* Studies List */}
-          <div className="space-y-4 mb-8">
-            {paginatedStudies.map((study) => (
-              <StudyCard
-                key={study.id}
-                study={study}
-                isExpanded={expandedStudy === study.id}
-                onToggle={() => setExpandedStudy(expandedStudy === study.id ? null : study.id)}
-              />
-            ))}
-          </div>
+                  {/* Evidence Level Filter */}
+                  <Select
+                    value={evidenceFilter}
+                    onValueChange={(v) =>
+                      handleFilterChange(setEvidenceFilter, v as EvidenceLevel | "all")
+                    }
+                  >
+                    <SelectTrigger className="w-full lg:w-48">
+                      <SelectValue placeholder="Evidence Level" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {evidenceLevelFilters.map((filter) => (
+                        <SelectItem key={filter.id} value={filter.id}>
+                          {filter.label}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
 
-          {/* Empty State */}
-          {filteredStudies.length === 0 && (
-            <div className="text-center py-16 bg-card border border-border rounded-xl">
-              <FileText className="w-16 h-16 mx-auto mb-4 text-muted-foreground/50" />
-              <h3 className="text-xl font-semibold text-foreground mb-2">No studies found</h3>
-              <p className="text-muted-foreground mb-6">
-                Try adjusting your search or filter criteria.
-              </p>
-              <Button onClick={clearFilters}>Clear all filters</Button>
-            </div>
-          )}
+                  {/* Compound Filter */}
+                  <Select
+                    value={compoundFilter}
+                    onValueChange={(v) => handleFilterChange(setCompoundFilter, v === "all" ? "" : v)}
+                  >
+                    <SelectTrigger className="w-full lg:w-48">
+                      <SelectValue placeholder="Compound" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="all">All Compounds</SelectItem>
+                      {allCompounds.map((compound) => (
+                        <SelectItem key={compound} value={compound}>
+                          {compound}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
 
-          {/* Pagination */}
-          {totalPages > 1 && (
-            <div className="flex items-center justify-center gap-2">
-              <Button
-                variant="outline"
-                size="icon"
-                onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
-                disabled={currentPage === 1}
-              >
-                <ChevronLeft className="w-4 h-4" />
-              </Button>
-
-              <div className="flex items-center gap-1">
-                {Array.from({ length: totalPages }, (_, i) => i + 1)
-                  .filter((page) => {
-                    // Show first, last, current, and adjacent pages
-                    if (page === 1 || page === totalPages) return true;
-                    if (Math.abs(page - currentPage) <= 1) return true;
-                    return false;
-                  })
-                  .map((page, i, arr) => (
-                    <>
-                      {i > 0 && arr[i - 1] !== page - 1 && (
-                        <span key={`ellipsis-${page}`} className="px-2 text-muted-foreground">
-                          ...
-                        </span>
+                {/* Active Filters & Clear */}
+                {hasActiveFilters && (
+                  <div className="flex items-center gap-2 mt-4 pt-4 border-t border-border">
+                    <span className="text-sm text-muted-foreground">Active filters:</span>
+                    <div className="flex flex-wrap gap-2">
+                      {searchQuery && (
+                        <Badge variant="secondary" className="gap-1">
+                          Search: {searchQuery}
+                          <X
+                            className="w-3 h-3 cursor-pointer"
+                            onClick={() => handleFilterChange(setSearchQuery, "")}
+                          />
+                        </Badge>
                       )}
-                      <Button
-                        key={page}
-                        variant={currentPage === page ? "default" : "outline"}
-                        size="icon"
-                        onClick={() => setCurrentPage(page)}
-                      >
-                        {page}
-                      </Button>
-                    </>
-                  ))}
+                      {typeFilter !== "all" && (
+                        <Badge variant="secondary" className="gap-1">
+                          {studyTypeFilters.find((f) => f.id === typeFilter)?.label}
+                          <X
+                            className="w-3 h-3 cursor-pointer"
+                            onClick={() => handleFilterChange(setTypeFilter, "all")}
+                          />
+                        </Badge>
+                      )}
+                      {evidenceFilter !== "all" && (
+                        <Badge variant="secondary" className="gap-1">
+                          {evidenceLevelFilters.find((f) => f.id === evidenceFilter)?.label}
+                          <X
+                            className="w-3 h-3 cursor-pointer"
+                            onClick={() => handleFilterChange(setEvidenceFilter, "all")}
+                          />
+                        </Badge>
+                      )}
+                      {compoundFilter && (
+                        <Badge variant="secondary" className="gap-1">
+                          {compoundFilter}
+                          <X
+                            className="w-3 h-3 cursor-pointer"
+                            onClick={() => handleFilterChange(setCompoundFilter, "")}
+                          />
+                        </Badge>
+                      )}
+                    </div>
+                    <Button variant="ghost" size="sm" onClick={clearFilters} className="ml-auto">
+                      Clear all
+                    </Button>
+                  </div>
+                )}
               </div>
 
-              <Button
-                variant="outline"
-                size="icon"
-                onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
-                disabled={currentPage === totalPages}
-              >
-                <ChevronRight className="w-4 h-4" />
-              </Button>
-            </div>
-          )}
+              {/* Results Count */}
+              <div className="flex items-center justify-between">
+                <p className="text-muted-foreground">
+                  Showing <span className="font-medium text-foreground">{paginatedStudies.length}</span>{" "}
+                  of <span className="font-medium text-foreground">{filteredStudies.length}</span>{" "}
+                  curated studies
+                </p>
+              </div>
+
+              {/* Studies List */}
+              <div className="space-y-4">
+                {paginatedStudies.map((study) => (
+                  <StudyCard
+                    key={study.id}
+                    study={study}
+                    isExpanded={expandedStudy === study.id}
+                    onToggle={() => setExpandedStudy(expandedStudy === study.id ? null : study.id)}
+                  />
+                ))}
+              </div>
+
+              {/* Empty State */}
+              {filteredStudies.length === 0 && (
+                <div className="text-center py-16 bg-card border border-border rounded-xl">
+                  <FileText className="w-16 h-16 mx-auto mb-4 text-muted-foreground/50" />
+                  <h3 className="text-xl font-semibold text-foreground mb-2">No studies found</h3>
+                  <p className="text-muted-foreground mb-6">
+                    Try adjusting your search or filter criteria.
+                  </p>
+                  <Button onClick={clearFilters}>Clear all filters</Button>
+                </div>
+              )}
+
+              {/* Pagination */}
+              {totalPages > 1 && (
+                <div className="flex items-center justify-center gap-2">
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
+                    disabled={currentPage === 1}
+                  >
+                    <ChevronLeft className="w-4 h-4" />
+                  </Button>
+
+                  <div className="flex items-center gap-1">
+                    {Array.from({ length: totalPages }, (_, i) => i + 1)
+                      .filter((page) => {
+                        if (page === 1 || page === totalPages) return true;
+                        if (Math.abs(page - currentPage) <= 1) return true;
+                        return false;
+                      })
+                      .map((page, i, arr) => (
+                        <span key={page}>
+                          {i > 0 && arr[i - 1] !== page - 1 && (
+                            <span className="px-2 text-muted-foreground">...</span>
+                          )}
+                          <Button
+                            variant={currentPage === page ? "default" : "outline"}
+                            size="icon"
+                            onClick={() => setCurrentPage(page)}
+                          >
+                            {page}
+                          </Button>
+                        </span>
+                      ))}
+                  </div>
+
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
+                    disabled={currentPage === totalPages}
+                  >
+                    <ChevronRight className="w-4 h-4" />
+                  </Button>
+                </div>
+              )}
+            </TabsContent>
+          </Tabs>
         </div>
       </main>
 

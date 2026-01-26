@@ -76,6 +76,14 @@ const compounds = [
     image: "⚫",
     highlights: ["Antioxidant studies", "Longevity research", "Cellular research"],
   },
+  {
+    name: "Cacao",
+    latinName: "Theobroma cacao",
+    category: "Functional Food",
+    studies: 680,
+    image: "🍫",
+    highlights: ["Cardiovascular research", "Flavanol studies", "Mood and cognition"],
+  },
 ];
 
 const CompoundsSection = () => {

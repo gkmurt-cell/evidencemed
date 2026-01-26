@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import { ArrowRight, Brain, Heart, Activity, Pill, Dna, Shield, Zap, Bone, Sparkles, Wind, Stethoscope, Baby, Eye, Ear, Smile, Droplets, LucideIcon } from "lucide-react";
+import { ArrowRight, Brain, Heart, Activity, Pill, Dna, Shield, Zap, Bone, Sparkles, Wind, Stethoscope, Baby, Eye, Ear, Smile, Droplets, LucideIcon, Search, X } from "lucide-react";
 import EducationalDisclaimer from "@/components/layout/EducationalDisclaimer";
 import DemoDisclaimer from "@/components/layout/DemoDisclaimer";
 
@@ -137,6 +138,39 @@ const categories: Category[] = [
 
 const ConditionsSection = () => {
   const [activeCategory, setActiveCategory] = useState("featured");
+  const [searchQuery, setSearchQuery] = useState("");
+
+  // Filter conditions across all categories based on search
+  const filteredCategories = useMemo(() => {
+    if (!searchQuery.trim()) return categories;
+    
+    const query = searchQuery.toLowerCase();
+    return categories.map(category => ({
+      ...category,
+      conditions: category.conditions.filter(condition =>
+        condition.name.toLowerCase().includes(query) ||
+        condition.description.toLowerCase().includes(query)
+      )
+    })).filter(category => category.conditions.length > 0);
+  }, [searchQuery]);
+
+  // Get all matching conditions for search display
+  const allMatchingConditions = useMemo(() => {
+    if (!searchQuery.trim()) return [];
+    const query = searchQuery.toLowerCase();
+    const matches: Condition[] = [];
+    categories.forEach(category => {
+      category.conditions.forEach(condition => {
+        if (condition.name.toLowerCase().includes(query) ||
+            condition.description.toLowerCase().includes(query)) {
+          matches.push(condition);
+        }
+      });
+    });
+    return matches;
+  }, [searchQuery]);
+
+  const isSearching = searchQuery.trim().length > 0;
 
   return (
     <section id="conditions" className="py-10 lg:py-16 bg-background">
@@ -147,7 +181,7 @@ const ConditionsSection = () => {
             Conditions Database
           </span>
           <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground mb-6">
-            100+ Health Conditions
+            200+ Health Conditions
             <br />
             <span className="text-muted-foreground">Research Coverage</span>
           </h2>
@@ -159,60 +193,128 @@ const ConditionsSection = () => {
           <EducationalDisclaimer />
         </div>
 
-        {/* Category Tabs */}
-        <Tabs value={activeCategory} onValueChange={setActiveCategory} className="w-full">
-          <div className="flex justify-center mb-8">
-            <TabsList className="h-auto flex-wrap gap-1 bg-muted/50 p-1.5">
-              {categories.map((category) => (
-                <TabsTrigger
-                  key={category.id}
-                  value={category.id}
-                  className="flex items-center gap-1.5 px-3 py-2 text-sm data-[state=active]:bg-background"
-                >
-                  <category.icon className="w-4 h-4" />
-                  <span className="hidden sm:inline">{category.name}</span>
-                </TabsTrigger>
-              ))}
-            </TabsList>
+        {/* Search Box */}
+        <div className="max-w-xl mx-auto mb-8">
+          <div className="relative">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+            <Input
+              type="text"
+              placeholder="Search conditions (e.g., lupus, eczema, diabetes...)"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="pl-10 pr-10 h-12 text-base"
+            />
+            {searchQuery && (
+              <button
+                onClick={() => setSearchQuery("")}
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            )}
           </div>
+          {isSearching && (
+            <p className="text-sm text-muted-foreground mt-2 text-center">
+              Found {allMatchingConditions.length} matching condition{allMatchingConditions.length !== 1 ? 's' : ''}
+            </p>
+          )}
+        </div>
 
-          {categories.map((category) => (
-            <TabsContent key={category.id} value={category.id} className="mt-0">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                {category.conditions.map((condition, index) => (
-                  <Link
-                    key={condition.id}
-                    to={`/condition/${condition.id}`}
-                    className="group p-5 rounded-xl bg-card border border-border shadow-sm hover:border-primary/30 hover:shadow-md transition-all duration-300"
-                    style={{ animationDelay: `${index * 30}ms` }}
-                  >
-                    <div className={`w-10 h-10 rounded-lg ${condition.color} flex items-center justify-center mb-3`}>
-                      <condition.icon className="w-5 h-5" />
-                    </div>
-                    <h3 className="font-serif text-base font-semibold text-foreground mb-1.5 group-hover:text-primary transition-colors">
-                      {condition.name}
-                    </h3>
-                    <p className="text-sm text-muted-foreground mb-3 line-clamp-2">
-                      {condition.description}
-                    </p>
-                    <div className="flex items-center justify-between">
-                      <span className="text-xs font-medium text-primary">
-                        {condition.studies} studies
-                      </span>
-                      <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all" />
-                    </div>
-                  </Link>
-                ))}
+        {/* Search Results or Category Tabs */}
+        {isSearching ? (
+          // Show search results
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            {allMatchingConditions.map((condition, index) => (
+              <Link
+                key={condition.id}
+                to={`/condition/${condition.id}`}
+                className="group p-5 rounded-xl bg-card border border-border shadow-sm hover:border-primary/30 hover:shadow-md transition-all duration-300"
+                style={{ animationDelay: `${index * 30}ms` }}
+              >
+                <div className={`w-10 h-10 rounded-lg ${condition.color} flex items-center justify-center mb-3`}>
+                  <condition.icon className="w-5 h-5" />
+                </div>
+                <h3 className="font-serif text-base font-semibold text-foreground mb-1.5 group-hover:text-primary transition-colors">
+                  {condition.name}
+                </h3>
+                <p className="text-sm text-muted-foreground mb-3 line-clamp-2">
+                  {condition.description}
+                </p>
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-medium text-primary">
+                    {condition.studies} studies
+                  </span>
+                  <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                </div>
+              </Link>
+            ))}
+            {allMatchingConditions.length === 0 && (
+              <div className="col-span-full text-center py-12">
+                <p className="text-muted-foreground">No conditions found matching "{searchQuery}"</p>
+                <Button variant="ghost" onClick={() => setSearchQuery("")} className="mt-4">
+                  Clear search
+                </Button>
               </div>
-            </TabsContent>
-          ))}
-        </Tabs>
+            )}
+          </div>
+        ) : (
+          // Show category tabs
+          <Tabs value={activeCategory} onValueChange={setActiveCategory} className="w-full">
+            <div className="flex justify-center mb-8">
+              <TabsList className="h-auto flex-wrap gap-1 bg-muted/50 p-1.5">
+                {filteredCategories.map((category) => (
+                  <TabsTrigger
+                    key={category.id}
+                    value={category.id}
+                    className="flex items-center gap-1.5 px-3 py-2 text-sm data-[state=active]:bg-background"
+                  >
+                    <category.icon className="w-4 h-4" />
+                    <span className="hidden sm:inline">{category.name}</span>
+                  </TabsTrigger>
+                ))}
+              </TabsList>
+            </div>
+
+            {filteredCategories.map((category) => (
+              <TabsContent key={category.id} value={category.id} className="mt-0">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                  {category.conditions.map((condition, index) => (
+                    <Link
+                      key={condition.id}
+                      to={`/condition/${condition.id}`}
+                      className="group p-5 rounded-xl bg-card border border-border shadow-sm hover:border-primary/30 hover:shadow-md transition-all duration-300"
+                      style={{ animationDelay: `${index * 30}ms` }}
+                    >
+                      <div className={`w-10 h-10 rounded-lg ${condition.color} flex items-center justify-center mb-3`}>
+                        <condition.icon className="w-5 h-5" />
+                      </div>
+                      <h3 className="font-serif text-base font-semibold text-foreground mb-1.5 group-hover:text-primary transition-colors">
+                        {condition.name}
+                      </h3>
+                      <p className="text-sm text-muted-foreground mb-3 line-clamp-2">
+                        {condition.description}
+                      </p>
+                      <div className="flex items-center justify-between">
+                        <span className="text-xs font-medium text-primary">
+                          {condition.studies} studies
+                        </span>
+                        <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </TabsContent>
+            ))}
+          </Tabs>
+        )}
 
         {/* CTA */}
         <div className="text-center mt-8">
-          <Button size="lg">
-            Browse All Conditions
-            <ArrowRight className="w-4 h-4" />
+          <Button size="lg" asChild>
+            <Link to="/research">
+              Browse All Research
+              <ArrowRight className="w-4 h-4" />
+            </Link>
           </Button>
         </div>
       </div>
