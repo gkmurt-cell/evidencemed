@@ -276,6 +276,132 @@ function getConditionSearchTerms(condition: string): string {
     aging: "(aging[MeSH]) AND (dietary supplements[MeSH] OR antioxidants[MeSH] OR longevity)",
     "immune-support": "(immune system[MeSH]) AND (dietary supplements[MeSH] OR immunomodulation)",
     detoxification: "(detoxification, metabolic[MeSH] OR liver[MeSH]) AND (dietary supplements[MeSH] OR herbal medicine[MeSH])",
+    
+    // Additional Women's Health
+    "premenstrual-syndrome": "(premenstrual syndrome[MeSH]) AND (complementary therapies[MeSH] OR dietary supplements[MeSH])",
+    perimenopause: "(perimenopause[MeSH]) AND (complementary therapies[MeSH] OR hormone[tiab])",
+    postpartum: "(postpartum period[MeSH] OR postpartum depression[MeSH]) AND (complementary therapies[MeSH])",
+    "uterine-fibroids": "(leiomyoma[MeSH] OR uterine neoplasms[MeSH]) AND (complementary therapies[MeSH])",
+    amenorrhea: "(amenorrhea[MeSH]) AND (complementary therapies[MeSH] OR herbal medicine[MeSH])",
+    "heavy-periods": "(menorrhagia[MeSH]) AND (complementary therapies[MeSH] OR herbal medicine[MeSH])",
+    "breast-health": "(fibrocystic breast disease[MeSH]) AND (complementary therapies[MeSH])",
+    "vaginal-health": "(vaginal diseases[MeSH] OR atrophic vaginitis[MeSH]) AND (complementary therapies[MeSH])",
+    "libido-women": "(sexual dysfunction, physiological[MeSH] AND female) AND (complementary therapies[MeSH])",
+    "pregnancy-support": "(pregnancy[MeSH]) AND (dietary supplements[MeSH] OR prenatal care[MeSH])",
+    
+    // Additional Men's Health
+    "male-infertility": "(infertility, male[MeSH]) AND (complementary therapies[MeSH] OR dietary supplements[MeSH])",
+    "premature-ejaculation": "(premature ejaculation[MeSH]) AND (complementary therapies[MeSH])",
+    "male-pattern-baldness": "(alopecia, androgenetic[MeSH] AND male) AND (complementary therapies[MeSH])",
+    gynecomastia: "(gynecomastia[MeSH]) AND (complementary therapies[MeSH])",
+    
+    // Additional Infections
+    "covid-long": "(post-acute COVID-19 syndrome[MeSH] OR long COVID[tiab]) AND (complementary therapies[MeSH] OR dietary supplements[MeSH])",
+    shingles: "(herpes zoster[MeSH]) AND (complementary therapies[MeSH] OR natural products[MeSH])",
+    hepatitis: "(hepatitis B[MeSH] OR hepatitis C[MeSH]) AND (complementary therapies[MeSH] OR herbal medicine[MeSH])",
+    "hiv-support": "(HIV infections[MeSH]) AND (complementary therapies[MeSH] OR dietary supplements[MeSH])",
+    tuberculosis: "(tuberculosis[MeSH]) AND (complementary therapies[MeSH] OR herbal medicine[MeSH])",
+    "h-pylori": "(helicobacter pylori[MeSH]) AND (complementary therapies[MeSH] OR natural products[MeSH])",
+    "staph-infection": "(staphylococcal infections[MeSH]) AND (natural products[MeSH] OR herbal medicine[MeSH])",
+    "strep-infection": "(streptococcal infections[MeSH]) AND (natural products[MeSH] OR herbal medicine[MeSH])",
+    "fungal-nail": "(onychomycosis[MeSH]) AND (complementary therapies[MeSH] OR natural products[MeSH])",
+    "athletes-foot": "(tinea pedis[MeSH]) AND (natural products[MeSH] OR herbal medicine[MeSH])",
+    ringworm: "(tinea[MeSH]) AND (natural products[MeSH] OR herbal medicine[MeSH])",
+    "bacterial-vaginosis": "(vaginosis, bacterial[MeSH]) AND (complementary therapies[MeSH] OR probiotics[MeSH])",
+    "yeast-infection": "(candidiasis, vulvovaginal[MeSH]) AND (complementary therapies[MeSH] OR natural products[MeSH])",
+    
+    // Aging & Longevity
+    "cognitive-decline": "(cognitive dysfunction[MeSH]) AND (dietary supplements[MeSH] OR neuroprotection[tiab])",
+    sarcopenia: "(sarcopenia[MeSH]) AND (dietary supplements[MeSH] OR exercise[MeSH])",
+    frailty: "(frailty[MeSH] OR frail elderly[MeSH]) AND (dietary supplements[MeSH])",
+    "skin-aging": "(skin aging[MeSH]) AND (dietary supplements[MeSH] OR antioxidants[MeSH])",
+    "hearing-loss": "(hearing loss[MeSH] OR presbycusis[MeSH]) AND (dietary supplements[MeSH])",
+    "bone-health": "(bone density[MeSH]) AND (dietary supplements[MeSH] OR calcium[MeSH])",
+    "telomere-health": "(telomere[MeSH]) AND (dietary supplements[MeSH] OR aging[MeSH])",
+    "mitochondrial-health": "(mitochondria[MeSH]) AND (dietary supplements[MeSH] OR aging[MeSH])",
+    "oxidative-stress": "(oxidative stress[MeSH]) AND (antioxidants[MeSH] OR dietary supplements[MeSH])",
+    "inflammation-chronic": "(inflammation[MeSH] AND chronic) AND (dietary supplements[MeSH] OR anti-inflammatory agents[MeSH])",
+    
+    // Additional Neurological
+    "brain-fog": "(cognitive dysfunction[MeSH] OR mental fatigue[tiab]) AND (complementary therapies[MeSH])",
+    "memory-loss": "(memory disorders[MeSH]) AND (dietary supplements[MeSH] OR neuroprotection[tiab])",
+    "peripheral-neuropathy": "(peripheral nervous system diseases[MeSH]) AND (complementary therapies[MeSH])",
+    "restless-legs": "(restless legs syndrome[MeSH]) AND (complementary therapies[MeSH])",
+    tremors: "(essential tremor[MeSH]) AND (complementary therapies[MeSH])",
+    "bells-palsy": "(Bell palsy[MeSH]) AND (complementary therapies[MeSH])",
+    "trigeminal-neuralgia": "(trigeminal neuralgia[MeSH]) AND (complementary therapies[MeSH])",
+    concussion: "(brain concussion[MeSH] OR brain injuries, traumatic[MeSH]) AND (complementary therapies[MeSH])",
+    
+    // Cardiovascular Extended
+    "heart-failure": "(heart failure[MeSH]) AND (complementary therapies[MeSH] OR dietary supplements[MeSH])",
+    arrhythmia: "(arrhythmias, cardiac[MeSH]) AND (complementary therapies[MeSH] OR dietary supplements[MeSH])",
+    atherosclerosis: "(atherosclerosis[MeSH]) AND (dietary supplements[MeSH] OR natural products[MeSH])",
+    "peripheral-artery": "(peripheral arterial disease[MeSH]) AND (complementary therapies[MeSH])",
+    "blood-clots": "(venous thrombosis[MeSH] OR thromboembolism[MeSH]) AND (complementary therapies[MeSH])",
+    aneurysm: "(aneurysm[MeSH]) AND (complementary therapies[MeSH])",
+    
+    // Metabolic Extended
+    "insulin-resistance": "(insulin resistance[MeSH]) AND (dietary supplements[MeSH] OR herbal medicine[MeSH])",
+    "metabolic-syndrome": "(metabolic syndrome[MeSH]) AND (complementary therapies[MeSH] OR dietary supplements[MeSH])",
+    hypoglycemia: "(hypoglycemia[MeSH]) AND (dietary management[tiab] OR dietary supplements[MeSH])",
+    hyperglycemia: "(hyperglycemia[MeSH]) AND (complementary therapies[MeSH] OR herbal medicine[MeSH])",
+    "gestational-diabetes": "(diabetes, gestational[MeSH]) AND (complementary therapies[MeSH] OR dietary supplements[MeSH])",
+    "diabetic-neuropathy": "(diabetic neuropathies[MeSH]) AND (complementary therapies[MeSH])",
+    "diabetic-retinopathy": "(diabetic retinopathy[MeSH]) AND (dietary supplements[MeSH] OR antioxidants[MeSH])",
+    
+    // Digestive Extended
+    constipation: "(constipation[MeSH]) AND (complementary therapies[MeSH] OR dietary supplements[MeSH])",
+    diarrhea: "(diarrhea[MeSH]) AND (complementary therapies[MeSH] OR probiotics[MeSH])",
+    diverticulitis: "(diverticulitis[MeSH]) AND (complementary therapies[MeSH] OR dietary management[tiab])",
+    bloating: "(flatulence[MeSH] OR abdominal distension[tiab]) AND (complementary therapies[MeSH])",
+    dyspepsia: "(dyspepsia[MeSH]) AND (complementary therapies[MeSH] OR herbal medicine[MeSH])",
+    "liver-cirrhosis": "(liver cirrhosis[MeSH]) AND (complementary therapies[MeSH] OR herbal medicine[MeSH])",
+    "hepatic-encephalopathy": "(hepatic encephalopathy[MeSH]) AND (dietary supplements[MeSH])",
+    
+    // Additional Respiratory
+    pneumonia: "(pneumonia[MeSH]) AND (complementary therapies[MeSH] OR herbal medicine[MeSH])",
+    "cough-chronic": "(cough[MeSH] AND chronic) AND (complementary therapies[MeSH] OR herbal medicine[MeSH])",
+    "post-nasal-drip": "(postnasal drip[tiab] OR rhinorrhea[MeSH]) AND (complementary therapies[MeSH])",
+    "nasal-polyps": "(nasal polyps[MeSH]) AND (complementary therapies[MeSH])",
+    sarcoidosis: "(sarcoidosis[MeSH]) AND (complementary therapies[MeSH])",
+    
+    // Additional Skin
+    hives: "(urticaria[MeSH]) AND (complementary therapies[MeSH] OR natural products[MeSH])",
+    "keratosis-pilaris": "(keratosis pilaris[tiab] OR keratosis follicularis[MeSH]) AND (treatment)",
+    hyperpigmentation: "(hyperpigmentation[MeSH]) AND (natural products[MeSH] OR herbal medicine[MeSH])",
+    melasma: "(melanosis[MeSH]) AND (natural products[MeSH] OR herbal medicine[MeSH])",
+    "seborrheic-dermatitis": "(dermatitis, seborrheic[MeSH]) AND (natural products[MeSH] OR herbal medicine[MeSH])",
+    hidradenitis: "(hidradenitis suppurativa[MeSH]) AND (complementary therapies[MeSH])",
+    "lichen-planus": "(lichen planus[MeSH]) AND (complementary therapies[MeSH] OR natural products[MeSH])",
+    "wound-healing": "(wound healing[MeSH]) AND (natural products[MeSH] OR herbal medicine[MeSH])",
+    scars: "(cicatrix[MeSH] OR keloid[MeSH]) AND (natural products[MeSH] OR herbal medicine[MeSH])",
+    burns: "(burns[MeSH]) AND (natural products[MeSH] OR herbal medicine[MeSH])",
+    
+    // Additional Autoimmune
+    dermatomyositis: "(dermatomyositis[MeSH]) AND (complementary therapies[MeSH])",
+    polymyositis: "(polymyositis[MeSH]) AND (complementary therapies[MeSH])",
+    vasculitis: "(vasculitis[MeSH]) AND (complementary therapies[MeSH])",
+    "psoriatic-arthritis": "(arthritis, psoriatic[MeSH]) AND (complementary therapies[MeSH])",
+    antiphospholipid: "(antiphospholipid syndrome[MeSH]) AND (complementary therapies[MeSH])",
+    
+    // Mental Health Extended
+    "social-anxiety": "(phobia, social[MeSH]) AND (complementary therapies[MeSH])",
+    "panic-disorder": "(panic disorder[MeSH]) AND (complementary therapies[MeSH] OR herbal medicine[MeSH])",
+    phobias: "(phobic disorders[MeSH]) AND (complementary therapies[MeSH])",
+    "seasonal-affective": "(seasonal affective disorder[MeSH]) AND (complementary therapies[MeSH] OR light therapy[MeSH])",
+    grief: "(grief[MeSH] OR bereavement[MeSH]) AND (complementary therapies[MeSH])",
+    addiction: "(substance-related disorders[MeSH]) AND (complementary therapies[MeSH])",
+    "alcohol-use": "(alcoholism[MeSH]) AND (complementary therapies[MeSH] OR herbal medicine[MeSH])",
+    "smoking-cessation": "(smoking cessation[MeSH]) AND (complementary therapies[MeSH] OR herbal medicine[MeSH])",
+    "stress-management": "(stress, psychological[MeSH]) AND (complementary therapies[MeSH] OR adaptogen[tiab])",
+    burnout: "(burnout, professional[MeSH] OR burnout, psychological[MeSH]) AND (complementary therapies[MeSH])",
+    
+    // Sports & Performance
+    "sports-injury": "(athletic injuries[MeSH]) AND (complementary therapies[MeSH] OR natural products[MeSH])",
+    "muscle-recovery": "(muscle, skeletal[MeSH] AND recovery) AND (dietary supplements[MeSH])",
+    "athletic-performance": "(athletic performance[MeSH]) AND (dietary supplements[MeSH] OR ergogenic aids[tiab])",
+    tendonitis: "(tendinopathy[MeSH]) AND (complementary therapies[MeSH] OR natural products[MeSH])",
+    "plantar-fasciitis": "(fasciitis, plantar[MeSH]) AND (complementary therapies[MeSH])",
   };
   
   return conditionMap[condition.toLowerCase()] || `(${condition}[tiab]) AND (complementary therapies[MeSH] OR natural products[MeSH])`;
