@@ -1,9 +1,16 @@
 import { useState, useEffect } from "react";
-import { Search, Loader2, Database } from "lucide-react";
+import { Search, Loader2, Database, ChevronLeft, ChevronRight } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { usePubMedSearch } from "@/hooks/usePubMedSearch";
 import PubMedArticleCard from "./PubMedArticleCard";
+import {
+  Pagination,
+  PaginationContent,
+  PaginationItem,
+  PaginationLink,
+  PaginationEllipsis,
+} from "@/components/ui/pagination";
 
 interface PubMedSearchPanelProps {
   initialQuery?: string;
@@ -17,7 +24,16 @@ const PubMedSearchPanel = ({
   maxResults = 20 
 }: PubMedSearchPanelProps) => {
   const [query, setQuery] = useState(initialQuery);
-  const { search, searchByCondition, results, isLoading, error } = usePubMedSearch();
+  const { 
+    search, 
+    searchByCondition, 
+    goToPage, 
+    results, 
+    isLoading, 
+    error,
+    currentPage,
+    totalPages
+  } = usePubMedSearch();
 
   // Auto-search if condition is provided
   useEffect(() => {
@@ -31,6 +47,43 @@ const PubMedSearchPanel = ({
     if (query.trim()) {
       search(query, maxResults);
     }
+  };
+
+  const handlePageChange = (page: number) => {
+    if (page >= 1 && page <= totalPages && !isLoading) {
+      goToPage(page);
+    }
+  };
+
+  // Generate page numbers to display
+  const getVisiblePages = () => {
+    const pages: (number | "ellipsis")[] = [];
+    const maxVisible = 5;
+    
+    if (totalPages <= maxVisible) {
+      for (let i = 1; i <= totalPages; i++) pages.push(i);
+    } else {
+      pages.push(1);
+      
+      if (currentPage > 3) {
+        pages.push("ellipsis");
+      }
+      
+      const start = Math.max(2, currentPage - 1);
+      const end = Math.min(totalPages - 1, currentPage + 1);
+      
+      for (let i = start; i <= end; i++) {
+        if (!pages.includes(i)) pages.push(i);
+      }
+      
+      if (currentPage < totalPages - 2) {
+        pages.push("ellipsis");
+      }
+      
+      if (!pages.includes(totalPages)) pages.push(totalPages);
+    }
+    
+    return pages;
   };
 
   return (
@@ -81,13 +134,18 @@ const PubMedSearchPanel = ({
       {results && !isLoading && (
         <div className="space-y-4">
           {/* Results Header */}
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between flex-wrap gap-2">
             <div className="flex items-center gap-2">
               <Database className="w-4 h-4 text-primary" />
               <span className="text-sm text-muted-foreground">
-                Showing {results.articles.length} of {results.totalCount.toLocaleString()} results from PubMed
+                Showing {((currentPage - 1) * maxResults) + 1}-{Math.min(currentPage * maxResults, results.totalCount)} of {results.totalCount.toLocaleString()} results from PubMed
               </span>
             </div>
+            {totalPages > 1 && (
+              <span className="text-sm text-muted-foreground">
+                Page {currentPage} of {totalPages.toLocaleString()}
+              </span>
+            )}
           </div>
 
           {/* Articles Grid */}
@@ -100,6 +158,60 @@ const PubMedSearchPanel = ({
           ) : (
             <div className="text-center py-8">
               <p className="text-muted-foreground">No articles found for this search.</p>
+            </div>
+          )}
+
+          {/* Pagination */}
+          {totalPages > 1 && (
+            <div className="flex justify-center pt-4">
+              <Pagination>
+                <PaginationContent>
+                  {/* Previous Button */}
+                  <PaginationItem>
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={() => handlePageChange(currentPage - 1)}
+                      disabled={currentPage === 1 || isLoading}
+                      className="gap-1"
+                    >
+                      <ChevronLeft className="h-4 w-4" />
+                      Previous
+                    </Button>
+                  </PaginationItem>
+
+                  {/* Page Numbers */}
+                  {getVisiblePages().map((page, idx) => (
+                    <PaginationItem key={idx}>
+                      {page === "ellipsis" ? (
+                        <PaginationEllipsis />
+                      ) : (
+                        <PaginationLink
+                          onClick={() => handlePageChange(page)}
+                          isActive={currentPage === page}
+                          className="cursor-pointer"
+                        >
+                          {page}
+                        </PaginationLink>
+                      )}
+                    </PaginationItem>
+                  ))}
+
+                  {/* Next Button */}
+                  <PaginationItem>
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={() => handlePageChange(currentPage + 1)}
+                      disabled={currentPage === totalPages || isLoading}
+                      className="gap-1"
+                    >
+                      Next
+                      <ChevronRight className="h-4 w-4" />
+                    </Button>
+                  </PaginationItem>
+                </PaginationContent>
+              </Pagination>
             </div>
           )}
 
