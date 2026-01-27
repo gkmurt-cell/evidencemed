@@ -30,6 +30,7 @@ interface SearchParams {
   query: string;
   maxResults?: number;
   condition?: string;
+  page?: number;
 }
 
 // Parse XML response to extract article data
@@ -281,8 +282,8 @@ function getConditionSearchTerms(condition: string): string {
 }
 
 // Generate cache key from search parameters
-function generateCacheKey(query: string, condition: string | undefined, maxResults: number): string {
-  const normalized = `${query.toLowerCase().trim()}|${condition || ""}|${maxResults}`;
+function generateCacheKey(query: string, condition: string | undefined, maxResults: number, page: number): string {
+  const normalized = `${query.toLowerCase().trim()}|${condition || ""}|${maxResults}|${page}`;
   return normalized;
 }
 
@@ -293,7 +294,7 @@ serve(async (req) => {
   }
 
   try {
-    const { query, maxResults = 20, condition } = await req.json() as SearchParams;
+    const { query, maxResults = 20, condition, page = 1 } = await req.json() as SearchParams;
     
     if (!query && !condition) {
       return new Response(
@@ -313,7 +314,10 @@ serve(async (req) => {
       searchQuery = getConditionSearchTerms(condition);
     }
     
-    const cacheKey = generateCacheKey(searchQuery, condition, maxResults);
+    // Calculate offset for pagination
+    const retstart = (page - 1) * maxResults;
+    
+    const cacheKey = generateCacheKey(searchQuery, condition, maxResults, page);
     
     // Check cache first
     const { data: cachedResult } = await supabase
@@ -331,7 +335,9 @@ serve(async (req) => {
           totalCount: cachedResult.total_count, 
           query: searchQuery,
           source: "PubMed/NCBI",
-          cached: true
+          cached: true,
+          page,
+          pageSize: maxResults,
         }),
         { headers: { ...corsHeaders, "Content-Type": "application/json" } }
       );
@@ -349,6 +355,7 @@ serve(async (req) => {
       db: "pubmed",
       term: fullQuery,
       retmax: String(maxResults),
+      retstart: String(retstart),
       retmode: "json",
       sort: "relevance",
       usehistory: "y",
@@ -413,7 +420,9 @@ serve(async (req) => {
         totalCount, 
         query: searchQuery,
         source: "PubMed/NCBI",
-        cached: false
+        cached: false,
+        page,
+        pageSize: maxResults,
       }),
       { headers: { ...corsHeaders, "Content-Type": "application/json" } }
     );

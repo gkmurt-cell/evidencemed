@@ -19,14 +19,20 @@ export interface PubMedSearchResult {
   totalCount: number;
   query: string;
   source: string;
+  page: number;
+  pageSize: number;
 }
 
 export function usePubMedSearch() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [results, setResults] = useState<PubMedSearchResult | null>(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [lastQuery, setLastQuery] = useState<string>("");
+  const [lastCondition, setLastCondition] = useState<string>("");
+  const [pageSize, setPageSize] = useState(20);
 
-  const search = useCallback(async (query: string, maxResults = 20) => {
+  const search = useCallback(async (query: string, maxResults = 20, page = 1) => {
     if (!query.trim()) {
       setResults(null);
       return null;
@@ -34,10 +40,13 @@ export function usePubMedSearch() {
 
     setIsLoading(true);
     setError(null);
+    setLastQuery(query);
+    setLastCondition("");
+    setPageSize(maxResults);
 
     try {
       const { data, error: fnError } = await supabase.functions.invoke("pubmed-search", {
-        body: { query, maxResults },
+        body: { query, maxResults, page },
       });
 
       if (fnError) {
@@ -49,6 +58,7 @@ export function usePubMedSearch() {
       }
 
       setResults(data);
+      setCurrentPage(page);
       return data as PubMedSearchResult;
     } catch (err) {
       const message = err instanceof Error ? err.message : "Search failed";
@@ -60,13 +70,16 @@ export function usePubMedSearch() {
     }
   }, []);
 
-  const searchByCondition = useCallback(async (condition: string, maxResults = 20) => {
+  const searchByCondition = useCallback(async (condition: string, maxResults = 20, page = 1) => {
     setIsLoading(true);
     setError(null);
+    setLastCondition(condition);
+    setLastQuery("");
+    setPageSize(maxResults);
 
     try {
       const { data, error: fnError } = await supabase.functions.invoke("pubmed-search", {
-        body: { condition, maxResults },
+        body: { condition, maxResults, page },
       });
 
       if (fnError) {
@@ -78,6 +91,7 @@ export function usePubMedSearch() {
       }
 
       setResults(data);
+      setCurrentPage(page);
       return data as PubMedSearchResult;
     } catch (err) {
       const message = err instanceof Error ? err.message : "Search failed";
@@ -88,19 +102,37 @@ export function usePubMedSearch() {
       setIsLoading(false);
     }
   }, []);
+
+  const goToPage = useCallback(async (page: number) => {
+    if (lastQuery) {
+      return search(lastQuery, pageSize, page);
+    } else if (lastCondition) {
+      return searchByCondition(lastCondition, pageSize, page);
+    }
+    return null;
+  }, [lastQuery, lastCondition, pageSize, search, searchByCondition]);
 
   const clearResults = useCallback(() => {
     setResults(null);
     setError(null);
+    setCurrentPage(1);
+    setLastQuery("");
+    setLastCondition("");
   }, []);
+
+  const totalPages = results ? Math.ceil(results.totalCount / pageSize) : 0;
 
   return {
     search,
     searchByCondition,
+    goToPage,
     clearResults,
     results,
     isLoading,
     error,
+    currentPage,
+    totalPages,
+    pageSize,
   };
 }
 
