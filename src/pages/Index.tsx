@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { Sparkles, BookOpen, ShoppingBag } from "lucide-react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import HeroSection from "@/components/sections/HeroSection";
@@ -11,6 +12,9 @@ import CommentsSection from "@/components/sections/CommentsSection";
 import { RightSidebar } from "@/components/layout/RightSidebar";
 import { MobileBooksSection } from "@/components/layout/MobileBooksSection";
 import { MobileVideoSection } from "@/components/layout/MobileVideoSection";
+import { MobileStickyBottomBar } from "@/components/mobile/MobileStickyBottomBar";
+import { MobileResourceDrawer } from "@/components/mobile/MobileResourceDrawer";
+import { InlinePromoCard } from "@/components/mobile/InlinePromoCard";
 
 const Index = () => {
   return (
@@ -51,6 +55,9 @@ const Index = () => {
 
       <div className="min-h-screen bg-background flex flex-col">
         <Navbar />
+        {/* Mobile monetization components */}
+        <MobileStickyBottomBar />
+        <MobileResourceDrawer />
         <div className="pt-16 lg:pt-20">
           {/* Hero Section - Full Width */}
           <HeroSection />
@@ -61,12 +68,43 @@ const Index = () => {
             <main className="flex-1 min-w-0">
               {/* Primary: Research-focused content */}
               <ResearchSection />
+              
+              {/* Inline Promo: Trial signup */}
+              <InlinePromoCard
+                icon={Sparkles}
+                title="Start Your Free Trial"
+                description="Get full access to research insights, compound profiles, and practitioner tools for 7 days."
+                ctaText="Start Free Trial"
+                ctaLink="/pricing"
+                variant="primary"
+              />
+              
               <ConditionsSection />
               <CompoundsSection />
+              
+              {/* Inline Promo: Shop resources */}
+              <InlinePromoCard
+                icon={BookOpen}
+                title="Recommended Reading"
+                description="Curated books and resources from leading integrative medicine experts."
+                ctaText="Browse Books"
+                ctaLink="/merch"
+                variant="accent"
+              />
               
               {/* Secondary: Social proof & conversion */}
               <SocialProofSection />
               <PricingSection />
+              
+              {/* Inline Promo: Shop */}
+              <InlinePromoCard
+                icon={ShoppingBag}
+                title="Support Our Mission"
+                description="Browse our merch and curated products. Every purchase helps fund more research curation."
+                ctaText="Visit Shop"
+                ctaLink="/merch"
+                variant="muted"
+              />
               
               {/* Tertiary: Supplementary content */}
               <MobileBooksSection />
