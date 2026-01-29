@@ -183,7 +183,7 @@ const Research = () => {
             </TabsList>
 
             {/* PubMed Search Tab */}
-            <TabsContent value="pubmed" className="mt-0">
+            <TabsContent value="pubmed" className="mt-0 space-y-8">
               <div className="bg-card border border-border rounded-xl p-6">
                 <div className="flex items-center gap-2 mb-4">
                   <Database className="w-5 h-5 text-primary" />
@@ -194,6 +194,74 @@ const Research = () => {
                   Enter specific terms like "curcumin inflammation" or "ashwagandha anxiety" for targeted results.
                 </p>
                 <PubMedSearchPanel maxResults={20} />
+              </div>
+
+              {/* Featured Research Section */}
+              <div className="space-y-6">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h2 className="font-serif text-2xl font-semibold text-foreground mb-1">
+                      Featured Research
+                    </h2>
+                    <p className="text-muted-foreground">
+                      Trending studies from peer-reviewed journals
+                    </p>
+                  </div>
+                  <Button 
+                    variant="outline" 
+                    onClick={() => setActiveTab("curated")}
+                    className="hidden md:flex"
+                  >
+                    View All Curated Studies
+                  </Button>
+                </div>
+
+                {/* Featured Studies Grid */}
+                <div className="grid gap-4 md:grid-cols-2">
+                  {allStudies.slice(0, 6).map((study) => (
+                    <FeaturedStudyCard key={study.id} study={study} />
+                  ))}
+                </div>
+
+                <div className="flex justify-center md:hidden">
+                  <Button 
+                    variant="outline" 
+                    onClick={() => setActiveTab("curated")}
+                  >
+                    View All Curated Studies
+                  </Button>
+                </div>
+
+                {/* Quick Browse by Topic */}
+                <div className="bg-muted/30 rounded-xl p-6">
+                  <h3 className="font-semibold text-foreground mb-4">Quick Browse by Topic</h3>
+                  <div className="flex flex-wrap gap-2">
+                    {[
+                      { term: "curcumin inflammation", label: "Curcumin & Inflammation" },
+                      { term: "ashwagandha stress anxiety", label: "Ashwagandha & Stress" },
+                      { term: "omega-3 cardiovascular", label: "Omega-3 & Heart Health" },
+                      { term: "vitamin D immune", label: "Vitamin D & Immunity" },
+                      { term: "probiotics gut microbiome", label: "Probiotics & Gut Health" },
+                      { term: "berberine blood sugar", label: "Berberine & Blood Sugar" },
+                      { term: "lion's mane cognitive", label: "Lion's Mane & Cognition" },
+                      { term: "magnesium sleep", label: "Magnesium & Sleep" },
+                    ].map((topic) => (
+                      <Button
+                        key={topic.term}
+                        variant="secondary"
+                        size="sm"
+                        className="rounded-full"
+                        onClick={() => {
+                          setPubmedSearchQuery(topic.term);
+                          // Scroll to search panel
+                          window.scrollTo({ top: 0, behavior: "smooth" });
+                        }}
+                      >
+                        {topic.label}
+                      </Button>
+                    ))}
+                  </div>
+                </div>
               </div>
             </TabsContent>
 
@@ -566,6 +634,61 @@ const StudyCard = ({ study, isExpanded, onToggle }: StudyCardProps) => {
 
       </div>
     </div>
+  );
+};
+
+// Compact card for featured studies on PubMed tab
+const FeaturedStudyCard = ({ study }: { study: Study }) => {
+  const evidenceBadge = getEvidenceBadge(study.evidenceLevel);
+
+  return (
+    <a
+      href={study.pmid ? `https://pubmed.ncbi.nlm.nih.gov/${study.pmid}/` : study.doiUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="block p-4 rounded-xl bg-card border border-border hover:border-primary/50 hover:shadow-md transition-all duration-300 group"
+    >
+      <div className="flex flex-wrap items-center gap-2 mb-2">
+        <span className="px-2 py-0.5 rounded-full bg-primary/10 text-primary text-xs font-medium">
+          {study.type}
+        </span>
+        <span
+          className={cn(
+            "px-2 py-0.5 rounded-full text-xs font-medium border",
+            evidenceBadge.className
+          )}
+        >
+          {evidenceBadge.label}
+        </span>
+        <span className="text-xs text-muted-foreground ml-auto">{study.year}</span>
+      </div>
+
+      <h3 className="font-serif text-base font-medium text-foreground group-hover:text-primary transition-colors line-clamp-2 mb-2">
+        {study.title}
+      </h3>
+
+      <p className="text-xs text-muted-foreground line-clamp-2 mb-3">
+        {study.abstract}
+      </p>
+
+      <div className="flex flex-wrap gap-1 mb-2">
+        {study.compounds?.slice(0, 3).map((compound) => (
+          <span
+            key={compound}
+            className="px-1.5 py-0.5 rounded bg-primary/10 text-xs text-primary"
+          >
+            {compound}
+          </span>
+        ))}
+      </div>
+
+      <div className="flex items-center justify-between text-xs text-muted-foreground">
+        <span>{study.journal}</span>
+        <span className="flex items-center gap-1 text-primary font-medium">
+          View <ExternalLink className="w-3 h-3" />
+        </span>
+      </div>
+    </a>
   );
 };
 
