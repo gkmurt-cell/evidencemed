@@ -17,6 +17,7 @@ import Research from "./pages/Research";
 import Compounds from "./pages/Compounds";
 import CompoundPage from "./pages/Compound";
 import ConditionPage from "./pages/Condition";
+import ConditionsPage from "./pages/Conditions";
 import Pricing from "./pages/Pricing";
 import NotFound from "./pages/NotFound";
 
@@ -42,6 +43,7 @@ const App = () => (
               <Route path="/research" element={<Research />} />
               <Route path="/compounds" element={<Compounds />} />
               <Route path="/compound/:id" element={<CompoundPage />} />
+              <Route path="/conditions" element={<ConditionsPage />} />
               <Route path="/condition/:id" element={<ConditionPage />} />
               <Route path="/pricing" element={<Pricing />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
