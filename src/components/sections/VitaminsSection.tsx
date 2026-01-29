@@ -157,7 +157,7 @@ const VitaminsSection = () => {
             </div>
           </div>
           <Link
-            to="/compounds?category=Water-Soluble Vitamin"
+            to="/compounds?category=Vitamins"
             className="hidden sm:flex items-center gap-1 text-sm text-primary hover:underline"
           >
             View all vitamins
@@ -227,7 +227,7 @@ const VitaminsSection = () => {
         {/* Mobile View All Link */}
         <div className="sm:hidden mt-4 text-center">
           <Link
-            to="/compounds?category=Water-Soluble Vitamin"
+            to="/compounds?category=Vitamins"
             className="inline-flex items-center gap-1 text-sm text-primary hover:underline"
           >
             View all vitamins

@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import {
   ArrowLeft,
@@ -25,7 +25,27 @@ import { allStudies, getEvidenceBadge, type Study } from "@/data/researchData";
 
 const CompoundPage = () => {
   const { id } = useParams<{ id: string }>();
+  const location = useLocation();
   const compound = id ? getCompoundById(id) : undefined;
+
+  // Determine back link based on compound category
+  const getBackLink = () => {
+    if (!compound) return { to: "/compounds", label: "Back to Compounds" };
+    
+    // Check if it's a vitamin
+    if (compound.category === "Fat-Soluble Vitamin" || compound.category === "Water-Soluble Vitamin") {
+      return { to: "/compounds?category=Vitamins", label: "Back to Vitamins" };
+    }
+    
+    // Check if it's a mineral
+    if (compound.category === "Essential Mineral") {
+      return { to: "/compounds?category=Essential Mineral", label: "Back to Minerals" };
+    }
+    
+    return { to: "/compounds", label: "Back to Compounds" };
+  };
+
+  const backLink = getBackLink();
 
   // Get related studies
   const relatedStudies = useMemo(() => {
@@ -89,11 +109,11 @@ const CompoundPage = () => {
           {/* Breadcrumb */}
           <div className="mb-8">
             <Link
-              to="/compounds"
+              to={backLink.to}
               className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
             >
               <ArrowLeft className="w-4 h-4" />
-              Back to Compounds
+              {backLink.label}
             </Link>
           </div>
 

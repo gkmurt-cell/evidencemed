@@ -1,6 +1,6 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { Search, ArrowLeft, ArrowRight, Leaf, Filter } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -19,6 +19,7 @@ import { compoundsData, type Compound } from "@/data/compoundData";
 
 const categories = [
   "All Categories",
+  "Vitamins",
   "Ayurvedic Compound",
   "Fat-Soluble Vitamin",
   "Water-Soluble Vitamin",
@@ -42,9 +43,30 @@ const categories = [
   "Blue-Green Algae",
 ];
 
+// Helper to get page title based on filter
+const getPageTitle = (category: string) => {
+  if (category === "Vitamins") return "Essential Vitamins";
+  if (category === "Fat-Soluble Vitamin" || category === "Water-Soluble Vitamin") return "Vitamins";
+  if (category === "Essential Mineral") return "Essential Minerals";
+  return null;
+};
+
 const Compounds = () => {
+  const [searchParams] = useSearchParams();
+  const categoryFromUrl = searchParams.get("category") || "All Categories";
+  
   const [searchQuery, setSearchQuery] = useState("");
-  const [categoryFilter, setCategoryFilter] = useState("All Categories");
+  const [categoryFilter, setCategoryFilter] = useState(categoryFromUrl);
+
+  // Update filter when URL changes
+  useEffect(() => {
+    const category = searchParams.get("category");
+    if (category) {
+      setCategoryFilter(category);
+    }
+  }, [searchParams]);
+
+  const pageTitle = getPageTitle(categoryFilter);
 
   const filteredCompounds = useMemo(() => {
     let results = compoundsData;
@@ -61,8 +83,14 @@ const Compounds = () => {
       );
     }
 
-    // Category filter
-    if (categoryFilter !== "All Categories") {
+    // Category filter - special handling for "Vitamins" to include both types
+    if (categoryFilter === "Vitamins") {
+      results = results.filter(
+        (compound) => 
+          compound.category === "Fat-Soluble Vitamin" || 
+          compound.category === "Water-Soluble Vitamin"
+      );
+    } else if (categoryFilter !== "All Categories") {
       results = results.filter((compound) => compound.category === categoryFilter);
     }
 
@@ -96,15 +124,17 @@ const Compounds = () => {
             <div className="max-w-3xl">
               <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
                 <Leaf className="w-4 h-4 inline mr-1" />
-                Natural Compounds
+                {pageTitle || "Natural Compounds"}
               </span>
               <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground mb-4">
-                Herbal & Functional Medicine Library
+                {pageTitle || "Herbal & Functional Medicine Library"}
               </h1>
               <p className="text-lg text-muted-foreground mb-6">
-                Comprehensive research profiles for herbs, nutraceuticals, and functional compounds.
-                Each entry includes traditional use context, mechanisms of action, research summaries, 
-                and safety considerations. All information is for educational purposes only.
+                {pageTitle 
+                  ? `Research profiles for ${pageTitle.toLowerCase()}. Each entry includes mechanisms of action, research summaries, and safety considerations.`
+                  : "Comprehensive research profiles for herbs, nutraceuticals, and functional compounds. Each entry includes traditional use context, mechanisms of action, research summaries, and safety considerations."
+                }
+                {" "}All information is for educational purposes only.
               </p>
               <EducationalDisclaimer />
             </div>
