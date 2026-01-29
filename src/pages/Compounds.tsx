@@ -29,6 +29,15 @@ const categories = [
   "Mitochondrial Support",
   "Polyphenol",
   "Microbiome Support",
+  "Longevity Compound",
+  "Structural Protein",
+  "Marine Superfood",
+  "Mineral Complex",
+  "Flavonoid",
+  "Amino Acid",
+  "Herbal Immune Support",
+  "Performance Compound",
+  "Blue-Green Algae",
 ];
 
 const Compounds = () => {
