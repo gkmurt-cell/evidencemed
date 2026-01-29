@@ -22,6 +22,7 @@ import EducationalDisclaimer from "@/components/layout/EducationalDisclaimer";
 import { cn } from "@/lib/utils";
 import { getCompoundById, getRelatedCompounds, compoundsData, type Compound } from "@/data/compoundData";
 import { allStudies, getEvidenceBadge, type Study } from "@/data/researchData";
+import ReferencesSection from "@/components/compound/ReferencesSection";
 
 const CompoundPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -279,6 +280,14 @@ const CompoundPage = () => {
                     ))}
                   </div>
                 </section>
+              )}
+
+              {/* Scientific References */}
+              {compound.references && compound.references.length > 0 && (
+                <ReferencesSection 
+                  references={compound.references} 
+                  compoundName={compound.name} 
+                />
               )}
             </div>
 
