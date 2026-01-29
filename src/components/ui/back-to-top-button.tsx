@@ -17,14 +17,13 @@ const BackToTopButton = ({ targetId = "top", label = "Back to Categories" }: Bac
   };
 
   return (
-    <div className="flex justify-center pt-8">
+    <div className="flex justify-center pt-8 pb-4">
       <Button
-        variant="outline"
-        size="sm"
         onClick={scrollToTop}
-        className="gap-2 text-muted-foreground hover:text-foreground"
+        className="gap-2 bg-primary text-primary-foreground hover:bg-primary/90 px-6 py-3 text-base font-semibold rounded-full shadow-lg hover:shadow-xl transition-all"
+        size="lg"
       >
-        <ArrowUp className="w-4 h-4" />
+        <ArrowUp className="w-5 h-5" />
         {label}
       </Button>
     </div>
