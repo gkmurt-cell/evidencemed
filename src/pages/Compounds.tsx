@@ -19,13 +19,14 @@ import { compoundsData, type Compound } from "@/data/compoundData";
 
 const categories = [
   "All Categories",
+  "Fat-Soluble Vitamin",
+  "Water-Soluble Vitamin",
   "Functional Mushroom",
   "Herbal Compound",
   "Alkaloid",
   "Adaptogen",
   "Essential Fatty Acid",
   "Essential Mineral",
-  "Fat-Soluble Vitamin",
   "Mitochondrial Support",
   "Polyphenol",
   "Microbiome Support",

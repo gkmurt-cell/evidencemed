@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Leaf, Info } from "lucide-react";
 import EducationalDisclaimer from "@/components/layout/EducationalDisclaimer";
+import VitaminsSection from "./VitaminsSection";
 
 const compounds = [
   {
@@ -190,6 +191,9 @@ const CompoundsSection = () => {
             </div>
           </div>
         </div>
+
+        {/* Vitamins Section */}
+        <VitaminsSection />
 
         {/* CTA */}
         <div className="text-center mt-10">
