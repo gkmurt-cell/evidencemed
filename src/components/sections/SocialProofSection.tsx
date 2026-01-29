@@ -291,16 +291,27 @@ const platforms = [
   { id: "twitter", label: "Twitter/X" },
 ] as const;
 
+const verdicts = [
+  { id: "all", label: "All Verdicts" },
+  { id: "supported", label: "Supported", color: "bg-emerald-500/10 text-emerald-600 border-emerald-500/30" },
+  { id: "mixed", label: "Mixed", color: "bg-amber-500/10 text-amber-600 border-amber-500/30" },
+  { id: "unverified", label: "Unverified", color: "bg-rose-500/10 text-rose-600 border-rose-500/30" },
+] as const;
+
 type PlatformFilter = typeof platforms[number]["id"];
+type VerdictFilter = typeof verdicts[number]["id"];
 
 const SocialProofSection = () => {
   const [showMore, setShowMore] = useState(false);
   const [platformFilter, setPlatformFilter] = useState<PlatformFilter>("all");
+  const [verdictFilter, setVerdictFilter] = useState<VerdictFilter>("all");
 
   const allReels = showMore ? [...socialReels, ...additionalReels] : socialReels;
-  const displayedReels = platformFilter === "all" 
-    ? allReels 
-    : allReels.filter(reel => reel.platform === platformFilter);
+  const displayedReels = allReels.filter(reel => {
+    const matchesPlatform = platformFilter === "all" || reel.platform === platformFilter;
+    const matchesVerdict = verdictFilter === "all" || reel.researchVerdict === verdictFilter;
+    return matchesPlatform && matchesVerdict;
+  });
 
   return (
     <section id="social-proof" className="py-10 lg:py-16 bg-background border-t border-border">
@@ -324,7 +335,7 @@ const SocialProofSection = () => {
         </div>
 
         {/* Platform Filter Tabs */}
-        <div className="flex flex-wrap justify-center gap-2 mb-8">
+        <div className="flex flex-wrap justify-center gap-2 mb-4">
           {platforms.map((platform) => (
             <button
               key={platform.id}
@@ -336,6 +347,25 @@ const SocialProofSection = () => {
               }`}
             >
               {platform.label}
+            </button>
+          ))}
+        </div>
+
+        {/* Verdict Filter Tabs */}
+        <div className="flex flex-wrap justify-center gap-2 mb-8">
+          {verdicts.map((verdict) => (
+            <button
+              key={verdict.id}
+              onClick={() => setVerdictFilter(verdict.id)}
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 border ${
+                verdictFilter === verdict.id
+                  ? verdict.id === "all" 
+                    ? "bg-primary text-primary-foreground border-primary shadow-md"
+                    : `${verdict.color} shadow-md`
+                  : "bg-background text-muted-foreground border-border hover:bg-secondary"
+              }`}
+            >
+              {verdict.label}
             </button>
           ))}
         </div>
