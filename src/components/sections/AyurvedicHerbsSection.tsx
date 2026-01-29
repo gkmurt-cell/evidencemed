@@ -181,10 +181,10 @@ const AyurvedicHerbsSection = () => {
             </div>
             <div>
               <h3 className="font-serif text-xl font-semibold text-foreground">
-                Ayurvedic Herbs
+                Adaptogens & Traditional Herbs
               </h3>
               <p className="text-sm text-muted-foreground">
-                Traditional therapies from Ayurvedic medicine
+                Time-tested botanicals from global healing traditions
               </p>
             </div>
           </div>
@@ -192,14 +192,14 @@ const AyurvedicHerbsSection = () => {
             to="/compounds?category=Ayurvedic Compound"
             className="hidden sm:flex items-center gap-1 text-sm text-primary hover:underline"
           >
-            View all Ayurvedic herbs
+            View all adaptogens
             <ExternalLink className="w-3 h-3" />
           </Link>
         </div>
 
         {/* Disclaimer */}
         <p className="text-xs text-muted-foreground mb-4 italic">
-          Traditional therapies used by Ayurvedic practitioners. For educational purposes only—not medical recommendations.
+          Traditional therapies from Ayurvedic, Chinese, and global healing traditions. For educational purposes only—not medical recommendations.
         </p>
 
         {/* Scrollable Herb Cards */}
@@ -261,7 +261,7 @@ const AyurvedicHerbsSection = () => {
             to="/compounds?category=Ayurvedic Compound"
             className="inline-flex items-center gap-1 text-sm text-primary hover:underline"
           >
-            View all Ayurvedic herbs
+            View all adaptogens
             <ExternalLink className="w-3 h-3" />
           </Link>
         </div>
