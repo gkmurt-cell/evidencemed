@@ -130,6 +130,42 @@ const ayurvedicHerbs = [
     studies: 290,
     keyBenefit: "Endurance & Immunity",
     description: "Siberian adaptogen for physical stamina and immune support."
+  },
+  {
+    id: "schisandra",
+    name: "Schisandra",
+    altName: "Schisandra chinensis",
+    icon: "🍒",
+    studies: 245,
+    keyBenefit: "Liver & Vitality",
+    description: "Five-flavor berry for liver protection and adaptogenic support."
+  },
+  {
+    id: "cordyceps",
+    name: "Cordyceps",
+    altName: "Cordyceps sinensis",
+    icon: "🍄",
+    studies: 320,
+    keyBenefit: "Energy & Lungs",
+    description: "Renowned medicinal mushroom for athletic performance and respiratory health."
+  },
+  {
+    id: "lions-mane",
+    name: "Lion's Mane",
+    altName: "Hericium erinaceus",
+    icon: "🦁",
+    studies: 275,
+    keyBenefit: "Brain & Nerves",
+    description: "Nootropic mushroom for cognitive function and nerve regeneration."
+  },
+  {
+    id: "reishi",
+    name: "Reishi",
+    altName: "Ganoderma lucidum",
+    icon: "🍄",
+    studies: 410,
+    keyBenefit: "Immunity & Calm",
+    description: "Queen of mushrooms for immune modulation and stress relief."
   }
 ];
 
