@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Leaf, Info } from "lucide-react";
+import { ArrowRight, Leaf, Info, Heart, BookOpen, Pill } from "lucide-react";
 import EducationalDisclaimer from "@/components/layout/EducationalDisclaimer";
+import { RelatedLinks } from "@/components/ui/explore-more-link";
 import VitaminsSection from "./VitaminsSection";
 import MineralsSection from "./MineralsSection";
 import AyurvedicHerbsSection from "./AyurvedicHerbsSection";
@@ -120,11 +121,20 @@ const CompoundsSection = () => {
             <br />
             <span className="text-muted-foreground">Medicine Library</span>
           </h2>
-          <p className="text-lg text-muted-foreground mb-6">
+          <p className="text-lg text-muted-foreground mb-4">
             Comprehensive research profiles for herbs, nutraceuticals, and functional mushrooms. 
             Each entry includes traditional use context, mechanistic research summaries, and published 
             safety considerations.
           </p>
+          <RelatedLinks
+            title="See also:"
+            links={[
+              { to: "/conditions", label: "Health Conditions", icon: Heart },
+              { to: "/research", label: "Research Library", icon: BookOpen },
+              { to: "/ayurveda", label: "Ayurvedic Medicine", icon: Pill },
+            ]}
+            className="justify-center mb-6"
+          />
           <EducationalDisclaimer />
         </div>
 

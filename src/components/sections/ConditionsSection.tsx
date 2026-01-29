@@ -3,9 +3,10 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import { ArrowRight, Brain, Heart, Activity, Pill, Dna, Shield, Zap, Bone, Sparkles, Wind, Stethoscope, Baby, Eye, Ear, Smile, Droplets, LucideIcon, Search, X } from "lucide-react";
+import { ArrowRight, Brain, Heart, Activity, Pill, Dna, Shield, Zap, Bone, Sparkles, Wind, Stethoscope, Baby, Eye, Ear, Smile, Droplets, LucideIcon, Search, X, Leaf, BookOpen } from "lucide-react";
 import EducationalDisclaimer from "@/components/layout/EducationalDisclaimer";
 import DemoDisclaimer from "@/components/layout/DemoDisclaimer";
+import { RelatedLinks } from "@/components/ui/explore-more-link";
 
 interface Condition {
   id: string;
@@ -185,10 +186,19 @@ const ConditionsSection = () => {
             <br />
             <span className="text-muted-foreground">Research Coverage</span>
           </h2>
-          <p className="text-lg text-muted-foreground mb-6">
+          <p className="text-lg text-muted-foreground mb-4">
             Each condition includes peer-reviewed research on complementary approaches, 
             natural compounds, and investigational studies.
           </p>
+          <RelatedLinks
+            title="Related:"
+            links={[
+              { to: "/compounds", label: "Compounds Library", icon: Leaf },
+              { to: "/research", label: "Research Studies", icon: BookOpen },
+              { to: "/integrative-therapies", label: "Therapies", icon: Pill },
+            ]}
+            className="justify-center mb-6"
+          />
           <DemoDisclaimer compact className="mb-4" />
           <EducationalDisclaimer />
         </div>

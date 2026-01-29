@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { ExternalLink, Play, CheckCircle, AlertTriangle, ChevronDown, ChevronUp, ArrowUp } from "lucide-react";
+import { ExternalLink, Play, CheckCircle, AlertTriangle, ChevronDown, ChevronUp, ArrowUp, Leaf, BookOpen, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import EducationalDisclaimer from "@/components/layout/EducationalDisclaimer";
+import { RelatedLinks } from "@/components/ui/explore-more-link";
 
 interface SocialReel {
   id: string;
@@ -327,10 +328,19 @@ const SocialProofSection = () => {
             <br />
             <span className="text-muted-foreground">Fact-Checked</span>
           </h2>
-          <p className="text-lg text-muted-foreground mb-6">
+          <p className="text-lg text-muted-foreground mb-4">
             Popular health product claims from social media, cross-referenced with peer-reviewed research. 
             Promoting informed decision-making through transparency.
           </p>
+          <RelatedLinks
+            title="Deep dive:"
+            links={[
+              { to: "/research", label: "Full Research Library", icon: BookOpen },
+              { to: "/compounds", label: "Compound Profiles", icon: Leaf },
+              { to: "/conditions", label: "Health Conditions", icon: Heart },
+            ]}
+            className="justify-center mb-6"
+          />
           <EducationalDisclaimer />
         </div>
 
