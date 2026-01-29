@@ -103,6 +103,33 @@ const ayurvedicHerbs = [
     studies: 890,
     keyBenefit: "Energy & Cognition",
     description: "Renowned adaptogen for vitality, mental clarity, and immune support."
+  },
+  {
+    id: "rhodiola",
+    name: "Rhodiola",
+    altName: "Rhodiola rosea",
+    icon: "🌾",
+    studies: 380,
+    keyBenefit: "Stress & Fatigue",
+    description: "Arctic adaptogen for mental performance and stress resilience."
+  },
+  {
+    id: "maca",
+    name: "Maca",
+    altName: "Lepidium meyenii",
+    icon: "🥔",
+    studies: 210,
+    keyBenefit: "Energy & Hormones",
+    description: "Andean root for endurance, libido, and hormonal balance."
+  },
+  {
+    id: "eleuthero",
+    name: "Eleuthero",
+    altName: "Eleutherococcus senticosus",
+    icon: "🌲",
+    studies: 290,
+    keyBenefit: "Endurance & Immunity",
+    description: "Siberian adaptogen for physical stamina and immune support."
   }
 ];
 
