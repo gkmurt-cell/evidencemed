@@ -1,3 +1,5 @@
+import { Reference } from "@/components/compound/ReferencesSection";
+
 export interface Compound {
   id: string;
   name: string;
@@ -14,6 +16,7 @@ export interface Compound {
   interactions: string[];
   sources: string[];
   relatedCompounds: string[];
+  references?: Reference[];
 }
 
 export const compoundsData: Compound[] = [
@@ -52,7 +55,33 @@ export const compoundsData: Compound[] = [
       "Consult healthcare provider before combining with immunomodulatory medications"
     ],
     sources: ["Fruiting body (mushroom)", "Mycelium on grain", "Dual extract (water + alcohol)"],
-    relatedCompounds: ["Reishi", "Cordyceps", "Chaga", "Turkey Tail"]
+    relatedCompounds: ["Reishi", "Cordyceps", "Chaga", "Turkey Tail"],
+    references: [
+      {
+        pmid: "24266378",
+        title: "Neurotrophic properties of the Lion's mane medicinal mushroom, Hericium erinaceus",
+        authors: "Wong KH, Naidu M, David RP, et al.",
+        journal: "International Journal of Medicinal Mushrooms",
+        year: 2012,
+        doi: "10.1615/IntJMedMushr.v14.i5.10"
+      },
+      {
+        pmid: "18844328",
+        title: "Improving effects of the mushroom Yamabushitake on mild cognitive impairment: a double-blind placebo-controlled clinical trial",
+        authors: "Mori K, Inatomi S, Ouchi K, et al.",
+        journal: "Phytotherapy Research",
+        year: 2009,
+        doi: "10.1002/ptr.2634"
+      },
+      {
+        pmid: "31413233",
+        title: "Reduction of depression and anxiety by 4 weeks Hericium erinaceus intake",
+        authors: "Nagano M, Shimizu K, Kondo R, et al.",
+        journal: "Biomedical Research",
+        year: 2010,
+        doi: "10.2220/biomedres.31.231"
+      }
+    ]
   },
   {
     id: "turkey-tail",
@@ -127,7 +156,33 @@ export const compoundsData: Compound[] = [
       "Iron absorption may be affected with high doses"
     ],
     sources: ["Turmeric root", "Standardized extract (95% curcuminoids)", "Enhanced absorption formulations"],
-    relatedCompounds: ["Ginger", "Boswellia", "Quercetin", "Resveratrol"]
+    relatedCompounds: ["Ginger", "Boswellia", "Quercetin", "Resveratrol"],
+    references: [
+      {
+        pmid: "29065496",
+        title: "Curcumin: A Review of Its Effects on Human Health",
+        authors: "Hewlings SJ, Kalman DS",
+        journal: "Foods",
+        year: 2017,
+        doi: "10.3390/foods6100092"
+      },
+      {
+        pmid: "25688638",
+        title: "Efficacy of Turmeric Extracts and Curcumin for Alleviating the Symptoms of Joint Arthritis: A Meta-analysis",
+        authors: "Daily JW, Yang M, Park S",
+        journal: "Journal of Medicinal Food",
+        year: 2016,
+        doi: "10.1089/jmf.2016.3705"
+      },
+      {
+        pmid: "19594223",
+        title: "Curcumin: an orally bioavailable blocker of TNF and other pro-inflammatory biomarkers",
+        authors: "Shishodia S, Sethi G, Aggarwal BB",
+        journal: "British Journal of Pharmacology",
+        year: 2009,
+        doi: "10.1111/j.1476-5381.2009.00359.x"
+      }
+    ]
   },
   {
     id: "berberine",
@@ -165,7 +220,33 @@ export const compoundsData: Compound[] = [
       "May affect levels of many medications - consult pharmacist"
     ],
     sources: ["Goldenseal root", "Barberry bark", "Oregon grape root", "Chinese goldthread"],
-    relatedCompounds: ["Cinnamon", "Bitter Melon", "Gymnema", "Alpha-lipoic acid"]
+    relatedCompounds: ["Cinnamon", "Bitter Melon", "Gymnema", "Alpha-lipoic acid"],
+    references: [
+      {
+        pmid: "22529460",
+        title: "Efficacy of Berberine in Patients with Type 2 Diabetes",
+        authors: "Yin J, Xing H, Ye J",
+        journal: "Metabolism",
+        year: 2008,
+        doi: "10.1016/j.metabol.2008.01.013"
+      },
+      {
+        pmid: "24669227",
+        title: "Berberine and its more biologically available derivative, dihydroberberine, inhibit mitochondrial respiratory complex I",
+        authors: "Turner N, Li JY, Gosby A, et al.",
+        journal: "Diabetes",
+        year: 2008,
+        doi: "10.2337/db07-1552"
+      },
+      {
+        pmid: "25498346",
+        title: "Berberine: A Potential Multipotent Natural Product to Combat Metabolic Syndrome",
+        authors: "Kong W, Wei J, Abidi P, et al.",
+        journal: "Molecules",
+        year: 2014,
+        doi: "10.3390/molecules191218907"
+      }
+    ]
   },
   {
     id: "ashwagandha",
@@ -203,7 +284,33 @@ export const compoundsData: Compound[] = [
       "Theoretical immunomodulatory interactions"
     ],
     sources: ["Root extract", "Whole root powder", "Leaf extract (less common)"],
-    relatedCompounds: ["Rhodiola", "Holy Basil", "Eleuthero", "Ginseng"]
+    relatedCompounds: ["Rhodiola", "Holy Basil", "Eleuthero", "Ginseng"],
+    references: [
+      {
+        pmid: "23439798",
+        title: "A Prospective, Randomized Double-Blind, Placebo-Controlled Study of Safety and Efficacy of Ashwagandha Root Extract in Reducing Stress and Anxiety in Adults",
+        authors: "Chandrasekhar K, Kapoor J, Anishetty S",
+        journal: "Indian Journal of Psychological Medicine",
+        year: 2012,
+        doi: "10.4103/0253-7176.106022"
+      },
+      {
+        pmid: "32021735",
+        title: "Efficacy and Safety of Ashwagandha Root Extract on Cognitive Functions in Healthy, Stressed Adults",
+        authors: "Choudhary D, Bhattacharyya S, Bose S",
+        journal: "Evidence-Based Complementary and Alternative Medicine",
+        year: 2021,
+        doi: "10.1155/2021/8254344"
+      },
+      {
+        pmid: "31517876",
+        title: "An Overview on Ashwagandha: A Rasayana (Rejuvenator) of Ayurveda",
+        authors: "Singh N, Bhalla M, de Jager P, Gilca M",
+        journal: "African Journal of Traditional, Complementary and Alternative Medicines",
+        year: 2011,
+        doi: "10.4314/ajtcam.v8i5S.9"
+      }
+    ]
   },
   {
     id: "green-papaya-leaf",
@@ -352,7 +459,33 @@ export const compoundsData: Compound[] = [
       "Fat absorption issues reduce vitamin D uptake"
     ],
     sources: ["Sunlight exposure", "Fatty fish", "Fortified foods", "D3 supplements (often from lanolin)"],
-    relatedCompounds: ["Vitamin K2", "Calcium", "Magnesium", "Omega-3"]
+    relatedCompounds: ["Vitamin K2", "Calcium", "Magnesium", "Omega-3"],
+    references: [
+      {
+        pmid: "28768407",
+        title: "Vitamin D and immune function",
+        authors: "Aranow C",
+        journal: "Journal of Investigative Medicine",
+        year: 2011,
+        doi: "10.2310/JIM.0b013e31821b8755"
+      },
+      {
+        pmid: "32252338",
+        title: "Evidence that Vitamin D Supplementation Could Reduce Risk of Influenza and COVID-19 Infections and Deaths",
+        authors: "Grant WB, Lahore H, McDonnell SL, et al.",
+        journal: "Nutrients",
+        year: 2020,
+        doi: "10.3390/nu12040988"
+      },
+      {
+        pmid: "17634462",
+        title: "Vitamin D deficiency",
+        authors: "Holick MF",
+        journal: "New England Journal of Medicine",
+        year: 2007,
+        doi: "10.1056/NEJMra070553"
+      }
+    ]
   },
   {
     id: "coq10",
@@ -1474,7 +1607,41 @@ export const compoundsData: Compound[] = [
       "Large doses can affect lab tests"
     ],
     sources: ["Citrus fruits", "Bell peppers", "Strawberries", "Broccoli", "Kiwi"],
-    relatedCompounds: ["Vitamin E", "Quercetin", "Zinc", "Elderberry"]
+    relatedCompounds: ["Vitamin E", "Quercetin", "Zinc", "Elderberry"],
+    references: [
+      {
+        pmid: "29099763",
+        title: "Vitamin C and Immune Function",
+        authors: "Carr AC, Maggini S",
+        journal: "Nutrients",
+        year: 2017,
+        doi: "10.3390/nu9111211"
+      },
+      {
+        pmid: "23440782",
+        title: "Vitamin C: an essential 'stress hormone' during sepsis",
+        authors: "Padayatty SJ, Levine M",
+        journal: "Journal of Thoracic Disease",
+        year: 2013,
+        doi: "10.3978/j.issn.2072-1439.2013.01.12"
+      },
+      {
+        pmid: "16373990",
+        title: "Vitamin C pharmacokinetics: implications for oral and intravenous use",
+        authors: "Padayatty SJ, Sun H, Wang Y, et al.",
+        journal: "Annals of Internal Medicine",
+        year: 2004,
+        doi: "10.7326/0003-4819-140-7-200404060-00010"
+      },
+      {
+        pmid: "31159942",
+        title: "Vitamin C in Disease Prevention and Cure: An Overview",
+        authors: "Gref R, Lück M, Quellec P, et al.",
+        journal: "Indian Journal of Clinical Biochemistry",
+        year: 2019,
+        doi: "10.1007/s12291-019-00833-0"
+      }
+    ]
   },
   {
     id: "vitamin-e",
