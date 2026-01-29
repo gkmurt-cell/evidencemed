@@ -1094,6 +1094,463 @@ export const compoundsData: Compound[] = [
     ],
     sources: ["Glycine powder", "Capsules", "Bone broth", "Collagen supplements"],
     relatedCompounds: ["Magnesium", "L-Theanine", "Taurine", "GABA"]
+  },
+  // ==================== VITAMINS ====================
+  {
+    id: "vitamin-a",
+    name: "Vitamin A",
+    latinName: "Retinol / Beta-Carotene",
+    category: "Fat-Soluble Vitamin",
+    studies: 2800,
+    image: "🥕",
+    description: "Vitamin A is essential for vision, immune function, and cellular communication. It exists as preformed vitamin A (retinoids from animal sources) and provitamin A (carotenoids from plants).",
+    traditionalUse: "Ancient Egyptians treated night blindness with liver, now known to be rich in vitamin A. Cod liver oil has been used for centuries as a source of vitamins A and D.",
+    keyBenefits: [
+      "Vision health and night vision",
+      "Immune system support",
+      "Skin health and cell turnover",
+      "Reproductive health",
+      "Bone development"
+    ],
+    mechanisms: [
+      "Essential for rhodopsin production in retina",
+      "Regulates gene expression through RAR receptors",
+      "Supports epithelial tissue integrity",
+      "Modulates immune cell differentiation"
+    ],
+    dosage: "RDA is 700-900 mcg RAE daily. Upper limit set at 3000 mcg preformed vitamin A. Beta-carotene has no set upper limit. These figures are provided for research context only and do not constitute a recommendation for personal use.",
+    safetyNotes: [
+      "Preformed vitamin A can cause toxicity",
+      "Avoid high doses during pregnancy (teratogenic)",
+      "Beta-carotene safer as body regulates conversion",
+      "Smokers should avoid high-dose beta-carotene supplements"
+    ],
+    interactions: [
+      "Retinoids (Accutane) increase toxicity risk",
+      "Orlistat reduces absorption",
+      "Alcohol increases hepatotoxicity risk",
+      "May interact with blood thinners"
+    ],
+    sources: ["Liver", "Fish oils", "Sweet potato", "Carrots", "Spinach"],
+    relatedCompounds: ["Vitamin D", "Vitamin E", "Vitamin K", "Zinc"]
+  },
+  {
+    id: "vitamin-b1",
+    name: "Vitamin B1 (Thiamine)",
+    latinName: "Thiamine",
+    category: "Water-Soluble Vitamin",
+    studies: 1200,
+    image: "🌾",
+    description: "Thiamine is essential for carbohydrate metabolism and nervous system function. Deficiency causes beriberi and Wernicke-Korsakoff syndrome, conditions historically common before fortification.",
+    traditionalUse: "The discovery of thiamine's role in preventing beriberi was a landmark in nutrition science. Rice polishings were found to prevent the disease in the late 1800s.",
+    keyBenefits: [
+      "Energy metabolism",
+      "Nervous system health",
+      "Cognitive function",
+      "Cardiovascular support",
+      "Muscle function"
+    ],
+    mechanisms: [
+      "Cofactor for pyruvate dehydrogenase",
+      "Essential for acetyl-CoA production",
+      "Required for neurotransmitter synthesis",
+      "Supports myelin sheath maintenance"
+    ],
+    dosage: "RDA is 1.1-1.2mg daily. Higher doses (50-100mg) studied for specific conditions. Benfotiamine, a fat-soluble form, has enhanced bioavailability. These figures are provided for research context only.",
+    safetyNotes: [
+      "Water-soluble with low toxicity risk",
+      "Deficiency common in alcoholism",
+      "High carbohydrate intake increases needs",
+      "Generally very safe even at high doses"
+    ],
+    interactions: [
+      "Diuretics increase excretion",
+      "Antacids may reduce absorption",
+      "Loop diuretics can cause deficiency",
+      "5-FU chemotherapy affects metabolism"
+    ],
+    sources: ["Whole grains", "Pork", "Legumes", "Nuts", "Fortified foods"],
+    relatedCompounds: ["Vitamin B2", "Vitamin B3", "Vitamin B6", "Magnesium"]
+  },
+  {
+    id: "vitamin-b2",
+    name: "Vitamin B2 (Riboflavin)",
+    latinName: "Riboflavin",
+    category: "Water-Soluble Vitamin",
+    studies: 980,
+    image: "💛",
+    description: "Riboflavin is essential for energy production and cellular function. It gives urine a bright yellow color when supplemented. Critical for activating other B vitamins.",
+    traditionalUse: "Originally isolated from whey and called 'lactoflavin'. Deficiency causes ariboflavinosis with characteristic symptoms like cracked lips and light sensitivity.",
+    keyBenefits: [
+      "Energy production (FAD/FMN cofactors)",
+      "Migraine prevention",
+      "Antioxidant support",
+      "Healthy skin and eyes",
+      "Iron metabolism"
+    ],
+    mechanisms: [
+      "Forms FAD and FMN coenzymes",
+      "Essential for electron transport chain",
+      "Regenerates glutathione (antioxidant)",
+      "Required for B6 and folate activation"
+    ],
+    dosage: "RDA is 1.1-1.3mg daily. Migraine prevention studies used 400mg daily. Absorption saturates around 25mg per dose. These figures are provided for research context only.",
+    safetyNotes: [
+      "Very low toxicity - excess excreted in urine",
+      "May cause bright yellow-orange urine (harmless)",
+      "Light-sensitive - store properly",
+      "Generally extremely safe"
+    ],
+    interactions: [
+      "Tricyclic antidepressants may increase needs",
+      "Phenobarbital accelerates breakdown",
+      "Probenecid reduces excretion",
+      "May enhance iron absorption"
+    ],
+    sources: ["Dairy products", "Eggs", "Lean meats", "Almonds", "Fortified cereals"],
+    relatedCompounds: ["Vitamin B1", "Vitamin B3", "Iron", "Glutathione"]
+  },
+  {
+    id: "vitamin-b3",
+    name: "Vitamin B3 (Niacin)",
+    latinName: "Nicotinic Acid / Niacinamide",
+    category: "Water-Soluble Vitamin",
+    studies: 1500,
+    image: "🔥",
+    description: "Niacin exists in two forms: nicotinic acid and niacinamide. It's essential for NAD+ production and has been extensively studied for cardiovascular health and longevity.",
+    traditionalUse: "Deficiency causes pellagra (the 4 D's: dermatitis, diarrhea, dementia, death). Corn-based diets without proper preparation led to historical epidemics.",
+    keyBenefits: [
+      "NAD+ production (cellular energy)",
+      "Cholesterol management (nicotinic acid)",
+      "Skin health (niacinamide)",
+      "DNA repair support",
+      "Cognitive function"
+    ],
+    mechanisms: [
+      "Precursor to NAD+ and NADP+",
+      "Involved in 400+ enzymatic reactions",
+      "Nicotinic acid affects lipid metabolism",
+      "Supports sirtuin activity (longevity)"
+    ],
+    dosage: "RDA is 14-16mg daily. Cholesterol studies used 1-3g nicotinic acid. Niacinamide 500-1500mg for skin. NMN/NR are newer NAD+ precursors. Research context only.",
+    safetyNotes: [
+      "Nicotinic acid causes flushing (harmless)",
+      "High-dose nicotinic acid can affect liver",
+      "Niacinamide doesn't cause flushing",
+      "Extended-release forms have higher liver risk"
+    ],
+    interactions: [
+      "May enhance blood pressure medications",
+      "Statins + high-dose niacin increase myopathy risk",
+      "May affect blood sugar control",
+      "Alcohol increases flushing"
+    ],
+    sources: ["Poultry", "Fish", "Beef", "Peanuts", "Mushrooms"],
+    relatedCompounds: ["NMN", "NAD+", "Vitamin B1", "Vitamin B2"]
+  },
+  {
+    id: "vitamin-b5",
+    name: "Vitamin B5 (Pantothenic Acid)",
+    latinName: "Pantothenic Acid",
+    category: "Water-Soluble Vitamin",
+    studies: 680,
+    image: "🥑",
+    description: "Pantothenic acid is found in nearly all foods ('pantos' means everywhere). Essential for coenzyme A synthesis, critical for fat metabolism and hormone production.",
+    traditionalUse: "Discovered in 1931, deficiency is rare due to widespread occurrence in foods. Royal jelly, historically prized, is one of the richest natural sources.",
+    keyBenefits: [
+      "Energy metabolism",
+      "Hormone synthesis (adrenal)",
+      "Fatty acid metabolism",
+      "Skin and hair health",
+      "Wound healing"
+    ],
+    mechanisms: [
+      "Forms coenzyme A (CoA)",
+      "Essential for acetyl-CoA production",
+      "Required for steroid hormone synthesis",
+      "Supports fatty acid oxidation and synthesis"
+    ],
+    dosage: "AI is 5mg daily. Acne studies used 2-10g of pantethine. Dexpanthenol used topically for wounds. These figures are provided for research context only.",
+    safetyNotes: [
+      "Very safe - no known toxicity",
+      "High doses may cause diarrhea",
+      "Rare allergic reactions reported",
+      "Generally extremely well tolerated"
+    ],
+    interactions: [
+      "May enhance effects of cholinesterase inhibitors",
+      "Antibiotics may affect gut production",
+      "Generally very few drug interactions",
+      "Safe with most medications"
+    ],
+    sources: ["Avocado", "Chicken", "Beef", "Mushrooms", "Sunflower seeds"],
+    relatedCompounds: ["Vitamin B1", "Vitamin B2", "Biotin", "CoQ10"]
+  },
+  {
+    id: "vitamin-b6",
+    name: "Vitamin B6 (Pyridoxine)",
+    latinName: "Pyridoxine / P5P",
+    category: "Water-Soluble Vitamin",
+    studies: 1800,
+    image: "🧠",
+    description: "Vitamin B6 is involved in over 100 enzyme reactions, primarily protein metabolism. The active form P5P is essential for neurotransmitter synthesis.",
+    traditionalUse: "Deficiency can cause neurological symptoms. Historically used for morning sickness and PMS. Plays critical role in hemoglobin production.",
+    keyBenefits: [
+      "Neurotransmitter synthesis",
+      "Protein metabolism",
+      "Immune function",
+      "Homocysteine regulation",
+      "Mood and cognitive support"
+    ],
+    mechanisms: [
+      "Cofactor for amino acid metabolism",
+      "Required for serotonin and dopamine synthesis",
+      "Essential for GABA production",
+      "Supports glycogen breakdown"
+    ],
+    dosage: "RDA is 1.3-1.7mg daily. Studies used up to 100mg for specific conditions. P5P form is active and may be better absorbed. Research context only.",
+    safetyNotes: [
+      "High doses (>200mg) can cause neuropathy",
+      "Toxicity is reversible when stopped",
+      "Upper limit set at 100mg daily",
+      "P5P may have better safety profile"
+    ],
+    interactions: [
+      "Levodopa (without carbidopa) - avoid high B6",
+      "May reduce effectiveness of phenytoin",
+      "Isoniazid increases B6 requirements",
+      "Oral contraceptives may reduce levels"
+    ],
+    sources: ["Poultry", "Fish", "Potatoes", "Bananas", "Chickpeas"],
+    relatedCompounds: ["Vitamin B12", "Folate", "Magnesium", "Zinc"]
+  },
+  {
+    id: "vitamin-b7",
+    name: "Vitamin B7 (Biotin)",
+    latinName: "Biotin",
+    category: "Water-Soluble Vitamin",
+    studies: 890,
+    image: "💅",
+    description: "Biotin is essential for fatty acid synthesis, gluconeogenesis, and amino acid metabolism. Popular for hair, skin, and nail support though research is mixed.",
+    traditionalUse: "Also known as vitamin H (from German 'Haar und Haut' - hair and skin). Raw egg whites contain avidin which blocks biotin absorption.",
+    keyBenefits: [
+      "Hair and nail strength",
+      "Skin health",
+      "Blood sugar regulation",
+      "Fat metabolism",
+      "Gene regulation"
+    ],
+    mechanisms: [
+      "Cofactor for carboxylase enzymes",
+      "Essential for fatty acid synthesis",
+      "Required for gluconeogenesis",
+      "Plays role in gene expression"
+    ],
+    dosage: "AI is 30mcg daily. Hair/nail studies used 2.5-10mg. Diabetes studies used 5-15mg. Very high doses are common in supplements. Research context only.",
+    safetyNotes: [
+      "Very low toxicity",
+      "High doses interfere with lab tests (important!)",
+      "Stop biotin 2-7 days before blood work",
+      "Can cause false thyroid and cardiac markers"
+    ],
+    interactions: [
+      "Raw egg whites block absorption",
+      "Anticonvulsants reduce levels",
+      "Long-term antibiotics may lower levels",
+      "Interferes with laboratory testing"
+    ],
+    sources: ["Egg yolks", "Nuts", "Legumes", "Whole grains", "Organ meats"],
+    relatedCompounds: ["Vitamin B5", "Vitamin B12", "Collagen", "MSM"]
+  },
+  {
+    id: "vitamin-b9",
+    name: "Vitamin B9 (Folate)",
+    latinName: "Folate / Folic Acid / Methylfolate",
+    category: "Water-Soluble Vitamin",
+    studies: 2200,
+    image: "🥬",
+    description: "Folate is crucial for DNA synthesis and cell division. Critical during pregnancy for neural tube development. The MTHFR gene affects folate metabolism in many people.",
+    traditionalUse: "Named from Latin 'folium' (leaf) as green vegetables are rich sources. Folic acid fortification of grains has dramatically reduced neural tube defects.",
+    keyBenefits: [
+      "DNA synthesis and repair",
+      "Neural tube development (pregnancy)",
+      "Homocysteine regulation",
+      "Red blood cell formation",
+      "Mood and cognitive support"
+    ],
+    mechanisms: [
+      "One-carbon metabolism essential for DNA",
+      "Required for methylation reactions",
+      "Converts homocysteine to methionine",
+      "Supports neurotransmitter synthesis"
+    ],
+    dosage: "RDA is 400mcg DFE. Pregnancy: 600mcg. Methylfolate may be preferred with MTHFR variants. Some protocols use higher therapeutic doses. Research context only.",
+    safetyNotes: [
+      "Can mask B12 deficiency symptoms",
+      "High folic acid may be problematic for some",
+      "Methylfolate avoids this issue",
+      "Upper limit 1000mcg for synthetic folic acid"
+    ],
+    interactions: [
+      "Methotrexate is folate antagonist",
+      "Phenytoin and other anticonvulsants deplete",
+      "May reduce effectiveness of sulfasalazine",
+      "High doses with B12 deficiency dangerous"
+    ],
+    sources: ["Leafy greens", "Legumes", "Fortified grains", "Asparagus", "Brussels sprouts"],
+    relatedCompounds: ["Vitamin B12", "Vitamin B6", "Choline", "Methionine"]
+  },
+  {
+    id: "vitamin-b12",
+    name: "Vitamin B12 (Cobalamin)",
+    latinName: "Methylcobalamin / Cyanocobalamin",
+    category: "Water-Soluble Vitamin",
+    studies: 2400,
+    image: "❤️",
+    description: "Vitamin B12 is essential for nerve function, DNA synthesis, and red blood cell formation. Only reliably found in animal foods or fortified products, making supplementation important for vegans.",
+    traditionalUse: "Deficiency causes pernicious anemia, historically fatal before B12 was discovered. Liver therapy was found to cure this condition in the 1920s.",
+    keyBenefits: [
+      "Nerve health and myelin formation",
+      "Red blood cell production",
+      "DNA synthesis",
+      "Energy metabolism",
+      "Cognitive function"
+    ],
+    mechanisms: [
+      "Cofactor for methionine synthase",
+      "Essential for methylation reactions",
+      "Required for succinyl-CoA production",
+      "Supports neurological function"
+    ],
+    dosage: "RDA is 2.4mcg. Deficiency correction uses 1000mcg+ orally or injections. Sublingual and methylcobalamin forms may be better absorbed. Research context only.",
+    safetyNotes: [
+      "No known toxicity - excess excreted",
+      "Deficiency can cause permanent nerve damage",
+      "Intrinsic factor needed for absorption",
+      "Metformin and PPIs can cause deficiency"
+    ],
+    interactions: [
+      "Metformin reduces absorption",
+      "Proton pump inhibitors reduce absorption",
+      "H2 blockers may affect levels",
+      "Chloramphenicol can affect response"
+    ],
+    sources: ["Meat", "Fish", "Dairy", "Eggs", "Fortified nutritional yeast"],
+    relatedCompounds: ["Folate", "Vitamin B6", "Iron", "Intrinsic Factor"]
+  },
+  {
+    id: "vitamin-c",
+    name: "Vitamin C",
+    latinName: "Ascorbic Acid",
+    category: "Water-Soluble Vitamin",
+    studies: 4500,
+    image: "🍊",
+    description: "Vitamin C is a powerful antioxidant essential for collagen synthesis, immune function, and iron absorption. Humans cannot synthesize it, unlike most animals.",
+    traditionalUse: "Scurvy, caused by vitamin C deficiency, plagued sailors for centuries. Citrus fruits were found to prevent it in the 1700s, leading to British sailors being called 'limeys'.",
+    keyBenefits: [
+      "Immune system support",
+      "Collagen synthesis",
+      "Antioxidant protection",
+      "Iron absorption enhancement",
+      "Wound healing"
+    ],
+    mechanisms: [
+      "Electron donor for enzymatic reactions",
+      "Essential hydroxylation cofactor for collagen",
+      "Regenerates vitamin E",
+      "Supports immune cell function"
+    ],
+    dosage: "RDA is 75-90mg. Studies used 200-2000mg for immune support. IV vitamin C uses much higher doses in clinical settings. These figures are for research context only.",
+    safetyNotes: [
+      "Generally safe - excess excreted",
+      "High doses may cause GI upset or diarrhea",
+      "May increase oxalate - concern for kidney stones",
+      "Upper limit set at 2000mg daily"
+    ],
+    interactions: [
+      "High doses may affect warfarin",
+      "Enhances iron absorption significantly",
+      "May affect certain chemotherapy drugs",
+      "Large doses can affect lab tests"
+    ],
+    sources: ["Citrus fruits", "Bell peppers", "Strawberries", "Broccoli", "Kiwi"],
+    relatedCompounds: ["Vitamin E", "Quercetin", "Zinc", "Elderberry"]
+  },
+  {
+    id: "vitamin-e",
+    name: "Vitamin E",
+    latinName: "Tocopherols / Tocotrienols",
+    category: "Fat-Soluble Vitamin",
+    studies: 2100,
+    image: "🌻",
+    description: "Vitamin E comprises eight compounds - four tocopherols and four tocotrienols. Alpha-tocopherol is most studied, but full-spectrum may be beneficial.",
+    traditionalUse: "Discovered in 1922 as essential for rat fertility ('tocopherol' from Greek 'to bear offspring'). Wheat germ oil was an early recognized source.",
+    keyBenefits: [
+      "Antioxidant protection",
+      "Skin health",
+      "Cardiovascular support",
+      "Immune function",
+      "Eye health"
+    ],
+    mechanisms: [
+      "Primary fat-soluble antioxidant",
+      "Protects cell membranes from oxidation",
+      "Modulates cell signaling",
+      "Supports immune cell function"
+    ],
+    dosage: "RDA is 15mg (22 IU natural, 33 IU synthetic). Studies varied widely in dosing. Mixed tocopherols/tocotrienols may be superior. Research context only.",
+    safetyNotes: [
+      "High doses may increase bleeding risk",
+      "Some studies showed concerns with high-dose isolated alpha",
+      "Full-spectrum vitamin E preferred",
+      "Upper limit 1000mg synthetic"
+    ],
+    interactions: [
+      "Enhances effects of blood thinners",
+      "May interact with chemotherapy",
+      "High doses with vitamin K - bleeding risk",
+      "Statins may reduce absorption"
+    ],
+    sources: ["Nuts and seeds", "Vegetable oils", "Wheat germ", "Spinach", "Avocado"],
+    relatedCompounds: ["Vitamin C", "Selenium", "CoQ10", "Vitamin A"]
+  },
+  {
+    id: "vitamin-k",
+    name: "Vitamin K",
+    latinName: "Phylloquinone (K1) / Menaquinone (K2)",
+    category: "Fat-Soluble Vitamin",
+    studies: 1600,
+    image: "🥦",
+    description: "Vitamin K exists as K1 (phylloquinone from plants) and K2 (menaquinones from bacteria/fermented foods). K2 has gained attention for bone and cardiovascular benefits.",
+    traditionalUse: "K stands for 'Koagulation' (German). Discovered for its role in blood clotting. K2 research expanded in the 1990s for bone and arterial health.",
+    keyBenefits: [
+      "Blood clotting (K1 primarily)",
+      "Bone health (K2 especially)",
+      "Cardiovascular health (K2)",
+      "Calcium metabolism",
+      "Healthy aging"
+    ],
+    mechanisms: [
+      "Activates clotting factors",
+      "Carboxylates osteocalcin (bone protein)",
+      "Activates Matrix GLA protein (arterial health)",
+      "Directs calcium to bones, away from arteries"
+    ],
+    dosage: "AI for K1 is 90-120mcg. K2 studies used 45-200mcg (MK-7) or higher. MK-7 has longer half-life than MK-4. These figures are for research context only.",
+    safetyNotes: [
+      "Generally very safe",
+      "K2 no known toxicity",
+      "K1 excess stored safely",
+      "May need monitoring with warfarin"
+    ],
+    interactions: [
+      "CRITICAL: Warfarin (vitamin K antagonist)",
+      "Maintain consistent K intake with warfarin",
+      "Antibiotics reduce gut K2 production",
+      "Orlistat reduces absorption"
+    ],
+    sources: ["K1: Leafy greens", "K2 MK-4: Meat, eggs", "K2 MK-7: Natto, fermented foods", "Cheese"],
+    relatedCompounds: ["Vitamin D", "Calcium", "Magnesium", "Omega-3"]
   }
 ];
 
