@@ -10,6 +10,7 @@ import SocialProofSection from "@/components/sections/SocialProofSection";
 import CommentsSection from "@/components/sections/CommentsSection";
 import { RightSidebar } from "@/components/layout/RightSidebar";
 import { MobileBooksSection } from "@/components/layout/MobileBooksSection";
+import { MobileVideoSection } from "@/components/layout/MobileVideoSection";
 
 const Index = () => {
   return (
@@ -69,6 +70,7 @@ const Index = () => {
               
               {/* Tertiary: Supplementary content */}
               <MobileBooksSection />
+              <MobileVideoSection />
               <CommentsSection />
               <Footer />
             </main>
