@@ -460,7 +460,11 @@ const StudyCard = ({ study, isExpanded, onToggle }: StudyCardProps) => {
             )}
           </div>
           <Button variant="ghost" size="sm" asChild>
-            <a href={study.doiUrl} target="_blank" rel="noopener noreferrer">
+            <a 
+              href={study.pmid ? `https://pubmed.ncbi.nlm.nih.gov/${study.pmid}/` : study.doiUrl} 
+              target="_blank" 
+              rel="noopener noreferrer"
+            >
               View Full Study
               <ExternalLink className="w-4 h-4 ml-2" />
             </a>
@@ -502,17 +506,32 @@ const StudyCard = ({ study, isExpanded, onToggle }: StudyCardProps) => {
           <span>{study.institution}</span>
         </div>
 
-        {/* DOI Link */}
-        <div className="flex items-center gap-2">
-          <Link2 className="w-4 h-4 text-primary" />
-          <a
-            href={study.doiUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm text-primary hover:underline font-mono"
-          >
-            DOI: {study.doi}
-          </a>
+        {/* Source Links */}
+        <div className="flex flex-wrap items-center gap-4">
+          {study.pmid && (
+            <div className="flex items-center gap-2">
+              <Link2 className="w-4 h-4 text-primary" />
+              <a
+                href={`https://pubmed.ncbi.nlm.nih.gov/${study.pmid}/`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-primary hover:underline font-mono"
+              >
+                PMID: {study.pmid}
+              </a>
+            </div>
+          )}
+          <div className="flex items-center gap-2">
+            <Link2 className="w-4 h-4 text-muted-foreground" />
+            <a
+              href={study.pmid ? `https://doi.org/${study.doi}` : study.doiUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-muted-foreground hover:text-primary hover:underline font-mono"
+            >
+              DOI: {study.doi}
+            </a>
+          </div>
         </div>
 
         {/* Safety Notes - Expandable */}
