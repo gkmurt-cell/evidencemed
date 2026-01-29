@@ -94,6 +94,15 @@ const ayurvedicHerbs = [
     studies: 125,
     keyBenefit: "Lymph & Skin",
     description: "Premier herb for lymphatic health and blood purification."
+  },
+  {
+    id: "ginseng",
+    name: "Ginseng",
+    altName: "Panax ginseng",
+    icon: "🌱",
+    studies: 890,
+    keyBenefit: "Energy & Cognition",
+    description: "Renowned adaptogen for vitality, mental clarity, and immune support."
   }
 ];
 
