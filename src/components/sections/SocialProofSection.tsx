@@ -8,7 +8,7 @@ interface SocialReel {
   title: string;
   brand: string;
   claim: string;
-  platform: "instagram" | "tiktok" | "youtube" | "facebook";
+  platform: "instagram" | "tiktok" | "youtube" | "facebook" | "twitter";
   researchVerdict: "supported" | "mixed" | "unverified";
   researchSummary: string;
   url: string;
@@ -208,6 +208,36 @@ const additionalReels: SocialReel[] = [
     researchSummary: "Multiple RCTs show elderberry extract may reduce cold duration by 1-2 days. Prevention claims are less supported. Generally considered safe for short-term use.",
     url: "#"
   },
+  {
+    id: "20",
+    title: "Seed Oils Inflammation",
+    brand: "Health Influencers",
+    claim: "Seed oils cause chronic inflammation and disease",
+    platform: "twitter",
+    researchVerdict: "mixed",
+    researchSummary: "High omega-6 intake may affect inflammation markers, but RCTs show replacing saturated fat with seed oils often improves cardiovascular outcomes. Context and overall diet matter.",
+    url: "#"
+  },
+  {
+    id: "21",
+    title: "Peptides for Anti-Aging",
+    brand: "Biohacking Community",
+    claim: "BPC-157 heals injuries and reverses aging",
+    platform: "twitter",
+    researchVerdict: "unverified",
+    researchSummary: "Animal studies show tissue healing properties. Human clinical trials are lacking. Safety profile in humans is not established. Regulatory status is unclear.",
+    url: "#"
+  },
+  {
+    id: "22",
+    title: "Carnivore Diet Benefits",
+    brand: "Meat-Based Advocates",
+    claim: "Eliminates autoimmune conditions and mental health issues",
+    platform: "twitter",
+    researchVerdict: "unverified",
+    researchSummary: "Anecdotal reports exist but no controlled human trials. Elimination of plant antigens may help some individuals. Long-term health effects are unknown.",
+    url: "#"
+  },
 ];
 
 const getVerdictStyle = (verdict: string) => {
@@ -245,6 +275,8 @@ const getPlatformColor = (platform: string) => {
       return "bg-red-600";
     case "facebook":
       return "bg-blue-600";
+    case "twitter":
+      return "bg-black";
     default:
       return "bg-muted";
   }
