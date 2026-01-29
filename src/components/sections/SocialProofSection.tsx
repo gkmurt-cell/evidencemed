@@ -8,7 +8,7 @@ interface SocialReel {
   title: string;
   brand: string;
   claim: string;
-  platform: "instagram" | "tiktok" | "youtube";
+  platform: "instagram" | "tiktok" | "youtube" | "facebook";
   researchVerdict: "supported" | "mixed" | "unverified";
   researchSummary: string;
   url: string;
@@ -178,6 +178,36 @@ const additionalReels: SocialReel[] = [
     researchSummary: "Extensive research confirms creatine safety in women. Meta-analyses show strength and cognitive benefits. Water retention is intracellular, not subcutaneous bloating.",
     url: "#"
   },
+  {
+    id: "17",
+    title: "Collagen Powder Benefits",
+    brand: "Vital Proteins",
+    claim: "Reverses wrinkles and rebuilds joint cartilage",
+    platform: "facebook",
+    researchVerdict: "mixed",
+    researchSummary: "Some RCTs show modest skin elasticity improvements after 8-12 weeks. Joint health claims have limited evidence. 'Reverses wrinkles' overstates current findings.",
+    url: "#"
+  },
+  {
+    id: "18",
+    title: "Apple Cider Vinegar Weight Loss",
+    brand: "Bragg",
+    claim: "Burns belly fat and balances blood sugar",
+    platform: "facebook",
+    researchVerdict: "mixed",
+    researchSummary: "A small 2009 study showed modest weight loss. Blood sugar effects are minor and short-term. 'Burns fat' claim lacks strong mechanistic evidence.",
+    url: "#"
+  },
+  {
+    id: "19",
+    title: "Elderberry Immune Support",
+    brand: "Nature's Way",
+    claim: "Prevents and shortens cold and flu",
+    platform: "facebook",
+    researchVerdict: "supported",
+    researchSummary: "Multiple RCTs show elderberry extract may reduce cold duration by 1-2 days. Prevention claims are less supported. Generally considered safe for short-term use.",
+    url: "#"
+  },
 ];
 
 const getVerdictStyle = (verdict: string) => {
@@ -213,6 +243,8 @@ const getPlatformColor = (platform: string) => {
       return "bg-black";
     case "youtube":
       return "bg-red-600";
+    case "facebook":
+      return "bg-blue-600";
     default:
       return "bg-muted";
   }
