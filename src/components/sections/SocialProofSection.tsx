@@ -1,4 +1,6 @@
-import { ExternalLink, Play, CheckCircle, AlertTriangle } from "lucide-react";
+import { useState } from "react";
+import { ExternalLink, Play, CheckCircle, AlertTriangle, ChevronDown } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import EducationalDisclaimer from "@/components/layout/EducationalDisclaimer";
 
 interface SocialReel {
@@ -75,6 +77,109 @@ const socialReels: SocialReel[] = [
   },
 ];
 
+const additionalReels: SocialReel[] = [
+  {
+    id: "7",
+    title: "Shilajit Energy Claims",
+    brand: "PurBlack",
+    claim: "Boosts testosterone and increases energy naturally",
+    platform: "youtube",
+    researchVerdict: "mixed",
+    researchSummary: "A small 2016 study showed modest testosterone increases in healthy men. Energy claims are largely based on traditional use. More rigorous human trials are needed.",
+    url: "#"
+  },
+  {
+    id: "8",
+    title: "Sea Moss Thyroid Support",
+    brand: "Transformation Factory",
+    claim: "92 minerals that heal thyroid issues",
+    platform: "tiktok",
+    researchVerdict: "unverified",
+    researchSummary: "Sea moss contains iodine which affects thyroid function, but the '92 minerals' claim is unsubstantiated. Excessive iodine can worsen thyroid conditions.",
+    url: "#"
+  },
+  {
+    id: "9",
+    title: "Turkesterone Muscle Claims",
+    brand: "Gorilla Mind",
+    claim: "Natural anabolic that builds muscle like steroids",
+    platform: "instagram",
+    researchVerdict: "unverified",
+    researchSummary: "Limited human research exists. A 2022 study found no significant muscle-building effects. Claims are largely extrapolated from in-vitro and insect studies.",
+    url: "#"
+  },
+  {
+    id: "10",
+    title: "Apigenin Sleep Benefits",
+    brand: "Huberman Lab Followers",
+    claim: "Improves sleep quality and reduces anxiety",
+    platform: "youtube",
+    researchVerdict: "supported",
+    researchSummary: "Apigenin binds to GABA receptors with anxiolytic properties. A 2016 RCT showed reduced anxiety in postmenopausal women. Sleep-specific human data is emerging.",
+    url: "#"
+  },
+  {
+    id: "11",
+    title: "Castor Oil Pack Detox",
+    brand: "Wellness Influencers",
+    claim: "Detoxifies liver and reduces inflammation",
+    platform: "tiktok",
+    researchVerdict: "mixed",
+    researchSummary: "Ricinoleic acid shows anti-inflammatory properties in lab studies. 'Detox' claims lack scientific basis. Some evidence for constipation relief when taken orally.",
+    url: "#"
+  },
+  {
+    id: "12",
+    title: "Magnesium Threonate Brain",
+    brand: "Life Extension",
+    claim: "Only form that crosses blood-brain barrier",
+    platform: "instagram",
+    researchVerdict: "mixed",
+    researchSummary: "Animal studies show brain magnesium elevation. A 2016 human trial showed cognitive improvements in older adults. 'Only form' claim is misleading—other forms also affect brain.",
+    url: "#"
+  },
+  {
+    id: "13",
+    title: "Beef Organs Superfood",
+    brand: "Ancestral Supplements",
+    claim: "Like nature's multivitamin—cures deficiencies",
+    platform: "youtube",
+    researchVerdict: "supported",
+    researchSummary: "Organ meats are nutrient-dense with bioavailable vitamins A, B12, iron, and CoQ10. Health claims are generally supported, though 'cures' language overstates evidence.",
+    url: "#"
+  },
+  {
+    id: "14",
+    title: "Tongkat Ali Testosterone",
+    brand: "Nootropics Depot",
+    claim: "Doubles free testosterone naturally",
+    platform: "instagram",
+    researchVerdict: "mixed",
+    researchSummary: "Several studies show modest testosterone increases (15-30%) in stressed or aging men. 'Doubles' claim is exaggerated. Quality and dosing vary significantly.",
+    url: "#"
+  },
+  {
+    id: "15",
+    title: "Chlorophyll Water Detox",
+    brand: "Sakara Life",
+    claim: "Detoxifies blood and clears skin",
+    platform: "tiktok",
+    researchVerdict: "unverified",
+    researchSummary: "No human studies support 'blood detox' claims. Limited evidence for chlorophyllin reducing body odor. Skin benefits are largely anecdotal.",
+    url: "#"
+  },
+  {
+    id: "16",
+    title: "Creatine for Women",
+    brand: "Fitness Creators",
+    claim: "Safe for women and won't cause bloating",
+    platform: "instagram",
+    researchVerdict: "supported",
+    researchSummary: "Extensive research confirms creatine safety in women. Meta-analyses show strength and cognitive benefits. Water retention is intracellular, not subcutaneous bloating.",
+    url: "#"
+  },
+];
+
 const getVerdictStyle = (verdict: string) => {
   switch (verdict) {
     case "supported":
@@ -114,6 +219,10 @@ const getPlatformColor = (platform: string) => {
 };
 
 const SocialProofSection = () => {
+  const [showMore, setShowMore] = useState(false);
+
+  const displayedReels = showMore ? [...socialReels, ...additionalReels] : socialReels;
+
   return (
     <section id="social-proof" className="py-10 lg:py-16 bg-background border-t border-border">
       <div className="container mx-auto px-4">
@@ -137,7 +246,7 @@ const SocialProofSection = () => {
 
         {/* Reels Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {socialReels.map((reel) => (
+          {displayedReels.map((reel) => (
             <div
               key={reel.id}
               className="group p-5 rounded-xl bg-card border border-border hover:border-primary/30 hover:shadow-medium transition-all duration-300"
@@ -188,6 +297,21 @@ const SocialProofSection = () => {
             </div>
           ))}
         </div>
+
+        {/* Explore More Button */}
+        {!showMore && (
+          <div className="flex justify-center mt-8">
+            <Button
+              variant="outline"
+              size="lg"
+              onClick={() => setShowMore(true)}
+              className="gap-2"
+            >
+              Explore More Claims
+              <ChevronDown className="w-4 h-4" />
+            </Button>
+          </div>
+        )}
 
         {/* Trust Statement */}
         <div className="max-w-2xl mx-auto text-center mt-10 p-6 rounded-xl bg-muted/50 border border-border">
