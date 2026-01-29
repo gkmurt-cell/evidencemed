@@ -1552,6 +1552,197 @@ export const compoundsData: Compound[] = [
     sources: ["K1: Leafy greens", "K2 MK-4: Meat, eggs", "K2 MK-7: Natto, fermented foods", "Cheese"],
     relatedCompounds: ["Vitamin D", "Calcium", "Magnesium", "Omega-3"]
   },
+  // ==================== VITAMIN-LIKE COMPOUNDS ====================
+  {
+    id: "choline",
+    name: "Choline",
+    latinName: "Trimethylethanolamine",
+    category: "Water-Soluble Vitamin",
+    studies: 1600,
+    image: "🥚",
+    description: "Choline is an essential nutrient often grouped with B vitamins. It's crucial for liver function, brain development, muscle movement, and nervous system function. Most people don't get enough from diet alone.",
+    traditionalUse: "Eggs and liver, traditionally valued foods, are among the richest dietary sources. Choline was officially recognized as an essential nutrient by the IOM in 1998.",
+    keyBenefits: [
+      "Brain health and memory",
+      "Liver function and fat metabolism",
+      "Cell membrane structure",
+      "Nervous system support",
+      "Fetal brain development"
+    ],
+    mechanisms: [
+      "Precursor to acetylcholine neurotransmitter",
+      "Component of phosphatidylcholine (cell membranes)",
+      "Essential for VLDL synthesis (liver fat export)",
+      "Methyl donor for homocysteine metabolism"
+    ],
+    dosage: "AI is 425-550mg daily. CDP-choline studies used 250-500mg. Alpha-GPC studies used 300-1200mg. Phosphatidylcholine doses vary. These figures are for research context only.",
+    safetyNotes: [
+      "High doses may cause fishy body odor",
+      "Excessive intake linked to TMAO concerns",
+      "May cause GI upset at high doses",
+      "Generally well-tolerated at recommended levels"
+    ],
+    interactions: [
+      "May enhance effects of cholinergic medications",
+      "Methotrexate increases choline requirements",
+      "May interact with anticholinergic drugs",
+      "Alcohol increases choline needs"
+    ],
+    sources: ["Eggs (yolks)", "Liver", "Beef", "Soybeans", "CDP-choline supplements"],
+    relatedCompounds: ["Vitamin B12", "Folate", "Inositol", "Alpha-GPC"]
+  },
+  {
+    id: "inositol",
+    name: "Inositol",
+    latinName: "Myo-inositol",
+    category: "Water-Soluble Vitamin",
+    studies: 1100,
+    image: "🍈",
+    description: "Inositol, sometimes called vitamin B8, is a carbocyclic sugar found in cell membranes. It plays important roles in insulin signaling, neurotransmitter activity, and fat metabolism.",
+    traditionalUse: "Originally classified as a B vitamin before the body's ability to synthesize it was discovered. Widely researched for PCOS, anxiety, and metabolic conditions.",
+    keyBenefits: [
+      "PCOS and fertility support",
+      "Anxiety and mood regulation",
+      "Insulin sensitivity",
+      "Sleep quality",
+      "OCD symptom support"
+    ],
+    mechanisms: [
+      "Second messenger in insulin signaling",
+      "Component of cell membrane phospholipids",
+      "Modulates serotonin and dopamine activity",
+      "Involved in ovarian function regulation"
+    ],
+    dosage: "PCOS studies used 2-4g myo-inositol daily. Anxiety studies used 12-18g. D-chiro-inositol often combined at 40:1 ratio. These figures are for research context only.",
+    safetyNotes: [
+      "Generally very safe even at high doses",
+      "May cause mild GI upset initially",
+      "Myo-inositol is the most studied form",
+      "D-chiro-inositol used in smaller amounts"
+    ],
+    interactions: [
+      "May enhance effects of mood medications",
+      "May improve metformin response in PCOS",
+      "Generally very few drug interactions",
+      "Safe to combine with most supplements"
+    ],
+    sources: ["Citrus fruits", "Beans", "Nuts", "Whole grains", "Myo-inositol powder"],
+    relatedCompounds: ["Choline", "Folate", "Vitamin B6", "Chromium"]
+  },
+  {
+    id: "paba",
+    name: "PABA",
+    latinName: "Para-Aminobenzoic Acid",
+    category: "Water-Soluble Vitamin",
+    studies: 420,
+    image: "☀️",
+    description: "PABA is a component of folic acid and was once considered a B vitamin. It's used topically in sunscreens and studied for various skin and hair conditions.",
+    traditionalUse: "Historically used for skin conditions and to restore gray hair color. Was a common sunscreen ingredient before synthetic alternatives became preferred.",
+    keyBenefits: [
+      "Skin health support",
+      "UV protection (topical)",
+      "Folate synthesis support",
+      "Hair pigmentation research",
+      "Peyronie's disease studies"
+    ],
+    mechanisms: [
+      "Precursor in folic acid synthesis (bacteria)",
+      "Absorbs UV light in the UVB range",
+      "Antioxidant properties",
+      "May influence melanin production"
+    ],
+    dosage: "Historical studies used 100-1000mg daily. Peyronie's studies used up to 12g (under supervision). Topical use varies. Limited modern research. Research context only.",
+    safetyNotes: [
+      "High doses can cause liver toxicity",
+      "May cause nausea and skin rash",
+      "Topical use can cause contact dermatitis in some",
+      "Not recommended at high doses long-term"
+    ],
+    interactions: [
+      "Interferes with sulfonamide antibiotics",
+      "May affect blood sugar medications",
+      "Can compete with sulfa drugs",
+      "Monitor with medications metabolized by liver"
+    ],
+    sources: ["Organ meats", "Whole grains", "Mushrooms", "Spinach", "Supplements"],
+    relatedCompounds: ["Folate", "Vitamin B12", "Vitamin B6", "Biotin"]
+  },
+  {
+    id: "alpha-lipoic-acid",
+    name: "Alpha-Lipoic Acid",
+    latinName: "Thioctic Acid",
+    category: "Water-Soluble Vitamin",
+    studies: 1800,
+    image: "⚡",
+    description: "Alpha-lipoic acid (ALA) is a powerful antioxidant made by the body and found in foods. Unique in being both fat and water-soluble, allowing it to work throughout the body.",
+    traditionalUse: "Discovered in 1951, it's been used in Germany for decades for diabetic neuropathy. Often called the 'universal antioxidant' for its broad activity.",
+    keyBenefits: [
+      "Antioxidant regeneration",
+      "Blood sugar support",
+      "Neuropathy symptom relief",
+      "Heavy metal chelation",
+      "Skin aging support"
+    ],
+    mechanisms: [
+      "Regenerates vitamins C and E, glutathione, CoQ10",
+      "Cofactor for mitochondrial enzymes",
+      "Activates AMPK (metabolic regulator)",
+      "Chelates heavy metals (iron, copper, mercury)"
+    ],
+    dosage: "General antioxidant: 100-300mg daily. Neuropathy studies: 600-1800mg. R-lipoic acid is the natural form with better absorption. Research context only.",
+    safetyNotes: [
+      "May lower blood sugar - monitor diabetics",
+      "High doses may cause GI upset",
+      "R-lipoic acid may be better tolerated",
+      "Rare reports of autoimmune reactions"
+    ],
+    interactions: [
+      "May enhance blood sugar medications (hypoglycemia risk)",
+      "May affect thyroid medication absorption",
+      "Take 2 hours away from minerals (chelating effect)",
+      "May enhance chemotherapy effects"
+    ],
+    sources: ["Red meat", "Organ meats", "Spinach", "Broccoli", "R-ALA supplements"],
+    relatedCompounds: ["CoQ10", "Vitamin C", "Vitamin E", "Glutathione"]
+  },
+  {
+    id: "pqq",
+    name: "PQQ",
+    latinName: "Pyrroloquinoline Quinone",
+    category: "Water-Soluble Vitamin",
+    studies: 320,
+    image: "🔋",
+    description: "PQQ is a novel vitamin-like compound discovered relatively recently. It's notable for its role in mitochondrial biogenesis - the creation of new mitochondria.",
+    traditionalUse: "First identified in 1979, PQQ wasn't studied for health benefits until the 2000s. Found in human breast milk and fermented foods.",
+    keyBenefits: [
+      "Mitochondrial biogenesis",
+      "Cognitive function support",
+      "Energy and fatigue reduction",
+      "Nerve growth factor support",
+      "Sleep quality improvement"
+    ],
+    mechanisms: [
+      "Activates PGC-1α (master regulator of mitochondria)",
+      "Potent antioxidant (100x more redox cycles than vitamin C)",
+      "Stimulates nerve growth factor (NGF)",
+      "Supports mitochondrial function and creation"
+    ],
+    dosage: "Studies used 10-20mg daily. Often combined with CoQ10 for synergy. Higher doses up to 40mg studied. Limited long-term data. Research context only.",
+    safetyNotes: [
+      "Generally well-tolerated in studies",
+      "May cause headache or GI upset rarely",
+      "Limited human safety data available",
+      "More research needed on long-term use"
+    ],
+    interactions: [
+      "May enhance effects of other mitochondrial supplements",
+      "Theoretical interactions with blood thinners (antioxidant)",
+      "Generally few known interactions",
+      "Safe with most supplements"
+    ],
+    sources: ["Natto", "Parsley", "Green tea", "Kiwi fruit", "PQQ supplements"],
+    relatedCompounds: ["CoQ10", "NAD+", "NMN", "Alpha-Lipoic Acid"]
+  },
   // ==================== MINERALS ====================
   {
     id: "zinc",

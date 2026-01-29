@@ -134,6 +134,57 @@ const vitamins = [
     studies: 1600,
     keyBenefit: "Bones & Heart",
     description: "K2 directs calcium to bones and away from arteries."
+  },
+  // Vitamin-like compounds
+  {
+    id: "choline",
+    name: "Choline",
+    altName: "Essential Nutrient",
+    category: "Water-Soluble",
+    icon: "🥚",
+    studies: 1600,
+    keyBenefit: "Brain & Liver",
+    description: "Essential for acetylcholine, cell membranes, and liver function."
+  },
+  {
+    id: "inositol",
+    name: "Inositol",
+    altName: "Myo-inositol (B8)",
+    category: "Water-Soluble",
+    icon: "🍈",
+    studies: 1100,
+    keyBenefit: "Mood & PCOS",
+    description: "Supports insulin signaling, anxiety reduction, and fertility."
+  },
+  {
+    id: "paba",
+    name: "PABA",
+    altName: "Para-Aminobenzoic Acid",
+    category: "Water-Soluble",
+    icon: "☀️",
+    studies: 420,
+    keyBenefit: "Skin & Folate",
+    description: "Component of folic acid, studied for skin and hair health."
+  },
+  {
+    id: "alpha-lipoic-acid",
+    name: "Alpha-Lipoic Acid",
+    altName: "Universal Antioxidant",
+    category: "Water-Soluble",
+    icon: "⚡",
+    studies: 1800,
+    keyBenefit: "Antioxidant & Nerves",
+    description: "Regenerates other antioxidants, studied for neuropathy."
+  },
+  {
+    id: "pqq",
+    name: "PQQ",
+    altName: "Pyrroloquinoline Quinone",
+    category: "Water-Soluble",
+    icon: "🔋",
+    studies: 320,
+    keyBenefit: "Mitochondria & Energy",
+    description: "Promotes creation of new mitochondria for cellular energy."
   }
 ];
 
