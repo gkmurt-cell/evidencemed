@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, ExternalLink, FileText, FlaskConical, Users, TestTube, AlertTriangle, Shield, Link2, Filter } from "lucide-react";
+import { ArrowRight, ExternalLink, FileText, FlaskConical, Users, TestTube, AlertTriangle, Shield, Link2, Filter, Leaf, Heart, Pill } from "lucide-react";
 import EducationalDisclaimer from "@/components/layout/EducationalDisclaimer";
 import DemoDisclaimer from "@/components/layout/DemoDisclaimer";
+import { RelatedLinks } from "@/components/ui/explore-more-link";
 import { cn } from "@/lib/utils";
 
 type StudyType = "all" | "rct" | "observational" | "meta-analysis" | "in-vitro";
@@ -133,11 +134,20 @@ const ResearchSection = () => {
             <br />
             <span className="text-muted-foreground">Summarized & Sourced</span>
           </h2>
-          <p className="text-lg text-muted-foreground mb-6">
+          <p className="text-lg text-muted-foreground mb-4">
             Every research entry includes study type, institution, journal, publication year, 
             and direct links to original sources. Plain-language summaries make complex 
             research accessible.
           </p>
+          <RelatedLinks
+            title="Explore:"
+            links={[
+              { to: "/conditions", label: "200+ Conditions", icon: Heart },
+              { to: "/compounds", label: "Compound Library", icon: Leaf },
+              { to: "/integrative-therapies", label: "Therapies", icon: Pill },
+            ]}
+            className="justify-center mb-6"
+          />
           <DemoDisclaimer compact className="mb-4" />
           <EducationalDisclaimer />
         </div>
