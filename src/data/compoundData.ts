@@ -1857,6 +1857,387 @@ export const compoundsData: Compound[] = [
     ],
     sources: ["Broccoli", "Grape juice", "Brewer's yeast", "Chromium picolinate", "Chromium polynicotinate"],
     relatedCompounds: ["Berberine", "Alpha-Lipoic Acid", "Cinnamon", "Magnesium"]
+  },
+  // ==================== AYURVEDIC HERBS ====================
+  {
+    id: "triphala",
+    name: "Triphala",
+    latinName: "Three Fruits Formula",
+    category: "Ayurvedic Compound",
+    studies: 320,
+    image: "🍇",
+    description: "Triphala is a cornerstone Ayurvedic formula combining three fruits: Amalaki, Bibhitaki, and Haritaki. Used for over 2,000 years as a gentle daily cleanser and rejuvenative tonic for digestive and overall health.",
+    traditionalUse: "Traditional therapies used by Ayurvedic practitioners. Triphala is considered a 'tridoshic rasayana' - balancing all three doshas and promoting longevity. For educational purposes only—not medical recommendations.",
+    keyBenefits: [
+      "Digestive health and regularity",
+      "Gentle detoxification",
+      "Antioxidant protection",
+      "Immune support",
+      "Eye health (traditional)"
+    ],
+    mechanisms: [
+      "Rich in tannins and polyphenols",
+      "Promotes healthy bowel movements without dependency",
+      "Supports beneficial gut bacteria",
+      "Contains vitamin C from Amalaki"
+    ],
+    dosage: "Traditional use: 1-3g powder before bed with warm water. Capsules typically 500-1000mg 1-2x daily. These figures are for research context only.",
+    safetyNotes: [
+      "Generally well-tolerated",
+      "May cause loose stools initially",
+      "Avoid during pregnancy",
+      "Start with low dose to assess tolerance"
+    ],
+    interactions: [
+      "May enhance effects of blood thinners",
+      "Separate from medications by 2 hours",
+      "May affect blood sugar levels",
+      "Consult practitioner if on multiple medications"
+    ],
+    sources: ["Powder", "Capsules", "Tablets", "Liquid extract"],
+    relatedCompounds: ["Ashwagandha", "Shatavari", "Guduchi", "Amalaki"]
+  },
+  {
+    id: "brahmi",
+    name: "Brahmi",
+    latinName: "Bacopa monnieri",
+    category: "Ayurvedic Compound",
+    studies: 280,
+    image: "🧠",
+    description: "Brahmi is a legendary Ayurvedic herb for cognitive enhancement and nervous system support. Named after Brahma, the creator god, reflecting its revered status for expanding consciousness and memory.",
+    traditionalUse: "Traditional therapies used by Ayurvedic practitioners. Used for millennia to enhance memory, learning, and concentration. Considered a 'medhya rasayana' (mind rejuvenative). For educational purposes only—not medical recommendations.",
+    keyBenefits: [
+      "Memory and learning enhancement",
+      "Anxiety and stress reduction",
+      "Neuroprotection",
+      "Attention and focus",
+      "Adaptogenic properties"
+    ],
+    mechanisms: [
+      "Contains bacosides - active saponin compounds",
+      "Enhances synaptic communication",
+      "Increases cerebral blood flow",
+      "Antioxidant protection for brain tissue"
+    ],
+    dosage: "Studies used 300-600mg standardized extract (50% bacosides) daily. Traditional use involves fresh juice or powder. These figures are for research context only.",
+    safetyNotes: [
+      "May cause GI upset initially",
+      "Can cause fatigue in some people",
+      "Effects may take 4-12 weeks to manifest",
+      "Avoid during pregnancy and breastfeeding"
+    ],
+    interactions: [
+      "May enhance effects of sedatives",
+      "Potential interaction with thyroid medications",
+      "May affect acetylcholine levels",
+      "Use caution with anticholinergic drugs"
+    ],
+    sources: ["Standardized extract", "Powder", "Fresh juice", "Ghee preparation"],
+    relatedCompounds: ["Lion's Mane", "Gotu Kola", "Ashwagandha", "Shankhpushpi"]
+  },
+  {
+    id: "shatavari",
+    name: "Shatavari",
+    latinName: "Asparagus racemosus",
+    category: "Ayurvedic Compound",
+    studies: 185,
+    image: "🌸",
+    description: "Shatavari, meaning 'she who possesses 100 husbands,' is the premier Ayurvedic herb for female reproductive health. Also valued as a general tonic and adaptogen for both sexes.",
+    traditionalUse: "Traditional therapies used by Ayurvedic practitioners. Used for female reproductive health, lactation, and as a general rejuvenative. Considered cooling and nourishing. For educational purposes only—not medical recommendations.",
+    keyBenefits: [
+      "Female reproductive health",
+      "Hormonal balance",
+      "Lactation support",
+      "Digestive soothing",
+      "Immune modulation"
+    ],
+    mechanisms: [
+      "Contains steroidal saponins (shatavarins)",
+      "Phytoestrogen activity",
+      "Mucilage soothes digestive tract",
+      "Adaptogenic stress response modulation"
+    ],
+    dosage: "Traditional: 3-6g powder daily in milk or ghee. Capsules typically 500mg 2x daily. These figures are for research context only.",
+    safetyNotes: [
+      "Generally very safe",
+      "May increase mucus production",
+      "Caution with estrogen-sensitive conditions",
+      "Avoid with asparagus allergy"
+    ],
+    interactions: [
+      "May affect diuretic medications",
+      "Potential interaction with diabetes medications",
+      "May affect lithium levels",
+      "Consult practitioner if on hormone therapy"
+    ],
+    sources: ["Root powder", "Capsules", "Liquid extract", "Churna (herbal powder)"],
+    relatedCompounds: ["Ashwagandha", "Licorice", "Tribulus", "Maca"]
+  },
+  {
+    id: "guduchi",
+    name: "Guduchi",
+    latinName: "Tinospora cordifolia",
+    category: "Ayurvedic Compound",
+    studies: 210,
+    image: "🌿",
+    description: "Guduchi, also known as Giloy or 'Amrita' (nectar of immortality), is a powerful Ayurvedic immunomodulator. Prized for fever management and building deep immunity.",
+    traditionalUse: "Traditional therapies used by Ayurvedic practitioners. Used for chronic fevers, immune weakness, and as a rejuvenative. Name 'Amrita' reflects its life-giving properties. For educational purposes only—not medical recommendations.",
+    keyBenefits: [
+      "Immune system modulation",
+      "Fever management",
+      "Liver protection",
+      "Anti-inflammatory effects",
+      "Blood sugar regulation"
+    ],
+    mechanisms: [
+      "Contains tinosporin and other alkaloids",
+      "Activates macrophages and immune cells",
+      "Hepatoprotective compounds",
+      "Antioxidant activity"
+    ],
+    dosage: "Stem powder 3-6g daily or 300-500mg extract. Fresh stem juice traditionally used for fever. These figures are for research context only.",
+    safetyNotes: [
+      "Generally well-tolerated",
+      "May lower blood sugar significantly",
+      "Avoid before surgery (blood sugar effects)",
+      "Quality and species verification important"
+    ],
+    interactions: [
+      "May enhance effects of diabetes medications",
+      "Potential immunomodulatory interactions",
+      "May affect immunosuppressant drugs",
+      "Use caution with autoimmune conditions"
+    ],
+    sources: ["Stem powder", "Satva (starch extract)", "Capsules", "Fresh juice"],
+    relatedCompounds: ["Neem", "Tulsi", "Amalaki", "Turmeric"]
+  },
+  {
+    id: "tulsi",
+    name: "Tulsi (Holy Basil)",
+    latinName: "Ocimum sanctum / tenuiflorum",
+    category: "Ayurvedic Compound",
+    studies: 340,
+    image: "🪴",
+    description: "Tulsi, or Holy Basil, is considered sacred in India and is one of the most important herbs in Ayurveda. Known as 'The Queen of Herbs,' it's an adaptogen supporting stress resilience and respiratory health.",
+    traditionalUse: "Traditional therapies used by Ayurvedic practitioners. Grown in almost every Hindu household for spiritual and medicinal use. Three main types: Rama, Krishna, and Vana tulsi. For educational purposes only—not medical recommendations.",
+    keyBenefits: [
+      "Stress and anxiety reduction",
+      "Respiratory health",
+      "Blood sugar regulation",
+      "Antioxidant protection",
+      "Immune support"
+    ],
+    mechanisms: [
+      "Contains eugenol, rosmarinic acid, and ursolic acid",
+      "Modulates cortisol and stress hormones",
+      "Anti-inflammatory and antimicrobial",
+      "Supports healthy inflammatory response"
+    ],
+    dosage: "Tea: 2-3 cups daily. Extract: 300-600mg daily. Fresh leaves also consumed. These figures are for research context only.",
+    safetyNotes: [
+      "Generally very safe",
+      "May have mild blood-thinning effects",
+      "May affect fertility (traditional belief)",
+      "Avoid excessive use during pregnancy"
+    ],
+    interactions: [
+      "May enhance effects of blood thinners",
+      "May affect blood sugar medications",
+      "Potential interaction with sedatives",
+      "May affect thyroid medications"
+    ],
+    sources: ["Fresh leaves", "Dried tea", "Capsules", "Liquid extract"],
+    relatedCompounds: ["Ashwagandha", "Brahmi", "Guduchi", "Moringa"]
+  },
+  {
+    id: "amalaki",
+    name: "Amalaki (Amla)",
+    latinName: "Phyllanthus emblica",
+    category: "Ayurvedic Compound",
+    studies: 290,
+    image: "🫒",
+    description: "Amalaki, or Indian Gooseberry, is one of the richest natural sources of vitamin C. A key component of Triphala and Chyawanprash, it's considered the most important rejuvenative fruit in Ayurveda.",
+    traditionalUse: "Traditional therapies used by Ayurvedic practitioners. Revered as a 'divya aushadhi' (divine medicine). Used for longevity, hair health, and digestive wellness. For educational purposes only—not medical recommendations.",
+    keyBenefits: [
+      "Powerful antioxidant",
+      "Vitamin C source",
+      "Hair and skin health",
+      "Digestive support",
+      "Immune enhancement"
+    ],
+    mechanisms: [
+      "Very high vitamin C content (heat-stable form)",
+      "Rich in tannins and polyphenols",
+      "Supports collagen synthesis",
+      "Enhances iron absorption"
+    ],
+    dosage: "Powder: 3-6g daily. Juice: 20-30ml. Also consumed as fresh fruit or in Chyawanprash. These figures are for research context only.",
+    safetyNotes: [
+      "Generally very safe",
+      "May cause loose stools in excess",
+      "Cooling nature - may not suit all constitutions",
+      "High vitamin C - consider if prone to kidney stones"
+    ],
+    interactions: [
+      "May enhance effects of blood thinners",
+      "May affect blood sugar medications",
+      "Enhances iron absorption",
+      "Generally safe with most medications"
+    ],
+    sources: ["Fresh fruit", "Powder", "Juice", "Chyawanprash preparation"],
+    relatedCompounds: ["Triphala", "Vitamin C", "Haritaki", "Bibhitaki"]
+  },
+  {
+    id: "neem",
+    name: "Neem",
+    latinName: "Azadirachta indica",
+    category: "Ayurvedic Compound",
+    studies: 420,
+    image: "🌳",
+    description: "Neem is called 'Sarva Roga Nivarini' (healer of all ailments) in Ayurveda. Every part of this tree has medicinal uses. Particularly valued for skin conditions, blood purification, and antimicrobial properties.",
+    traditionalUse: "Traditional therapies used by Ayurvedic practitioners. Used for 4,000+ years for skin diseases, fevers, and as a 'blood purifier.' Leaves, bark, seeds, and oil all used medicinally. For educational purposes only—not medical recommendations.",
+    keyBenefits: [
+      "Skin health and conditions",
+      "Blood purification",
+      "Antimicrobial activity",
+      "Dental and oral health",
+      "Blood sugar support"
+    ],
+    mechanisms: [
+      "Contains nimbin, nimbidin, and azadirachtin",
+      "Potent antibacterial and antifungal",
+      "Bitter compounds support liver function",
+      "Anti-inflammatory properties"
+    ],
+    dosage: "Leaf powder: 1-2g daily. Oil used topically. Capsules: 300-500mg 2x daily. These figures are for research context only.",
+    safetyNotes: [
+      "Very bitter - may cause nausea",
+      "Avoid during pregnancy (may be abortifacient)",
+      "Not for infants or children",
+      "May lower blood sugar significantly"
+    ],
+    interactions: [
+      "May enhance diabetes medications",
+      "Potential interaction with immunosuppressants",
+      "May affect lithium levels",
+      "Avoid with fertility treatments"
+    ],
+    sources: ["Leaf powder", "Capsules", "Neem oil (topical)", "Bark extract"],
+    relatedCompounds: ["Guduchi", "Turmeric", "Manjistha", "Kutki"]
+  },
+  {
+    id: "manjistha",
+    name: "Manjistha",
+    latinName: "Rubia cordifolia",
+    category: "Ayurvedic Compound",
+    studies: 125,
+    image: "🔴",
+    description: "Manjistha is Ayurveda's premier herb for lymphatic health and blood purification. Its name means 'bright red,' reflecting both its color and its ability to bring clarity and radiance to the skin.",
+    traditionalUse: "Traditional therapies used by Ayurvedic practitioners. Used to 'clean the blood,' support clear skin, and promote lymphatic flow. Important in treating skin conditions and promoting complexion. For educational purposes only—not medical recommendations.",
+    keyBenefits: [
+      "Lymphatic system support",
+      "Blood purification",
+      "Skin clarity and radiance",
+      "Menstrual regulation",
+      "Anti-inflammatory effects"
+    ],
+    mechanisms: [
+      "Contains anthraquinones and rubiadin",
+      "Supports lymphatic drainage",
+      "Antioxidant and anti-inflammatory",
+      "Traditionally used for 'cooling' the blood"
+    ],
+    dosage: "Powder: 1-3g daily. Capsules: 500mg 2x daily. Often combined with other blood-purifying herbs. These figures are for research context only.",
+    safetyNotes: [
+      "May turn urine and stool reddish (harmless)",
+      "Avoid during pregnancy",
+      "May increase menstrual flow",
+      "Start with lower doses"
+    ],
+    interactions: [
+      "May enhance effects of blood thinners",
+      "Potential interaction with diuretics",
+      "May affect hormone levels",
+      "Consult practitioner if on medications"
+    ],
+    sources: ["Root powder", "Capsules", "Liquid extract", "Skin formulations"],
+    relatedCompounds: ["Neem", "Turmeric", "Guduchi", "Shatavari"]
+  },
+  {
+    id: "gotu-kola",
+    name: "Gotu Kola",
+    latinName: "Centella asiatica",
+    category: "Ayurvedic Compound",
+    studies: 260,
+    image: "🍀",
+    description: "Gotu Kola is revered in both Ayurveda and Traditional Chinese Medicine as a brain tonic and longevity herb. Known as 'Brahmi' in some traditions (different from Bacopa), it supports cognition, circulation, and wound healing.",
+    traditionalUse: "Traditional therapies used by Ayurvedic practitioners. Called 'herb of longevity' - elephants, known for long memory, eat it. Used for meditation and mental clarity. For educational purposes only—not medical recommendations.",
+    keyBenefits: [
+      "Cognitive enhancement",
+      "Wound healing",
+      "Venous health and circulation",
+      "Anxiety reduction",
+      "Skin health and collagen"
+    ],
+    mechanisms: [
+      "Contains triterpenes (asiaticoside, madecassoside)",
+      "Enhances collagen synthesis",
+      "Improves microcirculation",
+      "GABAergic activity for calming"
+    ],
+    dosage: "Extract: 300-600mg daily (standardized to triterpenes). Fresh leaves also consumed. These figures are for research context only.",
+    safetyNotes: [
+      "Generally well-tolerated",
+      "May cause headache initially",
+      "Avoid during pregnancy",
+      "Rare reports of liver issues with long-term high doses"
+    ],
+    interactions: [
+      "May enhance effects of sedatives",
+      "Potential interaction with cholesterol medications",
+      "May affect liver enzyme activity",
+      "Use caution with hepatotoxic drugs"
+    ],
+    sources: ["Fresh leaves", "Standardized extract", "Powder", "Tea"],
+    relatedCompounds: ["Brahmi", "Lion's Mane", "Ashwagandha", "Ginkgo"]
+  },
+  {
+    id: "haritaki",
+    name: "Haritaki",
+    latinName: "Terminalia chebula",
+    category: "Ayurvedic Compound",
+    studies: 180,
+    image: "🫛",
+    description: "Haritaki is called 'The King of Medicines' in Tibet and is one of the three fruits in Triphala. Revered for digestive health, gentle detoxification, and promoting longevity.",
+    traditionalUse: "Traditional therapies used by Ayurvedic practitioners. Depicted in the hands of the Medicine Buddha. Balances all three doshas, especially Vata. Used for constipation, digestion, and rejuvenation. For educational purposes only—not medical recommendations.",
+    keyBenefits: [
+      "Digestive health",
+      "Gentle laxative effect",
+      "Brain and nerve tonic",
+      "Wound healing",
+      "Anti-aging properties"
+    ],
+    mechanisms: [
+      "Rich in tannins (chebulagic acid, chebulinic acid)",
+      "Promotes peristalsis without irritation",
+      "Antioxidant and anti-inflammatory",
+      "Supports healthy bowel function"
+    ],
+    dosage: "Powder: 1-3g at bedtime with warm water. Part of Triphala formula. These figures are for research context only.",
+    safetyNotes: [
+      "May cause loose stools initially",
+      "Avoid during pregnancy and breastfeeding",
+      "May lower blood sugar",
+      "Reduce dose if causing excess elimination"
+    ],
+    interactions: [
+      "May enhance effects of diabetes medications",
+      "Potential interaction with laxatives",
+      "May affect drug absorption if taken together",
+      "Separate from medications by 2 hours"
+    ],
+    sources: ["Fruit powder", "Capsules", "Part of Triphala", "Churna preparations"],
+    relatedCompounds: ["Triphala", "Amalaki", "Bibhitaki", "Psyllium"]
   }
 ];
 
