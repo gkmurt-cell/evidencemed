@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Leaf, Info } from "lucide-react";
 import EducationalDisclaimer from "@/components/layout/EducationalDisclaimer";
 import VitaminsSection from "./VitaminsSection";
+import MineralsSection from "./MineralsSection";
 
 const compounds = [
   {
@@ -194,6 +195,9 @@ const CompoundsSection = () => {
 
         {/* Vitamins Section */}
         <VitaminsSection />
+
+        {/* Minerals Section */}
+        <MineralsSection />
 
         {/* CTA */}
         <div className="text-center mt-10">

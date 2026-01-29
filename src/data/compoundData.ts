@@ -1551,6 +1551,312 @@ export const compoundsData: Compound[] = [
     ],
     sources: ["K1: Leafy greens", "K2 MK-4: Meat, eggs", "K2 MK-7: Natto, fermented foods", "Cheese"],
     relatedCompounds: ["Vitamin D", "Calcium", "Magnesium", "Omega-3"]
+  },
+  // ==================== MINERALS ====================
+  {
+    id: "zinc",
+    name: "Zinc",
+    latinName: "Zn",
+    category: "Essential Mineral",
+    studies: 2100,
+    image: "🛡️",
+    description: "Zinc is an essential trace mineral involved in over 300 enzymes. Critical for immune function, wound healing, DNA synthesis, and protein production. Second most abundant trace mineral in the body after iron.",
+    traditionalUse: "Zinc supplementation became widespread after studies in the 1960s linked deficiency to growth retardation. Zinc lozenges have been used since the 1980s for common cold symptoms.",
+    keyBenefits: [
+      "Immune system support",
+      "Wound healing",
+      "Skin health and acne",
+      "Testosterone production",
+      "Taste and smell function"
+    ],
+    mechanisms: [
+      "Cofactor for 300+ metalloenzymes",
+      "Essential for T-cell and NK cell function",
+      "Regulates gene expression through zinc finger proteins",
+      "Supports antioxidant enzyme (SOD) function"
+    ],
+    dosage: "RDA is 8-11mg daily. Common supplemental doses 15-30mg. Upper limit 40mg. Zinc carnosine studied at 75mg for GI health. These figures are for research context only.",
+    safetyNotes: [
+      "High doses (>40mg) can cause copper deficiency",
+      "May cause nausea if taken on empty stomach",
+      "Long-term high doses affect iron absorption",
+      "Intranasal zinc linked to anosmia (avoid)"
+    ],
+    interactions: [
+      "Competes with copper absorption",
+      "Quinolone antibiotics - separate by 2 hours",
+      "Tetracycline antibiotics - separate by 2 hours",
+      "May reduce absorption of penicillamine"
+    ],
+    sources: ["Oysters (highest)", "Beef", "Pumpkin seeds", "Zinc picolinate", "Zinc glycinate"],
+    relatedCompounds: ["Copper", "Vitamin C", "Quercetin", "Selenium"]
+  },
+  {
+    id: "selenium",
+    name: "Selenium",
+    latinName: "Se",
+    category: "Essential Mineral",
+    studies: 1400,
+    image: "🌰",
+    description: "Selenium is a trace mineral essential for thyroid function, reproduction, and DNA synthesis. It forms selenoproteins that act as powerful antioxidants, particularly glutathione peroxidase.",
+    traditionalUse: "Named after the Greek moon goddess Selene. Recognized as essential nutrient in 1957. Brazil nuts became famous as richest natural source. Soil selenium content varies dramatically by region.",
+    keyBenefits: [
+      "Thyroid hormone metabolism",
+      "Antioxidant protection",
+      "Immune function",
+      "Reproductive health",
+      "Cognitive support"
+    ],
+    mechanisms: [
+      "Forms selenocysteine (21st amino acid)",
+      "Essential for glutathione peroxidase enzymes",
+      "Required for T3 thyroid hormone conversion",
+      "Supports DNA synthesis and repair"
+    ],
+    dosage: "RDA is 55mcg daily. Brazil nuts contain ~70-90mcg each. Therapeutic studies used 100-200mcg. Upper limit 400mcg. These figures are for research context only.",
+    safetyNotes: [
+      "Narrow safety margin - toxicity possible",
+      "Selenosis symptoms: garlic breath, hair loss, nail brittleness",
+      "Brazil nuts can exceed safe levels (limit 1-3 daily)",
+      "Check regional soil levels - some areas very high"
+    ],
+    interactions: [
+      "May enhance effects of blood thinners",
+      "Statins may reduce selenium levels",
+      "May interact with chemotherapy drugs",
+      "High doses may affect thyroid medications"
+    ],
+    sources: ["Brazil nuts", "Seafood", "Organ meats", "Selenomethionine supplements", "Sodium selenite"],
+    relatedCompounds: ["Vitamin E", "Iodine", "Zinc", "Glutathione"]
+  },
+  {
+    id: "iron",
+    name: "Iron",
+    latinName: "Fe",
+    category: "Essential Mineral",
+    studies: 3500,
+    image: "🩸",
+    description: "Iron is essential for oxygen transport in hemoglobin and myoglobin. The most common nutritional deficiency worldwide, especially in women, vegetarians, and athletes. Exists as heme (animal) and non-heme (plant) forms.",
+    traditionalUse: "Iron-rich foods valued throughout history. Ancient Greeks treated 'chlorosis' (likely iron deficiency) with iron filings in wine. Cast iron cookware has been used to increase dietary iron intake.",
+    keyBenefits: [
+      "Oxygen transport (hemoglobin)",
+      "Energy production",
+      "Cognitive function",
+      "Immune support",
+      "Athletic performance"
+    ],
+    mechanisms: [
+      "Central to hemoglobin and myoglobin",
+      "Cofactor for cytochrome enzymes",
+      "Essential for mitochondrial function",
+      "Required for DNA synthesis enzymes"
+    ],
+    dosage: "RDA is 8-18mg daily (higher for menstruating women). Therapeutic doses 30-60mg for deficiency. Heme iron better absorbed. These figures are for research context only.",
+    safetyNotes: [
+      "Do NOT supplement without confirmed deficiency",
+      "Iron overload causes organ damage",
+      "Hemochromatosis (genetic) contraindicates supplementation",
+      "GI side effects common (constipation, nausea)",
+      "Keep away from children - toxic in overdose"
+    ],
+    interactions: [
+      "Vitamin C enhances absorption significantly",
+      "Calcium, zinc compete for absorption",
+      "Tannins, phytates reduce absorption",
+      "Many medications affected - consult pharmacist"
+    ],
+    sources: ["Red meat (heme)", "Liver", "Spinach (non-heme)", "Iron bisglycinate", "Ferrous sulfate"],
+    relatedCompounds: ["Vitamin C", "Vitamin B12", "Folate", "Copper"]
+  },
+  {
+    id: "calcium",
+    name: "Calcium",
+    latinName: "Ca",
+    category: "Essential Mineral",
+    studies: 4200,
+    image: "🦴",
+    description: "Calcium is the most abundant mineral in the body, with 99% stored in bones and teeth. Essential for bone health, muscle contraction, nerve transmission, and blood clotting.",
+    traditionalUse: "Dairy consumption for bone health spans millennia. Calcium carbonate (chalk, limestone) used medicinally since ancient times. Modern supplementation began in earnest in the 1980s.",
+    keyBenefits: [
+      "Bone density and strength",
+      "Muscle contraction",
+      "Nerve transmission",
+      "Blood clotting",
+      "Heart rhythm regulation"
+    ],
+    mechanisms: [
+      "Structural component of hydroxyapatite (bone)",
+      "Triggers muscle fiber contraction",
+      "Acts as second messenger in cell signaling",
+      "Essential for neurotransmitter release"
+    ],
+    dosage: "RDA is 1000-1200mg daily from all sources. Supplements best taken in 500mg divided doses. Calcium citrate better absorbed than carbonate. These figures are for research context only.",
+    safetyNotes: [
+      "High supplemental doses may increase cardiovascular risk",
+      "Prioritize dietary sources when possible",
+      "Kidney stone risk in susceptible individuals",
+      "Upper limit 2500mg from all sources"
+    ],
+    interactions: [
+      "Reduces absorption of many medications",
+      "Competes with iron, zinc absorption",
+      "Requires vitamin D for proper absorption",
+      "Separate from thyroid medications by 4 hours"
+    ],
+    sources: ["Dairy products", "Sardines with bones", "Fortified plant milks", "Calcium citrate", "Calcium carbonate"],
+    relatedCompounds: ["Vitamin D", "Vitamin K2", "Magnesium", "Phosphorus"]
+  },
+  {
+    id: "potassium",
+    name: "Potassium",
+    latinName: "K",
+    category: "Essential Mineral",
+    studies: 2800,
+    image: "🍌",
+    description: "Potassium is the primary intracellular cation, essential for fluid balance, nerve transmission, and muscle contraction. Most people don't get enough from diet. Critical for blood pressure regulation.",
+    traditionalUse: "Potassium-rich foods like bananas, potatoes, and leafy greens have been dietary staples. The name comes from 'potash' - plant ashes used historically for soap making.",
+    keyBenefits: [
+      "Blood pressure regulation",
+      "Fluid and electrolyte balance",
+      "Muscle and nerve function",
+      "Heart rhythm stability",
+      "Kidney stone prevention"
+    ],
+    mechanisms: [
+      "Maintains cell membrane potential",
+      "Essential for Na+/K+-ATPase pump",
+      "Counterbalances sodium effects on blood pressure",
+      "Required for proper cardiac conduction"
+    ],
+    dosage: "AI is 2600-3400mg daily (most people get ~2500mg). Supplements limited to 99mg per pill (safety). Food sources preferred. These figures are for research context only.",
+    safetyNotes: [
+      "Hyperkalemia (high potassium) is life-threatening",
+      "Kidney disease patients must limit intake",
+      "Supplement doses restricted by regulation",
+      "Symptoms of excess: weakness, irregular heartbeat"
+    ],
+    interactions: [
+      "ACE inhibitors increase potassium levels",
+      "Potassium-sparing diuretics - dangerous combination",
+      "NSAIDs may increase potassium",
+      "Many heart and blood pressure medications affected"
+    ],
+    sources: ["Potatoes", "Bananas", "Avocados", "Coconut water", "Potassium citrate supplements"],
+    relatedCompounds: ["Sodium", "Magnesium", "Calcium", "Chloride"]
+  },
+  {
+    id: "copper",
+    name: "Copper",
+    latinName: "Cu",
+    category: "Essential Mineral",
+    studies: 980,
+    image: "🔶",
+    description: "Copper is an essential trace mineral for iron metabolism, connective tissue formation, and nervous system function. Works synergistically with zinc but competes for absorption.",
+    traditionalUse: "Copper vessels used since antiquity for water storage (antimicrobial properties). Copper bracelets worn for arthritis relief (limited evidence). Essential nutrient recognized in 1920s.",
+    keyBenefits: [
+      "Iron metabolism and transport",
+      "Connective tissue formation",
+      "Nervous system health",
+      "Energy production",
+      "Antioxidant defense (SOD enzyme)"
+    ],
+    mechanisms: [
+      "Cofactor for ceruloplasmin (iron transport)",
+      "Essential for lysyl oxidase (collagen crosslinking)",
+      "Required for cytochrome c oxidase (mitochondria)",
+      "Component of Cu/Zn superoxide dismutase"
+    ],
+    dosage: "RDA is 900mcg daily. Upper limit 10mg. Often included in multivitamins at 1-2mg. Balance with zinc important. These figures are for research context only.",
+    safetyNotes: [
+      "Toxicity possible - Wilson's disease patients must avoid",
+      "Zinc supplementation increases copper needs",
+      "Excess can cause liver damage",
+      "Most people get adequate amounts from diet"
+    ],
+    interactions: [
+      "High-dose zinc depletes copper",
+      "High-dose vitamin C may reduce absorption",
+      "Antacids may reduce absorption",
+      "Penicillamine (chelates copper)"
+    ],
+    sources: ["Liver", "Oysters", "Nuts", "Dark chocolate", "Copper gluconate supplements"],
+    relatedCompounds: ["Zinc", "Iron", "Vitamin C", "Manganese"]
+  },
+  {
+    id: "iodine",
+    name: "Iodine",
+    latinName: "I",
+    category: "Essential Mineral",
+    studies: 1200,
+    image: "🌊",
+    description: "Iodine is essential for thyroid hormone production. Deficiency is the leading cause of preventable intellectual disability worldwide. Salt iodization has been one of the most successful public health interventions.",
+    traditionalUse: "Seaweed used for goiter treatment in ancient China. Iodine discovered in 1811 from seaweed ash. Salt iodization began in the 1920s to prevent goiter and cretinism.",
+    keyBenefits: [
+      "Thyroid hormone synthesis",
+      "Metabolic regulation",
+      "Fetal brain development",
+      "Cognitive function",
+      "Breast tissue health"
+    ],
+    mechanisms: [
+      "Essential component of T3 and T4 hormones",
+      "Concentrated in thyroid via sodium-iodide symporter",
+      "Required for proper metabolism of all cells",
+      "Critical for fetal neurodevelopment"
+    ],
+    dosage: "RDA is 150mcg daily (220-290mcg pregnancy/lactation). Upper limit 1100mcg. Kelp supplements highly variable. These figures are for research context only.",
+    safetyNotes: [
+      "Both deficiency and excess harm thyroid",
+      "High doses can trigger or worsen autoimmune thyroid disease",
+      "Kelp supplements may contain excessive amounts",
+      "Hashimoto's patients may need to limit intake"
+    ],
+    interactions: [
+      "Affects thyroid medication requirements",
+      "Lithium affects thyroid iodine uptake",
+      "Amiodarone contains significant iodine",
+      "Goitrogens in food reduce iodine utilization"
+    ],
+    sources: ["Iodized salt", "Seaweed", "Fish", "Dairy", "Potassium iodide supplements"],
+    relatedCompounds: ["Selenium", "Tyrosine", "Vitamin A", "Zinc"]
+  },
+  {
+    id: "chromium",
+    name: "Chromium",
+    latinName: "Cr",
+    category: "Essential Mineral",
+    studies: 720,
+    image: "⚙️",
+    description: "Chromium is a trace mineral that enhances insulin action. Research on blood sugar regulation has made it popular for metabolic support, though results are mixed and modest.",
+    traditionalUse: "Identified as essential in 1959 through glucose tolerance factor research. Brewer's yeast recognized as good source. Chromium picolinate became popular supplement in 1990s.",
+    keyBenefits: [
+      "Blood sugar regulation",
+      "Insulin sensitivity support",
+      "Lipid metabolism",
+      "Body composition (modest effects)",
+      "Carbohydrate metabolism"
+    ],
+    mechanisms: [
+      "Enhances insulin receptor sensitivity",
+      "Part of chromodulin (insulin-potentiating complex)",
+      "May influence AMPK activity",
+      "Supports glucose transporter function"
+    ],
+    dosage: "AI is 25-35mcg daily. Studies used 200-1000mcg chromium picolinate. Effects often modest. These figures are for research context only.",
+    safetyNotes: [
+      "Generally well tolerated",
+      "Very high doses may cause kidney or liver issues",
+      "Chromium picolinate most studied form",
+      "Quality of supplements varies"
+    ],
+    interactions: [
+      "May enhance effects of diabetes medications",
+      "May affect blood sugar - monitor with insulin",
+      "NSAIDs may increase chromium levels",
+      "Antacids may reduce absorption"
+    ],
+    sources: ["Broccoli", "Grape juice", "Brewer's yeast", "Chromium picolinate", "Chromium polynicotinate"],
+    relatedCompounds: ["Berberine", "Alpha-Lipoic Acid", "Cinnamon", "Magnesium"]
   }
 ];
 
