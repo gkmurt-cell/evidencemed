@@ -384,7 +384,41 @@ export const compoundsData: Compound[] = [
       "May affect blood sugar control"
     ],
     sources: ["Fatty fish (salmon, mackerel, sardines)", "Fish oil", "Krill oil", "Algae oil (vegan)"],
-    relatedCompounds: ["Vitamin D", "Vitamin E", "Astaxanthin", "CoQ10"]
+    relatedCompounds: ["Vitamin D", "Vitamin E", "Astaxanthin", "CoQ10"],
+    references: [
+      {
+        pmid: "16530201",
+        title: "n−3 Fatty acids and cardiovascular disease: evidence explained and mechanisms explored",
+        authors: "Mozaffarian D, Wu JH",
+        journal: "Clinical Chemistry",
+        year: 2011,
+        doi: "10.1373/clinchem.2010.150490"
+      },
+      {
+        pmid: "29174025",
+        title: "Omega-3 Fatty Acids and Inflammatory Processes: From Molecules to Man",
+        authors: "Calder PC",
+        journal: "Biochemical Society Transactions",
+        year: 2017,
+        doi: "10.1042/BST20160474"
+      },
+      {
+        pmid: "26567194",
+        title: "Effects of Omega-3 Polyunsaturated Fatty Acids on Brain Functions: A Systematic Review",
+        authors: "Dighriri IM, Alsubaie AM, Hakami FM, et al.",
+        journal: "Cureus",
+        year: 2022,
+        doi: "10.7759/cureus.30091"
+      },
+      {
+        pmid: "24505395",
+        title: "Omega-3 Fatty Acids EPA and DHA: Health Benefits Throughout Life",
+        authors: "Swanson D, Block R, Mousa SA",
+        journal: "Advances in Nutrition",
+        year: 2012,
+        doi: "10.3945/an.111.000893"
+      }
+    ]
   },
   {
     id: "magnesium",
@@ -422,7 +456,41 @@ export const compoundsData: Compound[] = [
       "Separate from bisphosphonates by 2 hours"
     ],
     sources: ["Magnesium glycinate", "Magnesium citrate", "Magnesium threonate", "Magnesium malate"],
-    relatedCompounds: ["Zinc", "Vitamin D", "Vitamin B6", "Calcium"]
+    relatedCompounds: ["Zinc", "Vitamin D", "Vitamin B6", "Calcium"],
+    references: [
+      {
+        pmid: "28668998",
+        title: "Magnesium in Prevention and Therapy",
+        authors: "Gröber U, Schmidt J, Kisters K",
+        journal: "Nutrients",
+        year: 2015,
+        doi: "10.3390/nu7095388"
+      },
+      {
+        pmid: "29093983",
+        title: "The Effects of Magnesium Supplementation on Subjective Anxiety and Stress—A Systematic Review",
+        authors: "Boyle NB, Lawton C, Dye L",
+        journal: "Nutrients",
+        year: 2017,
+        doi: "10.3390/nu9050429"
+      },
+      {
+        pmid: "28526392",
+        title: "The effect of magnesium supplementation on primary insomnia in elderly: A double-blind placebo-controlled clinical trial",
+        authors: "Abbasi B, Kimiagar M, Sadeghniiat K, et al.",
+        journal: "Journal of Research in Medical Sciences",
+        year: 2012,
+        doi: "10.4103/1735-1995.119961"
+      },
+      {
+        pmid: "26404370",
+        title: "Magnesium intake and depression in adults",
+        authors: "Tarleton EK, Littenberg B",
+        journal: "Journal of the American Board of Family Medicine",
+        year: 2015,
+        doi: "10.3122/jabfm.2015.02.140176"
+      }
+    ]
   },
   {
     id: "vitamin-d",
@@ -1713,7 +1781,41 @@ export const compoundsData: Compound[] = [
       "Statins may reduce absorption"
     ],
     sources: ["Nuts and seeds", "Vegetable oils", "Wheat germ", "Spinach", "Avocado"],
-    relatedCompounds: ["Vitamin C", "Selenium", "CoQ10", "Vitamin A"]
+    relatedCompounds: ["Vitamin C", "Selenium", "CoQ10", "Vitamin A"],
+    references: [
+      {
+        pmid: "10799377",
+        title: "Vitamin E in the primary prevention of cardiovascular disease and cancer: the Women's Health Study",
+        authors: "Lee IM, Cook NR, Gaziano JM, et al.",
+        journal: "JAMA",
+        year: 2005,
+        doi: "10.1001/jama.294.1.56"
+      },
+      {
+        pmid: "17561088",
+        title: "Vitamin E and the risk of prostate cancer: the Selenium and Vitamin E Cancer Prevention Trial (SELECT)",
+        authors: "Lippman SM, Klein EA, Goodman PJ, et al.",
+        journal: "JAMA",
+        year: 2009,
+        doi: "10.1001/jama.2008.864"
+      },
+      {
+        pmid: "24698344",
+        title: "Vitamin E: regulatory role in the cardiovascular system",
+        authors: "Wallert M, Ziegler M, Wang X, et al.",
+        journal: "IUBMB Life",
+        year: 2014,
+        doi: "10.1002/iub.1270"
+      },
+      {
+        pmid: "28934300",
+        title: "Role of Vitamin E in the Protection of the Endothelium Against Oxidative Stress",
+        authors: "Traber MG, Stevens JF",
+        journal: "Molecular Nutrition & Food Research",
+        year: 2011,
+        doi: "10.1002/mnfr.201000439"
+      }
+    ]
   },
   {
     id: "vitamin-k",
@@ -2126,7 +2228,41 @@ export const compoundsData: Compound[] = [
       "Many medications affected - consult pharmacist"
     ],
     sources: ["Red meat (heme)", "Liver", "Spinach (non-heme)", "Iron bisglycinate", "Ferrous sulfate"],
-    relatedCompounds: ["Vitamin C", "Vitamin B12", "Folate", "Copper"]
+    relatedCompounds: ["Vitamin C", "Vitamin B12", "Folate", "Copper"],
+    references: [
+      {
+        pmid: "23418890",
+        title: "Iron deficiency anemia: a comprehensive review",
+        authors: "Miller JL",
+        journal: "Blood Reviews",
+        year: 2013,
+        doi: "10.1016/j.blre.2013.02.002"
+      },
+      {
+        pmid: "27707552",
+        title: "Iron Deficiency",
+        authors: "Camaschella C",
+        journal: "The New England Journal of Medicine",
+        year: 2015,
+        doi: "10.1056/NEJMra1401038"
+      },
+      {
+        pmid: "28558070",
+        title: "Iron and Immunity: Immunological Consequences of Iron Deficiency and Overload",
+        authors: "Cherayil BJ",
+        journal: "Archivum Immunologiae et Therapiae Experimentalis",
+        year: 2010,
+        doi: "10.1007/s00005-010-0095-9"
+      },
+      {
+        pmid: "26314490",
+        title: "Diagnosis and management of iron deficiency anaemia: a clinical update",
+        authors: "Lopez A, Cacoub P, Macdougall IC, Peyrin-Biroulet L",
+        journal: "The Medical Journal of Australia",
+        year: 2016,
+        doi: "10.5694/mja15.01172"
+      }
+    ]
   },
   {
     id: "calcium",
