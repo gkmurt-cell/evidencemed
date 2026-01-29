@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ExternalLink, Play, CheckCircle, AlertTriangle, ChevronDown } from "lucide-react";
+import { ExternalLink, Play, CheckCircle, AlertTriangle, ChevronDown, ChevronUp, ArrowUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import EducationalDisclaimer from "@/components/layout/EducationalDisclaimer";
 
@@ -330,9 +330,9 @@ const SocialProofSection = () => {
           ))}
         </div>
 
-        {/* Explore More Button */}
-        {!showMore && (
-          <div className="flex justify-center mt-8">
+        {/* Explore More / Show Less Buttons */}
+        <div className="flex justify-center gap-4 mt-8">
+          {!showMore ? (
             <Button
               variant="outline"
               size="lg"
@@ -342,8 +342,32 @@ const SocialProofSection = () => {
               Explore More Claims
               <ChevronDown className="w-4 h-4" />
             </Button>
-          </div>
-        )}
+          ) : (
+            <>
+              <Button
+                variant="outline"
+                size="lg"
+                onClick={() => {
+                  setShowMore(false);
+                  document.getElementById("social-proof")?.scrollIntoView({ behavior: "smooth" });
+                }}
+                className="gap-2"
+              >
+                <ChevronUp className="w-4 h-4" />
+                Show Less
+              </Button>
+              <Button
+                variant="secondary"
+                size="lg"
+                onClick={() => document.getElementById("social-proof")?.scrollIntoView({ behavior: "smooth" })}
+                className="gap-2"
+              >
+                <ArrowUp className="w-4 h-4" />
+                Back to Top
+              </Button>
+            </>
+          )}
+        </div>
 
         {/* Trust Statement */}
         <div className="max-w-2xl mx-auto text-center mt-10 p-6 rounded-xl bg-muted/50 border border-border">
