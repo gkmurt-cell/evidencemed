@@ -20,9 +20,9 @@ const DemoDisclaimer = ({ className = "", compact = false }: DemoDisclaimerProps
     <Alert className={`bg-amber-500/10 border-amber-500/30 ${className}`}>
       <AlertTriangle className="h-4 w-4 text-amber-600 dark:text-amber-400" />
       <AlertDescription className="text-amber-700 dark:text-amber-300 text-sm">
-        <strong>Demo Content Notice:</strong> The research data, study references, and DOI links shown are 
-        placeholder examples for demonstration purposes only. This content is not sourced from peer-reviewed 
-        publications and should not be used for clinical decision-making. Real research integration is in development.
+        <strong>Curated Research Notice:</strong> Studies with PMID links connect to real peer-reviewed 
+        articles on PubMed. Summaries are editorial interpretations for educational purposes and should not 
+        be used for clinical decision-making. Always consult primary sources and healthcare professionals.
       </AlertDescription>
     </Alert>
   );
