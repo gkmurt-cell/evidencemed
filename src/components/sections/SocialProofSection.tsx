@@ -282,10 +282,25 @@ const getPlatformColor = (platform: string) => {
   }
 };
 
+const platforms = [
+  { id: "all", label: "All" },
+  { id: "instagram", label: "Instagram" },
+  { id: "tiktok", label: "TikTok" },
+  { id: "youtube", label: "YouTube" },
+  { id: "facebook", label: "Facebook" },
+  { id: "twitter", label: "Twitter/X" },
+] as const;
+
+type PlatformFilter = typeof platforms[number]["id"];
+
 const SocialProofSection = () => {
   const [showMore, setShowMore] = useState(false);
+  const [platformFilter, setPlatformFilter] = useState<PlatformFilter>("all");
 
-  const displayedReels = showMore ? [...socialReels, ...additionalReels] : socialReels;
+  const allReels = showMore ? [...socialReels, ...additionalReels] : socialReels;
+  const displayedReels = platformFilter === "all" 
+    ? allReels 
+    : allReels.filter(reel => reel.platform === platformFilter);
 
   return (
     <section id="social-proof" className="py-10 lg:py-16 bg-background border-t border-border">
@@ -306,6 +321,23 @@ const SocialProofSection = () => {
             Promoting informed decision-making through transparency.
           </p>
           <EducationalDisclaimer />
+        </div>
+
+        {/* Platform Filter Tabs */}
+        <div className="flex flex-wrap justify-center gap-2 mb-8">
+          {platforms.map((platform) => (
+            <button
+              key={platform.id}
+              onClick={() => setPlatformFilter(platform.id)}
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+                platformFilter === platform.id
+                  ? "bg-primary text-primary-foreground shadow-md"
+                  : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
+              }`}
+            >
+              {platform.label}
+            </button>
+          ))}
         </div>
 
         {/* Reels Grid */}
