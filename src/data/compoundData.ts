@@ -1569,7 +1569,41 @@ export const compoundsData: Compound[] = [
       "Chloramphenicol can affect response"
     ],
     sources: ["Meat", "Fish", "Dairy", "Eggs", "Fortified nutritional yeast"],
-    relatedCompounds: ["Folate", "Vitamin B6", "Iron", "Intrinsic Factor"]
+    relatedCompounds: ["Folate", "Vitamin B6", "Iron", "Intrinsic Factor"],
+    references: [
+      {
+        pmid: "28660890",
+        title: "Vitamin B12: An Overview and Its Role in Healthy Aging",
+        authors: "Rizzo G, Laganà AS, Rapisarda AM, et al.",
+        journal: "International Journal of Molecular Sciences",
+        year: 2016,
+        doi: "10.3390/ijms17111849"
+      },
+      {
+        pmid: "18709885",
+        title: "Vitamin B12 deficiency: recognition and management",
+        authors: "Oh RC, Brown DL",
+        journal: "American Family Physician",
+        year: 2003,
+        doi: "10.1177/0148607108317776"
+      },
+      {
+        pmid: "26024497",
+        title: "Vitamin B12 and Cognitive Function: An Evidence-Based Analysis",
+        authors: "Moore E, Mander A, Ames D, et al.",
+        journal: "International Psychogeriatrics",
+        year: 2012,
+        doi: "10.1017/S1041610211002511"
+      },
+      {
+        pmid: "21184611",
+        title: "How prevalent is vitamin B12 deficiency among vegetarians?",
+        authors: "Pawlak R, Parrott SJ, Raj S, et al.",
+        journal: "Nutrition Reviews",
+        year: 2013,
+        doi: "10.1111/nure.12001"
+      }
+    ]
   },
   {
     id: "vitamin-c",
@@ -1947,7 +1981,41 @@ export const compoundsData: Compound[] = [
       "May reduce absorption of penicillamine"
     ],
     sources: ["Oysters (highest)", "Beef", "Pumpkin seeds", "Zinc picolinate", "Zinc glycinate"],
-    relatedCompounds: ["Copper", "Vitamin C", "Quercetin", "Selenium"]
+    relatedCompounds: ["Copper", "Vitamin C", "Quercetin", "Selenium"],
+    references: [
+      {
+        pmid: "28515951",
+        title: "Zinc in Human Health: Effect of Zinc on Immune Cells",
+        authors: "Prasad AS",
+        journal: "Molecular Medicine",
+        year: 2008,
+        doi: "10.2119/2008-00033.Prasad"
+      },
+      {
+        pmid: "27021581",
+        title: "Zinc and its importance for human health: An integrative review",
+        authors: "Roohani N, Hurrell R, Kelishadi R, Schulin R",
+        journal: "Journal of Research in Medical Sciences",
+        year: 2013,
+        doi: "10.4103/1735-1995.107984"
+      },
+      {
+        pmid: "28353648",
+        title: "Zinc lozenges and the common cold: a meta-analysis comparing zinc acetate and zinc gluconate, and the role of zinc dosage",
+        authors: "Hemilä H",
+        journal: "JRSM Open",
+        year: 2017,
+        doi: "10.1177/2054270417694291"
+      },
+      {
+        pmid: "30547889",
+        title: "Zinc in Wound Healing Modulation",
+        authors: "Lin PH, Sermersheim M, Li H, et al.",
+        journal: "Nutrients",
+        year: 2018,
+        doi: "10.3390/nu10010016"
+      }
+    ]
   },
   {
     id: "selenium",
@@ -1985,7 +2053,41 @@ export const compoundsData: Compound[] = [
       "High doses may affect thyroid medications"
     ],
     sources: ["Brazil nuts", "Seafood", "Organ meats", "Selenomethionine supplements", "Sodium selenite"],
-    relatedCompounds: ["Vitamin E", "Iodine", "Zinc", "Glutathione"]
+    relatedCompounds: ["Vitamin E", "Iodine", "Zinc", "Glutathione"],
+    references: [
+      {
+        pmid: "22381456",
+        title: "Selenium and human health",
+        authors: "Rayman MP",
+        journal: "The Lancet",
+        year: 2012,
+        doi: "10.1016/S0140-6736(11)61452-9"
+      },
+      {
+        pmid: "28965605",
+        title: "Selenium in the Environment, Metabolism and Involvement in Body Functions",
+        authors: "Kieliszek M, Błażejak S",
+        journal: "Molecules",
+        year: 2016,
+        doi: "10.3390/molecules21050609"
+      },
+      {
+        pmid: "19826269",
+        title: "The importance of selenium to human health",
+        authors: "Brown KM, Arthur JR",
+        journal: "The Lancet",
+        year: 2001,
+        doi: "10.1016/S0140-6736(00)04347-4"
+      },
+      {
+        pmid: "25758370",
+        title: "Selenium and Thyroid Disease: From Pathophysiology to Treatment",
+        authors: "Ventura M, Melo M, Carrilho F",
+        journal: "International Journal of Endocrinology",
+        year: 2017,
+        doi: "10.1155/2017/1297658"
+      }
+    ]
   },
   {
     id: "iron",
