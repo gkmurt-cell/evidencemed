@@ -16,10 +16,12 @@ import {
   BookOpen,
   FileText,
   ChevronDown,
-  ChevronUp
+  ChevronUp,
+  ArrowUp
 } from "lucide-react";
 import { useState } from "react";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import BackToTopButton from "@/components/ui/back-to-top-button";
 
 // Tree visualization categories
 const therapyCategories = [
@@ -682,7 +684,7 @@ const IntegrativeTherapies = () => {
           </section>
 
           {/* Tree Visualization Section */}
-          <section className="py-6 lg:py-8">
+          <section id="therapy-tree" className="py-6 lg:py-8">
             <div className="container mx-auto px-4">
               <div className="max-w-5xl mx-auto">
                 <h2 className="font-serif text-2xl md:text-3xl font-semibold text-foreground text-center mb-12">
@@ -792,6 +794,7 @@ const IntegrativeTherapies = () => {
                         </div>
                       ))}
                     </div>
+                    <BackToTopButton targetId="therapy-tree" />
                   </div>
                 </div>
               </section>
@@ -852,6 +855,7 @@ const IntegrativeTherapies = () => {
                         </div>
                       ))}
                     </div>
+                    <BackToTopButton targetId="therapy-tree" />
                   </div>
                 </div>
               </section>
@@ -912,6 +916,7 @@ const IntegrativeTherapies = () => {
                         </div>
                       ))}
                     </div>
+                    <BackToTopButton targetId="therapy-tree" />
                   </div>
                 </div>
               </section>

@@ -4,6 +4,7 @@ import { ArrowRight, Leaf, Info } from "lucide-react";
 import EducationalDisclaimer from "@/components/layout/EducationalDisclaimer";
 import VitaminsSection from "./VitaminsSection";
 import MineralsSection from "./MineralsSection";
+import AyurvedicHerbsSection from "./AyurvedicHerbsSection";
 
 const compounds = [
   {
@@ -198,6 +199,9 @@ const CompoundsSection = () => {
 
         {/* Minerals Section */}
         <MineralsSection />
+
+        {/* Ayurvedic Herbs Section */}
+        <AyurvedicHerbsSection />
 
         {/* CTA */}
         <div className="text-center mt-10">

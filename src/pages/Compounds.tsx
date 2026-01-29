@@ -19,6 +19,7 @@ import { compoundsData, type Compound } from "@/data/compoundData";
 
 const categories = [
   "All Categories",
+  "Ayurvedic Compound",
   "Fat-Soluble Vitamin",
   "Water-Soluble Vitamin",
   "Functional Mushroom",
