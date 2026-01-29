@@ -3,104 +3,55 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Heart, Leaf, Brain, Sparkles, Calendar, Quote } from "lucide-react";
+import { Heart, Users, BookOpen, Shield, Target, Sparkles, Quote } from "lucide-react";
 
-const TIMELINE_EVENTS = [
+const MISSION_PILLARS = [
   {
-    year: "1973",
-    age: "19",
-    title: "Became Vegetarian",
-    description: "Started my journey away from meat, driven by ethical and health considerations. This single decision shaped the next 52 years of my life.",
-    icon: Leaf,
-    modality: "Plant-Based Nutrition"
+    title: "Evidence-Based Research",
+    description: "Every compound, therapy, and condition is backed by peer-reviewed research. We rate evidence honestly—including when it's weak or inconclusive.",
+    icon: BookOpen,
   },
   {
-    year: "1980s",
-    age: "20s-30s",
-    title: "Exploring Eastern Medicine",
-    description: "Discovered Traditional Chinese Medicine, acupuncture, and Ayurvedic principles. Began understanding the body as an interconnected system.",
-    icon: Sparkles,
-    modality: "TCM & Ayurveda"
+    title: "Practitioner Support",
+    description: "Designed for healthcare practitioners, researchers, and informed individuals seeking reliable integrative medicine information.",
+    icon: Users,
   },
   {
-    year: "1990s",
-    age: "30s-40s",
-    title: "Mind-Body Connection",
-    description: "Deepened practice in meditation, yoga, and breathwork. Experienced firsthand how mental state affects physical health.",
-    icon: Brain,
-    modality: "Meditation & Yoga"
+    title: "Unbiased Information",
+    description: "No affiliate deals influence our ratings. Our mission is truth, not sales. We present research as it is, not as supplement companies wish it to be.",
+    icon: Shield,
   },
   {
-    year: "2000s",
-    age: "40s-50s",
-    title: "Functional Medicine Discovery",
-    description: "Started following functional medicine practitioners. Learned about root cause analysis and personalized health approaches.",
-    icon: Heart,
-    modality: "Functional Medicine"
+    title: "Bridging the Gap",
+    description: "We bridge the gap between clinical research and practical application, making complex studies accessible and actionable.",
+    icon: Target,
   },
-  {
-    year: "2010s",
-    age: "50s-60s",
-    title: "Longevity Research",
-    description: "Began studying the emerging science of longevity. Discovered compounds like NMN, NAD+, and the work of researchers like David Sinclair.",
-    icon: Calendar,
-    modality: "Longevity Science"
-  },
-  {
-    year: "2020s",
-    age: "60s-70s",
-    title: "Creating EvidenceMed",
-    description: "After 50+ years of personal experimentation and research, decided to share this knowledge. Built this platform to help others navigate evidence-based natural health.",
-    icon: Sparkles,
-    modality: "Knowledge Sharing"
-  }
 ];
 
-const SOCIAL_HOOKS = [
+const FOCUS_AREAS = [
   {
-    platform: "YouTube",
-    type: "Video Intro Hook",
-    script: "I've been vegetarian for 52 years. I'm 71 years old. And I've tried every healing modality you can imagine. Here's what actually works according to the research...",
-    duration: "15 sec"
+    title: "Natural Compounds",
+    description: "Comprehensive database of herbs, vitamins, minerals, and bioactive compounds with research summaries and evidence ratings.",
+    icon: Sparkles,
   },
   {
-    platform: "TikTok",
-    type: "Pattern Interrupt",
-    script: "POV: You're 71 but your doctor keeps asking what your secret is. After 52 years of plant-based eating and testing every natural remedy, I finally built the resource I wish existed...",
-    duration: "10 sec"
+    title: "Health Conditions",
+    description: "200+ conditions covered with integrative therapy research, from autoimmune diseases to longevity and aging.",
+    icon: Heart,
   },
   {
-    platform: "Instagram",
-    type: "Carousel Hook",
-    script: "5 things I learned in 52 years of being vegetarian that doctors won't tell you... (Slide 1: The supplement industry is 90% marketing. Slide 2: Most 'superfoods' have zero clinical evidence...)",
-    duration: "Carousel"
+    title: "Integrative Therapies",
+    description: "Mind-body practices, traditional medicine systems, and complementary approaches evaluated through a scientific lens.",
+    icon: Users,
   },
-  {
-    platform: "Pinterest",
-    type: "Pin Description",
-    script: "Evidence-based natural health from someone who's lived it for 52 years. No gimmicks, no pseudoscience—just research-backed compounds and therapies that actually work. Created by a 71-year-old who's been his own experiment.",
-    duration: "Static"
-  },
-  {
-    platform: "YouTube Shorts",
-    type: "Credibility Hook",
-    script: "I've been vegetarian longer than most of you have been alive. 52 years. Here's the ONE compound that changed everything for me at 70...",
-    duration: "8 sec"
-  },
-  {
-    platform: "TikTok",
-    type: "Controversy Hook",
-    script: "The supplement industry hates this website. Because I actually show you which products have REAL research behind them. 52 years of being my own guinea pig led to this...",
-    duration: "12 sec"
-  }
 ];
 
 const About = () => {
   return (
     <>
       <Helmet>
-        <title>About - My 52-Year Integrative Medicine Journey | EvidenceMed</title>
-        <meta name="description" content="Discover the personal health journey behind IntegrativeEvidence.com. 52 years exploring integrative medicine, complementary therapies, and evidence-based natural healing." />
+        <title>About EvidenceMed | Evidence-Based Integrative Health Research</title>
+        <meta name="description" content="EvidenceMed is dedicated to bridging the gap between integrative medicine research and clinical practice. Evidence-based natural health information for practitioners and patients." />
       </Helmet>
       
       <div className="min-h-screen bg-background">
@@ -111,15 +62,14 @@ const About = () => {
           <section className="py-12 lg:py-20 bg-gradient-to-b from-primary/5 to-background">
             <div className="container mx-auto px-4">
               <div className="max-w-4xl mx-auto text-center">
-                <Badge variant="secondary" className="mb-4">My Story</Badge>
+                <Badge variant="secondary" className="mb-4">Our Mission</Badge>
                 <h1 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
-                  52 Years of Being My Own Experiment
+                  Evidence-Based Integrative Health for Everyone
                 </h1>
                 <p className="text-xl text-muted-foreground leading-relaxed">
-                  I'm 71 years old and have been vegetarian since I was 19. Over five decades, 
-                  I've explored every alternative medicine and alternative therapy modality imaginable—from ancient 
-                  complementary and alternative medicine practices to cutting-edge longevity research. EvidenceMed 
-                  is the evidence-based resource I wish existed when I started this journey.
+                  EvidenceMed exists to help people make informed health decisions. We curate 
+                  peer-reviewed research on natural compounds, integrative therapies, and holistic 
+                  approaches—cutting through marketing hype to show what the science actually says.
                 </p>
               </div>
             </div>
@@ -131,132 +81,139 @@ const About = () => {
               <div className="max-w-3xl mx-auto flex items-start gap-4">
                 <Quote className="w-10 h-10 text-primary/50 flex-shrink-0 mt-1" />
                 <blockquote className="text-lg italic text-muted-foreground">
-                  "After 52 years of trial and error, reading thousands of studies, and being my own 
-                  guinea pig, I realized the biggest problem isn't lack of information—it's too much 
-                  noise. EvidenceMed cuts through the marketing to show you what actually works."
+                  "The biggest problem in integrative medicine isn't lack of information—it's too much 
+                  noise. EvidenceMed cuts through the marketing to show you what research actually supports."
                 </blockquote>
               </div>
             </div>
           </section>
 
-          {/* Timeline Section */}
+          {/* Mission Pillars */}
           <section className="py-12 lg:py-16">
             <div className="container mx-auto px-4">
-              <div className="max-w-4xl mx-auto">
+              <div className="max-w-5xl mx-auto">
                 <h2 className="text-3xl font-bold text-foreground text-center mb-10">
-                  My Health Journey Timeline
+                  What Guides Us
                 </h2>
                 
-                <div className="relative">
-                  {/* Timeline line */}
-                  <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-border hidden md:block" />
-                  
-                  <div className="space-y-6">
-                    {TIMELINE_EVENTS.map((event, index) => (
-                      <div key={index} className="relative flex gap-6">
-                        {/* Timeline dot */}
-                        <div className="hidden md:flex flex-shrink-0 w-16 items-start justify-center">
-                          <div className="w-4 h-4 rounded-full bg-primary border-4 border-background shadow-md z-10" />
+                <div className="grid md:grid-cols-2 gap-6">
+                  {MISSION_PILLARS.map((pillar, index) => (
+                    <Card key={index} className="hover:shadow-md transition-shadow">
+                      <CardContent className="p-6">
+                        <div className="flex items-start gap-4">
+                          <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                            <pillar.icon className="w-6 h-6 text-primary" />
+                          </div>
+                          <div>
+                            <h3 className="font-semibold text-foreground mb-2">
+                              {pillar.title}
+                            </h3>
+                            <p className="text-sm text-muted-foreground">
+                              {pillar.description}
+                            </p>
+                          </div>
                         </div>
-                        
-                        <Card className="flex-1 hover:shadow-md transition-shadow">
-                          <CardContent className="p-5">
-                            <div className="flex flex-wrap items-center gap-2 mb-2">
-                              <Badge variant="outline" className="text-xs">
-                                {event.year}
-                              </Badge>
-                              <Badge variant="secondary" className="text-xs">
-                                Age {event.age}
-                              </Badge>
-                              <Badge className="text-xs bg-primary/10 text-primary border-0">
-                                {event.modality}
-                              </Badge>
-                            </div>
-                            <div className="flex items-start gap-3">
-                              <event.icon className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
-                              <div>
-                                <h3 className="font-semibold text-foreground mb-1">
-                                  {event.title}
-                                </h3>
-                                <p className="text-sm text-muted-foreground">
-                                  {event.description}
-                                </p>
-                              </div>
-                            </div>
-                          </CardContent>
-                        </Card>
-                      </div>
-                    ))}
-                  </div>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Focus Areas */}
+          <section className="py-12 bg-secondary/20">
+            <div className="container mx-auto px-4">
+              <div className="max-w-5xl mx-auto">
+                <div className="text-center mb-10">
+                  <h2 className="text-3xl font-bold text-foreground mb-4">
+                    Our Focus Areas
+                  </h2>
+                  <p className="text-muted-foreground max-w-2xl mx-auto">
+                    We cover the full spectrum of integrative health research to help practitioners 
+                    and patients find evidence-based options.
+                  </p>
+                </div>
+                
+                <div className="grid md:grid-cols-3 gap-6">
+                  {FOCUS_AREAS.map((area, index) => (
+                    <Card key={index} className="text-center hover:shadow-md transition-shadow">
+                      <CardContent className="p-6">
+                        <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                          <area.icon className="w-7 h-7 text-primary" />
+                        </div>
+                        <h3 className="font-semibold text-foreground mb-2">
+                          {area.title}
+                        </h3>
+                        <p className="text-sm text-muted-foreground">
+                          {area.description}
+                        </p>
+                      </CardContent>
+                    </Card>
+                  ))}
                 </div>
               </div>
             </div>
           </section>
 
           {/* Why This Matters Section */}
-          <section className="py-12 bg-secondary/20">
+          <section className="py-12 lg:py-16">
             <div className="container mx-auto px-4">
-              <div className="max-w-3xl mx-auto text-center">
-                <h2 className="text-3xl font-bold text-foreground mb-6">
-                  Why I Built EvidenceMed
+              <div className="max-w-3xl mx-auto">
+                <h2 className="text-3xl font-bold text-foreground text-center mb-8">
+                  Why EvidenceMed Exists
                 </h2>
-                <div className="space-y-4 text-muted-foreground text-left">
+                <div className="space-y-4 text-muted-foreground">
                   <p>
-                    After spending decades researching alternative medicine, experimenting with alternative therapy, 
-                    and learning from complementary and alternative medicine practitioners around the world, I noticed 
-                    something troubling: the gap between what research actually shows and what gets marketed to people is enormous.
+                    The gap between what research actually shows and what gets marketed to people 
+                    is enormous. Supplement companies make bold claims. Social media influencers 
+                    push unproven remedies. And people desperate for answers waste money on 
+                    products that don't work—or worse, could harm them.
                   </p>
                   <p>
-                    Supplement companies make bold claims about alternative cancer treatments. Social media influencers 
-                    push unproven remedies. And people desperate for answers waste money on products that don't work—
-                    or worse, could harm them.
+                    EvidenceMed was built to fix this problem. Every compound, therapy, and condition 
+                    on this site is backed by peer-reviewed research. We rate the evidence honestly, 
+                    including when it's weak or inconclusive.
                   </p>
                   <p>
-                    EvidenceMed is my attempt to fix this. Every alternative medicine compound, alternative therapy, 
-                    and condition on this site is backed by peer-reviewed research. I rate the evidence honestly, 
-                    including when it's weak or inconclusive. No affiliate deals influence our ratings.
+                    Whether you're a healthcare practitioner looking for integrative options for 
+                    your patients, a researcher exploring natural compounds, or an individual 
+                    seeking evidence-based alternatives—EvidenceMed is your trusted resource.
                   </p>
-                  <p className="font-medium text-foreground">
-                    This is the complementary and alternative medicine resource I wish existed when I started my health journey 52 years ago.
+                  <p className="font-medium text-foreground text-center pt-4">
+                    Our commitment: Research over marketing. Evidence over hype. Your health over profits.
                   </p>
                 </div>
               </div>
             </div>
           </section>
 
-          {/* Social Media Hooks Section */}
-          <section className="py-12 lg:py-16">
+          {/* Who We Serve */}
+          <section className="py-12 bg-primary/5">
             <div className="container mx-auto px-4">
-              <div className="max-w-5xl mx-auto">
-                <div className="text-center mb-10">
-                  <Badge variant="secondary" className="mb-4">Marketing Assets</Badge>
-                  <h2 className="text-3xl font-bold text-foreground mb-4">
-                    Social Media Hooks & Scripts
-                  </h2>
-                  <p className="text-muted-foreground">
-                    Ready-to-use scripts for promoting EvidenceMed across platforms
-                  </p>
-                </div>
-                
-                <div className="grid md:grid-cols-2 gap-4">
-                  {SOCIAL_HOOKS.map((hook, index) => (
-                    <Card key={index} className="hover:shadow-md transition-shadow">
-                      <CardContent className="p-5">
-                        <div className="flex items-center gap-2 mb-3">
-                          <Badge>{hook.platform}</Badge>
-                          <Badge variant="outline" className="text-xs">
-                            {hook.duration}
-                          </Badge>
-                        </div>
-                        <h3 className="font-semibold text-foreground text-sm mb-2">
-                          {hook.type}
-                        </h3>
-                        <p className="text-sm text-muted-foreground italic">
-                          "{hook.script}"
-                        </p>
-                      </CardContent>
-                    </Card>
-                  ))}
+              <div className="max-w-4xl mx-auto text-center">
+                <h2 className="text-3xl font-bold text-foreground mb-8">
+                  Who We Serve
+                </h2>
+                <div className="grid sm:grid-cols-3 gap-6">
+                  <div className="p-6 rounded-xl bg-card border border-border">
+                    <h3 className="font-semibold text-foreground mb-2">Healthcare Practitioners</h3>
+                    <p className="text-sm text-muted-foreground">
+                      Naturopaths, functional medicine doctors, integrative physicians, and allied health professionals.
+                    </p>
+                  </div>
+                  <div className="p-6 rounded-xl bg-card border border-border">
+                    <h3 className="font-semibold text-foreground mb-2">Researchers</h3>
+                    <p className="text-sm text-muted-foreground">
+                      Academic researchers, clinical investigators, and students studying integrative medicine.
+                    </p>
+                  </div>
+                  <div className="p-6 rounded-xl bg-card border border-border">
+                    <h3 className="font-semibold text-foreground mb-2">Health-Conscious Individuals</h3>
+                    <p className="text-sm text-muted-foreground">
+                      Anyone seeking evidence-based information about natural health options.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
