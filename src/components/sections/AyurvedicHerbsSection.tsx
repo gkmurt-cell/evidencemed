@@ -1,6 +1,6 @@
+import { useRef, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, Sparkles, ExternalLink } from "lucide-react";
-import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
+import { ArrowRight, ArrowLeft, Sparkles, ExternalLink } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
@@ -170,6 +170,39 @@ const ayurvedicHerbs = [
 ];
 
 const AyurvedicHerbsSection = () => {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
+
+  const checkScroll = () => {
+    if (scrollRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+      setCanScrollLeft(scrollLeft > 10);
+      setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10);
+    }
+  };
+
+  useEffect(() => {
+    const scrollElement = scrollRef.current;
+    if (scrollElement) {
+      scrollElement.addEventListener("scroll", checkScroll);
+      checkScroll();
+      return () => scrollElement.removeEventListener("scroll", checkScroll);
+    }
+  }, []);
+
+  const scrollLeft = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: -280, behavior: "smooth" });
+    }
+  };
+
+  const scrollRight = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: 280, behavior: "smooth" });
+    }
+  };
+
   return (
     <section className="py-12 bg-gradient-to-b from-muted/30 to-background">
       <div className="container mx-auto px-4">
@@ -203,13 +236,18 @@ const AyurvedicHerbsSection = () => {
         </p>
 
         {/* Scrollable Herb Cards */}
-        <ScrollArea className="w-full whitespace-nowrap rounded-xl">
-          <div className="flex w-max space-x-4 p-1 pb-4">
+        <div className="relative">
+          <div 
+            ref={scrollRef} 
+            className="flex w-max space-x-4 p-1 pb-4 overflow-x-auto scrollbar-thin scrollbar-thumb-border scrollbar-track-transparent"
+            style={{ scrollbarWidth: 'thin' }}
+          >
             {ayurvedicHerbs.map((herb) => (
               <Link
                 key={herb.id}
                 to={`/compound/${herb.id}`}
                 className="group"
+                onClick={(e) => e.stopPropagation()}
               >
                 <Card className="w-[260px] h-[180px] bg-card hover:bg-accent/50 border-border hover:border-primary/30 transition-all duration-300 hover:shadow-lg">
                   <CardContent className="p-5 h-full flex flex-col">
@@ -252,8 +290,35 @@ const AyurvedicHerbsSection = () => {
               </Link>
             ))}
           </div>
-          <ScrollBar orientation="horizontal" />
-        </ScrollArea>
+
+          {/* Left scroll button */}
+          {canScrollLeft && (
+            <button
+              type="button"
+              onClick={(e) => { e.preventDefault(); e.stopPropagation(); scrollLeft(); }}
+              className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-background via-background/80 to-transparent flex items-center justify-start pl-2 cursor-pointer hover:from-background/90 transition-all animate-fade-in z-10"
+              aria-label="Scroll left"
+            >
+              <div className="w-8 h-8 rounded-full bg-primary/10 hover:bg-primary/20 flex items-center justify-center transition-colors">
+                <ArrowLeft className="w-4 h-4 text-primary" />
+              </div>
+            </button>
+          )}
+
+          {/* Right scroll button */}
+          {canScrollRight && (
+            <button
+              type="button"
+              onClick={(e) => { e.preventDefault(); e.stopPropagation(); scrollRight(); }}
+              className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-background via-background/80 to-transparent flex items-center justify-end pr-2 cursor-pointer hover:from-background/90 transition-all z-10"
+              aria-label="Scroll right"
+            >
+              <div className="w-8 h-8 rounded-full bg-primary/10 hover:bg-primary/20 flex items-center justify-center transition-colors">
+                <ArrowRight className="w-4 h-4 text-primary" />
+              </div>
+            </button>
+          )}
+        </div>
 
         {/* Mobile View All Link */}
         <div className="sm:hidden mt-4 text-center">
