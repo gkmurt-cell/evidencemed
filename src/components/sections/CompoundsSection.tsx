@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Leaf, Info, Heart, BookOpen, Pill } from "lucide-react";
 import EducationalDisclaimer from "@/components/layout/EducationalDisclaimer";
 import { RelatedLinks } from "@/components/ui/explore-more-link";
-import VitaminsSection from "./VitaminsSection";
+
 import MineralsSection from "./MineralsSection";
 import AyurvedicHerbsSection from "./AyurvedicHerbsSection";
 
@@ -204,8 +204,6 @@ const CompoundsSection = () => {
           </div>
         </div>
 
-        {/* Vitamins Section */}
-        <VitaminsSection />
 
         {/* Minerals Section */}
         <MineralsSection />
