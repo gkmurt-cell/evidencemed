@@ -1,7 +1,6 @@
 import { useRef, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, ArrowLeft, Gem, ExternalLink } from "lucide-react";
-import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
@@ -152,13 +151,17 @@ const MineralsSection = () => {
 
         {/* Scrollable Mineral Cards */}
         <div className="relative">
-          <ScrollArea className="w-full whitespace-nowrap rounded-xl">
-            <div ref={scrollRef} className="flex w-max space-x-4 p-1 pb-4">
-              {minerals.map((mineral) => (
+          <div 
+            ref={scrollRef} 
+            className="flex w-max space-x-4 p-1 pb-4 overflow-x-auto scrollbar-thin scrollbar-thumb-border scrollbar-track-transparent"
+            style={{ scrollbarWidth: 'thin' }}
+          >
+            {minerals.map((mineral) => (
               <Link
                 key={mineral.id}
                 to={`/compound/${mineral.id}`}
                 className="group"
+                onClick={(e) => e.stopPropagation()}
               >
                 <Card className="w-[260px] h-[180px] bg-card hover:bg-accent/50 border-border hover:border-primary/30 transition-all duration-300 hover:shadow-lg">
                   <CardContent className="p-5 h-full flex flex-col">
@@ -198,14 +201,13 @@ const MineralsSection = () => {
               </Link>
             ))}
           </div>
-            <ScrollBar orientation="horizontal" />
-          </ScrollArea>
           
           {/* Left scroll button */}
           {canScrollLeft && (
             <button
-              onClick={scrollLeft}
-              className="absolute left-0 top-0 bottom-4 w-16 bg-gradient-to-r from-background via-background/80 to-transparent flex items-center justify-start pl-2 cursor-pointer hover:from-background/90 transition-all animate-fade-in"
+              type="button"
+              onClick={(e) => { e.preventDefault(); e.stopPropagation(); scrollLeft(); }}
+              className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-background via-background/80 to-transparent flex items-center justify-start pl-2 cursor-pointer hover:from-background/90 transition-all animate-fade-in z-10"
               aria-label="Scroll left"
             >
               <div className="w-8 h-8 rounded-full bg-primary/10 hover:bg-primary/20 flex items-center justify-center transition-colors">
@@ -217,8 +219,9 @@ const MineralsSection = () => {
           {/* Right scroll button */}
           {canScrollRight && (
             <button
-              onClick={scrollRight}
-              className="absolute right-0 top-0 bottom-4 w-16 bg-gradient-to-l from-background via-background/80 to-transparent flex items-center justify-end pr-2 cursor-pointer hover:from-background/90 transition-all"
+              type="button"
+              onClick={(e) => { e.preventDefault(); e.stopPropagation(); scrollRight(); }}
+              className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-background via-background/80 to-transparent flex items-center justify-end pr-2 cursor-pointer hover:from-background/90 transition-all z-10"
               aria-label="Scroll right"
             >
               <div className="w-8 h-8 rounded-full bg-primary/10 hover:bg-primary/20 flex items-center justify-center transition-colors">
