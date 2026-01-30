@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const HeroSection = () => {
   const features = [
     "Peer-reviewed research only",
-    "100+ health conditions covered",
+    "200+ health conditions covered",
     "Updated weekly from PubMed",
   ];
 
