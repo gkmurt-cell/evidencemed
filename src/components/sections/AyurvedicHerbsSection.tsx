@@ -186,8 +186,16 @@ const AyurvedicHerbsSection = () => {
     const scrollElement = scrollRef.current;
     if (scrollElement) {
       scrollElement.addEventListener("scroll", checkScroll);
-      checkScroll();
-      return () => scrollElement.removeEventListener("scroll", checkScroll);
+      const timeoutId = setTimeout(checkScroll, 100);
+      const resizeObserver = new ResizeObserver(() => {
+        checkScroll();
+      });
+      resizeObserver.observe(scrollElement);
+      return () => {
+        scrollElement.removeEventListener("scroll", checkScroll);
+        clearTimeout(timeoutId);
+        resizeObserver.disconnect();
+      };
     }
   }, []);
 
