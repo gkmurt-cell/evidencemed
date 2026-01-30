@@ -6,6 +6,7 @@ import HeroSection from "@/components/sections/HeroSection";
 import ConditionsSection from "@/components/sections/ConditionsSection";
 import ResearchSection from "@/components/sections/ResearchSection";
 import CompoundsSection from "@/components/sections/CompoundsSection";
+import VitaminsSection from "@/components/sections/VitaminsSection";
 import PricingSection from "@/components/sections/PricingSection";
 import SocialProofSection from "@/components/sections/SocialProofSection";
 import CommentsSection from "@/components/sections/CommentsSection";
@@ -80,6 +81,7 @@ const Index = () => {
               />
               
               <ConditionsSection />
+              <VitaminsSection />
               <CompoundsSection />
               
               {/* Inline Promo: Shop resources */}
