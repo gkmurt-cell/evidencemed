@@ -161,9 +161,10 @@ const MineralsSection = () => {
         <div className="relative">
           <div 
             ref={scrollRef} 
-            className="flex w-max space-x-4 p-1 pb-4 overflow-x-auto scrollbar-thin scrollbar-thumb-border scrollbar-track-transparent"
+            className="flex space-x-4 p-1 pb-4 overflow-x-auto scrollbar-thin scrollbar-thumb-border scrollbar-track-transparent"
             style={{ scrollbarWidth: 'thin' }}
           >
+            <div className="flex w-max space-x-4">
             {minerals.map((mineral) => (
               <Link
                 key={mineral.id}
@@ -208,6 +209,7 @@ const MineralsSection = () => {
                 </Card>
               </Link>
             ))}
+            </div>
           </div>
           
           {/* Left scroll button */}
