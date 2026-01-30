@@ -117,9 +117,10 @@ const MineralsSection = () => {
         </div>
 
         {/* Scrollable Mineral Cards */}
-        <ScrollArea className="w-full whitespace-nowrap rounded-xl">
-          <div className="flex w-max space-x-4 p-1 pb-4">
-            {minerals.map((mineral) => (
+        <div className="relative">
+          <ScrollArea className="w-full whitespace-nowrap rounded-xl">
+            <div className="flex w-max space-x-4 p-1 pb-4">
+              {minerals.map((mineral) => (
               <Link
                 key={mineral.id}
                 to={`/compound/${mineral.id}`}
@@ -163,8 +164,16 @@ const MineralsSection = () => {
               </Link>
             ))}
           </div>
-          <ScrollBar orientation="horizontal" />
-        </ScrollArea>
+            <ScrollBar orientation="horizontal" />
+          </ScrollArea>
+          
+          {/* Right scroll indicator */}
+          <div className="absolute right-0 top-0 bottom-4 w-16 bg-gradient-to-l from-background via-background/80 to-transparent pointer-events-none flex items-center justify-end pr-2">
+            <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center animate-pulse">
+              <ArrowRight className="w-4 h-4 text-primary" />
+            </div>
+          </div>
+        </div>
 
         {/* Mobile View All Link */}
         <div className="sm:hidden mt-4 text-center">
