@@ -137,7 +137,7 @@ const Navbar = () => {
           {/* Logo */}
           <Link 
             to="/" 
-            className="flex items-center gap-2"
+            className="flex items-center gap-2 group transition-transform duration-200 hover:scale-105"
             onClick={(e) => {
               if (window.location.pathname === '/') {
                 e.preventDefault();
@@ -145,10 +145,10 @@ const Navbar = () => {
               }
             }}
           >
-            <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
-              <Leaf className="w-5 h-5 text-primary-foreground" />
+            <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center transition-shadow duration-200 group-hover:shadow-md group-hover:shadow-primary/25">
+              <Leaf className="w-5 h-5 text-primary-foreground transition-transform duration-200 group-hover:rotate-12" />
             </div>
-            <span className="font-serif text-xl font-semibold text-foreground">
+            <span className="font-serif text-xl font-semibold text-foreground transition-colors duration-200 group-hover:text-primary">
               EvidenceMed
             </span>
           </Link>
