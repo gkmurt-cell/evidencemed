@@ -2890,6 +2890,174 @@ export const compoundsData: Compound[] = [
         doi: "10.1111/ijfs.12423"
       }
     ]
+  },
+  {
+    id: "neem",
+    name: "Neem",
+    latinName: "Azadirachta indica",
+    category: "Herbal Compound",
+    studies: 420,
+    image: "🌳",
+    description: "Neem, called 'Sarva Roga Nivarini' (healer of all ailments) in Sanskrit, is one of the most versatile medicinal plants in Ayurveda. Every part of the tree—leaves, bark, seeds, and oil—has documented therapeutic applications.",
+    traditionalUse: "Used for thousands of years in Ayurveda for skin conditions, blood purification, dental care, and as a natural pesticide. Central to traditional Indian healthcare and agriculture.",
+    keyBenefits: [
+      "Powerful antibacterial properties",
+      "Skin health support",
+      "Blood purification",
+      "Oral hygiene benefits",
+      "Anti-inflammatory effects"
+    ],
+    mechanisms: [
+      "Contains nimbin, nimbidin, and azadirachtin (bioactive compounds)",
+      "Exhibits broad-spectrum antimicrobial activity",
+      "Modulates inflammatory pathways",
+      "Supports liver detoxification enzymes"
+    ],
+    dosage: "Leaf extract: 250-500mg standardized extract. Neem oil: topical use only. These figures are for research context only and do not constitute dosing recommendations.",
+    safetyNotes: [
+      "Not recommended during pregnancy or breastfeeding",
+      "May affect male fertility with prolonged use",
+      "Neem oil should not be ingested",
+      "May lower blood sugar levels"
+    ],
+    interactions: [
+      "May enhance effects of diabetes medications",
+      "Potential interaction with immunosuppressants",
+      "May affect lithium levels",
+      "Caution with anti-diabetic drugs"
+    ],
+    sources: ["Leaf powder", "Leaf extract capsules", "Neem oil (topical)", "Neem bark"],
+    relatedCompounds: ["Tulsi", "Guduchi", "Manjistha", "Turmeric"],
+    references: [
+      {
+        pmid: "15777222",
+        title: "Biological Activities and Medicinal Properties of Neem (Azadirachta indica)",
+        authors: "Subapriya R, Nagini S",
+        journal: "Current Medicinal Chemistry - Anti-Cancer Agents",
+        year: 2005,
+        doi: "10.2174/1568011053174828"
+      },
+      {
+        pmid: "28430089",
+        title: "Therapeutic Role of Azadirachta indica (Neem) and Their Active Constituents in Diseases Prevention and Treatment",
+        authors: "Alzohairy MA",
+        journal: "Evidence-Based Complementary and Alternative Medicine",
+        year: 2016,
+        doi: "10.1155/2016/7382506"
+      }
+    ]
+  },
+  {
+    id: "tulsi",
+    name: "Tulsi (Holy Basil)",
+    latinName: "Ocimum tenuiflorum",
+    category: "Herbal Compound",
+    studies: 340,
+    image: "🪴",
+    description: "Tulsi, or Holy Basil, is revered as 'The Queen of Herbs' in Ayurveda and considered sacred in Hindu tradition. It is a premier adaptogen known for supporting stress resilience, respiratory health, and immune function.",
+    traditionalUse: "Worshipped and cultivated in Indian households for millennia. Used traditionally for respiratory conditions, stress, digestive issues, and as a general tonic. Often consumed as tea.",
+    keyBenefits: [
+      "Adaptogenic stress support",
+      "Respiratory health",
+      "Immune modulation",
+      "Antioxidant protection",
+      "Blood sugar regulation"
+    ],
+    mechanisms: [
+      "Contains eugenol, rosmarinic acid, and ursolic acid",
+      "Modulates cortisol and stress response pathways",
+      "Exhibits antimicrobial and anti-inflammatory properties",
+      "Supports healthy inflammatory response"
+    ],
+    dosage: "Dried leaf: 300-600mg extract, 1-2x daily. Fresh leaves or tea: 2-3 cups daily. These figures are for research context only and do not constitute dosing recommendations.",
+    safetyNotes: [
+      "Generally well-tolerated",
+      "May have anti-fertility effects (use caution if trying to conceive)",
+      "May slow blood clotting",
+      "Discontinue before surgery"
+    ],
+    interactions: [
+      "May enhance effects of blood thinners",
+      "Potential additive effect with anti-diabetic medications",
+      "May interact with thyroid medications",
+      "Caution with sedative medications"
+    ],
+    sources: ["Fresh leaves", "Dried leaf powder", "Tulsi tea", "Standardized extracts"],
+    relatedCompounds: ["Ashwagandha", "Brahmi", "Rhodiola", "Gotu Kola"],
+    references: [
+      {
+        pmid: "28969442",
+        title: "Tulsi - Ocimum sanctum: A Herb for All Reasons",
+        authors: "Cohen MM",
+        journal: "Journal of Ayurveda and Integrative Medicine",
+        year: 2014,
+        doi: "10.4103/0975-9476.146554"
+      },
+      {
+        pmid: "22394559",
+        title: "Randomized Controlled Trial of Standardized Bacopa monnieri Extract in Age-Associated Memory Impairment",
+        authors: "Jamshidi N, Cohen MM",
+        journal: "Evidence-Based Complementary and Alternative Medicine",
+        year: 2017,
+        doi: "10.1155/2017/9217567"
+      }
+    ]
+  },
+  {
+    id: "gotu-kola",
+    name: "Gotu Kola",
+    latinName: "Centella asiatica",
+    category: "Herbal Compound",
+    studies: 260,
+    image: "🍀",
+    description: "Gotu Kola is a renowned longevity herb used across Asian medical traditions including Ayurveda, Traditional Chinese Medicine, and Indonesian Jamu. It is particularly valued for cognitive enhancement and skin/wound healing.",
+    traditionalUse: "Called 'Brahmi' in some regions (distinct from Bacopa), used for thousands of years to enhance memory, promote wound healing, and support longevity. Elephants in Sri Lanka are said to eat it for their remarkable memory.",
+    keyBenefits: [
+      "Cognitive enhancement",
+      "Wound and skin healing",
+      "Anxiety reduction",
+      "Venous insufficiency support",
+      "Collagen synthesis"
+    ],
+    mechanisms: [
+      "Contains triterpenoids (asiaticoside, madecassoside)",
+      "Stimulates collagen synthesis and fibroblast activity",
+      "Modulates GABA pathways for anxiolytic effects",
+      "Enhances brain-derived neurotrophic factor (BDNF)"
+    ],
+    dosage: "Standardized extract: 60-180mg triterpenoids daily. Whole herb: 1-2g daily. These figures are for research context only and do not constitute dosing recommendations.",
+    safetyNotes: [
+      "Generally well-tolerated short-term",
+      "Rare cases of liver toxicity with prolonged high-dose use",
+      "May cause drowsiness in some individuals",
+      "Avoid during pregnancy"
+    ],
+    interactions: [
+      "May enhance effects of sedatives and anti-anxiety medications",
+      "Potential interaction with hepatotoxic drugs",
+      "May affect cholesterol medications",
+      "Caution with diabetes medications"
+    ],
+    sources: ["Standardized extract", "Dried herb powder", "Fresh juice", "Topical creams"],
+    relatedCompounds: ["Brahmi (Bacopa)", "Lion's Mane", "Ginkgo Biloba", "Ashwagandha"],
+    references: [
+      {
+        pmid: "19367510",
+        title: "Centella asiatica (Gotu Kola) as a Neuroprotectant and Its Potential for Alzheimer's Disease",
+        authors: "Shinomol GK, Muralidhara, Bharath MM",
+        journal: "CNS & Neurological Disorders Drug Targets",
+        year: 2011,
+        doi: "10.2174/187152711794653832"
+      },
+      {
+        pmid: "20677602",
+        title: "Neuropharmacological Review of the Nootropic Herb Centella asiatica",
+        authors: "Puttarak P, Dilokthornsakul P, Saokaew S",
+        journal: "Journal of Ethnopharmacology",
+        year: 2017,
+        doi: "10.1016/j.jep.2016.09.048"
+      }
+    ]
   }
 ];
 
