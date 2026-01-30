@@ -52,7 +52,7 @@ const features = [
   {
     category: "Research Access",
     items: [
-      { name: "Condition summaries", starter: "10", professional: "100+", institution: "100+" },
+      { name: "Condition summaries", starter: "10", professional: "200+", institution: "200+" },
       { name: "Research article previews", starter: "50", professional: "Unlimited", institution: "Unlimited" },
       { name: "Full research library access", starter: false, professional: true, institution: true },
       { name: "Natural compounds database", starter: false, professional: true, institution: true },
@@ -392,7 +392,7 @@ const Pricing = () => {
 
             <div className="max-w-4xl mx-auto mb-12">
               <p className="text-center text-muted-foreground leading-relaxed">
-                EvidenceMed offers research-backed educational access to over <span className="font-semibold text-foreground">100 health conditions</span>, <span className="font-semibold text-foreground">4,000+ peer-reviewed studies</span>, and natural compound profiles. Institutional packages are customized based on the number of users, ensuring that your team receives appropriate access, support, and tools for research and evidence-based decision-making.
+                EvidenceMed offers research-backed educational access to over <span className="font-semibold text-foreground">200 health conditions</span>, <span className="font-semibold text-foreground">4,000+ peer-reviewed studies</span>, and natural compound profiles. Institutional packages are customized based on the number of users, ensuring that your team receives appropriate access, support, and tools for research and evidence-based decision-making.
               </p>
             </div>
 

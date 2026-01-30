@@ -48,7 +48,7 @@ const CTASection = () => {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
             {[
               { value: "10,000+", label: "Research Studies" },
-              { value: "100+", label: "Health Conditions" },
+              { value: "200+", label: "Health Conditions" },
               { value: "500+", label: "Natural Compounds" },
               { value: "Weekly", label: "Content Updates" },
             ].map((stat) => (

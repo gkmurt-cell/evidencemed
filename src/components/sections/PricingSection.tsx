@@ -24,7 +24,7 @@ const plans = [
     yearlyPrice: "$190/year",
     description: "Full access for practitioners & researchers",
     features: [
-      "All 100+ conditions",
+      "All 200+ conditions",
       "Complete research library",
       "Advanced search & filters",
       "Natural compounds database",
