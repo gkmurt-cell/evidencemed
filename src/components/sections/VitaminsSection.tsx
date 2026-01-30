@@ -205,8 +205,18 @@ const VitaminsSection = () => {
     const scrollElement = scrollRef.current;
     if (scrollElement) {
       scrollElement.addEventListener("scroll", checkScroll);
-      checkScroll();
-      return () => scrollElement.removeEventListener("scroll", checkScroll);
+      // Check after a brief delay to ensure content has rendered
+      const timeoutId = setTimeout(checkScroll, 100);
+      // Also use ResizeObserver to detect when content size changes
+      const resizeObserver = new ResizeObserver(() => {
+        checkScroll();
+      });
+      resizeObserver.observe(scrollElement);
+      return () => {
+        scrollElement.removeEventListener("scroll", checkScroll);
+        clearTimeout(timeoutId);
+        resizeObserver.disconnect();
+      };
     }
   }, []);
 
