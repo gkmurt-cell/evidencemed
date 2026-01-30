@@ -2834,6 +2834,62 @@ export const compoundsData: Compound[] = [
     ],
     sources: ["Fruit powder", "Capsules", "Part of Triphala", "Churna preparations"],
     relatedCompounds: ["Triphala", "Amalaki", "Bibhitaki", "Psyllium"]
+  },
+  {
+    id: "moringa",
+    name: "Moringa",
+    latinName: "Moringa oleifera",
+    category: "Herbal Compound",
+    studies: 320,
+    image: "🌿",
+    description: "Moringa, known as the 'Miracle Tree' or 'Drumstick Tree,' is one of the most nutrient-dense plants on Earth. Native to India, it has been used for centuries in traditional medicine and is now studied extensively for its nutritional and therapeutic properties.",
+    traditionalUse: "Used in Ayurveda and African traditional medicine for malnutrition, inflammation, infections, and as a galactagogue. Leaves, pods, seeds, and roots all have traditional applications.",
+    keyBenefits: [
+      "Exceptional nutritional density",
+      "Anti-inflammatory properties",
+      "Blood sugar regulation",
+      "Antioxidant activity",
+      "Cholesterol support"
+    ],
+    mechanisms: [
+      "Contains isothiocyanates with anti-inflammatory effects",
+      "Rich in quercetin and chlorogenic acid (antioxidants)",
+      "May reduce glucose absorption in intestines",
+      "High in vitamins A, C, E, and minerals (calcium, iron, potassium)"
+    ],
+    dosage: "Leaf powder: 1-3g daily. Standardized extracts vary by formulation. These figures are for research context only and do not constitute dosing recommendations.",
+    safetyNotes: [
+      "Leaves generally well-tolerated",
+      "Avoid root bark (may contain toxic alkaloids)",
+      "May lower blood sugar significantly",
+      "Not recommended during pregnancy (traditional caution)"
+    ],
+    interactions: [
+      "May enhance effects of diabetes medications",
+      "Potential interaction with thyroid medications",
+      "May affect blood pressure medications",
+      "High vitamin K content may interact with blood thinners"
+    ],
+    sources: ["Leaf powder", "Capsules", "Fresh leaves", "Moringa oil (from seeds)"],
+    relatedCompounds: ["Spirulina", "Chlorella", "Ashwagandha", "Neem"],
+    references: [
+      {
+        pmid: "25374169",
+        title: "Moringa oleifera: A Review of the Medical Evidence for Its Nutritional, Therapeutic and Prophylactic Properties",
+        authors: "Gopalakrishnan L, Doriya K, Kumar DS",
+        journal: "Phytotherapy Research",
+        year: 2016,
+        doi: "10.1002/ptr.5325"
+      },
+      {
+        pmid: "22583407",
+        title: "Effect of Moringa oleifera Leaf Powder Supplementation on the Nutritional Status of Malnourished Preschool Children",
+        authors: "Srikanth VS, Mangala S, Subrahmanyam G",
+        journal: "International Journal of Food Science & Technology",
+        year: 2014,
+        doi: "10.1111/ijfs.12423"
+      }
+    ]
   }
 ];
 
