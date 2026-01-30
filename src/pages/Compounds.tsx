@@ -19,10 +19,7 @@ import { compoundsData, type Compound } from "@/data/compoundData";
 
 const categories = [
   "All Categories",
-  "Vitamins",
   "Ayurvedic Compound",
-  "Fat-Soluble Vitamin",
-  "Water-Soluble Vitamin",
   "Functional Mushroom",
   "Herbal Compound",
   "Alkaloid",
@@ -43,10 +40,11 @@ const categories = [
   "Blue-Green Algae",
 ];
 
+// Categories to exclude from default "All Categories" view
+const vitaminCategories = ["Fat-Soluble Vitamin", "Water-Soluble Vitamin"];
+
 // Helper to get page title based on filter
 const getPageTitle = (category: string) => {
-  if (category === "Vitamins") return "Essential Vitamins";
-  if (category === "Fat-Soluble Vitamin" || category === "Water-Soluble Vitamin") return "Vitamins";
   if (category === "Essential Mineral") return "Essential Minerals";
   return null;
 };
@@ -71,6 +69,15 @@ const Compounds = () => {
   const filteredCompounds = useMemo(() => {
     let results = compoundsData;
 
+    // Exclude vitamins from default "All Categories" view
+    if (categoryFilter === "All Categories") {
+      results = results.filter(
+        (compound) => !vitaminCategories.includes(compound.category)
+      );
+    } else {
+      results = results.filter((compound) => compound.category === categoryFilter);
+    }
+
     // Search filter
     if (searchQuery.trim()) {
       const query = searchQuery.toLowerCase();
@@ -81,17 +88,6 @@ const Compounds = () => {
           compound.description.toLowerCase().includes(query) ||
           compound.keyBenefits.some((b) => b.toLowerCase().includes(query))
       );
-    }
-
-    // Category filter - special handling for "Vitamins" to include both types
-    if (categoryFilter === "Vitamins") {
-      results = results.filter(
-        (compound) => 
-          compound.category === "Fat-Soluble Vitamin" || 
-          compound.category === "Water-Soluble Vitamin"
-      );
-    } else if (categoryFilter !== "All Categories") {
-      results = results.filter((compound) => compound.category === categoryFilter);
     }
 
     return results;
