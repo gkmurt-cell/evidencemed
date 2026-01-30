@@ -1,9 +1,9 @@
+import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, Pill, ExternalLink } from "lucide-react";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-
 const vitamins = [
   {
     id: "vitamin-a",
@@ -189,6 +189,14 @@ const vitamins = [
 ];
 
 const VitaminsSection = () => {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const scrollRight = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: 300, behavior: "smooth" });
+    }
+  };
+
   return (
     <section className="py-12 bg-gradient-to-b from-muted/30 to-background">
       <div className="container mx-auto px-4">
@@ -219,7 +227,7 @@ const VitaminsSection = () => {
         {/* Scrollable Vitamin Cards */}
         <div className="relative">
           <ScrollArea className="w-full whitespace-nowrap rounded-xl">
-            <div className="flex w-max space-x-4 p-1 pb-4">
+            <div ref={scrollRef} className="flex w-max space-x-4 p-1 pb-4">
               {vitamins.map((vitamin) => (
               <Link
                 key={vitamin.id}
@@ -276,12 +284,16 @@ const VitaminsSection = () => {
             <ScrollBar orientation="horizontal" />
           </ScrollArea>
           
-          {/* Right scroll indicator */}
-          <div className="absolute right-0 top-0 bottom-4 w-16 bg-gradient-to-l from-background via-background/80 to-transparent pointer-events-none flex items-center justify-end pr-2">
-            <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center animate-pulse">
+          {/* Right scroll button */}
+          <button
+            onClick={scrollRight}
+            className="absolute right-0 top-0 bottom-4 w-16 bg-gradient-to-l from-background via-background/80 to-transparent flex items-center justify-end pr-2 cursor-pointer hover:from-background/90 transition-colors"
+            aria-label="Scroll right"
+          >
+            <div className="w-8 h-8 rounded-full bg-primary/10 hover:bg-primary/20 flex items-center justify-center transition-colors">
               <ArrowRight className="w-4 h-4 text-primary" />
             </div>
-          </div>
+          </button>
         </div>
 
         {/* Mobile View All Link */}
