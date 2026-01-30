@@ -1,9 +1,10 @@
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, Gem, ExternalLink } from "lucide-react";
+import { ArrowRight, ArrowLeft, Gem, ExternalLink } from "lucide-react";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+
 const minerals = [
   {
     id: "magnesium",
@@ -90,6 +91,31 @@ const minerals = [
 
 const MineralsSection = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
+
+  const checkScroll = () => {
+    if (scrollRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+      setCanScrollLeft(scrollLeft > 10);
+      setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10);
+    }
+  };
+
+  useEffect(() => {
+    const scrollElement = scrollRef.current;
+    if (scrollElement) {
+      scrollElement.addEventListener("scroll", checkScroll);
+      checkScroll();
+      return () => scrollElement.removeEventListener("scroll", checkScroll);
+    }
+  }, []);
+
+  const scrollLeft = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: -280, behavior: "smooth" });
+    }
+  };
 
   const scrollRight = () => {
     if (scrollRef.current) {
@@ -175,16 +201,31 @@ const MineralsSection = () => {
             <ScrollBar orientation="horizontal" />
           </ScrollArea>
           
+          {/* Left scroll button */}
+          {canScrollLeft && (
+            <button
+              onClick={scrollLeft}
+              className="absolute left-0 top-0 bottom-4 w-16 bg-gradient-to-r from-background via-background/80 to-transparent flex items-center justify-start pl-2 cursor-pointer hover:from-background/90 transition-all animate-fade-in"
+              aria-label="Scroll left"
+            >
+              <div className="w-8 h-8 rounded-full bg-primary/10 hover:bg-primary/20 flex items-center justify-center transition-colors">
+                <ArrowLeft className="w-4 h-4 text-primary" />
+              </div>
+            </button>
+          )}
+
           {/* Right scroll button */}
-          <button
-            onClick={scrollRight}
-            className="absolute right-0 top-0 bottom-4 w-16 bg-gradient-to-l from-background via-background/80 to-transparent flex items-center justify-end pr-2 cursor-pointer hover:from-background/90 transition-colors"
-            aria-label="Scroll right"
-          >
-            <div className="w-8 h-8 rounded-full bg-primary/10 hover:bg-primary/20 flex items-center justify-center transition-colors">
-              <ArrowRight className="w-4 h-4 text-primary" />
-            </div>
-          </button>
+          {canScrollRight && (
+            <button
+              onClick={scrollRight}
+              className="absolute right-0 top-0 bottom-4 w-16 bg-gradient-to-l from-background via-background/80 to-transparent flex items-center justify-end pr-2 cursor-pointer hover:from-background/90 transition-all"
+              aria-label="Scroll right"
+            >
+              <div className="w-8 h-8 rounded-full bg-primary/10 hover:bg-primary/20 flex items-center justify-center transition-colors">
+                <ArrowRight className="w-4 h-4 text-primary" />
+              </div>
+            </button>
+          )}
         </div>
 
         {/* Mobile View All Link */}
