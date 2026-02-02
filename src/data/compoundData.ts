@@ -2608,44 +2608,6 @@ export const compoundsData: Compound[] = [
     relatedCompounds: ["Neem", "Tulsi", "Amalaki", "Turmeric"]
   },
   {
-    id: "tulsi",
-    name: "Tulsi (Holy Basil)",
-    latinName: "Ocimum sanctum / tenuiflorum",
-    category: "Ayurvedic Compound",
-    studies: 340,
-    image: "🪴",
-    description: "Tulsi, or Holy Basil, is considered sacred in India and is one of the most important herbs in Ayurveda. Known as 'The Queen of Herbs,' it's an adaptogen supporting stress resilience and respiratory health.",
-    traditionalUse: "Traditional therapies used by Ayurvedic practitioners. Grown in almost every Hindu household for spiritual and medicinal use. Three main types: Rama, Krishna, and Vana tulsi. For educational purposes only—not medical recommendations.",
-    keyBenefits: [
-      "Stress and anxiety reduction",
-      "Respiratory health",
-      "Blood sugar regulation",
-      "Antioxidant protection",
-      "Immune support"
-    ],
-    mechanisms: [
-      "Contains eugenol, rosmarinic acid, and ursolic acid",
-      "Modulates cortisol and stress hormones",
-      "Anti-inflammatory and antimicrobial",
-      "Supports healthy inflammatory response"
-    ],
-    dosage: "Tea: 2-3 cups daily. Extract: 300-600mg daily. Fresh leaves also consumed. These figures are for research context only.",
-    safetyNotes: [
-      "Generally very safe",
-      "May have mild blood-thinning effects",
-      "May affect fertility (traditional belief)",
-      "Avoid excessive use during pregnancy"
-    ],
-    interactions: [
-      "May enhance effects of blood thinners",
-      "May affect blood sugar medications",
-      "Potential interaction with sedatives",
-      "May affect thyroid medications"
-    ],
-    sources: ["Fresh leaves", "Dried tea", "Capsules", "Liquid extract"],
-    relatedCompounds: ["Ashwagandha", "Brahmi", "Guduchi", "Moringa"]
-  },
-  {
     id: "amalaki",
     name: "Amalaki (Amla)",
     latinName: "Phyllanthus emblica",
@@ -2684,44 +2646,6 @@ export const compoundsData: Compound[] = [
     relatedCompounds: ["Triphala", "Vitamin C", "Haritaki", "Bibhitaki"]
   },
   {
-    id: "neem",
-    name: "Neem",
-    latinName: "Azadirachta indica",
-    category: "Ayurvedic Compound",
-    studies: 420,
-    image: "🌳",
-    description: "Neem is called 'Sarva Roga Nivarini' (healer of all ailments) in Ayurveda. Every part of this tree has medicinal uses. Particularly valued for skin conditions, blood purification, and antimicrobial properties.",
-    traditionalUse: "Traditional therapies used by Ayurvedic practitioners. Used for 4,000+ years for skin diseases, fevers, and as a 'blood purifier.' Leaves, bark, seeds, and oil all used medicinally. For educational purposes only—not medical recommendations.",
-    keyBenefits: [
-      "Skin health and conditions",
-      "Blood purification",
-      "Antimicrobial activity",
-      "Dental and oral health",
-      "Blood sugar support"
-    ],
-    mechanisms: [
-      "Contains nimbin, nimbidin, and azadirachtin",
-      "Potent antibacterial and antifungal",
-      "Bitter compounds support liver function",
-      "Anti-inflammatory properties"
-    ],
-    dosage: "Leaf powder: 1-2g daily. Oil used topically. Capsules: 300-500mg 2x daily. These figures are for research context only.",
-    safetyNotes: [
-      "Very bitter - may cause nausea",
-      "Avoid during pregnancy (may be abortifacient)",
-      "Not for infants or children",
-      "May lower blood sugar significantly"
-    ],
-    interactions: [
-      "May enhance diabetes medications",
-      "Potential interaction with immunosuppressants",
-      "May affect lithium levels",
-      "Avoid with fertility treatments"
-    ],
-    sources: ["Leaf powder", "Capsules", "Neem oil (topical)", "Bark extract"],
-    relatedCompounds: ["Guduchi", "Turmeric", "Manjistha", "Kutki"]
-  },
-  {
     id: "manjistha",
     name: "Manjistha",
     latinName: "Rubia cordifolia",
@@ -2758,44 +2682,6 @@ export const compoundsData: Compound[] = [
     ],
     sources: ["Root powder", "Capsules", "Liquid extract", "Skin formulations"],
     relatedCompounds: ["Neem", "Turmeric", "Guduchi", "Shatavari"]
-  },
-  {
-    id: "gotu-kola",
-    name: "Gotu Kola",
-    latinName: "Centella asiatica",
-    category: "Ayurvedic Compound",
-    studies: 260,
-    image: "🍀",
-    description: "Gotu Kola is revered in both Ayurveda and Traditional Chinese Medicine as a brain tonic and longevity herb. Known as 'Brahmi' in some traditions (different from Bacopa), it supports cognition, circulation, and wound healing.",
-    traditionalUse: "Traditional therapies used by Ayurvedic practitioners. Called 'herb of longevity' - elephants, known for long memory, eat it. Used for meditation and mental clarity. For educational purposes only—not medical recommendations.",
-    keyBenefits: [
-      "Cognitive enhancement",
-      "Wound healing",
-      "Venous health and circulation",
-      "Anxiety reduction",
-      "Skin health and collagen"
-    ],
-    mechanisms: [
-      "Contains triterpenes (asiaticoside, madecassoside)",
-      "Enhances collagen synthesis",
-      "Improves microcirculation",
-      "GABAergic activity for calming"
-    ],
-    dosage: "Extract: 300-600mg daily (standardized to triterpenes). Fresh leaves also consumed. These figures are for research context only.",
-    safetyNotes: [
-      "Generally well-tolerated",
-      "May cause headache initially",
-      "Avoid during pregnancy",
-      "Rare reports of liver issues with long-term high doses"
-    ],
-    interactions: [
-      "May enhance effects of sedatives",
-      "Potential interaction with cholesterol medications",
-      "May affect liver enzyme activity",
-      "Use caution with hepatotoxic drugs"
-    ],
-    sources: ["Fresh leaves", "Standardized extract", "Powder", "Tea"],
-    relatedCompounds: ["Brahmi", "Lion's Mane", "Ashwagandha", "Ginkgo"]
   },
   {
     id: "haritaki",
