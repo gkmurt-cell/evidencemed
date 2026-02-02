@@ -23,6 +23,7 @@ import { cn } from "@/lib/utils";
 import { getCompoundById, getRelatedCompounds, compoundsData, type Compound } from "@/data/compoundData";
 import { allStudies, getEvidenceBadge, type Study } from "@/data/researchData";
 import ReferencesSection from "@/components/compound/ReferencesSection";
+import StudyTypeLinks from "@/components/compound/StudyTypeLinks";
 
 const CompoundPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -160,9 +161,17 @@ const CompoundPage = () => {
                     {relatedStudies.length}
                   </span>
                 </div>
-                <div className="flex justify-between items-center">
+                <div className="flex justify-between items-center pb-4 border-b border-border">
                   <span className="text-muted-foreground">Category</span>
                   <Badge variant="outline">{compound.category}</Badge>
+                </div>
+                
+                {/* Study Type Links */}
+                <div className="pt-2">
+                  <StudyTypeLinks 
+                    compoundName={compound.name} 
+                    latinName={compound.latinName} 
+                  />
                 </div>
               </div>
               <Button className="w-full mt-6" asChild>
