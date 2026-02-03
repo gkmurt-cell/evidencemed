@@ -3019,6 +3019,81 @@ export const compoundsData: Compound[] = [
         doi: "10.1016/j.biopsych.2008.11.024"
       }
     ]
+  },
+  {
+    id: "triphala",
+    name: "Triphala Churna",
+    latinName: "Triphala (Three Fruits)",
+    category: "Ayurvedic Compound",
+    studies: 420,
+    image: "🌿",
+    description: "Triphala is a cornerstone Ayurvedic formulation combining three fruits: Amalaki (Emblica officinalis), Bibhitaki (Terminalia bellirica), and Haritaki (Terminalia chebula). This synergistic blend has been used for over 2,000 years as a gentle yet effective digestive and rejuvenative tonic.",
+    traditionalUse: "Traditional therapies used by Ayurvedic practitioners. In Ayurveda, Triphala is considered a 'Rasayana' (rejuvenative) that balances all three doshas (Vata, Pitta, Kapha). It's traditionally used for digestive health, detoxification, and as a gentle daily cleanser. For educational purposes only—not medical recommendations.",
+    keyBenefits: [
+      "Digestive health and regularity",
+      "Gentle detoxification support",
+      "Antioxidant protection",
+      "Immune system modulation",
+      "Eye health support (traditional use)"
+    ],
+    mechanisms: [
+      "Rich in tannins, gallic acid, and ellagic acid with antioxidant effects",
+      "Contains chebulinic acid and chebulagic acid from Haritaki",
+      "Provides high vitamin C content from Amalaki",
+      "Promotes healthy gut microbiome composition",
+      "Exhibits anti-inflammatory and antimicrobial properties"
+    ],
+    dosage: "Traditional use: 3-6g powder daily with warm water, typically before bed. Standardized extracts: 500-1000mg daily. These figures are for research context only and do not constitute dosing recommendations.",
+    safetyNotes: [
+      "Generally well-tolerated as a food-grade preparation",
+      "May cause loose stools initially as body adjusts",
+      "Avoid during pregnancy and breastfeeding",
+      "Use caution with diarrhea or inflammatory bowel conditions",
+      "Start with lower doses and increase gradually"
+    ],
+    interactions: [
+      "May enhance absorption of other herbs and medications",
+      "Potential interaction with diabetes medications (monitor blood sugar)",
+      "May affect anticoagulant medications",
+      "Space apart from pharmaceutical medications by 2 hours",
+      "Consult practitioner if on immunosuppressive therapy"
+    ],
+    sources: ["Churna (powder)", "Tablets", "Capsules", "Liquid extract", "Ghee preparation"],
+    relatedCompounds: ["Amalaki", "Ashwagandha", "Tulsi", "Neem", "Guduchi"],
+    references: [
+      {
+        pmid: "28696777",
+        title: "Therapeutic Uses of Triphala in Ayurvedic Medicine",
+        authors: "Peterson CT, Denniston K, Chopra D",
+        journal: "Journal of Alternative and Complementary Medicine",
+        year: 2017,
+        doi: "10.1089/acm.2017.0083"
+      },
+      {
+        pmid: "22529661",
+        title: "Triphala: A comprehensive Ayurvedic review",
+        authors: "Baliga MS, Meera S, Mathai B, et al.",
+        journal: "Chinese Journal of Integrative Medicine",
+        year: 2012,
+        doi: "10.1007/s11655-012-1111-5"
+      },
+      {
+        pmid: "27647024",
+        title: "Antioxidant and anti-inflammatory properties of Triphala",
+        authors: "Tarasiuk A, Mosinska P, Fichna J",
+        journal: "Evidence-Based Complementary and Alternative Medicine",
+        year: 2018,
+        doi: "10.1155/2018/5765801"
+      },
+      {
+        pmid: "30596422",
+        title: "Triphala modulates gut microbiome composition in a mouse model of obesity",
+        authors: "Peterson CT, Sharma V, Uchitel S, et al.",
+        journal: "Journal of Medicinal Food",
+        year: 2019,
+        doi: "10.1089/jmf.2018.0151"
+      }
+    ]
   }
 ];
 
