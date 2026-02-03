@@ -9,11 +9,36 @@ import { cn } from "@/lib/utils";
 
 type StudyType = "all" | "rct" | "observational" | "meta-analysis" | "in-vitro";
 
+// PubMed search URLs for each study type - filtered for natural compounds/integrative medicine
 const researchTypes = [
-  { id: "in-vitro" as StudyType, name: "In Vitro Studies", icon: TestTube, count: "4,200+" },
-  { id: "observational" as StudyType, name: "Animal Models", icon: FlaskConical, count: "3,800+" },
-  { id: "observational" as StudyType, name: "Observational Studies", icon: Users, count: "2,100+" },
-  { id: "rct" as StudyType, name: "Controlled Trials", icon: FileText, count: "890+" },
+  { 
+    id: "in-vitro" as StudyType, 
+    name: "In Vitro Studies", 
+    icon: TestTube, 
+    count: "4,200+",
+    pubmedUrl: "https://pubmed.ncbi.nlm.nih.gov/?term=(herbal+medicine+OR+natural+compounds+OR+nutraceuticals+OR+phytotherapy)+AND+(in+vitro+OR+cell+culture+OR+cell+line)"
+  },
+  { 
+    id: "observational" as StudyType, 
+    name: "Animal Models", 
+    icon: FlaskConical, 
+    count: "3,800+",
+    pubmedUrl: "https://pubmed.ncbi.nlm.nih.gov/?term=(herbal+medicine+OR+natural+compounds+OR+nutraceuticals+OR+phytotherapy)+AND+(animal+model+OR+mice+OR+rats+OR+in+vivo)"
+  },
+  { 
+    id: "observational" as StudyType, 
+    name: "Observational Studies", 
+    icon: Users, 
+    count: "2,100+",
+    pubmedUrl: "https://pubmed.ncbi.nlm.nih.gov/?term=(herbal+medicine+OR+natural+compounds+OR+nutraceuticals+OR+integrative+medicine)+AND+(observational+study+OR+cohort+OR+cross-sectional)"
+  },
+  { 
+    id: "rct" as StudyType, 
+    name: "Controlled Trials", 
+    icon: FileText, 
+    count: "890+",
+    pubmedUrl: "https://pubmed.ncbi.nlm.nih.gov/?term=(herbal+medicine+OR+natural+compounds+OR+nutraceuticals+OR+integrative+medicine)+AND+Clinical+Trial%5Bpt%5D"
+  },
 ];
 
 const studyTypeFilters: { id: StudyType; label: string }[] = [
@@ -152,19 +177,26 @@ const ResearchSection = () => {
           <EducationalDisclaimer />
         </div>
 
-        {/* Research Type Stats */}
+        {/* Research Type Stats - Now Clickable */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
           {researchTypes.map((type) => (
-            <div
+            <a
               key={type.name}
-              className="p-6 rounded-xl bg-card border border-border text-center"
+              href={type.pubmedUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-6 rounded-xl bg-card border border-border text-center hover:border-primary/50 hover:shadow-lg transition-all duration-300 group cursor-pointer"
             >
-              <type.icon className="w-8 h-8 text-primary mx-auto mb-3" />
-              <p className="font-serif text-2xl font-semibold text-foreground mb-1">
+              <type.icon className="w-8 h-8 text-primary mx-auto mb-3 group-hover:scale-110 transition-transform" />
+              <p className="font-serif text-2xl font-semibold text-foreground mb-1 group-hover:text-primary transition-colors">
                 {type.count}
               </p>
               <p className="text-sm text-muted-foreground">{type.name}</p>
-            </div>
+              <p className="text-xs text-primary mt-2 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-1">
+                View on PubMed
+                <ExternalLink className="w-3 h-3" />
+              </p>
+            </a>
           ))}
         </div>
 
