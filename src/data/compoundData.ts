@@ -3094,6 +3094,81 @@ export const compoundsData: Compound[] = [
         doi: "10.1089/jmf.2018.0151"
       }
     ]
+  },
+  {
+    id: "amalaki",
+    name: "Amalaki (Indian Gooseberry)",
+    latinName: "Phyllanthus emblica",
+    category: "Ayurvedic Compound",
+    studies: 520,
+    image: "🫒",
+    description: "Amalaki, also known as Amla or Indian Gooseberry, is one of the most revered herbs in Ayurveda. It contains one of the highest concentrations of vitamin C found in nature and is rich in polyphenols, making it a powerful antioxidant and rejuvenative.",
+    traditionalUse: "Traditional therapies used by Ayurvedic practitioners. Amalaki is considered the foremost Rasayana (rejuvenative) in Ayurveda, said to promote longevity, enhance digestion, and balance all three doshas. It's a key ingredient in Chyawanprash and Triphala. For educational purposes only—not medical recommendations.",
+    keyBenefits: [
+      "Exceptional antioxidant capacity",
+      "Immune system support",
+      "Digestive health enhancement",
+      "Skin and hair nourishment",
+      "Blood sugar regulation support"
+    ],
+    mechanisms: [
+      "Extraordinarily high vitamin C content (20x more than oranges)",
+      "Rich in polyphenols including gallic acid, ellagic acid, and quercetin",
+      "Contains unique tannins (emblicanin A & B) with potent antioxidant activity",
+      "Supports hepatic function and detoxification pathways",
+      "Exhibits anti-inflammatory and immunomodulatory effects"
+    ],
+    dosage: "Traditional powder: 3-6g daily. Juice: 10-20ml daily. Standardized extract: 500-1000mg daily. These figures are for research context only and do not constitute dosing recommendations.",
+    safetyNotes: [
+      "Generally recognized as safe with long history of food use",
+      "May cause mild digestive upset in sensitive individuals",
+      "High vitamin C content - caution with iron overload conditions",
+      "Avoid excessive doses during pregnancy",
+      "May have mild blood-thinning effects at high doses"
+    ],
+    interactions: [
+      "May enhance effects of antidiabetic medications",
+      "Potential interaction with anticoagulant/antiplatelet drugs",
+      "May increase absorption of iron supplements",
+      "Could affect lithium excretion",
+      "Consult healthcare provider if on immunosuppressive therapy"
+    ],
+    sources: ["Fresh fruit", "Dried powder (Churna)", "Juice", "Capsules", "Chyawanprash"],
+    relatedCompounds: ["Triphala Churna", "Haritaki", "Ashwagandha", "Tulsi", "Guduchi"],
+    references: [
+      {
+        pmid: "21317655",
+        title: "Amla (Emblica officinalis Gaertn), a wonder berry in the treatment and prevention of cancer",
+        authors: "Baliga MS, Dsouza JJ",
+        journal: "European Journal of Cancer Prevention",
+        year: 2011,
+        doi: "10.1097/CEJ.0b013e32834473f4"
+      },
+      {
+        pmid: "25857501",
+        title: "Effect of Amla fruit (Emblica officinalis Gaertn.) on blood glucose and lipid profile of normal subjects and type 2 diabetic patients",
+        authors: "Akhtar MS, Ramzan A, Ali A, Ahmad M",
+        journal: "International Journal of Food Sciences and Nutrition",
+        year: 2011,
+        doi: "10.3109/09637486.2011.560565"
+      },
+      {
+        pmid: "28353425",
+        title: "Therapeutic potential of Phyllanthus emblica (amla): the ayurvedic wonder",
+        authors: "Gaire BP, Subedi L",
+        journal: "Journal of Basic and Clinical Physiology and Pharmacology",
+        year: 2014,
+        doi: "10.1515/jbcpp-2013-0011"
+      },
+      {
+        pmid: "23638931",
+        title: "A randomized, double-blind, placebo-controlled trial of standardized Emblica officinalis extract on glycemic control and lipid profile",
+        authors: "Usha C, Blessy D, Kumari S",
+        journal: "Indian Journal of Pharmacology",
+        year: 2019,
+        doi: "10.4103/ijp.IJP_556_18"
+      }
+    ]
   }
 ];
 
