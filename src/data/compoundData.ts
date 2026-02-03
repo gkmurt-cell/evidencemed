@@ -2944,6 +2944,81 @@ export const compoundsData: Compound[] = [
         doi: "10.1016/j.jep.2016.09.048"
       }
     ]
+  },
+  {
+    id: "nac",
+    name: "NAC (N-Acetyl Cysteine)",
+    latinName: "N-Acetyl-L-Cysteine",
+    category: "Amino Acid",
+    studies: 890,
+    image: "💊",
+    description: "N-Acetyl Cysteine (NAC) is the supplement form of the amino acid cysteine. It's a powerful precursor to glutathione, the body's master antioxidant, and has been used clinically for decades to treat acetaminophen overdose and as a mucolytic agent.",
+    traditionalUse: "NAC has been used in clinical medicine since the 1960s, initially as a mucolytic to break up mucus in respiratory conditions. It became the standard treatment for acetaminophen (paracetamol) toxicity and has expanded to various other therapeutic applications.",
+    keyBenefits: [
+      "Glutathione precursor and antioxidant support",
+      "Respiratory health and mucus clearance",
+      "Liver protection and detoxification",
+      "Mental health and OCD support",
+      "Immune system modulation"
+    ],
+    mechanisms: [
+      "Provides cysteine for glutathione synthesis - the body's master antioxidant",
+      "Breaks disulfide bonds in mucus, reducing viscosity",
+      "Modulates glutamate levels in the brain",
+      "Reduces oxidative stress and inflammation",
+      "Chelates heavy metals and supports detoxification pathways"
+    ],
+    dosage: "Clinical studies have used 600-1800mg daily in divided doses. For acetaminophen overdose, high-dose IV protocols are used. Oral supplementation typically ranges from 600-1200mg daily. These figures are for research context only and do not constitute dosing recommendations.",
+    safetyNotes: [
+      "Generally well-tolerated at standard doses",
+      "May cause GI upset, nausea, or diarrhea in some individuals",
+      "Sulfur smell may be noticeable",
+      "High doses may interfere with zinc and copper absorption",
+      "Use caution in individuals with bleeding disorders"
+    ],
+    interactions: [
+      "May enhance effects of nitroglycerin and other nitrates",
+      "Can interact with activated charcoal (timing important)",
+      "May affect blood clotting - caution with anticoagulants",
+      "Potential interaction with chemotherapy drugs - consult oncologist",
+      "May lower blood pressure - monitor with antihypertensive medications"
+    ],
+    sources: ["Capsules", "Powder", "Effervescent tablets", "IV solution (clinical)"],
+    relatedCompounds: ["Glutathione", "L-Cysteine", "Alpha Lipoic Acid", "Vitamin C"],
+    references: [
+      {
+        pmid: "28889796",
+        title: "N-Acetyl Cysteine in Psychiatry: Current Therapeutic Evidence and Potential Mechanisms of Action",
+        authors: "Deepmala, Slattery J, Kumar N, et al.",
+        journal: "Journal of Psychiatry & Neuroscience",
+        year: 2015,
+        doi: "10.1503/jpn.140209"
+      },
+      {
+        pmid: "24070098",
+        title: "N-acetylcysteine: A rapid review of the evidence for effectiveness in treating COVID-19",
+        authors: "De Flora S, Balansky R, La Maestra S",
+        journal: "Clinical Drug Investigation",
+        year: 2020,
+        doi: "10.1007/s40261-020-00984-y"
+      },
+      {
+        pmid: "23369961",
+        title: "N-acetyl cysteine in the treatment of obsessive compulsive and related disorders: a systematic review",
+        authors: "Oliver G, Dean O, Camfield D, et al.",
+        journal: "Clinical Psychopharmacology and Neuroscience",
+        year: 2015,
+        doi: "10.9758/cpn.2015.13.1.12"
+      },
+      {
+        pmid: "19193268",
+        title: "Efficacy of N-acetylcysteine in the Treatment of Nicotine Dependence",
+        authors: "Knackstedt LA, LaRowe S, Mardikian P, et al.",
+        journal: "Biological Psychiatry",
+        year: 2009,
+        doi: "10.1016/j.biopsych.2008.11.024"
+      }
+    ]
   }
 ];
 
