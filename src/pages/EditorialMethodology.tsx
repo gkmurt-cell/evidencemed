@@ -1,94 +1,67 @@
 import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import EducationalDisclaimer from "@/components/layout/EducationalDisclaimer";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { 
   BookOpen, 
   Search, 
   FileCheck, 
   Users, 
-  RefreshCw, 
   Shield,
   CheckCircle,
   AlertTriangle,
-  Database,
-  GraduationCap
+  FlaskConical,
+  TestTube,
+  FileText,
+  RefreshCw,
+  Mail,
+  Scale,
+  GraduationCap,
+  Info
 } from "lucide-react";
 
 const EditorialMethodology = () => {
-  const principles = [
-    {
-      icon: Search,
-      title: "Evidence-Based Research",
-      description: "We systematically review peer-reviewed literature from PubMed, Cochrane Library, and other reputable scientific databases to ensure accuracy and reliability."
-    },
-    {
-      icon: FileCheck,
-      title: "Rigorous Source Verification",
-      description: "Every claim is cross-referenced with primary research sources. We prioritize randomized controlled trials, meta-analyses, and systematic reviews."
-    },
-    {
-      icon: Users,
-      title: "Expert Review Process",
-      description: "Content is reviewed by healthcare professionals and researchers with relevant expertise to ensure clinical accuracy and practical relevance."
-    },
-    {
-      icon: RefreshCw,
-      title: "Regular Updates",
-      description: "We continuously monitor new research and update our content to reflect the latest scientific findings and clinical guidelines."
-    },
-    {
-      icon: Shield,
-      title: "Transparency & Disclosure",
-      description: "We clearly disclose study limitations, conflicting evidence, and potential biases. Our affiliate relationships are always disclosed."
-    },
-    {
-      icon: Database,
-      title: "Comprehensive Data",
-      description: "We aggregate data from multiple studies to provide a balanced view, including both positive findings and null results."
-    }
+  const studyTypes = [
+    { name: "In vitro", description: "Cellular or molecular studies", icon: TestTube },
+    { name: "Animal studies", description: "Preclinical research in animal models", icon: FlaskConical },
+    { name: "Observational human studies", description: "Cohort, cross-sectional, case-control", icon: Users },
+    { name: "Randomized controlled trials", description: "Experimental human studies", icon: FileCheck },
+    { name: "Systematic reviews and meta-analyses", description: "Aggregated evidence synthesis", icon: BookOpen },
   ];
 
-  const researchProcess = [
-    {
-      step: 1,
-      title: "Literature Search",
-      description: "Systematic searches across PubMed, Cochrane, and specialized databases using standardized search terms and filters."
+  const editorialProcess = [
+    { 
+      step: "Initial Identification", 
+      description: "Studies are identified via academic databases, journal feeds, and alerts",
+      icon: Search
     },
-    {
-      step: 2,
-      title: "Study Selection",
-      description: "Studies are screened based on methodology quality, sample size, and relevance. We prioritize human clinical trials over in-vitro or animal studies."
+    { 
+      step: "Screening", 
+      description: "Research is screened for relevance, source quality, and completeness",
+      icon: FileCheck
     },
-    {
-      step: 3,
-      title: "Data Extraction",
-      description: "Key findings, dosages, study parameters, and safety data are extracted and organized for synthesis."
+    { 
+      step: "Categorization", 
+      description: "Studies are tagged by condition, compound, modality, and study type",
+      icon: BookOpen
     },
-    {
-      step: 4,
-      title: "Quality Assessment",
-      description: "Each study is evaluated using established frameworks (e.g., Cochrane Risk of Bias, GRADE) to assess evidence quality."
+    { 
+      step: "Summary", 
+      description: "Plain-language summaries are written to reflect study scope and findings without prescriptive interpretation",
+      icon: FileText
     },
-    {
-      step: 5,
-      title: "Content Synthesis",
-      description: "Information is synthesized into accessible summaries while maintaining scientific accuracy and nuance."
+    { 
+      step: "Verification", 
+      description: "Source links and metadata are checked prior to publication",
+      icon: CheckCircle
     },
-    {
-      step: 6,
-      title: "Review & Publication",
-      description: "Final content undergoes editorial and expert review before publication, with ongoing monitoring for updates."
-    }
   ];
 
-  const evidenceHierarchy = [
-    { level: "Highest", type: "Systematic Reviews & Meta-Analyses", color: "text-emerald-600 bg-emerald-50 border-emerald-200" },
-    { level: "High", type: "Randomized Controlled Trials (RCTs)", color: "text-blue-600 bg-blue-50 border-blue-200" },
-    { level: "Moderate", type: "Cohort & Observational Studies", color: "text-amber-600 bg-amber-50 border-amber-200" },
-    { level: "Lower", type: "Case Studies & Expert Opinion", color: "text-orange-600 bg-orange-50 border-orange-200" },
-    { level: "Preliminary", type: "In Vitro & Animal Studies", color: "text-rose-600 bg-rose-50 border-rose-200" },
+  const intendedAudience = [
+    "Researchers and students",
+    "Practitioners seeking research context",
+    "Educated members of the public interested in primary literature"
   ];
 
   return (
@@ -97,7 +70,7 @@ const EditorialMethodology = () => {
         <title>Editorial Methodology | EvidenceMed</title>
         <meta 
           name="description" 
-          content="Learn about our evidence-based editorial methodology, research process, and commitment to scientific accuracy in natural medicine education." 
+          content="Learn about EvidenceMed's editorial methodology, content inclusion criteria, evidence classification, and commitment to research integrity." 
         />
       </Helmet>
 
@@ -106,228 +79,364 @@ const EditorialMethodology = () => {
         
         <main className="flex-grow pt-20 lg:pt-24">
           {/* Hero Section */}
-          <section className="py-16 lg:py-24 bg-gradient-to-b from-primary/5 to-background">
+          <section className="py-12 lg:py-20 bg-gradient-to-b from-primary/5 to-background">
             <div className="container mx-auto px-4">
               <div className="max-w-3xl mx-auto text-center">
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
                   <GraduationCap className="w-4 h-4" />
-                  Our Commitment to Accuracy
+                  Research Integrity
                 </div>
                 <h1 className="font-serif text-4xl lg:text-5xl font-bold text-foreground mb-6">
                   Editorial Methodology
                 </h1>
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  We believe that reliable health information requires rigorous methodology. 
-                  Learn how we research, verify, and present evidence-based content on natural 
-                  compounds and integrative therapies.
-                </p>
               </div>
             </div>
           </section>
 
-          {/* Core Principles */}
-          <section className="py-16 lg:py-20">
-            <div className="container mx-auto px-4">
-              <div className="max-w-6xl mx-auto">
-                <div className="text-center mb-12">
-                  <h2 className="font-serif text-3xl font-bold text-foreground mb-4">
-                    Core Editorial Principles
-                  </h2>
-                  <p className="text-muted-foreground max-w-2xl mx-auto">
-                    Our editorial standards are designed to ensure every piece of content 
-                    meets the highest standards of scientific accuracy and objectivity.
+          <div className="container mx-auto px-4 py-12 lg:py-16">
+            <div className="max-w-4xl mx-auto space-y-16">
+              
+              {/* Purpose and Scope */}
+              <section>
+                <h2 className="font-serif text-2xl lg:text-3xl font-bold text-foreground mb-6">
+                  Purpose and Scope
+                </h2>
+                <div className="prose prose-muted max-w-none space-y-4">
+                  <p className="text-muted-foreground leading-relaxed">
+                    EvidenceMed is an educational research platform designed to aggregate, organize, and summarize 
+                    peer-reviewed scientific literature relating to complementary, alternative, and integrative therapies.
+                  </p>
+                  <Card className="border-amber-200 bg-amber-50/50 dark:border-amber-900 dark:bg-amber-950/20">
+                    <CardContent className="p-4">
+                      <div className="flex items-start gap-3">
+                        <AlertTriangle className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
+                        <p className="text-sm text-foreground">
+                          The platform does not provide medical advice, diagnosis, treatment recommendations, or 
+                          dosing guidance. All content is presented for research and informational purposes only.
+                        </p>
+                      </div>
+                    </CardContent>
+                  </Card>
+                  <p className="text-muted-foreground leading-relaxed">
+                    This page outlines how content is selected, reviewed, categorized, and maintained.
                   </p>
                 </div>
+              </section>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {principles.map((principle) => (
-                    <Card key={principle.title} className="border-border hover:border-primary/30 transition-colors">
-                      <CardHeader className="pb-3">
-                        <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-3">
-                          <principle.icon className="w-6 h-6 text-primary" />
+              {/* Content Inclusion Criteria */}
+              <section>
+                <h2 className="font-serif text-2xl lg:text-3xl font-bold text-foreground mb-6">
+                  Content Inclusion Criteria
+                </h2>
+                <p className="text-muted-foreground mb-6">
+                  EvidenceMed includes research that meets all of the following criteria:
+                </p>
+                
+                <div className="space-y-6">
+                  {/* Source Quality */}
+                  <Card>
+                    <CardContent className="p-6">
+                      <h3 className="font-semibold text-foreground mb-4 flex items-center gap-2">
+                        <Shield className="w-5 h-5 text-primary" />
+                        Source Quality
+                      </h3>
+                      <ul className="space-y-2 text-muted-foreground">
+                        <li className="flex items-start gap-2">
+                          <CheckCircle className="w-4 h-4 text-primary shrink-0 mt-1" />
+                          <span>Published in peer-reviewed journals, or</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <CheckCircle className="w-4 h-4 text-primary shrink-0 mt-1" />
+                          <span>Hosted in recognized academic repositories (e.g. PubMed, institutional databases)</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <Info className="w-4 h-4 text-amber-500 shrink-0 mt-1" />
+                          <span>Preprints are clearly labeled as such and separated from peer-reviewed literature</span>
+                        </li>
+                      </ul>
+                    </CardContent>
+                  </Card>
+
+                  {/* Relevance */}
+                  <Card>
+                    <CardContent className="p-6">
+                      <h3 className="font-semibold text-foreground mb-4 flex items-center gap-2">
+                        <BookOpen className="w-5 h-5 text-primary" />
+                        Relevance
+                      </h3>
+                      <ul className="space-y-2 text-muted-foreground">
+                        <li className="flex items-start gap-2">
+                          <CheckCircle className="w-4 h-4 text-primary shrink-0 mt-1" />
+                          <span>Relates to complementary, alternative, or integrative therapies</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <CheckCircle className="w-4 h-4 text-primary shrink-0 mt-1" />
+                          <span>Includes natural compounds, lifestyle interventions, investigational or repurposed agents, and adjunctive approaches</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <CheckCircle className="w-4 h-4 text-primary shrink-0 mt-1" />
+                          <span>Addresses mechanisms, associations, or observed effects relevant to health conditions</span>
+                        </li>
+                      </ul>
+                    </CardContent>
+                  </Card>
+
+                  {/* Transparency */}
+                  <Card>
+                    <CardContent className="p-6">
+                      <h3 className="font-semibold text-foreground mb-4 flex items-center gap-2">
+                        <FileCheck className="w-5 h-5 text-primary" />
+                        Transparency
+                      </h3>
+                      <ul className="space-y-2 text-muted-foreground">
+                        <li className="flex items-start gap-2">
+                          <CheckCircle className="w-4 h-4 text-primary shrink-0 mt-1" />
+                          <span>Study metadata is available (authors, institution, journal, year)</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <CheckCircle className="w-4 h-4 text-primary shrink-0 mt-1" />
+                          <span>Original source links (DOI, PubMed ID, or publisher link) are provided</span>
+                        </li>
+                      </ul>
+                    </CardContent>
+                  </Card>
+                </div>
+              </section>
+
+              {/* Study Types and Evidence Classification */}
+              <section>
+                <h2 className="font-serif text-2xl lg:text-3xl font-bold text-foreground mb-6">
+                  Study Types and Evidence Classification
+                </h2>
+                <p className="text-muted-foreground mb-6">
+                  Research on EvidenceMed is categorized by study type, not by outcome or claim. 
+                  Typical categories include:
+                </p>
+                
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+                  {studyTypes.map((type) => (
+                    <Card key={type.name} className="border-border">
+                      <CardContent className="p-4">
+                        <div className="flex items-start gap-3">
+                          <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                            <type.icon className="w-5 h-5 text-primary" />
+                          </div>
+                          <div>
+                            <p className="font-medium text-foreground text-sm">{type.name}</p>
+                            <p className="text-xs text-muted-foreground">{type.description}</p>
+                          </div>
                         </div>
-                        <CardTitle className="text-lg">{principle.title}</CardTitle>
-                      </CardHeader>
-                      <CardContent>
-                        <p className="text-sm text-muted-foreground leading-relaxed">
-                          {principle.description}
-                        </p>
                       </CardContent>
                     </Card>
                   ))}
                 </div>
-              </div>
-            </div>
-          </section>
 
-          {/* Evidence Hierarchy */}
-          <section className="py-16 lg:py-20 bg-muted/30">
-            <div className="container mx-auto px-4">
-              <div className="max-w-4xl mx-auto">
-                <div className="text-center mb-12">
-                  <h2 className="font-serif text-3xl font-bold text-foreground mb-4">
-                    Evidence Hierarchy
-                  </h2>
-                  <p className="text-muted-foreground max-w-2xl mx-auto">
-                    We categorize research by evidence quality to help readers understand 
-                    the strength of scientific support for each finding.
-                  </p>
-                </div>
+                <Card className="border-primary/20 bg-primary/5">
+                  <CardContent className="p-4">
+                    <p className="text-sm text-foreground">
+                      <strong>EvidenceMed does not rank therapies by effectiveness or endorse conclusions.</strong>{" "}
+                      Study type is provided to help readers contextualize the strength and limitations of available evidence.
+                    </p>
+                  </CardContent>
+                </Card>
+              </section>
 
-                <div className="space-y-3">
-                  {evidenceHierarchy.map((item, index) => (
-                    <div 
-                      key={item.level}
-                      className={`flex items-center gap-4 p-4 rounded-xl border ${item.color}`}
-                    >
-                      <div className="w-8 h-8 rounded-full bg-background flex items-center justify-center font-semibold text-sm">
-                        {index + 1}
-                      </div>
-                      <div className="flex-1">
-                        <span className="font-medium">{item.level} Quality:</span>
-                        <span className="ml-2">{item.type}</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="mt-8 p-6 rounded-xl bg-card border border-border">
-                  <div className="flex items-start gap-3">
-                    <AlertTriangle className="w-5 h-5 text-amber-500 shrink-0 mt-0.5" />
-                    <div>
-                      <p className="font-medium text-foreground mb-1">Important Note on Preliminary Research</p>
-                      <p className="text-sm text-muted-foreground">
-                        In vitro (cell culture) and animal studies provide early insights but often do not 
-                        translate directly to human outcomes. We clearly label such findings as "preliminary" 
-                        and emphasize the need for human clinical trials before drawing conclusions.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Research Process */}
-          <section className="py-16 lg:py-20">
-            <div className="container mx-auto px-4">
-              <div className="max-w-4xl mx-auto">
-                <div className="text-center mb-12">
-                  <h2 className="font-serif text-3xl font-bold text-foreground mb-4">
-                    Our Research Process
-                  </h2>
-                  <p className="text-muted-foreground max-w-2xl mx-auto">
-                    Every piece of content follows a structured research and review process 
-                    to ensure accuracy and reliability.
-                  </p>
-                </div>
-
-                <div className="space-y-6">
-                  {researchProcess.map((item) => (
+              {/* Editorial Review Process */}
+              <section>
+                <h2 className="font-serif text-2xl lg:text-3xl font-bold text-foreground mb-6">
+                  Editorial Review Process
+                </h2>
+                
+                <div className="space-y-4">
+                  {editorialProcess.map((item, index) => (
                     <div key={item.step} className="flex gap-4">
                       <div className="shrink-0">
-                        <div className="w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-semibold">
-                          {item.step}
+                        <div className="w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-semibold text-sm">
+                          {index + 1}
                         </div>
                       </div>
-                      <div className="flex-1 pb-6 border-b border-border last:border-0">
-                        <h3 className="font-semibold text-foreground mb-2">{item.title}</h3>
+                      <div className="flex-1 pb-4 border-b border-border last:border-0">
+                        <h3 className="font-semibold text-foreground mb-1">{item.step}</h3>
                         <p className="text-sm text-muted-foreground">{item.description}</p>
                       </div>
                     </div>
                   ))}
                 </div>
-              </div>
-            </div>
-          </section>
 
-          {/* What We Don't Do */}
-          <section className="py-16 lg:py-20 bg-muted/30">
-            <div className="container mx-auto px-4">
-              <div className="max-w-4xl mx-auto">
-                <div className="text-center mb-12">
-                  <h2 className="font-serif text-3xl font-bold text-foreground mb-4">
-                    What We Don't Do
-                  </h2>
-                  <p className="text-muted-foreground max-w-2xl mx-auto">
-                    Maintaining editorial integrity means avoiding practices that could 
-                    compromise the quality of our content.
-                  </p>
-                </div>
+                <p className="text-muted-foreground mt-6 italic">
+                  EvidenceMed does not alter study conclusions or reinterpret data beyond summarization.
+                </p>
+              </section>
 
-                <div className="grid md:grid-cols-2 gap-4">
-                  {[
-                    "Make treatment recommendations or prescriptive advice",
-                    "Accept payment for favorable coverage of products",
-                    "Present preliminary research as conclusive evidence",
-                    "Ignore conflicting studies or null results",
-                    "Overstate benefits or understate risks",
-                    "Use sensational language or fear-based messaging"
-                  ].map((item) => (
-                    <div key={item} className="flex items-start gap-3 p-4 rounded-xl bg-card border border-border">
-                      <div className="w-5 h-5 rounded-full bg-destructive/10 flex items-center justify-center shrink-0 mt-0.5">
-                        <span className="text-destructive text-xs font-bold">✕</span>
-                      </div>
-                      <span className="text-sm text-muted-foreground">{item}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </section>
+              {/* Safety and Limitations */}
+              <section>
+                <h2 className="font-serif text-2xl lg:text-3xl font-bold text-foreground mb-6">
+                  Safety and Limitations
+                </h2>
+                <ul className="space-y-3 text-muted-foreground">
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                    <span>Safety notes are included only when discussed within the original research</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                    <span>EvidenceMed does not extrapolate safety, efficacy, or suitability for individuals</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                    <span>Absence of evidence is not presented as evidence of absence</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                    <span>Conflicting findings are acknowledged where present</span>
+                  </li>
+                </ul>
+              </section>
 
-          {/* Corrections Policy */}
-          <section className="py-16 lg:py-20">
-            <div className="container mx-auto px-4">
-              <div className="max-w-3xl mx-auto">
-                <Card className="border-primary/20">
-                  <CardHeader>
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
-                        <CheckCircle className="w-5 h-5 text-primary" />
-                      </div>
-                      <CardTitle>Corrections & Updates Policy</CardTitle>
-                    </div>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    <p className="text-muted-foreground">
-                      We are committed to accuracy and will promptly correct any errors brought to our attention. 
-                      When corrections are made:
-                    </p>
-                    <ul className="space-y-2 text-sm text-muted-foreground">
-                      <li className="flex items-start gap-2">
-                        <CheckCircle className="w-4 h-4 text-primary shrink-0 mt-0.5" />
-                        <span>Minor corrections (typos, formatting) are made silently</span>
+              {/* Dosage and Protocols */}
+              <section>
+                <h2 className="font-serif text-2xl lg:text-3xl font-bold text-foreground mb-6">
+                  Dosage and Protocols
+                </h2>
+                <p className="text-muted-foreground mb-4">
+                  Where studies report dosages, durations, or protocols, this information is treated as 
+                  contextual research data only.
+                </p>
+                <Card className="border-border">
+                  <CardContent className="p-6">
+                    <p className="font-medium text-foreground mb-4">EvidenceMed:</p>
+                    <ul className="space-y-2">
+                      <li className="flex items-center gap-3 text-muted-foreground">
+                        <div className="w-5 h-5 rounded-full bg-destructive/10 flex items-center justify-center shrink-0">
+                          <span className="text-destructive text-xs font-bold">✕</span>
+                        </div>
+                        <span>Does not recommend dosages</span>
                       </li>
-                      <li className="flex items-start gap-2">
-                        <CheckCircle className="w-4 h-4 text-primary shrink-0 mt-0.5" />
-                        <span>Substantive corrections are noted with an update timestamp</span>
+                      <li className="flex items-center gap-3 text-muted-foreground">
+                        <div className="w-5 h-5 rounded-full bg-destructive/10 flex items-center justify-center shrink-0">
+                          <span className="text-destructive text-xs font-bold">✕</span>
+                        </div>
+                        <span>Does not provide protocols</span>
                       </li>
-                      <li className="flex items-start gap-2">
-                        <CheckCircle className="w-4 h-4 text-primary shrink-0 mt-0.5" />
-                        <span>Major revisions include a detailed changelog</span>
+                      <li className="flex items-center gap-3 text-muted-foreground">
+                        <div className="w-5 h-5 rounded-full bg-destructive/10 flex items-center justify-center shrink-0">
+                          <span className="text-destructive text-xs font-bold">✕</span>
+                        </div>
+                        <span>Does not suggest replication of study conditions</span>
                       </li>
                     </ul>
-                    <p className="text-sm text-muted-foreground pt-2 border-t border-border">
-                      To report an error or suggest an update, please contact us at{" "}
-                      <a href="mailto:editorial@evidencemed.com" className="text-primary hover:underline">
-                        editorial@evidencemed.com
-                      </a>
+                    <p className="text-sm text-muted-foreground mt-4 pt-4 border-t border-border">
+                      Such information is included solely to accurately represent the published research.
                     </p>
                   </CardContent>
                 </Card>
-              </div>
-            </div>
-          </section>
+              </section>
 
-          {/* Educational Disclaimer */}
-          <section className="py-8">
-            <div className="container mx-auto px-4">
-              <div className="max-w-3xl mx-auto">
-                <EducationalDisclaimer />
-              </div>
+              {/* Conflicts of Interest */}
+              <section>
+                <h2 className="font-serif text-2xl lg:text-3xl font-bold text-foreground mb-6">
+                  Conflicts of Interest and Commercial Separation
+                </h2>
+                <p className="text-muted-foreground mb-4">
+                  EvidenceMed may reference books, resources, or products via affiliate links on clearly 
+                  designated Shop / Resources pages.
+                </p>
+                <ul className="space-y-3 text-muted-foreground">
+                  <li className="flex items-start gap-3">
+                    <Scale className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                    <span>Commercial content is visually and structurally separated from research content</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Scale className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                    <span>Affiliate relationships are disclosed</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Scale className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                    <span>Editorial inclusion of research is not influenced by commercial relationships</span>
+                  </li>
+                </ul>
+              </section>
+
+              {/* Content Updates */}
+              <section>
+                <h2 className="font-serif text-2xl lg:text-3xl font-bold text-foreground mb-6">
+                  Content Updates and Maintenance
+                </h2>
+                <ul className="space-y-3 text-muted-foreground">
+                  <li className="flex items-start gap-3">
+                    <RefreshCw className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                    <span>Content is reviewed and updated on a rolling basis</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <RefreshCw className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                    <span>New research is added regularly as it becomes available</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <RefreshCw className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                    <span>Corrections are made if source errors or misclassifications are identified</span>
+                  </li>
+                </ul>
+              </section>
+
+              {/* Intended Audience */}
+              <section>
+                <h2 className="font-serif text-2xl lg:text-3xl font-bold text-foreground mb-6">
+                  Intended Audience
+                </h2>
+                <p className="text-muted-foreground mb-4">
+                  EvidenceMed is designed for:
+                </p>
+                <ul className="space-y-2 mb-6">
+                  {intendedAudience.map((audience) => (
+                    <li key={audience} className="flex items-center gap-3 text-muted-foreground">
+                      <Users className="w-5 h-5 text-primary shrink-0" />
+                      <span>{audience}</span>
+                    </li>
+                  ))}
+                </ul>
+                <Card className="border-amber-200 bg-amber-50/50 dark:border-amber-900 dark:bg-amber-950/20">
+                  <CardContent className="p-4">
+                    <p className="text-sm text-foreground font-medium">
+                      The platform is not intended for self-diagnosis or treatment decisions.
+                    </p>
+                  </CardContent>
+                </Card>
+              </section>
+
+              {/* Editorial Independence */}
+              <section>
+                <h2 className="font-serif text-2xl lg:text-3xl font-bold text-foreground mb-6">
+                  Editorial Independence Statement
+                </h2>
+                <p className="text-muted-foreground mb-4">
+                  EvidenceMed operates as an independent educational platform.
+                </p>
+                <p className="text-muted-foreground italic">
+                  Inclusion of research does not imply endorsement, recommendation, or clinical applicability.
+                </p>
+              </section>
+
+              {/* Contact */}
+              <section>
+                <h2 className="font-serif text-2xl lg:text-3xl font-bold text-foreground mb-6">
+                  Contact and Feedback
+                </h2>
+                <p className="text-muted-foreground mb-4">
+                  Feedback regarding sourcing, categorization, or accuracy may be submitted via the{" "}
+                  <Link to="/about" className="text-primary hover:underline">contact page</Link>.
+                </p>
+                <Card className="border-primary/20">
+                  <CardContent className="p-4 flex items-center gap-3">
+                    <Mail className="w-5 h-5 text-primary shrink-0" />
+                    <p className="text-sm text-muted-foreground">
+                      EvidenceMed welcomes corrections supported by verifiable sources.
+                    </p>
+                  </CardContent>
+                </Card>
+              </section>
+
             </div>
-          </section>
+          </div>
         </main>
 
         <Footer />
