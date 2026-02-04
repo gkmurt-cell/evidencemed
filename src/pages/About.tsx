@@ -1,9 +1,10 @@
 import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Heart, Users, BookOpen, Shield, Target, Sparkles, Quote } from "lucide-react";
+import { Heart, Users, BookOpen, Shield, Target, Sparkles, Quote, FileText } from "lucide-react";
 
 const MISSION_PILLARS = [
   {
@@ -183,6 +184,15 @@ const About = () => {
                   <p className="font-medium text-foreground text-center pt-4">
                     Our commitment: Research over marketing. Evidence over hype. Your health over profits.
                   </p>
+                  <div className="flex justify-center pt-6">
+                    <Link 
+                      to="/editorial-methodology" 
+                      className="inline-flex items-center gap-2 text-primary hover:underline text-sm font-medium"
+                    >
+                      <FileText className="w-4 h-4" />
+                      See our Editorial Methodology
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
