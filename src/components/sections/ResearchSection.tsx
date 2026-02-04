@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, ExternalLink, FileText, FlaskConical, Users, TestTube, AlertTriangle, Shield, Link2, Filter, Leaf, Heart, Pill } from "lucide-react";
+import { ArrowRight, ExternalLink, FileText, FlaskConical, Users, TestTube, AlertTriangle, Shield, Link2, Filter, Leaf, Heart, Pill, BarChart3 } from "lucide-react";
 import EducationalDisclaimer from "@/components/layout/EducationalDisclaimer";
 import DemoDisclaimer from "@/components/layout/DemoDisclaimer";
 import { RelatedLinks } from "@/components/ui/explore-more-link";
+import { StudyTypeIcon, StudyCountBar, EvidenceTierIcon } from "@/components/research/EvidenceVisuals";
 import { cn } from "@/lib/utils";
 
 type StudyType = "all" | "rct" | "observational" | "meta-analysis" | "in-vitro";
@@ -127,17 +128,6 @@ const featuredStudies: Study[] = [
   },
 ];
 
-const getEvidenceBadge = (level: Study["evidenceLevel"]) => {
-  switch (level) {
-    case "high":
-      return { label: "Strong Evidence", className: "bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-500/20" };
-    case "moderate":
-      return { label: "Moderate Evidence", className: "bg-amber-500/10 text-amber-700 dark:text-amber-400 border-amber-500/20" };
-    case "preliminary":
-      return { label: "Preliminary", className: "bg-slate-500/10 text-slate-700 dark:text-slate-400 border-slate-500/20" };
-  }
-};
-
 const ResearchSection = () => {
   const [activeFilter, setActiveFilter] = useState<StudyType>("all");
   const [expandedStudy, setExpandedStudy] = useState<string | null>(null);
@@ -178,7 +168,7 @@ const ResearchSection = () => {
         </div>
 
         {/* Research Type Stats - Now Clickable */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
           {researchTypes.map((type) => (
             <a
               key={type.name}
@@ -187,8 +177,11 @@ const ResearchSection = () => {
               rel="noopener noreferrer"
               className="p-6 rounded-xl bg-card border border-border text-center hover:border-primary/50 hover:shadow-lg transition-all duration-300 group cursor-pointer"
             >
-              <type.icon className="w-8 h-8 text-primary mx-auto mb-3 group-hover:scale-110 transition-transform" />
-              <p className="font-serif text-2xl font-semibold text-foreground mb-1 group-hover:text-primary transition-colors">
+              <div className="flex items-center justify-center gap-2 mb-3">
+                <type.icon className="w-7 h-7 text-primary group-hover:scale-110 transition-transform" />
+                <StudyTypeIcon type={type.id === "rct" ? "rct" : type.id === "in-vitro" ? "in-vitro" : type.id === "observational" ? "observational" : "animal"} size="md" />
+              </div>
+              <p className="font-mono text-2xl font-bold text-foreground mb-1 group-hover:text-primary transition-colors">
                 {type.count}
               </p>
               <p className="text-sm text-muted-foreground">{type.name}</p>
@@ -198,6 +191,23 @@ const ResearchSection = () => {
               </p>
             </a>
           ))}
+        </div>
+
+        {/* Study Distribution Bar Chart */}
+        <div className="max-w-2xl mx-auto mb-16 bg-card border border-border rounded-xl p-6">
+          <h3 className="font-semibold text-foreground mb-4 flex items-center gap-2 justify-center">
+            <BarChart3 className="w-5 h-5 text-primary" />
+            Study Distribution by Type
+          </h3>
+          <StudyCountBar 
+            data={[
+              { label: "In Vitro", count: 4200, type: "in-vitro" },
+              { label: "Animal", count: 3800, type: "animal" },
+              { label: "Observational", count: 2100, type: "observational" },
+              { label: "RCTs", count: 890, type: "rct" },
+              { label: "Meta-Analyses", count: 340, type: "meta-analysis" },
+            ]}
+          />
         </div>
 
         {/* Featured Studies */}
@@ -229,7 +239,6 @@ const ResearchSection = () => {
 
           <div className="space-y-4">
             {filteredStudies.map((study) => {
-              const evidenceBadge = getEvidenceBadge(study.evidenceLevel);
               const isExpanded = expandedStudy === study.title;
               
               return (
@@ -244,9 +253,7 @@ const ResearchSection = () => {
                         <span className="px-2.5 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium">
                           {study.type}
                         </span>
-                        <span className={cn("px-2.5 py-1 rounded-full text-xs font-medium border", evidenceBadge.className)}>
-                          {evidenceBadge.label}
-                        </span>
+                        <EvidenceTierIcon level={study.evidenceLevel} size="sm" showLabel />
                         <span className="text-xs text-muted-foreground">
                           {study.year}
                         </span>
