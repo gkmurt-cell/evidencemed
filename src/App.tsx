@@ -20,6 +20,7 @@ import CompoundPage from "./pages/Compound";
 import ConditionPage from "./pages/Condition";
 import ConditionsPage from "./pages/Conditions";
 import Pricing from "./pages/Pricing";
+import EditorialMethodology from "./pages/EditorialMethodology";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -48,6 +49,7 @@ const App = () => (
               <Route path="/conditions" element={<ConditionsPage />} />
               <Route path="/condition/:id" element={<ConditionPage />} />
               <Route path="/pricing" element={<Pricing />} />
+              <Route path="/editorial-methodology" element={<EditorialMethodology />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
