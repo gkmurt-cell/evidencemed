@@ -21,12 +21,12 @@ const Footer = () => {
     ],
     company: [
       { name: "About Us", href: "/about", isLink: true },
-      { name: "Editorial Methodology", href: "/editorial-methodology", isLink: true },
       { name: "Contact", href: "#" },
       { name: "Careers", href: "#" },
       { name: "Press", href: "#" },
     ],
     legal: [
+      { name: "Editorial Methodology", href: "/editorial-methodology", isLink: true },
       { name: "Privacy Policy", href: "#" },
       { name: "Terms of Service", href: "#" },
       { name: "Cookie Policy", href: "#" },
@@ -182,12 +182,21 @@ const Footer = () => {
             <ul className="space-y-3">
               {footerLinks.legal.map((link) => (
                 <li key={link.name}>
-                  <a
-                    href={link.href}
-                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    {link.name}
-                  </a>
+                  {link.isLink ? (
+                    <Link
+                      to={link.href}
+                      className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      {link.name}
+                    </Link>
+                  ) : (
+                    <a
+                      href={link.href}
+                      className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      {link.name}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>

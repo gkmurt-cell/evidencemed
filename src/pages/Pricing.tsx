@@ -391,8 +391,16 @@ const Pricing = () => {
             </div>
 
             <div className="max-w-4xl mx-auto mb-12">
-              <p className="text-center text-muted-foreground leading-relaxed">
+              <p className="text-center text-muted-foreground leading-relaxed mb-4">
                 EvidenceMed offers research-backed educational access to over <span className="font-semibold text-foreground">200 health conditions</span>, <span className="font-semibold text-foreground">4,000+ peer-reviewed studies</span>, and natural compound profiles. Institutional packages are customized based on the number of users, ensuring that your team receives appropriate access, support, and tools for research and evidence-based decision-making.
+              </p>
+              <p className="text-center">
+                <Link 
+                  to="/editorial-methodology" 
+                  className="inline-flex items-center gap-1 text-primary hover:underline text-sm font-medium"
+                >
+                  See our Editorial Methodology
+                </Link>
               </p>
             </div>
 
