@@ -70,6 +70,15 @@ const ayurvedicHerbs = [
     description: "Richest natural source of vitamin C, rejuvenative fruit."
   },
   {
+    id: "haritaki",
+    name: "Haritaki",
+    altName: "Terminalia chebula",
+    icon: "🌰",
+    studies: 245,
+    keyBenefit: "Digestion & Detox",
+    description: "King of medicines in Ayurveda, completes the Triphala trio."
+  },
+  {
     id: "neem",
     name: "Neem",
     altName: "Azadirachta indica",
