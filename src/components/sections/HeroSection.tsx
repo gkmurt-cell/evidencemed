@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, BookOpen, Shield, CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
+import heroLabImage from "@/assets/hero-lab-microscopy.jpg";
 
 const HeroSection = () => {
   const features = [
@@ -10,111 +11,150 @@ const HeroSection = () => {
   ];
 
   return (
-    <section className="relative min-h-[calc(100vh-5rem)] flex items-center hero-gradient overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-primary-foreground rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-primary-foreground rounded-full blur-3xl" />
+    <section className="relative min-h-[calc(100vh-5rem)] flex items-center overflow-hidden">
+      {/* Background Image with Overlay */}
+      <div className="absolute inset-0">
+        <img 
+          src={heroLabImage} 
+          alt="Laboratory microscopy research" 
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/85 to-primary/70" />
       </div>
 
-      {/* Botanical Illustrations - Left Side */}
+      {/* Scientific Data Elements - Left Side */}
       <div className="absolute left-0 top-0 bottom-0 w-64 lg:w-96 pointer-events-none">
-        {/* Fern/Leaf 1 */}
+        {/* Molecular Structure Diagram */}
         <svg 
-          className="absolute top-20 -left-10 w-48 h-48 lg:w-64 lg:h-64 text-primary-foreground/10 drop-shadow-lg" 
+          className="absolute top-20 left-4 w-48 h-48 lg:w-64 lg:h-64 text-primary-foreground/10 drop-shadow-lg" 
           viewBox="0 0 100 100" 
-          fill="currentColor"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="0.5"
         >
-          <path d="M50 95 C50 95 20 70 15 45 C10 20 30 5 50 5 C50 5 40 25 42 45 C44 65 50 95 50 95 Z" />
-          <path d="M50 95 C50 95 35 75 30 55 C25 35 35 25 50 20 C50 20 42 35 44 50 C46 65 50 95 50 95 Z" opacity="0.7" />
+          {/* Hexagonal ring structure */}
+          <polygon points="50,20 70,35 70,55 50,70 30,55 30,35" />
+          <line x1="50" y1="20" x2="50" y2="5" />
+          <line x1="70" y1="35" x2="85" y2="28" />
+          <line x1="70" y1="55" x2="85" y2="62" />
+          <line x1="50" y1="70" x2="50" y2="85" />
+          <line x1="30" y1="55" x2="15" y2="62" />
+          <line x1="30" y1="35" x2="15" y2="28" />
+          {/* Node circles */}
+          <circle cx="50" cy="20" r="3" fill="currentColor" opacity="0.4" />
+          <circle cx="70" cy="35" r="3" fill="currentColor" opacity="0.4" />
+          <circle cx="70" cy="55" r="3" fill="currentColor" opacity="0.4" />
+          <circle cx="50" cy="70" r="3" fill="currentColor" opacity="0.4" />
+          <circle cx="30" cy="55" r="3" fill="currentColor" opacity="0.4" />
+          <circle cx="30" cy="35" r="3" fill="currentColor" opacity="0.4" />
         </svg>
         
-        {/* Herb Sprig 1 */}
+        {/* Data Graph Lines */}
         <svg 
-          className="absolute top-1/3 -left-5 w-40 h-56 lg:w-52 lg:h-72 text-primary-foreground/8 drop-shadow-md rotate-12" 
-          viewBox="0 0 80 120" 
-          fill="currentColor"
+          className="absolute top-1/3 left-8 w-40 h-32 lg:w-52 lg:h-40 text-primary-foreground/8 drop-shadow-md" 
+          viewBox="0 0 100 60" 
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="0.8"
         >
-          <path d="M40 115 Q40 60 40 10 M40 20 Q25 15 15 25 Q25 35 40 30 M40 35 Q55 30 65 40 Q55 50 40 45 M40 50 Q25 45 15 55 Q25 65 40 60 M40 65 Q55 60 65 70 Q55 80 40 75 M40 80 Q25 75 15 85 Q25 95 40 90" 
-            strokeWidth="2" 
-            stroke="currentColor" 
-            fill="none"
+          {/* Axis */}
+          <line x1="10" y1="50" x2="90" y2="50" opacity="0.4" />
+          <line x1="10" y1="10" x2="10" y2="50" opacity="0.4" />
+          {/* Data line */}
+          <polyline 
+            points="10,45 25,38 40,42 55,28 70,32 85,18" 
+            strokeWidth="1.2"
+            opacity="0.6"
           />
-          <ellipse cx="27" cy="25" rx="12" ry="8" opacity="0.6" />
-          <ellipse cx="53" cy="40" rx="12" ry="8" opacity="0.6" />
-          <ellipse cx="27" cy="55" rx="12" ry="8" opacity="0.6" />
-          <ellipse cx="53" cy="70" rx="12" ry="8" opacity="0.6" />
-          <ellipse cx="27" cy="85" rx="12" ry="8" opacity="0.6" />
+          {/* Data points */}
+          <circle cx="10" cy="45" r="2" fill="currentColor" opacity="0.5" />
+          <circle cx="25" cy="38" r="2" fill="currentColor" opacity="0.5" />
+          <circle cx="40" cy="42" r="2" fill="currentColor" opacity="0.5" />
+          <circle cx="55" cy="28" r="2" fill="currentColor" opacity="0.5" />
+          <circle cx="70" cy="32" r="2" fill="currentColor" opacity="0.5" />
+          <circle cx="85" cy="18" r="2" fill="currentColor" opacity="0.5" />
         </svg>
 
-        {/* Large Leaf Bottom */}
+        {/* Bar Chart */}
         <svg 
-          className="absolute bottom-32 -left-16 w-56 h-56 lg:w-72 lg:h-72 text-primary-foreground/6 drop-shadow-xl -rotate-15" 
-          viewBox="0 0 100 100" 
+          className="absolute bottom-32 left-6 w-48 h-32 lg:w-56 lg:h-40 text-primary-foreground/6 drop-shadow-xl" 
+          viewBox="0 0 100 60" 
           fill="currentColor"
         >
-          <path d="M85 50 C85 25 65 5 40 5 C15 5 5 30 10 50 C15 70 35 85 50 90 C65 85 85 75 85 50 Z" />
-          <path d="M50 90 Q50 50 40 15" stroke="currentColor" strokeWidth="1" fill="none" opacity="0.3" />
-          <path d="M50 90 Q45 60 30 30" stroke="currentColor" strokeWidth="0.5" fill="none" opacity="0.2" />
-          <path d="M50 90 Q55 65 65 35" stroke="currentColor" strokeWidth="0.5" fill="none" opacity="0.2" />
+          <rect x="10" y="40" width="10" height="15" opacity="0.3" />
+          <rect x="25" y="30" width="10" height="25" opacity="0.4" />
+          <rect x="40" y="20" width="10" height="35" opacity="0.5" />
+          <rect x="55" y="35" width="10" height="20" opacity="0.35" />
+          <rect x="70" y="15" width="10" height="40" opacity="0.55" />
+          <rect x="85" y="25" width="10" height="30" opacity="0.45" />
         </svg>
       </div>
 
-      {/* Botanical Illustrations - Right Side */}
+      {/* Scientific Data Elements - Right Side */}
       <div className="absolute right-0 top-0 bottom-0 w-64 lg:w-96 pointer-events-none">
-        {/* Eucalyptus Branch */}
+        {/* DNA/Compound Helix abstraction */}
         <svg 
-          className="absolute top-16 -right-8 w-44 h-64 lg:w-56 lg:h-80 text-primary-foreground/10 drop-shadow-lg -rotate-6" 
-          viewBox="0 0 80 140" 
-          fill="currentColor"
+          className="absolute top-16 right-8 w-44 h-64 lg:w-56 lg:h-80 text-primary-foreground/10 drop-shadow-lg" 
+          viewBox="0 0 60 140" 
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="0.8"
         >
-          <path d="M40 135 Q42 70 45 10" stroke="currentColor" strokeWidth="2" fill="none" />
-          <ellipse cx="30" cy="25" rx="15" ry="10" transform="rotate(-20 30 25)" opacity="0.7" />
-          <ellipse cx="55" cy="40" rx="15" ry="10" transform="rotate(25 55 40)" opacity="0.7" />
-          <ellipse cx="28" cy="55" rx="14" ry="9" transform="rotate(-15 28 55)" opacity="0.6" />
-          <ellipse cx="52" cy="70" rx="14" ry="9" transform="rotate(20 52 70)" opacity="0.6" />
-          <ellipse cx="30" cy="85" rx="13" ry="8" transform="rotate(-10 30 85)" opacity="0.5" />
-          <ellipse cx="48" cy="100" rx="12" ry="7" transform="rotate(15 48 100)" opacity="0.5" />
-          <ellipse cx="35" cy="115" rx="10" ry="6" transform="rotate(-5 35 115)" opacity="0.4" />
+          {/* Vertical backbone lines */}
+          <path d="M20 10 Q30 35 20 60 Q10 85 20 110 Q30 130 20 140" opacity="0.5" />
+          <path d="M40 10 Q30 35 40 60 Q50 85 40 110 Q30 130 40 140" opacity="0.5" />
+          {/* Cross bonds */}
+          <line x1="20" y1="25" x2="40" y2="25" opacity="0.4" />
+          <line x1="20" y1="50" x2="40" y2="50" opacity="0.4" />
+          <line x1="20" y1="75" x2="40" y2="75" opacity="0.4" />
+          <line x1="20" y1="100" x2="40" y2="100" opacity="0.4" />
+          <line x1="20" y1="125" x2="40" y2="125" opacity="0.4" />
         </svg>
 
-        {/* Ginkgo Leaves */}
+        {/* Scatter Plot */}
         <svg 
-          className="absolute top-1/2 -right-4 w-36 h-36 lg:w-48 lg:h-48 text-primary-foreground/8 drop-shadow-md rotate-12" 
+          className="absolute top-1/2 right-4 w-36 h-36 lg:w-48 lg:h-48 text-primary-foreground/8 drop-shadow-md" 
           viewBox="0 0 100 100" 
           fill="currentColor"
         >
-          <path d="M50 95 L50 50 M50 50 Q30 45 20 25 Q35 10 50 20 Q65 10 80 25 Q70 45 50 50 Z" opacity="0.6" />
-          <path d="M50 50 Q50 35 50 20" stroke="currentColor" strokeWidth="0.5" fill="none" opacity="0.3" />
+          <circle cx="15" cy="75" r="3" opacity="0.4" />
+          <circle cx="25" cy="60" r="2.5" opacity="0.35" />
+          <circle cx="35" cy="65" r="3" opacity="0.4" />
+          <circle cx="45" cy="50" r="2" opacity="0.3" />
+          <circle cx="55" cy="45" r="3.5" opacity="0.45" />
+          <circle cx="65" cy="35" r="2.5" opacity="0.35" />
+          <circle cx="75" cy="40" r="3" opacity="0.4" />
+          <circle cx="85" cy="25" r="2" opacity="0.3" />
+          <circle cx="40" cy="80" r="2" opacity="0.25" />
+          <circle cx="60" cy="55" r="2.5" opacity="0.35" />
+          <circle cx="80" cy="30" r="3" opacity="0.4" />
         </svg>
 
-        {/* Herb Cluster Bottom */}
+        {/* Study Count Indicator */}
         <svg 
-          className="absolute bottom-24 -right-12 w-48 h-48 lg:w-64 lg:h-64 text-primary-foreground/7 drop-shadow-xl rotate-6" 
+          className="absolute bottom-24 right-12 w-48 h-48 lg:w-64 lg:h-64 text-primary-foreground/7 drop-shadow-xl" 
           viewBox="0 0 100 100" 
-          fill="currentColor"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="0.6"
         >
-          <path d="M50 95 Q48 50 45 10" stroke="currentColor" strokeWidth="1.5" fill="none" />
-          <path d="M35 90 Q33 55 30 20" stroke="currentColor" strokeWidth="1" fill="none" opacity="0.7" />
-          <path d="M65 90 Q67 55 70 20" stroke="currentColor" strokeWidth="1" fill="none" opacity="0.7" />
-          <circle cx="45" cy="15" r="8" opacity="0.5" />
-          <circle cx="30" cy="25" r="6" opacity="0.4" />
-          <circle cx="70" cy="22" r="7" opacity="0.4" />
-          <ellipse cx="50" cy="35" rx="10" ry="6" opacity="0.3" />
+          {/* Concentric analysis circles */}
+          <circle cx="50" cy="50" r="45" opacity="0.2" />
+          <circle cx="50" cy="50" r="35" opacity="0.3" />
+          <circle cx="50" cy="50" r="25" opacity="0.4" />
+          <circle cx="50" cy="50" r="15" opacity="0.5" />
+          {/* Cross hairs */}
+          <line x1="5" y1="50" x2="95" y2="50" opacity="0.15" />
+          <line x1="50" y1="5" x2="50" y2="95" opacity="0.15" />
         </svg>
       </div>
 
-      {/* Floating Small Leaves */}
+      {/* Floating Data Points */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <svg className="absolute top-1/4 left-1/4 w-8 h-8 text-primary-foreground/10 animate-pulse" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 22 C12 22 4 16 4 10 C4 4 10 2 12 2 C12 2 8 8 10 14 C12 20 12 22 12 22 Z" />
-        </svg>
-        <svg className="absolute top-1/3 right-1/4 w-6 h-6 text-primary-foreground/8 animate-pulse delay-300" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 22 C12 22 4 16 4 10 C4 4 10 2 12 2 C12 2 8 8 10 14 C12 20 12 22 12 22 Z" />
-        </svg>
-        <svg className="absolute bottom-1/3 left-1/3 w-10 h-10 text-primary-foreground/6 animate-pulse delay-500" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 22 C12 22 4 16 4 10 C4 4 10 2 12 2 C12 2 8 8 10 14 C12 20 12 22 12 22 Z" />
-        </svg>
+        <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-primary-foreground/20 rounded-full animate-pulse" />
+        <div className="absolute top-1/3 right-1/4 w-1.5 h-1.5 bg-primary-foreground/15 rounded-full animate-pulse delay-300" />
+        <div className="absolute bottom-1/3 left-1/3 w-2.5 h-2.5 bg-primary-foreground/10 rounded-full animate-pulse delay-500" />
+        <div className="absolute top-2/3 right-1/3 w-1.5 h-1.5 bg-primary-foreground/15 rounded-full animate-pulse delay-700" />
       </div>
 
       <div className="container mx-auto px-4 pt-10 pb-32 lg:pt-14 lg:pb-40 relative z-10">

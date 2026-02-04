@@ -17,7 +17,8 @@ import {
   ChevronLeft,
   ChevronRight,
   Database,
-  BookOpen
+  BookOpen,
+  BarChart3
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -35,6 +36,7 @@ import Footer from "@/components/layout/Footer";
 import EducationalDisclaimer from "@/components/layout/EducationalDisclaimer";
 import DemoDisclaimer from "@/components/layout/DemoDisclaimer";
 import PubMedSearchPanel from "@/components/research/PubMedSearchPanel";
+import { StudyTypeIcon, StudyCountBar, EvidenceTierIcon } from "@/components/research/EvidenceVisuals";
 import { cn } from "@/lib/utils";
 import {
   allStudies,
@@ -267,24 +269,44 @@ const Research = () => {
 
             {/* Curated Studies Tab */}
             <TabsContent value="curated" className="mt-0 space-y-8">
-              {/* Stats Cards */}
+              {/* Stats Cards with Study Type Icons */}
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
                 {researchStats.map((stat) => (
                   <button
                     key={stat.id}
                     onClick={() => handleFilterChange(setTypeFilter, stat.id as StudyType)}
                     className={cn(
-                      "p-6 rounded-xl bg-card border border-border text-center transition-all hover:border-primary/50 hover:shadow-md",
+                      "p-6 rounded-xl bg-card border border-border text-center transition-all hover:border-primary/50 hover:shadow-md group",
                       typeFilter === stat.id && "border-primary bg-primary/5"
                     )}
                   >
-                    <stat.icon className="w-8 h-8 text-primary mx-auto mb-3" />
-                    <p className="font-serif text-2xl font-semibold text-foreground mb-1">
+                    <div className="flex items-center justify-center gap-2 mb-3">
+                      <stat.icon className="w-7 h-7 text-primary group-hover:scale-110 transition-transform" />
+                      <StudyTypeIcon type={stat.id as any} size="md" />
+                    </div>
+                    <p className="font-mono text-2xl font-bold text-foreground mb-1">
                       {stat.count}
                     </p>
                     <p className="text-sm text-muted-foreground">{stat.name}</p>
                   </button>
                 ))}
+              </div>
+              
+              {/* Evidence Level Bar Chart */}
+              <div className="bg-card border border-border rounded-xl p-6">
+                <h3 className="font-semibold text-foreground mb-4 flex items-center gap-2">
+                  <BarChart3 className="w-5 h-5 text-primary" />
+                  Study Distribution by Type
+                </h3>
+                <StudyCountBar 
+                  data={[
+                    { label: "In Vitro", count: 4200, type: "in-vitro" },
+                    { label: "Animal", count: 3800, type: "animal" },
+                    { label: "Observational", count: 2100, type: "observational" },
+                    { label: "RCTs", count: 890, type: "rct" },
+                    { label: "Meta-Analyses", count: 340, type: "meta-analysis" },
+                  ]}
+                />
               </div>
 
               {/* Filters */}
@@ -512,14 +534,7 @@ const StudyCard = ({ study, isExpanded, onToggle }: StudyCardProps) => {
             <span className="px-2.5 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium">
               {study.type}
             </span>
-            <span
-              className={cn(
-                "px-2.5 py-1 rounded-full text-xs font-medium border",
-                evidenceBadge.className
-              )}
-            >
-              {evidenceBadge.label}
-            </span>
+            <EvidenceTierIcon level={study.evidenceLevel} size="sm" showLabel />
             <span className="text-xs text-muted-foreground">{study.year}</span>
             {study.sampleSize && (
               <span className="text-xs text-muted-foreground bg-muted px-2 py-0.5 rounded">
