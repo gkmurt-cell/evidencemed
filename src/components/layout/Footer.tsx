@@ -6,31 +6,26 @@ const Footer = () => {
 
   const footerLinks = {
     platform: [
-      { name: "Conditions Database", href: "#conditions" },
-      { name: "Research Library", href: "#research" },
-      { name: "Natural Compounds", href: "#compounds" },
+      { name: "Conditions Database", href: "/conditions", isLink: true },
+      { name: "Research Library", href: "/research", isLink: true },
+      { name: "Natural Compounds", href: "/compounds", isLink: true },
       { name: "Integrative Therapies", href: "/integrative-therapies", isLink: true },
-      { name: "Video Resources", href: "#videos" },
+      { name: "Pricing", href: "/pricing", isLink: true },
     ],
     resources: [
-      { name: "How It Works", href: "#" },
-      { name: "For Practitioners", href: "#" },
-      { name: "For Researchers", href: "#" },
-      { name: "API Access", href: "#" },
-      { name: "Shop / Support the Platform", href: "/merch", isLink: true },
+      { name: "For Practitioners", href: "/pricing", isLink: true },
+      { name: "For Institutions", href: "/pricing#institutional", isLink: true },
+      { name: "Shop / Merch", href: "/merch", isLink: true },
     ],
     company: [
       { name: "About Us", href: "/about", isLink: true },
-      { name: "Contact", href: "#" },
-      { name: "Careers", href: "#" },
-      { name: "Press", href: "#" },
+      { name: "Editorial Methodology", href: "/editorial-methodology", isLink: true },
+      { name: "Contact", href: "mailto:contact@integrativeevidence.com" },
     ],
     legal: [
-      { name: "Editorial Methodology", href: "/editorial-methodology", isLink: true },
-      { name: "Privacy Policy", href: "#" },
-      { name: "Terms of Service", href: "#" },
-      { name: "Cookie Policy", href: "#" },
-      { name: "Medical Disclaimer", href: "#" },
+      { name: "Medical Disclaimer", href: "#disclaimer" },
+      { name: "Privacy Policy", href: "#", disabled: true },
+      { name: "Terms of Service", href: "#", disabled: true },
     ],
   };
 
@@ -182,13 +177,21 @@ const Footer = () => {
             <ul className="space-y-3">
               {footerLinks.legal.map((link) => (
                 <li key={link.name}>
-                  {link.isLink ? (
-                    <Link
-                      to={link.href}
-                      className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  {link.disabled ? (
+                    <span className="text-sm text-muted-foreground/50 cursor-not-allowed">
+                      {link.name} <span className="text-xs">(Coming Soon)</span>
+                    </span>
+                  ) : link.href === "#disclaimer" ? (
+                    <a
+                      href="#disclaimer"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        document.querySelector('.bg-muted\\/70')?.scrollIntoView({ behavior: 'smooth' });
+                      }}
+                      className="text-sm text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
                     >
                       {link.name}
-                    </Link>
+                    </a>
                   ) : (
                     <a
                       href={link.href}
