@@ -36,7 +36,7 @@ import Footer from "@/components/layout/Footer";
 import EducationalDisclaimer from "@/components/layout/EducationalDisclaimer";
 import DemoDisclaimer from "@/components/layout/DemoDisclaimer";
 import PubMedSearchPanel from "@/components/research/PubMedSearchPanel";
-import { StudyTypeIcon, StudyCountBar, EvidenceTierIcon } from "@/components/research/EvidenceVisuals";
+import { StudyTypeIcon, StudyCountBar, EvidenceTierIcon, EvidencePyramid, TimelineDots } from "@/components/research/EvidenceVisuals";
 import { cn } from "@/lib/utils";
 import {
   allStudies,
@@ -292,21 +292,95 @@ const Research = () => {
                 ))}
               </div>
               
-              {/* Evidence Level Bar Chart */}
+              {/* Data Visualization Grid */}
+              <div className="grid md:grid-cols-2 gap-6">
+                {/* Study Distribution Bar Chart */}
+                <div className="bg-card border border-border rounded-xl p-6">
+                  <h3 className="font-semibold text-foreground mb-4 flex items-center gap-2">
+                    <BarChart3 className="w-5 h-5 text-primary" />
+                    Study Distribution by Type
+                  </h3>
+                  <StudyCountBar 
+                    data={[
+                      { label: "In Vitro", count: 4200, type: "in-vitro" },
+                      { label: "Animal", count: 3800, type: "animal" },
+                      { label: "Observational", count: 2100, type: "observational" },
+                      { label: "RCTs", count: 890, type: "rct" },
+                      { label: "Meta-Analyses", count: 340, type: "meta-analysis" },
+                    ]}
+                  />
+                </div>
+
+                {/* Evidence Hierarchy Pyramid */}
+                <div className="bg-card border border-border rounded-xl p-6">
+                  <h3 className="font-semibold text-foreground mb-4 flex items-center gap-2">
+                    <Shield className="w-5 h-5 text-primary" />
+                    Evidence Hierarchy
+                  </h3>
+                  <p className="text-xs text-muted-foreground mb-4">
+                    Higher tiers indicate stronger evidence quality
+                  </p>
+                  <EvidencePyramid />
+                </div>
+              </div>
+
+              {/* Publication Timeline */}
               <div className="bg-card border border-border rounded-xl p-6">
-                <h3 className="font-semibold text-foreground mb-4 flex items-center gap-2">
-                  <BarChart3 className="w-5 h-5 text-primary" />
-                  Study Distribution by Type
+                <h3 className="font-semibold text-foreground mb-2 flex items-center gap-2">
+                  <FileText className="w-5 h-5 text-primary" />
+                  Publication Timeline
                 </h3>
-                <StudyCountBar 
-                  data={[
-                    { label: "In Vitro", count: 4200, type: "in-vitro" },
-                    { label: "Animal", count: 3800, type: "animal" },
-                    { label: "Observational", count: 2100, type: "observational" },
-                    { label: "RCTs", count: 890, type: "rct" },
-                    { label: "Meta-Analyses", count: 340, type: "meta-analysis" },
-                  ]}
+                <p className="text-xs text-muted-foreground mb-6">
+                  Distribution of curated studies by publication year
+                </p>
+                <TimelineDots 
+                  years={allStudies.map(s => parseInt(s.year, 10)).filter(y => !isNaN(y))} 
+                  className="h-16"
                 />
+                <div className="mt-4 flex items-center justify-center gap-6 text-xs text-muted-foreground">
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 rounded-full bg-primary" />
+                    <span>Publication</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-4 h-4 rounded-full bg-primary opacity-50" />
+                    <span>Higher density = larger dot</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Evidence Tier Legend */}
+              <div className="bg-muted/30 border border-border rounded-xl p-6">
+                <h3 className="font-semibold text-foreground mb-4">Evidence Level Guide</h3>
+                <div className="grid sm:grid-cols-3 gap-4">
+                  <div className="flex items-start gap-3 p-3 rounded-lg bg-card border border-border">
+                    <EvidenceTierIcon level="high" size="lg" />
+                    <div>
+                      <p className="font-medium text-sm text-foreground">Strong Evidence</p>
+                      <p className="text-xs text-muted-foreground">
+                        Systematic reviews, meta-analyses, and high-quality RCTs
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3 p-3 rounded-lg bg-card border border-border">
+                    <EvidenceTierIcon level="moderate" size="lg" />
+                    <div>
+                      <p className="font-medium text-sm text-foreground">Moderate Evidence</p>
+                      <p className="text-xs text-muted-foreground">
+                        Cohort studies, observational research with consistent results
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3 p-3 rounded-lg bg-card border border-border">
+                    <EvidenceTierIcon level="preliminary" size="lg" />
+                    <div>
+                      <p className="font-medium text-sm text-foreground">Preliminary</p>
+                      <p className="text-xs text-muted-foreground">
+                        In vitro, animal studies, case reports requiring further research
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
 
               {/* Filters */}
