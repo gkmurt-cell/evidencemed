@@ -331,39 +331,34 @@ function AffiliateDisclosureBanner() {
 
 function BookCard({ book }: { book: Book }) {
   return (
-    <article className="group bg-card rounded-xl border border-border overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-      <div className="aspect-[3/4] bg-muted/30 relative overflow-hidden">
-        <img 
-          src={book.image} 
-          alt={book.title}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-        />
-        <Badge className="absolute top-3 left-3 bg-amber-500/90 hover:bg-amber-500">
-          {book.category}
-        </Badge>
-      </div>
-      <div className="p-4">
-        <h3 className="font-heading font-semibold text-foreground mb-1 group-hover:text-primary transition-colors line-clamp-2">
-          {book.title}
-        </h3>
-        <p className="text-sm text-muted-foreground mb-2">{book.author}</p>
-        <p className="text-xs text-muted-foreground mb-3 line-clamp-2">
-          {book.description}
-        </p>
-        {book.researchReference && (
-          <p className="text-xs text-primary/80 bg-primary/5 px-2 py-1 rounded mb-3">
-            📚 {book.researchReference}
-          </p>
-        )}
-        <div className="flex items-center justify-between">
-          <span className="text-lg font-bold text-primary">{book.price}</span>
+    <article className="group bg-card rounded-lg border border-border p-4 hover:border-primary/30 transition-colors">
+      <div className="flex gap-4">
+        {/* Small thumbnail - reference style */}
+        <div className="w-16 h-20 bg-muted/50 rounded flex-shrink-0 overflow-hidden">
+          <img 
+            src={book.image} 
+            alt={book.title}
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="flex-1 min-w-0">
+          <p className="text-xs text-muted-foreground mb-1">{book.category}</p>
+          <h3 className="font-serif font-medium text-foreground text-sm leading-tight mb-1 line-clamp-2">
+            {book.title}
+          </h3>
+          <p className="text-xs text-muted-foreground mb-2">{book.author}</p>
+          {book.researchReference && (
+            <p className="text-xs text-primary/70 mb-2">
+              {book.researchReference}
+            </p>
+          )}
           <a
             href={book.affiliateUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline"
+            className="inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-primary transition-colors"
           >
-            <span>View on Amazon</span>
+            <span>Publisher link</span>
             <ExternalLink className="h-3 w-3" />
           </a>
         </div>
@@ -374,37 +369,39 @@ function BookCard({ book }: { book: Book }) {
 
 function SupplementCard({ supplement }: { supplement: Supplement }) {
   return (
-    <article className="group bg-card rounded-xl border border-border overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-      <div className="aspect-square bg-gradient-to-br from-green-50 to-emerald-100 dark:from-green-950/30 dark:to-emerald-900/30 p-6 relative overflow-hidden flex items-center justify-center">
-        <Leaf className="h-16 w-16 text-green-500/50" />
-        <Badge className="absolute top-3 left-3 bg-emerald-500/90 hover:bg-emerald-500">
-          {supplement.type}
-        </Badge>
-        <Badge variant="outline" className="absolute top-3 right-3">
-          {supplement.category}
-        </Badge>
-      </div>
-      <div className="p-4">
-        <h3 className="font-heading font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
-          {supplement.name}
-        </h3>
-        <p className="text-sm text-muted-foreground mb-3 line-clamp-2">
-          {supplement.description}
-        </p>
-        {supplement.researchReference && (
-          <p className="text-xs text-primary/80 bg-primary/5 px-2 py-1 rounded mb-3">
-            🔬 {supplement.researchReference}
+    <article className="group bg-card rounded-lg border border-border p-4 hover:border-primary/30 transition-colors">
+      <div className="flex items-start gap-3">
+        {/* Simple icon instead of product image */}
+        <div className="w-10 h-10 rounded bg-muted/50 flex items-center justify-center flex-shrink-0">
+          <Leaf className="h-5 w-5 text-muted-foreground" />
+        </div>
+        <div className="flex-1 min-w-0">
+          <div className="flex items-center gap-2 mb-1">
+            <span className="text-xs text-muted-foreground">{supplement.type}</span>
+            <span className="text-xs text-muted-foreground">•</span>
+            <span className="text-xs text-muted-foreground">{supplement.category}</span>
+          </div>
+          <h3 className="font-serif font-medium text-foreground text-sm leading-tight mb-1">
+            {supplement.name}
+          </h3>
+          <p className="text-xs text-muted-foreground mb-2 line-clamp-2">
+            {supplement.description}
           </p>
-        )}
-        <a
-          href={supplement.affiliateUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline"
-        >
-          <span>Shop Options</span>
-          <ExternalLink className="h-3 w-3" />
-        </a>
+          {supplement.researchReference && (
+            <p className="text-xs text-primary/70 mb-2">
+              {supplement.researchReference}
+            </p>
+          )}
+          <a
+            href={supplement.affiliateUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-primary transition-colors"
+          >
+            <span>Reference sources</span>
+            <ExternalLink className="h-3 w-3" />
+          </a>
+        </div>
       </div>
     </article>
   );
@@ -504,34 +501,32 @@ export default function Merch() {
   return (
     <>
       <Helmet>
-        <title>Shop & Resources | EvidenceMed</title>
-        <meta name="description" content="Educational books, supplements, and expert video content. Research-focused resources with full affiliate disclosure. Educational purposes only - not medical advice." />
+        <title>Reference Library | EvidenceMed</title>
+        <meta name="description" content="Curated reference materials including peer-reviewed books, researched compounds, and educational lectures. Bibliography-style resources for further reading." />
       </Helmet>
 
       <div className="min-h-screen bg-background flex flex-col">
         <Navbar />
         
         <main className="flex-1 pt-16 lg:pt-20">
-          {/* Hero Section */}
-          <section className="bg-gradient-to-br from-primary/10 via-accent/10 to-secondary/20 py-16">
-            <div className="container mx-auto px-4 text-center">
-              <div className="flex items-center justify-center gap-3 mb-4">
-                <BookOpen className="h-8 w-8 text-primary" />
-                <Pill className="h-8 w-8 text-primary" />
-                <Video className="h-8 w-8 text-primary" />
+          {/* Header - Bibliography style, not storefront */}
+          <section className="py-12 border-b border-border">
+            <div className="container mx-auto px-4">
+              <div className="max-w-3xl">
+                <h1 className="font-serif text-3xl md:text-4xl font-semibold text-foreground mb-4">
+                  Reference Library
+                </h1>
+                <p className="text-muted-foreground leading-relaxed">
+                  Curated materials for further reading and research. Books, compounds, and educational 
+                  lectures referenced in our content or relevant to integrative health research. 
+                  Resources are listed for informational purposes.
+                </p>
               </div>
-              <h1 className="font-heading text-4xl md:text-5xl font-bold text-foreground mb-4">
-                Shop & Resources
-              </h1>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Curated educational resources including research-focused books, quality supplements, 
-                and expert content. Clearly separated from our research content.
-              </p>
             </div>
           </section>
 
-          {/* Affiliate Disclosure Banner */}
-          <section className="py-6 bg-card/50 border-b border-border">
+          {/* Affiliate Disclosure - Understated */}
+          <section className="py-4 bg-muted/30 border-b border-border">
             <div className="container mx-auto px-4">
               <AffiliateDisclosureBanner />
             </div>
@@ -579,53 +574,59 @@ export default function Merch() {
                 <TabsContent value="all" className="space-y-12">
                   {/* Books Section */}
                   <div>
-                    <div className="flex items-center gap-2 mb-6">
-                      <BookOpen className="h-6 w-6 text-amber-500" />
-                      <h2 className="font-heading text-2xl font-bold text-foreground">Books</h2>
-                      <Badge variant="outline" className="ml-2">Research-Focused</Badge>
+                    <div className="flex items-center gap-2 mb-2">
+                      <BookOpen className="h-5 w-5 text-muted-foreground" />
+                      <h2 className="font-serif text-xl font-medium text-foreground">Published Works</h2>
                     </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    <p className="text-sm text-muted-foreground mb-6">
+                      Books cited in our research or relevant to integrative health topics
+                    </p>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                       {books.map((book) => (
                         <BookCard key={book.id} book={book} />
                       ))}
                     </div>
                   </div>
 
-                  {/* Supplements Section */}
+                  {/* Compounds Section */}
                   <div>
-                    <div className="flex items-center gap-2 mb-6">
-                      <Leaf className="h-6 w-6 text-emerald-500" />
-                      <h2 className="font-heading text-2xl font-bold text-foreground">Supplements & Botanicals</h2>
-                      <Badge variant="outline" className="ml-2">Functional Mushrooms & Herbs</Badge>
+                    <div className="flex items-center gap-2 mb-2">
+                      <Leaf className="h-5 w-5 text-muted-foreground" />
+                      <h2 className="font-serif text-xl font-medium text-foreground">Researched Compounds</h2>
                     </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    <p className="text-sm text-muted-foreground mb-6">
+                      Substances with documented research referenced in our database
+                    </p>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                       {supplements.map((supplement) => (
                         <SupplementCard key={supplement.id} supplement={supplement} />
                       ))}
                     </div>
                   </div>
 
-                  {/* Videos Section */}
+                  {/* Lectures Section */}
                   <div>
-                    <div className="flex items-center gap-2 mb-6">
-                      <Video className="h-6 w-6 text-red-500" />
-                      <h2 className="font-heading text-2xl font-bold text-foreground">Videos & Expert Content</h2>
-                      <Badge variant="outline" className="ml-2">Webinars & Talks</Badge>
+                    <div className="flex items-center gap-2 mb-2">
+                      <Video className="h-5 w-5 text-muted-foreground" />
+                      <h2 className="font-serif text-xl font-medium text-foreground">Educational Lectures</h2>
                     </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <p className="text-sm text-muted-foreground mb-6">
+                      Recorded presentations and talks from researchers and clinicians
+                    </p>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                       {displayedVideos.map((video) => (
                         <VideoCard key={video.id} video={video} />
                       ))}
                     </div>
                     {hasMoreVideos && (
-                      <div className="flex justify-center mt-8">
+                      <div className="flex justify-center mt-6">
                         <Button 
-                          variant="outline" 
+                          variant="ghost" 
                           onClick={loadMoreVideos}
-                          className="rounded-full px-6"
+                          className="text-muted-foreground hover:text-foreground"
                         >
                           <ChevronDown className="h-4 w-4 mr-2" />
-                          Load More Videos ({videoContent.length - visibleVideos} remaining)
+                          Show more ({videoContent.length - visibleVideos} additional)
                         </Button>
                       </div>
                     )}
@@ -634,13 +635,12 @@ export default function Merch() {
 
                 {/* Books Tab */}
                 <TabsContent value="books">
-                  <div className="flex items-center gap-2 mb-6">
-                    <BookOpen className="h-6 w-6 text-amber-500" />
-                    <h2 className="font-heading text-2xl font-bold text-foreground">Books</h2>
-                    <Badge variant="outline" className="ml-2">Research-Focused Titles</Badge>
+                  <div className="mb-6">
+                    <h2 className="font-serif text-xl font-medium text-foreground mb-1">Published Works</h2>
+                    <p className="text-sm text-muted-foreground">Books cited in our research or relevant to integrative health topics</p>
                   </div>
                   {books.length > 0 ? (
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                       {books.map((book) => (
                         <BookCard key={book.id} book={book} />
                       ))}
@@ -650,53 +650,51 @@ export default function Merch() {
                   )}
                 </TabsContent>
 
-                {/* Supplements Tab */}
+                {/* Compounds Tab */}
                 <TabsContent value="supplements">
-                  <div className="flex items-center gap-2 mb-6">
-                    <Leaf className="h-6 w-6 text-emerald-500" />
-                    <h2 className="font-heading text-2xl font-bold text-foreground">Supplements & Botanicals</h2>
-                    <Badge variant="outline" className="ml-2">Functional Mushrooms, Herbs & Nutraceuticals</Badge>
+                  <div className="mb-6">
+                    <h2 className="font-serif text-xl font-medium text-foreground mb-1">Researched Compounds</h2>
+                    <p className="text-sm text-muted-foreground">Substances with documented research referenced in our database</p>
                   </div>
                   {supplements.length > 0 ? (
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                       {supplements.map((supplement) => (
                         <SupplementCard key={supplement.id} supplement={supplement} />
                       ))}
                     </div>
                   ) : (
-                    <EmptyState category="supplements" />
+                    <EmptyState category="compounds" />
                   )}
                 </TabsContent>
 
-                {/* Videos Tab */}
+                {/* Lectures Tab */}
                 <TabsContent value="videos">
-                  <div className="flex items-center gap-2 mb-6">
-                    <Video className="h-6 w-6 text-red-500" />
-                    <h2 className="font-heading text-2xl font-bold text-foreground">Videos & Expert Content</h2>
-                    <Badge variant="outline" className="ml-2">Webinars & Partner Content</Badge>
+                  <div className="mb-6">
+                    <h2 className="font-serif text-xl font-medium text-foreground mb-1">Educational Lectures</h2>
+                    <p className="text-sm text-muted-foreground">Recorded presentations and talks from researchers and clinicians</p>
                   </div>
                   {videoContent.length > 0 ? (
                     <>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                         {displayedVideos.map((video) => (
                           <VideoCard key={video.id} video={video} />
                         ))}
                       </div>
                       {hasMoreVideos && (
-                        <div className="flex justify-center mt-8">
+                        <div className="flex justify-center mt-6">
                           <Button 
-                            variant="outline" 
+                            variant="ghost" 
                             onClick={loadMoreVideos}
-                            className="rounded-full px-6"
+                            className="text-muted-foreground hover:text-foreground"
                           >
                             <ChevronDown className="h-4 w-4 mr-2" />
-                            Load More Videos ({videoContent.length - visibleVideos} remaining)
+                            Show more ({videoContent.length - visibleVideos} additional)
                           </Button>
                         </div>
                       )}
                     </>
                   ) : (
-                    <EmptyState category="videos" />
+                    <EmptyState category="lectures" />
                   )}
                 </TabsContent>
               </Tabs>
