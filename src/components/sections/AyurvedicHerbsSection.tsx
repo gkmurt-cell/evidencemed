@@ -54,7 +54,7 @@ const ayurvedicHerbs = [
   {
     id: "guduchi",
     name: "Guduchi",
-    altName: "Giloy / Amrita",
+    altName: "Giloy / Tinospora cordifolia",
     icon: "🌿",
     studies: 210,
     keyBenefit: "Immunity",
