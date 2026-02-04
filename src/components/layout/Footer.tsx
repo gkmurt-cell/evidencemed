@@ -24,7 +24,7 @@ const Footer = () => {
     ],
     legal: [
       { name: "Medical Disclaimer", href: "#disclaimer" },
-      { name: "Privacy Policy", href: "#", disabled: true },
+      { name: "Privacy Policy", href: "/privacy-policy", isLink: true },
       { name: "Terms of Service", href: "#", disabled: true },
     ],
   };
