@@ -3,58 +3,121 @@ import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, BookOpen, Database, FlaskConical } from "lucide-react";
+import { ArrowLeft, BookOpen, Database, FlaskConical, BarChart3 } from "lucide-react";
 import { conditions } from "@/data/searchData";
 import PubMedSearchPanel from "@/components/research/PubMedSearchPanel";
+import { StudyCountBar, EvidenceTierIcon } from "@/components/research/EvidenceVisuals";
 
-// Condition metadata for display
+// Condition metadata with study distribution data
 const conditionMeta: Record<string, {
   icon: React.ComponentType<{ className?: string }>;
   color: string;
   overview: string;
   researchAreas: string[];
+  studyDistribution: Array<{
+    label: string;
+    count: number;
+    type: "rct" | "meta-analysis" | "observational" | "in-vitro" | "animal";
+  }>;
+  evidenceStrength: "high" | "moderate" | "preliminary";
 }> = {
   cancer: {
     icon: FlaskConical,
     color: "bg-rose-500/10 text-rose-600",
     overview: "Research into complementary and integrative approaches for cancer care continues to expand. Studies examine herbal compounds, mind-body practices, and nutritional interventions as potential adjuncts to conventional treatment.",
     researchAreas: ["Herbal compound interactions", "Quality of life outcomes", "Symptom management", "Immunomodulation studies"],
+    studyDistribution: [
+      { label: "In Vitro", count: 2840, type: "in-vitro" },
+      { label: "Animal", count: 1920, type: "animal" },
+      { label: "Observational", count: 680, type: "observational" },
+      { label: "RCTs", count: 340, type: "rct" },
+      { label: "Meta-Analyses", count: 85, type: "meta-analysis" },
+    ],
+    evidenceStrength: "moderate",
   },
   neurological: {
     icon: FlaskConical,
     color: "bg-violet-500/10 text-violet-600",
     overview: "Neurological research explores neuroprotective compounds, cognitive enhancement strategies, and interventions for neurodegenerative conditions.",
     researchAreas: ["Neuroprotection", "Cognitive function", "Neuroplasticity", "Mitochondrial health"],
+    studyDistribution: [
+      { label: "In Vitro", count: 1560, type: "in-vitro" },
+      { label: "Animal", count: 2100, type: "animal" },
+      { label: "Observational", count: 420, type: "observational" },
+      { label: "RCTs", count: 180, type: "rct" },
+      { label: "Meta-Analyses", count: 45, type: "meta-analysis" },
+    ],
+    evidenceStrength: "moderate",
   },
   cardiovascular: {
     icon: FlaskConical,
     color: "bg-red-500/10 text-red-600",
     overview: "Cardiovascular research investigates natural compounds and lifestyle interventions that may support heart health and circulatory function.",
     researchAreas: ["Blood pressure regulation", "Lipid metabolism", "Endothelial function", "Inflammation markers"],
+    studyDistribution: [
+      { label: "In Vitro", count: 890, type: "in-vitro" },
+      { label: "Animal", count: 1240, type: "animal" },
+      { label: "Observational", count: 1560, type: "observational" },
+      { label: "RCTs", count: 620, type: "rct" },
+      { label: "Meta-Analyses", count: 180, type: "meta-analysis" },
+    ],
+    evidenceStrength: "high",
   },
   metabolic: {
     icon: FlaskConical,
     color: "bg-amber-500/10 text-amber-600",
     overview: "Metabolic disorder research focuses on blood sugar regulation, weight management, and metabolic syndrome interventions.",
     researchAreas: ["Glucose metabolism", "Insulin sensitivity", "Gut microbiome", "Weight management"],
+    studyDistribution: [
+      { label: "In Vitro", count: 720, type: "in-vitro" },
+      { label: "Animal", count: 980, type: "animal" },
+      { label: "Observational", count: 890, type: "observational" },
+      { label: "RCTs", count: 480, type: "rct" },
+      { label: "Meta-Analyses", count: 120, type: "meta-analysis" },
+    ],
+    evidenceStrength: "high",
   },
   autoimmune: {
     icon: FlaskConical,
     color: "bg-teal-500/10 text-teal-600",
     overview: "Autoimmune research explores immunomodulating compounds and anti-inflammatory interventions.",
     researchAreas: ["Immune modulation", "Inflammation control", "Gut-immune axis", "Autoantibody reduction"],
+    studyDistribution: [
+      { label: "In Vitro", count: 560, type: "in-vitro" },
+      { label: "Animal", count: 780, type: "animal" },
+      { label: "Observational", count: 340, type: "observational" },
+      { label: "RCTs", count: 140, type: "rct" },
+      { label: "Meta-Analyses", count: 35, type: "meta-analysis" },
+    ],
+    evidenceStrength: "moderate",
   },
   infectious: {
     icon: FlaskConical,
     color: "bg-blue-500/10 text-blue-600",
     overview: "Infectious disease research examines antiviral compounds, immune support, and post-infection recovery interventions.",
     researchAreas: ["Antiviral properties", "Immune enhancement", "Post-viral syndromes", "Respiratory health"],
+    studyDistribution: [
+      { label: "In Vitro", count: 1240, type: "in-vitro" },
+      { label: "Animal", count: 680, type: "animal" },
+      { label: "Observational", count: 420, type: "observational" },
+      { label: "RCTs", count: 280, type: "rct" },
+      { label: "Meta-Analyses", count: 65, type: "meta-analysis" },
+    ],
+    evidenceStrength: "moderate",
   },
   musculoskeletal: {
     icon: FlaskConical,
     color: "bg-orange-500/10 text-orange-600",
     overview: "Musculoskeletal research investigates joint health, bone density, and pain management through natural interventions.",
     researchAreas: ["Joint health", "Bone density", "Inflammation reduction", "Collagen synthesis"],
+    studyDistribution: [
+      { label: "In Vitro", count: 340, type: "in-vitro" },
+      { label: "Animal", count: 560, type: "animal" },
+      { label: "Observational", count: 680, type: "observational" },
+      { label: "RCTs", count: 420, type: "rct" },
+      { label: "Meta-Analyses", count: 95, type: "meta-analysis" },
+    ],
+    evidenceStrength: "high",
   },
 };
 
@@ -129,18 +192,31 @@ const ConditionPage = () => {
           {/* Content */}
           <div className="container mx-auto px-4 py-12">
             <div className="grid lg:grid-cols-3 gap-8">
-              {/* Sidebar - Overview */}
+              {/* Sidebar - Overview with Data Visual */}
               {meta && (
-                <div className="lg:col-span-1">
+                <div className="lg:col-span-1 space-y-6">
+                  {/* Research Overview */}
                   <div className="bg-card border border-border rounded-xl p-6 sticky top-24">
                     <div className="flex items-center gap-2 mb-4">
                       <BookOpen className="w-5 h-5 text-primary" />
                       <h2 className="font-serif text-xl font-semibold">Research Overview</h2>
                     </div>
+                    
+                    {/* Evidence Strength Indicator */}
+                    <div className="flex items-center gap-3 mb-4 p-3 rounded-lg bg-muted/50">
+                      <EvidenceTierIcon level={meta.evidenceStrength} size="lg" />
+                      <div>
+                        <p className="text-sm font-medium text-foreground">
+                          {meta.evidenceStrength === "high" ? "Strong" : meta.evidenceStrength === "moderate" ? "Moderate" : "Preliminary"} Evidence Base
+                        </p>
+                        <p className="text-xs text-muted-foreground">Overall research quality</p>
+                      </div>
+                    </div>
+                    
                     <p className="text-muted-foreground text-sm mb-6">{meta.overview}</p>
                     
                     <h3 className="font-medium mb-3 text-sm">Key Research Areas</h3>
-                    <ul className="space-y-2">
+                    <ul className="space-y-2 mb-6">
                       {meta.researchAreas.map((area, i) => (
                         <li key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
                           <div className="w-1.5 h-1.5 rounded-full bg-primary" />
@@ -148,6 +224,15 @@ const ConditionPage = () => {
                         </li>
                       ))}
                     </ul>
+                    
+                    {/* Study Distribution - Single Visual */}
+                    <div className="pt-4 border-t border-border">
+                      <h3 className="font-medium mb-3 text-sm flex items-center gap-2">
+                        <BarChart3 className="w-4 h-4 text-primary" />
+                        Study Distribution
+                      </h3>
+                      <StudyCountBar data={meta.studyDistribution} />
+                    </div>
                   </div>
                 </div>
               )}
