@@ -21,6 +21,7 @@ const Footer = () => {
     ],
     company: [
       { name: "About Us", href: "/about", isLink: true },
+      { name: "Editorial Methodology", href: "/editorial-methodology", isLink: true },
       { name: "Contact", href: "#" },
       { name: "Careers", href: "#" },
       { name: "Press", href: "#" },
