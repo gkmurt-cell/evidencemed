@@ -413,25 +413,53 @@ function SupplementCard({ supplement }: { supplement: Supplement }) {
 function VideoCard({ video }: { video: VideoContent }) {
   return (
     <article className="group bg-card rounded-xl border border-border overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-      <div className="aspect-video bg-gradient-to-br from-red-50 to-rose-100 dark:from-red-950/30 dark:to-rose-900/30 relative overflow-hidden flex items-center justify-center">
-        <div className="w-16 h-16 rounded-full bg-red-500/10 flex items-center justify-center group-hover:scale-110 transition-transform">
-          <Play className="h-8 w-8 text-red-500" />
+      {/* Lecture-style thumbnail: neutral academic aesthetic */}
+      <div className="aspect-video bg-slate-800 relative overflow-hidden">
+        {/* Podium/presentation visual */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center">
+          {/* Abstract slide/presentation element */}
+          <div className="w-3/4 h-2/3 bg-slate-700/80 rounded-sm border border-slate-600 flex items-center justify-center mb-2">
+            <div className="text-center px-4">
+              <div className="w-12 h-0.5 bg-slate-500 mx-auto mb-2" />
+              <div className="w-16 h-0.5 bg-slate-500 mx-auto mb-2" />
+              <div className="w-10 h-0.5 bg-slate-500 mx-auto" />
+            </div>
+          </div>
+          {/* Podium indicator */}
+          <div className="w-8 h-1 bg-slate-600 rounded-full" />
         </div>
-        <Badge className={`absolute top-3 left-3 ${video.type === 'paid' ? 'bg-purple-500/90 hover:bg-purple-500' : 'bg-green-500/90 hover:bg-green-500'}`}>
+        {/* Play overlay */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center group-hover:bg-white/20 transition-colors border border-white/20">
+            <Play className="h-5 w-5 text-white ml-0.5" />
+          </div>
+        </div>
+        {/* Badges */}
+        <Badge className={`absolute top-3 left-3 ${video.type === 'paid' ? 'bg-slate-600 hover:bg-slate-500' : 'bg-emerald-600/90 hover:bg-emerald-600'}`}>
           {video.type === 'paid' ? 'Premium' : 'Free'}
         </Badge>
         {video.duration && (
-          <Badge variant="outline" className="absolute top-3 right-3 bg-background/80">
+          <Badge variant="outline" className="absolute top-3 right-3 bg-slate-900/80 text-slate-200 border-slate-600">
             {video.duration}
           </Badge>
         )}
+        {/* Speaker indicator - neutral talking head style */}
+        <div className="absolute bottom-3 left-3 flex items-center gap-2">
+          <div className="w-6 h-6 rounded-full bg-slate-600 flex items-center justify-center">
+            <span className="text-xs text-slate-300 font-medium">
+              {video.speaker.split(' ').map(n => n[0]).join('').slice(0, 2)}
+            </span>
+          </div>
+          <span className="text-xs text-slate-300 font-medium truncate max-w-[120px]">
+            {video.speaker}
+          </span>
+        </div>
       </div>
       <div className="p-4">
-        <p className="text-xs text-muted-foreground mb-1">{video.category}</p>
-        <h3 className="font-heading font-semibold text-foreground mb-1 group-hover:text-primary transition-colors line-clamp-2">
+        <p className="text-xs text-muted-foreground mb-1 font-medium">{video.category}</p>
+        <h3 className="font-heading font-semibold text-foreground mb-2 group-hover:text-primary transition-colors line-clamp-2">
           {video.title}
         </h3>
-        <p className="text-sm text-muted-foreground mb-2">{video.speaker}</p>
         <p className="text-xs text-muted-foreground mb-3 line-clamp-2">
           {video.description}
         </p>
@@ -441,7 +469,7 @@ function VideoCard({ video }: { video: VideoContent }) {
           rel="noopener noreferrer"
           className="inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline"
         >
-          <span>{video.type === 'paid' ? 'Get Access' : 'Watch Now'}</span>
+          <span>{video.type === 'paid' ? 'Get Access' : 'Watch Lecture'}</span>
           <ExternalLink className="h-3 w-3" />
         </a>
       </div>

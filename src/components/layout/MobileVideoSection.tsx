@@ -86,25 +86,43 @@ export function MobileVideoSection() {
               href={video.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-shrink-0 w-64 group bg-muted/30 rounded-xl p-4 hover:bg-muted/50 transition-colors"
+              className="flex-shrink-0 w-64 group bg-card border border-border rounded-xl overflow-hidden hover:border-primary/30 transition-colors"
             >
-              <div className="flex items-start gap-3 mb-3">
-                <div className="w-12 h-12 rounded-full bg-red-500/10 flex items-center justify-center flex-shrink-0">
-                  <Play className="h-5 w-5 text-red-500" />
+              {/* Lecture-style thumbnail */}
+              <div className="aspect-video bg-slate-800 relative">
+                {/* Abstract slide visual */}
+                <div className="absolute inset-0 flex flex-col items-center justify-center">
+                  <div className="w-3/4 h-2/3 bg-slate-700/80 rounded-sm border border-slate-600 flex items-center justify-center">
+                    <div className="text-center px-3">
+                      <div className="w-8 h-0.5 bg-slate-500 mx-auto mb-1.5" />
+                      <div className="w-10 h-0.5 bg-slate-500 mx-auto mb-1.5" />
+                      <div className="w-6 h-0.5 bg-slate-500 mx-auto" />
+                    </div>
+                  </div>
                 </div>
-                <div className="flex-1 min-w-0">
-                  <h3 className="text-sm font-medium text-foreground group-hover:text-primary transition-colors line-clamp-2">
-                    {video.title}
-                  </h3>
-                  <p className="text-xs text-muted-foreground mt-1">{video.speaker}</p>
+                {/* Play button */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center border border-white/20">
+                    <Play className="h-4 w-4 text-white ml-0.5" />
+                  </div>
+                </div>
+                {/* Speaker initials */}
+                <div className="absolute bottom-2 left-2 flex items-center gap-1.5">
+                  <div className="w-5 h-5 rounded-full bg-slate-600 flex items-center justify-center">
+                    <span className="text-[10px] text-slate-300 font-medium">
+                      {video.speaker.split(' ').map(n => n[0]).join('').slice(0, 2)}
+                    </span>
+                  </div>
                 </div>
               </div>
-              <span className={`inline-block text-xs font-medium text-white px-2 py-0.5 rounded ${getTopicColor(video.topic)}`}>
-                {video.topic}
-              </span>
-              <div className="flex items-center gap-1 mt-3 text-xs text-primary font-medium">
-                <ExternalLink className="h-3 w-3" />
-                <span>Watch Now</span>
+              <div className="p-3">
+                <h3 className="text-sm font-medium text-foreground group-hover:text-primary transition-colors line-clamp-2 mb-1">
+                  {video.title}
+                </h3>
+                <p className="text-xs text-muted-foreground mb-2">{video.speaker}</p>
+                <span className={`inline-block text-xs font-medium text-white px-2 py-0.5 rounded ${getTopicColor(video.topic)}`}>
+                  {video.topic}
+                </span>
               </div>
             </a>
           ))}
