@@ -22,6 +22,7 @@ import ConditionsPage from "./pages/Conditions";
 import Pricing from "./pages/Pricing";
 import EditorialMethodology from "./pages/EditorialMethodology";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfService from "./pages/TermsOfService";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -52,6 +53,7 @@ const App = () => (
               <Route path="/pricing" element={<Pricing />} />
               <Route path="/editorial-methodology" element={<EditorialMethodology />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="/terms-of-service" element={<TermsOfService />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>

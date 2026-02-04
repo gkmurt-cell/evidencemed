@@ -25,7 +25,7 @@ const Footer = () => {
     legal: [
       { name: "Medical Disclaimer", href: "#disclaimer" },
       { name: "Privacy Policy", href: "/privacy-policy", isLink: true },
-      { name: "Terms of Service", href: "#", disabled: true },
+      { name: "Terms of Service", href: "/terms-of-service", isLink: true },
     ],
   };
 
@@ -177,11 +177,7 @@ const Footer = () => {
             <ul className="space-y-3">
               {footerLinks.legal.map((link) => (
                 <li key={link.name}>
-                  {link.disabled ? (
-                    <span className="text-sm text-muted-foreground/50 cursor-not-allowed">
-                      {link.name} <span className="text-xs">(Coming Soon)</span>
-                    </span>
-                  ) : link.href === "#disclaimer" ? (
+                  {link.href === "#disclaimer" ? (
                     <a
                       href="#disclaimer"
                       onClick={(e) => {
@@ -192,6 +188,13 @@ const Footer = () => {
                     >
                       {link.name}
                     </a>
+                  ) : link.isLink ? (
+                    <Link
+                      to={link.href}
+                      className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      {link.name}
+                    </Link>
                   ) : (
                     <a
                       href={link.href}
