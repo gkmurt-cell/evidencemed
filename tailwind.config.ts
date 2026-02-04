@@ -14,8 +14,12 @@ export default {
     },
     extend: {
       fontFamily: {
-        serif: ['Lora', 'Georgia', 'serif'],
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        serif: ['Crimson Pro', 'Georgia', 'serif'],
+        sans: ['Source Sans 3', 'system-ui', 'sans-serif'],
+      },
+      spacing: {
+        'tight': '0.75rem',
+        'structured': '1.5rem',
       },
       colors: {
         border: "hsl(var(--border))",
