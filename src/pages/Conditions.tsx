@@ -15,6 +15,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { conditions } from "@/data/searchData";
+import conditionsHeroImage from "@/assets/conditions-hero-scientist.jpg";
 
 // Define condition categories based on tags
 const categoryDefinitions: { id: string; label: string; keywords: string[] }[] = [
@@ -143,17 +144,27 @@ const Conditions = () => {
 
       <main className="min-h-screen bg-background pt-20">
         {/* Hero Header */}
-        <section className="bg-gradient-to-b from-primary/5 to-background py-12 lg:py-16">
-          <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto text-center">
-              <Badge variant="outline" className="mb-4">
+        <section className="relative py-16 lg:py-24 overflow-hidden">
+          {/* Background Image */}
+          <div className="absolute inset-0 z-0">
+            <img
+              src={conditionsHeroImage}
+              alt="Scientist documenting research data"
+              className="w-full h-full object-cover object-center"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/85 to-background/70" />
+          </div>
+          
+          <div className="container mx-auto px-4 relative z-10">
+            <div className="max-w-2xl">
+              <Badge variant="outline" className="mb-4 bg-background/80 backdrop-blur-sm">
                 <BookOpen className="w-3 h-3 mr-1" />
                 Research Library
               </Badge>
-              <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground mb-4">
+              <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground mb-4 drop-shadow-sm">
                 Health Conditions Library
               </h1>
-              <p className="text-lg text-muted-foreground">
+              <p className="text-lg text-muted-foreground max-w-xl">
                 Explore evidence-based research for{" "}
                 <span className="text-primary font-semibold">{conditions.filter(c => c.category === "condition").length}+</span>{" "}
                 health conditions. Find integrative therapy studies, natural compounds, and clinical research.
