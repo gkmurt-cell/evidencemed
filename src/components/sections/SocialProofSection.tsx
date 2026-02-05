@@ -18,16 +18,46 @@ interface SocialReel {
 const socialReels: SocialReel[] = [
   {
     id: "1",
-    title: "NMN and Aging Research",
-    brand: "ProHealth Longevity",
-    claim: "NMN increases NAD+ levels and reverses aging markers",
+    title: "High-Dose Vitamin D Studies",
+    brand: "Dr. John Campbell",
+    claim: "5,000-10,000 IU vitamin D daily may be beneficial for deficiency correction",
     platform: "youtube",
     researchVerdict: "supported",
-    researchSummary: "Multiple human trials indicate NMN supplementation is associated with increased NAD+ levels. A 2022 Cell study observed associations with muscle function measures in older adults.",
-    url: "#"
+    researchSummary: "Studies on hospitalized patients using 5,000-50,000 IU daily show improved outcomes. A 2023 systematic review supports higher doses for deficiency correction under medical supervision.",
+    url: "https://www.youtube.com/@Campbellteaching"
   },
   {
     id: "2",
+    title: "Ivermectin and Cancer Research",
+    brand: "Dr. John Campbell",
+    claim: "Ivermectin shows anti-cancer properties in preclinical studies",
+    platform: "youtube",
+    researchVerdict: "mixed",
+    researchSummary: "Laboratory and animal studies show ivermectin inhibits cancer cell proliferation. Human clinical trials are limited. Not approved for cancer treatment; requires more research.",
+    url: "https://www.youtube.com/@Campbellteaching"
+  },
+  {
+    id: "3",
+    title: "Nattokinase Cardiovascular Effects",
+    brand: "Dr. John Campbell",
+    claim: "Nattokinase enzyme may support cardiovascular health and fibrinolysis",
+    platform: "youtube",
+    researchVerdict: "supported",
+    researchSummary: "Japanese studies show nattokinase has fibrinolytic activity. A 2022 study showed blood pressure benefits. Research on clot prevention is promising but ongoing.",
+    url: "https://www.youtube.com/@Campbellteaching"
+  },
+  {
+    id: "4",
+    title: "Vitamin D and Immune Function",
+    brand: "Dr. John Campbell",
+    claim: "Adequate vitamin D levels support immune system function",
+    platform: "youtube",
+    researchVerdict: "supported",
+    researchSummary: "Multiple meta-analyses confirm vitamin D's role in immune regulation. Deficiency is associated with increased respiratory infection risk. Supplementation shows protective effects.",
+    url: "https://www.youtube.com/@Campbellteaching"
+  },
+  {
+    id: "5",
     title: "Lion's Mane Cognitive Research",
     brand: "Real Mushrooms",
     claim: "Improves memory and cognitive function",
@@ -37,7 +67,7 @@ const socialReels: SocialReel[] = [
     url: "#"
   },
   {
-    id: "3",
+    id: "6",
     title: "Berberine Metabolic Claims",
     brand: "Various Creators",
     claim: "Works as well as prescription diabetes medications",
@@ -46,51 +76,51 @@ const socialReels: SocialReel[] = [
     researchSummary: "While studies suggest berberine may influence glucose metabolism, comparisons to prescription medications are not supported by current evidence. Different mechanisms are involved.",
     url: "#"
   },
-  {
-    id: "4",
-    title: "Ashwagandha Stress Studies",
-    brand: "NOW Foods",
-    claim: "Reduces cortisol and improves sleep quality",
-    platform: "instagram",
-    researchVerdict: "supported",
-    researchSummary: "A 2019 randomized controlled trial observed associations between 600mg daily supplementation and cortisol levels, as well as self-reported sleep quality measures.",
-    url: "#"
-  },
-  {
-    id: "5",
-    title: "Methylene Blue Research",
-    brand: "Biohacker Community",
-    claim: "Enhances mitochondrial function and focus",
-    platform: "youtube",
-    researchVerdict: "mixed",
-    researchSummary: "Preclinical research suggests mitochondrial pathway involvement at low doses. Human data on cognitive applications and long-term safety remains limited.",
-    url: "#"
-  },
-  {
-    id: "6",
-    title: "Carbon 60 Claims Review",
-    brand: "C60 Purple Power",
-    claim: "Extends lifespan and neutralizes free radicals",
-    platform: "instagram",
-    researchVerdict: "unverified",
-    researchSummary: "The 2012 rodent study had methodological limitations. Human evidence is lacking. Antioxidant properties have been observed in vitro, but lifespan claims lack human data.",
-    url: "#"
-  },
 ];
 
 const additionalReels: SocialReel[] = [
   {
     id: "7",
-    title: "Shilajit Energy Claims",
-    brand: "PurBlack",
-    claim: "Boosts testosterone and increases energy naturally",
+    title: "Fenbendazole Cancer Discussions",
+    brand: "Dr. John Campbell",
+    claim: "Fenbendazole shows anticancer effects in laboratory studies",
     platform: "youtube",
     researchVerdict: "mixed",
-    researchSummary: "A small 2016 study showed modest testosterone increases in healthy men. Energy claims are largely based on traditional use. More rigorous human trials are needed.",
-    url: "#"
+    researchSummary: "Preclinical studies show fenbendazole inhibits cancer cell growth. Anecdotal case reports exist but controlled human trials are lacking. Not approved for cancer treatment.",
+    url: "https://www.youtube.com/@Campbellteaching"
   },
   {
     id: "8",
+    title: "Excess Mortality Data Analysis",
+    brand: "Dr. John Campbell",
+    claim: "Post-pandemic excess deaths warrant investigation",
+    platform: "youtube",
+    researchVerdict: "supported",
+    researchSummary: "Official statistics from multiple countries show elevated excess mortality. Causes are multifactorial and debated. Peer-reviewed analyses confirm the statistical trend.",
+    url: "https://www.youtube.com/@Campbellteaching"
+  },
+  {
+    id: "9",
+    title: "Magnesium Deficiency Awareness",
+    brand: "Dr. John Campbell",
+    claim: "Widespread magnesium deficiency affects cardiovascular and metabolic health",
+    platform: "youtube",
+    researchVerdict: "supported",
+    researchSummary: "NHANES data suggests subclinical deficiency is common. Meta-analyses link adequate magnesium to reduced cardiovascular risk. Supplementation benefits those with low intake.",
+    url: "https://www.youtube.com/@Campbellteaching"
+  },
+  {
+    id: "10",
+    title: "Autophagy and Fasting Research",
+    brand: "Dr. John Campbell",
+    claim: "Intermittent fasting activates cellular autophagy mechanisms",
+    platform: "youtube",
+    researchVerdict: "supported",
+    researchSummary: "Nobel Prize-winning research confirms autophagy activation during fasting. Human studies show metabolic benefits. Optimal protocols vary by individual health status.",
+    url: "https://www.youtube.com/@Campbellteaching"
+  },
+  {
+    id: "11",
     title: "Sea Moss Thyroid Support",
     brand: "Transformation Factory",
     claim: "92 minerals that heal thyroid issues",
@@ -100,7 +130,7 @@ const additionalReels: SocialReel[] = [
     url: "#"
   },
   {
-    id: "9",
+    id: "12",
     title: "Turkesterone Muscle Claims",
     brand: "Gorilla Mind",
     claim: "Natural anabolic that builds muscle like steroids",
@@ -110,7 +140,7 @@ const additionalReels: SocialReel[] = [
     url: "#"
   },
   {
-    id: "10",
+    id: "13",
     title: "Apigenin Sleep Benefits",
     brand: "Huberman Lab Followers",
     claim: "Improves sleep quality and reduces anxiety",
@@ -120,7 +150,7 @@ const additionalReels: SocialReel[] = [
     url: "#"
   },
   {
-    id: "11",
+    id: "14",
     title: "Castor Oil Pack Detox",
     brand: "Wellness Influencers",
     claim: "Detoxifies liver and reduces inflammation",
@@ -130,17 +160,27 @@ const additionalReels: SocialReel[] = [
     url: "#"
   },
   {
-    id: "12",
-    title: "Magnesium Threonate Brain",
-    brand: "Life Extension",
-    claim: "Only form that crosses blood-brain barrier",
+    id: "15",
+    title: "Ashwagandha Stress Studies",
+    brand: "NOW Foods",
+    claim: "Reduces cortisol and improves sleep quality",
     platform: "instagram",
-    researchVerdict: "mixed",
-    researchSummary: "Animal studies show brain magnesium elevation. A 2016 human trial showed cognitive improvements in older adults. 'Only form' claim is misleading—other forms also affect brain.",
+    researchVerdict: "supported",
+    researchSummary: "A 2019 randomized controlled trial observed associations between 600mg daily supplementation and cortisol levels, as well as self-reported sleep quality measures.",
     url: "#"
   },
   {
-    id: "13",
+    id: "16",
+    title: "NMN and Aging Research",
+    brand: "ProHealth Longevity",
+    claim: "NMN increases NAD+ levels and reverses aging markers",
+    platform: "youtube",
+    researchVerdict: "supported",
+    researchSummary: "Multiple human trials indicate NMN supplementation is associated with increased NAD+ levels. A 2022 Cell study observed associations with muscle function measures in older adults.",
+    url: "#"
+  },
+  {
+    id: "17",
     title: "Beef Organs Superfood",
     brand: "Ancestral Supplements",
     claim: "Like nature's multivitamin—cures deficiencies",
@@ -150,7 +190,7 @@ const additionalReels: SocialReel[] = [
     url: "#"
   },
   {
-    id: "14",
+    id: "18",
     title: "Tongkat Ali Testosterone",
     brand: "Nootropics Depot",
     claim: "Doubles free testosterone naturally",
