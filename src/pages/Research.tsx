@@ -48,6 +48,7 @@ import {
   type EvidenceLevel,
   type Study,
 } from "@/data/researchData";
+import researchHeroImage from "@/assets/research-hero-library.jpg";
 
 const ITEMS_PER_PAGE = 10;
 
@@ -142,10 +143,20 @@ const Research = () => {
 
       <Navbar />
 
-      <main className="pt-20 lg:pt-24 pb-16 min-h-screen bg-background">
-        <div className="container mx-auto px-4">
-          {/* Header */}
-          <div className="mb-8">
+      <main className="pt-20 min-h-screen bg-background">
+        {/* Hero Section with Background */}
+        <section className="relative py-16 lg:py-24 overflow-hidden">
+          {/* Background Image */}
+          <div className="absolute inset-0 z-0">
+            <img
+              src={researchHeroImage}
+              alt="Researcher reviewing scientific literature"
+              className="w-full h-full object-cover object-center"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/85 to-background/70" />
+          </div>
+          
+          <div className="container mx-auto px-4 relative z-10">
             <Link
               to="/"
               className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-6"
@@ -154,14 +165,15 @@ const Research = () => {
               Back to Home
             </Link>
 
-            <div className="max-w-3xl">
-              <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+            <div className="max-w-2xl">
+              <Badge variant="outline" className="mb-4 bg-background/80 backdrop-blur-sm">
+                <BookOpen className="w-3 h-3 mr-1" />
                 Research Library
-              </span>
-              <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground mb-4">
+              </Badge>
+              <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground mb-4 drop-shadow-sm">
                 Peer-Reviewed Studies
               </h1>
-              <p className="text-lg text-muted-foreground mb-6">
+              <p className="text-lg text-muted-foreground mb-6 max-w-xl">
                 Every research entry includes study type, institution, journal, publication year,
                 and direct links to original sources. Filter by evidence level, study type, or
                 search for specific compounds.
@@ -170,6 +182,10 @@ const Research = () => {
               <EducationalDisclaimer />
             </div>
           </div>
+        </section>
+
+        {/* Main Content */}
+        <div className="container mx-auto px-4 py-8 lg:py-12">
 
           {/* Main Tabs */}
           <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
