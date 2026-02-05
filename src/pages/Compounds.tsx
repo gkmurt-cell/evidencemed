@@ -16,6 +16,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import EducationalDisclaimer from "@/components/layout/EducationalDisclaimer";
 import { compoundsData, type Compound } from "@/data/compoundData";
+import compoundsHeroImage from "@/assets/compounds-hero-pharmacognosy.jpg";
 
 const categories = [
   "All Categories",
@@ -105,10 +106,20 @@ const Compounds = () => {
 
       <Navbar />
 
-      <main className="pt-20 lg:pt-24 pb-16 min-h-screen bg-background">
-        <div className="container mx-auto px-4">
-          {/* Header */}
-          <div className="mb-8">
+      <main className="pt-20 min-h-screen bg-background">
+        {/* Hero Section with Background */}
+        <section className="relative py-16 lg:py-24 overflow-hidden">
+          {/* Background Image */}
+          <div className="absolute inset-0 z-0">
+            <img
+              src={compoundsHeroImage}
+              alt="Pharmacognosy research with mortar and pestle and botanical specimens"
+              className="w-full h-full object-cover object-center"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/85 to-background/70" />
+          </div>
+          
+          <div className="container mx-auto px-4 relative z-10">
             <Link
               to="/"
               className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-6"
@@ -117,15 +128,15 @@ const Compounds = () => {
               Back to Home
             </Link>
 
-            <div className="max-w-3xl">
-              <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
-                <Leaf className="w-4 h-4 inline mr-1" />
+            <div className="max-w-2xl">
+              <Badge variant="outline" className="mb-4 bg-background/80 backdrop-blur-sm">
+                <Leaf className="w-3 h-3 mr-1" />
                 {pageTitle || "Natural Compounds"}
-              </span>
-              <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground mb-4">
+              </Badge>
+              <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground mb-4 drop-shadow-sm">
                 {pageTitle || "Herbal & Functional Medicine Library"}
               </h1>
-              <p className="text-lg text-muted-foreground mb-6">
+              <p className="text-lg text-muted-foreground mb-6 max-w-xl">
                 {pageTitle 
                   ? `Research profiles for ${pageTitle.toLowerCase()}. Each entry includes mechanisms of action, research summaries, and safety considerations.`
                   : "Comprehensive research profiles for herbs, nutraceuticals, and functional compounds. Each entry includes traditional use context, mechanisms of action, research summaries, and safety considerations."
@@ -135,9 +146,12 @@ const Compounds = () => {
               <EducationalDisclaimer />
             </div>
           </div>
+        </section>
 
+        {/* Main Content */}
+        <div className="container mx-auto px-4 py-8 lg:py-12">
           {/* Filters */}
-          <div className="bg-card border border-border rounded-xl p-4 mb-8">
+          <div className="bg-card border border-border rounded-xl p-4 mb-6">
             <div className="flex flex-col sm:flex-row gap-4">
               {/* Search */}
               <div className="relative flex-1">
