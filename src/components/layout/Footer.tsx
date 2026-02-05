@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Leaf, Mail, Instagram, Facebook } from "lucide-react";
+import { Leaf, Mail, Instagram, Facebook, Twitter } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -10,22 +10,25 @@ const Footer = () => {
       { name: "Research Library", href: "/research", isLink: true },
       { name: "Natural Compounds", href: "/compounds", isLink: true },
       { name: "Integrative Therapies", href: "/integrative-therapies", isLink: true },
+      { name: "Ayurveda", href: "/ayurveda", isLink: true },
       { name: "Pricing", href: "/pricing", isLink: true },
     ],
     resources: [
       { name: "For Practitioners", href: "/pricing", isLink: true },
       { name: "For Institutions", href: "/pricing#institutional", isLink: true },
-      { name: "Shop / Merch", href: "/merch", isLink: true },
+      { name: "Reference Library", href: "/merch", isLink: true },
+      { name: "Search", href: "/search", isLink: true },
     ],
     company: [
       { name: "About Us", href: "/about", isLink: true },
       { name: "Editorial Methodology", href: "/editorial-methodology", isLink: true },
-      { name: "Contact", href: "mailto:contact@integrativeevidence.com" },
+      { name: "Contact", href: "mailto:contact@integrativeevidence.com", isLink: false },
     ],
     legal: [
       { name: "Medical Disclaimer", href: "#disclaimer" },
       { name: "Privacy Policy", href: "/privacy-policy", isLink: true },
       { name: "Terms of Service", href: "/terms-of-service", isLink: true },
+      { name: "Affiliate Disclosure", href: "/terms-of-service#affiliate", isLink: true },
     ],
   };
 
@@ -99,6 +102,15 @@ const Footer = () => {
               >
                 <Mail className="w-5 h-5" />
               </a>
+              <a
+                href="https://twitter.com/integrativeevid"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-secondary/80 transition-colors"
+                aria-label="Follow us on Twitter"
+              >
+                <Twitter className="w-5 h-5" />
+              </a>
             </div>
           </div>
 
@@ -134,12 +146,21 @@ const Footer = () => {
             <ul className="space-y-3">
               {footerLinks.resources.map((link) => (
                 <li key={link.name}>
-                  <a
-                    href={link.href}
-                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    {link.name}
-                  </a>
+                  {link.isLink ? (
+                    <Link
+                      to={link.href}
+                      className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      {link.name}
+                    </Link>
+                  ) : (
+                    <a
+                      href={link.href}
+                      className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      {link.name}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>
