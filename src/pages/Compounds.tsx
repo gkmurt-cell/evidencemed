@@ -110,11 +110,14 @@ const Compounds = () => {
         {/* Hero Section with Background */}
         <section className="relative py-16 lg:py-24 overflow-hidden">
           {/* Background Image */}
-          <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 z-0 bg-muted">
             <img
               src={compoundsHeroImage}
               alt="Pharmacognosy research with mortar and pestle and botanical specimens"
-              className="w-full h-full object-cover object-center"
+              className="w-full h-full object-cover object-center animate-fade-in"
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/85 to-background/70" />
           </div>
