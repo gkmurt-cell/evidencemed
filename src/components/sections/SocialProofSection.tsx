@@ -260,6 +260,26 @@ const additionalReels: SocialReel[] = [
     url: "#"
   },
   {
+    id: "25",
+    title: "Nicotine and Acetylcholine Receptors",
+    brand: "Dr. Bryan Ardis",
+    claim: "Nicotine may block spike protein binding to nicotinic receptors",
+    platform: "youtube",
+    researchVerdict: "mixed",
+    researchSummary: "PubMed studies confirm SARS-CoV-2 spike targets α7 nicotinic acetylcholine receptors (PMC10101490). Nicotine's therapeutic role is theoretical; human trials are limited.",
+    url: "#"
+  },
+  {
+    id: "26",
+    title: "Nicotine Patches for Long COVID",
+    brand: "Dr. Bryan Ardis",
+    claim: "Low-dose nicotine patches may help long COVID symptoms",
+    platform: "youtube",
+    researchVerdict: "mixed",
+    researchSummary: "A small case series reported symptom improvement with nicotine patches. The mechanism involves nicotinic receptor agonism. Larger controlled trials are needed to confirm efficacy.",
+    url: "#"
+  },
+  {
     id: "15",
     title: "Chlorophyll Water Detox",
     brand: "Sakara Life",
