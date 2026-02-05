@@ -200,6 +200,66 @@ const additionalReels: SocialReel[] = [
     url: "#"
   },
   {
+    id: "19",
+    title: "Integrative Oncology Protocols",
+    brand: "Dr. Paul Marik",
+    claim: "Repurposed drugs and supplements may enhance cancer treatment",
+    platform: "youtube",
+    researchVerdict: "mixed",
+    researchSummary: "Some repurposed drugs show anticancer activity in laboratory studies. Clinical evidence varies by compound. Should be used alongside, not instead of, conventional care.",
+    url: "#"
+  },
+  {
+    id: "20",
+    title: "Longevity and Zone 2 Training",
+    brand: "Dr. Peter Attia",
+    claim: "Zone 2 cardio improves metabolic health and extends healthspan",
+    platform: "youtube",
+    researchVerdict: "supported",
+    researchSummary: "Research supports that aerobic exercise at moderate intensity improves mitochondrial function, insulin sensitivity, and cardiovascular health markers.",
+    url: "#"
+  },
+  {
+    id: "21",
+    title: "Wahls Protocol for MS",
+    brand: "Dr. Terry Wahls",
+    claim: "Nutrient-dense diet can improve multiple sclerosis symptoms",
+    platform: "youtube",
+    researchVerdict: "supported",
+    researchSummary: "Pilot studies show the Wahls Protocol is associated with reduced fatigue and improved quality of life in MS patients. Larger controlled trials are ongoing.",
+    url: "#"
+  },
+  {
+    id: "22",
+    title: "NAD+ Precursors and Aging",
+    brand: "Dr. David Sinclair",
+    claim: "NMN and resveratrol activate longevity pathways",
+    platform: "youtube",
+    researchVerdict: "mixed",
+    researchSummary: "NAD+ precursors show promise in animal studies. Human trials on NMN show safety and NAD+ elevation. Lifespan extension in humans is not yet proven.",
+    url: "#"
+  },
+  {
+    id: "23",
+    title: "Fiber Diversity for Gut Health",
+    brand: "Dr. Will Bulsiewicz",
+    claim: "Eating 30+ plant types weekly optimizes microbiome",
+    platform: "youtube",
+    researchVerdict: "supported",
+    researchSummary: "The American Gut Project found plant diversity correlates with microbiome diversity. Diverse fiber intake supports beneficial bacterial populations.",
+    url: "#"
+  },
+  {
+    id: "24",
+    title: "Therapeutic Fasting Protocols",
+    brand: "Dr. Jason Fung",
+    claim: "Extended fasting reverses type 2 diabetes",
+    platform: "youtube",
+    researchVerdict: "mixed",
+    researchSummary: "Case series show fasting can reduce insulin requirements. 'Reversal' claims are strong—many patients achieve remission, but it may not work for all. Medical supervision advised.",
+    url: "#"
+  },
+  {
     id: "15",
     title: "Chlorophyll Water Detox",
     brand: "Sakara Life",
