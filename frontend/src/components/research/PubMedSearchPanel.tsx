@@ -138,7 +138,7 @@ const PubMedSearchPanel = ({
             <div className="flex items-center gap-2">
               <Database className="w-4 h-4 text-primary" />
               <span className="text-sm text-muted-foreground">
-                Showing {((currentPage - 1) * maxResults) + 1}-{Math.min(currentPage * maxResults, results.totalCount)} of {results.totalCount.toLocaleString()} results from PubMed
+                Showing {((currentPage - 1) * maxResults) + 1}-{Math.min(currentPage * maxResults, results.total_count)} of {results.total_count.toLocaleString()} results from PubMed
               </span>
             </div>
             {totalPages > 1 && (
