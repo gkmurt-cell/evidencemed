@@ -14,8 +14,9 @@ interface TrustedResource {
   type: string;
 }
 
-// Trusted external resources - bibliography style
+// Trusted external resources - expanded bibliography
 const trustedResources: TrustedResource[] = [
+  // Primary Databases
   {
     id: "1",
     title: "PubMed Central",
@@ -39,45 +40,125 @@ const trustedResources: TrustedResource[] = [
   },
   {
     id: "4",
+    title: "Memorial Sloan Kettering - About Herbs Database",
+    url: "https://www.mskcc.org/cancer-care/diagnosis-treatment/symptom-management/integrative-medicine/herbs",
+    description: "Evidence-based information about herbs, botanicals, and supplements used by cancer patients.",
+    type: "Database"
+  },
+  {
+    id: "5",
+    title: "Examine.com",
+    url: "https://examine.com/",
+    description: "Independent nutrition and supplement research analysis with human effect matrices.",
+    type: "Database"
+  },
+  {
+    id: "6",
+    title: "ConsumerLab",
+    url: "https://www.consumerlab.com/",
+    description: "Independent testing and reviews of health and nutrition products.",
+    type: "Database"
+  },
+  // Research Institutions
+  {
+    id: "7",
     title: "NIH National Center for Complementary and Integrative Health",
     url: "https://www.nccih.nih.gov/",
     description: "Federal government's lead agency for scientific research on complementary and integrative health approaches.",
     type: "Institution"
   },
   {
-    id: "5",
+    id: "8",
+    title: "Andrew Weil Center for Integrative Medicine",
+    url: "https://integrativemedicine.arizona.edu/",
+    description: "Leading academic institution for integrative medicine education and research at University of Arizona.",
+    type: "Institution"
+  },
+  {
+    id: "9",
+    title: "Duke Integrative Medicine",
+    url: "https://dukeintegrativemedicine.org/",
+    description: "Research and clinical center advancing the science of integrative health at Duke University.",
+    type: "Institution"
+  },
+  {
+    id: "10",
+    title: "Cleveland Clinic Center for Integrative Medicine",
+    url: "https://my.clevelandclinic.org/departments/wellness/integrative",
+    description: "Integrative medicine clinical and research programs at Cleveland Clinic.",
+    type: "Institution"
+  },
+  // Peer-Reviewed Journals
+  {
+    id: "11",
     title: "Journal of Alternative and Complementary Medicine",
     url: "https://www.liebertpub.com/loi/acm",
     description: "Peer-reviewed journal covering paradigms, practice, and policy related to complementary and integrative medicine.",
     type: "Journal"
   },
   {
-    id: "6",
+    id: "12",
     title: "Integrative Medicine: A Clinician's Journal",
     url: "https://www.imjournal.com/",
     description: "Peer-reviewed journal focusing on the clinical application of integrative medicine.",
     type: "Journal"
   },
   {
-    id: "7",
+    id: "13",
     title: "Evidence-Based Complementary and Alternative Medicine",
     url: "https://www.hindawi.com/journals/ecam/",
     description: "Open access journal promoting evidence-based complementary and alternative medicine.",
     type: "Journal"
   },
   {
-    id: "8",
+    id: "14",
+    title: "Phytomedicine",
+    url: "https://www.sciencedirect.com/journal/phytomedicine",
+    description: "International journal of phytotherapy and phytopharmacology.",
+    type: "Journal"
+  },
+  {
+    id: "15",
+    title: "Journal of Ethnopharmacology",
+    url: "https://www.sciencedirect.com/journal/journal-of-ethnopharmacology",
+    description: "Research on biological activities of plant, animal, and mineral substances used in traditional medicine.",
+    type: "Journal"
+  },
+  {
+    id: "16",
+    title: "Frontiers in Pharmacology",
+    url: "https://www.frontiersin.org/journals/pharmacology",
+    description: "Open access journal covering all areas of pharmacology including natural products.",
+    type: "Journal"
+  },
+  // Professional Organizations
+  {
+    id: "17",
     title: "American Botanical Council",
     url: "https://www.herbalgram.org/",
     description: "Independent, nonprofit research and education organization disseminating science-based herbal medicine information.",
     type: "Organization"
   },
   {
-    id: "9",
-    title: "Memorial Sloan Kettering - About Herbs Database",
-    url: "https://www.mskcc.org/cancer-care/diagnosis-treatment/symptom-management/integrative-medicine/herbs",
-    description: "Evidence-based information about herbs, botanicals, and supplements used by cancer patients.",
-    type: "Database"
+    id: "18",
+    title: "Academy of Integrative Health & Medicine",
+    url: "https://aihm.org/",
+    description: "Professional membership organization advancing integrative health and medicine.",
+    type: "Organization"
+  },
+  {
+    id: "19",
+    title: "American College of Lifestyle Medicine",
+    url: "https://lifestylemedicine.org/",
+    description: "Medical specialty society advancing lifestyle medicine as standard of care.",
+    type: "Organization"
+  },
+  {
+    id: "20",
+    title: "Institute for Functional Medicine",
+    url: "https://www.ifm.org/",
+    description: "Educational organization advancing functional medicine approach to healthcare.",
+    type: "Organization"
   },
   {
     id: "10",
