@@ -30,6 +30,7 @@ import CitationExport from "@/components/compound/CitationExport";
 import COIDisclosure from "@/components/compound/COIDisclosure";
 import PRISMAMethodology from "@/components/compound/PRISMAMethodology";
 import CompoundJsonLd from "@/components/compound/CompoundJsonLd";
+import AuthorityReferences from "@/components/compound/AuthorityReferences";
 
 const CompoundPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -352,6 +353,13 @@ const CompoundPage = () => {
 
               {/* COI Disclosure */}
               <COIDisclosure compoundName={compound.name} />
+
+              {/* Institutional References */}
+              <AuthorityReferences
+                compoundName={compound.name}
+                latinName={compound.latinName}
+                category={compound.category}
+              />
 
               {/* Related Compounds */}
               {relatedCompounds.length > 0 && (
