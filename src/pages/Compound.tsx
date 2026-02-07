@@ -109,7 +109,7 @@ const CompoundPage = () => {
       <main className="pt-20 lg:pt-24 pb-16 min-h-screen bg-background">
         <div className="container mx-auto px-4">
           {/* Breadcrumb */}
-          <div className="mb-8">
+          <div className="mb-4">
             <Link
               to={backLink.to}
               className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
@@ -120,7 +120,7 @@ const CompoundPage = () => {
           </div>
 
           {/* Header */}
-          <div className="grid lg:grid-cols-3 gap-6 mb-8">
+          <div className="grid lg:grid-cols-3 gap-6 mb-5">
             <div className="lg:col-span-2">
               <div className="flex items-start gap-4 mb-4">
                 <span className="text-6xl">{compound.image}</span>
