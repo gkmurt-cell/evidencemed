@@ -7,6 +7,8 @@ import { ArrowLeft, BookOpen, Database, FlaskConical, BarChart3 } from "lucide-r
 import { conditions } from "@/data/searchData";
 import PubMedSearchPanel from "@/components/research/PubMedSearchPanel";
 import { StudyCountBar, EvidenceTierIcon } from "@/components/research/EvidenceVisuals";
+import { ConditionJsonLd } from "@/components/compound/CompoundJsonLd";
+import LastReviewedBadge from "@/components/compound/LastReviewedBadge";
 
 // Condition metadata with study distribution data
 const conditionMeta: Record<string, {
@@ -154,6 +156,8 @@ const ConditionPage = () => {
         <meta name="description" content={condition.description} />
       </Helmet>
 
+      <ConditionJsonLd condition={{ title: condition.title, description: condition.description, id: condition.id }} />
+
       <div className="min-h-screen bg-background flex flex-col">
         <Navbar />
         
@@ -184,6 +188,7 @@ const ConditionPage = () => {
                   <p className="text-lg text-muted-foreground">
                     {condition.description}
                   </p>
+                  <LastReviewedBadge lastReviewed="2026-01-15" nextReviewDue="2026-04-15" className="mt-3" />
                 </div>
               </div>
             </div>

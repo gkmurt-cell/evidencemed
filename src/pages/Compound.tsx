@@ -24,6 +24,12 @@ import { getCompoundById, getRelatedCompounds, compoundsData, type Compound } fr
 import { allStudies, getEvidenceBadge, type Study } from "@/data/researchData";
 import ReferencesSection from "@/components/compound/ReferencesSection";
 import StudyTypeLinks from "@/components/compound/StudyTypeLinks";
+import EvidenceGradeBadge, { deriveEvidenceGrade } from "@/components/compound/EvidenceGradeBadge";
+import LastReviewedBadge from "@/components/compound/LastReviewedBadge";
+import CitationExport from "@/components/compound/CitationExport";
+import COIDisclosure from "@/components/compound/COIDisclosure";
+import PRISMAMethodology from "@/components/compound/PRISMAMethodology";
+import CompoundJsonLd from "@/components/compound/CompoundJsonLd";
 
 const CompoundPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -33,23 +39,17 @@ const CompoundPage = () => {
   // Determine back link based on compound category
   const getBackLink = () => {
     if (!compound) return { to: "/compounds", label: "Back to Compounds" };
-    
-    // Check if it's a vitamin
     if (compound.category === "Fat-Soluble Vitamin" || compound.category === "Water-Soluble Vitamin") {
       return { to: "/compounds?category=Vitamins", label: "Back to Vitamins" };
     }
-    
-    // Check if it's a mineral
     if (compound.category === "Essential Mineral") {
       return { to: "/compounds?category=Essential Mineral", label: "Back to Minerals" };
     }
-    
     return { to: "/compounds", label: "Back to Compounds" };
   };
 
   const backLink = getBackLink();
 
-  // Get related studies
   const relatedStudies = useMemo(() => {
     if (!compound) return [];
     return allStudies.filter((study) =>
@@ -63,7 +63,6 @@ const CompoundPage = () => {
     );
   }, [compound]);
 
-  // Get related compounds that exist in our data
   const relatedCompounds = useMemo(() => {
     if (!compound) return [];
     return getRelatedCompounds(compound);
@@ -77,12 +76,8 @@ const CompoundPage = () => {
           <div className="container mx-auto px-4">
             <div className="text-center py-16">
               <Leaf className="w-16 h-16 mx-auto mb-4 text-muted-foreground/50" />
-              <h1 className="text-2xl font-semibold text-foreground mb-4">
-                Compound Not Found
-              </h1>
-              <p className="text-muted-foreground mb-6">
-                The compound you're looking for doesn't exist in our database.
-              </p>
+              <h1 className="text-2xl font-semibold text-foreground mb-4">Compound Not Found</h1>
+              <p className="text-muted-foreground mb-6">The compound you're looking for doesn't exist in our database.</p>
               <Button asChild>
                 <Link to="/compounds">Browse All Compounds</Link>
               </Button>
@@ -94,6 +89,8 @@ const CompoundPage = () => {
     );
   }
 
+  const evidenceGrade = deriveEvidenceGrade(compound.studies, compound.category);
+
   return (
     <>
       <Helmet>
@@ -103,6 +100,9 @@ const CompoundPage = () => {
           content={`Research on ${compound.name} (${compound.latinName}): ${compound.description.slice(0, 150)}...`}
         />
       </Helmet>
+
+      {/* JSON-LD Structured Data */}
+      <CompoundJsonLd compound={compound} />
 
       <Navbar />
 
@@ -125,9 +125,10 @@ const CompoundPage = () => {
               <div className="flex items-start gap-4 mb-4">
                 <span className="text-6xl">{compound.image}</span>
                 <div>
-                  <Badge variant="secondary" className="mb-2">
-                    {compound.category}
-                  </Badge>
+                  <div className="flex flex-wrap items-center gap-2 mb-2">
+                    <Badge variant="secondary">{compound.category}</Badge>
+                    <EvidenceGradeBadge grade={evidenceGrade} size="sm" />
+                  </div>
                   <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground">
                     {compound.name}
                   </h1>
@@ -136,6 +137,14 @@ const CompoundPage = () => {
                   </p>
                 </div>
               </div>
+              
+              {/* Last Reviewed Timestamp */}
+              <LastReviewedBadge
+                lastReviewed="2026-02-01"
+                nextReviewDue="2026-05-01"
+                className="mb-4"
+              />
+              
               <p className="text-lg text-muted-foreground leading-relaxed mb-6">
                 {compound.description}
               </p>
@@ -162,16 +171,15 @@ const CompoundPage = () => {
                   </span>
                 </div>
                 <div className="flex justify-between items-center pb-4 border-b border-border">
+                  <span className="text-muted-foreground">Evidence Grade</span>
+                  <EvidenceGradeBadge grade={evidenceGrade} size="sm" />
+                </div>
+                <div className="flex justify-between items-center pb-4 border-b border-border">
                   <span className="text-muted-foreground">Category</span>
                   <Badge variant="outline">{compound.category}</Badge>
                 </div>
-                
-                {/* Study Type Links */}
                 <div className="pt-2">
-                  <StudyTypeLinks 
-                    compoundName={compound.name} 
-                    latinName={compound.latinName} 
-                  />
+                  <StudyTypeLinks compoundName={compound.name} latinName={compound.latinName} />
                 </div>
               </div>
               <Button className="w-full mt-6" asChild>
@@ -185,7 +193,7 @@ const CompoundPage = () => {
 
           {/* Main Content Grid */}
           <div className="grid lg:grid-cols-3 gap-8">
-            {/* Left Column - Main Info */}
+            {/* Left Column */}
             <div className="lg:col-span-2 space-y-8">
               {/* Traditional Use */}
               <section className="bg-card border border-border rounded-xl p-6">
@@ -193,9 +201,7 @@ const CompoundPage = () => {
                   <BookOpen className="w-5 h-5" />
                   <h2 className="font-serif text-xl font-semibold">Traditional Use</h2>
                 </div>
-                <p className="text-muted-foreground leading-relaxed">
-                  {compound.traditionalUse}
-                </p>
+                <p className="text-muted-foreground leading-relaxed">{compound.traditionalUse}</p>
               </section>
 
               {/* Key Benefits */}
@@ -206,10 +212,7 @@ const CompoundPage = () => {
                 </div>
                 <ul className="grid sm:grid-cols-2 gap-3">
                   {compound.keyBenefits.map((benefit, i) => (
-                    <li
-                      key={i}
-                      className="flex items-start gap-2 text-muted-foreground"
-                    >
+                    <li key={i} className="flex items-start gap-2 text-muted-foreground">
                       <span className="text-primary mt-1">•</span>
                       {benefit}
                     </li>
@@ -225,10 +228,7 @@ const CompoundPage = () => {
                 </div>
                 <ul className="space-y-3">
                   {compound.mechanisms.map((mechanism, i) => (
-                    <li
-                      key={i}
-                      className="flex items-start gap-3 p-3 rounded-lg bg-muted/50"
-                    >
+                    <li key={i} className="flex items-start gap-3 p-3 rounded-lg bg-muted/50">
                       <span className="text-primary font-semibold">{i + 1}.</span>
                       <span className="text-muted-foreground">{mechanism}</span>
                     </li>
@@ -257,9 +257,7 @@ const CompoundPage = () => {
                     </div>
                   </div>
                 </div>
-                <p className="text-muted-foreground leading-relaxed mb-4 text-sm">
-                  {compound.dosage}
-                </p>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm">{compound.dosage}</p>
                 <div className="p-3 rounded-lg bg-muted/50 border border-border">
                   <p className="text-xs text-muted-foreground italic">
                     Individual responses vary significantly. Factors including age, health status, 
@@ -278,9 +276,7 @@ const CompoundPage = () => {
                       <h2 className="font-serif text-xl font-semibold">Related Studies</h2>
                     </div>
                     <Button variant="ghost" size="sm" asChild>
-                      <Link to={`/research?compound=${encodeURIComponent(compound.name)}`}>
-                        View all
-                      </Link>
+                      <Link to={`/research?compound=${encodeURIComponent(compound.name)}`}>View all</Link>
                     </Button>
                   </div>
                   <div className="space-y-4">
@@ -291,16 +287,18 @@ const CompoundPage = () => {
                 </section>
               )}
 
-              {/* Scientific References */}
+              {/* Scientific References with Citation Export */}
               {compound.references && compound.references.length > 0 && (
-                <ReferencesSection 
-                  references={compound.references} 
-                  compoundName={compound.name} 
-                />
+                <div>
+                  <div className="flex items-center justify-end mb-2">
+                    <CitationExport references={compound.references} compoundName={compound.name} />
+                  </div>
+                  <ReferencesSection references={compound.references} compoundName={compound.name} />
+                </div>
               )}
             </div>
 
-            {/* Right Column - Safety & More */}
+            {/* Right Column */}
             <div className="space-y-6">
               {/* Safety Notes */}
               <section className="bg-card border border-border rounded-xl p-6">
@@ -310,10 +308,7 @@ const CompoundPage = () => {
                 </div>
                 <ul className="space-y-2">
                   {compound.safetyNotes.map((note, i) => (
-                    <li
-                      key={i}
-                      className="flex items-start gap-2 text-sm text-muted-foreground"
-                    >
+                    <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
                       <AlertTriangle className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
                       {note}
                     </li>
@@ -329,10 +324,7 @@ const CompoundPage = () => {
                 </div>
                 <ul className="space-y-2">
                   {compound.interactions.map((interaction, i) => (
-                    <li
-                      key={i}
-                      className="text-sm text-muted-foreground p-2 rounded bg-rose-500/5 border border-rose-500/10"
-                    >
+                    <li key={i} className="text-sm text-muted-foreground p-2 rounded bg-rose-500/5 border border-rose-500/10">
                       {interaction}
                     </li>
                   ))}
@@ -347,12 +339,19 @@ const CompoundPage = () => {
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {compound.sources.map((source, i) => (
-                    <Badge key={i} variant="secondary">
-                      {source}
-                    </Badge>
+                    <Badge key={i} variant="secondary">{source}</Badge>
                   ))}
                 </div>
               </section>
+
+              {/* PRISMA Methodology */}
+              <PRISMAMethodology
+                compoundName={compound.name}
+                included={compound.studies}
+              />
+
+              {/* COI Disclosure */}
+              <COIDisclosure compoundName={compound.name} />
 
               {/* Related Compounds */}
               {relatedCompounds.length > 0 && (
@@ -374,9 +373,7 @@ const CompoundPage = () => {
                             <p className="font-medium text-foreground group-hover:text-primary transition-colors">
                               {related.name}
                             </p>
-                            <p className="text-xs text-muted-foreground">
-                              {related.studies} studies
-                            </p>
+                            <p className="text-xs text-muted-foreground">{related.studies} studies</p>
                           </div>
                         </div>
                         <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-primary" />
@@ -389,16 +386,12 @@ const CompoundPage = () => {
               {/* Also Check These */}
               {compound.relatedCompounds.length > relatedCompounds.length && (
                 <section className="bg-muted/50 border border-border rounded-xl p-6">
-                  <h3 className="text-sm font-medium text-muted-foreground mb-3">
-                    Also research these:
-                  </h3>
+                  <h3 className="text-sm font-medium text-muted-foreground mb-3">Also research these:</h3>
                   <div className="flex flex-wrap gap-2">
                     {compound.relatedCompounds
                       .filter((name) => !relatedCompounds.some((c) => c.name === name))
                       .map((name, i) => (
-                        <Badge key={i} variant="outline" className="text-muted-foreground">
-                          {name}
-                        </Badge>
+                        <Badge key={i} variant="outline" className="text-muted-foreground">{name}</Badge>
                       ))}
                   </div>
                 </section>
@@ -426,12 +419,7 @@ const StudyCard = ({ study }: StudyCardProps) => {
         <span className="px-2 py-0.5 rounded-full bg-primary/10 text-primary text-xs font-medium">
           {study.type}
         </span>
-        <span
-          className={cn(
-            "px-2 py-0.5 rounded-full text-xs font-medium border",
-            evidenceBadge.className
-          )}
-        >
+        <span className={cn("px-2 py-0.5 rounded-full text-xs font-medium border", evidenceBadge.className)}>
           {evidenceBadge.label}
         </span>
       </div>

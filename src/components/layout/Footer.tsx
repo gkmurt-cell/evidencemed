@@ -22,6 +22,7 @@ const Footer = () => {
     company: [
       { name: "About Us", href: "/about", isLink: true },
       { name: "Editorial Methodology", href: "/editorial-methodology", isLink: true },
+      { name: "Advisory Board", href: "/advisory-board", isLink: true },
       { name: "Contact", href: "mailto:contact@integrativeevidence.com", isLink: false },
     ],
     legal: [

@@ -21,6 +21,7 @@ import ConditionPage from "./pages/Condition";
 import ConditionsPage from "./pages/Conditions";
 import Pricing from "./pages/Pricing";
 import EditorialMethodology from "./pages/EditorialMethodology";
+import AdvisoryBoard from "./pages/AdvisoryBoard";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import NotFound from "./pages/NotFound";
@@ -52,6 +53,7 @@ const App = () => (
               <Route path="/condition/:id" element={<ConditionPage />} />
               <Route path="/pricing" element={<Pricing />} />
               <Route path="/editorial-methodology" element={<EditorialMethodology />} />
+              <Route path="/advisory-board" element={<AdvisoryBoard />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               <Route path="/terms-of-service" element={<TermsOfService />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
