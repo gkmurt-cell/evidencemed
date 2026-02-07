@@ -209,6 +209,21 @@ export const allBooks: BookEntry[] = [
     ],
   },
 
+  {
+    id: "24",
+    title: "The Nicotine Protocol",
+    author: "Dr. Bryan Ardis",
+    description: "An exploration of nicotine's potential therapeutic applications beyond tobacco, examining its role in addressing brain fog, inflammation, and chronic illness through receptor-level mechanisms.",
+    image: "https://images.unsplash.com/photo-1532012197267-da84d127e765?w=300&h=400&fit=crop",
+    researchReference: "References nicotinic acetylcholine receptor research",
+    category: "functional-medicine",
+    year: 2024,
+    sources: [
+      { name: "PubMed References", url: "https://pubmed.ncbi.nlm.nih.gov/?term=nicotinic+acetylcholine+receptor+therapeutic", type: "academic" },
+      { name: "ClinicalTrials.gov", url: "https://clinicaltrials.gov/search?term=nicotine+therapeutic", type: "academic" },
+    ],
+  },
+
   // Cognitive
   {
     id: "8",
