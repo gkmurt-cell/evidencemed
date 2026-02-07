@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useCallback } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/layout/Navbar";
@@ -9,6 +9,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { allBooks, bookCategories, type BookEntry } from "@/data/bookData";
+import { useFuzzyBookSearch } from "@/hooks/useFuzzyBookSearch";
 
 import herbNerdTshirt from "@/assets/herb-nerd-tshirt.png";
 import herbMug from "@/assets/herb-mug.png";
@@ -411,13 +412,11 @@ export default function Merch() {
   const [visibleVideos, setVisibleVideos] = useState(6);
   const [bookSearch, setBookSearch] = useState("");
 
-  const filteredBooks = useMemo(() => {
-    if (!bookSearch.trim()) return allBooks;
-    const q = bookSearch.toLowerCase();
-    return allBooks.filter(
-      (b) => b.title.toLowerCase().includes(q) || b.author.toLowerCase().includes(q) || b.category.toLowerCase().includes(q)
-    );
-  }, [bookSearch]);
+  const { filteredBooks, suggestion, correctedQuery } = useFuzzyBookSearch(bookSearch);
+
+  const applySuggestion = useCallback(() => {
+    if (correctedQuery) setBookSearch(correctedQuery);
+  }, [correctedQuery]);
   
   const VIDEOS_PER_PAGE = 6;
   const hasMoreVideos = visibleVideos < videoContent.length;
@@ -512,7 +511,7 @@ export default function Merch() {
                       Medical reference books and health guides across integrative medicine
                     </p>
                     {/* Search bar */}
-                    <div className="relative max-w-sm mb-4">
+                    <div className="relative max-w-sm mb-2">
                       <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                       <Input
                         placeholder="Search books by title, author, or topic…"
@@ -521,6 +520,23 @@ export default function Merch() {
                         className="pl-10 text-sm"
                       />
                     </div>
+                    {suggestion && (
+                      <p className="text-sm text-muted-foreground mb-4">
+                        Did you mean{" "}
+                        <button
+                          onClick={applySuggestion}
+                          className="text-primary font-medium italic hover:underline"
+                        >
+                          {suggestion}
+                        </button>
+                        ?
+                      </p>
+                    )}
+                    {bookSearch.trim() && filteredBooks.length === 0 && !suggestion && (
+                      <p className="text-sm text-muted-foreground mb-4">
+                        No results found for "<span className="font-medium">{bookSearch}</span>"
+                      </p>
+                    )}
                     {/* Category chips */}
                     <div className="flex flex-wrap gap-2 mb-6">
                       {bookCategories.map((cat) => (
@@ -597,7 +613,7 @@ export default function Merch() {
                   <div className="mb-6">
                     <h2 className="font-serif text-xl font-medium text-foreground mb-1">Published Works</h2>
                     <p className="text-sm text-muted-foreground mb-4">Medical reference books and health guides</p>
-                    <div className="relative max-w-sm mb-4">
+                    <div className="relative max-w-sm mb-2">
                       <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                       <Input
                         placeholder="Search books by title, author, or topic…"
@@ -606,6 +622,23 @@ export default function Merch() {
                         className="pl-10 text-sm"
                       />
                     </div>
+                    {suggestion && (
+                      <p className="text-sm text-muted-foreground mb-4">
+                        Did you mean{" "}
+                        <button
+                          onClick={applySuggestion}
+                          className="text-primary font-medium italic hover:underline"
+                        >
+                          {suggestion}
+                        </button>
+                        ?
+                      </p>
+                    )}
+                    {bookSearch.trim() && filteredBooks.length === 0 && !suggestion && (
+                      <p className="text-sm text-muted-foreground mb-4">
+                        No results found for "<span className="font-medium">{bookSearch}</span>"
+                      </p>
+                    )}
                     <div className="flex flex-wrap gap-2 mb-6">
                       {bookCategories.map((cat) => (
                         <Link key={cat.id} to={`/library/${cat.id}`}>
