@@ -157,9 +157,9 @@ const ResearchSection = () => {
           <RelatedLinks
             title="Explore:"
             links={[
-              { to: "/conditions", label: "200+ Conditions", icon: Heart },
-              { to: "/compounds", label: "Compound Library", icon: Leaf },
-              { to: "/integrative-therapies", label: "Therapies", icon: Pill },
+              { href: "/conditions", label: "200+ Conditions" },
+              { href: "/compounds", label: "Compound Library" },
+              { href: "/methodology", label: "Editorial Standards" },
             ]}
             className="justify-center mb-6"
           />
