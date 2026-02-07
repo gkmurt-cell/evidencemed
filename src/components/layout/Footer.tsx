@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Leaf, Mail, Instagram, Facebook, Twitter, Youtube } from "lucide-react";
+import { Leaf, Mail, Instagram, Facebook, Twitter, Youtube, Rss } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -120,6 +120,15 @@ const Footer = () => {
                 aria-label="Subscribe on YouTube"
               >
                 <Youtube className="w-5 h-5" />
+              </a>
+              <a
+                href="https://rnsgzgeppwaruphcsyda.supabase.co/functions/v1/rss-feed"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-secondary/80 transition-colors"
+                aria-label="RSS Feed"
+              >
+                <Rss className="w-5 h-5" />
               </a>
             </div>
           </div>
