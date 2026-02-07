@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, BookOpen, Shield, CheckCircle } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import heroLabImage from "@/assets/hero-lab-microscopy.jpg";
 
@@ -159,69 +159,60 @@ const HeroSection = () => {
 
       <div className="container mx-auto px-4 pt-10 pb-32 lg:pt-14 lg:pb-40 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
-          {/* Badge */}
+          {/* Badge - Institutional */}
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-foreground/10 border border-primary-foreground/20 mb-8 animate-fade-up">
-            <Shield className="w-4 h-4 text-primary-foreground" />
             <span className="text-sm font-medium text-primary-foreground">
-              Evidence-Based • Peer-Reviewed • Educational
+              Institutional Research Archive
             </span>
           </div>
 
           {/* Main Heading */}
           <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold text-primary-foreground leading-tight mb-6 animate-fade-up delay-100">
-            Research-Backed
+            Evidence-Based
             <br />
-            <span className="opacity-90">Alternative Medicine</span>
+            <span className="opacity-90">Integrative Medicine</span>
           </h1>
 
-          {/* Subtitle */}
+          {/* Subtitle - Academic tone */}
           <p className="text-lg md:text-xl text-primary-foreground/80 max-w-2xl mx-auto mb-8 animate-fade-up delay-200">
-            Explore peer-reviewed research on alternative therapy, complementary and alternative medicine, 
-            natural compounds, and alternative cancer treatments. Evidence-based information 
-            for practitioners and health-conscious consumers.
+            A comprehensive archive of peer-reviewed research on complementary and integrative therapies, 
+            natural compounds, and evidence-based alternative approaches. Curated for researchers, 
+            clinicians, and academic institutions.
           </p>
 
-          {/* Feature Pills */}
+          {/* Feature Pills - Simple text, no icons */}
           <div className="flex flex-wrap items-center justify-center gap-3 mb-10 animate-fade-up delay-300">
             {features.map((feature) => (
               <div
                 key={feature}
-                className="flex items-center gap-2 px-4 py-2 rounded-full bg-primary-foreground/10 text-primary-foreground text-sm"
+                className="px-4 py-2 rounded-full bg-primary-foreground/10 text-primary-foreground text-sm"
               >
-                <CheckCircle className="w-4 h-4" />
                 {feature}
               </div>
             ))}
           </div>
 
-          {/* CTA Buttons */}
+          {/* CTA Buttons - Simplified */}
           <div className="flex flex-col items-center gap-3 animate-fade-up delay-400">
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button variant="hero" size="xl" asChild>
                 <Link to="/research">
-                  <BookOpen className="w-5 h-5" />
-                  Explore Research Library
+                  Browse Research Library
                   <ArrowRight className="w-5 h-5" />
                 </Link>
               </Button>
               <Button variant="heroOutline" size="xl" asChild>
-                <Link to="/auth">
-                  Start 7-Day Free Trial
+                <Link to="/methodology">
+                  View Methodology
                 </Link>
               </Button>
             </div>
-            <Link 
-              to="/pricing" 
-              className="text-sm text-primary-foreground/70 hover:text-primary-foreground underline underline-offset-2 transition-colors"
-            >
-              See pricing for individuals and institutions
-            </Link>
           </div>
 
-          {/* Trust Indicators */}
+          {/* Trust Indicators - Source attribution */}
           <div className="mt-16 pt-8 border-t border-primary-foreground/20 animate-fade-up delay-500">
             <p className="text-sm text-primary-foreground/60 mb-4">
-              Trusted by researchers and practitioners worldwide
+              Research aggregated from leading scientific databases
             </p>
             <div className="flex flex-wrap items-center justify-center gap-8 text-primary-foreground/40">
               <span className="font-serif text-lg">PubMed</span>
