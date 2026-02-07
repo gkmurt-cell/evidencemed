@@ -97,7 +97,7 @@ class EvidenceMedAPITester:
 
     def test_user_registration(self):
         """Test user registration"""
-        test_email = f"testuser_{int(time.time())}@evidencemed.test"
+        test_email = f"testuser_{int(time.time())}@gmail.com"
         test_password = "testpass123"
         
         success, response = self.run_test(
