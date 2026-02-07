@@ -62,7 +62,7 @@ export const allBooks: BookEntry[] = [
     year: 2016,
     sources: [
       { name: "Amazon", url: "https://www.amazon.com/dp/1941631568", type: "retailer" },
-      { name: "Smashwords", url: "https://www.smashwords.com/books/search?query=china+study", type: "retailer" },
+      { name: "Barnes & Noble", url: "https://www.barnesandnoble.com/w/the-china-study-t-colin-campbell/1100171677", type: "retailer" },
       { name: "PubMed References", url: "https://pubmed.ncbi.nlm.nih.gov/?term=campbell+china+study+nutrition", type: "academic" },
     ],
   },
@@ -112,7 +112,7 @@ export const allBooks: BookEntry[] = [
     year: 2013,
     sources: [
       { name: "Amazon", url: "https://www.amazon.com/dp/1451694970", type: "retailer" },
-      { name: "Smashwords", url: "https://www.smashwords.com/books/search?query=immune+system+recovery", type: "retailer" },
+      { name: "Barnes & Noble", url: "https://www.barnesandnoble.com/w/the-immune-system-recovery-plan-susan-blum/1113764513", type: "retailer" },
       { name: "NIH Bookshelf", url: "https://www.ncbi.nlm.nih.gov/books/?term=autoimmune+functional+medicine", type: "academic" },
     ],
   },
@@ -270,7 +270,7 @@ export const allBooks: BookEntry[] = [
     year: 2013,
     sources: [
       { name: "Amazon", url: "https://www.amazon.com/dp/0316234800", type: "retailer" },
-      { name: "Smashwords", url: "https://www.smashwords.com/books/search?query=grain+brain", type: "retailer" },
+      { name: "Google Books", url: "https://books.google.com/books?id=gxHfAAAAQBAJ", type: "retailer" },
     ],
   },
 
@@ -404,7 +404,7 @@ export const allBooks: BookEntry[] = [
     year: 2015,
     sources: [
       { name: "Amazon", url: "https://www.amazon.com/dp/0143108085", type: "retailer" },
-      { name: "Smashwords", url: "https://www.smashwords.com/books/search?query=gut+microbiome", type: "retailer" },
+      { name: "Barnes & Noble", url: "https://www.barnesandnoble.com/w/the-good-gut-justin-sonnenburg/1120767606", type: "retailer" },
     ],
   },
 
@@ -437,7 +437,7 @@ export const allBooks: BookEntry[] = [
     year: 2018,
     sources: [
       { name: "Amazon", url: "https://www.amazon.com/dp/163286830X", type: "retailer" },
-      { name: "Smashwords", url: "https://www.smashwords.com/books/search?query=lost+connections+depression", type: "retailer" },
+      { name: "Barnes & Noble", url: "https://www.barnesandnoble.com/w/lost-connections-johann-hari/1126602647", type: "retailer" },
     ],
   },
 ];
