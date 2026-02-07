@@ -119,6 +119,19 @@ class EvidenceMedAPITester:
 
     def test_user_login(self):
         """Test user login with provided credentials"""
+        # First try to register the test user if it doesn't exist
+        register_success, register_response = self.run_test(
+            "Register Test User for Login",
+            "POST",
+            "auth/register",
+            201,
+            data={"email": "newuser@test.com", "password": "testpass123"}
+        )
+        
+        # If registration failed with 409, user already exists, which is fine
+        if not register_success and "409" not in str(register_response):
+            print("   ⚠ Could not register test user, trying login anyway")
+        
         success, response = self.run_test(
             "User Login (Existing User)",
             "POST",
@@ -131,6 +144,11 @@ class EvidenceMedAPITester:
             login_token = response.get('access_token')
             if login_token:
                 print(f"   Login token obtained: {login_token[:20]}...")
+                # Store this token for other tests if we don't have one
+                if not self.token:
+                    self.token = login_token
+                    if response.get('user'):
+                        self.user_id = response['user'].get('id')
         
         return success
 
