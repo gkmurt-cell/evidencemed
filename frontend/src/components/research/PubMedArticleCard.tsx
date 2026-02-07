@@ -61,9 +61,9 @@ const PubMedArticleCard = ({ article, showAbstract = true }: PubMedArticleCardPr
       )}
 
       {/* MeSH Terms */}
-      {article.meshTerms.length > 0 && (
+      {meshTerms.length > 0 && (
         <div className="flex flex-wrap gap-1 mb-4">
-          {article.meshTerms.slice(0, 4).map((term, i) => (
+          {meshTerms.slice(0, 4).map((term, i) => (
             <span
               key={i}
               className="px-2 py-0.5 text-xs rounded bg-muted text-muted-foreground"
