@@ -133,7 +133,6 @@ const CompoundsSection = () => {
               { href: "/research", label: "Research Library" },
               { href: "/methodology", label: "Editorial Methodology" },
             ]}
-            className="justify-center mb-6"
           />
           <EducationalDisclaimer />
         </div>
