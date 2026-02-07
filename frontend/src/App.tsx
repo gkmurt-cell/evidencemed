@@ -9,9 +9,6 @@ import ScrollToTop from "@/components/ScrollToTop";
 import FloatingBackToTop from "@/components/ui/floating-back-to-top";
 import Index from "./pages/Index";
 import About from "./pages/About";
-import IntegrativeTherapies from "./pages/IntegrativeTherapies";
-import Ayurveda from "./pages/Ayurveda";
-import Merch from "./pages/Merch";
 import Auth from "./pages/Auth";
 import Search from "./pages/Search";
 import Research from "./pages/Research";
@@ -19,13 +16,12 @@ import Compounds from "./pages/Compounds";
 import CompoundPage from "./pages/Compound";
 import ConditionPage from "./pages/Condition";
 import ConditionsPage from "./pages/Conditions";
-import Pricing from "./pages/Pricing";
 import EditorialMethodology from "./pages/EditorialMethodology";
 import AdvisoryBoard from "./pages/AdvisoryBoard";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
+import MemberResources from "./pages/MemberResources";
 import NotFound from "./pages/NotFound";
-import BookCategory from "./pages/BookCategory";
 
 const queryClient = new QueryClient();
 
@@ -42,9 +38,6 @@ const App = () => (
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/about" element={<About />} />
-              <Route path="/integrative-therapies" element={<IntegrativeTherapies />} />
-              <Route path="/ayurveda" element={<Ayurveda />} />
-              <Route path="/merch" element={<Merch />} />
               <Route path="/auth" element={<Auth />} />
               <Route path="/search" element={<Search />} />
               <Route path="/research" element={<Research />} />
@@ -52,13 +45,12 @@ const App = () => (
               <Route path="/compound/:id" element={<CompoundPage />} />
               <Route path="/conditions" element={<ConditionsPage />} />
               <Route path="/condition/:id" element={<ConditionPage />} />
-              <Route path="/pricing" element={<Pricing />} />
+              <Route path="/methodology" element={<EditorialMethodology />} />
               <Route path="/editorial-methodology" element={<EditorialMethodology />} />
               <Route path="/advisory-board" element={<AdvisoryBoard />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               <Route path="/terms-of-service" element={<TermsOfService />} />
-              <Route path="/library/:category" element={<BookCategory />} />
-              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+              <Route path="/member-resources" element={<MemberResources />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>

@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Menu, X, BookOpen, FlaskConical, Leaf, Search, Heart, ShoppingBag, LogOut, User, ArrowRight } from "lucide-react";
+import { Menu, X, Search, LogOut, User, ArrowRight } from "lucide-react";
 import { useAuth } from "@/hooks/useAuth";
 import { searchContent, SearchItem } from "@/data/searchData";
 import {
@@ -37,7 +37,6 @@ const Navbar = () => {
   const searchRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  // Update suggestions when query changes
   useEffect(() => {
     if (searchQuery.trim().length >= 2) {
       const results = searchContent(searchQuery).slice(0, 8);
@@ -50,7 +49,6 @@ const Navbar = () => {
     }
   }, [searchQuery]);
 
-  // Close suggestions when clicking outside
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (searchRef.current && !searchRef.current.contains(e.target as Node)) {
@@ -95,39 +93,11 @@ const Navbar = () => {
     }
   };
 
+  // Simplified navigation - Research, Methodology, Member Resources
   const navLinks = [
-    { name: "Medical Conditions", href: "/#conditions", icon: BookOpen, isLink: true, isHashLink: true },
-    { name: "Research Library", href: "/research", icon: FlaskConical, isLink: true },
-    { name: "Natural Compounds", href: "/compounds", icon: Leaf, isLink: true },
-    { name: "Integrative Therapies", href: "/integrative-therapies", icon: Heart, isLink: true },
-  ];
-
-  const handleHashLinkClick = (e: React.MouseEvent, href: string) => {
-    const hash = href.split('#')[1];
-    if (hash) {
-      // If already on home page, scroll directly
-      if (window.location.pathname === '/') {
-        e.preventDefault();
-        const element = document.getElementById(hash);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }
-      } else {
-        // Navigate to home, then scroll after load
-        navigate('/');
-        setTimeout(() => {
-          const element = document.getElementById(hash);
-          if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
-          }
-        }, 100);
-      }
-    }
-  };
-
-  const resourcesDropdown = [
-    { name: "Educational Shop", href: "/merch", icon: ShoppingBag, description: "Books & branded items" },
-    { name: "Pricing & Plans", href: "/pricing", icon: BookOpen, description: "Individual, professional & institutional plans", isLink: true },
+    { name: "Research", href: "/research", isLink: true },
+    { name: "Methodology", href: "/methodology", isLink: true },
+    { name: "Member Resources", href: "/member-resources", isLink: true },
   ];
 
   return (
@@ -146,7 +116,7 @@ const Navbar = () => {
             }}
           >
             <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center transition-shadow duration-200 group-hover:shadow-md group-hover:shadow-primary/25">
-              <Leaf className="w-5 h-5 text-primary-foreground transition-transform duration-200 group-hover:rotate-12" />
+              <span className="text-primary-foreground font-serif font-bold text-lg">E</span>
             </div>
             <span className="font-serif text-xl font-semibold text-foreground transition-colors duration-200 group-hover:text-primary">
               EvidenceMed
@@ -156,53 +126,14 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-1">
             {navLinks.map((link) => (
-              link.isHashLink ? (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  onClick={(e) => handleHashLinkClick(e, link.href)}
-                  className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-secondary"
-                >
-                  {link.name}
-                </a>
-              ) : link.isLink ? (
-                <Link
-                  key={link.name}
-                  to={link.href}
-                  className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-secondary"
-                >
-                  {link.name}
-                </Link>
-              ) : (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-secondary"
-                >
-                  {link.name}
-                </a>
-              )
+              <Link
+                key={link.name}
+                to={link.href}
+                className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-secondary"
+              >
+                {link.name}
+              </Link>
             ))}
-            
-            {/* Resources Dropdown */}
-            <DropdownMenu>
-              <DropdownMenuTrigger className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-secondary">
-                Resources
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-56">
-                {resourcesDropdown.map((item) => (
-                  <DropdownMenuItem key={item.name} asChild>
-                    <Link to={item.href} className="flex items-center gap-2">
-                      <item.icon className="h-4 w-4" />
-                      <div>
-                        <span className="font-medium">{item.name}</span>
-                        <p className="text-xs text-muted-foreground">{item.description}</p>
-                      </div>
-                    </Link>
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
           </div>
 
           {/* Desktop Actions */}
@@ -214,12 +145,12 @@ const Navbar = () => {
                 <Input
                   ref={inputRef}
                   type="text"
-                  placeholder="Search topics, conditions, therapies..."
+                  placeholder="Search archive..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   onFocus={() => searchQuery.trim().length >= 2 && suggestions.length > 0 && setShowSuggestions(true)}
                   onKeyDown={handleKeyDown}
-                  className="w-72 h-9 pl-10 bg-secondary/50 border-transparent focus:border-primary focus:bg-background"
+                  className="w-64 h-9 pl-10 bg-secondary/50 border-transparent focus:border-primary focus:bg-background"
                 />
               </form>
 
@@ -286,14 +217,9 @@ const Navbar = () => {
                 </DropdownMenuContent>
               </DropdownMenu>
             ) : (
-              <>
-                <Button variant="outline" asChild>
-                  <Link to="/auth">Sign In</Link>
-                </Button>
-                <Button asChild>
-                  <a href="#trial-signup">Start Free Trial</a>
-                </Button>
-              </>
+              <Button variant="outline" asChild>
+                <Link to="/auth">Sign In</Link>
+              </Button>
             )}
           </div>
 
@@ -309,14 +235,14 @@ const Navbar = () => {
         {/* Mobile Navigation */}
         {isOpen && (
           <div className="lg:hidden py-4 border-t border-border animate-fade-in">
-            {/* Mobile Search with Autocomplete */}
+            {/* Mobile Search */}
             <div className="px-4 pb-4 relative">
               <form onSubmit={handleSearch}>
                 <div className="relative">
                   <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                   <Input
                     type="text"
-                    placeholder="Search conditions, research..."
+                    placeholder="Search archive..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     onKeyDown={handleKeyDown}
@@ -325,7 +251,6 @@ const Navbar = () => {
                 </div>
               </form>
               
-              {/* Mobile Autocomplete */}
               {showSuggestions && (
                 <div className="absolute left-4 right-4 top-full mt-1 bg-card border border-border rounded-xl shadow-lg overflow-hidden z-50">
                   <div className="py-2 max-h-64 overflow-y-auto">
@@ -355,40 +280,14 @@ const Navbar = () => {
             
             <div className="flex flex-col gap-2">
               {navLinks.map((link) => (
-                link.isHashLink ? (
-                  <a
-                    key={link.name}
-                    href={link.href}
-                    className="px-4 py-3 text-base font-medium text-muted-foreground hover:text-foreground hover:bg-secondary rounded-lg transition-colors flex items-center gap-3"
-                    onClick={(e) => {
-                      handleHashLinkClick(e, link.href);
-                      setIsOpen(false);
-                    }}
-                  >
-                    {link.icon && <link.icon className="w-5 h-5" />}
-                    {link.name}
-                  </a>
-                ) : link.isLink ? (
-                  <Link
-                    key={link.name}
-                    to={link.href}
-                    className="px-4 py-3 text-base font-medium text-muted-foreground hover:text-foreground hover:bg-secondary rounded-lg transition-colors flex items-center gap-3"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {link.icon && <link.icon className="w-5 h-5" />}
-                    {link.name}
-                  </Link>
-                ) : (
-                  <a
-                    key={link.name}
-                    href={link.href}
-                    className="px-4 py-3 text-base font-medium text-muted-foreground hover:text-foreground hover:bg-secondary rounded-lg transition-colors flex items-center gap-3"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {link.icon && <link.icon className="w-5 h-5" />}
-                    {link.name}
-                  </a>
-                )
+                <Link
+                  key={link.name}
+                  to={link.href}
+                  className="px-4 py-3 text-base font-medium text-muted-foreground hover:text-foreground hover:bg-secondary rounded-lg transition-colors"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {link.name}
+                </Link>
               ))}
               <div className="flex flex-col gap-2 mt-4 pt-4 border-t border-border">
                 {user ? (
@@ -400,14 +299,9 @@ const Navbar = () => {
                     </Button>
                   </>
                 ) : (
-                  <>
-                    <Button variant="outline" className="w-full" asChild>
-                      <Link to="/auth" onClick={() => setIsOpen(false)}>Sign In</Link>
-                    </Button>
-                    <Button className="w-full" asChild>
-                      <a href="#trial-signup" onClick={() => setIsOpen(false)}>Start Free Trial</a>
-                    </Button>
-                  </>
+                  <Button variant="outline" className="w-full" asChild>
+                    <Link to="/auth" onClick={() => setIsOpen(false)}>Sign In</Link>
+                  </Button>
                 )}
               </div>
             </div>
