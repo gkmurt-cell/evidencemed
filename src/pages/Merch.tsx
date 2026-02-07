@@ -1,11 +1,14 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import { ExternalLink, ShoppingBag, Leaf, BookOpen, Video, Play, Package, AlertTriangle, Pill, Filter, ChevronDown } from "lucide-react";
+import { ExternalLink, ShoppingBag, Leaf, BookOpen, Video, Play, Package, AlertTriangle, Pill, Filter, ChevronDown, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
+import { Input } from "@/components/ui/input";
+import { allBooks, bookCategories, type BookEntry } from "@/data/bookData";
 
 import herbNerdTshirt from "@/assets/herb-nerd-tshirt.png";
 import herbMug from "@/assets/herb-mug.png";
@@ -15,17 +18,7 @@ import herbHoodie from "@/assets/herb-hoodie.png";
 
 // ============ DATA TYPES ============
 
-interface Book {
-  id: string;
-  title: string;
-  author: string;
-  description: string;
-  price: string;
-  image: string;
-  affiliateUrl: string;
-  researchReference?: string;
-  category: string;
-}
+// Book type now imported from bookData.ts
 
 interface Supplement {
   id: string;
@@ -52,74 +45,7 @@ interface VideoContent {
 
 // ============ DATA ============
 
-const books: Book[] = [
-  {
-    id: "1",
-    title: "How Not to Die",
-    author: "Dr. Michael Greger",
-    description: "Evidence-based guide to preventing and reversing disease through diet and lifestyle.",
-    price: "$18.99",
-    image: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=300&h=400&fit=crop",
-    affiliateUrl: "https://amazon.com",
-    researchReference: "Cited in 500+ peer-reviewed studies",
-    category: "Nutrition"
-  },
-  {
-    id: "2",
-    title: "The Immune System Recovery Plan",
-    author: "Susan Blum, MD",
-    description: "A doctor's 4-step program to treat autoimmune disease through functional medicine.",
-    price: "$16.99",
-    image: "https://images.unsplash.com/photo-1512820790803-83ca734da794?w=300&h=400&fit=crop",
-    affiliateUrl: "https://amazon.com",
-    researchReference: "Based on clinical research",
-    category: "Autoimmune"
-  },
-  {
-    id: "3",
-    title: "Radical Remission",
-    author: "Kelly A. Turner, PhD",
-    description: "Research on cancer survivors who defied the odds using holistic approaches.",
-    price: "$15.99",
-    image: "https://images.unsplash.com/photo-1543002588-bfa74002ed7e?w=300&h=400&fit=crop",
-    affiliateUrl: "https://amazon.com",
-    researchReference: "Analyzed 1,500+ cases",
-    category: "Oncology"
-  },
-  {
-    id: "4",
-    title: "The End of Alzheimer's",
-    author: "Dale Bredesen, MD",
-    description: "The first protocol to prevent and reverse cognitive decline.",
-    price: "$17.99",
-    image: "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?w=300&h=400&fit=crop",
-    affiliateUrl: "https://amazon.com",
-    researchReference: "Published in peer-reviewed journals",
-    category: "Cognitive"
-  },
-  {
-    id: "5",
-    title: "Lifespan",
-    author: "David Sinclair, PhD",
-    description: "Why we age and why we don't have to—insights from Harvard research.",
-    price: "$19.99",
-    image: "https://images.unsplash.com/photo-1532012197267-da84d127e765?w=300&h=400&fit=crop",
-    affiliateUrl: "https://amazon.com",
-    researchReference: "Based on NAD+ research",
-    category: "Longevity"
-  },
-  {
-    id: "6",
-    title: "The Complete Book of Ayurvedic Home Remedies",
-    author: "Vasant Lad",
-    description: "Comprehensive guide to Ayurvedic principles and traditional remedies.",
-    price: "$18.95",
-    image: "https://images.unsplash.com/photo-1476275466078-4007374efbbe?w=300&h=400&fit=crop",
-    affiliateUrl: "https://amazon.com",
-    researchReference: "Traditional knowledge compilation",
-    category: "Ayurveda"
-  }
-];
+// Books now imported from bookData.ts
 
 const supplements: Supplement[] = [
   {
@@ -329,31 +255,26 @@ function AffiliateDisclosureBanner() {
   );
 }
 
-function BookCard({ book }: { book: Book }) {
+function BookCard({ book }: { book: BookEntry }) {
   return (
     <article className="group bg-card rounded-lg border border-border p-4 hover:border-primary/30 transition-colors">
       <div className="flex gap-4">
-        {/* Small thumbnail - reference style */}
         <div className="w-16 h-20 bg-muted/50 rounded flex-shrink-0 overflow-hidden">
-          <img 
-            src={book.image} 
-            alt={book.title}
-            className="w-full h-full object-cover"
-          />
+          <img src={book.image} alt={book.title} className="w-full h-full object-cover" />
         </div>
         <div className="flex-1 min-w-0">
-          <p className="text-xs text-muted-foreground mb-1">{book.category}</p>
+          <Link to={`/library/${book.category}`} className="text-xs text-primary hover:underline mb-1 inline-block">
+            {bookCategories.find(c => c.id === book.category)?.label ?? book.category}
+          </Link>
           <h3 className="font-serif font-medium text-foreground text-sm leading-tight mb-1 line-clamp-2">
             {book.title}
           </h3>
           <p className="text-xs text-muted-foreground mb-2">{book.author}</p>
           {book.researchReference && (
-            <p className="text-xs text-primary/70 mb-2">
-              {book.researchReference}
-            </p>
+            <p className="text-xs text-primary/70 mb-2">{book.researchReference}</p>
           )}
           <a
-            href={book.affiliateUrl}
+            href={book.sources[0]?.url ?? "#"}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-primary transition-colors"
@@ -488,6 +409,15 @@ function EmptyState({ category }: { category: string }) {
 export default function Merch() {
   const [activeTab, setActiveTab] = useState("all");
   const [visibleVideos, setVisibleVideos] = useState(6);
+  const [bookSearch, setBookSearch] = useState("");
+
+  const filteredBooks = useMemo(() => {
+    if (!bookSearch.trim()) return allBooks;
+    const q = bookSearch.toLowerCase();
+    return allBooks.filter(
+      (b) => b.title.toLowerCase().includes(q) || b.author.toLowerCase().includes(q) || b.category.toLowerCase().includes(q)
+    );
+  }, [bookSearch]);
   
   const VIDEOS_PER_PAGE = 6;
   const hasMoreVideos = visibleVideos < videoContent.length;
@@ -578,14 +508,43 @@ export default function Merch() {
                       <BookOpen className="h-5 w-5 text-muted-foreground" />
                       <h2 className="font-serif text-xl font-medium text-foreground">Published Works</h2>
                     </div>
-                    <p className="text-sm text-muted-foreground mb-6">
-                      Books cited in our research or relevant to integrative health topics
+                    <p className="text-sm text-muted-foreground mb-4">
+                      Medical reference books and health guides across integrative medicine
                     </p>
+                    {/* Search bar */}
+                    <div className="relative max-w-sm mb-4">
+                      <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                      <Input
+                        placeholder="Search books by title, author, or topic…"
+                        value={bookSearch}
+                        onChange={(e) => setBookSearch(e.target.value)}
+                        className="pl-10 text-sm"
+                      />
+                    </div>
+                    {/* Category chips */}
+                    <div className="flex flex-wrap gap-2 mb-6">
+                      {bookCategories.map((cat) => (
+                        <Link key={cat.id} to={`/library/${cat.id}`}>
+                          <Badge variant="outline" className="cursor-pointer hover:bg-primary/10 transition-colors">
+                            {cat.label}
+                          </Badge>
+                        </Link>
+                      ))}
+                    </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                      {books.map((book) => (
+                      {filteredBooks.slice(0, 6).map((book) => (
                         <BookCard key={book.id} book={book} />
                       ))}
                     </div>
+                    {filteredBooks.length > 6 && (
+                      <div className="flex justify-center mt-4">
+                        <Link to="/library/nutrition">
+                          <Button variant="ghost" className="text-muted-foreground hover:text-foreground">
+                            View all {filteredBooks.length} books →
+                          </Button>
+                        </Link>
+                      </div>
+                    )}
                   </div>
 
                   {/* Compounds Section */}
@@ -637,11 +596,29 @@ export default function Merch() {
                 <TabsContent value="books">
                   <div className="mb-6">
                     <h2 className="font-serif text-xl font-medium text-foreground mb-1">Published Works</h2>
-                    <p className="text-sm text-muted-foreground">Books cited in our research or relevant to integrative health topics</p>
+                    <p className="text-sm text-muted-foreground mb-4">Medical reference books and health guides</p>
+                    <div className="relative max-w-sm mb-4">
+                      <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                      <Input
+                        placeholder="Search books by title, author, or topic…"
+                        value={bookSearch}
+                        onChange={(e) => setBookSearch(e.target.value)}
+                        className="pl-10 text-sm"
+                      />
+                    </div>
+                    <div className="flex flex-wrap gap-2 mb-6">
+                      {bookCategories.map((cat) => (
+                        <Link key={cat.id} to={`/library/${cat.id}`}>
+                          <Badge variant="outline" className="cursor-pointer hover:bg-primary/10 transition-colors">
+                            {cat.label}
+                          </Badge>
+                        </Link>
+                      ))}
+                    </div>
                   </div>
-                  {books.length > 0 ? (
+                  {filteredBooks.length > 0 ? (
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                      {books.map((book) => (
+                      {filteredBooks.map((book) => (
                         <BookCard key={book.id} book={book} />
                       ))}
                     </div>
