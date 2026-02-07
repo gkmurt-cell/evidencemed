@@ -82,6 +82,23 @@ export const allBooks: BookEntry[] = [
     ],
   },
 
+  {
+    id: "25",
+    title: "Take Control of Your Health and Escape the Sickness Industry",
+    author: "Elaine Hollingsworth",
+    description: "A comprehensive guide challenging mainstream health practices, covering nutrition, environmental toxins, and natural approaches to disease prevention across twelve editions.",
+    image: "https://images.unsplash.com/photo-1543002588-bfa74002ed7e?w=300&h=400&fit=crop",
+    researchReference: "12th edition, independently published health reference",
+    category: "nutrition",
+    isbn: "978-1490359793",
+    year: 2013,
+    sources: [
+      { name: "Amazon", url: "https://www.amazon.com/dp/0646402978", type: "retailer" },
+      { name: "AbeBooks", url: "https://www.abebooks.com/9780646402970/Take-Control-Health-Escape-Sickness-0646402978/plp", type: "retailer" },
+      { name: "Booktopia", url: "https://www.booktopia.com.au/take-control-of-your-health-and-escape-the-sickness-industry-elaine-hollingsworth/book/9781490359793.html", type: "retailer" },
+    ],
+  },
+
   // Autoimmune
   {
     id: "4",
