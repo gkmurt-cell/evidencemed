@@ -1,8 +1,11 @@
 import { useState, useEffect, createContext, useContext, ReactNode } from "react";
 
+const API_URL = process.env.REACT_APP_BACKEND_URL || "";
+
 interface User {
   id: string;
   email: string;
+  created_at?: string;
 }
 
 interface AuthContextType {
@@ -21,8 +24,8 @@ const AuthContext = createContext<AuthContextType>({
   signOut: async () => {},
 });
 
-const USERS_KEY = "evidencemed_users";
-const SESSION_KEY = "evidencemed_session";
+const TOKEN_KEY = "evidencemed_token";
+const USER_KEY = "evidencemed_user";
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
@@ -30,68 +33,81 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   useEffect(() => {
     // Check for existing session
-    const sessionData = localStorage.getItem(SESSION_KEY);
-    if (sessionData) {
+    const token = localStorage.getItem(TOKEN_KEY);
+    const savedUser = localStorage.getItem(USER_KEY);
+    
+    if (token && savedUser) {
       try {
-        const savedUser = JSON.parse(sessionData);
-        setUser(savedUser);
+        const userData = JSON.parse(savedUser);
+        setUser(userData);
       } catch (e) {
-        localStorage.removeItem(SESSION_KEY);
+        localStorage.removeItem(TOKEN_KEY);
+        localStorage.removeItem(USER_KEY);
       }
     }
     setLoading(false);
   }, []);
 
-  const getUsers = (): Record<string, { password: string; id: string }> => {
-    try {
-      return JSON.parse(localStorage.getItem(USERS_KEY) || "{}");
-    } catch {
-      return {};
-    }
-  };
-
-  const saveUsers = (users: Record<string, { password: string; id: string }>) => {
-    localStorage.setItem(USERS_KEY, JSON.stringify(users));
-  };
-
   const signUp = async (email: string, password: string): Promise<{ error: string | null }> => {
-    const users = getUsers();
-    if (users[email]) {
-      return { error: "User already exists" };
-    }
-    
-    const newUser = {
-      id: crypto.randomUUID(),
-      password,
-    };
-    users[email] = newUser;
-    saveUsers(users);
+    try {
+      const response = await fetch(`${API_URL}/api/auth/register`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
 
-    const userData = { id: newUser.id, email };
-    setUser(userData);
-    localStorage.setItem(SESSION_KEY, JSON.stringify(userData));
-    
-    return { error: null };
+      const data = await response.json();
+
+      if (!response.ok) {
+        return { error: data.detail || "Registration failed" };
+      }
+
+      // Save token and user
+      localStorage.setItem(TOKEN_KEY, data.access_token);
+      localStorage.setItem(USER_KEY, JSON.stringify(data.user));
+      setUser(data.user);
+
+      return { error: null };
+    } catch (e) {
+      console.error("Registration error:", e);
+      return { error: "Network error. Please try again." };
+    }
   };
 
   const signIn = async (email: string, password: string): Promise<{ error: string | null }> => {
-    const users = getUsers();
-    const userData = users[email];
-    
-    if (!userData || userData.password !== password) {
-      return { error: "Invalid email or password" };
-    }
+    try {
+      const response = await fetch(`${API_URL}/api/auth/login`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
 
-    const sessionUser = { id: userData.id, email };
-    setUser(sessionUser);
-    localStorage.setItem(SESSION_KEY, JSON.stringify(sessionUser));
-    
-    return { error: null };
+      const data = await response.json();
+
+      if (!response.ok) {
+        return { error: data.detail || "Invalid email or password" };
+      }
+
+      // Save token and user
+      localStorage.setItem(TOKEN_KEY, data.access_token);
+      localStorage.setItem(USER_KEY, JSON.stringify(data.user));
+      setUser(data.user);
+
+      return { error: null };
+    } catch (e) {
+      console.error("Login error:", e);
+      return { error: "Network error. Please try again." };
+    }
   };
 
   const signOut = async () => {
     setUser(null);
-    localStorage.removeItem(SESSION_KEY);
+    localStorage.removeItem(TOKEN_KEY);
+    localStorage.removeItem(USER_KEY);
   };
 
   return (
@@ -107,4 +123,9 @@ export const useAuth = () => {
     throw new Error("useAuth must be used within an AuthProvider");
   }
   return context;
+};
+
+// Helper to get auth token
+export const getAuthToken = (): string | null => {
+  return localStorage.getItem(TOKEN_KEY);
 };
