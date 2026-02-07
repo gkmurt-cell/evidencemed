@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import { ExternalLink, ShoppingBag, Leaf, BookOpen, Video, Play, Package, AlertTriangle, Pill, Filter, ChevronDown, Search } from "lucide-react";
+import { ExternalLink, ShoppingBag, Leaf, BookOpen, Video, Play, Package, AlertTriangle, Pill, Filter, ChevronDown, Search, Youtube, GraduationCap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
@@ -32,6 +32,12 @@ interface Supplement {
   category: string;
 }
 
+interface VideoLink {
+  label: string;
+  url: string;
+  type: "youtube" | "book" | "course";
+}
+
 interface VideoContent {
   id: string;
   title: string;
@@ -42,6 +48,7 @@ interface VideoContent {
   url: string;
   thumbnail?: string;
   category: string;
+  affiliateLinks?: VideoLink[];
 }
 
 // ============ DATA ============
@@ -120,7 +127,10 @@ const videoContent: VideoContent[] = [
     duration: "25 min",
     type: "free",
     url: "https://www.youtube.com/@DrJohnCampbell",
-    category: "Repurposed Drugs"
+    category: "Repurposed Drugs",
+    affiliateLinks: [
+      { label: "YouTube Channel", url: "https://www.youtube.com/@DrJohnCampbell?sub_confirmation=1", type: "youtube" },
+    ],
   },
   {
     id: "2",
@@ -130,7 +140,10 @@ const videoContent: VideoContent[] = [
     duration: "30 min",
     type: "free",
     url: "https://www.youtube.com/@DrJohnCampbell",
-    category: "Vitamins"
+    category: "Vitamins",
+    affiliateLinks: [
+      { label: "YouTube Channel", url: "https://www.youtube.com/@DrJohnCampbell?sub_confirmation=1", type: "youtube" },
+    ],
   },
   {
     id: "3",
@@ -140,7 +153,10 @@ const videoContent: VideoContent[] = [
     duration: "28 min",
     type: "free",
     url: "https://www.youtube.com/@DrJohnCampbell",
-    category: "Repurposed Drugs"
+    category: "Repurposed Drugs",
+    affiliateLinks: [
+      { label: "YouTube Channel", url: "https://www.youtube.com/@DrJohnCampbell?sub_confirmation=1", type: "youtube" },
+    ],
   },
   {
     id: "4",
@@ -150,7 +166,10 @@ const videoContent: VideoContent[] = [
     duration: "22 min",
     type: "free",
     url: "https://www.youtube.com/@DrJohnCampbell",
-    category: "Repurposed Drugs"
+    category: "Repurposed Drugs",
+    affiliateLinks: [
+      { label: "YouTube Channel", url: "https://www.youtube.com/@DrJohnCampbell?sub_confirmation=1", type: "youtube" },
+    ],
   },
   {
     id: "5",
@@ -160,7 +179,10 @@ const videoContent: VideoContent[] = [
     duration: "32 min",
     type: "free",
     url: "https://www.youtube.com/@DrJohnCampbell",
-    category: "Repurposed Drugs"
+    category: "Repurposed Drugs",
+    affiliateLinks: [
+      { label: "YouTube Channel", url: "https://www.youtube.com/@DrJohnCampbell?sub_confirmation=1", type: "youtube" },
+    ],
   },
   {
     id: "6",
@@ -170,7 +192,11 @@ const videoContent: VideoContent[] = [
     duration: "45 min",
     type: "free",
     url: "https://youtube.com",
-    category: "Longevity"
+    category: "Longevity",
+    affiliateLinks: [
+      { label: "Lifespan (Book)", url: "https://www.amazon.com/dp/1501191977", type: "book" },
+      { label: "YouTube Channel", url: "https://www.youtube.com/@davidsinclairphd?sub_confirmation=1", type: "youtube" },
+    ],
   },
   {
     id: "7",
@@ -180,7 +206,11 @@ const videoContent: VideoContent[] = [
     duration: "2 hours",
     type: "paid",
     url: "#",
-    category: "Metabolic"
+    category: "Metabolic",
+    affiliateLinks: [
+      { label: "Outlive (Book)", url: "https://www.amazon.com/dp/0593236599", type: "book" },
+      { label: "Peter Attia Courses", url: "https://peterattiamd.com", type: "course" },
+    ],
   },
   {
     id: "8",
@@ -190,7 +220,11 @@ const videoContent: VideoContent[] = [
     duration: "1 hour",
     type: "free",
     url: "https://youtube.com",
-    category: "Autoimmune"
+    category: "Autoimmune",
+    affiliateLinks: [
+      { label: "The Wahls Protocol (Book)", url: "https://www.amazon.com/dp/1583335544", type: "book" },
+      { label: "Wahls Protocol Course", url: "https://terrywahls.com", type: "course" },
+    ],
   },
   {
     id: "9",
@@ -200,7 +234,10 @@ const videoContent: VideoContent[] = [
     duration: "55 min",
     type: "free",
     url: "https://youtube.com",
-    category: "Gut Health"
+    category: "Gut Health",
+    affiliateLinks: [
+      { label: "Fiber Fueled (Book)", url: "https://www.amazon.com/dp/059308456X", type: "book" },
+    ],
   },
   {
     id: "10",
@@ -210,7 +247,10 @@ const videoContent: VideoContent[] = [
     duration: "90 min",
     type: "paid",
     url: "#",
-    category: "Oncology"
+    category: "Oncology",
+    affiliateLinks: [
+      { label: "FLCCC Courses", url: "https://covid19criticalcare.com", type: "course" },
+    ],
   },
   {
     id: "11",
@@ -220,7 +260,11 @@ const videoContent: VideoContent[] = [
     duration: "1 hour",
     type: "free",
     url: "https://youtube.com",
-    category: "Metabolic"
+    category: "Metabolic",
+    affiliateLinks: [
+      { label: "The Obesity Code (Book)", url: "https://www.amazon.com/dp/1771641258", type: "book" },
+      { label: "YouTube Channel", url: "https://www.youtube.com/@drjasonfung?sub_confirmation=1", type: "youtube" },
+    ],
   },
   {
     id: "12",
@@ -230,8 +274,11 @@ const videoContent: VideoContent[] = [
     duration: "26 min",
     type: "free",
     url: "https://www.youtube.com/@DrJohnCampbell",
-    category: "Repurposed Drugs"
-  }
+    category: "Repurposed Drugs",
+    affiliateLinks: [
+      { label: "YouTube Channel", url: "https://www.youtube.com/@DrJohnCampbell?sub_confirmation=1", type: "youtube" },
+    ],
+  },
 ];
 
 // ============ COMPONENTS ============
@@ -382,15 +429,37 @@ function VideoCard({ video }: { video: VideoContent }) {
         <p className="text-xs text-muted-foreground mb-3 line-clamp-2">
           {video.description}
         </p>
-        <a
-          href={video.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline"
-        >
-          <span>{video.type === 'paid' ? 'Get Access' : 'Watch Lecture'}</span>
-          <ExternalLink className="h-3 w-3" />
-        </a>
+        <div className="flex flex-wrap items-center gap-2">
+          <a
+            href={video.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline"
+          >
+            <span>{video.type === 'paid' ? 'Get Access' : 'Watch Lecture'}</span>
+            <ExternalLink className="h-3 w-3" />
+          </a>
+          {video.affiliateLinks && video.affiliateLinks.length > 0 && (
+            <>
+              <span className="text-muted-foreground/40">|</span>
+              {video.affiliateLinks.map((link, i) => {
+                const Icon = link.type === "youtube" ? Youtube : link.type === "book" ? BookOpen : GraduationCap;
+                return (
+                  <a
+                    key={i}
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    <Icon className="h-3 w-3" />
+                    <span>{link.label}</span>
+                  </a>
+                );
+              })}
+            </>
+          )}
+        </div>
       </div>
     </article>
   );
