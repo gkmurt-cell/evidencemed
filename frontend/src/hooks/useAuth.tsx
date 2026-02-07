@@ -1,74 +1,101 @@
 import { useState, useEffect, createContext, useContext, ReactNode } from "react";
-import { User, Session } from "@supabase/supabase-js";
-import { getBackendClient } from "@/lib/backend";
+
+interface User {
+  id: string;
+  email: string;
+}
 
 interface AuthContextType {
   user: User | null;
-  session: Session | null;
   loading: boolean;
+  signIn: (email: string, password: string) => Promise<{ error: string | null }>;
+  signUp: (email: string, password: string) => Promise<{ error: string | null }>;
   signOut: () => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextType>({
   user: null,
-  session: null,
   loading: true,
+  signIn: async () => ({ error: null }),
+  signUp: async () => ({ error: null }),
   signOut: async () => {},
 });
 
+const USERS_KEY = "evidencemed_users";
+const SESSION_KEY = "evidencemed_session";
+
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
-  const [session, setSession] = useState<Session | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    let isMounted = true;
-    let unsubscribe: (() => void) | null = null;
-
-    (async () => {
-      const client = await getBackendClient();
-      if (!client) {
-        if (isMounted) setLoading(false);
-        return;
+    // Check for existing session
+    const sessionData = localStorage.getItem(SESSION_KEY);
+    if (sessionData) {
+      try {
+        const savedUser = JSON.parse(sessionData);
+        setUser(savedUser);
+      } catch (e) {
+        localStorage.removeItem(SESSION_KEY);
       }
-
-      // Set up auth state listener FIRST
-      const {
-        data: { subscription },
-      } = client.auth.onAuthStateChange((_event, nextSession) => {
-        if (!isMounted) return;
-        setSession(nextSession);
-        setUser(nextSession?.user ?? null);
-        setLoading(false);
-      });
-
-      unsubscribe = () => subscription.unsubscribe();
-
-      // THEN check for existing session
-      const {
-        data: { session: existingSession },
-      } = await client.auth.getSession();
-
-      if (!isMounted) return;
-      setSession(existingSession);
-      setUser(existingSession?.user ?? null);
-      setLoading(false);
-    })();
-
-    return () => {
-      isMounted = false;
-      unsubscribe?.();
-    };
+    }
+    setLoading(false);
   }, []);
 
+  const getUsers = (): Record<string, { password: string; id: string }> => {
+    try {
+      return JSON.parse(localStorage.getItem(USERS_KEY) || "{}");
+    } catch {
+      return {};
+    }
+  };
+
+  const saveUsers = (users: Record<string, { password: string; id: string }>) => {
+    localStorage.setItem(USERS_KEY, JSON.stringify(users));
+  };
+
+  const signUp = async (email: string, password: string): Promise<{ error: string | null }> => {
+    const users = getUsers();
+    if (users[email]) {
+      return { error: "User already exists" };
+    }
+    
+    const newUser = {
+      id: crypto.randomUUID(),
+      password,
+    };
+    users[email] = newUser;
+    saveUsers(users);
+
+    const userData = { id: newUser.id, email };
+    setUser(userData);
+    localStorage.setItem(SESSION_KEY, JSON.stringify(userData));
+    
+    return { error: null };
+  };
+
+  const signIn = async (email: string, password: string): Promise<{ error: string | null }> => {
+    const users = getUsers();
+    const userData = users[email];
+    
+    if (!userData || userData.password !== password) {
+      return { error: "Invalid email or password" };
+    }
+
+    const sessionUser = { id: userData.id, email };
+    setUser(sessionUser);
+    localStorage.setItem(SESSION_KEY, JSON.stringify(sessionUser));
+    
+    return { error: null };
+  };
+
   const signOut = async () => {
-    const client = await getBackendClient();
-    if (!client) return;
-    await client.auth.signOut();
+    setUser(null);
+    localStorage.removeItem(SESSION_KEY);
   };
 
   return (
-    <AuthContext.Provider value={{ user, session, loading, signOut }}>
+    <AuthContext.Provider value={{ user, loading, signIn, signUp, signOut }}>
       {children}
     </AuthContext.Provider>
   );
