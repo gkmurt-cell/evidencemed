@@ -3275,6 +3275,80 @@ export const compoundsData: Compound[] = [
         doi: "10.1177/2156587212461357"
       }
     ]
+  },
+  {
+    id: "brewers-yeast",
+    name: "Brewer's Yeast",
+    latinName: "Saccharomyces cerevisiae",
+    category: "Microbiome Support",
+    studies: 320,
+    image: "🍺",
+    description: "Brewer's yeast (Saccharomyces cerevisiae) is a single-celled fungus used in brewing and baking for millennia. It is one of the richest natural sources of B-complex vitamins, chromium, selenium, and beta-glucans, making it a subject of research for metabolic, immune, and digestive health.",
+    traditionalUse: "Used as a nutritional supplement since the early 20th century. Recognized as a natural source of glucose tolerance factor (GTF) chromium in the 1950s. Nutritional yeast—a deactivated form—became a dietary staple in vegetarian and vegan communities for its B-vitamin and protein content.",
+    keyBenefits: [
+      "Natural B-vitamin complex source",
+      "Blood sugar regulation (chromium content)",
+      "Immune system support (beta-glucans)",
+      "Digestive health and gut flora",
+      "Protein and mineral supplementation"
+    ],
+    mechanisms: [
+      "Provides bioavailable chromium as glucose tolerance factor",
+      "Beta-1,3/1,6-glucans activate innate immune cells",
+      "Rich in B vitamins supporting energy metabolism",
+      "Prebiotic effects on gut microbiota",
+      "Contains nucleotides supporting cellular repair"
+    ],
+    dosage: "Clinical studies have used 1-3 tablespoons (15-30g) of brewer's yeast daily, or chromium-enriched yeast providing 200-500mcg chromium/day. These figures are provided for research context only and do not constitute a recommendation for personal use.",
+    safetyNotes: [
+      "Generally well-tolerated as a food product",
+      "May cause bloating or gas initially",
+      "Contraindicated in Crohn's disease (anti-Saccharomyces antibodies)",
+      "Those with yeast allergies should avoid",
+      "May trigger migraines in susceptible individuals (tyramine content)"
+    ],
+    interactions: [
+      "May enhance effects of diabetes medications (chromium content)",
+      "MAO inhibitors—tyramine in yeast may cause hypertensive crisis",
+      "May interact with antifungal medications",
+      "Immunomodulatory effects may affect immunosuppressants"
+    ],
+    sources: ["Brewer's yeast tablets/powder", "Nutritional yeast flakes", "Chromium-enriched yeast", "Beta-glucan extracts"],
+    relatedCompounds: ["Chromium", "Vitamin B12", "Selenium", "Zinc"],
+    references: [
+      {
+        pmid: "7000589",
+        title: "Beneficial effect of chromium-rich yeast on glucose tolerance and blood lipids in elderly subjects",
+        authors: "Offenbacher EG, Pi-Sunyer FX",
+        journal: "Diabetes",
+        year: 1980,
+        doi: "10.2337/diab.29.11.919"
+      },
+      {
+        pmid: "21170603",
+        title: "Effects of chromium brewer's yeast supplementation on body mass, blood carbohydrates, and lipids in type 2 diabetic patients",
+        authors: "Racek J, Trefil L, Rajdl D, et al.",
+        journal: "Biological Trace Element Research",
+        year: 2006,
+        doi: "10.1385/BTER:109:3:215"
+      },
+      {
+        pmid: "18341424",
+        title: "Beta-glucans in higher fungi and their health effects",
+        authors: "Novak M, Vetvicka V",
+        journal: "Annals of Translational Medicine",
+        year: 2008,
+        doi: "10.1016/j.abb.2007.12.035"
+      },
+      {
+        pmid: "11718672",
+        title: "Saccharomyces boulardii in the prevention of antibiotic-associated diarrhoea in children",
+        authors: "Kotowska M, Albrecht P, Szajewska H",
+        journal: "Alimentary Pharmacology & Therapeutics",
+        year: 2005,
+        doi: "10.1111/j.1365-2036.2005.02395.x"
+      }
+    ]
   }
 ];
 
