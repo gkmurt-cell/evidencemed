@@ -151,8 +151,35 @@ const Compounds = () => {
           </div>
         </section>
 
+        {/* Most Researched Compounds */}
+        <div className="container mx-auto px-4 pt-8 lg:pt-10">
+          <div className="mb-6">
+            <h2 className="font-serif text-xl font-semibold text-foreground mb-1">Most Researched Compounds</h2>
+            <p className="text-sm text-muted-foreground">Ranked by volume of published peer-reviewed studies</p>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 mb-8">
+            {compoundsData
+              .filter((c) => !vitaminCategories.includes(c.category))
+              .sort((a, b) => b.studies - a.studies)
+              .slice(0, 12)
+              .map((compound) => (
+                <Link
+                  key={compound.id}
+                  to={`/compound/${compound.id}`}
+                  className="group flex flex-col items-center p-4 rounded-lg bg-card border border-border hover:border-primary/30 hover:shadow-md transition-all text-center"
+                >
+                  <span className="text-3xl mb-2">{compound.image}</span>
+                  <span className="text-sm font-medium text-foreground group-hover:text-primary transition-colors line-clamp-1">
+                    {compound.name}
+                  </span>
+                  <span className="text-xs text-muted-foreground mt-1">{compound.studies.toLocaleString()}+ studies</span>
+                </Link>
+              ))}
+          </div>
+        </div>
+
         {/* Main Content */}
-        <div className="container mx-auto px-4 py-8 lg:py-12">
+        <div className="container mx-auto px-4 pb-8 lg:pb-12">
           {/* Filters */}
           <div className="bg-card border border-border rounded-xl p-4 mb-6">
             <div className="flex flex-col sm:flex-row gap-4">
