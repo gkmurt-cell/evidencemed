@@ -16,12 +16,14 @@ interface PubMedSearchPanelProps {
   initialQuery?: string;
   condition?: string;
   maxResults?: number;
+  onSearchChange?: (query: string) => void;
 }
 
 const PubMedSearchPanel = ({ 
   initialQuery = "", 
   condition,
-  maxResults = 20 
+  maxResults = 20,
+  onSearchChange
 }: PubMedSearchPanelProps) => {
   const [query, setQuery] = useState(initialQuery);
   const { 
@@ -35,6 +37,15 @@ const PubMedSearchPanel = ({
     totalPages
   } = usePubMedSearch();
 
+  // Update query when initialQuery changes (for quick browse)
+  useEffect(() => {
+    if (initialQuery && initialQuery !== query) {
+      setQuery(initialQuery);
+      search(initialQuery, maxResults);
+      onSearchChange?.(initialQuery);
+    }
+  }, [initialQuery]);
+
   // Auto-search if condition is provided
   useEffect(() => {
     if (condition) {
@@ -46,6 +57,7 @@ const PubMedSearchPanel = ({
     e.preventDefault();
     if (query.trim()) {
       search(query, maxResults);
+      onSearchChange?.(query);
     }
   };
 
