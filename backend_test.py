@@ -124,13 +124,9 @@ class EvidenceMedAPITester:
             "Register Test User for Login",
             "POST",
             "auth/register",
-            201,
+            [201, 409],  # Accept both success and conflict
             data={"email": "newuser@test.com", "password": "testpass123"}
         )
-        
-        # If registration failed with 409, user already exists, which is fine
-        if not register_success and "409" not in str(register_response):
-            print("   ⚠ Could not register test user, trying login anyway")
         
         success, response = self.run_test(
             "User Login (Existing User)",
