@@ -159,13 +159,6 @@ const trustedResources: TrustedResource[] = [
     url: "https://www.ifm.org/",
     description: "Educational organization advancing functional medicine approach to healthcare.",
     type: "Organization"
-  },
-  {
-    id: "10",
-    title: "Examine.com",
-    url: "https://examine.com/",
-    description: "Independent nutrition and supplement research analysis.",
-    type: "Database"
   }
 ];
 
