@@ -161,7 +161,6 @@ const ResearchSection = () => {
               { href: "/compounds", label: "Compound Library" },
               { href: "/methodology", label: "Editorial Standards" },
             ]}
-            className="justify-center mb-6"
           />
           <DemoDisclaimer compact className="mb-4" />
           <EducationalDisclaimer />
