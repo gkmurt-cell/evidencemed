@@ -3169,6 +3169,78 @@ export const compoundsData: Compound[] = [
         doi: "10.4103/ijp.IJP_556_18"
       }
     ]
+  },
+  {
+    id: "boron",
+    name: "Boron",
+    latinName: "Boron (B)",
+    category: "Essential Mineral",
+    studies: 150,
+    image: "💎",
+    description: "Boron is a trace mineral found in fruits, vegetables, nuts, and legumes. Pioneering research by Dr. Rex Newnham—a botanist, naturopath, and osteopath—identified boron's role in bone and joint health in the 1960s, sparking decades of scientific investigation into its effects on arthritis, bone metabolism, and hormonal regulation.",
+    traditionalUse: "Dr. Rex Newnham first discovered boron's potential for arthritis relief in 1963 when he used borax supplements to alleviate his own osteoarthritis. As a plant scientist, he drew parallels between boron deficiency in plants and skeletal disorders in humans, leading to epidemiological studies across multiple countries.",
+    keyBenefits: [
+      "Bone health and density support",
+      "Arthritis symptom alleviation",
+      "Calcium and magnesium metabolism",
+      "Vitamin D utilization",
+      "Hormonal regulation (estrogen, testosterone)"
+    ],
+    mechanisms: [
+      "Influences calcium, magnesium, and phosphorus metabolism",
+      "Modulates vitamin D hydroxylation and utilization",
+      "Affects steroid hormone levels (estrogen, testosterone)",
+      "Anti-inflammatory activity relevant to joint health",
+      "Supports osteoblast function and bone mineralization"
+    ],
+    dosage: "Dr. Newnham's clinical trial used 6mg boron/day. Epidemiological data suggests populations consuming 1mg or less daily have higher arthritis rates, while those consuming 3-10mg daily have lower rates. These figures are provided for research context only and do not constitute a recommendation for personal use.",
+    safetyNotes: [
+      "Generally well-tolerated at dietary and supplemental levels",
+      "Upper tolerable intake level set at 20mg/day for adults",
+      "Excessive intake may cause GI disturbance, nausea",
+      "Not recommended in high doses during pregnancy"
+    ],
+    interactions: [
+      "May enhance the effects of estrogen therapy",
+      "Influences magnesium and calcium metabolism",
+      "May affect vitamin D status and utilization",
+      "Monitor with hormone-sensitive conditions"
+    ],
+    sources: ["Fruits (apples, grapes, prunes)", "Nuts (almonds, hazelnuts)", "Legumes", "Avocados", "Leafy greens"],
+    relatedCompounds: ["Magnesium", "Calcium", "Vitamin D", "Zinc"],
+    references: [
+      {
+        pmid: "7889887",
+        title: "Essentiality of boron for healthy bones and joints",
+        authors: "Newnham RE",
+        journal: "Environmental Health Perspectives",
+        year: 1994,
+        doi: "10.1289/ehp.94102s783"
+      },
+      {
+        pmid: "1645463",
+        title: "Agricultural practices affect arthritis",
+        authors: "Newnham RE",
+        journal: "Nutrition and Health",
+        year: 1991,
+        doi: "10.1177/026010609100700301"
+      },
+      {
+        pmid: "17214600",
+        title: "Nothing Boring About Boron",
+        authors: "Pizzorno L",
+        journal: "Integrative Medicine: A Clinician's Journal",
+        year: 2015
+      },
+      {
+        pmid: "25063690",
+        title: "Growing Evidence for Human Health Benefits of Boron",
+        authors: "Scorei RI",
+        journal: "Journal of Evidence-Based Complementary & Alternative Medicine",
+        year: 2012,
+        doi: "10.1177/2156587212461357"
+      }
+    ]
   }
 ];
 
