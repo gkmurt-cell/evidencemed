@@ -120,7 +120,7 @@ const CompoundPage = () => {
           </div>
 
           {/* Header */}
-          <div className="grid lg:grid-cols-3 gap-8 mb-12">
+          <div className="grid lg:grid-cols-3 gap-6 mb-8">
             <div className="lg:col-span-2">
               <div className="flex items-start gap-4 mb-4">
                 <span className="text-6xl">{compound.image}</span>
@@ -145,7 +145,7 @@ const CompoundPage = () => {
                 className="mb-4"
               />
               
-              <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+              <p className="text-lg text-muted-foreground leading-relaxed mb-4">
                 {compound.description}
               </p>
               <EducationalDisclaimer />
@@ -191,10 +191,10 @@ const CompoundPage = () => {
             </div>
           </div>
 
-          {/* Main Content Grid */}
-          <div className="grid lg:grid-cols-3 gap-8">
+            {/* Main Content Grid */}
+          <div className="grid lg:grid-cols-3 gap-6">
             {/* Left Column */}
-            <div className="lg:col-span-2 space-y-8">
+            <div className="lg:col-span-2 space-y-5">
               {/* Traditional Use */}
               <section className="bg-card border border-border rounded-xl p-6">
                 <div className="flex items-center gap-2 text-primary mb-4">
@@ -299,7 +299,7 @@ const CompoundPage = () => {
             </div>
 
             {/* Right Column */}
-            <div className="space-y-6">
+            <div className="space-y-4">
               {/* Safety Notes */}
               <section className="bg-card border border-border rounded-xl p-6">
                 <div className="flex items-center gap-2 text-amber-600 dark:text-amber-400 mb-4">
