@@ -1,5 +1,7 @@
 import { useState, useCallback } from "react";
 
+const API_URL = process.env.REACT_APP_BACKEND_URL || "";
+
 export interface PubMedArticle {
   pmid: string;
   title: string;
@@ -9,17 +11,13 @@ export interface PubMedArticle {
   abstract: string;
   doi: string | null;
   pmcid: string | null;
-  meshTerms: string[];
-  publicationType: string[];
+  pubmed_url: string;
 }
 
 export interface PubMedSearchResult {
   articles: PubMedArticle[];
-  totalCount: number;
+  total_count: number;
   query: string;
-  source: string;
-  page: number;
-  pageSize: number;
 }
 
 export function usePubMedSearch() {
@@ -38,22 +36,38 @@ export function usePubMedSearch() {
     setIsLoading(true);
     setError(null);
 
-    // Mock search - returns empty results (Supabase edge functions not available)
-    await new Promise(resolve => setTimeout(resolve, 500));
-    
-    const mockResult: PubMedSearchResult = {
-      articles: [],
-      totalCount: 0,
-      query,
-      source: "mock",
-      page,
-      pageSize: maxResults,
-    };
-    
-    setResults(mockResult);
-    setCurrentPage(page);
-    setIsLoading(false);
-    return mockResult;
+    try {
+      const response = await fetch(
+        `${API_URL}/api/pubmed/search?query=${encodeURIComponent(query)}&max_results=${maxResults}`
+      );
+
+      if (!response.ok) {
+        throw new Error("Search failed");
+      }
+
+      const data = await response.json();
+      
+      // Map to expected format
+      const result: PubMedSearchResult = {
+        articles: data.articles.map((a: any) => ({
+          ...a,
+          meshTerms: [],
+          publicationType: [],
+        })),
+        total_count: data.total_count,
+        query: data.query,
+      };
+
+      setResults(result);
+      setCurrentPage(page);
+      setIsLoading(false);
+      return result;
+    } catch (e) {
+      console.error("PubMed search error:", e);
+      setError("Search failed. Please try again.");
+      setIsLoading(false);
+      return null;
+    }
   }, []);
 
   const searchByCondition = useCallback(async (condition: string, maxResults = 20, page = 1) => {
@@ -70,7 +84,7 @@ export function usePubMedSearch() {
     setCurrentPage(1);
   }, []);
 
-  const totalPages = results ? Math.ceil(results.totalCount / pageSize) : 0;
+  const totalPages = results ? Math.ceil(results.total_count / pageSize) : 0;
 
   return {
     search,
