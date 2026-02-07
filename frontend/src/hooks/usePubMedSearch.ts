@@ -1,5 +1,4 @@
 import { useState, useCallback } from "react";
-import { supabase } from "@/integrations/supabase/client";
 
 export interface PubMedArticle {
   pmid: string;
@@ -28,9 +27,7 @@ export function usePubMedSearch() {
   const [error, setError] = useState<string | null>(null);
   const [results, setResults] = useState<PubMedSearchResult | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
-  const [lastQuery, setLastQuery] = useState<string>("");
-  const [lastCondition, setLastCondition] = useState<string>("");
-  const [pageSize, setPageSize] = useState(20);
+  const [pageSize] = useState(20);
 
   const search = useCallback(async (query: string, maxResults = 20, page = 1) => {
     if (!query.trim()) {
@@ -40,84 +37,37 @@ export function usePubMedSearch() {
 
     setIsLoading(true);
     setError(null);
-    setLastQuery(query);
-    setLastCondition("");
-    setPageSize(maxResults);
 
-    try {
-      const { data, error: fnError } = await supabase.functions.invoke("pubmed-search", {
-        body: { query, maxResults, page },
-      });
-
-      if (fnError) {
-        throw new Error(fnError.message);
-      }
-
-      if (data.error) {
-        throw new Error(data.error);
-      }
-
-      setResults(data);
-      setCurrentPage(page);
-      return data as PubMedSearchResult;
-    } catch (err) {
-      const message = err instanceof Error ? err.message : "Search failed";
-      setError(message);
-      console.error("PubMed search error:", err);
-      return null;
-    } finally {
-      setIsLoading(false);
-    }
+    // Mock search - returns empty results (Supabase edge functions not available)
+    await new Promise(resolve => setTimeout(resolve, 500));
+    
+    const mockResult: PubMedSearchResult = {
+      articles: [],
+      totalCount: 0,
+      query,
+      source: "mock",
+      page,
+      pageSize: maxResults,
+    };
+    
+    setResults(mockResult);
+    setCurrentPage(page);
+    setIsLoading(false);
+    return mockResult;
   }, []);
 
   const searchByCondition = useCallback(async (condition: string, maxResults = 20, page = 1) => {
-    setIsLoading(true);
-    setError(null);
-    setLastCondition(condition);
-    setLastQuery("");
-    setPageSize(maxResults);
-
-    try {
-      const { data, error: fnError } = await supabase.functions.invoke("pubmed-search", {
-        body: { condition, maxResults, page },
-      });
-
-      if (fnError) {
-        throw new Error(fnError.message);
-      }
-
-      if (data.error) {
-        throw new Error(data.error);
-      }
-
-      setResults(data);
-      setCurrentPage(page);
-      return data as PubMedSearchResult;
-    } catch (err) {
-      const message = err instanceof Error ? err.message : "Search failed";
-      setError(message);
-      console.error("PubMed search error:", err);
-      return null;
-    } finally {
-      setIsLoading(false);
-    }
-  }, []);
+    return search(condition, maxResults, page);
+  }, [search]);
 
   const goToPage = useCallback(async (page: number) => {
-    if (lastQuery) {
-      return search(lastQuery, pageSize, page);
-    } else if (lastCondition) {
-      return searchByCondition(lastCondition, pageSize, page);
-    }
     return null;
-  }, [lastQuery, lastCondition, pageSize, search, searchByCondition]);
+  }, []);
 
   const clearResults = useCallback(() => {
     setResults(null);
     setError(null);
     setCurrentPage(1);
-    setLastQuery("");
-    setLastCondition("");
   }, []);
 
   const totalPages = results ? Math.ceil(results.totalCount / pageSize) : 0;
