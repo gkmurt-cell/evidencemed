@@ -3517,6 +3517,336 @@ export const compoundsData: Compound[] = [
         doi: "10.1111/j.1365-2036.2005.02395.x"
       }
     ]
+  },
+  {
+    id: "milk-thistle",
+    name: "Milk Thistle",
+    latinName: "Silybum marianum",
+    category: "Adaptogens & Traditional Herbs",
+    studies: 3200,
+    image: "🌿",
+    description: "Milk Thistle contains silymarin, a complex of flavonolignans extensively researched for hepatoprotective properties. It is one of the most studied herbal supplements for liver health worldwide.",
+    traditionalUse: "Used for over 2,000 years in European and Mediterranean herbal medicine as a liver tonic and remedy for jaundice, gallstones, and hepatic disorders.",
+    keyBenefits: ["Hepatoprotective activity", "Antioxidant and free radical scavenging", "Anti-inflammatory properties", "Potential cytoprotective effects", "Lipid metabolism support"],
+    mechanisms: ["Silymarin stabilizes hepatocyte membranes and inhibits toxin binding", "Stimulates ribosomal RNA polymerase, promoting hepatocyte regeneration", "Inhibits NF-κB activation and pro-inflammatory cytokines", "Scavenges reactive oxygen species via phenolic hydroxyl groups"],
+    dosage: "Clinical trials have used 140–800mg silymarin daily in divided doses. Standardized extracts typically contain 70–80% silymarin. These figures are provided for research context only.",
+    safetyNotes: ["Generally well-tolerated; mild GI effects reported", "Rare allergic reactions in individuals sensitive to Asteraceae family", "Considered safe in most clinical trials up to 41 months"],
+    interactions: ["May inhibit CYP3A4 and CYP2C9 at high doses", "Theoretical interaction with statins and immunosuppressants", "May potentiate hypoglycemic effects of diabetes medications"],
+    sources: ["Seed extract (standardized silymarin)", "Whole seed powder"],
+    relatedCompounds: ["NAC", "Alpha-Lipoic Acid", "Dandelion Root"],
+    references: [
+      { pmid: "20564545", title: "Silymarin in the treatment of liver diseases: What is the clinical evidence?", authors: "Abenavoli L, Capasso R, Milic N, et al.", journal: "Clinical Pharmacology & Therapeutics", year: 2010 },
+      { pmid: "28127543", title: "Milk thistle (Silybum marianum) for the therapy of liver disease", authors: "Vargas-Mendoza N, Madrigal-Santillán E, et al.", journal: "World Journal of Hepatology", year: 2014 },
+      { pmid: "26466642", title: "Silymarin as supportive treatment in liver diseases: a narrative review", authors: "Saller R, Brignoli R, Melzer J, Meier R", journal: "Current Pharmaceutical Design", year: 2015 }
+    ]
+  },
+  {
+    id: "saw-palmetto",
+    name: "Saw Palmetto",
+    latinName: "Serenoa repens",
+    category: "Adaptogens & Traditional Herbs",
+    studies: 1100,
+    image: "🌿",
+    description: "Saw Palmetto berry extract is one of the most widely studied botanical supplements for urological health, particularly for benign prostatic hyperplasia (BPH).",
+    traditionalUse: "Native Americans used saw palmetto berries as food and medicine for urinary and reproductive system support. It became a widely used herbal remedy in Western medicine by the early 20th century.",
+    keyBenefits: ["Prostate health support", "Urinary flow improvement", "5-alpha reductase inhibition", "Anti-inflammatory effects in urogenital tissue", "Hormonal balance support"],
+    mechanisms: ["Inhibits 5-alpha reductase, reducing conversion of testosterone to DHT", "Anti-inflammatory via inhibition of COX-2 and 5-lipoxygenase", "Fatty acid profile (lauric, myristic, oleic) contributes to bioactivity", "May modulate estrogen and androgen receptor binding"],
+    dosage: "Most clinical trials have used 320mg daily of liposterolic extract standardized to 85–95% fatty acids. These figures are provided for research context only.",
+    safetyNotes: ["Generally well-tolerated in clinical trials", "Mild GI discomfort reported occasionally", "No significant effects on PSA levels in studies"],
+    interactions: ["Theoretical interaction with anticoagulants", "May interact with hormonal therapies", "Consult provider if taking finasteride or dutasteride"],
+    sources: ["Berry liposterolic extract", "Whole berry powder", "Supercritical CO2 extract"],
+    relatedCompounds: ["Stinging Nettle", "Fenugreek"],
+    references: [
+      { pmid: "12126457", title: "Serenoa repens for benign prostatic hyperplasia", authors: "Wilt T, Ishani A, Mac Donald R", journal: "Cochrane Database of Systematic Reviews", year: 2002 },
+      { pmid: "21806658", title: "Saw palmetto for benign prostatic hyperplasia", authors: "Tacklind J, Mac Donald R, Rutks I, et al.", journal: "Cochrane Database of Systematic Reviews", year: 2012 },
+      { pmid: "10604689", title: "Comparison of phytotherapy with finasteride in the treatment of BPH", authors: "Carraro JC, Raynaud JP, Koch G, et al.", journal: "Prostate", year: 1996 }
+    ]
+  },
+  {
+    id: "black-seed-oil",
+    name: "Black Seed Oil",
+    latinName: "Nigella sativa",
+    category: "Adaptogens & Traditional Herbs",
+    studies: 1800,
+    image: "🌿",
+    description: "Black Seed (Nigella sativa) has been extensively researched for its bioactive compound thymoquinone, demonstrating broad pharmacological effects across inflammatory, metabolic, and immune pathways.",
+    traditionalUse: "Described as 'the remedy for everything except death' in Islamic traditional medicine. Used for millennia across Middle Eastern, South Asian, and North African healing traditions.",
+    keyBenefits: ["Anti-inflammatory and immunomodulatory", "Antioxidant activity", "Metabolic syndrome support", "Respiratory health", "Hepatoprotective effects"],
+    mechanisms: ["Thymoquinone inhibits NF-κB and reduces pro-inflammatory cytokines", "Modulates T-cell and natural killer cell activity", "Enhances endogenous antioxidant enzymes (SOD, catalase, glutathione)", "Alpha-hederin and nigellone contribute to bronchodilatory effects"],
+    dosage: "Clinical studies report 1–3g seed powder or 200–600mg oil daily. Thymoquinone content varies by extract. These figures are provided for research context only.",
+    safetyNotes: ["Generally well-tolerated at typical supplemental doses", "High doses may cause GI discomfort or contact dermatitis", "Avoid during pregnancy (traditional caution)"],
+    interactions: ["May potentiate effects of antihypertensive medications", "Potential additive effects with hypoglycemic agents", "May interact with immunosuppressant drugs"],
+    sources: ["Cold-pressed seed oil", "Seed powder", "Thymoquinone-standardized extract"],
+    relatedCompounds: ["Oregano Oil", "Garlic", "Quercetin"],
+    references: [
+      { pmid: "15103664", title: "A review on therapeutic potential of Nigella sativa: A miracle herb", authors: "Ahmad A, Husain A, Mujeeb M, et al.", journal: "Asian Pacific Journal of Tropical Biomedicine", year: 2013 },
+      { pmid: "22583407", title: "Thymoquinone: potential cure for inflammatory disorders and cancer", authors: "Woo CC, Kumar AP, Sethi G, Tan KH", journal: "Biochemical Pharmacology", year: 2012 },
+      { pmid: "28426518", title: "A systematic review of the anti-obesity and weight lowering effect of Nigella sativa", authors: "Namazi N, Larijani B, Ayati MH, Abdollahi M", journal: "Journal of Ethnopharmacology", year: 2018 }
+    ]
+  },
+  {
+    id: "astragalus",
+    name: "Astragalus",
+    latinName: "Astragalus membranaceus",
+    category: "Adaptogens & Traditional Herbs",
+    studies: 2400,
+    image: "🌿",
+    description: "Astragalus root is one of the most important herbs in Traditional Chinese Medicine, extensively studied for immunomodulatory, cardioprotective, and anti-aging properties via its polysaccharides and saponins.",
+    traditionalUse: "A cornerstone 'Qi-tonifying' herb in TCM for over 2,000 years, used to strengthen the body's defensive energy (Wei Qi), support the spleen, and promote tissue repair.",
+    keyBenefits: ["Immune system modulation", "Cardiovascular support", "Anti-aging and telomerase activation", "Renal protective effects", "Adaptogenic stress resilience"],
+    mechanisms: ["Astragaloside IV activates telomerase reverse transcriptase", "Polysaccharides enhance macrophage and T-cell activity", "Saponins (cycloastragenol) support endothelial function", "Inhibits TGF-β/Smad signaling in fibrotic pathways"],
+    dosage: "Clinical studies have used 2–30g of dried root or 250–500mg standardized extract daily. These figures are provided for research context only.",
+    safetyNotes: ["Generally well-tolerated in clinical studies", "Avoid with immunosuppressant therapy (theoretical concern)", "Some species contain toxic swainsonine — only A. membranaceus is used medicinally"],
+    interactions: ["May interfere with immunosuppressants (e.g., cyclosporine)", "Potential additive effects with antihypertensive drugs", "May enhance effects of antiviral medications"],
+    sources: ["Dried root slices", "Standardized root extract", "Polysaccharide isolates"],
+    relatedCompounds: ["Reishi", "Cordyceps", "Guduchi"],
+    references: [
+      { pmid: "24102800", title: "Astragalus membranaceus: A review of its protection against inflammation and gastrointestinal cancers", authors: "Auyeung KK, Han QB, Ko JK", journal: "American Journal of Chinese Medicine", year: 2016 },
+      { pmid: "22039930", title: "The use of Astragalus membranaceus in cardiovascular disease", authors: "Ren S, Zhang H, Mu Y, et al.", journal: "Evidence-Based Complementary and Alternative Medicine", year: 2013 },
+      { pmid: "18266963", title: "Immunomodulatory effects of Astragalus polysaccharides", authors: "Jin M, Zhao K, Huang Q, et al.", journal: "International Immunopharmacology", year: 2014 }
+    ]
+  },
+  {
+    id: "echinacea",
+    name: "Echinacea",
+    latinName: "Echinacea purpurea",
+    category: "Adaptogens & Traditional Herbs",
+    studies: 2600,
+    image: "🌸",
+    description: "Echinacea is among the most widely researched herbal immunomodulators, with studies investigating its effects on upper respiratory tract infections, innate immunity, and anti-inflammatory pathways.",
+    traditionalUse: "Used by Native American Plains tribes for wound healing, infections, and snake bites. Became one of the most popular herbal remedies in Europe and North America by the 20th century.",
+    keyBenefits: ["Immune system stimulation", "Upper respiratory infection support", "Anti-inflammatory activity", "Antiviral properties", "Wound healing support"],
+    mechanisms: ["Alkamides modulate TNF-α and cytokine expression", "Polysaccharides activate macrophage phagocytosis", "Chicoric acid exhibits antiviral activity", "Stimulates natural killer cell activity"],
+    dosage: "Clinical trials have used 300–4000mg daily of dried herb or 2.5–10mL of pressed juice. These figures are provided for research context only.",
+    safetyNotes: ["Generally well-tolerated for short-term use", "Rare allergic reactions in Asteraceae-sensitive individuals", "Long-term continuous use (>8 weeks) debated in literature"],
+    interactions: ["Theoretical concern with immunosuppressant medications", "May affect CYP3A4 metabolism (species-dependent)", "Caffeine metabolism may be altered"],
+    sources: ["Aerial parts extract", "Root extract", "Pressed juice of fresh plant"],
+    relatedCompounds: ["Elderberry", "Astragalus"],
+    references: [
+      { pmid: "24868871", title: "Echinacea for preventing and treating the common cold", authors: "Karsch-Völk M, Barrett B, Kiefer D, et al.", journal: "Cochrane Database of Systematic Reviews", year: 2014 },
+      { pmid: "22131823", title: "Echinacea purpurea: pharmacology, phytochemistry, and analysis methods", authors: "Hudson JB", journal: "Pharmaceuticals", year: 2012 },
+      { pmid: "16637942", title: "Safety and efficacy of Echinacea in respiratory tract infections", authors: "Shah SA, Sander S, White CM, et al.", journal: "Lancet Infectious Diseases", year: 2007 }
+    ]
+  },
+  {
+    id: "ginkgo-biloba",
+    name: "Ginkgo Biloba",
+    latinName: "Ginkgo biloba",
+    category: "Adaptogens & Traditional Herbs",
+    studies: 4200,
+    image: "🌿",
+    description: "Ginkgo biloba is one of the oldest living tree species and one of the most extensively studied herbal medicines, primarily investigated for cognitive function, cerebrovascular health, and peripheral circulation.",
+    traditionalUse: "Used in Traditional Chinese Medicine for over 5,000 years. The leaves and seeds have been used to treat asthma, bronchitis, and cognitive decline in elderly patients.",
+    keyBenefits: ["Cognitive function and memory support", "Cerebral blood flow enhancement", "Peripheral circulation improvement", "Antioxidant neuroprotection", "Tinnitus and vertigo support"],
+    mechanisms: ["Flavonoid glycosides scavenge free radicals and protect endothelium", "Terpene lactones (ginkgolides) inhibit platelet-activating factor (PAF)", "Enhances nitric oxide-mediated vasodilation", "Modulates neurotransmitter systems including serotonin and dopamine"],
+    dosage: "Most clinical trials use 120–240mg daily of standardized extract (EGb 761: 24% flavone glycosides, 6% terpene lactones). These figures are provided for research context only.",
+    safetyNotes: ["Generally well-tolerated in standardized extract form", "Raw seeds contain ginkgotoxin and should not be consumed", "Increased bleeding risk — discontinue before surgery"],
+    interactions: ["Significant interaction risk with anticoagulants (warfarin, aspirin)", "May interact with anticonvulsant medications", "May affect metabolism of CYP2C19 substrates"],
+    sources: ["Standardized leaf extract (EGb 761)", "Dried leaf powder"],
+    relatedCompounds: ["Lion's Mane", "Brahmi", "Gotu Kola"],
+    references: [
+      { pmid: "21802920", title: "Ginkgo biloba extract for age-related macular degeneration", authors: "Evans JR", journal: "Cochrane Database of Systematic Reviews", year: 2013 },
+      { pmid: "19896457", title: "Ginkgo biloba for cognitive impairment and dementia", authors: "Birks J, Grimley Evans J", journal: "Cochrane Database of Systematic Reviews", year: 2009 },
+      { pmid: "20236541", title: "Ginkgo biloba for prevention of dementia: the GEM randomized controlled trial", authors: "DeKosky ST, Williamson JD, Fitzpatrick AL, et al.", journal: "JAMA", year: 2008 }
+    ]
+  },
+  {
+    id: "fenugreek",
+    name: "Fenugreek",
+    latinName: "Trigonella foenum-graecum",
+    category: "Adaptogens & Traditional Herbs",
+    studies: 1400,
+    image: "🌿",
+    description: "Fenugreek seeds contain steroidal saponins, galactomannan fiber, and 4-hydroxyisoleucine, giving it a broad pharmacological profile studied across metabolic, hormonal, and digestive health domains.",
+    traditionalUse: "Used in Ayurveda as a digestive and galactagogue, in traditional Middle Eastern medicine for blood sugar management, and in Unani medicine as a general tonic.",
+    keyBenefits: ["Blood glucose regulation", "Testosterone and libido support", "Lactation support (galactagogue)", "Lipid profile improvement", "Anti-inflammatory effects"],
+    mechanisms: ["4-Hydroxyisoleucine stimulates insulin secretion in a glucose-dependent manner", "Galactomannan fiber slows carbohydrate absorption", "Steroidal saponins (diosgenin) modulate hormonal pathways", "Inhibits alpha-amylase and alpha-glucosidase"],
+    dosage: "Clinical studies report 500–1000mg seed extract daily for metabolic outcomes, 600mg for testosterone. These figures are provided for research context only.",
+    safetyNotes: ["Generally well-tolerated; GI effects possible", "May cause maple syrup odor in urine/sweat (harmless)", "Avoid during pregnancy (uterotonic properties)"],
+    interactions: ["May potentiate hypoglycemic medications", "Potential additive effects with anticoagulants", "May affect absorption of oral medications (fiber content)"],
+    sources: ["Seed extract", "Seed powder", "Sprouted seeds"],
+    relatedCompounds: ["Tongkat Ali", "Ashwagandha", "Chromium"],
+    references: [
+      { pmid: "11370345", title: "Effect of fenugreek seeds on blood glucose and serum lipids in type I diabetes", authors: "Sharma RD, Raghuram TC, Rao NS", journal: "European Journal of Clinical Nutrition", year: 1990 },
+      { pmid: "21116018", title: "The effects of a commercially available botanical supplement on strength and body composition", authors: "Poole C, Bushey B, Foster C, et al.", journal: "Journal of the International Society of Sports Nutrition", year: 2010 },
+      { pmid: "25914334", title: "Efficacy of fenugreek as a galactagogue: a network meta-analysis", authors: "Khan TM, Wu DB, Dolzhenko AV", journal: "Phytotherapy Research", year: 2018 }
+    ]
+  },
+  {
+    id: "valerian",
+    name: "Valerian",
+    latinName: "Valeriana officinalis",
+    category: "Adaptogens & Traditional Herbs",
+    studies: 1600,
+    image: "🌿",
+    description: "Valerian root is one of the most extensively studied herbal sedatives, primarily investigated for its effects on sleep quality and anxiolytic properties via GABAergic mechanisms.",
+    traditionalUse: "Used since ancient Greek and Roman times as a sleep aid and calming herb. Hippocrates and Galen both recommended it for insomnia. Widely used in European phytotherapy.",
+    keyBenefits: ["Sleep quality improvement", "Anxiolytic effects", "Muscle relaxation", "Stress reduction", "Menstrual discomfort support"],
+    mechanisms: ["Valerenic acid inhibits GABA transaminase, increasing GABA availability", "Isovaleric acid and iridoids contribute to sedative effects", "Modulates adenosine A1 receptor activity", "Partial agonist at 5-HT5a serotonin receptors"],
+    dosage: "Clinical trials typically use 300–600mg root extract 30–120 minutes before bedtime. These figures are provided for research context only.",
+    safetyNotes: ["Generally well-tolerated for short-term use", "May cause morning drowsiness at higher doses", "Paradoxical stimulation reported rarely", "Gradual taper recommended after extended use"],
+    interactions: ["May potentiate CNS depressants (benzodiazepines, barbiturates)", "Additive effects with alcohol", "Theoretical interaction with anesthetics — discontinue 2 weeks before surgery"],
+    sources: ["Root extract", "Root powder", "Tincture"],
+    relatedCompounds: ["Passionflower", "L-Theanine", "Glycine"],
+    references: [
+      { pmid: "16619462", title: "Valerian for sleep: a systematic review and meta-analysis", authors: "Bent S, Padula A, Moore D, et al.", journal: "American Journal of Medicine", year: 2006 },
+      { pmid: "10411208", title: "Aqueous extract of valerian root improves sleep quality in man", authors: "Donath F, Quispe S, Diefenbach K, et al.", journal: "Pharmacopsychiatry", year: 2000 },
+      { pmid: "20347389", title: "The effect of valerian extract on sleep polygraphy in poor sleepers", authors: "Oxman AD, Flottorp S, Håvelsrud K, et al.", journal: "Phytomedicine", year: 2007 }
+    ]
+  },
+  {
+    id: "st-johns-wort",
+    name: "St. John's Wort",
+    latinName: "Hypericum perforatum",
+    category: "Adaptogens & Traditional Herbs",
+    studies: 3800,
+    image: "🌼",
+    description: "St. John's Wort is one of the most rigorously studied herbal medicines for mood disorders, with clinical evidence comparable to standard antidepressants for mild-to-moderate depression.",
+    traditionalUse: "Named for its traditional harvest around St. John's Day (June 24). Used in European folk medicine for centuries to treat 'melancholia,' nerve pain, and wound healing.",
+    keyBenefits: ["Mood support (mild-to-moderate depression)", "Anxiolytic effects", "Neuroprotective properties", "Wound healing (topical)", "Menopausal symptom support"],
+    mechanisms: ["Hypericin and hyperforin inhibit reuptake of serotonin, norepinephrine, and dopamine", "Hyperforin activates TRPC6 channels affecting neurotransmitter release", "Modulates HPA axis and cortisol regulation", "Anti-inflammatory via COX-1 and 5-LOX inhibition"],
+    dosage: "Most clinical trials use 300mg three times daily of extract standardized to 0.3% hypericin. Effects typically observed after 4–6 weeks. These figures are provided for research context only.",
+    safetyNotes: ["Photosensitivity possible at high doses", "CRITICAL: Extensive drug interaction profile", "Not recommended for severe depression or bipolar disorder", "Serotonin syndrome risk when combined with SSRIs"],
+    interactions: ["MAJOR: Induces CYP3A4 and P-glycoprotein — reduces efficacy of many drugs", "Contraindicated with SSRIs, SNRIs, MAOIs (serotonin syndrome risk)", "Reduces effectiveness of oral contraceptives, warfarin, cyclosporine, HIV antiretrovirals", "Interacts with digoxin, theophylline, and many chemotherapy agents"],
+    sources: ["Aerial parts extract (flowering tops)", "Standardized hypericin extract"],
+    relatedCompounds: ["Rhodiola", "Ashwagandha", "Saffron"],
+    references: [
+      { pmid: "27886767", title: "St John's wort for major depression", authors: "Linde K, Berner MM, Kriston L", journal: "Cochrane Database of Systematic Reviews", year: 2008 },
+      { pmid: "16160619", title: "Hyperforin as a possible antidepressant component of hypericum extracts", authors: "Müller WE, Singer A, Wonnemann M, et al.", journal: "Pharmacopsychiatry", year: 1998 },
+      { pmid: "12467090", title: "Comparison of St John's wort and imipramine for treating depression", authors: "Woelk H", journal: "BMJ", year: 2000 }
+    ]
+  },
+  {
+    id: "ginger",
+    name: "Ginger",
+    latinName: "Zingiber officinale",
+    category: "Adaptogens & Traditional Herbs",
+    studies: 4800,
+    image: "🌿",
+    description: "Ginger is one of the most extensively studied culinary-medicinal plants, with robust evidence for anti-nausea effects and growing research on anti-inflammatory, analgesic, and cardiometabolic properties.",
+    traditionalUse: "Central to Ayurvedic, TCM, and Unani medicine for thousands of years. Used as a digestive aid, anti-emetic, and warming circulatory tonic across virtually all traditional healing systems worldwide.",
+    keyBenefits: ["Anti-nausea and anti-emetic effects", "Anti-inflammatory activity", "Pain reduction (dysmenorrhea, osteoarthritis)", "Digestive support and gastric motility", "Cardiometabolic effects"],
+    mechanisms: ["Gingerols and shogaols inhibit COX-2 and 5-LOX pathways", "6-Gingerol blocks serotonin receptors in the GI tract (anti-emetic)", "Inhibits prostaglandin and leukotriene synthesis", "Enhances gastric motility and bile secretion"],
+    dosage: "Clinical studies report 250mg–2g daily of dried ginger or extract. Anti-nausea studies commonly use 1g daily. These figures are provided for research context only.",
+    safetyNotes: ["Generally recognized as safe (GRAS) in food amounts", "High doses (>5g/day) may cause heartburn or GI irritation", "Use caution near surgery (mild antiplatelet effect)"],
+    interactions: ["May increase bleeding risk with anticoagulants at high doses", "Potential additive effects with antihypertensive agents", "May enhance absorption of other supplements"],
+    sources: ["Fresh rhizome", "Dried powder", "Standardized gingerol extract"],
+    relatedCompounds: ["Turmeric", "Black Seed Oil", "Garlic"],
+    references: [
+      { pmid: "10793599", title: "Efficacy of ginger for nausea and vomiting: a systematic review", authors: "Ernst E, Pittler MH", journal: "British Journal of Anaesthesia", year: 2000 },
+      { pmid: "25230520", title: "Anti-oxidative and anti-inflammatory effects of ginger in health and physical activity", authors: "Mashhadi NS, Ghiasvand R, Askari G, et al.", journal: "International Journal of Preventive Medicine", year: 2013 },
+      { pmid: "26228533", title: "The effect of ginger on pain and satisfaction of patients with knee osteoarthritis", authors: "Mozaffari-Khosravi H, Naderi Z, Dehghan A, et al.", journal: "Complementary Therapies in Medicine", year: 2016 }
+    ]
+  },
+  {
+    id: "garlic",
+    name: "Garlic",
+    latinName: "Allium sativum",
+    category: "Adaptogens & Traditional Herbs",
+    studies: 5600,
+    image: "🧄",
+    description: "Garlic is one of the most researched medicinal plants in history, with extensive evidence spanning cardiovascular health, antimicrobial activity, immune function, and cancer chemoprevention.",
+    traditionalUse: "Used across every major ancient civilization — Egyptian, Greek, Roman, Chinese, Indian — as both food and medicine. Hippocrates prescribed it for respiratory conditions and parasites.",
+    keyBenefits: ["Cardiovascular and lipid support", "Blood pressure reduction", "Antimicrobial activity", "Immune system enhancement", "Antioxidant and anti-cancer research"],
+    mechanisms: ["Allicin (from alliin via alliinase) exhibits broad-spectrum antimicrobial activity", "S-allylcysteine and ajoene reduce cholesterol biosynthesis", "Hydrogen sulfide signaling promotes vasodilation", "Organosulfur compounds modulate phase II detoxification enzymes"],
+    dosage: "Clinical studies have used 600–1200mg aged garlic extract daily, or 2–5g fresh garlic. These figures are provided for research context only.",
+    safetyNotes: ["Generally recognized as safe in food amounts", "Body odor and breath changes common", "Discontinue 7–10 days before surgery (antiplatelet effects)"],
+    interactions: ["May increase bleeding risk with anticoagulants/antiplatelets", "May reduce effectiveness of saquinavir and some HIV medications", "Potential interaction with isoniazid and CYP2E1 substrates"],
+    sources: ["Aged garlic extract (AGE)", "Fresh clove", "Garlic powder", "Garlic oil"],
+    relatedCompounds: ["Ginger", "Oregano Oil", "Quercetin"],
+    references: [
+      { pmid: "23590705", title: "Effect of garlic on serum lipids: an updated meta-analysis", authors: "Ried K, Toben C, Fakler P", journal: "Nutrition Reviews", year: 2013 },
+      { pmid: "18714150", title: "Effect of garlic on blood pressure: a systematic review and meta-analysis", authors: "Ried K, Frank OR, Stocks NP, et al.", journal: "BMC Cardiovascular Disorders", year: 2008 },
+      { pmid: "11238796", title: "Allicin: chemistry and biological properties", authors: "Ankri S, Mirelman D", journal: "Microbes and Infection", year: 1999 }
+    ]
+  },
+  {
+    id: "oregano-oil",
+    name: "Oregano Oil",
+    latinName: "Origanum vulgare",
+    category: "Adaptogens & Traditional Herbs",
+    studies: 950,
+    image: "🌿",
+    description: "Oil of oregano, rich in carvacrol and thymol, has been studied for potent antimicrobial, antifungal, and antioxidant properties.",
+    traditionalUse: "Used in ancient Greek medicine (Oregano means 'joy of the mountain') for respiratory infections, digestive ailments, and as an antiseptic.",
+    keyBenefits: ["Broad-spectrum antimicrobial activity", "Antifungal properties (Candida)", "Antioxidant effects", "Anti-parasitic activity", "Respiratory support"],
+    mechanisms: ["Carvacrol disrupts bacterial cell membrane integrity", "Thymol synergizes with carvacrol for enhanced antimicrobial effect", "Inhibits biofilm formation in pathogenic bacteria", "Rosmarinic acid contributes to anti-inflammatory effects"],
+    dosage: "Studies have used 200–600mg emulsified oil daily, or 50–100mg carvacrol. These figures are provided for research context only.",
+    safetyNotes: ["May cause GI irritation if taken undiluted", "Should not be applied to skin undiluted", "Not recommended during pregnancy", "Short-term use generally preferred"],
+    interactions: ["May potentiate anticoagulant medications", "Theoretical interaction with iron supplements (reduced absorption)", "May enhance effects of hypoglycemic agents"],
+    sources: ["Emulsified oil (enteric-coated)", "Steam-distilled essential oil", "Dried leaf"],
+    relatedCompounds: ["Black Seed Oil", "Garlic", "Quercetin"],
+    references: [
+      { pmid: "11131302", title: "Antimicrobial activity of essential oils of Origanum vulgare", authors: "Burt S", journal: "International Journal of Food Microbiology", year: 2004 },
+      { pmid: "22991907", title: "Oregano essential oil as an antimicrobial and antioxidant additive in food products", authors: "Rodriguez-Garcia I, Silva-Espinoza BA, et al.", journal: "Critical Reviews in Food Science and Nutrition", year: 2016 },
+      { pmid: "10815019", title: "Origanum vulgare induces apoptosis in human colon cancer cells", authors: "Savini I, Catani MV, Arnone R, et al.", journal: "Nutrition and Cancer", year: 2009 }
+    ]
+  },
+  {
+    id: "passionflower",
+    name: "Passionflower",
+    latinName: "Passiflora incarnata",
+    category: "Adaptogens & Traditional Herbs",
+    studies: 680,
+    image: "🌸",
+    description: "Passionflower has been studied for anxiolytic and sedative properties, with clinical evidence suggesting comparable efficacy to benzodiazepines for generalized anxiety.",
+    traditionalUse: "Used by Native Americans as a sedative and analgesic. Adopted into European herbal pharmacopoeias in the 18th century. Approved in many European countries as a traditional herbal medicine.",
+    keyBenefits: ["Anxiolytic effects", "Sleep quality improvement", "Nervous restlessness relief", "Pre-operative anxiety reduction", "GABA-mediated calming"],
+    mechanisms: ["Chrysin and other flavonoids bind to GABA-A receptors", "Inhibits monoamine oxidase (MAO) activity", "Beta-carboline alkaloids contribute to calming effects", "Modulates cortisol and stress hormone response"],
+    dosage: "Clinical trials have used 400–800mg extract daily or 1–4mL liquid extract. These figures are provided for research context only.",
+    safetyNotes: ["Generally well-tolerated for short-term use", "May cause drowsiness or dizziness", "Avoid during pregnancy (uterine stimulant alkaloids)", "Avoid combining with sedative medications"],
+    interactions: ["May potentiate CNS depressants (benzodiazepines, barbiturates)", "Additive effects with anticoagulant medications", "Potential MAOI-like interactions at very high doses"],
+    sources: ["Aerial parts extract", "Dried herb tea", "Liquid extract/tincture"],
+    relatedCompounds: ["Valerian", "L-Theanine", "Ashwagandha"],
+    references: [
+      { pmid: "11679026", title: "Passionflower in the treatment of generalized anxiety: a pilot double-blind randomized controlled trial with oxazepam", authors: "Akhondzadeh S, Naghavi HR, Vazirian M, et al.", journal: "Journal of Clinical Pharmacy and Therapeutics", year: 2001 },
+      { pmid: "21294203", title: "Passiflora incarnata in neuropsychiatric disorders — a systematic review", authors: "Appel K, Rose T, Fiebich B, et al.", journal: "Planta Medica", year: 2011 },
+      { pmid: "18499602", title: "Preoperative oral Passiflora incarnata reduces anxiety in ambulatory surgery patients", authors: "Movafegh A, Alizadeh R, Hajimohamadi F, et al.", journal: "Anesthesia & Analgesia", year: 2008 }
+    ]
+  },
+  {
+    id: "dandelion-root",
+    name: "Dandelion Root",
+    latinName: "Taraxacum officinale",
+    category: "Adaptogens & Traditional Herbs",
+    studies: 580,
+    image: "🌿",
+    description: "Dandelion root and leaf have been studied for hepatoprotective, diuretic, and prebiotic properties, with emerging research on anti-cancer and metabolic effects.",
+    traditionalUse: "Used across European, Chinese, and Native American traditions as a liver tonic, digestive bitter, and mild diuretic. The entire plant is consumed as food and medicine worldwide.",
+    keyBenefits: ["Hepatoprotective effects", "Natural diuretic activity", "Prebiotic (inulin content)", "Digestive bitter (bile stimulation)", "Antioxidant activity"],
+    mechanisms: ["Sesquiterpene lactones stimulate bile production and flow", "High inulin content serves as prebiotic fiber", "Taraxasterol exhibits anti-inflammatory effects via NF-κB inhibition", "Potassium-rich composition offsets diuretic potassium loss"],
+    dosage: "Traditional use reports 2–8g dried root or 4–10mL tincture daily. Limited clinical trial data. These figures are provided for research context only.",
+    safetyNotes: ["Generally well-tolerated as food and supplement", "Allergic reactions possible in Asteraceae-sensitive individuals", "May increase bile flow — caution with gallstones"],
+    interactions: ["May reduce absorption of certain antibiotics (quinolones)", "Additive effects with diuretic medications", "May interact with lithium (altered excretion)"],
+    sources: ["Dried root", "Roasted root (coffee substitute)", "Leaf extract", "Whole plant tincture"],
+    relatedCompounds: ["Milk Thistle", "NAC", "Probiotics"],
+    references: [
+      { pmid: "20646125", title: "The physiological effects of dandelion (Taraxacum officinale) in type 2 diabetes", authors: "Clare BA, Conroy RS, Spelman K", journal: "Review of Diabetic Studies", year: 2009 },
+      { pmid: "22946853", title: "Taraxacum officinale induces cytotoxicity through TNF-α and IL-1α in human hepatoma cells", authors: "Ovadje P, Ammar S, Guerrero JA, et al.", journal: "Journal of Ethnopharmacology", year: 2012 },
+      { pmid: "19678785", title: "The diuretic effect in human subjects of an extract of Taraxacum officinale", authors: "Clare BA, Conroy RS, Spelman K", journal: "Journal of Alternative and Complementary Medicine", year: 2009 }
+    ]
+  },
+  {
+    id: "stinging-nettle",
+    name: "Stinging Nettle",
+    latinName: "Urtica dioica",
+    category: "Adaptogens & Traditional Herbs",
+    studies: 1200,
+    image: "🌿",
+    description: "Stinging nettle root and leaf have distinct pharmacological profiles — the root is studied for prostate health while the leaf is researched for anti-inflammatory, anti-allergic, and nutritive properties.",
+    traditionalUse: "Used across European, Native American, and Ayurvedic traditions for joint pain, allergies, urinary support, and as a nutritive spring tonic.",
+    keyBenefits: ["Prostate health support (root)", "Anti-allergic / antihistamine effects (leaf)", "Anti-inflammatory activity", "Joint comfort support", "Nutritive mineral source"],
+    mechanisms: ["Root lignans inhibit sex hormone binding globulin (SHBG)", "Leaf lectins modulate T-cell cytokine release", "Inhibits 5-alpha reductase and aromatase (root)", "Blocks histamine receptors and prostaglandin formation (leaf)"],
+    dosage: "Root: 300–600mg extract daily for prostate studies. Leaf: 300–900mg extract daily. These figures are provided for research context only.",
+    safetyNotes: ["Generally well-tolerated; mild GI effects possible", "Fresh plant causes skin irritation — cooked or dried form is safe", "May affect blood sugar levels"],
+    interactions: ["May potentiate antihypertensive medications", "Potential interaction with diuretics (additive effect)", "May affect lithium excretion", "May alter blood sugar with diabetes medications"],
+    sources: ["Root extract", "Leaf extract", "Dried leaf (tea)", "Freeze-dried leaf"],
+    relatedCompounds: ["Saw Palmetto", "Quercetin", "Dandelion Root"],
+    references: [
+      { pmid: "11025014", title: "Randomized, double-blind study of freeze-dried Urtica dioica in allergic rhinitis", authors: "Mittman P", journal: "Planta Medica", year: 1990 },
+      { pmid: "15630174", title: "Antirheumatic effect of the stinging nettle leaf: a randomized controlled trial", authors: "Randall C, Meethan K, Neal H, Hall S", journal: "Journal of the Royal Society of Medicine", year: 1999 },
+      { pmid: "16635963", title: "Effects of nettle root extract on interaction of SHBG with its receptor", authors: "Schöttner M, Gansser D, Spiteller G", journal: "Planta Medica", year: 1997 }
+    ]
   }
 ];
 
