@@ -2414,7 +2414,41 @@ export const compoundsData: Compound[] = [
       "Goitrogens in food reduce iodine utilization"
     ],
     sources: ["Iodized salt", "Seaweed", "Fish", "Dairy", "Potassium iodide supplements"],
-    relatedCompounds: ["Selenium", "Tyrosine", "Vitamin A", "Zinc"]
+    relatedCompounds: ["Selenium", "Tyrosine", "Vitamin A", "Zinc"],
+    references: [
+      {
+        pmid: "19594417",
+        title: "Iodine deficiency and brain development in the first half of pregnancy",
+        authors: "Berbel P, Mestre JL, Santamaría A, et al.",
+        journal: "Public Health Nutrition",
+        year: 2009,
+        doi: "10.1017/S1368980009005145"
+      },
+      {
+        pmid: "24005670",
+        title: "Mild iodine deficiency during pregnancy is associated with reduced educational outcomes in the offspring",
+        authors: "Bath SC, Steer CD, Golding J, et al.",
+        journal: "The Lancet",
+        year: 2013,
+        doi: "10.1016/S0140-6736(13)60436-4"
+      },
+      {
+        pmid: "17636730",
+        title: "Iodine supplementation for pregnancy and lactation—United States and Canada: recommendations of the American Thyroid Association",
+        authors: "Becker DV, Braverman LE, Delange F, et al.",
+        journal: "Thyroid",
+        year: 2006,
+        doi: "10.1089/thy.2006.16.949"
+      },
+      {
+        pmid: "21346676",
+        title: "Consequences of excess iodine",
+        authors: "Leung AM, Braverman LE",
+        journal: "Nature Reviews Endocrinology",
+        year: 2014,
+        doi: "10.1038/nrendo.2013.251"
+      }
+    ]
   },
   {
     id: "chromium",
