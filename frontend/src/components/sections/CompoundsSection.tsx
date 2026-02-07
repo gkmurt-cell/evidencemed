@@ -129,9 +129,9 @@ const CompoundsSection = () => {
           <RelatedLinks
             title="See also:"
             links={[
-              { to: "/conditions", label: "Health Conditions", icon: Heart },
-              { to: "/research", label: "Research Library", icon: BookOpen },
-              { to: "/ayurveda", label: "Ayurvedic Medicine", icon: Pill },
+              { href: "/conditions", label: "Health Conditions" },
+              { href: "/research", label: "Research Library" },
+              { href: "/methodology", label: "Editorial Methodology" },
             ]}
             className="justify-center mb-6"
           />
