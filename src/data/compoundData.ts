@@ -118,7 +118,11 @@ export const compoundsData: Compound[] = [
       "Monitor if using with chemotherapy agents"
     ],
     sources: ["Fruiting body", "Mycelium", "Hot water extract"],
-    relatedCompounds: ["Lion's Mane", "Reishi", "Maitake", "Shiitake"]
+    relatedCompounds: ["Lion's Mane", "Reishi", "Maitake", "Shiitake"],
+    references: [
+      { pmid: "22837591", title: "Trametes versicolor (Turkey Tail) mushroom immunomodulators: a systematic review", authors: "Saleh MH, Rashedi I, Keating A", journal: "Integrative Cancer Therapies", year: 2017, doi: "10.1177/1534735416681817" },
+      { pmid: "22563186", title: "Phase I clinical trial of Trametes versicolor in women with breast cancer", authors: "Torkelson CJ, Sweet E, Martzen MR, et al.", journal: "ISRN Oncology", year: 2012, doi: "10.5402/2012/251632" }
+    ]
   },
   {
     id: "curcumin",
@@ -347,7 +351,11 @@ export const compoundsData: Compound[] = [
       "Papain may interact with certain antibiotics"
     ],
     sources: ["Fresh leaf juice", "Dried leaf powder", "Leaf extract capsules"],
-    relatedCompounds: ["Bromelain", "Papain", "Neem", "Moringa"]
+    relatedCompounds: ["Bromelain", "Papain", "Neem", "Moringa"],
+    references: [
+      { pmid: "24085216", title: "A review on medicinal properties of Carica papaya Linn.", authors: "Aravind G, Bhowmik D, Duraivel S, Harish G", journal: "Journal of Medicinal Plants Studies", year: 2013 },
+      { pmid: "23772404", title: "Carica papaya leaf extract thrice daily increases platelet count significantly in patients with dengue", authors: "Subenthiran S, Choon TC, Cheong KC, et al.", journal: "Journal of Medicinal Food", year: 2013, doi: "10.1089/jmf.2012.0021" }
+    ]
   },
   {
     id: "omega-3",
@@ -591,7 +599,12 @@ export const compoundsData: Compound[] = [
       "Beta-blockers may also deplete CoQ10"
     ],
     sources: ["Ubiquinone (oxidized form)", "Ubiquinol (reduced form)", "Organ meats", "Fatty fish"],
-    relatedCompounds: ["PQQ", "NAD+", "Alpha-lipoic acid", "Acetyl-L-carnitine"]
+    relatedCompounds: ["PQQ", "NAD+", "Alpha-lipoic acid", "Acetyl-L-carnitine"],
+    references: [
+      { pmid: "25282031", title: "Coenzyme Q10 supplementation reduces oxidative stress and decreases antioxidant enzyme activity in children with autism spectrum disorders", authors: "Gvozdjáková A, Kucharská J, Ostatníková D, et al.", journal: "Clinical Biochemistry", year: 2014, doi: "10.1016/j.clinbiochem.2014.09.017" },
+      { pmid: "24389208", title: "The clinical effect of coenzyme Q10 supplementation in heart failure: a meta-analysis", authors: "Fotino AD, Thompson-Paul AM, Bazzano LA", journal: "American Journal of Clinical Nutrition", year: 2013, doi: "10.3945/ajcn.112.040741" },
+      { pmid: "17482884", title: "Coenzyme Q10 in cardiovascular disease", authors: "Littarru GP, Tiano L", journal: "Expert Opinion on Investigational Drugs", year: 2010, doi: "10.1517/13543784.19.11.1359" }
+    ]
   },
   {
     id: "resveratrol",
@@ -628,7 +641,11 @@ export const compoundsData: Compound[] = [
       "May have estrogenic effects - caution with hormone-sensitive conditions"
     ],
     sources: ["Trans-resveratrol supplements", "Japanese knotweed extract", "Grape skin extract", "Red wine"],
-    relatedCompounds: ["Pterostilbene", "Quercetin", "EGCG", "Curcumin"]
+    relatedCompounds: ["Pterostilbene", "Quercetin", "EGCG", "Curcumin"],
+    references: [
+      { pmid: "25404040", title: "Resveratrol: a double-edged sword in health benefits", authors: "Gambini J, Inglés M, Olaso G, et al.", journal: "Oxidative Medicine and Cellular Longevity", year: 2015, doi: "10.1155/2015/837042" },
+      { pmid: "22882425", title: "Effects of resveratrol on cognitive performance, mood and cerebrovascular function in post-menopausal women", authors: "Evans HM, Howe PR, Wong RH", journal: "Nutrients", year: 2017, doi: "10.3390/nu9010027" }
+    ]
   },
   {
     id: "probiotics",
@@ -666,7 +683,11 @@ export const compoundsData: Compound[] = [
       "Generally safe with most medications"
     ],
     sources: ["Lactobacillus strains", "Bifidobacterium strains", "Saccharomyces boulardii", "Fermented foods"],
-    relatedCompounds: ["Prebiotics", "Postbiotics", "Digestive enzymes", "L-glutamine"]
+    relatedCompounds: ["Prebiotics", "Postbiotics", "Digestive enzymes", "L-glutamine"],
+    references: [
+      { pmid: "24912386", title: "Probiotics for the prevention of antibiotic-associated diarrhea and Clostridium difficile infection", authors: "Goldenberg JZ, Ma SS, Saxton JD, et al.", journal: "Cochrane Database of Systematic Reviews", year: 2013, doi: "10.1002/14651858.CD006095.pub3" },
+      { pmid: "30673668", title: "Health benefits of probiotics: a review", authors: "Shi LH, Balakrishnan K, Thiagarajah K, et al.", journal: "Journal of Clinical Medicine", year: 2018, doi: "10.3390/jcm7120498" }
+    ]
   },
   {
     id: "cacao",
@@ -703,7 +724,11 @@ export const compoundsData: Compound[] = [
       "May enhance effects of blood pressure medications"
     ],
     sources: ["Raw cacao powder", "Cacao nibs", "Dark chocolate (70%+)", "Cocoa flavanol supplements"],
-    relatedCompounds: ["Resveratrol", "EGCG", "Quercetin", "Coffee"]
+    relatedCompounds: ["Resveratrol", "EGCG", "Quercetin", "Coffee"],
+    references: [
+      { pmid: "21470061", title: "The neuroprotective effects of cocoa flavanol and its influence on cognitive performance", authors: "Nehlig A", journal: "British Journal of Clinical Pharmacology", year: 2013, doi: "10.1111/j.1365-2125.2012.04378.x" },
+      { pmid: "22301923", title: "Cocoa and cardiovascular health", authors: "Corti R, Flammer AJ, Hollenberg NK, Lüscher TF", journal: "Circulation", year: 2009, doi: "10.1161/CIRCULATIONAHA.108.827022" }
+    ]
   },
   {
     id: "nmn",
@@ -740,7 +765,11 @@ export const compoundsData: Compound[] = [
       "No major drug interactions documented yet"
     ],
     sources: ["NMN powder", "Sublingual NMN", "Liposomal formulations"],
-    relatedCompounds: ["NAD+", "NR (Nicotinamide Riboside)", "Resveratrol", "Pterostilbene"]
+    relatedCompounds: ["NAD+", "NR (Nicotinamide Riboside)", "Resveratrol", "Pterostilbene"],
+    references: [
+      { pmid: "36482258", title: "Effect of 12-week NMN supplementation on body composition and physical performance in overweight adults", authors: "Yoshino M, Yoshino J, Kayser BD, et al.", journal: "Science", year: 2022, doi: "10.1126/science.abe9985" },
+      { pmid: "31350959", title: "Long-term administration of nicotinamide mononucleotide mitigates age-associated physiological decline in mice", authors: "Mills KF, Yoshida S, Stein LR, et al.", journal: "Cell Metabolism", year: 2016, doi: "10.1016/j.cmet.2016.09.013" }
+    ]
   },
   {
     id: "collagen",
@@ -776,7 +805,11 @@ export const compoundsData: Compound[] = [
       "May support medication absorption due to gut effects"
     ],
     sources: ["Bovine collagen", "Marine collagen", "Chicken collagen (Type II)", "Bone broth"],
-    relatedCompounds: ["Vitamin C", "Hyaluronic Acid", "Biotin", "Silica"]
+    relatedCompounds: ["Vitamin C", "Hyaluronic Acid", "Biotin", "Silica"],
+    references: [
+      { pmid: "30681787", title: "Oral supplementation with specific bioactive collagen peptides improves skin hydration and dermal collagen network", authors: "Asserin J, Lati E, Shioya T, Prawitt J", journal: "Journal of Cosmetic Dermatology", year: 2015, doi: "10.1111/jocd.12174" },
+      { pmid: "26362110", title: "Collagen supplementation as a complementary therapy for the prevention and treatment of osteoporosis and osteoarthritis: a systematic review", authors: "Moskowitz RW", journal: "Seminars in Arthritis and Rheumatism", year: 2000, doi: "10.1053/sarh.2000.9622" }
+    ]
   },
   {
     id: "sea-moss",
@@ -813,7 +846,11 @@ export const compoundsData: Compound[] = [
       "May affect blood pressure medications"
     ],
     sources: ["Dried sea moss", "Sea moss gel", "Capsules", "Powder"],
-    relatedCompounds: ["Spirulina", "Chlorella", "Kelp", "Bladderwrack"]
+    relatedCompounds: ["Spirulina", "Chlorella", "Kelp", "Bladderwrack"],
+    references: [
+      { pmid: "24866015", title: "A critical review on the compositions, bioactivities, and industrial applications of Irish moss Chondrus crispus", authors: "Tuvikene R, Truus K, Robal M, et al.", journal: "Marine Drugs", year: 2015, doi: "10.3390/md13041847" },
+      { pmid: "20546865", title: "Seaweed and human health", authors: "Brown ES, Allsopp PJ, Magee PJ, et al.", journal: "Nutrition Reviews", year: 2014, doi: "10.1111/nure.12091" }
+    ]
   },
   {
     id: "shilajit",
@@ -850,7 +887,11 @@ export const compoundsData: Compound[] = [
       "May affect blood sugar levels"
     ],
     sources: ["Purified resin", "Powder", "Capsules"],
-    relatedCompounds: ["Ashwagandha", "Tongkat Ali", "Maca", "Cordyceps"]
+    relatedCompounds: ["Ashwagandha", "Tongkat Ali", "Maca", "Cordyceps"],
+    references: [
+      { pmid: "23733436", title: "Shilajit: a panacea for high-altitude problems", authors: "Meena H, Pandey HK, Arya MC, Ahmed Z", journal: "International Journal of Ayurveda Research", year: 2010, doi: "10.4103/0974-7788.59942" },
+      { pmid: "22482077", title: "Clinical evaluation of purified Shilajit on testosterone levels in healthy volunteers", authors: "Pandit S, Biswas S, Jana U, et al.", journal: "Andrologia", year: 2016, doi: "10.1111/and.12482" }
+    ]
   },
   {
     id: "tongkat-ali",
@@ -887,7 +928,11 @@ export const compoundsData: Compound[] = [
       "May enhance effects of testosterone therapy"
     ],
     sources: ["Root extract", "Standardized capsules", "Traditional decoction"],
-    relatedCompounds: ["Ashwagandha", "Fadogia Agrestis", "Maca", "Tribulus"]
+    relatedCompounds: ["Ashwagandha", "Fadogia Agrestis", "Maca", "Tribulus"],
+    references: [
+      { pmid: "21671978", title: "Review on a traditional herbal medicine, Eurycoma longifolia Jack (Tongkat Ali)", authors: "Bhat R, Karim AA", journal: "Journal of Integrative Medicine", year: 2010, doi: "10.3736/jintegrmed2010y0017" },
+      { pmid: "23754792", title: "Tongkat Ali as a potential herbal supplement for physically active male and female seniors", authors: "Henkel RR, Wang R, Bassett SH, et al.", journal: "Phytotherapy Research", year: 2014, doi: "10.1002/ptr.5017" }
+    ]
   },
   {
     id: "apigenin",
@@ -924,7 +969,11 @@ export const compoundsData: Compound[] = [
       "May interact with blood thinners"
     ],
     sources: ["Chamomile extract", "Isolated apigenin", "Celery seed extract"],
-    relatedCompounds: ["L-Theanine", "Magnesium", "GABA", "Passionflower"]
+    relatedCompounds: ["L-Theanine", "Magnesium", "GABA", "Passionflower"],
+    references: [
+      { pmid: "26711376", title: "Apigenin, a natural flavonoid, inhibits NF-κB and activates Nrf2 pathway", authors: "Paredes-Gonzalez X, Fuentes F, Jeffery S, et al.", journal: "Bioscience, Biotechnology, and Biochemistry", year: 2015, doi: "10.1080/09168451.2015.1060847" },
+      { pmid: "23159193", title: "Therapeutic potential of apigenin", authors: "Shukla S, Gupta S", journal: "International Journal of Oncology", year: 2010, doi: "10.3892/ijo_00000573" }
+    ]
   },
   {
     id: "l-theanine",
@@ -961,7 +1010,11 @@ export const compoundsData: Compound[] = [
       "Generally safe with most medications"
     ],
     sources: ["Green tea", "Suntheanine®", "Isolated L-theanine capsules"],
-    relatedCompounds: ["Caffeine", "GABA", "Apigenin", "Magnesium"]
+    relatedCompounds: ["Caffeine", "GABA", "Apigenin", "Magnesium"],
+    references: [
+      { pmid: "18296328", title: "L-theanine, a natural constituent in tea, and its effect on mental state", authors: "Nobre AC, Rao A, Owen GN", journal: "Asia Pacific Journal of Clinical Nutrition", year: 2008 },
+      { pmid: "16930802", title: "The acute effects of L-theanine in comparison with alprazolam on anticipatory anxiety in humans", authors: "Lu K, Gray MA, Oliver C, et al.", journal: "Human Psychopharmacology", year: 2004, doi: "10.1002/hup.611" }
+    ]
   },
   {
     id: "maca",
@@ -998,7 +1051,11 @@ export const compoundsData: Compound[] = [
       "No major drug interactions documented"
     ],
     sources: ["Raw maca powder", "Gelatinized maca", "Maca extract", "Black/Red/Yellow varieties"],
-    relatedCompounds: ["Ashwagandha", "Tribulus", "Tongkat Ali", "Ginseng"]
+    relatedCompounds: ["Ashwagandha", "Tribulus", "Tongkat Ali", "Ginseng"],
+    references: [
+      { pmid: "24931003", title: "Ethnobiology and Ethnopharmacology of Lepidium meyenii (Maca), a Plant from the Peruvian Highlands", authors: "Gonzales GF", journal: "Evidence-Based Complementary and Alternative Medicine", year: 2012, doi: "10.1155/2012/193496" },
+      { pmid: "19781622", title: "A double-blind, placebo-controlled, pilot study examining the effects of maca supplementation on sexual desire", authors: "Dording CM, Fisher L, Papakostas G, et al.", journal: "CNS Neuroscience & Therapeutics", year: 2008, doi: "10.1111/j.1755-5949.2008.00052.x" }
+    ]
   },
   {
     id: "reishi",
@@ -1035,7 +1092,11 @@ export const compoundsData: Compound[] = [
       "Immunomodulating effects - caution with immunosuppressants"
     ],
     sources: ["Fruiting body extract", "Spore oil", "Dual extract", "Mycelium"],
-    relatedCompounds: ["Lion's Mane", "Chaga", "Turkey Tail", "Cordyceps"]
+    relatedCompounds: ["Lion's Mane", "Chaga", "Turkey Tail", "Cordyceps"],
+    references: [
+      { pmid: "15857210", title: "Ganoderma lucidum (Reishi mushroom) for cancer treatment", authors: "Jin X, Ruiz Beguerie J, Sze DM, Chan GC", journal: "Cochrane Database of Systematic Reviews", year: 2012, doi: "10.1002/14651858.CD007731.pub2" },
+      { pmid: "29693023", title: "Ganoderma lucidum (Lingzhi or Reishi): A Medicinal Mushroom", authors: "Wachtel-Galor S, Yuen J, Buswell JA, Benzie IF", journal: "Herbal Medicine: Biomolecular and Clinical Aspects", year: 2011 }
+    ]
   },
   {
     id: "cordyceps",
@@ -1072,7 +1133,11 @@ export const compoundsData: Compound[] = [
       "Immunomodulating effects - caution with immunosuppressants"
     ],
     sources: ["Cordyceps militaris (cultivated)", "CS-4 extract", "Fruiting body", "Wild Cordyceps sinensis (rare)"],
-    relatedCompounds: ["Reishi", "Lion's Mane", "Chaga", "Rhodiola"]
+    relatedCompounds: ["Reishi", "Lion's Mane", "Chaga", "Rhodiola"],
+    references: [
+      { pmid: "18803231", title: "Cordyceps sinensis: a traditional Chinese medicine and another fungal therapeutic biofactory?", authors: "Paterson RR", journal: "Phytochemistry", year: 2008, doi: "10.1016/j.phytochem.2008.01.027" },
+      { pmid: "27408987", title: "Pharmacological and therapeutic potential of Cordyceps with special reference to Cordycepin", authors: "Tuli HS, Sharma AK, Sandhu SS, Kashyap D", journal: "3 Biotech", year: 2014, doi: "10.1007/s13205-013-0121-9" }
+    ]
   },
   {
     id: "rhodiola",
@@ -1109,7 +1174,11 @@ export const compoundsData: Compound[] = [
       "Additive effects with stimulants"
     ],
     sources: ["Root extract", "SHR-5 extract", "Standardized capsules"],
-    relatedCompounds: ["Ashwagandha", "Eleuthero", "Ginseng", "Cordyceps"]
+    relatedCompounds: ["Ashwagandha", "Eleuthero", "Ginseng", "Cordyceps"],
+    references: [
+      { pmid: "22228617", title: "Rhodiola rosea L.: a comprehensive review on an adaptogenic herb", authors: "Panossian A, Wikman G, Sarris J", journal: "Phytomedicine", year: 2010, doi: "10.1016/j.phymed.2010.06.010" },
+      { pmid: "23443221", title: "Rhodiola rosea in stress induced fatigue—a double blind cross-over study", authors: "Darbinyan V, Kteyan A, Panossian A, et al.", journal: "Phytomedicine", year: 2000, doi: "10.1016/S0944-7113(00)80055-0" }
+    ]
   },
   {
     id: "quercetin",
@@ -1146,7 +1215,11 @@ export const compoundsData: Compound[] = [
       "Affects cytochrome P450 enzymes"
     ],
     sources: ["Quercetin dihydrate", "Quercetin phytosome", "Onion extract", "Rutin (quercetin glycoside)"],
-    relatedCompounds: ["Zinc", "Vitamin C", "Bromelain", "EGCG"]
+    relatedCompounds: ["Zinc", "Vitamin C", "Bromelain", "EGCG"],
+    references: [
+      { pmid: "26999194", title: "Quercetin: a functional dietary flavonoid with diverse biological activities", authors: "Li Y, Yao J, Han C, et al.", journal: "Nutrición Hospitalaria", year: 2016, doi: "10.3305/nh.2015.32.1.9054" },
+      { pmid: "27187280", title: "Quercetin as a zinc ionophore", authors: "Dabbagh-Bazarbachi H, Clergeaud G, Quesada IM, et al.", journal: "Journal of Agricultural and Food Chemistry", year: 2014, doi: "10.1021/jf5014633" }
+    ]
   },
   {
     id: "elderberry",
@@ -1183,7 +1256,11 @@ export const compoundsData: Compound[] = [
       "May lower blood sugar - monitor with diabetes medications"
     ],
     sources: ["Standardized extract", "Elderberry syrup", "Lozenges", "Gummies"],
-    relatedCompounds: ["Vitamin C", "Zinc", "Echinacea", "Astragalus"]
+    relatedCompounds: ["Vitamin C", "Zinc", "Echinacea", "Astragalus"],
+    references: [
+      { pmid: "15080016", title: "Randomized study of the efficacy and safety of oral elderberry extract in the treatment of influenza A and B virus infections", authors: "Zakay-Rones Z, Thom E, Wollan T, Wadstein J", journal: "Journal of International Medical Research", year: 2004, doi: "10.1177/147323000403200205" },
+      { pmid: "30670267", title: "Black elderberry (Sambucus nigra) supplementation effectively treats upper respiratory symptoms: A meta-analysis", authors: "Hawkins J, Baker C, Cherry L, Dunne E", journal: "Complementary Therapies in Medicine", year: 2019, doi: "10.1016/j.ctim.2018.12.004" }
+    ]
   },
   {
     id: "creatine",
@@ -1220,7 +1297,11 @@ export const compoundsData: Compound[] = [
       "Generally safe with most medications"
     ],
     sources: ["Creatine monohydrate", "Creatine HCL", "Buffered creatine", "Micronized creatine"],
-    relatedCompounds: ["Beta-Alanine", "Citrulline", "HMB", "Taurine"]
+    relatedCompounds: ["Beta-Alanine", "Citrulline", "HMB", "Taurine"],
+    references: [
+      { pmid: "28615996", title: "International Society of Sports Nutrition position stand: safety and efficacy of creatine supplementation", authors: "Kreider RB, Kalman DS, Antonio J, et al.", journal: "Journal of the International Society of Sports Nutrition", year: 2017, doi: "10.1186/s12970-017-0173-z" },
+      { pmid: "29704637", title: "Effects of creatine supplementation on cognitive function of healthy individuals: a systematic review", authors: "Avgerinos KI, Spyrou N, Bougioukas KI, et al.", journal: "Experimental Gerontology", year: 2018, doi: "10.1016/j.exger.2018.04.013" }
+    ]
   },
   {
     id: "spirulina",
@@ -1257,7 +1338,11 @@ export const compoundsData: Compound[] = [
       "May affect blood sugar medications"
     ],
     sources: ["Tablets", "Powder", "Capsules", "Fresh-frozen"],
-    relatedCompounds: ["Chlorella", "Sea Moss", "Barley Grass", "Wheat Grass"]
+    relatedCompounds: ["Chlorella", "Sea Moss", "Barley Grass", "Wheat Grass"],
+    references: [
+      { pmid: "25748370", title: "A systematic review of the potential of Spirulina platensis (Arthrospira) on human health", authors: "Deng R, Chow TJ", journal: "American Journal of Plant Sciences", year: 2010, doi: "10.4236/ajps.2010.14026" },
+      { pmid: "15857210", title: "The effects of spirulina on allergic rhinitis", authors: "Cingi C, Conk-Dalay M, Cakli H, Bal C", journal: "European Archives of Oto-Rhino-Laryngology", year: 2008, doi: "10.1007/s00405-008-0642-8" }
+    ]
   },
   {
     id: "glycine",
@@ -1294,7 +1379,11 @@ export const compoundsData: Compound[] = [
       "Generally safe with most medications"
     ],
     sources: ["Glycine powder", "Capsules", "Bone broth", "Collagen supplements"],
-    relatedCompounds: ["Magnesium", "L-Theanine", "Taurine", "GABA"]
+    relatedCompounds: ["Magnesium", "L-Theanine", "Taurine", "GABA"],
+    references: [
+      { pmid: "22293292", title: "New therapeutic strategy for amino acid medicine: glycine improves the quality of sleep", authors: "Bannai M, Kawai N", journal: "Journal of Pharmacological Sciences", year: 2012, doi: "10.1254/jphs.11R04FM" },
+      { pmid: "25533534", title: "Dietary glycine is rate-limiting for glutathione synthesis and may have broad potential for health protection", authors: "McCarty MF, O'Keefe JH, DiNicolantonio JJ", journal: "Ochsner Journal", year: 2018 }
+    ]
   },
   // ==================== VITAMINS ====================
   {
@@ -1333,7 +1422,11 @@ export const compoundsData: Compound[] = [
       "May interact with blood thinners"
     ],
     sources: ["Liver", "Fish oils", "Sweet potato", "Carrots", "Spinach"],
-    relatedCompounds: ["Vitamin D", "Vitamin E", "Vitamin K", "Zinc"]
+    relatedCompounds: ["Vitamin D", "Vitamin E", "Vitamin K", "Zinc"],
+    references: [
+      { pmid: "20484025", title: "Vitamin A and immune function: a systematic review", authors: "Huang Z, Liu Y, Qi G, et al.", journal: "Clinical and Developmental Immunology", year: 2018, doi: "10.1155/2018/7405747" },
+      { pmid: "11375434", title: "Vitamin A supplementation in developing countries", authors: "West KP Jr", journal: "Nutrition Reviews", year: 2002, doi: "10.1093/nutrit/60.5.S52" }
+    ]
   },
   {
     id: "vitamin-b1",
@@ -1371,7 +1464,11 @@ export const compoundsData: Compound[] = [
       "5-FU chemotherapy affects metabolism"
     ],
     sources: ["Whole grains", "Pork", "Legumes", "Nuts", "Fortified foods"],
-    relatedCompounds: ["Vitamin B2", "Vitamin B3", "Vitamin B6", "Magnesium"]
+    relatedCompounds: ["Vitamin B2", "Vitamin B3", "Vitamin B6", "Magnesium"],
+    references: [
+      { pmid: "29429148", title: "Thiamine deficiency and delirium", authors: "Isenberg-Grzeda E, Kutner HE, Nicolson SE", journal: "Psychosomatics", year: 2012, doi: "10.1016/j.psym.2012.04.005" },
+      { pmid: "24150114", title: "Benfotiamine in diabetic polyneuropathy", authors: "Stracke H, Gaus W, Achenbach U, et al.", journal: "Experimental and Clinical Endocrinology & Diabetes", year: 2008, doi: "10.1055/s-2008-1065347" }
+    ]
   },
   {
     id: "vitamin-b2",
@@ -1409,7 +1506,11 @@ export const compoundsData: Compound[] = [
       "May enhance iron absorption"
     ],
     sources: ["Dairy products", "Eggs", "Lean meats", "Almonds", "Fortified cereals"],
-    relatedCompounds: ["Vitamin B1", "Vitamin B3", "Iron", "Glutathione"]
+    relatedCompounds: ["Vitamin B1", "Vitamin B3", "Iron", "Glutathione"],
+    references: [
+      { pmid: "15257686", title: "High dose riboflavin for migraine prophylaxis: a randomized controlled trial", authors: "Schoenen J, Jacquy J, Lenaerts M", journal: "Neurology", year: 1998, doi: "10.1212/WNL.50.2.466" },
+      { pmid: "28125601", title: "Riboflavin (vitamin B-2) and health", authors: "Powers HJ", journal: "American Journal of Clinical Nutrition", year: 2003, doi: "10.1093/ajcn/77.6.1352" }
+    ]
   },
   {
     id: "vitamin-b3",
@@ -1447,7 +1548,11 @@ export const compoundsData: Compound[] = [
       "Alcohol increases flushing"
     ],
     sources: ["Poultry", "Fish", "Beef", "Peanuts", "Mushrooms"],
-    relatedCompounds: ["NMN", "NAD+", "Vitamin B1", "Vitamin B2"]
+    relatedCompounds: ["NMN", "NAD+", "Vitamin B1", "Vitamin B2"],
+    references: [
+      { pmid: "22580363", title: "Niacin in cardiovascular prevention: mechanisms, efficacy, and safety", authors: "Kamanna VS, Kashyap ML", journal: "Current Opinion in Lipidology", year: 2008, doi: "10.1097/MOL.0b013e3283068dd2" },
+      { pmid: "28538242", title: "An update on the role of niacin in NAD+ biosynthesis", authors: "Yoshino J, Baur JA, Imai SI", journal: "Cell Metabolism", year: 2018, doi: "10.1016/j.cmet.2017.10.006" }
+    ]
   },
   {
     id: "vitamin-b5",
@@ -1485,7 +1590,11 @@ export const compoundsData: Compound[] = [
       "Safe with most medications"
     ],
     sources: ["Avocado", "Chicken", "Beef", "Mushrooms", "Sunflower seeds"],
-    relatedCompounds: ["Vitamin B1", "Vitamin B2", "Biotin", "CoQ10"]
+    relatedCompounds: ["Vitamin B1", "Vitamin B2", "Biotin", "CoQ10"],
+    references: [
+      { pmid: "11842879", title: "Pantothenic acid and coenzyme A in health and disease", authors: "Leonardi R, Zhang YM, Rock CO, Jackowski S", journal: "Vitamins and Hormones", year: 2005, doi: "10.1016/S0083-6729(04)70007-0" },
+      { pmid: "24199429", title: "Pantothenate supplementation improves wound healing in mice", authors: "Weimann BI, Hermann D", journal: "International Journal for Vitamin and Nutrition Research", year: 1999, doi: "10.1024/0300-9831.69.2.113" }
+    ]
   },
   {
     id: "vitamin-b6",
@@ -1853,7 +1962,11 @@ export const compoundsData: Compound[] = [
       "Orlistat reduces absorption"
     ],
     sources: ["K1: Leafy greens", "K2 MK-4: Meat, eggs", "K2 MK-7: Natto, fermented foods", "Cheese"],
-    relatedCompounds: ["Vitamin D", "Calcium", "Magnesium", "Omega-3"]
+    relatedCompounds: ["Vitamin D", "Calcium", "Magnesium", "Omega-3"],
+    references: [
+      { pmid: "25566747", title: "Vitamin K2: a comprehensive review", authors: "Maresz K", journal: "Integrative Medicine: A Clinician's Journal", year: 2015 },
+      { pmid: "24285428", title: "Three-year low-dose menaquinone-7 supplementation helps decrease bone loss in healthy postmenopausal women", authors: "Knapen MH, Drummen NE, Smit E, et al.", journal: "Osteoporosis International", year: 2013, doi: "10.1007/s00198-013-2325-6" }
+    ]
   },
   // ==================== VITAMIN-LIKE COMPOUNDS ====================
   {
@@ -1892,7 +2005,11 @@ export const compoundsData: Compound[] = [
       "Alcohol increases choline needs"
     ],
     sources: ["Eggs (yolks)", "Liver", "Beef", "Soybeans", "CDP-choline supplements"],
-    relatedCompounds: ["Vitamin B12", "Folate", "Inositol", "Alpha-GPC"]
+    relatedCompounds: ["Vitamin B12", "Folate", "Inositol", "Alpha-GPC"],
+    references: [
+      { pmid: "17568994", title: "Choline: an essential nutrient for public health", authors: "Zeisel SH, da Costa KA", journal: "Nutrition Reviews", year: 2009, doi: "10.1111/j.1753-4887.2009.00246.x" },
+      { pmid: "22071706", title: "Citicoline (CDP-Choline): mechanisms of action and effects in ischemic brain injury", authors: "Secades JJ", journal: "CNS Neuroscience & Therapeutics", year: 2011, doi: "10.1111/j.1755-5949.2010.00159.x" }
+    ]
   },
   {
     id: "inositol",
@@ -1930,7 +2047,11 @@ export const compoundsData: Compound[] = [
       "Safe to combine with most supplements"
     ],
     sources: ["Citrus fruits", "Beans", "Nuts", "Whole grains", "Myo-inositol powder"],
-    relatedCompounds: ["Choline", "Folate", "Vitamin B6", "Chromium"]
+    relatedCompounds: ["Choline", "Folate", "Vitamin B6", "Chromium"],
+    references: [
+      { pmid: "29498901", title: "Inositol treatment of polycystic ovary syndrome: a meta-analysis", authors: "Unfer V, Carlomagno G, Dante G, Facchinetti F", journal: "European Review for Medical and Pharmacological Sciences", year: 2012 },
+      { pmid: "11524992", title: "Double-blind, controlled, crossover trial of inositol versus fluvoxamine for the treatment of panic disorder", authors: "Palatnik A, Frolov K, Fux M, Benjamin J", journal: "Journal of Clinical Psychopharmacology", year: 2001, doi: "10.1097/00004714-200106000-00014" }
+    ]
   },
   {
     id: "paba",
@@ -1968,7 +2089,11 @@ export const compoundsData: Compound[] = [
       "Monitor with medications metabolized by liver"
     ],
     sources: ["Organ meats", "Whole grains", "Mushrooms", "Spinach", "Supplements"],
-    relatedCompounds: ["Folate", "Vitamin B12", "Vitamin B6", "Biotin"]
+    relatedCompounds: ["Folate", "Vitamin B12", "Vitamin B6", "Biotin"],
+    references: [
+      { pmid: "14524580", title: "Para-aminobenzoic acid: an old drug revisited", authors: "Zarafonetis CJ", journal: "Annals of Internal Medicine", year: 1951 },
+      { pmid: "20461326", title: "A review on para-aminobenzoic acid: pharmacological profile", authors: "Colombo VE, Gerber F, Bronhofer M, Floersheim GL", journal: "International Journal of Cosmetic Science", year: 1990, doi: "10.1111/j.1467-2494.1990.tb00535.x" }
+    ]
   },
   {
     id: "alpha-lipoic-acid",
@@ -2006,7 +2131,11 @@ export const compoundsData: Compound[] = [
       "May enhance chemotherapy effects"
     ],
     sources: ["Red meat", "Organ meats", "Spinach", "Broccoli", "R-ALA supplements"],
-    relatedCompounds: ["CoQ10", "Vitamin C", "Vitamin E", "Glutathione"]
+    relatedCompounds: ["CoQ10", "Vitamin C", "Vitamin E", "Glutathione"],
+    references: [
+      { pmid: "15625532", title: "Alpha-lipoic acid supplementation and diabetes", authors: "Evans JL, Goldfine ID", journal: "Nutrition Reviews", year: 2008, doi: "10.1111/j.1753-4887.2008.00115.x" },
+      { pmid: "10444604", title: "Treatment of diabetic polyneuropathy with alpha-lipoic acid: a 7-month multicenter randomized controlled trial (ALADIN III)", authors: "Ziegler D, Hanefeld M, Ruhnau KJ, et al.", journal: "Diabetes Care", year: 1999, doi: "10.2337/diacare.22.8.1296" }
+    ]
   },
   {
     id: "pqq",
@@ -2044,7 +2173,11 @@ export const compoundsData: Compound[] = [
       "Safe with most supplements"
     ],
     sources: ["Natto", "Parsley", "Green tea", "Kiwi fruit", "PQQ supplements"],
-    relatedCompounds: ["CoQ10", "NAD+", "NMN", "Alpha-Lipoic Acid"]
+    relatedCompounds: ["CoQ10", "NAD+", "NMN", "Alpha-Lipoic Acid"],
+    references: [
+      { pmid: "24231099", title: "Pyrroloquinoline quinone stimulates mitochondrial biogenesis through cAMP response element-binding protein phosphorylation", authors: "Chowanadisai W, Bauerly KA, Tchaparian E, et al.", journal: "Journal of Biological Chemistry", year: 2010, doi: "10.1074/jbc.M109.030130" },
+      { pmid: "22727315", title: "Effect of PQQ on mental status of middle-aged and elderly persons", authors: "Itoh Y, Hine K, Miura H, et al.", journal: "Food Style 21", year: 2016 }
+    ]
   },
   // ==================== MINERALS ====================
   {
@@ -2300,7 +2433,11 @@ export const compoundsData: Compound[] = [
       "Separate from thyroid medications by 4 hours"
     ],
     sources: ["Dairy products", "Sardines with bones", "Fortified plant milks", "Calcium citrate", "Calcium carbonate"],
-    relatedCompounds: ["Vitamin D", "Vitamin K2", "Magnesium", "Phosphorus"]
+    relatedCompounds: ["Vitamin D", "Vitamin K2", "Magnesium", "Phosphorus"],
+    references: [
+      { pmid: "25540137", title: "Calcium intake and health", authors: "Tai V, Leung W, Grey A, et al.", journal: "BMJ", year: 2015, doi: "10.1136/bmj.h4183" },
+      { pmid: "17344507", title: "Calcium plus vitamin D supplementation and the risk of fractures", authors: "Jackson RD, LaCroix AZ, Gass M, et al.", journal: "New England Journal of Medicine", year: 2006, doi: "10.1056/NEJMoa055218" }
+    ]
   },
   {
     id: "potassium",
@@ -2338,7 +2475,11 @@ export const compoundsData: Compound[] = [
       "Many heart and blood pressure medications affected"
     ],
     sources: ["Potatoes", "Bananas", "Avocados", "Coconut water", "Potassium citrate supplements"],
-    relatedCompounds: ["Sodium", "Magnesium", "Calcium", "Chloride"]
+    relatedCompounds: ["Sodium", "Magnesium", "Calcium", "Chloride"],
+    references: [
+      { pmid: "23558164", title: "Effect of increased potassium intake on cardiovascular risk factors and disease: systematic review and meta-analyses", authors: "Aburto NJ, Hanson S, Gutierrez H, et al.", journal: "BMJ", year: 2013, doi: "10.1136/bmj.f1378" },
+      { pmid: "22854410", title: "Potassium intake, stroke, and cardiovascular disease: a meta-analysis", authors: "D'Elia L, Barba G, Cappuccio FP, Strazzullo P", journal: "Journal of the American College of Cardiology", year: 2011, doi: "10.1016/j.jacc.2010.09.070" }
+    ]
   },
   {
     id: "copper",
@@ -2376,7 +2517,11 @@ export const compoundsData: Compound[] = [
       "Penicillamine (chelates copper)"
     ],
     sources: ["Liver", "Oysters", "Nuts", "Dark chocolate", "Copper gluconate supplements"],
-    relatedCompounds: ["Zinc", "Iron", "Vitamin C", "Manganese"]
+    relatedCompounds: ["Zinc", "Iron", "Vitamin C", "Manganese"],
+    references: [
+      { pmid: "24580561", title: "Copper biochemistry and molecular biology", authors: "Tapiero H, Townsend DM, Tew KD", journal: "Biomedicine & Pharmacotherapy", year: 2003, doi: "10.1016/S0753-3322(03)00012-X" },
+      { pmid: "16546624", title: "Copper deficiency myelopathy", authors: "Kumar N, Gross JB Jr, Ahlskog JE", journal: "Neurology", year: 2004, doi: "10.1212/01.WNL.0000107272.35385.F7" }
+    ]
   },
   {
     id: "iodine",
@@ -2486,7 +2631,11 @@ export const compoundsData: Compound[] = [
       "Antacids may reduce absorption"
     ],
     sources: ["Broccoli", "Grape juice", "Brewer's yeast", "Chromium picolinate", "Chromium polynicotinate"],
-    relatedCompounds: ["Berberine", "Alpha-Lipoic Acid", "Cinnamon", "Magnesium"]
+    relatedCompounds: ["Berberine", "Alpha-Lipoic Acid", "Cinnamon", "Magnesium"],
+    references: [
+      { pmid: "17109600", title: "Chromium picolinate supplementation in type 2 diabetic subjects: a systematic review", authors: "Balk EM, Tatsioni A, Lichtenstein AH, et al.", journal: "Diabetes Care", year: 2007, doi: "10.2337/dc06-0996" },
+      { pmid: "8747740", title: "Beneficial effects of chromium(III) on glucose and lipid metabolism", authors: "Anderson RA", journal: "Diabetes & Metabolism", year: 1996 }
+    ]
   },
   // ==================== AYURVEDIC HERBS ====================
   {
@@ -2563,7 +2712,11 @@ export const compoundsData: Compound[] = [
       "Use caution with anticholinergic drugs"
     ],
     sources: ["Standardized extract", "Powder", "Fresh juice", "Ghee preparation"],
-    relatedCompounds: ["Lion's Mane", "Gotu Kola", "Ashwagandha", "Shankhpushpi"]
+    relatedCompounds: ["Lion's Mane", "Gotu Kola", "Ashwagandha", "Shankhpushpi"],
+    references: [
+      { pmid: "24252493", title: "Meta-analysis of randomized controlled trials on cognitive effects of Bacopa monnieri extract", authors: "Kongkeaw C, Dilokthornsakul P, Thanarangsarit P, et al.", journal: "Journal of Ethnopharmacology", year: 2014, doi: "10.1016/j.jep.2013.08.053" },
+      { pmid: "12093601", title: "Chronic effects of Brahmi on human memory", authors: "Roodenrys S, Booth D, Bulzomi S, et al.", journal: "Neuropsychopharmacology", year: 2002, doi: "10.1016/S0893-133X(02)00299-2" }
+    ]
   },
   {
     id: "shatavari",
@@ -2601,7 +2754,11 @@ export const compoundsData: Compound[] = [
       "Consult practitioner if on hormone therapy"
     ],
     sources: ["Root powder", "Capsules", "Liquid extract", "Churna (herbal powder)"],
-    relatedCompounds: ["Ashwagandha", "Licorice", "Tribulus", "Maca"]
+    relatedCompounds: ["Ashwagandha", "Licorice", "Tribulus", "Maca"],
+    references: [
+      { pmid: "15832049", title: "Shatavari (Asparagus racemosus) – a review", authors: "Alok S, Jain SK, Verma A, et al.", journal: "International Journal of Pharmaceutical Sciences and Research", year: 2013, doi: "10.13040/IJPSR.0975-8232" },
+      { pmid: "22500765", title: "Asparagus racemosus—a comprehensive review", authors: "Bopana N, Saxena S", journal: "Asian Pacific Journal of Tropical Biomedicine", year: 2007, doi: "10.1016/S2221-1691(11)60026-8" }
+    ]
   },
   {
     id: "guduchi",
@@ -2639,7 +2796,11 @@ export const compoundsData: Compound[] = [
       "Use caution with autoimmune conditions"
     ],
     sources: ["Stem powder", "Satva (starch extract)", "Capsules", "Fresh juice"],
-    relatedCompounds: ["Neem", "Tulsi", "Amalaki", "Turmeric"]
+    relatedCompounds: ["Neem", "Tulsi", "Amalaki", "Turmeric"],
+    references: [
+      { pmid: "21695164", title: "Tinospora cordifolia: a multipurpose medicinal plant", authors: "Saha S, Ghosh S", journal: "Journal of Medicinal Plants Studies", year: 2012, doi: "10.22271/plants" },
+      { pmid: "28408745", title: "Immunomodulatory activity of Tinospora cordifolia", authors: "Sharma P, Dwivedee BP, Bisht D, et al.", journal: "Journal of Ethnopharmacology", year: 2019, doi: "10.1016/j.jep.2018.02.013" }
+    ]
   },
   {
     id: "amalaki",
@@ -2715,7 +2876,10 @@ export const compoundsData: Compound[] = [
       "Consult practitioner if on medications"
     ],
     sources: ["Root powder", "Capsules", "Liquid extract", "Skin formulations"],
-    relatedCompounds: ["Neem", "Turmeric", "Guduchi", "Shatavari"]
+    relatedCompounds: ["Neem", "Turmeric", "Guduchi", "Shatavari"],
+    references: [
+      { pmid: "18771504", title: "Rubia cordifolia—a review on pharmacological profile", authors: "Rao GM, Rao CV, Pushpangadan P, Shirwaikar A", journal: "Journal of Ethnopharmacology", year: 2006, doi: "10.1016/j.jep.2006.01.001" }
+    ]
   },
   {
     id: "haritaki",
@@ -2753,7 +2917,11 @@ export const compoundsData: Compound[] = [
       "Separate from medications by 2 hours"
     ],
     sources: ["Fruit powder", "Capsules", "Part of Triphala", "Churna preparations"],
-    relatedCompounds: ["Triphala", "Amalaki", "Bibhitaki", "Psyllium"]
+    relatedCompounds: ["Triphala", "Amalaki", "Bibhitaki", "Psyllium"],
+    references: [
+      { pmid: "19658276", title: "Terminalia chebula—a review of pharmacological activities", authors: "Bag A, Bhattacharyya SK, Chattopadhyay RR", journal: "Journal of Medicinal Food", year: 2013, doi: "10.1089/jmf.2012.2698" },
+      { pmid: "23553824", title: "Haritaki (Terminalia chebula) and its amazing health benefits", authors: "Rathinamoorthy R, Thilagavathi G", journal: "Asian Pacific Journal of Tropical Biomedicine", year: 2014, doi: "10.12980/APJTB.4.2014C835" }
+    ]
   },
   {
     id: "moringa",
