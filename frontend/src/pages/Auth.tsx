@@ -5,9 +5,9 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-import { Leaf, Mail, Lock, User, Building2 } from "lucide-react";
+import { Mail, Lock } from "lucide-react";
 import { z } from "zod";
-import { getBackendClient, isBackendAvailable } from "@/lib/backend";
+import { useAuth } from "@/hooks/useAuth";
 
 const emailSchema = z.string().email("Please enter a valid email address");
 const passwordSchema = z.string().min(6, "Password must be at least 6 characters");
@@ -17,44 +17,17 @@ const Auth = () => {
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [displayName, setDisplayName] = useState("");
-  const [organization, setOrganization] = useState("");
   const [errors, setErrors] = useState<{ email?: string; password?: string }>({});
   
   const navigate = useNavigate();
   const { toast } = useToast();
-
-  const backendAvailable = isBackendAvailable();
+  const { user, signIn, signUp } = useAuth();
 
   useEffect(() => {
-    let unsubscribe: (() => void) | null = null;
-
-    (async () => {
-      const client = await getBackendClient();
-      if (!client) return;
-
-      // Set up auth state listener
-      const {
-        data: { subscription },
-      } = client.auth.onAuthStateChange((_event, session) => {
-        if (session?.user) {
-          navigate("/");
-        }
-      });
-
-      unsubscribe = () => subscription.unsubscribe();
-
-      // Check for existing session
-      const {
-        data: { session },
-      } = await client.auth.getSession();
-      if (session?.user) {
-        navigate("/");
-      }
-    })();
-
-    return () => unsubscribe?.();
-  }, [navigate]);
+    if (user) {
+      navigate("/member-resources");
+    }
+  }, [user, navigate]);
 
   const validateForm = (): boolean => {
     const newErrors: { email?: string; password?: string } = {};
@@ -81,64 +54,37 @@ const Auth = () => {
     setLoading(true);
 
     try {
-      const client = await getBackendClient();
-      if (!client) {
-        throw new Error("Backend unavailable");
-      }
-
       if (isLogin) {
-        const { error } = await client.auth.signInWithPassword({
-          email,
-          password,
-        });
-
-        if (error) throw error;
-
-        toast({
-          title: "Welcome back!",
-          description: "You've successfully signed in.",
-        });
+        const { error } = await signIn(email, password);
+        if (error) {
+          toast({
+            title: "Authentication Error",
+            description: error,
+            variant: "destructive",
+          });
+        } else {
+          toast({
+            title: "Welcome back!",
+            description: "You've successfully signed in.",
+          });
+          navigate("/member-resources");
+        }
       } else {
-        const redirectUrl = `${window.location.origin}/`;
-
-        const { error } = await client.auth.signUp({
-          email,
-          password,
-          options: {
-            emailRedirectTo: redirectUrl,
-            data: {
-              display_name: displayName,
-              organization: organization,
-            },
-          },
-        });
-
-        if (error) throw error;
-
-        toast({
-          title: "Account created!",
-          description: "Welcome to EvidenceMed. You're now signed in.",
-        });
+        const { error } = await signUp(email, password);
+        if (error) {
+          toast({
+            title: "Registration Error",
+            description: error,
+            variant: "destructive",
+          });
+        } else {
+          toast({
+            title: "Account created!",
+            description: "Welcome to EvidenceMed Archive.",
+          });
+          navigate("/member-resources");
+        }
       }
-    } catch (error: any) {
-      let message = error?.message || "Unknown error";
-
-      if (message === "Backend unavailable") {
-        message = "The backend is still loading. Please refresh and try again.";
-      }
-
-      // Friendly error messages
-      if (message.includes("User already registered")) {
-        message = "An account with this email already exists. Try signing in instead.";
-      } else if (message.includes("Invalid login credentials")) {
-        message = "Invalid email or password. Please check your credentials.";
-      }
-
-      toast({
-        title: "Authentication Error",
-        description: message,
-        variant: "destructive",
-      });
     } finally {
       setLoading(false);
     }
@@ -147,60 +93,32 @@ const Auth = () => {
   return (
     <>
       <Helmet>
-        <title>{isLogin ? "Sign In" : "Sign Up"} | EvidenceMed</title>
-        <meta name="description" content="Access your EvidenceMed account for peer-reviewed alternative medicine research." />
+        <title>{isLogin ? "Sign In" : "Sign Up"} | EvidenceMed Archive</title>
+        <meta name="description" content="Access member resources at EvidenceMed Archive." />
       </Helmet>
 
       <div className="min-h-screen bg-gradient-to-br from-primary/5 via-background to-secondary/10 flex items-center justify-center p-4">
         <div className="w-full max-w-md">
           {/* Logo */}
           <a href="/" className="flex items-center justify-center gap-2 mb-8">
-            <Leaf className="w-8 h-8 text-primary" />
+            <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
+              <span className="text-primary-foreground font-serif font-bold text-lg">E</span>
+            </div>
             <span className="font-serif text-2xl font-semibold text-foreground">EvidenceMed</span>
           </a>
 
           {/* Auth Card */}
-          <div className="bg-card border border-border rounded-2xl p-8 shadow-medium">
+          <div className="bg-card border border-border rounded-2xl p-8 shadow-lg">
             <h1 className="font-serif text-2xl font-semibold text-foreground text-center mb-2">
-              {isLogin ? "Welcome Back" : "Create Account"}
+              {isLogin ? "Member Sign In" : "Create Account"}
             </h1>
             <p className="text-muted-foreground text-center mb-6">
               {isLogin 
-                ? "Sign in to access your research library" 
-                : "Join thousands of practitioners and researchers"}
+                ? "Sign in to access member resources" 
+                : "Create an account to access the full archive"}
             </p>
 
             <form onSubmit={handleSubmit} className="space-y-4">
-              {!isLogin && (
-                <>
-                  <div>
-                    <Label htmlFor="displayName" className="flex items-center gap-2 mb-2">
-                      <User className="w-4 h-4" />
-                      Display Name
-                    </Label>
-                    <Input
-                      id="displayName"
-                      placeholder="Dr. Jane Doe"
-                      value={displayName}
-                      onChange={(e) => setDisplayName(e.target.value)}
-                    />
-                  </div>
-
-                  <div>
-                    <Label htmlFor="organization" className="flex items-center gap-2 mb-2">
-                      <Building2 className="w-4 h-4" />
-                      Organization (optional)
-                    </Label>
-                    <Input
-                      id="organization"
-                      placeholder="Your clinic or institution"
-                      value={organization}
-                      onChange={(e) => setOrganization(e.target.value)}
-                    />
-                  </div>
-                </>
-              )}
-
               <div>
                 <Label htmlFor="email" className="flex items-center gap-2 mb-2">
                   <Mail className="w-4 h-4" />
@@ -216,6 +134,7 @@ const Auth = () => {
                     if (errors.email) setErrors({ ...errors, email: undefined });
                   }}
                   className={errors.email ? "border-destructive" : ""}
+                  data-testid="auth-email-input"
                 />
                 {errors.email && (
                   <p className="text-sm text-destructive mt-1">{errors.email}</p>
@@ -237,13 +156,20 @@ const Auth = () => {
                     if (errors.password) setErrors({ ...errors, password: undefined });
                   }}
                   className={errors.password ? "border-destructive" : ""}
+                  data-testid="auth-password-input"
                 />
                 {errors.password && (
                   <p className="text-sm text-destructive mt-1">{errors.password}</p>
                 )}
               </div>
 
-              <Button type="submit" className="w-full" size="lg" disabled={loading}>
+              <Button 
+                type="submit" 
+                className="w-full" 
+                size="lg" 
+                disabled={loading}
+                data-testid="auth-submit-btn"
+              >
                 {loading ? "Please wait..." : isLogin ? "Sign In" : "Create Account"}
               </Button>
             </form>
@@ -256,6 +182,7 @@ const Auth = () => {
                   setErrors({});
                 }}
                 className="text-sm text-primary hover:underline"
+                data-testid="auth-toggle-btn"
               >
                 {isLogin 
                   ? "Don't have an account? Sign up" 
