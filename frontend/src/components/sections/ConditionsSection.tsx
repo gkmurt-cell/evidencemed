@@ -217,9 +217,9 @@ const ConditionsSection = () => {
           <RelatedLinks
             title="Related:"
             links={[
-              { to: "/compounds", label: "Compounds Library", icon: Leaf },
-              { to: "/research", label: "Research Studies", icon: BookOpen },
-              { to: "/integrative-therapies", label: "Therapies", icon: Pill },
+              { href: "/compounds", label: "Compounds Library" },
+              { href: "/research", label: "Research Studies" },
+              { href: "/methodology", label: "Editorial Methodology" },
             ]}
             className="justify-center mb-6"
           />
