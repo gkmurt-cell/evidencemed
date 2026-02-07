@@ -47,6 +47,10 @@ const webpackConfig = {
       '@': path.resolve(__dirname, 'src'),
     },
     configure: (webpackConfig) => {
+      // Add .tsx extension resolution
+      if (webpackConfig.resolve.extensions) {
+        webpackConfig.resolve.extensions = ['.tsx', '.ts', '.js', '.jsx', '.json'];
+      }
 
       // Add ignored patterns to reduce watched directories
         webpackConfig.watchOptions = {
