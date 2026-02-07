@@ -14,7 +14,11 @@ interface PubMedArticleCardProps {
 }
 
 const PubMedArticleCard = ({ article, showAbstract = true }: PubMedArticleCardProps) => {
-  const studyType = getStudyType(article.publicationType);
+  // Use empty array as fallback for missing fields
+  const publicationType = (article as any).publicationType || [];
+  const meshTerms = (article as any).meshTerms || [];
+  
+  const studyType = getStudyType(publicationType);
   const doiUrl = getDoiUrl(article.doi);
   const pubmedUrl = getPubMedUrl(article.pmid);
 
