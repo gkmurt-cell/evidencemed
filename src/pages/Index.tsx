@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { Sparkles, BookOpen, ShoppingBag } from "lucide-react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import InstitutionalTrustBanner from "@/components/sections/InstitutionalTrustBanner";
 import HeroSection from "@/components/sections/HeroSection";
 import ConditionsSection from "@/components/sections/ConditionsSection";
 import ResearchSection from "@/components/sections/ResearchSection";
@@ -62,6 +63,7 @@ const Index = () => {
         <div className="pt-16 lg:pt-20">
           {/* Hero Section - Full Width */}
           <HeroSection />
+          <InstitutionalTrustBanner />
           
           {/* Content with Sidebar */}
           <div className="flex">
