@@ -160,6 +160,25 @@ Transform the EvidenceMed build from Lovable into a high-authority Institutional
   - User dropdown shows "My Profile" link
   - Direct access to /profile page
 
+### Phase 9 (Feb 2026) - Mobile App (PWA)
+- ✅ Progressive Web App (PWA) Configuration:
+  - manifest.json with app metadata and icons
+  - Service worker for offline support and caching
+  - Install prompt component for mobile users
+  - Apple touch icons and meta tags
+- ✅ PWA Features:
+  - Add to home screen functionality
+  - Standalone display mode (no browser UI)
+  - Offline page caching (static assets)
+  - App shortcuts: Search, Compounds, Profile
+  - Push notification support ready (for research alerts)
+- ✅ Mobile-Optimized UI:
+  - Responsive design across all pages
+  - Touch-friendly buttons and interactions
+  - Mobile navigation with hamburger menu
+  - Optimized viewport settings
+- ✅ Fixed Footer: Single Legal section (Medical Disclaimer, Privacy, Terms)
+
 ## API Endpoints
 - `POST /api/auth/register` - User registration (open)
 - `POST /api/auth/register-with-invite` - Register with invite code
