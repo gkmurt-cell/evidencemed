@@ -56,6 +56,7 @@ const App = () => (
               <Route path="/member-resources" element={<MemberResources />} />
               <Route path="/practitioner-repository" element={<PractitionerRepository />} />
               <Route path="/institutional-access" element={<InstitutionalAccess />} />
+              <Route path="/institutional-pricing" element={<InstitutionalPricing />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>
