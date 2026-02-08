@@ -274,15 +274,15 @@ const InstitutionalAccess = () => {
                 Ready to Get Started?
               </h2>
               <p className="text-muted-foreground max-w-xl mx-auto mb-8">
-                Contact our institutional sales team to discuss access options, pricing, and 
-                integration requirements for your organization.
+                Start your 30-day free trial or contact our team to discuss 
+                custom requirements for your organization.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Button size="lg" asChild>
-                  <a href="mailto:institutions@evidencemed.com">Contact Institutional Sales</a>
+                  <Link to="/institutional-pricing">View Plans & Start Trial</Link>
                 </Button>
                 <Button variant="outline" size="lg" asChild>
-                  <a href="mailto:trials@evidencemed.com">Request a Trial</a>
+                  <a href="mailto:institutions@evidencemed.com">Contact Sales</a>
                 </Button>
               </div>
               <p className="text-sm text-muted-foreground mt-6">
