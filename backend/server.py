@@ -885,6 +885,13 @@ async def register_with_invite(user_data: UserRegisterWithInvite):
     
     logger.info(f"New user registered with invite code: {user_data.email}")
     
+    # Send welcome email (non-blocking)
+    asyncio.create_task(send_welcome_email(
+        user_data.email, 
+        invite.get("institution_name"), 
+        invite.get("tier", "starter")
+    ))
+    
     return {
         "access_token": access_token,
         "token_type": "bearer",
