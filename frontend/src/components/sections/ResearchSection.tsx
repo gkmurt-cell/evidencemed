@@ -148,81 +148,53 @@ const ResearchSection = () => {
             <br />
             <span className="text-muted-foreground">Summarized & Sourced</span>
           </h2>
-          <p className="text-lg text-muted-foreground mb-4">
-            Every research entry includes study type, institution, journal, publication year, 
-            and direct links to original sources. Plain-language summaries make complex 
-            research accessible.
+          <p className="text-muted-foreground mb-3">
+            Summarized &amp; sourced research with study type, institution, journal, publication year, 
+            and direct links to original sources.
           </p>
-          <RelatedLinks
-            title="Explore:"
-            links={[
-              { href: "/conditions", label: "200+ Conditions" },
-              { href: "/compounds", label: "Compound Library" },
-              { href: "/methodology", label: "Editorial Standards" },
-            ]}
-          />
+          <div className="flex flex-wrap gap-3 text-sm mb-3">
+            <Link to="/conditions" className="text-primary hover:underline">200+ Conditions</Link>
+            <span className="text-muted-foreground">·</span>
+            <Link to="/compounds" className="text-primary hover:underline">Compound Library</Link>
+            <span className="text-muted-foreground">·</span>
+            <Link to="/methodology" className="text-primary hover:underline">Editorial Standards</Link>
+          </div>
           <EducationalDisclaimer />
         </div>
 
-        {/* Research Type Stats - Now Clickable */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
+        {/* Research Type Stats - Horizontal Compact */}
+        <div className="flex flex-wrap justify-center gap-4 mb-6 py-4 border-y border-border bg-muted/30">
           {researchTypes.map((type) => (
             <a
               key={type.name}
               href={type.pubmedUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-6 rounded-xl bg-card border border-border text-center hover:border-primary/50 hover:shadow-lg transition-all duration-300 group cursor-pointer"
+              className="flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-card transition-colors"
             >
-              <div className="flex items-center justify-center gap-2 mb-3">
-                <type.icon className="w-7 h-7 text-primary group-hover:scale-110 transition-transform" />
-                <StudyTypeIcon type={type.id === "rct" ? "rct" : type.id === "in-vitro" ? "in-vitro" : type.id === "observational" ? "observational" : "animal"} size="md" />
-              </div>
-              <p className="font-mono text-2xl font-bold text-foreground mb-1 group-hover:text-primary transition-colors">
-                {type.count}
-              </p>
-              <p className="text-sm text-muted-foreground">{type.name}</p>
-              <p className="text-xs text-primary mt-2 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-1">
-                View on PubMed
-                <ExternalLink className="w-3 h-3" />
-              </p>
+              <type.icon className="w-5 h-5 text-primary" />
+              <span className="font-bold text-foreground">{type.count}</span>
+              <span className="text-muted-foreground">{type.name}</span>
             </a>
           ))}
         </div>
 
-        {/* Study Distribution Bar Chart */}
-        <div className="max-w-2xl mx-auto mb-16 bg-card border border-border rounded-xl p-6">
-          <h3 className="font-semibold text-foreground mb-4 flex items-center gap-2 justify-center">
-            <BarChart3 className="w-5 h-5 text-primary" />
-            Study Distribution by Type
-          </h3>
-          <StudyCountBar 
-            data={[
-              { label: "In Vitro", count: 4200, type: "in-vitro" },
-              { label: "Animal", count: 3800, type: "animal" },
-              { label: "Observational", count: 2100, type: "observational" },
-              { label: "RCTs", count: 890, type: "rct" },
-              { label: "Meta-Analyses", count: 340, type: "meta-analysis" },
-            ]}
-          />
-        </div>
-
-        {/* Featured Studies */}
+        {/* Featured Studies - More Compact */}
         <div className="max-w-4xl mx-auto">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+          <div className="flex items-center justify-between gap-4 mb-4">
             <h3 className="font-serif text-xl font-semibold text-foreground">
               Featured Research
             </h3>
             
             {/* Study Type Filters */}
-            <div className="flex items-center gap-2 overflow-x-auto pb-2 sm:pb-0">
+            <div className="flex items-center gap-2 overflow-x-auto">
               <Filter className="w-4 h-4 text-muted-foreground shrink-0" />
               {studyTypeFilters.map((filter) => (
                 <button
                   key={filter.id}
                   onClick={() => setActiveFilter(filter.id)}
                   className={cn(
-                    "px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap transition-colors",
+                    "px-3 py-1 rounded-full text-xs font-medium whitespace-nowrap transition-colors",
                     activeFilter === filter.id
                       ? "bg-primary text-primary-foreground"
                       : "bg-muted text-muted-foreground hover:bg-muted/80"
@@ -234,20 +206,20 @@ const ResearchSection = () => {
             </div>
           </div>
 
-          <div className="space-y-4">
+          <div className="space-y-3">
             {filteredStudies.map((study) => {
               const isExpanded = expandedStudy === study.title;
               
               return (
                 <div
                   key={study.title}
-                  className="p-4 rounded-xl bg-card border border-border hover:border-primary/30 hover:shadow-medium transition-all duration-300 group"
+                  className="p-3 rounded-lg bg-card border border-border hover:border-primary/30 transition-all group"
                 >
-                  <div className="flex flex-col gap-3">
+                  <div className="flex flex-col gap-2">
                     {/* Header Row */}
                     <div className="flex flex-wrap items-center justify-between gap-2">
                       <div className="flex flex-wrap items-center gap-2">
-                        <span className="px-2.5 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium">
+                        <span className="px-2 py-0.5 rounded-full bg-primary/10 text-primary text-xs font-medium">
                           {study.type}
                         </span>
                         <EvidenceTierIcon level={study.evidenceLevel} size="sm" showLabel />
@@ -260,21 +232,23 @@ const ResearchSection = () => {
                           </span>
                         )}
                       </div>
-                      <Button variant="ghost" size="sm" asChild>
-                        <a href={study.doiUrl} target="_blank" rel="noopener noreferrer">
-                          View Full Study
-                          <ExternalLink className="w-4 h-4" />
-                        </a>
-                      </Button>
+                      <a 
+                        href={study.doiUrl} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-xs text-primary hover:underline flex items-center gap-1"
+                      >
+                        View Study <ExternalLink className="w-3 h-3" />
+                      </a>
                     </div>
 
                     {/* Title */}
-                    <h4 className="font-serif text-lg font-medium text-foreground group-hover:text-primary transition-colors">
+                    <h4 className="font-serif font-medium text-foreground group-hover:text-primary transition-colors">
                       {study.title}
                     </h4>
 
-                    {/* Abstract */}
-                    <p className="text-sm text-muted-foreground">
+                    {/* Abstract - More Compact */}
+                    <p className="text-sm text-muted-foreground line-clamp-2">
                       {study.abstract}
                     </p>
 
