@@ -7,7 +7,7 @@ from datetime import datetime
 import time
 
 class EvidenceMedAPITester:
-    def __init__(self, base_url="https://medresearch-4.preview.emergentagent.com"):
+    def __init__(self, base_url="https://healthrepo.preview.emergentagent.com"):
         self.base_url = base_url
         self.token = None
         self.user_id = None
