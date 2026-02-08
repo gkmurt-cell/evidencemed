@@ -72,6 +72,13 @@ Transform the 'EvidenceMed' build from Lovable platform into a high-authority In
   - Mitochondrial: Alpha Lipoic Acid, Acetyl-L-Carnitine
   - Omega-3s: Fish Oil, Krill Oil, Astaxanthin
   - Others: Melatonin, Quercetin, DHEA, Boswellia, Spirulina, Chlorella
+- [x] Added 15 more compounds (total now 148):
+  - TCM Herbs: Panax Ginseng, Dong Quai, Schisandra, He Shou Wu, Rehmannia, Goji Berry
+  - Ayurvedic: Shilajit, Bacopa (Brahmi), Mucuna Pruriens
+  - Performance: Beta-Glucan, L-Citrulline, Beetroot, HMB, Phosphatidylserine, Tribulus
+- [x] Added Ayurveda page route (/ayurveda) - comprehensive page with dosha quiz, five elements, constitutional principles
+- [x] Created "Traditional Medicine Systems" featured section on Integrative Therapies page with prominent Ayurveda card
+- [x] Added Ayurveda to navbar dropdown under Integrative Therapies
 
 ## Navigation Structure
 
