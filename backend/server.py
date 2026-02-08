@@ -679,7 +679,7 @@ async def delete_invite_code(code_id: str):
     
     return {"message": "Invite code deleted"}
 
-@api_router.post("/admin/validate-invite-code")
+@api_router.get("/admin/validate-invite-code")
 async def validate_invite_code(code: str):
     """Validate an invite code without using it"""
     invite = await db.invite_codes.find_one({"code": code}, {"_id": 0})
