@@ -19,6 +19,8 @@ import ConditionsPage from "@/pages/Conditions";
 import IntegrativeTherapies from "@/pages/IntegrativeTherapies";
 import Ayurveda from "@/pages/Ayurveda";
 import TCM from "@/pages/TCM";
+import Naturopathy from "@/pages/Naturopathy";
+import Homeopathy from "@/pages/Homeopathy";
 import EditorialMethodology from "@/pages/EditorialMethodology";
 import AdvisoryBoard from "@/pages/AdvisoryBoard";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
@@ -62,6 +64,9 @@ const App = () => (
               <Route path="/ayurveda" element={<Ayurveda />} />
               <Route path="/tcm" element={<TCM />} />
               <Route path="/chinese-medicine" element={<TCM />} />
+              <Route path="/naturopathy" element={<Naturopathy />} />
+              <Route path="/naturopathic-medicine" element={<Naturopathy />} />
+              <Route path="/homeopathy" element={<Homeopathy />} />
               <Route path="/methodology" element={<EditorialMethodology />} />
               <Route path="/editorial-methodology" element={<EditorialMethodology />} />
               <Route path="/advisory-board" element={<AdvisoryBoard />} />
