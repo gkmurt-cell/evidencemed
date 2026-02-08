@@ -1935,6 +1935,23 @@ async def review_verification_request(
 # Compound Annotations Routes
 # ====================
 
+# Helper to get optional current user (for public endpoints that behave differently when logged in)
+async def get_optional_current_user(authorization: Optional[str] = Header(None)):
+    """Get current user if token provided, otherwise return None"""
+    if not authorization or not authorization.startswith("Bearer "):
+        return None
+    
+    token = authorization.split(" ")[1]
+    try:
+        payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+        user_id = payload.get("sub")
+        if user_id:
+            return {"id": user_id}
+    except JWTError:
+        pass
+    
+    return None
+
 @api_router.post("/compounds/{compound_id}/annotations", response_model=CompoundAnnotationResponse)
 async def create_annotation(
     compound_id: str,
