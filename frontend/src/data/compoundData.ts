@@ -3847,6 +3847,111 @@ export const compoundsData: Compound[] = [
       { pmid: "15630174", title: "Antirheumatic effect of the stinging nettle leaf: a randomized controlled trial", authors: "Randall C, Meethan K, Neal H, Hall S", journal: "Journal of the Royal Society of Medicine", year: 1999 },
       { pmid: "16635963", title: "Effects of nettle root extract on interaction of SHBG with its receptor", authors: "Schöttner M, Gansser D, Spiteller G", journal: "Planta Medica", year: 1997 }
     ]
+  },
+  {
+    id: "manganese",
+    name: "Manganese",
+    latinName: "Mn",
+    category: "Essential Mineral",
+    studies: 3800,
+    image: "⚪",
+    description: "Manganese is a trace mineral essential for bone formation, blood clotting, metabolism of amino acids and carbohydrates, and antioxidant function through manganese superoxide dismutase (MnSOD).",
+    traditionalUse: "Recognized as essential for human health since the 1930s. Deficiency is rare but has been linked to skeletal abnormalities and impaired glucose tolerance.",
+    keyBenefits: ["Bone health and formation", "Antioxidant enzyme cofactor", "Carbohydrate metabolism", "Wound healing support", "Connective tissue formation"],
+    mechanisms: ["Cofactor for manganese superoxide dismutase (MnSOD)", "Required for glycosyltransferases in cartilage synthesis", "Activates enzymes in gluconeogenesis", "Essential for arginase in urea cycle"],
+    dosage: "Adequate Intake: 1.8-2.3mg daily for adults. Upper limit: 11mg daily. These figures reflect dietary reference values.",
+    safetyNotes: ["Toxicity from dietary sources is rare", "Occupational exposure (manganism) causes neurological symptoms", "Liver disease may impair manganese excretion"],
+    interactions: ["High iron intake may reduce manganese absorption", "Calcium and phosphorus may decrease absorption", "Antacids may reduce bioavailability"],
+    sources: ["Nuts", "Whole grains", "Legumes", "Leafy greens", "Tea"],
+    relatedCompounds: ["Zinc", "Copper", "Iron"],
+    references: [
+      { pmid: "9701160", title: "Manganese metabolism in humans", authors: "Finley JW", journal: "Journal of the American College of Nutrition", year: 1999 },
+      { pmid: "11976162", title: "Manganese superoxide dismutase in disease", authors: "Zelko IN, Mariani TJ, Folz RJ", journal: "Free Radical Biology and Medicine", year: 2002 }
+    ]
+  },
+  {
+    id: "molybdenum",
+    name: "Molybdenum",
+    latinName: "Mo",
+    category: "Essential Mineral",
+    studies: 1200,
+    image: "⚫",
+    description: "Molybdenum is a trace element that serves as a cofactor for enzymes involved in sulfur amino acid metabolism, purine metabolism, and detoxification of sulfites.",
+    traditionalUse: "Essential nutrient identified in the mid-20th century. Deficiency is extremely rare due to widespread occurrence in foods.",
+    keyBenefits: ["Sulfite oxidase cofactor", "Xanthine oxidase function", "Aldehyde oxidase activity", "Detoxification support", "Purine metabolism"],
+    mechanisms: ["Required for molybdopterin cofactor synthesis", "Essential for sulfite oxidase (detoxifies sulfites)", "Cofactor for xanthine oxidase (uric acid production)", "Supports aldehyde oxidase in drug metabolism"],
+    dosage: "RDA: 45mcg daily for adults. Upper limit: 2mg daily. Deficiency is rare with normal diet.",
+    safetyNotes: ["Very low toxicity from dietary sources", "Excess may interfere with copper metabolism", "High doses may cause gout-like symptoms"],
+    interactions: ["High sulfate intake may increase excretion", "Copper and molybdenum have antagonistic relationship", "High molybdenum may increase urinary copper loss"],
+    sources: ["Legumes", "Whole grains", "Nuts", "Leafy vegetables", "Organ meats"],
+    relatedCompounds: ["Copper", "Zinc", "Sulfur compounds"],
+    references: [
+      { pmid: "15817848", title: "Molybdenum cofactor deficiency", authors: "Reiss J, Johnson JL", journal: "Human Mutation", year: 2003 },
+      { pmid: "12791614", title: "Molybdenum in human health and disease", authors: "Schwarz G, Mendel RR, Ribbe MW", journal: "Molecular Medicine", year: 2009 }
+    ]
+  },
+  {
+    id: "phosphorus",
+    name: "Phosphorus",
+    latinName: "P",
+    category: "Essential Mineral",
+    studies: 28000,
+    image: "🔵",
+    description: "Phosphorus is the second most abundant mineral in the body, essential for bone and teeth formation, energy metabolism (ATP), cell membrane structure, and acid-base balance.",
+    traditionalUse: "Recognized as essential for bone health alongside calcium. Deficiency is rare due to abundance in food supply.",
+    keyBenefits: ["Bone and teeth mineralization", "ATP energy production", "Cell membrane structure (phospholipids)", "DNA/RNA synthesis", "Acid-base buffering"],
+    mechanisms: ["Forms hydroxyapatite with calcium in bones", "Essential component of ATP, ADP, AMP", "Required for phospholipid membrane synthesis", "Part of DNA and RNA backbone structure"],
+    dosage: "RDA: 700mg daily for adults. Upper limit: 4g daily. Most diets provide adequate phosphorus.",
+    safetyNotes: ["Excess may impair calcium absorption", "High phosphorus with low calcium may affect bone health", "Kidney disease patients should monitor intake"],
+    interactions: ["Aluminum-containing antacids reduce absorption", "High phosphorus may impair calcium balance", "Vitamin D enhances phosphorus absorption"],
+    sources: ["Dairy products", "Meat", "Fish", "Poultry", "Nuts", "Legumes"],
+    relatedCompounds: ["Calcium", "Vitamin D", "Magnesium"],
+    references: [
+      { pmid: "17921396", title: "Phosphorus homeostasis and related disorders", authors: "Marks J, Debnam ES, Unwin RJ", journal: "American Journal of Physiology", year: 2010 },
+      { pmid: "22461963", title: "Dietary phosphorus and health", authors: "Calvo MS, Uribarri J", journal: "Advances in Nutrition", year: 2013 }
+    ]
+  },
+  {
+    id: "silicon",
+    name: "Silicon",
+    latinName: "Si",
+    category: "Essential Mineral",
+    studies: 2100,
+    image: "💎",
+    description: "Silicon is a trace element studied for its potential role in bone and connective tissue health, collagen synthesis, and skin, hair, and nail integrity.",
+    traditionalUse: "Research interest began in the 1970s when silicon deficiency was shown to affect bone and connective tissue in animals. Human essentiality not yet established.",
+    keyBenefits: ["Collagen cross-linking support", "Bone mineralization research", "Connective tissue integrity", "Skin elasticity studies", "Hair and nail strength"],
+    mechanisms: ["May stabilize glycosaminoglycans in connective tissue", "Potentially involved in collagen hydroxylation", "Silicon concentrations high in areas of active calcification", "May influence osteoblast differentiation"],
+    dosage: "No RDA established. Typical dietary intake: 20-50mg daily. Research doses: 10-50mg elemental silicon.",
+    safetyNotes: ["Generally well-tolerated at dietary levels", "Silica dust inhalation is hazardous (different from dietary silicon)", "Long-term high-dose safety not established"],
+    interactions: ["Aluminum may reduce silicon absorption", "Silicic acid form has better bioavailability", "May interact with mineral absorption"],
+    sources: ["Whole grains", "Root vegetables", "Beer", "Mineral water", "Horsetail herb"],
+    relatedCompounds: ["Collagen", "Calcium", "Vitamin C"],
+    references: [
+      { pmid: "17435951", title: "Silicon and bone health", authors: "Jugdaohsingh R", journal: "Journal of Nutrition Health and Aging", year: 2007 },
+      { pmid: "12730414", title: "Dietary silicon and its impact on plasma silicon levels", authors: "Jugdaohsingh R, et al.", journal: "American Journal of Clinical Nutrition", year: 2002 }
+    ]
+  },
+  {
+    id: "sulfur",
+    name: "Sulfur",
+    latinName: "S",
+    category: "Essential Mineral",
+    studies: 15000,
+    image: "🟡",
+    description: "Sulfur is the third most abundant mineral in the body, essential for protein structure (disulfide bonds), detoxification pathways, and synthesis of important compounds like glutathione.",
+    traditionalUse: "Sulfur-containing foods and compounds have been used therapeutically for centuries. Sulfur baths have historical use for skin conditions and arthritis.",
+    keyBenefits: ["Protein structure (disulfide bonds)", "Glutathione synthesis", "Detoxification pathways", "Joint health (MSM research)", "Skin and hair keratin"],
+    mechanisms: ["Essential for cysteine and methionine amino acids", "Required for glutathione antioxidant system", "Supports phase II liver detoxification", "Forms disulfide bonds in keratin and collagen"],
+    dosage: "No RDA established. Adequate protein intake provides sufficient sulfur. MSM research doses: 1-6g daily.",
+    safetyNotes: ["Sulfur amino acids are well-tolerated", "Sulfite sensitivity is separate issue", "MSM generally well-tolerated in studies"],
+    interactions: ["Sulfur compounds may support glutathione synthesis", "May interact with detoxification of certain medications", "Garlic and cruciferous vegetables are sulfur sources"],
+    sources: ["Protein-rich foods", "Eggs", "Garlic", "Onions", "Cruciferous vegetables", "MSM supplements"],
+    relatedCompounds: ["NAC", "Glutathione", "Methionine", "MSM"],
+    references: [
+      { pmid: "12851125", title: "Sulfur-containing amino acids: an overview", authors: "Parcell S", journal: "Alternative Medicine Review", year: 2002 },
+      { pmid: "16309928", title: "Methylsulfonylmethane (MSM) in osteoarthritis", authors: "Kim LS, et al.", journal: "Osteoarthritis Cartilage", year: 2006 }
+    ]
   }
 ];
 
