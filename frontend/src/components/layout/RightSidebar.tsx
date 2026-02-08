@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { TrendingUp, Calendar, ChevronDown, Video, Play, ShoppingBag } from "lucide-react";
+import { TrendingUp, Calendar, ChevronDown, Video, Play } from "lucide-react";
 import { useLocation } from "react-router-dom";
 import { PractitionerFinder } from "@/components/PractitionerFinder";
 import { Link } from "react-router-dom";
@@ -9,7 +9,6 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
 import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
 
 interface ResearchUpdate {
   id: string;
