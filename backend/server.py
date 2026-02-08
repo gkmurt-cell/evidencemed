@@ -730,6 +730,83 @@ async def verify_email(data: EmailVerificationRequest):
     return {"message": "Email verified successfully"}
 
 # ====================
+# Spell Correction Utility (Fuzzy Search)
+# ====================
+
+# Common medical/research terms dictionary for spell correction
+MEDICAL_TERMS_DICTIONARY = [
+    # Compounds
+    "curcumin", "turmeric", "ashwagandha", "ginseng", "echinacea", "valerian",
+    "melatonin", "magnesium", "zinc", "vitamin", "omega", "probiotic", "prebiotic",
+    "quercetin", "resveratrol", "berberine", "coenzyme", "collagen", "glutathione",
+    "spirulina", "chlorella", "cordyceps", "reishi", "lion's mane", "chaga",
+    "rhodiola", "bacopa", "gotu kola", "shilajit", "astragalus", "elderberry",
+    "moringa", "maca", "tribulus", "saw palmetto", "milk thistle", "st john",
+    "ginkgo", "biloba", "green tea", "matcha", "caffeine", "theanine",
+    # Medical terms
+    "inflammation", "antioxidant", "cardiovascular", "cognitive", "neuroprotective",
+    "immunomodulatory", "antimicrobial", "antiviral", "antibacterial", "antifungal",
+    "diabetes", "hypertension", "cholesterol", "anxiety", "depression", "insomnia",
+    "arthritis", "alzheimer", "parkinson", "cancer", "tumor", "oncology",
+    "metabolism", "mitochondria", "oxidative", "stress", "cortisol", "hormone",
+    "thyroid", "adrenal", "testosterone", "estrogen", "progesterone", "insulin",
+    # Study types
+    "clinical", "trial", "randomized", "controlled", "meta-analysis", "systematic",
+    "review", "observational", "cohort", "placebo", "double-blind", "efficacy",
+    # Body systems
+    "gastrointestinal", "digestive", "neurological", "nervous", "respiratory",
+    "cardiovascular", "musculoskeletal", "endocrine", "immune", "lymphatic",
+    # Common misspellings targets
+    "supplement", "herbal", "medicine", "therapy", "treatment", "intervention",
+]
+
+def get_spell_suggestion(query: str) -> Optional[str]:
+    """Get spell correction suggestion using fuzzy matching"""
+    from thefuzz import fuzz, process
+    
+    if not query or len(query) < 3:
+        return None
+    
+    query_lower = query.lower().strip()
+    words = query_lower.split()
+    corrected_words = []
+    has_correction = False
+    
+    for word in words:
+        if len(word) < 3:
+            corrected_words.append(word)
+            continue
+        
+        # Check if word is already correct (exact match)
+        if word in MEDICAL_TERMS_DICTIONARY:
+            corrected_words.append(word)
+            continue
+        
+        # Find best match using fuzzy matching
+        matches = process.extractBests(word, MEDICAL_TERMS_DICTIONARY, scorer=fuzz.ratio, limit=3)
+        
+        if matches:
+            best_match, score = matches[0][0], matches[0][1]
+            # Only suggest if:
+            # 1. Score is between 60-95 (not too similar, not too different)
+            # 2. The word isn't already correct
+            if 60 <= score < 95 and best_match != word:
+                corrected_words.append(best_match)
+                has_correction = True
+            else:
+                corrected_words.append(word)
+        else:
+            corrected_words.append(word)
+    
+    if has_correction:
+        suggestion = " ".join(corrected_words)
+        # Only return if the suggestion is different from original
+        if suggestion.lower() != query_lower:
+            return suggestion
+    
+    return None
+
+# ====================
 # PubMed Search Routes
 # ====================
 
@@ -747,7 +824,10 @@ async def search_pubmed(
     """Search PubMed database using NCBI E-utilities API with optional filters"""
     
     if not query.strip():
-        return {"articles": [], "total_count": 0, "query": query}
+        return {"articles": [], "total_count": 0, "query": query, "suggestion": None}
+    
+    # Get spell correction suggestion
+    suggestion = get_spell_suggestion(query)
     
     # Build enhanced query with filters
     search_query = query
@@ -796,7 +876,8 @@ async def search_pubmed(
         total_count = int(search_data.get("esearchresult", {}).get("count", 0))
         
         if not id_list:
-            return {"articles": [], "total_count": 0, "query": query}
+            # If no results, definitely show suggestion if available
+            return {"articles": [], "total_count": 0, "query": query, "suggestion": suggestion}
         
         # Step 2: Fetch article details
         fetch_url = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi"
@@ -813,10 +894,14 @@ async def search_pubmed(
         # Parse XML response
         articles = parse_pubmed_xml(xml_content)
         
+        # Only show suggestion if results are low (under 50)
+        show_suggestion = suggestion if total_count < 50 else None
+        
         return {
             "articles": articles,
             "total_count": total_count,
-            "query": query
+            "query": query,
+            "suggestion": show_suggestion
         }
         
     except Exception as e:
