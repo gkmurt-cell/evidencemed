@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Menu, X, Search, LogOut, User, ArrowRight } from "lucide-react";
+import { Menu, X, Search, LogOut, User, ArrowRight, ChevronDown } from "lucide-react";
 import { useAuth } from "@/hooks/useAuth";
 import { searchContent, SearchItem } from "@/data/searchData";
 import {
@@ -26,6 +26,103 @@ const categoryLabels: Record<string, string> = {
   research: "Research",
 };
 
+// Dropdown menu items for each nav section
+const navDropdowns: Record<string, { name: string; href: string }[]> = {
+  "Medical Conditions": [
+    { name: "Cancer Research", href: "/condition/cancer" },
+    { name: "Cardiovascular Health", href: "/condition/cardiovascular" },
+    { name: "Neurological Conditions", href: "/condition/neurological" },
+    { name: "Metabolic Disorders", href: "/condition/metabolic" },
+    { name: "Autoimmune Conditions", href: "/condition/autoimmune" },
+    { name: "Mental Health", href: "/condition/mental-health" },
+    { name: "Digestive Health", href: "/condition/digestive" },
+    { name: "View All Conditions", href: "/conditions" },
+  ],
+  "Research Library": [
+    { name: "Search PubMed", href: "/research" },
+    { name: "Browse Conditions", href: "/conditions" },
+    { name: "Browse Compounds", href: "/compounds" },
+    { name: "Research Alerts", href: "/research#alerts" },
+    { name: "Browse Full Library", href: "/research" },
+  ],
+  "Natural Compounds": [
+    { name: "Vitamins & Minerals", href: "/compounds?category=Essential+Mineral" },
+    { name: "Herbal Extracts", href: "/compounds?category=Herbal+Compound" },
+    { name: "Amino Acids", href: "/compounds?category=Amino+Acid" },
+    { name: "Antioxidants", href: "/compounds?category=Polyphenol" },
+    { name: "Adaptogens", href: "/compounds?category=Adaptogen" },
+    { name: "Functional Mushrooms", href: "/compounds?category=Functional+Mushroom" },
+    { name: "View All Compounds", href: "/compounds" },
+  ],
+  "Integrative Therapies": [
+    { name: "Acupuncture & Energy", href: "/therapies#energetic" },
+    { name: "Mind-Body Practices", href: "/therapies#psychotherapy" },
+    { name: "Herbal Medicine", href: "/therapies#herbal" },
+    { name: "Bodywork & Manual", href: "/therapies#bodywork" },
+    { name: "Nutritional Therapy", href: "/therapies#vitamins" },
+    { name: "Explore All Therapies", href: "/therapies" },
+  ],
+};
+
+// Hover Dropdown Component
+const NavDropdown = ({ 
+  name, 
+  href, 
+  items 
+}: { 
+  name: string; 
+  href: string; 
+  items: { name: string; href: string }[] 
+}) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const handleMouseEnter = () => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    setIsOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => setIsOpen(false), 150);
+  };
+
+  return (
+    <div
+      className="relative"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      <Link
+        to={href}
+        className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-secondary flex items-center gap-1"
+      >
+        {name}
+        <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
+      </Link>
+      
+      {isOpen && (
+        <div className="absolute top-full left-0 pt-2 z-50">
+          <div className="bg-card border border-border rounded-xl shadow-lg py-2 min-w-[220px] animate-in fade-in-0 zoom-in-95 duration-100">
+            {items.map((item, index) => (
+              <Link
+                key={item.href + index}
+                to={item.href}
+                className={`block px-4 py-2.5 text-sm transition-colors hover:bg-muted/50 ${
+                  item.name.startsWith("View All") || item.name.startsWith("Browse") || item.name.startsWith("Explore")
+                    ? "text-primary font-medium border-t border-border mt-1 pt-3"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                {item.name}
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
 const Navbar = () => {
   const { user, signOut } = useAuth();
   const navigate = useNavigate();
@@ -34,6 +131,7 @@ const Navbar = () => {
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [suggestions, setSuggestions] = useState<SearchItem[]>([]);
   const [selectedIndex, setSelectedIndex] = useState(-1);
+  const [expandedMobile, setExpandedMobile] = useState<string | null>(null);
   const searchRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -95,10 +193,10 @@ const Navbar = () => {
 
   // Main navigation - Original build headings
   const navLinks = [
-    { name: "Medical Conditions", href: "/conditions", isLink: true },
-    { name: "Research Library", href: "/research", isLink: true },
-    { name: "Natural Compounds", href: "/compounds", isLink: true },
-    { name: "Integrative Therapies", href: "/therapies", isLink: true },
+    { name: "Medical Conditions", href: "/conditions" },
+    { name: "Research Library", href: "/research" },
+    { name: "Natural Compounds", href: "/compounds" },
+    { name: "Integrative Therapies", href: "/therapies" },
   ];
 
   return (
@@ -124,16 +222,15 @@ const Navbar = () => {
             </span>
           </Link>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation with Hover Dropdowns */}
           <div className="hidden lg:flex items-center gap-1">
             {navLinks.map((link) => (
-              <Link
+              <NavDropdown
                 key={link.name}
-                to={link.href}
-                className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-secondary"
-              >
-                {link.name}
-              </Link>
+                name={link.name}
+                href={link.href}
+                items={navDropdowns[link.name] || []}
+              />
             ))}
           </div>
 
@@ -285,28 +382,57 @@ const Navbar = () => {
               )}
             </div>
             
-            <div className="flex flex-col gap-2">
+            {/* Mobile Nav with Expandable Sections */}
+            <div className="flex flex-col gap-1">
               {navLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  to={link.href}
-                  className="px-4 py-3 text-base font-medium text-muted-foreground hover:text-foreground hover:bg-secondary rounded-lg transition-colors"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {link.name}
-                </Link>
+                <div key={link.name}>
+                  <button
+                    onClick={() => setExpandedMobile(expandedMobile === link.name ? null : link.name)}
+                    className="w-full px-4 py-3 text-base font-medium text-muted-foreground hover:text-foreground hover:bg-secondary rounded-lg transition-colors flex items-center justify-between"
+                  >
+                    {link.name}
+                    <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${expandedMobile === link.name ? 'rotate-180' : ''}`} />
+                  </button>
+                  
+                  {expandedMobile === link.name && (
+                    <div className="pl-4 pb-2 animate-in slide-in-from-top-2 duration-200">
+                      {navDropdowns[link.name]?.map((item, index) => (
+                        <Link
+                          key={item.href + index}
+                          to={item.href}
+                          className={`block px-4 py-2.5 text-sm transition-colors rounded-lg ${
+                            item.name.startsWith("View All") || item.name.startsWith("Browse") || item.name.startsWith("Explore")
+                              ? "text-primary font-medium"
+                              : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
+                          }`}
+                          onClick={() => setIsOpen(false)}
+                        >
+                          {item.name}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
               ))}
+              
               <div className="flex flex-col gap-2 mt-4 pt-4 border-t border-border">
                 {user ? (
                   <>
                     <p className="px-4 text-sm text-muted-foreground">{user.email}</p>
-                    <Button variant="outline" className="w-full" onClick={signOut}>
+                    <Link
+                      to="/profile"
+                      className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      My Profile
+                    </Link>
+                    <Button variant="outline" className="mx-4" onClick={signOut}>
                       <LogOut className="w-4 h-4 mr-2" />
                       Sign Out
                     </Button>
                   </>
                 ) : (
-                  <Button variant="outline" className="w-full" asChild>
+                  <Button variant="outline" className="mx-4" asChild>
                     <Link to="/auth" onClick={() => setIsOpen(false)}>Sign In</Link>
                   </Button>
                 )}
