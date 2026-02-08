@@ -189,9 +189,9 @@ const Research = () => {
             <img 
               src={researchHeroImage} 
               alt="Research library" 
-              className="w-full h-full object-cover opacity-10"
+              className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/90 to-background" />
+            <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/85 to-background/70" />
           </div>
           
           <div className="container mx-auto px-4 relative z-10">
