@@ -20,14 +20,26 @@ export interface PubMedSearchResult {
   query: string;
 }
 
+export interface SearchFilters {
+  dateFrom?: string;
+  dateTo?: string;
+  studyType?: string;
+}
+
 export function usePubMedSearch() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [results, setResults] = useState<PubMedSearchResult | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize] = useState(20);
+  const [currentFilters, setCurrentFilters] = useState<SearchFilters>({});
 
-  const search = useCallback(async (query: string, maxResults = 20, page = 1) => {
+  const search = useCallback(async (
+    query: string, 
+    maxResults = 20, 
+    page = 1,
+    filters?: SearchFilters
+  ) => {
     if (!query.trim()) {
       setResults(null);
       return null;
@@ -35,11 +47,30 @@ export function usePubMedSearch() {
 
     setIsLoading(true);
     setError(null);
+    if (filters) {
+      setCurrentFilters(filters);
+    }
 
     try {
-      const response = await fetch(
-        `${API_URL}/api/pubmed/search?query=${encodeURIComponent(query)}&max_results=${maxResults}`
-      );
+      // Build URL with filters
+      const params = new URLSearchParams({
+        query,
+        max_results: maxResults.toString()
+      });
+
+      const activeFilters = filters || currentFilters;
+      
+      if (activeFilters.dateFrom) {
+        params.append("date_from", activeFilters.dateFrom);
+      }
+      if (activeFilters.dateTo) {
+        params.append("date_to", activeFilters.dateTo);
+      }
+      if (activeFilters.studyType) {
+        params.append("study_type", activeFilters.studyType);
+      }
+
+      const response = await fetch(`${API_URL}/api/pubmed/search?${params.toString()}`);
 
       if (!response.ok) {
         throw new Error("Search failed");
@@ -68,10 +99,15 @@ export function usePubMedSearch() {
       setIsLoading(false);
       return null;
     }
-  }, []);
+  }, [currentFilters]);
 
-  const searchByCondition = useCallback(async (condition: string, maxResults = 20, page = 1) => {
-    return search(condition, maxResults, page);
+  const searchByCondition = useCallback(async (
+    condition: string, 
+    maxResults = 20, 
+    page = 1,
+    filters?: SearchFilters
+  ) => {
+    return search(condition, maxResults, page, filters);
   }, [search]);
 
   const goToPage = useCallback(async (page: number) => {
@@ -82,6 +118,7 @@ export function usePubMedSearch() {
     setResults(null);
     setError(null);
     setCurrentPage(1);
+    setCurrentFilters({});
   }, []);
 
   const totalPages = results ? Math.ceil(results.total_count / pageSize) : 0;
@@ -97,6 +134,7 @@ export function usePubMedSearch() {
     currentPage,
     totalPages,
     pageSize,
+    currentFilters,
   };
 }
 
@@ -135,3 +173,15 @@ export function getStudyType(publicationTypes: string[]): { type: string; color:
   
   return { type: "Journal Article", color: "bg-gray-500/10 text-gray-700 border-gray-500/20" };
 }
+
+// Study type options for filters
+export const STUDY_TYPE_OPTIONS = [
+  { value: "", label: "All Study Types" },
+  { value: "randomized_controlled_trial", label: "Randomized Controlled Trials" },
+  { value: "clinical_trial", label: "Clinical Trials" },
+  { value: "meta_analysis", label: "Meta-Analyses" },
+  { value: "systematic_review", label: "Systematic Reviews" },
+  { value: "review", label: "Reviews" },
+  { value: "observational", label: "Observational Studies" },
+  { value: "case_report", label: "Case Reports" },
+];
