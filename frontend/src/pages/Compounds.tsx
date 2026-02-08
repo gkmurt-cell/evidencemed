@@ -108,7 +108,7 @@ const Compounds = () => {
 
       <main className="pt-20 min-h-screen bg-background">
         {/* Hero Section with Background */}
-        <section className="relative py-16 lg:py-24 overflow-hidden">
+        <section className="relative py-8 lg:py-12 overflow-hidden">
           {/* Background Image */}
           <div className="absolute inset-0 z-0 bg-muted">
             <img
@@ -125,21 +125,21 @@ const Compounds = () => {
           <div className="container mx-auto px-4 relative z-10">
             <Link
               to="/"
-              className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-6"
+              className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-4"
             >
               <ArrowLeft className="w-4 h-4" />
               Back to Home
             </Link>
 
             <div className="max-w-2xl">
-              <Badge variant="outline" className="mb-3 bg-background/80 backdrop-blur-sm">
+              <Badge variant="outline" className="mb-2 bg-background/80 backdrop-blur-sm">
                 <Leaf className="w-3 h-3 mr-1" />
                 {pageTitle || "Natural Compounds"}
               </Badge>
-              <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground mb-3 drop-shadow-sm">
+              <h1 className="font-serif text-2xl md:text-3xl lg:text-4xl font-semibold text-foreground mb-2 drop-shadow-sm">
                 {pageTitle || "Herbal & Functional Medicine Library"}
               </h1>
-              <p className="text-base text-muted-foreground mb-3 max-w-xl">
+              <p className="text-sm text-muted-foreground mb-2 max-w-xl">
                 {pageTitle 
                   ? `Research profiles for ${pageTitle.toLowerCase()}. Each entry includes mechanisms of action, research summaries, and safety considerations.`
                   : "Comprehensive research profiles for herbs, nutraceuticals, and functional compounds. Each entry includes traditional use context, mechanisms of action, research summaries, and safety considerations."
@@ -152,12 +152,12 @@ const Compounds = () => {
         </section>
 
         {/* Most Researched Compounds */}
-        <div className="container mx-auto px-4 pt-4 lg:pt-6">
-          <div className="mb-4">
-            <h2 className="font-serif text-xl font-semibold text-foreground mb-0.5">Most Researched Compounds</h2>
-            <p className="text-sm text-muted-foreground">Ranked by volume of published peer-reviewed studies</p>
+        <div className="container mx-auto px-4 pt-3 lg:pt-4">
+          <div className="mb-3">
+            <h2 className="font-serif text-lg font-semibold text-foreground mb-0.5">Most Researched Compounds</h2>
+            <p className="text-xs text-muted-foreground">Ranked by volume of published peer-reviewed studies</p>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 mb-6">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 mb-4">
             {compoundsData
               .filter((c) => !vitaminCategories.includes(c.category))
               .sort((a, b) => b.studies - a.studies)
@@ -166,23 +166,23 @@ const Compounds = () => {
                 <Link
                   key={compound.id}
                   to={`/compound/${compound.id}`}
-                  className="group flex flex-col items-center p-3 rounded-lg bg-card border border-border hover:border-primary/30 hover:shadow-md transition-all text-center"
+                  className="group flex flex-col items-center p-2 rounded-lg bg-card border border-border hover:border-primary/30 hover:shadow-md transition-all text-center"
                 >
-                  <span className="text-2xl mb-1">{compound.image}</span>
-                  <span className="text-sm font-medium text-foreground group-hover:text-primary transition-colors line-clamp-1">
+                  <span className="text-xl mb-0.5">{compound.image}</span>
+                  <span className="text-xs font-medium text-foreground group-hover:text-primary transition-colors line-clamp-1">
                     {compound.name}
                   </span>
-                  <span className="text-xs text-muted-foreground">{compound.studies.toLocaleString()}+ studies</span>
+                  <span className="text-[10px] text-muted-foreground">{compound.studies.toLocaleString()}+ studies</span>
                 </Link>
               ))}
           </div>
         </div>
 
         {/* Main Content */}
-        <div className="container mx-auto px-4 pb-6 lg:pb-10">
+        <div className="container mx-auto px-4 pb-4 lg:pb-6">
           {/* Filters */}
-          <div className="bg-card border border-border rounded-xl p-3 mb-4">
-            <div className="flex flex-col sm:flex-row gap-3">
+          <div className="bg-card border border-border rounded-lg p-2 mb-3">
+            <div className="flex flex-col sm:flex-row gap-2">
               {/* Search */}
               <div className="relative flex-1">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
@@ -213,8 +213,8 @@ const Compounds = () => {
           </div>
 
           {/* Results Count */}
-          <div className="flex items-center justify-between mb-6">
-            <p className="text-muted-foreground">
+          <div className="flex items-center justify-between mb-3">
+            <p className="text-muted-foreground text-sm">
               Showing{" "}
               <span className="font-medium text-foreground">{filteredCompounds.length}</span>{" "}
               compounds
@@ -222,7 +222,7 @@ const Compounds = () => {
           </div>
 
           {/* Compounds Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mb-4">
             {filteredCompounds.map((compound) => (
               <CompoundCard key={compound.id} compound={compound} />
             ))}
@@ -230,13 +230,14 @@ const Compounds = () => {
 
           {/* Empty State */}
           {filteredCompounds.length === 0 && (
-            <div className="text-center py-16 bg-card border border-border rounded-xl">
-              <Leaf className="w-16 h-16 mx-auto mb-4 text-muted-foreground/50" />
-              <h3 className="text-xl font-semibold text-foreground mb-2">No compounds found</h3>
-              <p className="text-muted-foreground mb-6">
+            <div className="text-center py-10 bg-card border border-border rounded-lg">
+              <Leaf className="w-12 h-12 mx-auto mb-3 text-muted-foreground/50" />
+              <h3 className="text-lg font-semibold text-foreground mb-2">No compounds found</h3>
+              <p className="text-muted-foreground text-sm mb-4">
                 Try adjusting your search or filter criteria.
               </p>
               <Button
+                size="sm"
                 onClick={() => {
                   setSearchQuery("");
                   setCategoryFilter("All Categories");
