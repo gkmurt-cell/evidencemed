@@ -682,40 +682,52 @@ const IntegrativeTherapies = () => {
                   </Link>
 
                   {/* Naturopathy */}
-                  <div className="bg-card border border-border rounded-xl p-5 hover:shadow-lg hover:border-emerald-500/30 transition-all duration-300">
+                  <Link 
+                    to="/naturopathy"
+                    className="group bg-card border border-border rounded-xl p-5 hover:shadow-lg hover:border-emerald-500/30 transition-all duration-300"
+                  >
                     <div className="flex items-center gap-3 mb-3">
                       <div className="w-10 h-10 rounded-lg bg-emerald-500/10 flex items-center justify-center">
                         <Leaf className="w-5 h-5 text-emerald-500" />
                       </div>
-                      <h3 className="font-serif text-lg font-semibold text-foreground">Naturopathic Medicine</h3>
+                      <h3 className="font-serif text-lg font-semibold text-foreground group-hover:text-emerald-600 transition-colors">Naturopathic Medicine</h3>
                     </div>
                     <p className="text-sm text-muted-foreground mb-3">
                       Holistic approach using natural therapies to support the body's inherent healing ability. Emphasizes prevention and treating root causes.
                     </p>
-                    <div className="flex flex-wrap gap-1.5">
+                    <div className="flex flex-wrap gap-1.5 mb-3">
                       <Badge variant="outline" className="text-xs">Botanical Medicine</Badge>
                       <Badge variant="outline" className="text-xs">Nutrition</Badge>
                       <Badge variant="outline" className="text-xs">Hydrotherapy</Badge>
                     </div>
-                  </div>
+                    <div className="flex items-center gap-2 text-emerald-600 text-sm font-medium group-hover:gap-3 transition-all">
+                      Explore Naturopathy <ArrowRight className="w-4 h-4" />
+                    </div>
+                  </Link>
 
                   {/* Homeopathy */}
-                  <div className="bg-card border border-border rounded-xl p-5 hover:shadow-lg hover:border-blue-500/30 transition-all duration-300">
+                  <Link 
+                    to="/homeopathy"
+                    className="group bg-card border border-border rounded-xl p-5 hover:shadow-lg hover:border-blue-500/30 transition-all duration-300"
+                  >
                     <div className="flex items-center gap-3 mb-3">
                       <div className="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center">
                         <Droplets className="w-5 h-5 text-blue-500" />
                       </div>
-                      <h3 className="font-serif text-lg font-semibold text-foreground">Homeopathy</h3>
+                      <h3 className="font-serif text-lg font-semibold text-foreground group-hover:text-blue-600 transition-colors">Homeopathy</h3>
                     </div>
                     <p className="text-sm text-muted-foreground mb-3">
                       System based on "like cures like" using highly diluted substances to stimulate the body's self-healing response.
                     </p>
-                    <div className="flex flex-wrap gap-1.5">
+                    <div className="flex flex-wrap gap-1.5 mb-3">
                       <Badge variant="outline" className="text-xs">Constitutional</Badge>
                       <Badge variant="outline" className="text-xs">Acute Care</Badge>
                       <Badge variant="outline" className="text-xs">200+ Years</Badge>
                     </div>
-                  </div>
+                    <div className="flex items-center gap-2 text-blue-600 text-sm font-medium group-hover:gap-3 transition-all">
+                      Explore Homeopathy <ArrowRight className="w-4 h-4" />
+                    </div>
+                  </Link>
 
                   {/* Unani Medicine */}
                   <div className="bg-card border border-border rounded-xl p-5 hover:shadow-lg hover:border-teal-500/30 transition-all duration-300">
