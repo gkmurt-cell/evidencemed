@@ -271,6 +271,22 @@ const Compounds = () => {
             </div>
           </div>
 
+          {/* Spell Suggestion */}
+          {spellSuggestion && (
+            <div className="flex items-center gap-2 p-3 rounded-lg bg-amber-500/10 border border-amber-500/30 mb-3" data-testid="compound-spell-suggestion">
+              <Lightbulb className="w-4 h-4 text-amber-600 dark:text-amber-400 shrink-0" />
+              <span className="text-sm text-muted-foreground">Did you mean:</span>
+              <button
+                onClick={handleSuggestionClick}
+                className="text-sm font-medium text-primary hover:underline focus:outline-none focus:underline"
+                data-testid="compound-spell-suggestion-link"
+              >
+                "{spellSuggestion}"
+              </button>
+              <span className="text-sm text-muted-foreground">?</span>
+            </div>
+          )}
+
           {/* Results Count */}
           <div className="flex items-center justify-between mb-3">
             <p className="text-muted-foreground text-sm">
