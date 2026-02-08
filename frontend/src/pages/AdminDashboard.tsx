@@ -15,7 +15,10 @@ import {
   Newspaper,
   ExternalLink,
   Loader2,
-  Clock
+  Clock,
+  Shield,
+  CheckCircle,
+  XCircle
 } from "lucide-react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -23,8 +26,16 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
+import { Textarea } from "@/components/ui/textarea";
 import { useAuth } from "@/hooks/useAuth";
 import { useToast } from "@/hooks/use-toast";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 
 const API_URL = process.env.REACT_APP_BACKEND_URL || "";
 
@@ -49,6 +60,21 @@ interface TrialRequest {
   number_of_users: string;
   status: string;
   created_at: string;
+}
+
+interface PractitionerVerification {
+  id: string;
+  user_id: string;
+  user_email: string;
+  license_number: string;
+  license_state: string;
+  specialty: string;
+  institution?: string;
+  credentials: string;
+  status: string;
+  submitted_at: string;
+  reviewed_at?: string;
+  rejection_reason?: string;
 }
 
 interface DigestArticle {
