@@ -5,8 +5,19 @@
 @tailwind utilities;
 
 /* Typography: Calm, readable serif (Crimson Pro) + restrained sans (Source Sans 3) */
+/* Increased base font size for accessibility */
 
 @layer base {
+  html {
+    font-size: 18px; /* Increased from 16px for elderly readability */
+  }
+  
+  @media (max-width: 768px) {
+    html {
+      font-size: 17px;
+    }
+  }
+
   :root {
     /* Cool neutral background - low saturation slate */
     --background: 210 20% 98%;
