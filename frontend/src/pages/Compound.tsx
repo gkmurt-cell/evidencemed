@@ -384,6 +384,13 @@ const CompoundPage = () => {
                 </div>
               </section>
 
+              {/* Where to Buy - Affiliate Links */}
+              <WhereToBuy 
+                compoundName={compound.name} 
+                latinName={compound.latinName}
+                category={compound.category}
+              />
+
               {/* PRISMA Methodology */}
               <PRISMAMethodology
                 compoundName={compound.name}
