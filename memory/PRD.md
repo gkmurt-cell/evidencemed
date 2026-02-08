@@ -93,6 +93,25 @@ Transform the 'EvidenceMed' build from Lovable platform into a high-authority In
   - Dan Shen, San Qi, Huang Qi, Bai Zhu, Fu Ling
   - Chai Hu, Huang Qin, Gan Cao
   - Formulas: Dang Gui Bu Xue Tang, Liu Wei Di Huang Wan, Yin Qiao San
+- [x] Created Naturopathic Medicine page (`/naturopathy`) with:
+  - Six Principles of Naturopathic Medicine
+  - Therapeutic Order hierarchy
+  - Therapeutic Modalities (Clinical Nutrition, Botanical Medicine, Hydrotherapy, etc.)
+  - Vitality Assessment quiz
+  - Key Naturopathic Herbs
+- [x] Created Homeopathy page (`/homeopathy`) with:
+  - Core Principles (Law of Similars, Minimum Dose, Single Remedy, Proving, Vital Force)
+  - Potency Scales (X, C, LM/Q)
+  - Constitutional Types (Calcarea, Lycopodium, Natrum Mur, etc.)
+  - Common Acute Remedies
+  - Constitutional Indicator quiz
+  - Scientific context disclaimer
+- [x] Added routes for Naturopathy and Homeopathy pages
+- [x] Updated navbar dropdown with all four traditional medicine systems
+- [x] Made all Traditional Medicine System cards clickable on Integrative Therapies page
+- [x] Added 10 new Western/Naturopathic herbs (total compounds now 169):
+  - Echinacea, St. John's Wort, Saw Palmetto, Black Cohosh, Hawthorn
+  - Valerian, Ginkgo Biloba, Kava, Andrographis, Milk Thistle
 
 ## Navigation Structure
 
