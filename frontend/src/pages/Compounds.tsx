@@ -132,32 +132,32 @@ const Compounds = () => {
             </Link>
 
             <div className="max-w-2xl">
-              <Badge variant="outline" className="mb-4 bg-background/80 backdrop-blur-sm">
+              <Badge variant="outline" className="mb-3 bg-background/80 backdrop-blur-sm">
                 <Leaf className="w-3 h-3 mr-1" />
                 {pageTitle || "Natural Compounds"}
               </Badge>
-              <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground mb-4 drop-shadow-sm">
+              <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground mb-3 drop-shadow-sm">
                 {pageTitle || "Herbal & Functional Medicine Library"}
               </h1>
-              <p className="text-lg text-muted-foreground mb-6 max-w-xl">
+              <p className="text-base text-muted-foreground mb-3 max-w-xl">
                 {pageTitle 
                   ? `Research profiles for ${pageTitle.toLowerCase()}. Each entry includes mechanisms of action, research summaries, and safety considerations.`
                   : "Comprehensive research profiles for herbs, nutraceuticals, and functional compounds. Each entry includes traditional use context, mechanisms of action, research summaries, and safety considerations."
                 }
                 {" "}All information is for educational purposes only.
               </p>
-              <EducationalDisclaimer />
+              <EducationalDisclaimer compact />
             </div>
           </div>
         </section>
 
         {/* Most Researched Compounds */}
-        <div className="container mx-auto px-4 pt-8 lg:pt-10">
-          <div className="mb-6">
-            <h2 className="font-serif text-xl font-semibold text-foreground mb-1">Most Researched Compounds</h2>
+        <div className="container mx-auto px-4 pt-4 lg:pt-6">
+          <div className="mb-4">
+            <h2 className="font-serif text-xl font-semibold text-foreground mb-0.5">Most Researched Compounds</h2>
             <p className="text-sm text-muted-foreground">Ranked by volume of published peer-reviewed studies</p>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 mb-8">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 mb-6">
             {compoundsData
               .filter((c) => !vitaminCategories.includes(c.category))
               .sort((a, b) => b.studies - a.studies)
@@ -166,23 +166,23 @@ const Compounds = () => {
                 <Link
                   key={compound.id}
                   to={`/compound/${compound.id}`}
-                  className="group flex flex-col items-center p-4 rounded-lg bg-card border border-border hover:border-primary/30 hover:shadow-md transition-all text-center"
+                  className="group flex flex-col items-center p-3 rounded-lg bg-card border border-border hover:border-primary/30 hover:shadow-md transition-all text-center"
                 >
-                  <span className="text-3xl mb-2">{compound.image}</span>
+                  <span className="text-2xl mb-1">{compound.image}</span>
                   <span className="text-sm font-medium text-foreground group-hover:text-primary transition-colors line-clamp-1">
                     {compound.name}
                   </span>
-                  <span className="text-xs text-muted-foreground mt-1">{compound.studies.toLocaleString()}+ studies</span>
+                  <span className="text-xs text-muted-foreground">{compound.studies.toLocaleString()}+ studies</span>
                 </Link>
               ))}
           </div>
         </div>
 
         {/* Main Content */}
-        <div className="container mx-auto px-4 pb-8 lg:pb-12">
+        <div className="container mx-auto px-4 pb-6 lg:pb-10">
           {/* Filters */}
-          <div className="bg-card border border-border rounded-xl p-4 mb-6">
-            <div className="flex flex-col sm:flex-row gap-4">
+          <div className="bg-card border border-border rounded-xl p-3 mb-4">
+            <div className="flex flex-col sm:flex-row gap-3">
               {/* Search */}
               <div className="relative flex-1">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
