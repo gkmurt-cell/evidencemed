@@ -28,6 +28,8 @@ import AdminDashboard from "@/pages/AdminDashboard";
 import Profile from "@/pages/Profile";
 import NotFound from "@/pages/NotFound";
 
+import InstallPrompt from "@/components/pwa/InstallPrompt";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -40,6 +42,7 @@ const App = () => (
           <BrowserRouter>
             <ScrollToTop />
             <FloatingBackToTop />
+            <InstallPrompt />
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/about" element={<About />} />
