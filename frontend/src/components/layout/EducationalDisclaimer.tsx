@@ -2,10 +2,11 @@ import { Info } from "lucide-react";
 
 interface EducationalDisclaimerProps {
   variant?: "inline" | "banner";
+  compact?: boolean;
   className?: string;
 }
 
-const EducationalDisclaimer = ({ variant = "banner", className = "" }: EducationalDisclaimerProps) => {
+const EducationalDisclaimer = ({ variant = "banner", compact = false, className = "" }: EducationalDisclaimerProps) => {
   if (variant === "inline") {
     return (
       <p className={`text-xs text-muted-foreground italic ${className}`}>
@@ -13,6 +14,20 @@ const EducationalDisclaimer = ({ variant = "banner", className = "" }: Education
         diagnosis, treatment recommendations, or prescriptive guidance. Do not use this information to 
         self-treat any health condition.
       </p>
+    );
+  }
+
+  if (compact) {
+    return (
+      <div className={`mt-3 p-2.5 rounded-lg bg-muted/40 border border-border/50 ${className}`}>
+        <div className="flex items-center gap-2">
+          <Info className="w-3.5 h-3.5 text-primary flex-shrink-0" />
+          <p className="text-xs text-muted-foreground">
+            <span className="font-medium text-foreground">Educational & Research Information Only</span> — 
+            Not medical advice. Consult a healthcare provider before making health decisions.
+          </p>
+        </div>
+      </div>
     );
   }
 
