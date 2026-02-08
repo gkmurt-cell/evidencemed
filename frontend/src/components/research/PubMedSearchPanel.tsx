@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
-import { Search, Loader2, Database, ChevronLeft, ChevronRight, Filter, X, Calendar, Lightbulb } from "lucide-react";
+import { Search, Loader2, Database, ChevronLeft, ChevronRight, Filter, X, Calendar, Lightbulb, Sparkles, Bot } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { usePubMedSearch, STUDY_TYPE_OPTIONS, SearchFilters } from "@/hooks/usePubMedSearch";
+import { useAISearch } from "@/hooks/useAISearch";
 import PubMedArticleCard from "./PubMedArticleCard";
 import {
   Select,
@@ -40,6 +42,7 @@ const PubMedSearchPanel = ({
   const [query, setQuery] = useState(initialQuery);
   const [showFilters, setShowFilters] = useState(false);
   const [filters, setFilters] = useState<SearchFilters>({});
+  const [showAIAssist, setShowAIAssist] = useState(false);
   
   const { 
     search, 
@@ -51,6 +54,13 @@ const PubMedSearchPanel = ({
     currentPage,
     totalPages
   } = usePubMedSearch();
+
+  const {
+    search: aiSearch,
+    result: aiResult,
+    isLoading: aiLoading,
+    clearResult: clearAIResult
+  } = useAISearch();
 
   // Update query when initialQuery changes (for quick browse)
   useEffect(() => {
