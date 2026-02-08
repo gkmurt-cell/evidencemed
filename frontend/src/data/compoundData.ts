@@ -4251,6 +4251,616 @@ export const compoundsData: Compound[] = [
       { pmid: "30670267", title: "Elderberry supplementation reduces cold duration and symptoms", authors: "Hawkins J, et al.", journal: "Complementary Therapies in Medicine", year: 2019 },
       { pmid: "15080016", title: "Randomized study of the efficacy and safety of oral elderberry extract in flu", authors: "Zakay-Rones Z, et al.", journal: "Journal of International Medical Research", year: 2004 }
     ]
+  },
+  // === NEW COMPOUNDS ADDED ===
+  {
+    id: "quercetin",
+    name: "Quercetin",
+    latinName: "Quercetin dihydrate",
+    category: "Flavonoid",
+    studies: 8500,
+    image: "🍎",
+    description: "Quercetin is a powerful plant flavonoid found in many fruits and vegetables, extensively researched for its antioxidant, anti-inflammatory, and immune-modulating properties.",
+    traditionalUse: "Historically consumed through fruits and vegetables like apples, onions, and berries. Modern supplementation began in the late 20th century.",
+    keyBenefits: ["Antioxidant protection", "Anti-inflammatory activity", "Immune support", "Cardiovascular health", "Allergy symptom relief"],
+    mechanisms: ["Inhibits mast cell degranulation", "Scavenges free radicals", "Inhibits inflammatory enzymes (COX, LOX)", "May inhibit viral replication"],
+    dosage: "500-1000mg daily, often combined with bromelain or vitamin C for enhanced absorption.",
+    safetyNotes: ["Generally well-tolerated", "Poor bioavailability alone", "High doses may affect kidney function"],
+    interactions: ["May interact with antibiotics", "May affect cyclosporine levels", "Possible interaction with blood thinners"],
+    sources: ["Apples", "Onions", "Berries", "Supplements", "Green tea"],
+    relatedCompounds: ["Bromelain", "Vitamin C", "Rutin"],
+    references: [
+      { pmid: "27187333", title: "Quercetin: a pleiotropic kinase inhibitor against cancer", authors: "Kashyap D, et al.", journal: "Molecules", year: 2016 },
+      { pmid: "26999194", title: "The effects of quercetin supplementation on metabolic factors", authors: "Serban MC, et al.", journal: "Critical Reviews in Food Science and Nutrition", year: 2016 }
+    ]
+  },
+  {
+    id: "melatonin",
+    name: "Melatonin",
+    latinName: "N-acetyl-5-methoxytryptamine",
+    category: "Longevity Compound",
+    studies: 24000,
+    image: "🌙",
+    description: "Melatonin is a hormone naturally produced by the pineal gland that regulates sleep-wake cycles. It's extensively researched for sleep, jet lag, and potential anti-aging effects.",
+    traditionalUse: "Discovered in 1958, melatonin became popular as a sleep supplement in the 1990s and continues to be one of the most researched sleep aids.",
+    keyBenefits: ["Sleep onset support", "Circadian rhythm regulation", "Jet lag relief", "Antioxidant activity", "Immune modulation"],
+    mechanisms: ["Binds melatonin receptors (MT1, MT2)", "Regulates circadian clock genes", "Potent antioxidant", "Modulates immune function"],
+    dosage: "0.5-5mg 30-60 minutes before bed. Start with lower doses. Extended-release for sleep maintenance.",
+    safetyNotes: ["Generally safe short-term", "May cause grogginess", "Not recommended for children without supervision", "May affect fertility"],
+    interactions: ["May enhance sedatives", "Interacts with immunosuppressants", "May affect blood pressure medications", "Interacts with anticoagulants"],
+    sources: ["Tablets", "Capsules", "Gummies", "Liquid drops", "Sublingual"],
+    relatedCompounds: ["Magnesium", "L-Theanine", "GABA", "Valerian"],
+    references: [
+      { pmid: "28648359", title: "Meta-analysis: melatonin for the treatment of primary sleep disorders", authors: "Ferracioli-Oda E, et al.", journal: "PLoS One", year: 2013 },
+      { pmid: "31722088", title: "Melatonin: roles in cardiovascular and neurological disease", authors: "Reiter RJ, et al.", journal: "Journal of Pineal Research", year: 2019 }
+    ]
+  },
+  {
+    id: "l-theanine",
+    name: "L-Theanine",
+    latinName: "γ-glutamylethylamide",
+    category: "Amino Acid",
+    studies: 3800,
+    image: "🍵",
+    description: "L-Theanine is an amino acid found primarily in tea leaves, known for promoting relaxation without drowsiness and enhancing focus when combined with caffeine.",
+    traditionalUse: "Consumed for centuries through green tea in Asian cultures. Isolated and studied as a supplement since the 1960s in Japan.",
+    keyBenefits: ["Relaxation without sedation", "Focus and attention", "Stress reduction", "Sleep quality improvement", "Synergy with caffeine"],
+    mechanisms: ["Increases alpha brain waves", "Modulates GABA, dopamine, serotonin", "Crosses blood-brain barrier", "May increase BDNF"],
+    dosage: "100-200mg for relaxation. Often paired with 50-100mg caffeine for focused energy.",
+    safetyNotes: ["Very safe and well-tolerated", "No significant side effects reported", "Safe for most populations"],
+    interactions: ["May enhance blood pressure medications", "May interact with stimulants", "Generally safe to combine with most supplements"],
+    sources: ["Green tea", "Black tea", "Supplements", "Functional beverages"],
+    relatedCompounds: ["Caffeine", "GABA", "Magnesium"],
+    references: [
+      { pmid: "18296328", title: "L-theanine and caffeine in combination affect human cognition", authors: "Owen GN, et al.", journal: "Nutritional Neuroscience", year: 2008 },
+      { pmid: "31623400", title: "Effects of L-theanine on stress-related symptoms and cognitive function", authors: "Hidese S, et al.", journal: "Nutrients", year: 2019 }
+    ]
+  },
+  {
+    id: "collagen",
+    name: "Collagen",
+    latinName: "Collagen peptides",
+    category: "Structural Protein",
+    studies: 6200,
+    image: "✨",
+    description: "Collagen is the most abundant protein in the body, essential for skin, joints, bones, and connective tissue. Supplementation with hydrolyzed collagen peptides is widely researched.",
+    traditionalUse: "Consumed through bone broths in traditional cultures worldwide. Modern supplementation emerged in the 1980s for joint and skin health.",
+    keyBenefits: ["Skin elasticity and hydration", "Joint health support", "Bone density", "Gut lining support", "Hair and nail strength"],
+    mechanisms: ["Provides amino acids (glycine, proline, hydroxyproline)", "Stimulates collagen synthesis", "May reduce collagen degradation", "Supports extracellular matrix"],
+    dosage: "2.5-15g daily of hydrolyzed collagen peptides. Types I/III for skin, Type II for joints.",
+    safetyNotes: ["Generally very safe", "Rare digestive discomfort", "Source quality important (bovine, marine, chicken)"],
+    interactions: ["No significant drug interactions known", "May affect calcium absorption at very high doses"],
+    sources: ["Bovine", "Marine", "Chicken", "Bone broth", "Hydrolyzed peptides"],
+    relatedCompounds: ["Vitamin C", "Hyaluronic Acid", "MSM"],
+    references: [
+      { pmid: "30681787", title: "Oral collagen supplementation: a systematic review of dermatological applications", authors: "Choi FD, et al.", journal: "Journal of Drugs in Dermatology", year: 2019 },
+      { pmid: "28177710", title: "Collagen peptide supplementation improves joint pain", authors: "Zdzieblik D, et al.", journal: "Applied Physiology, Nutrition, and Metabolism", year: 2017 }
+    ]
+  },
+  {
+    id: "vitamin-c",
+    name: "Vitamin C",
+    latinName: "Ascorbic acid",
+    category: "Water-Soluble Vitamin",
+    studies: 68000,
+    image: "🍊",
+    description: "Vitamin C is an essential water-soluble vitamin and powerful antioxidant, crucial for immune function, collagen synthesis, and protecting cells from oxidative damage.",
+    traditionalUse: "Historically used to prevent scurvy. Modern research expanded to immune support, antioxidant activity, and numerous health applications.",
+    keyBenefits: ["Immune system support", "Collagen synthesis", "Antioxidant protection", "Iron absorption enhancement", "Wound healing"],
+    mechanisms: ["Essential cofactor for enzymes", "Donates electrons to neutralize free radicals", "Required for collagen hydroxylation", "Regenerates vitamin E"],
+    dosage: "RDA: 75-90mg. Therapeutic doses: 500-2000mg daily. Liposomal forms for enhanced absorption.",
+    safetyNotes: ["Water-soluble, excess excreted", "High doses may cause GI upset", "May affect certain lab tests", "Caution with iron overload conditions"],
+    interactions: ["Enhances iron absorption", "May interact with chemotherapy drugs", "May affect aluminum-containing antacids"],
+    sources: ["Citrus fruits", "Bell peppers", "Berries", "Supplements", "Liposomal formulas"],
+    relatedCompounds: ["Vitamin E", "Quercetin", "Zinc"],
+    references: [
+      { pmid: "29099763", title: "Vitamin C and immune function", authors: "Carr AC, Maggini S", journal: "Nutrients", year: 2017 },
+      { pmid: "23440782", title: "Vitamin C for preventing and treating the common cold", authors: "Hemilä H, Chalker E", journal: "Cochrane Database of Systematic Reviews", year: 2013 }
+    ]
+  },
+  {
+    id: "vitamin-b12",
+    name: "Vitamin B12",
+    latinName: "Cobalamin",
+    category: "Water-Soluble Vitamin",
+    studies: 32000,
+    image: "🔴",
+    description: "Vitamin B12 is essential for nerve function, DNA synthesis, and red blood cell formation. Deficiency is common, especially in vegans and older adults.",
+    traditionalUse: "Discovered as treatment for pernicious anemia. Now recognized as essential for neurological health and energy metabolism.",
+    keyBenefits: ["Nerve health", "Red blood cell formation", "Energy metabolism", "DNA synthesis", "Cognitive function"],
+    mechanisms: ["Cofactor for methionine synthase", "Essential for methylation reactions", "Required for myelin synthesis", "Supports homocysteine metabolism"],
+    dosage: "RDA: 2.4mcg. Supplemental: 500-2000mcg for deficiency. Methylcobalamin or adenosylcobalamin preferred.",
+    safetyNotes: ["Very safe even at high doses", "No upper limit established", "Absorption decreases with age", "Intrinsic factor required for absorption"],
+    interactions: ["Metformin reduces absorption", "PPIs may reduce absorption", "May interact with chloramphenicol"],
+    sources: ["Methylcobalamin", "Cyanocobalamin", "Sublingual", "Injections", "Fortified foods"],
+    relatedCompounds: ["Folate", "B-Complex", "Iron"],
+    references: [
+      { pmid: "28660890", title: "Vitamin B12 in health and disease", authors: "O'Leary F, Samman S", journal: "Nutrients", year: 2010 },
+      { pmid: "29477221", title: "B12 deficiency and neurological manifestations", authors: "Stabler SP", journal: "Annual Review of Nutrition", year: 2013 }
+    ]
+  },
+  {
+    id: "folate",
+    name: "Folate",
+    latinName: "Vitamin B9",
+    category: "Water-Soluble Vitamin",
+    studies: 45000,
+    image: "🥬",
+    description: "Folate is essential for DNA synthesis, cell division, and methylation. Critical during pregnancy for neural tube development. Many people have MTHFR variants affecting metabolism.",
+    traditionalUse: "Isolated from spinach in 1941. Recognized as critical for pregnancy outcomes and now fortified in many foods.",
+    keyBenefits: ["Neural tube defect prevention", "DNA synthesis", "Methylation support", "Red blood cell formation", "Homocysteine regulation"],
+    mechanisms: ["Provides one-carbon units for methylation", "Essential for purine and pyrimidine synthesis", "Cofactor for homocysteine metabolism"],
+    dosage: "RDA: 400mcg DFE. Pregnancy: 600-800mcg. Methylfolate (5-MTHF) for those with MTHFR variants.",
+    safetyNotes: ["Generally safe", "High folic acid may mask B12 deficiency", "Methylfolate preferred for MTHFR variants"],
+    interactions: ["Methotrexate antagonism", "May interact with anti-seizure medications", "Sulfasalazine reduces absorption"],
+    sources: ["Leafy greens", "Legumes", "Folic acid (synthetic)", "Methylfolate (active)"],
+    relatedCompounds: ["Vitamin B12", "B-Complex", "SAMe"],
+    references: [
+      { pmid: "22992251", title: "Folate and neural tube defects", authors: "Czeizel AE, et al.", journal: "Nutrients", year: 2013 },
+      { pmid: "26828517", title: "MTHFR polymorphisms and folate status", authors: "Tsang BL, et al.", journal: "Birth Defects Research Part A", year: 2015 }
+    ]
+  },
+  {
+    id: "vitamin-e",
+    name: "Vitamin E",
+    latinName: "Tocopherols/Tocotrienols",
+    category: "Fat-Soluble Vitamin",
+    studies: 38000,
+    image: "🌻",
+    description: "Vitamin E is a fat-soluble antioxidant protecting cell membranes from oxidative damage. The family includes tocopherols and tocotrienols with varying bioactivities.",
+    traditionalUse: "Discovered in 1922 as essential for reproduction in rats. Now recognized as a major lipid-soluble antioxidant.",
+    keyBenefits: ["Antioxidant protection", "Skin health", "Immune support", "Cardiovascular research", "Neurological protection"],
+    mechanisms: ["Terminates lipid peroxidation chain reactions", "Protects cell membranes", "Modulates gene expression", "Supports immune cell function"],
+    dosage: "RDA: 15mg (22.4 IU). Mixed tocopherols/tocotrienols preferred over synthetic dl-alpha-tocopherol.",
+    safetyNotes: ["High doses may increase bleeding risk", "Synthetic form less effective", "May interfere with vitamin K"],
+    interactions: ["May enhance anticoagulant effects", "May interact with statins", "Affects vitamin K absorption"],
+    sources: ["Nuts", "Seeds", "Vegetable oils", "Mixed tocopherols", "Tocotrienols"],
+    relatedCompounds: ["Vitamin C", "Selenium", "CoQ10"],
+    references: [
+      { pmid: "22419320", title: "The role of vitamin E in human health", authors: "Rizvi S, et al.", journal: "Sultan Qaboos University Medical Journal", year: 2014 },
+      { pmid: "25077263", title: "Vitamin E: metabolism and requirements", authors: "Traber MG, Stevens JF", journal: "Advances in Nutrition", year: 2011 }
+    ]
+  },
+  {
+    id: "vitamin-k2",
+    name: "Vitamin K2",
+    latinName: "Menaquinone",
+    category: "Fat-Soluble Vitamin",
+    studies: 4200,
+    image: "🧀",
+    description: "Vitamin K2 (menaquinone) directs calcium to bones and teeth while keeping it out of arteries. Different forms (MK-4, MK-7) have varying half-lives and tissue distributions.",
+    traditionalUse: "Traditional diets rich in K2 through fermented foods (natto, cheese). Modern research focuses on bone and cardiovascular health.",
+    keyBenefits: ["Bone health", "Arterial calcification prevention", "Dental health", "Cardiovascular support", "Synergy with vitamin D"],
+    mechanisms: ["Activates osteocalcin (bones)", "Activates matrix Gla protein (arteries)", "Carboxylates vitamin K-dependent proteins"],
+    dosage: "MK-7: 100-200mcg daily. MK-4: 1-45mg (higher doses studied in Japan). Take with fat for absorption.",
+    safetyNotes: ["Generally very safe", "No known toxicity", "May affect anticoagulant therapy"],
+    interactions: ["Interacts with warfarin/coumadin", "Synergistic with vitamin D3", "May affect some antibiotics"],
+    sources: ["Natto", "Hard cheeses", "Egg yolks", "MK-7 supplements", "MK-4 supplements"],
+    relatedCompounds: ["Vitamin D3", "Calcium", "Magnesium"],
+    references: [
+      { pmid: "25516361", title: "Vitamin K2 and cardiovascular calcification", authors: "Halder M, et al.", journal: "International Journal of Molecular Sciences", year: 2019 },
+      { pmid: "23525894", title: "Three-year vitamin K2 supplementation and bone loss", authors: "Knapen MH, et al.", journal: "Osteoporosis International", year: 2013 }
+    ]
+  },
+  {
+    id: "vitamin-a",
+    name: "Vitamin A",
+    latinName: "Retinol/Beta-carotene",
+    category: "Fat-Soluble Vitamin",
+    studies: 52000,
+    image: "🥕",
+    description: "Vitamin A is essential for vision, immune function, and cell differentiation. Available as preformed retinol (animal sources) or provitamin A carotenoids (plant sources).",
+    traditionalUse: "Ancient Egyptians used liver to treat night blindness. Modern understanding of vitamin A developed in the early 20th century.",
+    keyBenefits: ["Vision health", "Immune function", "Skin health", "Cell differentiation", "Reproductive health"],
+    mechanisms: ["Binds retinoic acid receptors (RARs)", "Essential for rhodopsin (vision)", "Regulates gene expression", "Supports epithelial integrity"],
+    dosage: "RDA: 700-900mcg RAE. Beta-carotene: 3-6mg. Avoid high-dose retinol during pregnancy.",
+    safetyNotes: ["Retinol can be toxic at high doses", "Beta-carotene generally safe", "Teratogenic - avoid high doses in pregnancy"],
+    interactions: ["May interact with retinoid medications", "Orlistat reduces absorption", "Alcohol increases toxicity risk"],
+    sources: ["Liver", "Egg yolks", "Carrots", "Sweet potatoes", "Beta-carotene supplements"],
+    relatedCompounds: ["Vitamin D", "Vitamin E", "Zinc"],
+    references: [
+      { pmid: "31142942", title: "Vitamin A and immune function", authors: "Huang Z, et al.", journal: "Journal of Clinical Medicine", year: 2018 },
+      { pmid: "26062574", title: "Retinoid signaling and skin health", authors: "Zasada M, Budzisz E", journal: "Advances in Dermatology and Allergology", year: 2019 }
+    ]
+  },
+  {
+    id: "biotin",
+    name: "Biotin",
+    latinName: "Vitamin B7",
+    category: "Water-Soluble Vitamin",
+    studies: 8900,
+    image: "💅",
+    description: "Biotin is a B-vitamin essential for metabolism of fats, carbohydrates, and proteins. Popular for hair, skin, and nail support, though deficiency is rare.",
+    traditionalUse: "Discovered in the early 20th century. Now widely marketed for cosmetic benefits, particularly hair and nail growth.",
+    keyBenefits: ["Hair health", "Nail strength", "Skin health", "Energy metabolism", "Blood sugar support"],
+    mechanisms: ["Cofactor for carboxylase enzymes", "Essential for fatty acid synthesis", "Required for gluconeogenesis", "Supports keratin production"],
+    dosage: "Adequate intake: 30mcg. Supplemental: 2.5-10mg for hair/nail support (much higher than AI).",
+    safetyNotes: ["Very safe, no known toxicity", "High doses interfere with lab tests", "May affect thyroid and cardiac biomarker tests"],
+    interactions: ["Raw egg whites block absorption", "Some anticonvulsants reduce levels", "May interfere with lab assays"],
+    sources: ["Eggs", "Nuts", "Legumes", "Supplements", "Organ meats"],
+    relatedCompounds: ["B-Complex", "Collagen", "Silica"],
+    references: [
+      { pmid: "28879195", title: "Biotin deficiency and supplementation", authors: "Patel DP, et al.", journal: "Skin Appendage Disorders", year: 2017 },
+      { pmid: "29057689", title: "Biotin interference with laboratory tests", authors: "Trambas CM, et al.", journal: "Clinical Biochemistry", year: 2018 }
+    ]
+  },
+  {
+    id: "dhea",
+    name: "DHEA",
+    latinName: "Dehydroepiandrosterone",
+    category: "Longevity Compound",
+    studies: 11000,
+    image: "⚡",
+    description: "DHEA is a hormone produced by the adrenal glands that serves as a precursor to sex hormones. Levels decline with age, leading to research on supplementation for aging.",
+    traditionalUse: "Discovered in 1934. Became popular as an anti-aging supplement in the 1990s. Considered a controlled substance in some countries.",
+    keyBenefits: ["Hormone precursor", "Aging research", "Adrenal support", "Bone density", "Mood and cognition"],
+    mechanisms: ["Converts to testosterone and estrogen", "Neurosteroid activity", "May affect insulin sensitivity", "Modulates immune function"],
+    dosage: "25-100mg daily for adults. Lower doses (10-25mg) for women. Test levels before supplementing.",
+    safetyNotes: ["May cause hormonal side effects", "Acne, hair loss possible", "Not for hormone-sensitive conditions", "Banned in sports"],
+    interactions: ["May affect hormone therapies", "Interacts with insulin", "May affect anticoagulants"],
+    sources: ["Capsules", "Micronized powder", "Topical creams"],
+    relatedCompounds: ["Pregnenolone", "7-Keto DHEA", "Testosterone"],
+    references: [
+      { pmid: "16728551", title: "DHEA supplementation: current perspective", authors: "Panjari M, Davis SR", journal: "Journal of Clinical Endocrinology and Metabolism", year: 2007 },
+      { pmid: "30209409", title: "DHEA and aging: contribution of DHEA to health and well-being", authors: "Rutkowski K, et al.", journal: "Gynecological Endocrinology", year: 2014 }
+    ]
+  },
+  {
+    id: "msm",
+    name: "MSM",
+    latinName: "Methylsulfonylmethane",
+    category: "Performance Compound",
+    studies: 2400,
+    image: "💪",
+    description: "MSM is an organic sulfur compound found naturally in plants and animals. Widely used for joint health, exercise recovery, and anti-inflammatory support.",
+    traditionalUse: "Developed as a supplement in the 1980s. Became popular for arthritis and joint pain in the 1990s alongside glucosamine.",
+    keyBenefits: ["Joint health", "Exercise recovery", "Anti-inflammatory", "Skin and hair support", "Sulfur donor"],
+    mechanisms: ["Provides bioavailable sulfur", "May reduce inflammatory cytokines", "Supports glutathione production", "May protect cartilage"],
+    dosage: "1-3g daily for joint support. Up to 6g studied for exercise recovery. Often combined with glucosamine.",
+    safetyNotes: ["Generally very safe", "Mild GI effects possible", "May cause headache initially"],
+    interactions: ["May enhance blood thinners", "Generally safe to combine with other joint supplements"],
+    sources: ["Powders", "Capsules", "Topical creams", "Combined formulas"],
+    relatedCompounds: ["Glucosamine", "Chondroitin", "Collagen"],
+    references: [
+      { pmid: "26502953", title: "MSM in the treatment of osteoarthritis: a systematic review", authors: "Brien S, et al.", journal: "Osteoarthritis and Cartilage", year: 2008 },
+      { pmid: "28085145", title: "MSM supplementation and exercise-induced oxidative stress", authors: "Nakhostin-Roohi B, et al.", journal: "Journal of Pharmacy and Pharmacology", year: 2011 }
+    ]
+  },
+  {
+    id: "glucosamine",
+    name: "Glucosamine",
+    latinName: "Glucosamine sulfate",
+    category: "Performance Compound",
+    studies: 7800,
+    image: "🦴",
+    description: "Glucosamine is a naturally occurring compound essential for cartilage formation. One of the most widely studied supplements for osteoarthritis and joint health.",
+    traditionalUse: "Developed in Europe in the 1960s for arthritis. Became popular in North America in the 1990s.",
+    keyBenefits: ["Cartilage support", "Joint comfort", "Osteoarthritis symptoms", "Synovial fluid health", "Joint structure"],
+    mechanisms: ["Provides building blocks for glycosaminoglycans", "May stimulate chondrocyte metabolism", "Anti-inflammatory effects", "May inhibit cartilage degradation"],
+    dosage: "1500mg daily (glucosamine sulfate preferred). Often combined with chondroitin 1200mg.",
+    safetyNotes: ["Generally well-tolerated", "Shellfish allergy concern (most derived from shellfish)", "May affect blood sugar"],
+    interactions: ["May enhance warfarin effects", "May interact with diabetes medications", "May affect some chemotherapy drugs"],
+    sources: ["Shellfish-derived", "Vegan (corn-derived)", "Sulfate or HCl forms"],
+    relatedCompounds: ["Chondroitin", "MSM", "Hyaluronic Acid"],
+    references: [
+      { pmid: "17593428", title: "Glucosamine for osteoarthritis: Cochrane review", authors: "Towheed TE, et al.", journal: "Cochrane Database of Systematic Reviews", year: 2005 },
+      { pmid: "24942086", title: "Glucosamine and joint health in athletes", authors: "Braham R, et al.", journal: "British Journal of Sports Medicine", year: 2003 }
+    ]
+  },
+  {
+    id: "hyaluronic-acid",
+    name: "Hyaluronic Acid",
+    latinName: "Hyaluronan",
+    category: "Structural Protein",
+    studies: 14000,
+    image: "💧",
+    description: "Hyaluronic acid is a glycosaminoglycan naturally found in skin, joints, and eyes. It holds water and provides lubrication and hydration to tissues.",
+    traditionalUse: "Discovered in 1934. Used medically for eye surgery and joint injections. Oral supplementation gained popularity in the 2000s.",
+    keyBenefits: ["Skin hydration", "Joint lubrication", "Wound healing", "Eye health", "Anti-aging"],
+    mechanisms: ["Holds 1000x its weight in water", "Lubricates joints and eyes", "Supports tissue repair", "Interacts with CD44 receptors"],
+    dosage: "120-240mg daily oral. Low molecular weight for skin. High molecular weight for joints.",
+    safetyNotes: ["Very safe orally", "Injection site reactions possible", "Generally well-tolerated"],
+    interactions: ["May enhance NSAIDs for joint support", "No significant drug interactions known"],
+    sources: ["Bacterial fermentation", "Rooster comb extract", "Supplements", "Serums", "Injections"],
+    relatedCompounds: ["Collagen", "Glucosamine", "Chondroitin"],
+    references: [
+      { pmid: "28952153", title: "Oral hyaluronic acid and skin aging", authors: "Kawada C, et al.", journal: "Nutrition Journal", year: 2017 },
+      { pmid: "26824400", title: "Hyaluronic acid and osteoarthritis", authors: "Bowman S, et al.", journal: "Clinical Medicine Insights: Arthritis and Musculoskeletal Disorders", year: 2018 }
+    ]
+  },
+  {
+    id: "alpha-lipoic-acid",
+    name: "Alpha Lipoic Acid",
+    latinName: "Thioctic acid",
+    category: "Mitochondrial Support",
+    studies: 8200,
+    image: "🔋",
+    description: "Alpha lipoic acid (ALA) is a potent antioxidant that works in both water and fat-soluble environments. It's synthesized in mitochondria and studied for neuropathy and metabolic health.",
+    traditionalUse: "Discovered in the 1950s. Used medically in Germany for diabetic neuropathy since the 1960s.",
+    keyBenefits: ["Antioxidant (water + fat soluble)", "Diabetic neuropathy", "Blood sugar support", "Regenerates other antioxidants", "Mitochondrial function"],
+    mechanisms: ["Cofactor for mitochondrial enzymes", "Regenerates vitamins C, E, and glutathione", "Chelates heavy metals", "Improves insulin sensitivity"],
+    dosage: "300-600mg daily. R-lipoic acid more bioavailable than racemic mixture. Take on empty stomach.",
+    safetyNotes: ["May lower blood sugar", "Can cause GI upset", "May affect thyroid function"],
+    interactions: ["May enhance diabetes medications", "May affect thyroid medications", "May increase insulin sensitivity"],
+    sources: ["R-lipoic acid", "R/S-lipoic acid (racemic)", "Sustained release"],
+    relatedCompounds: ["CoQ10", "NAC", "Acetyl-L-Carnitine"],
+    references: [
+      { pmid: "21666939", title: "Alpha-lipoic acid in diabetic neuropathy", authors: "Ziegler D, et al.", journal: "Diabetes Care", year: 2011 },
+      { pmid: "29990473", title: "Alpha-lipoic acid as a biological antioxidant", authors: "Rochette L, et al.", journal: "Biochimica et Biophysica Acta", year: 2015 }
+    ]
+  },
+  {
+    id: "acetyl-l-carnitine",
+    name: "Acetyl-L-Carnitine",
+    latinName: "ALCAR",
+    category: "Mitochondrial Support",
+    studies: 5400,
+    image: "🧠",
+    description: "Acetyl-L-carnitine is the acetylated form of L-carnitine that crosses the blood-brain barrier. Studied for cognitive function, neuropathy, and mitochondrial energy production.",
+    traditionalUse: "L-carnitine discovered in 1905. ALCAR developed as a more bioavailable form for brain and nerve health in later decades.",
+    keyBenefits: ["Cognitive support", "Neuropathy relief", "Mitochondrial function", "Mood support", "Exercise performance"],
+    mechanisms: ["Transports fatty acids into mitochondria", "Provides acetyl groups for acetylcholine", "Crosses blood-brain barrier", "Supports nerve regeneration"],
+    dosage: "500-2000mg daily. Often combined with alpha lipoic acid. Higher doses (3g) studied for neuropathy.",
+    safetyNotes: ["Generally well-tolerated", "May cause GI upset", "Fishy body odor at high doses possible"],
+    interactions: ["May enhance anticoagulants", "May interact with thyroid medications", "May affect seizure medications"],
+    sources: ["Capsules", "Powder", "Combined formulas"],
+    relatedCompounds: ["Alpha Lipoic Acid", "CoQ10", "L-Carnitine"],
+    references: [
+      { pmid: "12595152", title: "Acetyl-L-carnitine and cognitive decline", authors: "Montgomery SA, et al.", journal: "International Clinical Psychopharmacology", year: 2003 },
+      { pmid: "26677204", title: "Acetyl-L-carnitine for diabetic neuropathy", authors: "Li S, et al.", journal: "Cochrane Database of Systematic Reviews", year: 2015 }
+    ]
+  },
+  {
+    id: "creatine",
+    name: "Creatine",
+    latinName: "Creatine monohydrate",
+    category: "Performance Compound",
+    studies: 7500,
+    image: "💪",
+    description: "Creatine is one of the most researched sports supplements, naturally found in muscle tissue. It enhances ATP regeneration for high-intensity exercise and has emerging cognitive benefits.",
+    traditionalUse: "Discovered in 1832. Became popular as a sports supplement in the 1990s after research confirmed performance benefits.",
+    keyBenefits: ["Strength and power", "Muscle mass", "Exercise recovery", "Cognitive function", "Brain energy support"],
+    mechanisms: ["Regenerates ATP from ADP", "Increases phosphocreatine stores", "May support brain energy", "Osmotic cell volumization"],
+    dosage: "3-5g daily maintenance. Loading phase optional (20g/day for 5-7 days). Monohydrate is gold standard.",
+    safetyNotes: ["Very safe and well-researched", "May cause water retention initially", "Stay hydrated"],
+    interactions: ["May affect kidney function markers (creatinine)", "Safe with most supplements", "NSAIDs may reduce effectiveness"],
+    sources: ["Monohydrate", "Micronized", "Buffered", "HCl forms"],
+    relatedCompounds: ["Beta-Alanine", "Citrulline", "HMB"],
+    references: [
+      { pmid: "28615996", title: "International Society of Sports Nutrition position stand: creatine", authors: "Kreider RB, et al.", journal: "Journal of the International Society of Sports Nutrition", year: 2017 },
+      { pmid: "29704637", title: "Creatine for cognitive function", authors: "Avgerinos KI, et al.", journal: "Experimental Gerontology", year: 2018 }
+    ]
+  },
+  {
+    id: "spirulina",
+    name: "Spirulina",
+    latinName: "Arthrospira platensis",
+    category: "Blue-Green Algae",
+    studies: 4800,
+    image: "🌊",
+    description: "Spirulina is a nutrient-dense blue-green algae rich in protein, vitamins, minerals, and antioxidants. Used as a superfood and studied for various health benefits.",
+    traditionalUse: "Consumed by Aztecs and African cultures for centuries. NASA has studied it as potential food for space missions.",
+    keyBenefits: ["Nutrient density", "Antioxidant support", "Immune modulation", "Cholesterol support", "Heavy metal chelation"],
+    mechanisms: ["Rich in phycocyanin (antioxidant)", "Contains complete protein", "Provides chlorophyll and carotenoids", "May modulate immune response"],
+    dosage: "1-3g daily for general health. Up to 10g studied in research. Start low to assess tolerance.",
+    safetyNotes: ["Source quality crucial (contamination risk)", "May cause GI upset initially", "Blue-green tinge to stools normal"],
+    interactions: ["May enhance immunosuppressants", "May affect anticoagulants", "Safe with most supplements"],
+    sources: ["Tablets", "Powder", "Flakes", "Capsules"],
+    relatedCompounds: ["Chlorella", "Marine Phytoplankton", "Barley Grass"],
+    references: [
+      { pmid: "23544470", title: "Spirulina in clinical practice: evidence-based human applications", authors: "Karkos PD, et al.", journal: "Evidence-Based Complementary and Alternative Medicine", year: 2011 },
+      { pmid: "26433766", title: "Antioxidant, anti-inflammatory effects of spirulina", authors: "Wu Q, et al.", journal: "Journal of Agricultural and Food Chemistry", year: 2016 }
+    ]
+  },
+  {
+    id: "chlorella",
+    name: "Chlorella",
+    latinName: "Chlorella vulgaris",
+    category: "Blue-Green Algae",
+    studies: 3200,
+    image: "🌱",
+    description: "Chlorella is a single-celled green algae known for its chlorophyll content and ability to bind heavy metals. Popular for detoxification and nutritional support.",
+    traditionalUse: "Researched in Japan after WWII as a potential food source. Now popular worldwide as a detox and nutrition supplement.",
+    keyBenefits: ["Detoxification support", "Heavy metal binding", "Nutrient density", "Immune support", "Chlorophyll source"],
+    mechanisms: ["Cell wall binds heavy metals and toxins", "Rich in chlorophyll", "Contains Chlorella Growth Factor (CGF)", "Provides nucleotides"],
+    dosage: "2-3g daily for general use. Up to 10g for detox protocols. Broken cell wall for absorption.",
+    safetyNotes: ["Start slowly (may cause detox symptoms)", "Source quality important", "May cause GI upset initially"],
+    interactions: ["May affect immunosuppressants", "May interact with warfarin (vitamin K content)", "Safe with most supplements"],
+    sources: ["Broken cell wall tablets", "Powder", "Capsules"],
+    relatedCompounds: ["Spirulina", "Chlorophyll", "Cilantro"],
+    references: [
+      { pmid: "26561078", title: "Chlorella supplementation and detoxification", authors: "Merchant RE, Andre CA", journal: "Alternative Therapies in Health and Medicine", year: 2001 },
+      { pmid: "30799748", title: "Health benefits of chlorella: a systematic review", authors: "Bito T, et al.", journal: "Nutrients", year: 2020 }
+    ]
+  },
+  {
+    id: "rhodiola",
+    name: "Rhodiola",
+    latinName: "Rhodiola rosea",
+    category: "Adaptogen",
+    studies: 3600,
+    image: "🏔️",
+    description: "Rhodiola is an adaptogenic herb from arctic regions, traditionally used for stamina and stress resistance. Research focuses on fatigue, cognitive function, and mood.",
+    traditionalUse: "Used for centuries in Russia and Scandinavia for endurance and to combat harsh climates. Called 'golden root' in traditional medicine.",
+    keyBenefits: ["Stress adaptation", "Mental fatigue", "Physical performance", "Mood support", "Cognitive function"],
+    mechanisms: ["Modulates cortisol and stress response", "Affects serotonin and dopamine", "Contains rosavins and salidroside", "Supports HPA axis function"],
+    dosage: "200-600mg daily of standardized extract (3% rosavins, 1% salidroside). Take in morning or before stress.",
+    safetyNotes: ["May cause stimulation in some", "Avoid late in day if sleep-sensitive", "Generally well-tolerated"],
+    interactions: ["May interact with stimulants", "May affect antidepressants", "May enhance caffeine effects"],
+    sources: ["Root extracts", "Capsules", "Tinctures"],
+    relatedCompounds: ["Ashwagandha", "Eleuthero", "Ginseng"],
+    references: [
+      { pmid: "22643043", title: "Rhodiola rosea for physical and mental fatigue: a systematic review", authors: "Ishaque S, et al.", journal: "BMC Complementary and Alternative Medicine", year: 2012 },
+      { pmid: "29325481", title: "Rhodiola rosea L. for cognitive function", authors: "Ma GP, et al.", journal: "Phytomedicine", year: 2018 }
+    ]
+  },
+  {
+    id: "cordyceps",
+    name: "Cordyceps",
+    latinName: "Cordyceps militaris",
+    category: "Functional Mushroom",
+    studies: 3100,
+    image: "🍄",
+    description: "Cordyceps is a medicinal mushroom traditionally used for energy and athletic performance. Contains cordycepin and adenosine which may support ATP production and oxygen utilization.",
+    traditionalUse: "Used in Traditional Chinese Medicine for over 1000 years for energy, libido, and longevity. Wild cordyceps highly prized and expensive.",
+    keyBenefits: ["Energy and stamina", "Athletic performance", "Oxygen utilization", "Immune modulation", "Kidney and lung support"],
+    mechanisms: ["May increase ATP production", "Contains cordycepin (adenosine analog)", "Supports oxygen efficiency", "Modulates immune function"],
+    dosage: "1-3g daily of extract. Cordyceps militaris (cultivated) commonly used. CS-4 strain also popular.",
+    safetyNotes: ["Generally safe", "May cause mild GI effects", "Avoid in autoimmune conditions without guidance"],
+    interactions: ["May affect immunosuppressants", "May enhance anticoagulants", "May lower blood sugar"],
+    sources: ["Fruiting body extracts", "Mycelium", "CS-4 fermented", "Powder", "Capsules"],
+    relatedCompounds: ["Lion's Mane", "Reishi", "Chaga"],
+    references: [
+      { pmid: "27408987", title: "Cordyceps militaris improves tolerance to high-intensity exercise", authors: "Hirsch KR, et al.", journal: "Journal of Dietary Supplements", year: 2017 },
+      { pmid: "32062835", title: "Pharmacological actions of Cordyceps", authors: "Das SK, et al.", journal: "Journal of Ayurveda and Integrative Medicine", year: 2010 }
+    ]
+  },
+  {
+    id: "chaga",
+    name: "Chaga",
+    latinName: "Inonotus obliquus",
+    category: "Functional Mushroom",
+    studies: 1800,
+    image: "🍄",
+    description: "Chaga is a fungus that grows on birch trees in cold climates. Rich in antioxidants, betulinic acid, and beta-glucans, it's traditionally used for immune support and overall vitality.",
+    traditionalUse: "Used for centuries in Siberian and Northern European folk medicine. Called 'King of Medicinal Mushrooms' in some traditions.",
+    keyBenefits: ["Antioxidant support", "Immune modulation", "Anti-inflammatory", "Skin health", "Blood sugar support"],
+    mechanisms: ["Contains melanin and betulinic acid", "Rich in superoxide dismutase (SOD)", "Beta-glucans for immune function", "Triterpenes for inflammation"],
+    dosage: "1-3g daily of extract. Tea traditionally consumed. Dual extraction (water + alcohol) captures most compounds.",
+    safetyNotes: ["May lower blood sugar", "May affect anticoagulants", "Source from birch trees for betulinic acid"],
+    interactions: ["May enhance blood thinners", "May interact with diabetes medications", "May affect immunosuppressants"],
+    sources: ["Wild-harvested chunks", "Extracts", "Teas", "Tinctures"],
+    relatedCompounds: ["Reishi", "Turkey Tail", "Lion's Mane"],
+    references: [
+      { pmid: "21820502", title: "Antioxidant and anti-inflammatory activities of Inonotus obliquus", authors: "Park YK, et al.", journal: "Journal of Ethnopharmacology", year: 2005 },
+      { pmid: "28771205", title: "Chaga mushroom extract and its bioactive compounds", authors: "Lu Y, et al.", journal: "International Journal of Biological Macromolecules", year: 2021 }
+    ]
+  },
+  {
+    id: "reishi",
+    name: "Reishi",
+    latinName: "Ganoderma lucidum",
+    category: "Functional Mushroom",
+    studies: 5800,
+    image: "🍄",
+    description: "Reishi is known as the 'mushroom of immortality' in Traditional Chinese Medicine. Research focuses on immune modulation, stress adaptation, and sleep support.",
+    traditionalUse: "Used for over 2000 years in China and Japan for longevity and spiritual cultivation. Reserved for royalty in ancient times.",
+    keyBenefits: ["Immune modulation", "Stress adaptation", "Sleep quality", "Liver support", "Cardiovascular health"],
+    mechanisms: ["Beta-glucans modulate immune cells", "Triterpenes support liver and inflammation", "May calm nervous system", "Adaptogenic effects on HPA axis"],
+    dosage: "1-3g daily of extract. Higher doses (up to 9g) used in traditional medicine. Dual extraction preferred.",
+    safetyNotes: ["Generally safe long-term", "May thin blood slightly", "Avoid before surgery"],
+    interactions: ["May enhance anticoagulants", "May affect blood pressure medications", "May interact with immunosuppressants"],
+    sources: ["Fruiting body extracts", "Spore oil", "Mycelium", "Dual extracts"],
+    relatedCompounds: ["Lion's Mane", "Turkey Tail", "Cordyceps"],
+    references: [
+      { pmid: "27045603", title: "Ganoderma lucidum (Reishi) in cancer treatment", authors: "Jin X, et al.", journal: "Cochrane Database of Systematic Reviews", year: 2016 },
+      { pmid: "22593926", title: "Reishi mushroom for sleep and fatigue", authors: "Tang W, et al.", journal: "Journal of Ethnopharmacology", year: 2005 }
+    ]
+  },
+  {
+    id: "maca",
+    name: "Maca",
+    latinName: "Lepidium meyenii",
+    category: "Adaptogen",
+    studies: 2400,
+    image: "🌰",
+    description: "Maca is a Peruvian root vegetable traditionally used for energy, fertility, and hormonal balance. Different colors (yellow, red, black) may have varying effects.",
+    traditionalUse: "Cultivated in the Andes for over 2000 years. Used by Incan warriors for strength and endurance before battles.",
+    keyBenefits: ["Energy and stamina", "Libido support", "Hormonal balance", "Mood and focus", "Fertility research"],
+    mechanisms: ["Contains macamides and macaenes", "May support hormone production", "Adaptogenic stress response", "Rich in minerals and amino acids"],
+    dosage: "1.5-3g daily of dried root or extract. Gelatinized form more digestible. Colors may be chosen for specific goals.",
+    safetyNotes: ["Generally very safe", "May cause GI upset in some", "Thyroid concerns at very high doses (goitrogens)"],
+    interactions: ["May affect hormone therapies", "Generally safe with most supplements", "Consult before hormone-sensitive conditions"],
+    sources: ["Gelatinized powder", "Raw powder", "Capsules", "Extracts"],
+    relatedCompounds: ["Ashwagandha", "Rhodiola", "Tribulus"],
+    references: [
+      { pmid: "19781622", title: "Maca reduces blood pressure and depression in postmenopausal women", authors: "Stojanovska L, et al.", journal: "Climacteric", year: 2015 },
+      { pmid: "24931003", title: "Maca for sexual dysfunction: a systematic review", authors: "Shin BC, et al.", journal: "BMC Complementary and Alternative Medicine", year: 2010 }
+    ]
+  },
+  {
+    id: "boswellia",
+    name: "Boswellia",
+    latinName: "Boswellia serrata",
+    category: "Herbal Compound",
+    studies: 3400,
+    image: "🌳",
+    description: "Boswellia, also known as Indian frankincense, contains boswellic acids that inhibit inflammatory pathways. Widely researched for joint health and inflammatory conditions.",
+    traditionalUse: "Used in Ayurvedic medicine for thousands of years for arthritis and inflammatory conditions. Also used in religious ceremonies.",
+    keyBenefits: ["Joint comfort", "Anti-inflammatory", "Respiratory health", "Gut health (IBD research)", "Brain health"],
+    mechanisms: ["Inhibits 5-LOX enzyme", "Reduces leukotriene synthesis", "May preserve cartilage", "Modulates inflammatory cytokines"],
+    dosage: "300-500mg 2-3 times daily of standardized extract (65% boswellic acids). AKBA-enriched forms more potent.",
+    safetyNotes: ["Generally well-tolerated", "May cause GI upset", "Rare allergic reactions"],
+    interactions: ["May enhance NSAIDs", "May interact with immunosuppressants", "Generally safe with joint supplements"],
+    sources: ["Standardized extracts", "AKBA-enriched forms", "Combination joint formulas"],
+    relatedCompounds: ["Curcumin", "Ginger", "Willow Bark"],
+    references: [
+      { pmid: "29925510", title: "Boswellia serrata for osteoarthritis", authors: "Yu G, et al.", journal: "Phytomedicine", year: 2020 },
+      { pmid: "30564920", title: "Anti-inflammatory mechanisms of boswellic acids", authors: "Ammon HPT", journal: "Phytomedicine", year: 2019 }
+    ]
+  },
+  {
+    id: "fish-oil",
+    name: "Fish Oil",
+    latinName: "EPA/DHA",
+    category: "Essential Fatty Acid",
+    studies: 28000,
+    image: "🐟",
+    description: "Fish oil provides omega-3 fatty acids EPA and DHA, essential for brain, heart, and inflammatory health. One of the most researched supplements worldwide.",
+    traditionalUse: "Cod liver oil used medicinally since the 1700s. Modern fish oil supplements developed in the 1980s for cardiovascular health.",
+    keyBenefits: ["Cardiovascular health", "Brain function", "Anti-inflammatory", "Eye health", "Mood support"],
+    mechanisms: ["Incorporates into cell membranes", "Precursor to anti-inflammatory resolvins", "Reduces triglycerides", "Supports neurotransmitter function"],
+    dosage: "1-4g combined EPA/DHA daily. Higher EPA for inflammation, higher DHA for brain. Take with meals.",
+    safetyNotes: ["May cause fishy burps", "May thin blood at high doses", "Quality and purity important"],
+    interactions: ["May enhance anticoagulants", "May affect blood pressure medications", "May interact with some chemotherapy"],
+    sources: ["Triglyceride form", "Ethyl ester form", "Concentrated formulas", "Krill oil alternative"],
+    relatedCompounds: ["Krill Oil", "Algae DHA", "Cod Liver Oil"],
+    references: [
+      { pmid: "29990473", title: "Omega-3 fatty acids and cardiovascular disease", authors: "Abdelhamid AS, et al.", journal: "Cochrane Database of Systematic Reviews", year: 2018 },
+      { pmid: "28493329", title: "EPA and DHA for brain health", authors: "Dyall SC", journal: "Frontiers in Aging Neuroscience", year: 2015 }
+    ]
+  },
+  {
+    id: "krill-oil",
+    name: "Krill Oil",
+    latinName: "Euphausia superba oil",
+    category: "Essential Fatty Acid",
+    studies: 1200,
+    image: "🦐",
+    description: "Krill oil provides omega-3s in phospholipid form for potentially better absorption. Also contains astaxanthin, a powerful antioxidant giving it its red color.",
+    traditionalUse: "Commercial krill harvesting began in the 1970s. Krill oil supplements emerged in the 2000s as a premium omega-3 source.",
+    keyBenefits: ["Omega-3 delivery", "Phospholipid form absorption", "Astaxanthin antioxidant", "Joint comfort", "Heart health"],
+    mechanisms: ["Phospholipid-bound omega-3s", "Astaxanthin crosses blood-brain barrier", "May have better bioavailability", "Less oxidation than fish oil"],
+    dosage: "500-2000mg daily. Lower doses needed due to potential better absorption. Look for sustainable sourcing.",
+    safetyNotes: ["Shellfish allergy contraindication", "Generally well-tolerated", "Less fishy taste than fish oil"],
+    interactions: ["May enhance anticoagulants", "Similar interactions to fish oil", "Safe with most supplements"],
+    sources: ["Softgels", "Sustainable Antarctic krill"],
+    relatedCompounds: ["Fish Oil", "Astaxanthin", "Phosphatidylcholine"],
+    references: [
+      { pmid: "25052008", title: "Krill oil supplementation for cardiovascular health", authors: "Ulven SM, et al.", journal: "Lipids in Health and Disease", year: 2011 },
+      { pmid: "29518017", title: "Krill oil vs fish oil: bioavailability comparison", authors: "Schuchardt JP, et al.", journal: "Lipids in Health and Disease", year: 2011 }
+    ]
+  },
+  {
+    id: "astaxanthin",
+    name: "Astaxanthin",
+    latinName: "Haematococcus pluvialis extract",
+    category: "Polyphenol",
+    studies: 2800,
+    image: "🔴",
+    description: "Astaxanthin is a carotenoid antioxidant that gives salmon and flamingos their pink color. It's one of the most powerful antioxidants known, able to quench singlet oxygen.",
+    traditionalUse: "Consumed naturally through seafood. Supplementation began in the 2000s as research revealed exceptional antioxidant properties.",
+    keyBenefits: ["Powerful antioxidant", "Skin protection", "Eye health", "Exercise recovery", "Cardiovascular support"],
+    mechanisms: ["Spans cell membrane (unique positioning)", "Quenches singlet oxygen", "Reduces oxidative stress markers", "Supports mitochondrial function"],
+    dosage: "4-12mg daily. Best absorbed with fats. Microalgae source (H. pluvialis) preferred.",
+    safetyNotes: ["Very safe profile", "May turn skin slightly pinkish at high doses", "Sun protection from inside"],
+    interactions: ["May enhance other antioxidants", "Safe with most supplements", "No significant drug interactions"],
+    sources: ["Microalgae extract", "Softgels", "Combined formulas"],
+    relatedCompounds: ["Krill Oil", "Lutein", "Zeaxanthin"],
+    references: [
+      { pmid: "29999440", title: "Astaxanthin: mechanisms of action and health benefits", authors: "Ambati RR, et al.", journal: "Marine Drugs", year: 2014 },
+      { pmid: "30290595", title: "Astaxanthin for skin health", authors: "Davinelli S, et al.", journal: "Marine Drugs", year: 2018 }
+    ]
   }
 ];
 
