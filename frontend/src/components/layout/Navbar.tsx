@@ -55,6 +55,7 @@ const navDropdowns: Record<string, { name: string; href: string }[]> = {
     { name: "View All Compounds", href: "/compounds" },
   ],
   "Integrative Therapies": [
+    { name: "Ayurveda", href: "/ayurveda" },
     { name: "Acupuncture & Energy", href: "/therapies#energetic" },
     { name: "Mind-Body Practices", href: "/therapies#psychotherapy" },
     { name: "Herbal Medicine", href: "/therapies#herbal" },
