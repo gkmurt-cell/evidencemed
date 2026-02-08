@@ -83,6 +83,8 @@ const PubMedSearchPanel = ({
     if (query.trim()) {
       search(query, maxResults, 1, filters);
       onSearchChange?.(query);
+      clearAIResult(); // Clear AI result on new search
+      setShowAIAssist(false);
     }
   };
 
@@ -110,6 +112,21 @@ const PubMedSearchPanel = ({
     if (page >= 1 && page <= totalPages && !isLoading) {
       goToPage(page);
     }
+  };
+
+  // Handle AI-assisted search
+  const handleAISearch = async () => {
+    if (query.trim()) {
+      setShowAIAssist(true);
+      await aiSearch(query, `PubMed returned ${results?.total_count || 0} results`);
+    }
+  };
+
+  // Use AI suggested term for new search
+  const handleAISuggestionClick = (term: string) => {
+    setQuery(term);
+    search(term, maxResults, 1, filters);
+    onSearchChange?.(term);
   };
 
   // Generate page numbers to display
