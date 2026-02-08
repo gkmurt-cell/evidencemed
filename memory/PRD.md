@@ -95,11 +95,40 @@ Transform the EvidenceMed build from Lovable into a high-authority Institutional
 - ✅ Trial signup form connected to real backend API
 - ✅ All forms show proper success/error feedback
 
+### Phase 6 (Feb 2026) - Admin Dashboard & Invite Code System
+- ✅ Admin Dashboard page (/admin) with restricted access
+- ✅ Invite Code System for controlled user registration:
+  - POST /api/admin/invite-codes - Generate invite codes
+  - GET /api/admin/invite-codes - List all invite codes
+  - DELETE /api/admin/invite-codes/{id} - Delete invite codes
+  - GET /api/admin/validate-invite-code?code=XXX - Validate codes
+  - POST /api/auth/register-with-invite - Register with invite code
+- ✅ Invite codes support:
+  - Email assignment (optional)
+  - Institution name
+  - Tier selection (starter, standard, enterprise)
+  - Trial days (7, 14, 30)
+  - Automatic expiration dates
+  - Used/Pending status tracking
+- ✅ Admin Dashboard features:
+  - Generate Invite Code form with all options
+  - Active Invite Codes table with copy/send/delete actions
+  - Trial Requests section with quick "Create Invite" buttons
+- ✅ Auth page updated for invite-only registration:
+  - Invite code field with real-time validation
+  - Shows code validity, tier, trial days, and institution
+  - Disabled submit until code is valid
+
 ## API Endpoints
-- `POST /api/auth/register` - User registration
+- `POST /api/auth/register` - User registration (open)
+- `POST /api/auth/register-with-invite` - Register with invite code
 - `POST /api/auth/login` - User login
 - `GET /api/auth/me` - Get current user (with token)
 - `GET /api/pubmed/search` - Search PubMed database
+- `POST /api/admin/invite-codes` - Create invite code (admin)
+- `GET /api/admin/invite-codes` - List invite codes (admin)
+- `DELETE /api/admin/invite-codes/{id}` - Delete invite code (admin)
+- `GET /api/admin/validate-invite-code` - Validate invite code
 
 ## Prioritized Backlog
 
