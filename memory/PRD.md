@@ -60,6 +60,9 @@ Transform the 'EvidenceMed' build from Lovable platform into a high-authority In
 - [x] Verified pagination working on condition pages
 - [x] Added hover dropdown menus to all navbar items with subcategories
 - [x] Fixed "Back to Conditions" link (was going to homepage, now goes to /conditions)
+- [x] Removed broken "Shop" link from sidebar
+- [x] Added "Where to Find" affiliate section to compound pages (iHerb, Amazon, Vitacost, Thorne, books)
+- [x] Added affiliate disclaimer to footer
 
 ## Navigation Structure
 
