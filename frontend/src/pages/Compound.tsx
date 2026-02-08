@@ -422,23 +422,23 @@ const StudyCard = ({ study }: StudyCardProps) => {
   const evidenceBadge = getEvidenceBadge(study.evidenceLevel);
 
   return (
-    <div className="p-4 rounded-lg border border-border hover:border-primary/30 transition-colors">
-      <div className="flex flex-wrap items-center gap-2 mb-2">
-        <span className="px-2 py-0.5 rounded-full bg-primary/10 text-primary text-xs font-medium">
+    <div className="p-3 rounded-lg border border-border hover:border-primary/30 transition-colors">
+      <div className="flex flex-wrap items-center gap-1.5 mb-1.5">
+        <span className="px-1.5 py-0.5 rounded-full bg-primary/10 text-primary text-[10px] font-medium">
           {study.type}
         </span>
-        <span className={cn("px-2 py-0.5 rounded-full text-xs font-medium border", evidenceBadge.className)}>
+        <span className={cn("px-1.5 py-0.5 rounded-full text-[10px] font-medium border", evidenceBadge.className)}>
           {evidenceBadge.label}
         </span>
       </div>
-      <h4 className="font-medium text-foreground mb-2 line-clamp-2">{study.title}</h4>
-      <p className="text-xs text-muted-foreground mb-3">
+      <h4 className="text-sm font-medium text-foreground mb-1 line-clamp-2">{study.title}</h4>
+      <p className="text-[10px] text-muted-foreground mb-2">
         {study.journal} • {study.year}
       </p>
-      <Button variant="ghost" size="sm" className="w-full" asChild>
+      <Button variant="ghost" size="sm" className="w-full h-7 text-xs" asChild>
         <a href={study.doiUrl} target="_blank" rel="noopener noreferrer">
           View Study
-          <ExternalLink className="w-3 h-3 ml-2" />
+          <ExternalLink className="w-3 h-3 ml-1" />
         </a>
       </Button>
     </div>
