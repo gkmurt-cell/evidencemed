@@ -587,6 +587,9 @@ async def create_trial_request(request: InstitutionalTrialRequest):
     
     logger.info(f"New trial request from {request.institution_name} ({request.contact_email})")
     
+    # Send admin notification email (non-blocking)
+    asyncio.create_task(send_admin_notification_trial_request(trial_doc))
+    
     return {
         "id": trial_id,
         "institution_name": request.institution_name,
