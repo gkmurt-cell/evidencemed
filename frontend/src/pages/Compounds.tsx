@@ -210,24 +210,25 @@ const Compounds = () => {
           </div>
         </section>
 
-        {/* Most Researched Compounds */}
-        <div className="container mx-auto px-4 pt-3 lg:pt-4">
-          <div className="mb-3">
-            <h2 className="font-serif text-lg font-semibold text-foreground mb-0.5">Most Researched Compounds</h2>
-            <p className="text-xs text-muted-foreground">Ranked by volume of published peer-reviewed studies</p>
-          </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 mb-4">
-            {compoundsData
-              .filter((c) => !vitaminCategories.includes(c.category))
-              .sort((a, b) => b.studies - a.studies)
-              .slice(0, 12)
-              .map((compound) => (
-                <Link
-                  key={compound.id}
-                  to={`/compound/${compound.id}`}
-                  className="group flex flex-col items-center p-2 rounded-lg bg-card border border-border hover:border-primary/30 hover:shadow-md transition-all text-center"
-                >
-                  <span className="text-xl mb-0.5">{compound.image}</span>
+        {/* Most Researched Compounds - Only show on main compounds page, not category pages */}
+        {categoryFilter === "All Categories" && (
+          <div className="container mx-auto px-4 pt-3 lg:pt-4">
+            <div className="mb-3">
+              <h2 className="font-serif text-lg font-semibold text-foreground mb-0.5">Most Researched Compounds</h2>
+              <p className="text-xs text-muted-foreground">Ranked by volume of published peer-reviewed studies</p>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 mb-4">
+              {compoundsData
+                .filter((c) => !vitaminCategories.includes(c.category))
+                .sort((a, b) => b.studies - a.studies)
+                .slice(0, 12)
+                .map((compound) => (
+                  <Link
+                    key={compound.id}
+                    to={`/compound/${compound.id}`}
+                    className="group flex flex-col items-center p-2 rounded-lg bg-card border border-border hover:border-primary/30 hover:shadow-md transition-all text-center"
+                  >
+                    <span className="text-xl mb-0.5">{compound.image}</span>
                   <span className="text-xs font-medium text-foreground group-hover:text-primary transition-colors line-clamp-1">
                     {compound.name}
                   </span>
