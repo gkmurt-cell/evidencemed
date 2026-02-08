@@ -124,6 +124,27 @@ Transform the EvidenceMed build from Lovable into a high-authority Institutional
   - Non-blocking async email sending
 - ✅ Fixed duplicate Legal sections in footer
 
+### Phase 7 (Feb 2026) - Complete Backlog Implementation
+- ✅ Password Reset Flow:
+  - POST /api/auth/forgot-password - Send reset link
+  - POST /api/auth/reset-password - Update password with token
+  - Frontend forgot password / reset password UI in Auth page
+  - Tokens expire in 1 hour
+- ✅ Email Verification:
+  - POST /api/auth/send-verification - Send verification email
+  - POST /api/auth/verify-email - Verify with token
+  - User email_verified flag in database
+- ✅ PubMed Search Filters:
+  - date_from and date_to year filters
+  - study_type filter (RCT, Clinical Trial, Meta-Analysis, Review, Observational, Case Report)
+  - Collapsible filter panel in search UI
+  - Apply/Clear filters functionality
+- ✅ Weekly Research Digest:
+  - GET /api/digest/preview - Preview digest content
+  - POST /api/digest/send-test - Send test digest email
+  - POST /api/digest/send-all - Send to all subscribers (for scheduled jobs)
+  - Email templates with article summaries
+
 ## API Endpoints
 - `POST /api/auth/register` - User registration (open)
 - `POST /api/auth/register-with-invite` - Register with invite code
