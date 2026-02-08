@@ -299,4 +299,13 @@ Transform the EvidenceMed build from Lovable into a high-authority Institutional
   - "Verify as Practitioner" button for non-verified users
   - Annotations count stat card
   - Verification status display
+- ✅ Practitioner Directory Page:
+  - New page at /practitioners
+  - Browse all verified practitioners
+  - Search by name, specialty, institution
+  - Filter by Specialty and Credentials
+  - Practitioner cards with badges, bio, annotation count
+  - "Get Verified" CTA section
+  - Navbar link added
+  - API: GET /api/practitioners/directory, GET /api/practitioners/specialties
 
