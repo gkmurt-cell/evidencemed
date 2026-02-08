@@ -63,6 +63,15 @@ Transform the 'EvidenceMed' build from Lovable platform into a high-authority In
 - [x] Removed broken "Shop" link from sidebar
 - [x] Added "Where to Find" affiliate section to compound pages (iHerb, Amazon, Vitacost, Thorne, books)
 - [x] Added affiliate disclaimer to footer
+- [x] Added 29 new compounds (total now 133), including:
+  - Vitamins: C, B12, Folate, E, K2, A, Biotin
+  - Amino Acids: L-Theanine, Creatine
+  - Adaptogens: Rhodiola, Maca
+  - Mushrooms: Cordyceps, Chaga, Reishi
+  - Joint Support: Glucosamine, MSM, Hyaluronic Acid, Collagen
+  - Mitochondrial: Alpha Lipoic Acid, Acetyl-L-Carnitine
+  - Omega-3s: Fish Oil, Krill Oil, Astaxanthin
+  - Others: Melatonin, Quercetin, DHEA, Boswellia, Spirulina, Chlorella
 
 ## Navigation Structure
 
