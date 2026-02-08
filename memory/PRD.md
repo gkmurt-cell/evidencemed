@@ -61,6 +61,27 @@ Transform the EvidenceMed build from Lovable into a high-authority Institutional
 - ✅ Quick Browse by Topic with 10 popular research topics
 - ✅ Additional Research Databases section with external links
 
+### Phase 4 (Jan 2026) - Institutional & High-Authority Features
+- ✅ Removed all "Demo Data" disclaimers from homepage sections
+- ✅ Practitioner Repository page (/practitioner-repository):
+  - Professional-grade supplement suppliers (Fullscript, Wellevate, Natural Partners)
+  - Retail supplement sources (iHerb, Amazon, Thorne, Pure Encapsulations)
+  - Botanical suppliers (Mountain Rose Herbs, Herb Pharm, Gaia Herbs)
+  - Reference Library with clinical textbooks (ISBNs included)
+  - Peer-reviewed journal list with impact factors
+- ✅ Institutional Access page (/institutional-access):
+  - Information for academic medical centers, hospitals, research organizations
+  - Editorial standards and compliance information
+  - Enterprise access features (IP Auth, SSO, API, LTI)
+- ✅ Institutional Pricing page (/institutional-pricing):
+  - Three tiers: Academic ($2,400/yr), Clinical ($4,800/yr), Enterprise (Custom)
+  - 30-day free trial for all plans
+  - Trial signup form with institution details
+  - FAQ section
+  - Page has noindex for subtle discovery
+- ✅ Footer updated with "Institutions" section
+- ✅ Member Resources links to Practitioner Repository (subtle)
+
 ## API Endpoints
 - `POST /api/auth/register` - User registration
 - `POST /api/auth/login` - User login
