@@ -196,12 +196,16 @@ Transform the 'EvidenceMed' build from Lovable platform into a high-authority In
 
 ## Remaining Tasks
 
+### P1 - Higher Priority
+- [ ] Implement real affiliate tracking codes (Amazon Associates, iHerb referral) for "Where to Find" links
+
 ### P2 - Lower Priority
 - [ ] Set up automated scheduler for weekly digest emails
 - [ ] Review charting functionality
 - [ ] Propose collaborative features for practitioners
+- [ ] Create dedicated browsable "Resources" page for books/journals
 
 ### P3 - Backlog
-- [ ] Add more compounds if user requests
+- [ ] Consider migrating compoundData.ts (6600+ lines) to MongoDB for scalability
 - [ ] Performance optimization review
 - [ ] SEO improvements
