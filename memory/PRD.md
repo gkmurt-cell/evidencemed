@@ -79,6 +79,20 @@ Transform the 'EvidenceMed' build from Lovable platform into a high-authority In
 - [x] Added Ayurveda page route (/ayurveda) - comprehensive page with dosha quiz, five elements, constitutional principles
 - [x] Created "Traditional Medicine Systems" featured section on Integrative Therapies page with prominent Ayurveda card
 - [x] Added Ayurveda to navbar dropdown under Integrative Therapies
+- [x] Created comprehensive Traditional Chinese Medicine (TCM) page (`/tcm`) with:
+  - Yin & Yang theory
+  - Five Elements (Wu Xing) with interactive selection
+  - Fundamental Substances (Qi, Blood, Jing, Shen, Body Fluids)
+  - Common TCM Patterns (Pattern Differentiation)
+  - Constitution Assessment quiz
+  - Major TCM Herbs with links to compounds
+  - TCM Treatment Methods (Eight Branches)
+- [x] Added TCM route and navbar dropdown link
+- [x] Made TCM card on Integrative Therapies page clickable
+- [x] Added 11 new TCM herbs & formulas (total compounds now 159):
+  - Dan Shen, San Qi, Huang Qi, Bai Zhu, Fu Ling
+  - Chai Hu, Huang Qin, Gan Cao
+  - Formulas: Dang Gui Bu Xue Tang, Liu Wei Di Huang Wan, Yin Qiao San
 
 ## Navigation Structure
 
