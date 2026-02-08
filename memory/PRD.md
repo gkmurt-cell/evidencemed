@@ -268,3 +268,35 @@ Transform the EvidenceMed build from Lovable into a high-authority Institutional
   - Disclaimer: "AI-generated information should be verified with primary sources"
   - Badge: "Powered by GPT-5.2"
 
+### Phase 12 (Feb 2026) - Practitioner Verification Badge System
+- ✅ Practitioner Verification Request Flow:
+  - Frontend: PractitionerVerification.tsx component with form
+  - Fields: Credentials (MD, DO, ND, DC, etc.), Specialty, License Number, State, Institution, Years of Experience, Bio
+  - API: POST /api/practitioners/verify
+  - Email notification to admin on new requests
+- ✅ Admin Verification Dashboard:
+  - Section in AdminDashboard.tsx showing all verification requests
+  - Filter by status (pending, approved, rejected)
+  - Review dialog with approve/reject buttons
+  - Email notification to user on status change
+  - API: GET/PUT /api/admin/practitioner-verifications
+- ✅ Verified Practitioner Badge:
+  - Emerald badge with Shield icon: "MD • Integrative Medicine"
+  - Displayed on profile and annotations
+  - User field: is_verified_practitioner, practitioner_credentials, practitioner_specialty
+- ✅ Professional Annotations on Compound Pages:
+  - CompoundAnnotations.tsx component
+  - Annotation types:
+    - Research Insight (all users)
+    - Dosage Guidance (all users)
+    - Clinical Note (verified practitioners only)
+    - Safety Alert (verified practitioners only)
+    - Drug Interaction (verified practitioners only)
+  - Visibility options: Members, Practitioners Only, Public
+  - Helpful voting system
+  - API: POST/GET /api/compounds/{id}/annotations
+- ✅ Profile Page Updates:
+  - "Verify as Practitioner" button for non-verified users
+  - Annotations count stat card
+  - Verification status display
+
