@@ -605,6 +605,128 @@ const IntegrativeTherapies = () => {
             </div>
           </section>
 
+          {/* Traditional Medicine Systems - Featured Section */}
+          <section className="py-8 lg:py-12 bg-gradient-to-b from-background to-secondary/20">
+            <div className="container mx-auto px-4">
+              <div className="max-w-5xl mx-auto">
+                <div className="text-center mb-8">
+                  <h2 className="font-serif text-2xl md:text-3xl font-semibold text-foreground mb-3">
+                    Traditional Medicine Systems
+                  </h2>
+                  <p className="text-muted-foreground max-w-2xl mx-auto">
+                    Ancient healing traditions with thousands of years of accumulated knowledge and modern research validation
+                  </p>
+                </div>
+
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {/* Ayurveda - Featured Card */}
+                  <Link 
+                    to="/ayurveda"
+                    className="group md:col-span-2 lg:col-span-1 lg:row-span-2 bg-gradient-to-br from-amber-500/10 via-orange-500/5 to-yellow-500/10 border border-amber-500/20 rounded-2xl p-6 hover:shadow-xl hover:border-amber-500/40 transition-all duration-300"
+                  >
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-12 h-12 rounded-xl bg-amber-500/20 flex items-center justify-center">
+                        <Sun className="w-6 h-6 text-amber-600" />
+                      </div>
+                      <div>
+                        <h3 className="font-serif text-xl font-semibold text-foreground group-hover:text-amber-600 transition-colors">
+                          Ayurveda
+                        </h3>
+                        <p className="text-xs text-amber-600">5,000+ Years of Wisdom</p>
+                      </div>
+                    </div>
+                    <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
+                      Ancient Indian system of medicine emphasizing balance between body, mind, and spirit. 
+                      Discover your dosha (Vata, Pitta, Kapha), explore Panchakarma cleansing, and learn about 
+                      traditional Ayurvedic herbs and treatments.
+                    </p>
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      <Badge variant="secondary" className="text-xs bg-amber-500/10 text-amber-700">Dosha Quiz</Badge>
+                      <Badge variant="secondary" className="text-xs bg-amber-500/10 text-amber-700">Herbal Formulas</Badge>
+                      <Badge variant="secondary" className="text-xs bg-amber-500/10 text-amber-700">Panchakarma</Badge>
+                      <Badge variant="secondary" className="text-xs bg-amber-500/10 text-amber-700">Daily Routines</Badge>
+                    </div>
+                    <div className="flex items-center gap-2 text-amber-600 text-sm font-medium group-hover:gap-3 transition-all">
+                      Explore Ayurveda <ArrowRight className="w-4 h-4" />
+                    </div>
+                  </Link>
+
+                  {/* Traditional Chinese Medicine */}
+                  <div className="bg-card border border-border rounded-xl p-5 hover:shadow-lg hover:border-rose-500/30 transition-all duration-300">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-10 h-10 rounded-lg bg-rose-500/10 flex items-center justify-center">
+                        <Flame className="w-5 h-5 text-rose-500" />
+                      </div>
+                      <h3 className="font-serif text-lg font-semibold text-foreground">Traditional Chinese Medicine</h3>
+                    </div>
+                    <p className="text-sm text-muted-foreground mb-3">
+                      Ancient healing system using acupuncture, herbal formulas, qi gong, and dietary therapy to restore balance and flow of vital energy (Qi).
+                    </p>
+                    <div className="flex flex-wrap gap-1.5">
+                      <Badge variant="outline" className="text-xs">Acupuncture</Badge>
+                      <Badge variant="outline" className="text-xs">Herbal Formulas</Badge>
+                      <Badge variant="outline" className="text-xs">Qi Gong</Badge>
+                    </div>
+                  </div>
+
+                  {/* Naturopathy */}
+                  <div className="bg-card border border-border rounded-xl p-5 hover:shadow-lg hover:border-emerald-500/30 transition-all duration-300">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-10 h-10 rounded-lg bg-emerald-500/10 flex items-center justify-center">
+                        <Leaf className="w-5 h-5 text-emerald-500" />
+                      </div>
+                      <h3 className="font-serif text-lg font-semibold text-foreground">Naturopathic Medicine</h3>
+                    </div>
+                    <p className="text-sm text-muted-foreground mb-3">
+                      Holistic approach using natural therapies to support the body's inherent healing ability. Emphasizes prevention and treating root causes.
+                    </p>
+                    <div className="flex flex-wrap gap-1.5">
+                      <Badge variant="outline" className="text-xs">Botanical Medicine</Badge>
+                      <Badge variant="outline" className="text-xs">Nutrition</Badge>
+                      <Badge variant="outline" className="text-xs">Hydrotherapy</Badge>
+                    </div>
+                  </div>
+
+                  {/* Homeopathy */}
+                  <div className="bg-card border border-border rounded-xl p-5 hover:shadow-lg hover:border-blue-500/30 transition-all duration-300">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center">
+                        <Droplets className="w-5 h-5 text-blue-500" />
+                      </div>
+                      <h3 className="font-serif text-lg font-semibold text-foreground">Homeopathy</h3>
+                    </div>
+                    <p className="text-sm text-muted-foreground mb-3">
+                      System based on "like cures like" using highly diluted substances to stimulate the body's self-healing response.
+                    </p>
+                    <div className="flex flex-wrap gap-1.5">
+                      <Badge variant="outline" className="text-xs">Constitutional</Badge>
+                      <Badge variant="outline" className="text-xs">Acute Care</Badge>
+                      <Badge variant="outline" className="text-xs">200+ Years</Badge>
+                    </div>
+                  </div>
+
+                  {/* Unani Medicine */}
+                  <div className="bg-card border border-border rounded-xl p-5 hover:shadow-lg hover:border-teal-500/30 transition-all duration-300">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-10 h-10 rounded-lg bg-teal-500/10 flex items-center justify-center">
+                        <Moon className="w-5 h-5 text-teal-500" />
+                      </div>
+                      <h3 className="font-serif text-lg font-semibold text-foreground">Unani Medicine</h3>
+                    </div>
+                    <p className="text-sm text-muted-foreground mb-3">
+                      Greco-Arabic medical tradition focusing on the four humors. Uses herbal medicines, dietary regulation, and lifestyle modifications.
+                    </p>
+                    <div className="flex flex-wrap gap-1.5">
+                      <Badge variant="outline" className="text-xs">Four Humors</Badge>
+                      <Badge variant="outline" className="text-xs">Herbal</Badge>
+                      <Badge variant="outline" className="text-xs">Dietary</Badge>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
           {/* Modalities Collapsible Tile */}
           <section className="py-6 lg:py-8">
             <div className="container mx-auto px-4">
