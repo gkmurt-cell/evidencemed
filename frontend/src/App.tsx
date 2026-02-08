@@ -23,6 +23,7 @@ import TermsOfService from "@/pages/TermsOfService";
 import MemberResources from "@/pages/MemberResources";
 import PractitionerRepository from "@/pages/PractitionerRepository";
 import InstitutionalAccess from "@/pages/InstitutionalAccess";
+import InstitutionalPricing from "@/pages/InstitutionalPricing";
 import NotFound from "@/pages/NotFound";
 
 const queryClient = new QueryClient();
