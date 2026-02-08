@@ -14,6 +14,10 @@ const Footer = () => {
       { name: "Advisory Board", href: "/advisory-board", isLink: true },
       { name: "About", href: "/about", isLink: true },
     ],
+    institutions: [
+      { name: "Institutional Access", href: "/institutional-access", isLink: true },
+      { name: "For Practitioners", href: "/practitioner-repository", isLink: true },
+    ],
     legal: [
       { name: "Medical Disclaimer", href: "#disclaimer" },
       { name: "Privacy Policy", href: "/privacy-policy", isLink: true },
