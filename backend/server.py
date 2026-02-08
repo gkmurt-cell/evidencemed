@@ -1715,6 +1715,383 @@ async def register_with_invite(user_data: UserRegisterWithInvite):
     }
 
 # ====================
+# Practitioner Verification Routes
+# ====================
+
+@api_router.post("/practitioners/verify", response_model=PractitionerVerificationResponse)
+async def submit_verification_request(
+    data: PractitionerVerificationRequest,
+    current_user: dict = Depends(get_current_user)
+):
+    """Submit a practitioner verification request"""
+    user_id = current_user["id"]
+    user_email = current_user["email"]
+    
+    # Check if user already has a pending or approved verification
+    existing = await db.practitioner_verifications.find_one({
+        "user_id": user_id,
+        "status": {"$in": ["pending", "approved"]}
+    })
+    
+    if existing:
+        if existing["status"] == "approved":
+            raise HTTPException(status_code=400, detail="You are already a verified practitioner")
+        raise HTTPException(status_code=400, detail="You already have a pending verification request")
+    
+    verification_id = str(uuid.uuid4())
+    submitted_at = datetime.now(timezone.utc).isoformat()
+    
+    verification_doc = {
+        "id": verification_id,
+        "user_id": user_id,
+        "user_email": user_email,
+        "license_number": data.license_number,
+        "license_state": data.license_state,
+        "specialty": data.specialty,
+        "institution": data.institution,
+        "years_experience": data.years_experience,
+        "credentials": data.credentials,
+        "bio": data.bio,
+        "status": "pending",
+        "submitted_at": submitted_at,
+        "reviewed_at": None,
+        "reviewed_by": None,
+        "rejection_reason": None
+    }
+    
+    await db.practitioner_verifications.insert_one(verification_doc)
+    
+    # Send notification to admin
+    admin_email = os.environ.get("ADMIN_EMAIL")
+    resend_key = os.environ.get("RESEND_API_KEY")
+    if resend_key and admin_email:
+        try:
+            import resend
+            resend.api_key = resend_key
+            await asyncio.to_thread(
+                resend.Emails.send,
+                {
+                    "from": os.environ.get("SENDER_EMAIL", "onboarding@resend.dev"),
+                    "to": admin_email,
+                    "subject": f"New Practitioner Verification Request - {data.credentials} {user_email}",
+                    "html": f"""
+                    <h2>New Practitioner Verification Request</h2>
+                    <p><strong>Email:</strong> {user_email}</p>
+                    <p><strong>Credentials:</strong> {data.credentials}</p>
+                    <p><strong>Specialty:</strong> {data.specialty}</p>
+                    <p><strong>License:</strong> {data.license_number} ({data.license_state})</p>
+                    <p><strong>Institution:</strong> {data.institution or 'Not specified'}</p>
+                    <p><strong>Experience:</strong> {data.years_experience or 'Not specified'} years</p>
+                    <br>
+                    <p>Please review this request in the Admin Dashboard.</p>
+                    """
+                }
+            )
+        except Exception as e:
+            logger.error(f"Failed to send admin notification: {e}")
+    
+    logger.info(f"Practitioner verification request submitted by {user_email}")
+    
+    return {
+        "id": verification_id,
+        "user_id": user_id,
+        "user_email": user_email,
+        "license_number": data.license_number,
+        "license_state": data.license_state,
+        "specialty": data.specialty,
+        "institution": data.institution,
+        "credentials": data.credentials,
+        "status": "pending",
+        "submitted_at": submitted_at,
+        "reviewed_at": None,
+        "reviewed_by": None,
+        "rejection_reason": None
+    }
+
+@api_router.get("/practitioners/my-status")
+async def get_my_verification_status(current_user: dict = Depends(get_current_user)):
+    """Get current user's practitioner verification status"""
+    user_id = current_user["id"]
+    
+    verification = await db.practitioner_verifications.find_one(
+        {"user_id": user_id},
+        {"_id": 0}
+    )
+    
+    if not verification:
+        return {"status": "not_submitted", "verification": None}
+    
+    return {"status": verification["status"], "verification": verification}
+
+@api_router.get("/admin/practitioner-verifications", response_model=List[PractitionerVerificationResponse])
+async def get_all_verification_requests(status_filter: Optional[str] = None):
+    """Get all practitioner verification requests (admin only)"""
+    query = {}
+    if status_filter:
+        query["status"] = status_filter
+    
+    verifications = await db.practitioner_verifications.find(query, {"_id": 0}).sort("submitted_at", -1).to_list(1000)
+    return verifications
+
+@api_router.put("/admin/practitioner-verifications/{verification_id}")
+async def review_verification_request(
+    verification_id: str,
+    review: PractitionerVerificationReview
+):
+    """Approve or reject a practitioner verification request (admin only)"""
+    verification = await db.practitioner_verifications.find_one({"id": verification_id})
+    
+    if not verification:
+        raise HTTPException(status_code=404, detail="Verification request not found")
+    
+    if verification["status"] != "pending":
+        raise HTTPException(status_code=400, detail="This request has already been reviewed")
+    
+    reviewed_at = datetime.now(timezone.utc).isoformat()
+    
+    # Update verification status
+    await db.practitioner_verifications.update_one(
+        {"id": verification_id},
+        {
+            "$set": {
+                "status": review.status,
+                "reviewed_at": reviewed_at,
+                "reviewed_by": "admin",
+                "rejection_reason": review.rejection_reason if review.status == "rejected" else None
+            }
+        }
+    )
+    
+    # If approved, update user's verified status
+    if review.status == "approved":
+        await db.users.update_one(
+            {"id": verification["user_id"]},
+            {
+                "$set": {
+                    "is_verified_practitioner": True,
+                    "practitioner_credentials": verification["credentials"],
+                    "practitioner_specialty": verification["specialty"],
+                    "practitioner_verified_at": reviewed_at
+                }
+            }
+        )
+    
+    # Send email notification to user
+    resend_key = os.environ.get("RESEND_API_KEY")
+    if resend_key:
+        try:
+            import resend
+            resend.api_key = resend_key
+            
+            if review.status == "approved":
+                subject = "Congratulations! Your Practitioner Verification is Approved"
+                html_content = f"""
+                <h2>Verification Approved!</h2>
+                <p>Congratulations! Your practitioner verification has been approved.</p>
+                <p>You now have access to:</p>
+                <ul>
+                    <li>Verified Practitioner badge on your profile</li>
+                    <li>Ability to add professional annotations to compound pages</li>
+                    <li>Access to practitioner-only resources</li>
+                </ul>
+                <p>Thank you for being part of our evidence-based medicine community.</p>
+                """
+            else:
+                subject = "Practitioner Verification Update"
+                html_content = f"""
+                <h2>Verification Status Update</h2>
+                <p>Unfortunately, we were unable to verify your practitioner credentials at this time.</p>
+                {f'<p><strong>Reason:</strong> {review.rejection_reason}</p>' if review.rejection_reason else ''}
+                <p>If you believe this is an error, please contact support with additional documentation.</p>
+                """
+            
+            await asyncio.to_thread(
+                resend.Emails.send,
+                {
+                    "from": os.environ.get("SENDER_EMAIL", "onboarding@resend.dev"),
+                    "to": verification["user_email"],
+                    "subject": subject,
+                    "html": html_content
+                }
+            )
+        except Exception as e:
+            logger.error(f"Failed to send verification status email: {e}")
+    
+    logger.info(f"Practitioner verification {verification_id} {review.status}")
+    
+    return {"message": f"Verification {review.status}", "verification_id": verification_id}
+
+# ====================
+# Compound Annotations Routes
+# ====================
+
+@api_router.post("/compounds/{compound_id}/annotations", response_model=CompoundAnnotationResponse)
+async def create_annotation(
+    compound_id: str,
+    data: CompoundAnnotationCreate,
+    current_user: dict = Depends(get_current_user)
+):
+    """Create an annotation on a compound page"""
+    user_id = current_user["id"]
+    
+    # Get user info for author details
+    user = await db.users.find_one({"id": user_id})
+    if not user:
+        raise HTTPException(status_code=404, detail="User not found")
+    
+    is_verified = user.get("is_verified_practitioner", False)
+    
+    # Only verified practitioners can add clinical notes and safety alerts
+    if data.annotation_type in ["clinical_note", "safety_alert", "drug_interaction"] and not is_verified:
+        raise HTTPException(
+            status_code=403, 
+            detail="Only verified practitioners can add clinical notes, safety alerts, or drug interaction annotations"
+        )
+    
+    annotation_id = str(uuid.uuid4())
+    created_at = datetime.now(timezone.utc).isoformat()
+    
+    annotation_doc = {
+        "id": annotation_id,
+        "compound_id": compound_id,
+        "author_id": user_id,
+        "author_name": user.get("email", "Anonymous").split("@")[0],
+        "author_credentials": user.get("practitioner_credentials") if is_verified else None,
+        "is_verified_practitioner": is_verified,
+        "annotation_type": data.annotation_type,
+        "content": data.content,
+        "visibility": data.visibility,
+        "created_at": created_at,
+        "updated_at": None,
+        "helpful_count": 0,
+        "helpful_by": []
+    }
+    
+    await db.compound_annotations.insert_one(annotation_doc)
+    
+    logger.info(f"New annotation created on compound {compound_id} by user {user_id}")
+    
+    return {
+        "id": annotation_id,
+        "compound_id": compound_id,
+        "author_id": user_id,
+        "author_name": annotation_doc["author_name"],
+        "author_credentials": annotation_doc["author_credentials"],
+        "is_verified_practitioner": is_verified,
+        "annotation_type": data.annotation_type,
+        "content": data.content,
+        "visibility": data.visibility,
+        "created_at": created_at,
+        "updated_at": None,
+        "helpful_count": 0
+    }
+
+@api_router.get("/compounds/{compound_id}/annotations", response_model=List[CompoundAnnotationResponse])
+async def get_compound_annotations(
+    compound_id: str,
+    annotation_type: Optional[str] = None,
+    current_user: Optional[dict] = Depends(get_optional_current_user)
+):
+    """Get annotations for a compound"""
+    query = {"compound_id": compound_id}
+    
+    if annotation_type:
+        query["annotation_type"] = annotation_type
+    
+    # Filter by visibility based on user status
+    if current_user:
+        user = await db.users.find_one({"id": current_user["id"]})
+        is_verified = user.get("is_verified_practitioner", False) if user else False
+        
+        if is_verified:
+            # Verified practitioners see all annotations
+            pass
+        else:
+            # Regular members don't see practitioners_only content
+            query["visibility"] = {"$ne": "practitioners_only"}
+    else:
+        # Anonymous users only see public annotations
+        query["visibility"] = "public"
+    
+    annotations = await db.compound_annotations.find(query, {"_id": 0, "helpful_by": 0}).sort("created_at", -1).to_list(100)
+    return annotations
+
+@api_router.post("/annotations/{annotation_id}/helpful")
+async def mark_annotation_helpful(
+    annotation_id: str,
+    current_user: dict = Depends(get_current_user)
+):
+    """Mark an annotation as helpful"""
+    user_id = current_user["id"]
+    
+    annotation = await db.compound_annotations.find_one({"id": annotation_id})
+    if not annotation:
+        raise HTTPException(status_code=404, detail="Annotation not found")
+    
+    helpful_by = annotation.get("helpful_by", [])
+    
+    if user_id in helpful_by:
+        # Remove helpful vote
+        await db.compound_annotations.update_one(
+            {"id": annotation_id},
+            {
+                "$pull": {"helpful_by": user_id},
+                "$inc": {"helpful_count": -1}
+            }
+        )
+        return {"message": "Helpful vote removed", "helpful": False}
+    else:
+        # Add helpful vote
+        await db.compound_annotations.update_one(
+            {"id": annotation_id},
+            {
+                "$push": {"helpful_by": user_id},
+                "$inc": {"helpful_count": 1}
+            }
+        )
+        return {"message": "Marked as helpful", "helpful": True}
+
+@api_router.delete("/annotations/{annotation_id}")
+async def delete_annotation(
+    annotation_id: str,
+    current_user: dict = Depends(get_current_user)
+):
+    """Delete an annotation (only by author or admin)"""
+    user_id = current_user["id"]
+    
+    annotation = await db.compound_annotations.find_one({"id": annotation_id})
+    if not annotation:
+        raise HTTPException(status_code=404, detail="Annotation not found")
+    
+    # Check if user is author or admin
+    user = await db.users.find_one({"id": user_id})
+    is_admin = user.get("role") == "admin" if user else False
+    
+    if annotation["author_id"] != user_id and not is_admin:
+        raise HTTPException(status_code=403, detail="You can only delete your own annotations")
+    
+    await db.compound_annotations.delete_one({"id": annotation_id})
+    
+    return {"message": "Annotation deleted"}
+
+# Helper to get optional current user (for public endpoints that behave differently when logged in)
+async def get_optional_current_user(authorization: Optional[str] = Header(None)):
+    """Get current user if token provided, otherwise return None"""
+    if not authorization or not authorization.startswith("Bearer "):
+        return None
+    
+    token = authorization.split(" ")[1]
+    try:
+        payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+        user_id = payload.get("sub")
+        if user_id:
+            return {"id": user_id}
+    except JWTError:
+        pass
+    
+    return None
+
+# ====================
 # AI-Powered Search Fallback (using OpenAI GPT-5.2)
 # ====================
 
