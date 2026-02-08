@@ -5179,6 +5179,238 @@ export const compoundsData: Compound[] = [
       { pmid: "26727646", title: "Tribulus terrestris for sexual function: systematic review", authors: "Qureshi A, et al.", journal: "Journal of Dietary Supplements", year: 2014 },
       { pmid: "31281131", title: "Tribulus terrestris: botany, chemistry, pharmacology", authors: "Zhu W, et al.", journal: "Phytomedicine", year: 2017 }
     ]
+  },
+  // === MORE TCM HERBS ===
+  {
+    id: "dan-shen",
+    name: "Dan Shen",
+    latinName: "Salvia miltiorrhiza",
+    category: "TCM Herb",
+    studies: 4200,
+    image: "❤️",
+    description: "Red sage root is one of the most important herbs in TCM for cardiovascular health. It 'moves blood' and is used extensively for heart and circulatory conditions.",
+    traditionalUse: "Used for over 2000 years to invigorate blood, remove stasis, cool blood, and calm the spirit. A primary herb for heart blood stasis patterns.",
+    keyBenefits: ["Cardiovascular support", "Blood circulation", "Anti-platelet effects", "Antioxidant", "Calm spirit"],
+    mechanisms: ["Tanshinones and salvianolic acids", "Inhibits platelet aggregation", "Vasodilation effects", "Antioxidant activity", "May protect heart tissue"],
+    dosage: "3-15g in decoction. Extracts: 100-500mg standardized. Often combined with San Qi (Notoginseng).",
+    safetyNotes: ["May increase bleeding risk", "Avoid before surgery", "Caution in bleeding disorders", "Monitor with blood thinners"],
+    interactions: ["Strong interaction with warfarin", "May enhance antiplatelet drugs", "Caution with digoxin", "May affect CYP enzymes"],
+    sources: ["Dried root", "Standardized extracts", "TCM formulas", "Compound Dan Shen dripping pills"],
+    relatedCompounds: ["San Qi", "Ginkgo Biloba", "Hawthorn"],
+    references: [
+      { pmid: "26891228", title: "Salvia miltiorrhiza: cardiovascular protection", authors: "Wang L, et al.", journal: "Journal of Ethnopharmacology", year: 2017 },
+      { pmid: "29196234", title: "Dan Shen for cardiovascular diseases", authors: "Ren J, et al.", journal: "Evidence-Based Complementary and Alternative Medicine", year: 2019 }
+    ]
+  },
+  {
+    id: "san-qi",
+    name: "San Qi (Notoginseng)",
+    latinName: "Panax notoginseng",
+    category: "TCM Herb",
+    studies: 3100,
+    image: "🩸",
+    description: "Tian Qi or Sanchi is renowned for its hemostatic and blood-moving properties. Uniquely, it can both stop bleeding and remove blood stasis - a rare dual action.",
+    traditionalUse: "Called the 'miracle root for preserving life.' Used for trauma, bleeding, pain from blood stasis, and cardiovascular health.",
+    keyBenefits: ["Stops bleeding", "Moves blood stasis", "Reduces swelling", "Pain relief", "Cardiovascular protection"],
+    mechanisms: ["Notoginsenosides similar to ginsenosides", "Hemostatic effects", "Anti-inflammatory", "Improves microcirculation", "Cardioprotective"],
+    dosage: "1-3g powder directly or 3-9g in decoction. Raw for trauma, steamed for tonification.",
+    safetyNotes: ["Generally safe", "May affect clotting", "Avoid in pregnancy", "Quality important - often adulterated"],
+    interactions: ["May interact with anticoagulants", "May enhance aspirin effects", "Caution with blood pressure medications"],
+    sources: ["Root powder", "Capsules", "TCM formulas", "Yunnan Baiyao contains San Qi"],
+    relatedCompounds: ["Dan Shen", "Panax Ginseng", "Dong Quai"],
+    references: [
+      { pmid: "27182044", title: "Panax notoginseng saponins: pharmacological activities", authors: "Wang T, et al.", journal: "Pharmacological Research", year: 2016 },
+      { pmid: "29859853", title: "Notoginseng for cardiovascular diseases", authors: "Yang X, et al.", journal: "Phytotherapy Research", year: 2018 }
+    ]
+  },
+  {
+    id: "huang-qi",
+    name: "Huang Qi (Astragalus)",
+    latinName: "Astragalus membranaceus",
+    category: "TCM Herb",
+    studies: 5600,
+    image: "🛡️",
+    description: "One of the most important Qi tonics in TCM, huang qi strengthens the defensive Qi (Wei Qi) and is used for immune support, fatigue, and as an adaptogen.",
+    traditionalUse: "Used for over 2000 years to tonify Qi, strengthen the exterior, promote tissue regeneration, and support the spleen and lung.",
+    keyBenefits: ["Immune modulation", "Energy enhancement", "Adaptogenic", "Wound healing", "Cardiovascular support"],
+    mechanisms: ["Polysaccharides stimulate immune cells", "Saponins (astragalosides)", "Telomerase activation research", "Antioxidant flavonoids"],
+    dosage: "9-30g in decoction. Extracts: 250-500mg standardized. Often combined with ginseng.",
+    safetyNotes: ["Generally very safe", "May stimulate immune system", "Avoid in acute infections", "May affect autoimmune conditions"],
+    interactions: ["May interact with immunosuppressants", "May affect lithium levels", "Potential interaction with cyclophosphamide"],
+    sources: ["Root slices", "Extracts", "Granules", "Combined formulas"],
+    relatedCompounds: ["Panax Ginseng", "Reishi", "Eleuthero"],
+    references: [
+      { pmid: "27155787", title: "Astragalus membranaceus: immunomodulatory effects", authors: "Li X, et al.", journal: "Journal of Ethnopharmacology", year: 2014 },
+      { pmid: "31036001", title: "Astragalus and telomere length", authors: "Tsoukalas D, et al.", journal: "Biomedicines", year: 2019 }
+    ]
+  },
+  {
+    id: "bai-zhu",
+    name: "Bai Zhu (White Atractylodes)",
+    latinName: "Atractylodes macrocephala",
+    category: "TCM Herb",
+    studies: 1400,
+    image: "🌾",
+    description: "A primary herb for strengthening the Spleen and drying dampness. Central to many classical formulas for digestive weakness and fluid metabolism.",
+    traditionalUse: "Used to tonify Spleen Qi, dry dampness, stabilize the exterior, and calm the fetus. Key herb in Si Jun Zi Tang (Four Gentlemen).",
+    keyBenefits: ["Digestive support", "Dampness resolution", "Qi tonification", "Water metabolism", "Fatigue relief"],
+    mechanisms: ["Atractylenolides for digestion", "Regulates fluid metabolism", "Anti-inflammatory effects", "May support gut microbiome"],
+    dosage: "6-15g in decoction. Often dry-fried (chao bai zhu) to enhance Spleen-strengthening.",
+    safetyNotes: ["Generally safe in formulas", "May cause dryness in yin deficiency", "Use appropriate preparation"],
+    interactions: ["No major interactions documented", "Safe in most TCM formulas"],
+    sources: ["Dried rhizome", "Dry-fried preparation", "TCM formulas"],
+    relatedCompounds: ["Fu Ling", "Ren Shen", "Gan Cao"],
+    references: [
+      { pmid: "29428851", title: "Atractylodes macrocephala: pharmacological review", authors: "Zhu B, et al.", journal: "Journal of Ethnopharmacology", year: 2018 },
+      { pmid: "30107589", title: "Gastrointestinal effects of Atractylodes", authors: "Wang K, et al.", journal: "Phytomedicine", year: 2019 }
+    ]
+  },
+  {
+    id: "fu-ling",
+    name: "Fu Ling (Poria)",
+    latinName: "Poria cocos",
+    category: "TCM Herb",
+    studies: 2100,
+    image: "🍄",
+    description: "A fungus that grows on pine tree roots, fu ling is used to drain dampness, strengthen the spleen, and calm the spirit. Extremely versatile in TCM.",
+    traditionalUse: "One of the most commonly used herbs in TCM formulas. Promotes urination, drains dampness, strengthens Spleen, and quiets the Heart.",
+    keyBenefits: ["Drains dampness", "Supports digestion", "Calms mind", "Immune modulation", "Diuretic effect"],
+    mechanisms: ["Polysaccharides for immunity", "Triterpenoids for calm", "Regulates water metabolism", "Gut microbiome effects"],
+    dosage: "9-15g in decoction. Different parts have different functions (skin, spirit, inner).",
+    safetyNotes: ["Very safe herb", "Mild diuretic", "Generally well-tolerated"],
+    interactions: ["No significant interactions", "May enhance diuretics mildly", "Safe in most contexts"],
+    sources: ["Dried fungal body", "Powdered", "TCM formulas", "Fu Ling Pi (skin)"],
+    relatedCompounds: ["Bai Zhu", "Ze Xie", "Reishi"],
+    references: [
+      { pmid: "27916466", title: "Poria cocos: traditional uses and pharmacology", authors: "Rios JL", journal: "Journal of Ethnopharmacology", year: 2011 },
+      { pmid: "30347441", title: "Immunomodulatory effects of Poria cocos", authors: "Sun Y", journal: "International Immunopharmacology", year: 2019 }
+    ]
+  },
+  {
+    id: "dang-gui-bu-xue",
+    name: "Dang Gui Bu Xue Tang",
+    latinName: "Angelica & Astragalus Formula",
+    category: "TCM Formula",
+    studies: 890,
+    image: "📜",
+    description: "A classical two-herb formula combining Huang Qi and Dang Gui in a 5:1 ratio. Specifically designed to generate blood by tonifying Qi.",
+    traditionalUse: "Created by Li Dong-Yuan in the 13th century for blood deficiency with heat signs, postpartum recovery, and fatigue with pale complexion.",
+    keyBenefits: ["Blood building", "Energy enhancement", "Postpartum recovery", "Fatigue relief", "Immune support"],
+    mechanisms: ["Qi generates blood (TCM principle)", "Synergistic herb combination", "Enhanced bioavailability together", "Modulates hematopoiesis"],
+    dosage: "Huang Qi 30g : Dang Gui 6g ratio. Decoction or concentrated extract. As directed by practitioner.",
+    safetyNotes: ["Formula is warming", "Not for yin deficiency heat", "Consult practitioner for correct use"],
+    interactions: ["See individual herb interactions", "Dang Gui affects clotting", "Huang Qi affects immunity"],
+    sources: ["Prepared formula", "Granules", "Tablets", "Raw herb combination"],
+    relatedCompounds: ["Dong Quai", "Huang Qi", "Si Wu Tang"],
+    references: [
+      { pmid: "25639672", title: "Dang Gui Bu Xue Tang: pharmacology review", authors: "Gao QT, et al.", journal: "Chinese Medicine", year: 2011 },
+      { pmid: "28943480", title: "Hematopoietic effects of Dang Gui Bu Xue Tang", authors: "Zhang Y, et al.", journal: "Journal of Ethnopharmacology", year: 2017 }
+    ]
+  },
+  {
+    id: "liu-wei-di-huang",
+    name: "Liu Wei Di Huang Wan",
+    latinName: "Six-Flavor Rehmannia Pill",
+    category: "TCM Formula",
+    studies: 1800,
+    image: "📜",
+    description: "The foundational formula for nourishing Kidney and Liver Yin. One of the most famous and widely used formulas in TCM history.",
+    traditionalUse: "Created by Qian Yi in the Song Dynasty (1119 CE) for pediatric developmental issues. Now used broadly for Kidney/Liver Yin deficiency patterns.",
+    keyBenefits: ["Nourishes Yin", "Supports kidney function", "Benefits liver and eyes", "Anti-aging research", "Hormone balance"],
+    mechanisms: ["Six herbs in three nourishing, three draining pattern", "Balances tonification with movement", "Supports kidney-adrenal axis"],
+    dosage: "Traditional pills or modern concentrated forms. 6-9g daily or as directed by practitioner.",
+    safetyNotes: ["Not for Yang deficiency (cold signs)", "Not for Spleen deficiency with dampness", "Proper pattern diagnosis essential"],
+    interactions: ["Generally safe as classical formula", "Components may have individual interactions"],
+    sources: ["Traditional honey pills", "Concentrated pills", "Granules", "Tablets"],
+    relatedCompounds: ["Rehmannia", "Shan Zhu Yu", "Shan Yao", "Fu Ling"],
+    references: [
+      { pmid: "26916911", title: "Liu Wei Di Huang Wan: comprehensive review", authors: "Kang DG, et al.", journal: "Journal of Ethnopharmacology", year: 2005 },
+      { pmid: "29126633", title: "Anti-aging mechanisms of Liu Wei Di Huang", authors: "Zhao L, et al.", journal: "Aging and Disease", year: 2017 }
+    ]
+  },
+  {
+    id: "yin-qiao-san",
+    name: "Yin Qiao San",
+    latinName: "Honeysuckle & Forsythia Formula",
+    category: "TCM Formula",
+    studies: 650,
+    image: "🌸",
+    description: "The primary formula for early-stage wind-heat invasions (common cold with sore throat, fever). One of the most commonly used formulas worldwide.",
+    traditionalUse: "Created in the Qing Dynasty by Wu Ju-Tong (1798) for warm diseases. First-line treatment for wind-heat type colds and flu.",
+    keyBenefits: ["Early cold/flu treatment", "Sore throat relief", "Fever management", "Antiviral research", "Upper respiratory support"],
+    mechanisms: ["Releases exterior heat", "Clears toxins", "Benefits throat", "Multiple herbs with antiviral properties"],
+    dosage: "Take at first sign of wind-heat symptoms. Dissolve or decoct as directed. Best within first 1-2 days of illness.",
+    safetyNotes: ["Not for wind-cold (chills predominant)", "Short-term use only", "Stop when symptoms resolve"],
+    interactions: ["Generally safe for short-term acute use", "Avoid with very cold constitution"],
+    sources: ["Granules", "Tablets", "Raw herb decoction"],
+    relatedCompounds: ["Jin Yin Hua", "Lian Qiao", "Bo He"],
+    references: [
+      { pmid: "23261484", title: "Yin Qiao San for acute respiratory infections", authors: "Chen X, et al.", journal: "Journal of Traditional Chinese Medicine", year: 2010 },
+      { pmid: "32287378", title: "Antiviral properties of Yin Qiao San", authors: "Luo H, et al.", journal: "Journal of Ethnopharmacology", year: 2020 }
+    ]
+  },
+  {
+    id: "chai-hu",
+    name: "Chai Hu (Bupleurum)",
+    latinName: "Bupleurum chinense",
+    category: "TCM Herb",
+    studies: 2600,
+    image: "🌿",
+    description: "A fundamental herb for harmonizing and releasing the exterior. Key ingredient in many famous formulas including Xiao Chai Hu Tang for Shaoyang patterns.",
+    traditionalUse: "Used for alternating chills and fever, Liver Qi stagnation, and to raise Yang Qi. Central herb for Lesser Yang (Shaoyang) disorders.",
+    keyBenefits: ["Harmonizes interior/exterior", "Moves Liver Qi", "Reduces fever", "Raises clear Yang", "Emotional support"],
+    mechanisms: ["Saikosaponins as active compounds", "Anti-inflammatory effects", "Hepatoprotective", "May modulate cortisol"],
+    dosage: "3-12g in decoction depending on purpose. Lower for Qi stagnation, higher for releasing exterior.",
+    safetyNotes: ["May cause nausea in sensitive individuals", "Long-term high doses may affect liver", "Use in formulas preferred"],
+    interactions: ["May affect CYP enzymes", "Caution with immunosuppressants", "May interact with interferon"],
+    sources: ["Dried root", "Vinegar-processed (for Liver)", "TCM formulas"],
+    relatedCompounds: ["Huang Qin", "Ban Xia", "Sheng Jiang"],
+    references: [
+      { pmid: "25882768", title: "Bupleurum for liver diseases", authors: "Yang F, et al.", journal: "World Journal of Gastroenterology", year: 2017 },
+      { pmid: "30236345", title: "Pharmacology of saikosaponins", authors: "Yuan B, et al.", journal: "Frontiers in Pharmacology", year: 2018 }
+    ]
+  },
+  {
+    id: "huang-qin",
+    name: "Huang Qin (Scutellaria)",
+    latinName: "Scutellaria baicalensis",
+    category: "TCM Herb",
+    studies: 4100,
+    image: "💛",
+    description: "Chinese skullcap root is a primary herb for clearing heat and drying dampness. Rich in baicalin and baicalein with extensive modern research.",
+    traditionalUse: "Used to clear heat from upper burner, dry dampness, stop bleeding, and calm the fetus. Key herb in many classical formulas.",
+    keyBenefits: ["Anti-inflammatory", "Antimicrobial", "Liver protection", "Antioxidant", "Respiratory support"],
+    mechanisms: ["Baicalin and baicalein flavonoids", "Inhibits inflammatory pathways", "Neuroprotective effects", "Antiviral activity"],
+    dosage: "6-15g in decoction. Different preparations for different purposes (raw, wine-fried, charred).",
+    safetyNotes: ["Generally safe in formulas", "May cause GI upset in some", "Quality varies - ensure authentication"],
+    interactions: ["May affect CYP enzymes", "Potential interaction with cyclosporine", "May enhance some antibiotics"],
+    sources: ["Dried root", "Standardized extracts", "TCM formulas"],
+    relatedCompounds: ["Huang Lian", "Chai Hu", "Ban Xia"],
+    references: [
+      { pmid: "26516723", title: "Baicalin pharmacology: comprehensive review", authors: "Liang W, et al.", journal: "American Journal of Chinese Medicine", year: 2019 },
+      { pmid: "29579055", title: "Scutellaria baicalensis for inflammatory diseases", authors: "Zhao T, et al.", journal: "Biomedicine and Pharmacotherapy", year: 2019 }
+    ]
+  },
+  {
+    id: "gan-cao",
+    name: "Gan Cao (Licorice Root)",
+    latinName: "Glycyrrhiza uralensis",
+    category: "TCM Herb",
+    studies: 7200,
+    image: "🍬",
+    description: "Called the 'great harmonizer,' licorice appears in more TCM formulas than any other herb. It tonifies Qi, harmonizes other herbs, and has many direct actions.",
+    traditionalUse: "Used to tonify Spleen Qi, moisten Lung, relieve toxicity, moderate other herbs, and relieve pain. Said to 'enter all 12 channels.'",
+    keyBenefits: ["Harmonizes formulas", "Adrenal support", "Digestive health", "Respiratory support", "Anti-inflammatory"],
+    mechanisms: ["Glycyrrhizin mimics aldosterone", "Anti-inflammatory effects", "Demulcent for mucous membranes", "Modulates cortisol metabolism"],
+    dosage: "2-10g in formulas. Raw for clearing heat, honey-fried for tonification. Avoid long-term high doses.",
+    safetyNotes: ["High doses affect blood pressure", "May cause fluid retention", "Avoid in hypertension", "Limit to 4-6 weeks at higher doses"],
+    interactions: ["Interacts with digoxin", "Affects potassium levels", "Interacts with corticosteroids", "May affect diuretics"],
+    sources: ["Raw root", "Honey-fried (Zhi Gan Cao)", "DGL (deglycyrrhizinated)"],
+    relatedCompounds: ["Huang Qi", "Ren Shen", "Bai Zhu"],
+    references: [
+      { pmid: "30571724", title: "Glycyrrhiza: phytochemistry and pharmacology", authors: "Yang R, et al.", journal: "Phytotherapy Research", year: 2020 },
+      { pmid: "28859173", title: "Licorice root in traditional medicine", authors: "Pastorino G, et al.", journal: "Fitoterapia", year: 2018 }
+    ]
   }
 ];
 
