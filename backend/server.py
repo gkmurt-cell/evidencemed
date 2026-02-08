@@ -92,6 +92,48 @@ class PubMedSearchResponse(BaseModel):
     total_count: int
     query: str
 
+# Institutional Trial Request Model
+class InstitutionalTrialRequest(BaseModel):
+    institution_name: str
+    institution_type: Optional[str] = None
+    department: Optional[str] = None
+    contact_name: str
+    contact_email: EmailStr
+    number_of_users: str
+    message: Optional[str] = None
+
+class InstitutionalTrialResponse(BaseModel):
+    id: str
+    institution_name: str
+    contact_email: str
+    status: str
+    created_at: str
+
+# Research Digest Subscription Model
+class ResearchDigestSubscription(BaseModel):
+    email: EmailStr
+    frequency: str = "weekly"  # weekly, daily
+    topics: List[str] = []
+
+class ResearchDigestResponse(BaseModel):
+    id: str
+    email: str
+    frequency: str
+    topics: List[str]
+    status: str
+    created_at: str
+
+# Research Alert Model (for backend storage)
+class ResearchAlertCreate(BaseModel):
+    query: str
+
+class ResearchAlertResponse(BaseModel):
+    id: str
+    user_id: str
+    query: str
+    enabled: bool
+    created_at: str
+
 # ====================
 # Auth Utilities
 # ====================
