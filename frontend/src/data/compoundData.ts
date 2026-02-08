@@ -5411,6 +5411,217 @@ export const compoundsData: Compound[] = [
       { pmid: "30571724", title: "Glycyrrhiza: phytochemistry and pharmacology", authors: "Yang R, et al.", journal: "Phytotherapy Research", year: 2020 },
       { pmid: "28859173", title: "Licorice root in traditional medicine", authors: "Pastorino G, et al.", journal: "Fitoterapia", year: 2018 }
     ]
+  },
+  // === WESTERN HERBS / NATUROPATHIC ===
+  {
+    id: "echinacea",
+    name: "Echinacea",
+    latinName: "Echinacea purpurea",
+    category: "Western Herb",
+    studies: 5200,
+    image: "🌸",
+    description: "Purple coneflower is one of the most popular immune-supporting herbs in Western herbalism. Used for colds, flu, and general immune enhancement.",
+    traditionalUse: "Used by Native Americans for centuries for infections and wounds. Became popular in Germany and then the US for immune support.",
+    keyBenefits: ["Immune stimulation", "Cold/flu duration reduction", "Upper respiratory support", "Wound healing", "Anti-inflammatory"],
+    mechanisms: ["Stimulates phagocytosis", "Increases white blood cell activity", "Contains alkylamides and polysaccharides", "Modulates cytokine production"],
+    dosage: "300-500mg standardized extract 3x daily at onset of symptoms. Tincture: 2-3ml 3x daily. Best used short-term.",
+    safetyNotes: ["Generally safe short-term", "Allergic reactions possible (daisy family)", "Avoid in autoimmune conditions", "Not for long-term use"],
+    interactions: ["May interact with immunosuppressants", "Theoretical CYP interaction", "Avoid with autoimmune drugs"],
+    sources: ["Root and aerial parts", "Standardized extracts", "Tinctures", "Teas"],
+    relatedCompounds: ["Elderberry", "Astragalus", "Andrographis"],
+    references: [
+      { pmid: "24554461", title: "Echinacea for preventing and treating the common cold", authors: "Karsch-Völk M, et al.", journal: "Cochrane Database of Systematic Reviews", year: 2014 },
+      { pmid: "29168225", title: "Echinacea purpurea: pharmacology and clinical applications", authors: "Manayi A, et al.", journal: "Pharmacognosy Reviews", year: 2015 }
+    ]
+  },
+  {
+    id: "st-johns-wort",
+    name: "St. John's Wort",
+    latinName: "Hypericum perforatum",
+    category: "Western Herb",
+    studies: 6800,
+    image: "🌻",
+    description: "One of the most researched herbal medicines for mild-moderate depression. Named for blooming around St. John's Day (June 24).",
+    traditionalUse: "Used since ancient Greece for 'melancholia.' Also traditionally used topically for wounds and nerve pain.",
+    keyBenefits: ["Mood support", "Mild-moderate depression", "Anxiety", "Nerve pain (topical)", "Seasonal affective disorder"],
+    mechanisms: ["Inhibits reuptake of serotonin, dopamine, norepinephrine", "Contains hypericin and hyperforin", "MAO inhibition (mild)", "GABA modulation"],
+    dosage: "300mg standardized to 0.3% hypericin, 3x daily. Effects take 4-6 weeks. Standardization important.",
+    safetyNotes: ["Photosensitivity possible", "Many drug interactions", "Not for severe depression", "Avoid in bipolar disorder"],
+    interactions: ["Major interactions with many drugs", "Reduces effectiveness of birth control, HIV meds, warfarin", "Serotonin syndrome risk with SSRIs", "Affects CYP3A4"],
+    sources: ["Standardized extracts", "Tinctures", "Capsules", "Topical oils"],
+    relatedCompounds: ["SAMe", "Rhodiola", "Saffron"],
+    references: [
+      { pmid: "27898240", title: "St. John's Wort for major depression", authors: "Linde K, et al.", journal: "Cochrane Database of Systematic Reviews", year: 2008 },
+      { pmid: "29958286", title: "Hypericum perforatum: pharmacology and drug interactions", authors: "Russo E, et al.", journal: "Fitoterapia", year: 2014 }
+    ]
+  },
+  {
+    id: "saw-palmetto",
+    name: "Saw Palmetto",
+    latinName: "Serenoa repens",
+    category: "Western Herb",
+    studies: 3100,
+    image: "🌴",
+    description: "Berry extract from a small palm native to southeastern US. One of the most commonly used herbs for prostate health and BPH symptoms.",
+    traditionalUse: "Used by Native Americans and early settlers as a general tonic and for urinary/reproductive issues. Widely used in Europe for BPH.",
+    keyBenefits: ["Prostate health", "BPH symptom relief", "Urinary flow support", "5-alpha reductase inhibition", "Anti-inflammatory"],
+    mechanisms: ["Inhibits 5-alpha reductase (like finasteride)", "Anti-inflammatory effects", "Antiandrogenic activity", "Affects growth factors"],
+    dosage: "320mg standardized extract daily (85-95% fatty acids). May take 4-6 weeks for effect.",
+    safetyNotes: ["Generally well-tolerated", "Mild GI effects possible", "Does not affect PSA like finasteride", "Rare liver concerns reported"],
+    interactions: ["May interact with anticoagulants", "Theoretical interaction with hormone therapies", "May affect finasteride efficacy"],
+    sources: ["Liposterolic extracts", "Capsules", "Softgels"],
+    relatedCompounds: ["Pygeum", "Nettle Root", "Beta-Sitosterol"],
+    references: [
+      { pmid: "22419320", title: "Serenoa repens for benign prostatic hyperplasia", authors: "Tacklind J, et al.", journal: "Cochrane Database of Systematic Reviews", year: 2012 },
+      { pmid: "27043902", title: "Saw palmetto: systematic review and meta-analysis", authors: "Pagano E, et al.", journal: "Maturitas", year: 2014 }
+    ]
+  },
+  {
+    id: "black-cohosh",
+    name: "Black Cohosh",
+    latinName: "Actaea racemosa",
+    category: "Western Herb",
+    studies: 2400,
+    image: "🌿",
+    description: "Native American herb now widely used for menopausal symptoms, particularly hot flashes. Does not appear to act as a phytoestrogen.",
+    traditionalUse: "Used by Native Americans for menstrual and menopausal issues, rheumatism, and as 'squaw root.' Popular in Germany since 1950s.",
+    keyBenefits: ["Hot flash reduction", "Menopausal support", "Mood during menopause", "Sleep support", "Joint discomfort"],
+    mechanisms: ["Does not bind estrogen receptors directly", "May affect serotonin receptors", "Triterpene glycosides active", "Central nervous system effects"],
+    dosage: "20-40mg standardized extract (2.5% triterpene glycosides) twice daily. May take 4-8 weeks.",
+    safetyNotes: ["Generally safe up to 6 months", "Rare liver toxicity reports", "Avoid in hormone-sensitive conditions (precautionary)", "GI upset possible"],
+    interactions: ["Caution with hepatotoxic drugs", "May interact with hormone therapies", "Possible interaction with CYP2D6 substrates"],
+    sources: ["Standardized extracts", "Tinctures", "Capsules"],
+    relatedCompounds: ["Red Clover", "Dong Quai", "Vitex"],
+    references: [
+      { pmid: "22972105", title: "Black cohosh for menopausal symptoms", authors: "Leach MJ, Moore V", journal: "Cochrane Database of Systematic Reviews", year: 2012 },
+      { pmid: "21870310", title: "Cimicifuga racemosa: clinical evidence", authors: "Shams T, et al.", journal: "Drug Safety", year: 2010 }
+    ]
+  },
+  {
+    id: "hawthorn",
+    name: "Hawthorn",
+    latinName: "Crataegus species",
+    category: "Western Herb",
+    studies: 3400,
+    image: "❤️",
+    description: "Traditional European heart tonic used for centuries. Modern research supports use in mild heart failure and cardiovascular support.",
+    traditionalUse: "Used in European folk medicine for heart conditions since the 1st century. Major cardiovascular herb in Western herbalism.",
+    keyBenefits: ["Heart function support", "Mild heart failure (NYHA I-II)", "Blood pressure support", "Antioxidant", "Circulation"],
+    mechanisms: ["Positive inotropic effect", "Vasodilation via nitric oxide", "Antioxidant flavonoids", "ACE inhibition (mild)", "Cardioprotective"],
+    dosage: "160-900mg standardized extract (1.8% vitexin or 18-20% procyanidins) daily in divided doses.",
+    safetyNotes: ["Very safe for long-term use", "May take weeks to months for effect", "Professional monitoring for heart conditions"],
+    interactions: ["May enhance cardiac glycosides (digoxin)", "May potentiate blood pressure medications", "Additive with other cardiac herbs"],
+    sources: ["Berry, leaf, and flower extracts", "Standardized extracts", "Tinctures"],
+    relatedCompounds: ["CoQ10", "Dan Shen", "Motherwort"],
+    references: [
+      { pmid: "18254076", title: "Hawthorn extract for treating chronic heart failure", authors: "Pittler MH, et al.", journal: "Cochrane Database of Systematic Reviews", year: 2008 },
+      { pmid: "20491549", title: "Crataegus special extract WS 1442 for heart failure", authors: "Holubarsch CJ, et al.", journal: "European Journal of Heart Failure", year: 2008 }
+    ]
+  },
+  {
+    id: "valerian",
+    name: "Valerian",
+    latinName: "Valeriana officinalis",
+    category: "Western Herb",
+    studies: 3800,
+    image: "😴",
+    description: "One of the most popular herbal sleep aids in Europe and North America. Has a distinctive strong odor from valeric acid.",
+    traditionalUse: "Used since ancient Greece and Rome for insomnia and nervousness. Name may derive from Latin 'valere' (to be strong/healthy).",
+    keyBenefits: ["Sleep onset support", "Sleep quality", "Anxiety reduction", "Relaxation", "Muscle tension"],
+    mechanisms: ["GABA-A receptor modulation", "Inhibits GABA breakdown", "Contains valerenic acid and valepotriates", "Adenosine receptor effects"],
+    dosage: "300-600mg standardized extract 30-60 minutes before bed. May take 2-4 weeks for full effect.",
+    safetyNotes: ["Generally safe", "Morning grogginess possible at high doses", "Avoid combining with sedatives/alcohol", "Withdrawal after long-term use possible"],
+    interactions: ["May enhance sedatives and alcohol", "Potential interaction with anesthesia", "May interact with CYP3A4 substrates"],
+    sources: ["Root extracts", "Standardized extracts", "Tinctures", "Teas", "Combination formulas"],
+    relatedCompounds: ["Passionflower", "Hops", "Lemon Balm", "Kava"],
+    references: [
+      { pmid: "17145239", title: "Valerian for sleep: systematic review", authors: "Bent S, et al.", journal: "American Journal of Medicine", year: 2006 },
+      { pmid: "21399726", title: "Valerian for anxiety and sleep disorders", authors: "Fernández-San-Martín MI, et al.", journal: "Sleep Medicine Reviews", year: 2010 }
+    ]
+  },
+  {
+    id: "ginkgo-biloba",
+    name: "Ginkgo Biloba",
+    latinName: "Ginkgo biloba",
+    category: "Longevity Compound",
+    studies: 8900,
+    image: "🍃",
+    description: "Extract from the oldest living tree species, used extensively for cognitive function, circulation, and as an antioxidant.",
+    traditionalUse: "Ginkgo trees have existed for 270 million years. Leaves used in TCM, seeds more traditionally. Modern leaf extract developed in Germany.",
+    keyBenefits: ["Cognitive support", "Memory and focus", "Circulation (especially peripheral)", "Antioxidant", "Eye health"],
+    mechanisms: ["Flavonoids and terpene lactones", "Improves blood flow", "Antioxidant protection", "Platelet-activating factor inhibition", "Neuroprotective"],
+    dosage: "120-240mg standardized extract (24% flavone glycosides, 6% terpene lactones) daily in divided doses.",
+    safetyNotes: ["Generally safe", "May increase bleeding risk", "Headache possible initially", "Quality important - avoid whole leaf"],
+    interactions: ["May enhance anticoagulants/antiplatelets", "May interact with seizure medications", "Caution with MAO inhibitors"],
+    sources: ["Standardized leaf extracts (EGb 761)", "Capsules", "Tablets"],
+    relatedCompounds: ["Bacopa", "Phosphatidylserine", "Vinpocetine"],
+    references: [
+      { pmid: "19160124", title: "Ginkgo biloba for cognitive impairment and dementia", authors: "Birks J, Grimley Evans J", journal: "Cochrane Database of Systematic Reviews", year: 2009 },
+      { pmid: "21802920", title: "Ginkgo biloba: mechanisms of action", authors: "Maclennan KM, et al.", journal: "Progress in Neurobiology", year: 2002 }
+    ]
+  },
+  {
+    id: "kava",
+    name: "Kava",
+    latinName: "Piper methysticum",
+    category: "Western Herb",
+    studies: 2100,
+    image: "🥥",
+    description: "Pacific Island ceremonial drink with potent anxiolytic effects. One of the most effective natural anxiolytics, though liver safety debated.",
+    traditionalUse: "Central to Pacific Islander culture for thousands of years. Used ceremonially and socially. Traditional preparation uses water extraction of root.",
+    keyBenefits: ["Anxiety reduction", "Relaxation without sedation", "Muscle relaxation", "Social ease", "Sleep support"],
+    mechanisms: ["Kavalactones affect GABA receptors", "Sodium channel modulation", "Does not impair cognition like benzodiazepines", "Dopamine modulation"],
+    dosage: "100-250mg kavalactones daily for anxiety. Traditional preparation may be safer than extracts. Use noble cultivars only.",
+    safetyNotes: ["Liver toxicity concerns (mostly with poor-quality extracts)", "Use noble varieties, water-based extracts", "Avoid with alcohol", "Dermopathy with heavy use"],
+    interactions: ["May enhance sedatives and alcohol", "Potential CYP450 interactions", "Avoid with hepatotoxic drugs", "May affect Parkinson's medications"],
+    sources: ["Noble cultivar roots", "Water-based extracts", "Traditional preparation"],
+    relatedCompounds: ["Valerian", "Passionflower", "L-Theanine"],
+    references: [
+      { pmid: "23635869", title: "Kava for generalized anxiety disorder", authors: "Sarris J, et al.", journal: "Journal of Clinical Psychopharmacology", year: 2013 },
+      { pmid: "26805946", title: "Kava hepatotoxicity: risks and regulatory status", authors: "Teschke R, et al.", journal: "British Journal of Clinical Pharmacology", year: 2013 }
+    ]
+  },
+  {
+    id: "andrographis",
+    name: "Andrographis",
+    latinName: "Andrographis paniculata",
+    category: "Herbal Compound",
+    studies: 2800,
+    image: "🌿",
+    description: "Called 'King of Bitters' in Ayurveda, andrographis is used for immune support and respiratory infections. Grows in India and Southeast Asia.",
+    traditionalUse: "Used in Ayurveda and Traditional Chinese Medicine for infectious diseases. Called Chuan Xin Lian in TCM for clearing heat and toxins.",
+    keyBenefits: ["Immune support", "Upper respiratory infections", "Cold/flu symptoms", "Anti-inflammatory", "Liver protection"],
+    mechanisms: ["Andrographolides enhance immune function", "Anti-inflammatory via NF-kB", "Antiviral activity", "Hepatoprotective effects"],
+    dosage: "400mg standardized to 10% andrographolides, 3x daily for acute infections. Take at first sign of illness.",
+    safetyNotes: ["Very bitter taste", "GI upset possible", "Avoid in pregnancy (animal studies show concern)", "Short-term use for acute conditions"],
+    interactions: ["May enhance anticoagulants", "May affect blood pressure medications", "Potential interaction with immunosuppressants"],
+    sources: ["Standardized extracts", "Combination cold formulas (Kan Jang)", "Tinctures"],
+    relatedCompounds: ["Echinacea", "Elderberry", "Astragalus"],
+    references: [
+      { pmid: "22006428", title: "Andrographis paniculata for respiratory tract infections", authors: "Coon JT, Ernst E", journal: "Planta Medica", year: 2004 },
+      { pmid: "29158945", title: "Andrographolide: mechanisms and therapeutic potential", authors: "Dai Y, et al.", journal: "Natural Product Reports", year: 2011 }
+    ]
+  },
+  {
+    id: "milk-thistle",
+    name: "Milk Thistle",
+    latinName: "Silybum marianum",
+    category: "Western Herb",
+    studies: 5100,
+    image: "🌸",
+    description: "The most researched herb for liver protection. Silymarin extract protects hepatocytes and supports liver regeneration.",
+    traditionalUse: "Used for liver and gallbladder disorders since ancient Greece. Named for white veins on leaves, said to be from Virgin Mary's milk.",
+    keyBenefits: ["Liver protection", "Hepatocyte regeneration", "Antioxidant in liver", "Toxin protection", "Metabolic support"],
+    mechanisms: ["Silymarin complex (silybin primary)", "Stabilizes hepatocyte membranes", "Stimulates protein synthesis", "Inhibits lipid peroxidation", "Anti-fibrotic"],
+    dosage: "200-400mg silymarin (standardized to 70-80% silymarin) daily. Phosphatidylcholine complex for better absorption.",
+    safetyNotes: ["Extremely safe", "Mild GI effects rarely", "May lower blood sugar slightly", "Safe for long-term use"],
+    interactions: ["May affect CYP enzymes", "May interact with some diabetes medications", "Generally very few interactions"],
+    sources: ["Standardized silymarin extracts", "Phytosome formulas", "Capsules", "Tinctures"],
+    relatedCompounds: ["NAC", "Alpha Lipoic Acid", "Schisandra"],
+    references: [
+      { pmid: "28765268", title: "Silymarin for liver diseases: systematic review", authors: "Achufusi TGO, et al.", journal: "Journal of Clinical Gastroenterology", year: 2017 },
+      { pmid: "20564545", title: "Milk thistle: effects on liver disease and cirrhosis", authors: "Abenavoli L, et al.", journal: "Phytotherapy Research", year: 2010 }
+    ]
   }
 ];
 
