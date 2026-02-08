@@ -58,6 +58,8 @@ Transform the 'EvidenceMed' build from Lovable platform into a high-authority In
 - [x] Moved "Methodology" from navbar to footer
 - [x] Verified condition pages bug fix (articles now display correctly)
 - [x] Verified pagination working on condition pages
+- [x] Added hover dropdown menus to all navbar items with subcategories
+- [x] Fixed "Back to Conditions" link (was going to homepage, now goes to /conditions)
 
 ## Navigation Structure
 
