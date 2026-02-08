@@ -335,6 +335,126 @@ async def send_admin_notification_trial_request(request_data: dict):
     
     await send_email(ADMIN_EMAIL, f"New Trial Request: {request_data.get('institution_name', 'Unknown')}", html_content)
 
+async def send_password_reset_email(user_email: str, reset_token: str):
+    """Send password reset email"""
+    reset_url = f"https://medresearch-4.preview.emergentagent.com/auth?reset_token={reset_token}"
+    
+    html_content = f"""
+    <div style="font-family: Georgia, serif; max-width: 600px; margin: 0 auto; padding: 20px;">
+        <div style="text-align: center; margin-bottom: 30px;">
+            <div style="display: inline-block; width: 50px; height: 50px; background-color: #1e3a5f; border-radius: 8px; line-height: 50px; color: white; font-size: 24px; font-weight: bold;">E</div>
+            <h1 style="color: #1e3a5f; margin: 10px 0 0 0;">EvidenceMed Archive</h1>
+        </div>
+        
+        <h2 style="color: #333;">Password Reset Request</h2>
+        
+        <p style="color: #555; line-height: 1.6;">
+            We received a request to reset your password. Click the button below to create a new password.
+            This link will expire in 1 hour.
+        </p>
+        
+        <div style="text-align: center; margin: 30px 0;">
+            <a href="{reset_url}" 
+               style="display: inline-block; background-color: #1e3a5f; color: white; padding: 12px 30px; text-decoration: none; border-radius: 6px; font-weight: bold;">
+                Reset Password
+            </a>
+        </div>
+        
+        <p style="color: #888; font-size: 12px;">
+            If you didn't request this, you can safely ignore this email. Your password will remain unchanged.
+        </p>
+        
+        <p style="color: #888; font-size: 12px; text-align: center; margin-top: 40px; border-top: 1px solid #eee; padding-top: 20px;">
+            © {datetime.now().year} EvidenceMed Archive. All rights reserved.
+        </p>
+    </div>
+    """
+    
+    await send_email(user_email, "Reset Your EvidenceMed Password", html_content)
+
+async def send_verification_email(user_email: str, verification_token: str):
+    """Send email verification"""
+    verify_url = f"https://medresearch-4.preview.emergentagent.com/auth?verify_token={verification_token}"
+    
+    html_content = f"""
+    <div style="font-family: Georgia, serif; max-width: 600px; margin: 0 auto; padding: 20px;">
+        <div style="text-align: center; margin-bottom: 30px;">
+            <div style="display: inline-block; width: 50px; height: 50px; background-color: #1e3a5f; border-radius: 8px; line-height: 50px; color: white; font-size: 24px; font-weight: bold;">E</div>
+            <h1 style="color: #1e3a5f; margin: 10px 0 0 0;">EvidenceMed Archive</h1>
+        </div>
+        
+        <h2 style="color: #333;">Verify Your Email</h2>
+        
+        <p style="color: #555; line-height: 1.6;">
+            Thank you for registering! Please verify your email address by clicking the button below.
+        </p>
+        
+        <div style="text-align: center; margin: 30px 0;">
+            <a href="{verify_url}" 
+               style="display: inline-block; background-color: #1e3a5f; color: white; padding: 12px 30px; text-decoration: none; border-radius: 6px; font-weight: bold;">
+                Verify Email
+            </a>
+        </div>
+        
+        <p style="color: #888; font-size: 12px; text-align: center; margin-top: 40px; border-top: 1px solid #eee; padding-top: 20px;">
+            © {datetime.now().year} EvidenceMed Archive. All rights reserved.
+        </p>
+    </div>
+    """
+    
+    await send_email(user_email, "Verify Your EvidenceMed Email", html_content)
+
+async def send_weekly_digest_email(subscriber_email: str, articles: list, topic: str = "Integrative Medicine"):
+    """Send weekly research digest email"""
+    articles_html = ""
+    for article in articles[:10]:  # Limit to 10 articles
+        articles_html += f"""
+        <div style="border-bottom: 1px solid #eee; padding: 15px 0;">
+            <h3 style="margin: 0 0 8px 0; color: #1e3a5f; font-size: 16px;">
+                <a href="{article.get('pubmed_url', '#')}" style="color: #1e3a5f; text-decoration: none;">
+                    {article.get('title', 'Untitled')}
+                </a>
+            </h3>
+            <p style="margin: 0 0 5px 0; color: #666; font-size: 13px;">
+                {', '.join(article.get('authors', ['Unknown'])[:3])} - {article.get('journal', 'Unknown Journal')} ({article.get('year', '')})
+            </p>
+            <p style="margin: 0; color: #888; font-size: 12px; line-height: 1.5;">
+                {article.get('abstract', '')[:200]}...
+            </p>
+        </div>
+        """
+    
+    html_content = f"""
+    <div style="font-family: Georgia, serif; max-width: 600px; margin: 0 auto; padding: 20px;">
+        <div style="text-align: center; margin-bottom: 30px;">
+            <div style="display: inline-block; width: 50px; height: 50px; background-color: #1e3a5f; border-radius: 8px; line-height: 50px; color: white; font-size: 24px; font-weight: bold;">E</div>
+            <h1 style="color: #1e3a5f; margin: 10px 0 0 0;">EvidenceMed Weekly Digest</h1>
+        </div>
+        
+        <p style="color: #555; line-height: 1.6; text-align: center;">
+            Your weekly roundup of the latest research in {topic}
+        </p>
+        
+        <div style="margin: 20px 0;">
+            {articles_html}
+        </div>
+        
+        <div style="text-align: center; margin: 30px 0;">
+            <a href="https://medresearch-4.preview.emergentagent.com/research" 
+               style="display: inline-block; background-color: #1e3a5f; color: white; padding: 12px 30px; text-decoration: none; border-radius: 6px; font-weight: bold;">
+                Explore More Research
+            </a>
+        </div>
+        
+        <p style="color: #888; font-size: 11px; text-align: center; margin-top: 40px; border-top: 1px solid #eee; padding-top: 20px;">
+            You're receiving this because you subscribed to EvidenceMed Weekly Digest.<br>
+            <a href="https://medresearch-4.preview.emergentagent.com/unsubscribe" style="color: #888;">Unsubscribe</a>
+        </p>
+    </div>
+    """
+    
+    await send_email(subscriber_email, f"Weekly Research Digest: {topic}", html_content)
+
 # ====================
 # Auth Routes
 # ====================
