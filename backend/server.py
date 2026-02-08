@@ -240,6 +240,65 @@ class SaveArticleRequest(BaseModel):
     year: str
 
 # ====================
+# Practitioner Verification Models
+# ====================
+
+class PractitionerVerificationRequest(BaseModel):
+    license_number: str
+    license_state: str
+    specialty: str
+    institution: Optional[str] = None
+    years_experience: Optional[int] = None
+    credentials: str  # e.g., "MD", "DO", "ND", "DC", "LAc", "RD", "PharmD"
+    bio: Optional[str] = None
+
+class PractitionerVerificationResponse(BaseModel):
+    id: str
+    user_id: str
+    user_email: str
+    license_number: str
+    license_state: str
+    specialty: str
+    institution: Optional[str] = None
+    credentials: str
+    status: str  # pending, approved, rejected
+    submitted_at: str
+    reviewed_at: Optional[str] = None
+    reviewed_by: Optional[str] = None
+    rejection_reason: Optional[str] = None
+
+class PractitionerVerificationReview(BaseModel):
+    status: str  # approved, rejected
+    rejection_reason: Optional[str] = None
+
+# ====================
+# Compound Annotation Models
+# ====================
+
+class CompoundAnnotationCreate(BaseModel):
+    compound_id: str
+    annotation_type: str  # clinical_note, research_insight, dosage_guidance, safety_alert, drug_interaction
+    content: str
+    visibility: str = "members"  # members, practitioners_only, public
+
+class CompoundAnnotationResponse(BaseModel):
+    id: str
+    compound_id: str
+    author_id: str
+    author_name: str
+    author_credentials: Optional[str] = None
+    is_verified_practitioner: bool
+    annotation_type: str
+    content: str
+    visibility: str
+    created_at: str
+    updated_at: Optional[str] = None
+    helpful_count: int = 0
+
+class AnnotationHelpfulRequest(BaseModel):
+    annotation_id: str
+
+# ====================
 # Auth Utilities
 # ====================
 
