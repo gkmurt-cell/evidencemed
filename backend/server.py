@@ -1752,7 +1752,7 @@ async def register_with_invite(user_data: UserRegisterWithInvite):
 @api_router.post("/practitioners/verify", response_model=PractitionerVerificationResponse)
 async def submit_verification_request(
     data: PractitionerVerificationRequest,
-    current_user: dict = Depends(get_current_user)
+    current_user: dict = Depends(get_current_user_from_header)
 ):
     """Submit a practitioner verification request"""
     user_id = current_user["id"]
