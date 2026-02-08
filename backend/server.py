@@ -410,7 +410,7 @@ async def send_welcome_email(user_email: str, institution_name: Optional[str] = 
         </ul>
         
         <div style="text-align: center; margin: 30px 0;">
-            <a href="https://healthrepo.preview.emergentagent.com/member-resources" 
+            <a href="https://researchmed.preview.emergentagent.com/member-resources" 
                style="display: inline-block; background-color: #1e3a5f; color: white; padding: 12px 30px; text-decoration: none; border-radius: 6px; font-weight: bold;">
                 Access Member Resources
             </a>
@@ -447,7 +447,7 @@ async def send_admin_notification_trial_request(request_data: dict):
         </div>
         
         <div style="text-align: center; margin: 30px 0;">
-            <a href="https://healthrepo.preview.emergentagent.com/admin" 
+            <a href="https://researchmed.preview.emergentagent.com/admin" 
                style="display: inline-block; background-color: #1e3a5f; color: white; padding: 12px 30px; text-decoration: none; border-radius: 6px; font-weight: bold;">
                 Go to Admin Dashboard
             </a>
@@ -463,7 +463,7 @@ async def send_admin_notification_trial_request(request_data: dict):
 
 async def send_password_reset_email(user_email: str, reset_token: str):
     """Send password reset email"""
-    reset_url = f"https://healthrepo.preview.emergentagent.com/auth?reset_token={reset_token}"
+    reset_url = f"https://researchmed.preview.emergentagent.com/auth?reset_token={reset_token}"
     
     html_content = f"""
     <div style="font-family: Georgia, serif; max-width: 600px; margin: 0 auto; padding: 20px;">
@@ -500,7 +500,7 @@ async def send_password_reset_email(user_email: str, reset_token: str):
 
 async def send_verification_email(user_email: str, verification_token: str):
     """Send email verification"""
-    verify_url = f"https://healthrepo.preview.emergentagent.com/auth?verify_token={verification_token}"
+    verify_url = f"https://researchmed.preview.emergentagent.com/auth?verify_token={verification_token}"
     
     html_content = f"""
     <div style="font-family: Georgia, serif; max-width: 600px; margin: 0 auto; padding: 20px;">
@@ -566,7 +566,7 @@ async def send_weekly_digest_email(subscriber_email: str, articles: list, topic:
         </div>
         
         <div style="text-align: center; margin: 30px 0;">
-            <a href="https://healthrepo.preview.emergentagent.com/research" 
+            <a href="https://researchmed.preview.emergentagent.com/research" 
                style="display: inline-block; background-color: #1e3a5f; color: white; padding: 12px 30px; text-decoration: none; border-radius: 6px; font-weight: bold;">
                 Explore More Research
             </a>
@@ -574,7 +574,7 @@ async def send_weekly_digest_email(subscriber_email: str, articles: list, topic:
         
         <p style="color: #888; font-size: 11px; text-align: center; margin-top: 40px; border-top: 1px solid #eee; padding-top: 20px;">
             You're receiving this because you subscribed to EvidenceMed Weekly Digest.<br>
-            <a href="https://healthrepo.preview.emergentagent.com/unsubscribe" style="color: #888;">Unsubscribe</a>
+            <a href="https://researchmed.preview.emergentagent.com/unsubscribe" style="color: #888;">Unsubscribe</a>
         </p>
     </div>
     """
