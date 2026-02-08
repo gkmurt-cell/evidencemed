@@ -1,4 +1,4 @@
-import { ExternalLink, FlaskConical, TestTube, Users, Microscope } from "lucide-react";
+import { ExternalLink, FlaskConical, TestTube, Users, Microscope, Info } from "lucide-react";
 
 interface StudyTypeLinksProps {
   compoundName: string;
@@ -51,9 +51,11 @@ const buildPubMedUrl = (compoundName: string, latinName: string | undefined, stu
 const StudyTypeLinks = ({ compoundName, latinName }: StudyTypeLinksProps) => {
   return (
     <div className="space-y-2">
-      <p className="text-xs text-muted-foreground mb-3">
-        Explore research by study type on PubMed:
-      </p>
+      <div className="flex items-center gap-2 mb-3">
+        <p className="text-xs text-muted-foreground">
+          Explore research by study type on PubMed:
+        </p>
+      </div>
       <div className="grid grid-cols-2 gap-2">
         {studyTypes.map((studyType) => {
           const Icon = studyType.icon;
@@ -66,6 +68,7 @@ const StudyTypeLinks = ({ compoundName, latinName }: StudyTypeLinksProps) => {
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 p-2.5 rounded-lg bg-muted/50 hover:bg-primary/10 border border-border hover:border-primary/30 transition-all group"
+              title={`Search PubMed for ${compoundName} ${studyType.label}`}
             >
               <Icon className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
               <div className="flex-1 min-w-0">
@@ -73,14 +76,17 @@ const StudyTypeLinks = ({ compoundName, latinName }: StudyTypeLinksProps) => {
                   {studyType.label}
                 </p>
               </div>
-              <ExternalLink className="w-3 h-3 text-muted-foreground group-hover:text-primary opacity-0 group-hover:opacity-100 transition-opacity" />
+              <ExternalLink className="w-3 h-3 text-muted-foreground group-hover:text-primary transition-opacity" />
             </a>
           );
         })}
       </div>
-      <p className="text-[10px] text-muted-foreground mt-2 italic">
-        Links open filtered PubMed searches in a new tab
-      </p>
+      <div className="flex items-start gap-1.5 mt-3 p-2 bg-muted/30 rounded text-[10px] text-muted-foreground">
+        <Info className="w-3 h-3 mt-0.5 flex-shrink-0" />
+        <span>
+          Links open filtered searches on PubMed.gov. Results depend on available published research for each study type.
+        </span>
+      </div>
     </div>
   );
 };
