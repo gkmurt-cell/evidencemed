@@ -134,6 +134,25 @@ class ResearchAlertResponse(BaseModel):
     enabled: bool
     created_at: str
 
+# Invite Code Models
+class InviteCodeCreate(BaseModel):
+    email: Optional[EmailStr] = None
+    institution_name: Optional[str] = None
+    tier: str = "starter"
+    trial_days: int = 7
+
+class InviteCodeResponse(BaseModel):
+    id: str
+    code: str
+    email: Optional[str] = None
+    institution_name: Optional[str] = None
+    tier: str
+    trial_days: int
+    used: bool
+    used_by: Optional[str] = None
+    created_at: str
+    expires_at: str
+
 # ====================
 # Auth Utilities
 # ====================
