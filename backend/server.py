@@ -414,6 +414,182 @@ async def get_status_checks():
             check['timestamp'] = datetime.fromisoformat(check['timestamp'])
     return status_checks
 
+# ====================
+# Institutional Trial Routes
+# ====================
+
+@api_router.post("/institutional/trial-request", response_model=InstitutionalTrialResponse, status_code=status.HTTP_201_CREATED)
+async def create_trial_request(request: InstitutionalTrialRequest):
+    """Submit an institutional trial request"""
+    trial_id = str(uuid.uuid4())
+    created_at = datetime.now(timezone.utc).isoformat()
+    
+    trial_doc = {
+        "id": trial_id,
+        "institution_name": request.institution_name,
+        "institution_type": request.institution_type,
+        "department": request.department,
+        "contact_name": request.contact_name,
+        "contact_email": request.contact_email,
+        "number_of_users": request.number_of_users,
+        "message": request.message,
+        "status": "pending",
+        "created_at": created_at
+    }
+    
+    await db.trial_requests.insert_one(trial_doc)
+    
+    logger.info(f"New trial request from {request.institution_name} ({request.contact_email})")
+    
+    return {
+        "id": trial_id,
+        "institution_name": request.institution_name,
+        "contact_email": request.contact_email,
+        "status": "pending",
+        "created_at": created_at
+    }
+
+@api_router.get("/institutional/trial-requests")
+async def get_trial_requests():
+    """Get all trial requests (admin)"""
+    requests = await db.trial_requests.find({}, {"_id": 0}).to_list(1000)
+    return requests
+
+# ====================
+# Research Digest Routes
+# ====================
+
+@api_router.post("/digest/subscribe", response_model=ResearchDigestResponse, status_code=status.HTTP_201_CREATED)
+async def subscribe_digest(subscription: ResearchDigestSubscription):
+    """Subscribe to research digest emails"""
+    # Check if already subscribed
+    existing = await db.digest_subscriptions.find_one({"email": subscription.email})
+    if existing:
+        # Update existing subscription
+        await db.digest_subscriptions.update_one(
+            {"email": subscription.email},
+            {"$set": {
+                "frequency": subscription.frequency,
+                "topics": subscription.topics,
+                "status": "active",
+                "updated_at": datetime.now(timezone.utc).isoformat()
+            }}
+        )
+        return {
+            "id": existing["id"],
+            "email": subscription.email,
+            "frequency": subscription.frequency,
+            "topics": subscription.topics,
+            "status": "active",
+            "created_at": existing["created_at"]
+        }
+    
+    # Create new subscription
+    sub_id = str(uuid.uuid4())
+    created_at = datetime.now(timezone.utc).isoformat()
+    
+    sub_doc = {
+        "id": sub_id,
+        "email": subscription.email,
+        "frequency": subscription.frequency,
+        "topics": subscription.topics,
+        "status": "active",
+        "created_at": created_at
+    }
+    
+    await db.digest_subscriptions.insert_one(sub_doc)
+    
+    logger.info(f"New digest subscription: {subscription.email} ({subscription.frequency})")
+    
+    return {
+        "id": sub_id,
+        "email": subscription.email,
+        "frequency": subscription.frequency,
+        "topics": subscription.topics,
+        "status": "active",
+        "created_at": created_at
+    }
+
+@api_router.delete("/digest/unsubscribe")
+async def unsubscribe_digest(email: str):
+    """Unsubscribe from research digest"""
+    result = await db.digest_subscriptions.update_one(
+        {"email": email},
+        {"$set": {"status": "unsubscribed", "updated_at": datetime.now(timezone.utc).isoformat()}}
+    )
+    
+    if result.modified_count == 0:
+        raise HTTPException(status_code=404, detail="Subscription not found")
+    
+    return {"message": "Successfully unsubscribed"}
+
+# ====================
+# Research Alerts Routes (Backend Storage)
+# ====================
+
+@api_router.post("/alerts", response_model=ResearchAlertResponse, status_code=status.HTTP_201_CREATED)
+async def create_research_alert(alert: ResearchAlertCreate, token: str):
+    """Create a research alert for a user"""
+    payload = verify_token(token)
+    user_id = payload.get("sub")
+    
+    if not user_id:
+        raise HTTPException(status_code=401, detail="Invalid token")
+    
+    # Check if alert already exists
+    existing = await db.research_alerts.find_one({"user_id": user_id, "query": alert.query})
+    if existing:
+        raise HTTPException(status_code=409, detail="Alert already exists for this query")
+    
+    alert_id = str(uuid.uuid4())
+    created_at = datetime.now(timezone.utc).isoformat()
+    
+    alert_doc = {
+        "id": alert_id,
+        "user_id": user_id,
+        "query": alert.query,
+        "enabled": True,
+        "created_at": created_at
+    }
+    
+    await db.research_alerts.insert_one(alert_doc)
+    
+    return {
+        "id": alert_id,
+        "user_id": user_id,
+        "query": alert.query,
+        "enabled": True,
+        "created_at": created_at
+    }
+
+@api_router.get("/alerts")
+async def get_user_alerts(token: str):
+    """Get all alerts for a user"""
+    payload = verify_token(token)
+    user_id = payload.get("sub")
+    
+    if not user_id:
+        raise HTTPException(status_code=401, detail="Invalid token")
+    
+    alerts = await db.research_alerts.find({"user_id": user_id}, {"_id": 0}).to_list(100)
+    return alerts
+
+@api_router.delete("/alerts/{alert_id}")
+async def delete_research_alert(alert_id: str, token: str):
+    """Delete a research alert"""
+    payload = verify_token(token)
+    user_id = payload.get("sub")
+    
+    if not user_id:
+        raise HTTPException(status_code=401, detail="Invalid token")
+    
+    result = await db.research_alerts.delete_one({"id": alert_id, "user_id": user_id})
+    
+    if result.deleted_count == 0:
+        raise HTTPException(status_code=404, detail="Alert not found")
+    
+    return {"message": "Alert deleted"}
+
 # Include the router
 app.include_router(api_router)
 
