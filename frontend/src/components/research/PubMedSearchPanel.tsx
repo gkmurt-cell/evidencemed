@@ -77,7 +77,7 @@ const PubMedSearchPanel = ({
   };
 
   const handleFilterChange = (key: keyof SearchFilters, value: string) => {
-    const newFilters = { ...filters, [key]: value || undefined };
+    const newFilters = { ...filters, [key]: value === "all" ? undefined : value || undefined };
     setFilters(newFilters);
   };
 
