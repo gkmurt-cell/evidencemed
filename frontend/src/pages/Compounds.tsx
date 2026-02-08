@@ -263,36 +263,36 @@ const CompoundCard = ({ compound }: CompoundCardProps) => {
   return (
     <Link
       to={`/compound/${compound.id}`}
-      className="group relative p-6 rounded-xl bg-card border border-border hover:border-primary/30 hover:shadow-lg transition-all duration-300 overflow-hidden"
+      className="group relative p-4 rounded-lg bg-card border border-border hover:border-primary/30 hover:shadow-lg transition-all duration-300 overflow-hidden"
     >
       {/* Background Decoration */}
-      <div className="absolute top-4 right-4 text-6xl opacity-10 group-hover:opacity-20 transition-opacity">
+      <div className="absolute top-3 right-3 text-5xl opacity-10 group-hover:opacity-20 transition-opacity">
         {compound.image}
       </div>
 
       <div className="relative">
-        <Badge variant="secondary" className="mb-3">
+        <Badge variant="secondary" className="mb-2 text-xs">
           {compound.category}
         </Badge>
-        <h3 className="font-serif text-xl font-semibold text-foreground mb-1 group-hover:text-primary transition-colors">
+        <h3 className="font-serif text-lg font-semibold text-foreground mb-0.5 group-hover:text-primary transition-colors">
           {compound.name}
         </h3>
-        <p className="text-sm text-muted-foreground italic mb-4">{compound.latinName}</p>
+        <p className="text-xs text-muted-foreground italic mb-2">{compound.latinName}</p>
 
         {/* Key Benefits Preview */}
-        <div className="flex flex-wrap gap-2 mb-4">
+        <div className="flex flex-wrap gap-1 mb-3">
           {compound.keyBenefits.slice(0, 3).map((benefit) => (
             <span
               key={benefit}
-              className="px-2 py-1 rounded bg-muted text-xs text-muted-foreground"
+              className="px-1.5 py-0.5 rounded bg-muted text-[10px] text-muted-foreground"
             >
               {benefit}
             </span>
           ))}
         </div>
 
-        <div className="flex items-center justify-between pt-4 border-t border-border">
-          <span className="text-sm font-medium text-primary">{compound.studies} studies</span>
+        <div className="flex items-center justify-between pt-2 border-t border-border">
+          <span className="text-xs font-medium text-primary">{compound.studies} studies</span>
           <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all" />
         </div>
       </div>
