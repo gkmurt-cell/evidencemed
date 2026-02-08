@@ -1655,6 +1655,106 @@ async def register_with_invite(user_data: UserRegisterWithInvite):
         }
     }
 
+# ====================
+# AI-Powered Search Fallback (using OpenAI GPT-5.2)
+# ====================
+
+class AISearchRequest(BaseModel):
+    query: str
+    context: Optional[str] = None  # Additional context from failed search
+
+class AISearchResponse(BaseModel):
+    query: str
+    ai_summary: str
+    suggested_terms: List[str]
+    related_topics: List[str]
+    source: str = "ai_assisted"
+
+@api_router.post("/ai-search", response_model=AISearchResponse)
+@limiter.limit("10/minute")
+async def ai_powered_search(request: Request, data: AISearchRequest):
+    """
+    AI-powered research search fallback when PubMed returns few/no results.
+    Uses OpenAI GPT-5.2 via Emergent LLM integration.
+    """
+    if not data.query.strip():
+        raise HTTPException(status_code=400, detail="Query cannot be empty")
+    
+    emergent_key = os.environ.get('EMERGENT_LLM_KEY')
+    if not emergent_key:
+        raise HTTPException(status_code=503, detail="AI search service not configured")
+    
+    try:
+        from emergentintegrations.llm.chat import LlmChat, UserMessage
+        
+        # Initialize the chat with OpenAI GPT-5.2
+        chat = LlmChat(
+            api_key=emergent_key,
+            session_id=f"ai-search-{uuid.uuid4()}",
+            system_message="""You are a medical research assistant specializing in integrative medicine, 
+            complementary therapies, and natural compounds. Your role is to help researchers find relevant 
+            information when their PubMed searches return limited results.
+            
+            Provide:
+            1. A brief, factual summary of the topic (2-3 sentences)
+            2. Alternative search terms that might yield better PubMed results
+            3. Related topics for broader research exploration
+            
+            Be accurate, cite general scientific consensus, and always remind users this is AI-assisted 
+            information that should be verified with primary sources."""
+        ).with_model("openai", "gpt-5.2")
+        
+        # Create the user message
+        context_info = f"\n\nContext: {data.context}" if data.context else ""
+        user_message = UserMessage(
+            text=f"""A researcher searched for "{data.query}" in PubMed but found limited results.{context_info}
+
+Please provide:
+1. A brief factual summary about "{data.query}" in the context of medical/health research
+2. 3-5 alternative search terms that might yield better PubMed results
+3. 3-5 related research topics they could explore
+
+Format your response as JSON with keys: "summary", "alternative_terms" (array), "related_topics" (array)"""
+        )
+        
+        # Send the message and get the response
+        response = await chat.send_message(user_message)
+        
+        # Parse the response
+        import json
+        import re
+        
+        # Try to extract JSON from the response
+        json_match = re.search(r'\{[\s\S]*\}', response)
+        if json_match:
+            try:
+                parsed = json.loads(json_match.group())
+                return {
+                    "query": data.query,
+                    "ai_summary": parsed.get("summary", response[:500]),
+                    "suggested_terms": parsed.get("alternative_terms", [])[:5],
+                    "related_topics": parsed.get("related_topics", [])[:5],
+                    "source": "ai_assisted"
+                }
+            except json.JSONDecodeError:
+                pass
+        
+        # Fallback: return raw response as summary
+        return {
+            "query": data.query,
+            "ai_summary": response[:500] if len(response) > 500 else response,
+            "suggested_terms": [],
+            "related_topics": [],
+            "source": "ai_assisted"
+        }
+        
+    except ImportError:
+        logger.error("emergentintegrations library not installed")
+        raise HTTPException(status_code=503, detail="AI search service not available")
+    except Exception as e:
+        logger.error(f"AI search error: {e}")
+        raise HTTPException(status_code=500, detail=f"AI search failed: {str(e)}")
+
 # Include the router
 app.include_router(api_router)
 
