@@ -16,6 +16,7 @@ import Compounds from "@/pages/Compounds";
 import CompoundPage from "@/pages/Compound";
 import ConditionPage from "@/pages/Condition";
 import ConditionsPage from "@/pages/Conditions";
+import IntegrativeTherapies from "@/pages/IntegrativeTherapies";
 import EditorialMethodology from "@/pages/EditorialMethodology";
 import AdvisoryBoard from "@/pages/AdvisoryBoard";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
