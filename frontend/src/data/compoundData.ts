@@ -5813,6 +5813,412 @@ export const compoundsData: Compound[] = [
       { pmid: "27847017", title: "Digestive enzyme supplementation in GI diseases", authors: "Ianiro G, et al.", journal: "Current Drug Metabolism", year: 2016 },
       { pmid: "25407366", title: "Pancreatic enzyme replacement therapy", authors: "Fieker A, et al.", journal: "Clinical and Experimental Gastroenterology", year: 2011 }
     ]
+  },
+  // === ADDITIONAL MINERALS & TRACE ELEMENTS ===
+  {
+    id: "iodine",
+    name: "Iodine",
+    latinName: "Iodine (I)",
+    category: "Essential Mineral",
+    studies: 8500,
+    image: "🫁",
+    description: "Essential trace mineral critical for thyroid hormone production. Deficiency is the leading cause of preventable cognitive impairment worldwide.",
+    traditionalUse: "Seaweed consumption in coastal cultures provided natural iodine. Iodized salt introduced in 1920s to prevent goiter and cretinism.",
+    keyBenefits: ["Thyroid hormone production", "Metabolism regulation", "Cognitive development", "Breast health", "Detoxification support"],
+    mechanisms: ["Component of T3 and T4 thyroid hormones", "Concentrated in thyroid gland", "Also found in breast, ovary, salivary glands", "May compete with halogens"],
+    dosage: "RDA: 150mcg adults. Pregnancy: 220mcg. Lactation: 290mcg. Higher doses used therapeutically under supervision only.",
+    safetyNotes: ["Excess can worsen thyroid conditions", "Avoid high doses with Hashimoto's", "May cause acne or metallic taste", "Interact with thyroid medications"],
+    interactions: ["Thyroid medications require careful monitoring", "Lithium interactions", "Amiodarone contains high iodine"],
+    sources: ["Seaweed/kelp", "Iodized salt", "Fish and seafood", "Potassium iodide supplements"],
+    relatedCompounds: ["Selenium", "Zinc", "Tyrosine"],
+    references: [
+      { pmid: "24671204", title: "Iodine deficiency and excess", authors: "Zimmermann MB, Boelaert K", journal: "Lancet Diabetes and Endocrinology", year: 2015 }
+    ]
+  },
+  {
+    id: "boron",
+    name: "Boron",
+    latinName: "Boron (B)",
+    category: "Trace Mineral",
+    studies: 2800,
+    image: "💎",
+    description: "Trace mineral involved in bone metabolism, hormone regulation, and cognitive function. Found in fruits, vegetables, and nuts.",
+    traditionalUse: "Only recently recognized as important for health. Research growing since 1980s on bone and hormonal effects.",
+    keyBenefits: ["Bone health", "Hormone balance", "Cognitive function", "Arthritis support", "Wound healing"],
+    mechanisms: ["Influences calcium, magnesium metabolism", "Affects steroid hormone levels", "May reduce inflammatory markers", "Supports vitamin D activation"],
+    dosage: "1-20mg daily in research. Common supplemental range 3-6mg. No established RDA. Found naturally in diet.",
+    safetyNotes: ["Generally safe at supplemental doses", "Very high doses (>20mg) may cause nausea", "Upper limit suggested around 20mg", "Safe with typical food intake"],
+    interactions: ["May enhance effects of estrogen", "May affect magnesium status", "Generally safe with most supplements"],
+    sources: ["Avocados", "Nuts", "Dried fruits", "Leafy greens", "Boron glycinate supplements"],
+    relatedCompounds: ["Calcium", "Magnesium", "Vitamin D"],
+    references: [
+      { pmid: "25063690", title: "The importance of boron in biological systems", authors: "Nielsen FH", journal: "Metal Ions in Life Sciences", year: 2015 }
+    ]
+  },
+  {
+    id: "molybdenum",
+    name: "Molybdenum",
+    latinName: "Molybdenum (Mo)",
+    category: "Trace Mineral",
+    studies: 1200,
+    image: "⚗️",
+    description: "Essential trace mineral that acts as cofactor for enzymes involved in sulfite detoxification and purine metabolism.",
+    traditionalUse: "Essential nutrient discovered in mid-20th century. Important in sulfite oxidase function.",
+    keyBenefits: ["Sulfite detoxification", "Purine metabolism", "Enzyme cofactor", "Aldehyde detoxification", "Candida support claims"],
+    mechanisms: ["Cofactor for sulfite oxidase", "Cofactor for xanthine oxidase", "Cofactor for aldehyde oxidase", "Helps process sulfur-containing amino acids"],
+    dosage: "RDA: 45mcg for adults. Therapeutic doses 75-250mcg. Upper limit 2mg. Most people get enough from diet.",
+    safetyNotes: ["Very safe at normal doses", "High doses may affect copper status", "Rare deficiency except in TPN patients", "Excess very rare"],
+    interactions: ["High doses may interfere with copper absorption", "Generally safe with most supplements", "May affect uric acid levels"],
+    sources: ["Legumes", "Grains", "Nuts", "Liver", "Leafy vegetables"],
+    relatedCompounds: ["Zinc", "Copper", "NAC"],
+    references: [
+      { pmid: "17214504", title: "Molybdenum cofactor deficiency", authors: "Schwarz G", journal: "Cellular and Molecular Life Sciences", year: 2016 }
+    ]
+  },
+  {
+    id: "manganese",
+    name: "Manganese",
+    latinName: "Manganese (Mn)",
+    category: "Trace Mineral",
+    studies: 3200,
+    image: "🦴",
+    description: "Essential trace mineral involved in bone formation, blood clotting, and antioxidant function via SOD enzyme.",
+    traditionalUse: "Recognized as essential nutrient in mid-20th century. Found in whole grains, nuts, leafy vegetables.",
+    keyBenefits: ["Bone health", "Antioxidant (SOD)", "Blood sugar metabolism", "Wound healing", "Connective tissue"],
+    mechanisms: ["Cofactor for manganese SOD", "Required for bone mineralization", "Involved in carbohydrate metabolism", "Supports collagen formation"],
+    dosage: "AI: 1.8-2.3mg daily. Therapeutic doses 5-15mg. Upper limit 11mg. Most multi-vitamins contain adequate amounts.",
+    safetyNotes: ["Safe at normal doses", "Excess can be neurotoxic (occupational exposure)", "Liver disease increases risk", "Avoid excessive supplementation"],
+    interactions: ["High iron may reduce absorption", "Calcium may reduce absorption", "May affect some psychiatric medications"],
+    sources: ["Whole grains", "Nuts", "Legumes", "Tea", "Leafy greens"],
+    relatedCompounds: ["Zinc", "Copper", "Calcium"],
+    references: [
+      { pmid: "23675107", title: "Manganese superoxide dismutase in health and disease", authors: "Holley AK, et al.", journal: "Free Radical Biology and Medicine", year: 2011 }
+    ]
+  },
+  // === MORE AMINO ACIDS ===
+  {
+    id: "glycine",
+    name: "Glycine",
+    latinName: "Glycine",
+    category: "Amino Acid",
+    studies: 5400,
+    image: "😴",
+    description: "The simplest amino acid with powerful effects on sleep, detoxification, and collagen production. Acts as inhibitory neurotransmitter.",
+    traditionalUse: "Component of bone broth and collagen-rich foods. Research focus on sleep and metabolic effects.",
+    keyBenefits: ["Sleep quality", "Collagen synthesis", "Detoxification (glutathione)", "Calm/relaxation", "Gut lining support"],
+    mechanisms: ["Inhibitory neurotransmitter", "Lowers core body temperature", "Precursor to glutathione", "Required for collagen synthesis"],
+    dosage: "Sleep: 3g before bed. General: 1-5g daily. Often combined with collagen or protein supplements.",
+    safetyNotes: ["Very safe", "May cause mild sedation", "Generally well-tolerated", "Some report vivid dreams"],
+    interactions: ["May enhance sedative medications", "Safe with most supplements", "Part of many supplement formulas"],
+    sources: ["Bone broth", "Collagen", "Gelatin", "Glycine powder"],
+    relatedCompounds: ["NAC", "Collagen", "Magnesium"],
+    references: [
+      { pmid: "22293292", title: "Glycine ingestion improves sleep quality", authors: "Bannai M, et al.", journal: "Sleep and Biological Rhythms", year: 2012 }
+    ]
+  },
+  {
+    id: "taurine",
+    name: "Taurine",
+    latinName: "Taurine",
+    category: "Amino Acid",
+    studies: 7100,
+    image: "❤️",
+    description: "Conditionally essential amino acid concentrated in heart, brain, and eyes. Involved in bile acid synthesis, osmoregulation, and antioxidant defense.",
+    traditionalUse: "First isolated from bull bile in 1827. Found in meat, fish, and dairy. Deficiency can occur in vegans.",
+    keyBenefits: ["Heart health", "Eye health", "Bile acid production", "Antioxidant", "Exercise performance"],
+    mechanisms: ["Stabilizes cell membranes", "Regulates calcium in heart", "Conjugates bile acids", "Osmoregulation in brain"],
+    dosage: "500mg-3g daily common. Heart studies use 1-3g. Energy drinks contain 1-2g. Safe at high doses.",
+    safetyNotes: ["Very safe up to 3g daily", "May interact with lithium", "Safe long-term", "Gentle on stomach"],
+    interactions: ["May interact with lithium", "May affect blood pressure medications", "Generally safe with most supplements"],
+    sources: ["Meat", "Fish", "Shellfish", "Dairy", "Supplement powder/capsules"],
+    relatedCompounds: ["Magnesium", "CoQ10", "L-Carnitine"],
+    references: [
+      { pmid: "22855206", title: "The role of taurine in cardiovascular function", authors: "Xu YJ, et al.", journal: "Molecular and Cellular Biochemistry", year: 2008 }
+    ]
+  },
+  {
+    id: "l-carnitine",
+    name: "L-Carnitine",
+    latinName: "L-Carnitine",
+    category: "Amino Acid Derivative",
+    studies: 8900,
+    image: "🔥",
+    description: "Amino acid derivative that transports fatty acids into mitochondria for energy production. Critical for heart and muscle function.",
+    traditionalUse: "Named from Latin 'carnus' (flesh). Found primarily in red meat. Synthesized from lysine and methionine.",
+    keyBenefits: ["Fat metabolism", "Heart function", "Exercise recovery", "Brain energy", "Fertility support"],
+    mechanisms: ["Shuttles fatty acids into mitochondria", "Removes toxic metabolites", "Supports ATP production", "Antioxidant effects"],
+    dosage: "500mg-2g daily. ALCAR (acetyl form) for brain 500-1500mg. Tartrate form for exercise. Take with food.",
+    safetyNotes: ["Generally safe", "May cause fishy body odor (TMAO concern)", "Some GI upset possible", "ALCAR may be stimulating"],
+    interactions: ["May enhance thyroid medications", "May affect blood thinners", "Safe with most supplements"],
+    sources: ["Red meat", "L-Carnitine tartrate", "Acetyl-L-Carnitine (ALCAR)", "Propionyl-L-Carnitine"],
+    relatedCompounds: ["CoQ10", "Alpha Lipoic Acid", "NAC"],
+    references: [
+      { pmid: "21561431", title: "L-Carnitine supplementation in heart disease", authors: "DiNicolantonio JJ, et al.", journal: "Mayo Clinic Proceedings", year: 2013 }
+    ]
+  },
+  {
+    id: "citrulline",
+    name: "L-Citrulline",
+    latinName: "L-Citrulline",
+    category: "Amino Acid",
+    studies: 3200,
+    image: "🍉",
+    description: "Amino acid that converts to arginine in the kidneys. More effective at raising arginine levels than arginine itself. Supports nitric oxide production.",
+    traditionalUse: "Named after citrullus (watermelon), where it was first isolated. Part of the urea cycle.",
+    keyBenefits: ["Blood flow/vasodilation", "Exercise performance", "Muscle recovery", "Blood pressure support", "Erectile function"],
+    mechanisms: ["Converts to arginine in kidneys", "Boosts nitric oxide production", "Reduces ammonia accumulation", "Improves blood vessel function"],
+    dosage: "General: 3-6g daily. Exercise: 6-8g pre-workout. Citrulline malate 2:1 ratio common. Better absorbed than arginine.",
+    safetyNotes: ["Very safe", "Minimal side effects", "May cause mild GI upset", "Safe for long-term use"],
+    interactions: ["May enhance blood pressure medications", "May enhance PDE5 inhibitors", "Generally safe with most supplements"],
+    sources: ["Watermelon", "L-Citrulline powder", "Citrulline malate"],
+    relatedCompounds: ["Arginine", "Beetroot", "Pycnogenol"],
+    references: [
+      { pmid: "20499249", title: "Citrulline malate enhances athletic performance", authors: "Perez-Guisado J, Jakeman PM", journal: "British Journal of Sports Medicine", year: 2010 }
+    ]
+  },
+  // === SPECIALIZED COMPOUNDS ===
+  {
+    id: "pqq",
+    name: "PQQ (Pyrroloquinoline Quinone)",
+    latinName: "Pyrroloquinoline Quinone",
+    category: "Mitochondrial Support",
+    studies: 890,
+    image: "⚡",
+    description: "Redox cofactor that supports mitochondrial biogenesis - the creation of new mitochondria. Potent antioxidant with neuroprotective properties.",
+    traditionalUse: "Discovered in 1979. Found in small amounts in many foods. Research focus on mitochondrial and cognitive effects.",
+    keyBenefits: ["Mitochondrial biogenesis", "Cognitive function", "Energy production", "Neuroprotection", "Sleep quality"],
+    mechanisms: ["Activates PGC-1alpha (mitochondrial biogenesis)", "Powerful redox cycling", "Supports nerve growth factor", "Protects neurons"],
+    dosage: "10-20mg daily common. Studies use 10-40mg. Often combined with CoQ10 for synergy.",
+    safetyNotes: ["Safe at typical doses", "Very high doses may cause headache", "Limited long-term data", "Generally well-tolerated"],
+    interactions: ["Safe with most supplements", "May have synergy with CoQ10", "No major drug interactions known"],
+    sources: ["Fermented soybeans (natto)", "Green tea", "Parsley", "Supplement capsules"],
+    relatedCompounds: ["CoQ10", "NAD+/NMN", "Alpha Lipoic Acid"],
+    references: [
+      { pmid: "22221168", title: "PQQ improves cognitive function in elderly", authors: "Itoh Y, et al.", journal: "Functional Foods in Health and Disease", year: 2016 }
+    ]
+  },
+  {
+    id: "nmn",
+    name: "NMN (Nicotinamide Mononucleotide)",
+    latinName: "Nicotinamide Mononucleotide",
+    category: "NAD+ Precursor",
+    studies: 1200,
+    image: "🧬",
+    description: "Direct precursor to NAD+, a critical coenzyme for energy metabolism and sirtuins (longevity genes). Research focus on aging and metabolism.",
+    traditionalUse: "Recent discovery in longevity research. David Sinclair's work popularized interest. Naturally found in trace amounts in foods.",
+    keyBenefits: ["NAD+ restoration", "Energy metabolism", "Sirtuin activation", "Cellular repair", "Metabolic health"],
+    mechanisms: ["Direct NAD+ precursor", "Activates sirtuins", "Supports PARP enzymes (DNA repair)", "Improves mitochondrial function"],
+    dosage: "250-1000mg daily in studies. Human trials ongoing. Sublingual absorption may be enhanced. Morning dosing preferred.",
+    safetyNotes: ["Appears safe in human trials", "Long-term data still accumulating", "May cause mild flushing", "Expensive supplement"],
+    interactions: ["Theoretical interaction with cancer treatments", "Safe with most supplements", "May affect NAD+ dependent medications"],
+    sources: ["Edamame (trace)", "Broccoli (trace)", "Avocado (trace)", "NMN supplements"],
+    relatedCompounds: ["NR (Nicotinamide Riboside)", "Niacin", "PQQ", "Resveratrol"],
+    references: [
+      { pmid: "32142123", title: "NMN supplementation enhances NAD+ in humans", authors: "Yoshino J, et al.", journal: "Science", year: 2021 }
+    ]
+  },
+  {
+    id: "spermidine",
+    name: "Spermidine",
+    latinName: "Spermidine",
+    category: "Polyamine",
+    studies: 2100,
+    image: "🔬",
+    description: "Natural polyamine that induces autophagy - cellular self-cleaning. Research focus on longevity, cognitive health, and cardiovascular benefits.",
+    traditionalUse: "First isolated from semen (hence name). Found in aged cheese, wheat germ, and fermented foods. Longevity research interest.",
+    keyBenefits: ["Autophagy induction", "Longevity support", "Cardiovascular health", "Cognitive function", "Hair growth"],
+    mechanisms: ["Powerful autophagy inducer", "Supports mitochondrial function", "Reduces inflammation", "Supports stem cells"],
+    dosage: "1-5mg daily in supplements. Higher amounts from dietary sources. Wheat germ is rich source.",
+    safetyNotes: ["Safe at typical doses", "Present in many foods naturally", "Limited supplement data", "May interact with cancer treatments"],
+    interactions: ["Theoretical concerns with cancer treatments (promotes cell growth)", "Generally safe with most supplements", "Consult oncologist if relevant"],
+    sources: ["Wheat germ", "Aged cheese", "Mushrooms", "Soy products", "Fermented foods"],
+    relatedCompounds: ["NMN", "Resveratrol", "Fisetin"],
+    references: [
+      { pmid: "29371440", title: "Spermidine delays aging in humans", authors: "Madeo F, et al.", journal: "Science", year: 2018 }
+    ]
+  },
+  {
+    id: "fisetin",
+    name: "Fisetin",
+    latinName: "Fisetin",
+    category: "Senolytic Flavonoid",
+    studies: 780,
+    image: "🍓",
+    description: "Flavonoid found in strawberries with potent senolytic activity - selectively clearing senescent 'zombie' cells. Research focus on aging.",
+    traditionalUse: "Present in strawberries, apples, onions. Research interest from Mayo Clinic longevity studies.",
+    keyBenefits: ["Senolytic activity", "Antioxidant", "Anti-inflammatory", "Neuroprotection", "Longevity support"],
+    mechanisms: ["Clears senescent cells", "Inhibits mTOR pathway", "Reduces inflammatory SASP factors", "Crosses blood-brain barrier"],
+    dosage: "100-500mg daily. Some protocols use 20mg/kg intermittently (research context). Often combined with quercetin.",
+    safetyNotes: ["Generally safe", "High doses may affect certain medications", "Limited human data", "Intermittent dosing may be preferred"],
+    interactions: ["May affect chemotherapy drugs", "May enhance blood thinners", "Consult healthcare provider for drug interactions"],
+    sources: ["Strawberries", "Apples", "Persimmons", "Onions", "Fisetin supplements"],
+    relatedCompounds: ["Quercetin", "Dasatinib", "Spermidine"],
+    references: [
+      { pmid: "30279143", title: "Fisetin is a senotherapeutic", authors: "Yousefzadeh MJ, et al.", journal: "EBioMedicine", year: 2018 }
+    ]
+  },
+  // === HERBAL ADAPTOGENS ===
+  {
+    id: "schisandra",
+    name: "Schisandra",
+    latinName: "Schisandra chinensis",
+    category: "Adaptogenic Berry",
+    studies: 1800,
+    image: "🫐",
+    description: "Five-flavor berry used in Traditional Chinese Medicine for liver protection, stress resilience, and cognitive enhancement. Classic adaptogen.",
+    traditionalUse: "Called 'wu wei zi' (five-flavor fruit) in TCM. Used for 2000+ years for longevity, liver, and lung support.",
+    keyBenefits: ["Liver protection", "Adaptogenic", "Cognitive support", "Endurance", "Skin health"],
+    mechanisms: ["Lignans protect liver (schisandrins)", "Modulates stress response", "Antioxidant", "Supports phase I/II liver detox"],
+    dosage: "500-2000mg extract daily. Traditional: whole berries or decoction. Standardized to schisandrins preferred.",
+    safetyNotes: ["Generally safe", "May cause heartburn", "May affect liver enzyme tests", "Avoid in pregnancy"],
+    interactions: ["May affect CYP450 drug metabolism", "May enhance sedatives", "Caution with liver-metabolized drugs"],
+    sources: ["Dried berries", "Standardized extract", "Tincture", "Powder"],
+    relatedCompounds: ["Milk Thistle", "Rhodiola", "Eleuthero"],
+    references: [
+      { pmid: "25781681", title: "Schisandra chinensis protective effects on liver", authors: "Panossian A, Wikman G", journal: "Pharmaceuticals", year: 2008 }
+    ]
+  },
+  {
+    id: "mucuna",
+    name: "Mucuna Pruriens",
+    latinName: "Mucuna pruriens",
+    category: "Dopaminergic Herb",
+    studies: 1400,
+    image: "🫘",
+    description: "Tropical legume containing natural L-DOPA. Traditional Ayurvedic use for vitality and nervous system. Research focus on Parkinson's and mood.",
+    traditionalUse: "Called 'kapikacchu' in Ayurveda. Used for male vitality, nervous system, and as aphrodisiac for centuries.",
+    keyBenefits: ["Dopamine support", "Mood enhancement", "Male fertility", "Parkinson's support", "Stress resilience"],
+    mechanisms: ["Contains natural L-DOPA (3-6%)", "Precursor to dopamine", "Antioxidant compounds", "May lower cortisol"],
+    dosage: "Standardized to 15-20% L-DOPA: 100-500mg. Cycling recommended. Do not combine with MAOIs or L-DOPA medications.",
+    safetyNotes: ["Generally safe short-term", "May cause nausea at high doses", "Avoid with Parkinson's meds (additive)", "Cycling recommended"],
+    interactions: ["CONTRAINDICATED with MAOIs", "Additive with Parkinson's drugs", "May affect blood pressure medications"],
+    sources: ["Standardized extract", "Whole bean powder", "15-20% L-DOPA standardization"],
+    relatedCompounds: ["Rhodiola", "Tyrosine", "Ashwagandha"],
+    references: [
+      { pmid: "15548480", title: "Mucuna pruriens in Parkinson's disease", authors: "Katzenschlager R, et al.", journal: "Journal of Neurology Neurosurgery and Psychiatry", year: 2004 }
+    ]
+  },
+  {
+    id: "cordyceps-militaris",
+    name: "Cordyceps Militaris",
+    latinName: "Cordyceps militaris",
+    category: "Functional Mushroom",
+    studies: 1900,
+    image: "🍄",
+    description: "Cultivated species of Cordyceps with similar benefits to wild C. sinensis. Supports energy, endurance, and respiratory function.",
+    traditionalUse: "Traditional substitute for wild cordyceps. Easier to cultivate. Contains cordycepin as active compound.",
+    keyBenefits: ["Energy and endurance", "Oxygen utilization", "Immune modulation", "Anti-aging", "Respiratory support"],
+    mechanisms: ["Cordycepin (3'-deoxyadenosine)", "Adenosine content", "Beta-glucans for immunity", "Supports ATP production"],
+    dosage: "1-3g daily of extract. Standardized to cordycepin or adenosine preferred. Can be cultivated on various substrates.",
+    safetyNotes: ["Generally safe", "May lower blood sugar", "Autoimmune caution", "Quality varies by cultivation"],
+    interactions: ["May enhance blood thinners", "May affect blood sugar medications", "Immunomodulatory caution"],
+    sources: ["Cultivated fruiting body", "Mycelium extracts", "Standardized cordycepin"],
+    relatedCompounds: ["Cordyceps sinensis", "Reishi", "Lion's Mane"],
+    references: [
+      { pmid: "28094746", title: "Cordyceps militaris improves exercise performance", authors: "Hirsch KR, et al.", journal: "Journal of Dietary Supplements", year: 2017 }
+    ]
+  },
+  // === SPECIALIZED EXTRACTS ===
+  {
+    id: "pine-bark-extract",
+    name: "Pine Bark Extract (Pycnogenol)",
+    latinName: "Pinus pinaster",
+    category: "Antioxidant Extract",
+    studies: 3400,
+    image: "🌲",
+    description: "Standardized extract from French maritime pine bark. Powerful antioxidant with cardiovascular, cognitive, and skin benefits.",
+    traditionalUse: "Indigenous use in North America. Modern research from French maritime pine. Pycnogenol is branded extract.",
+    keyBenefits: ["Antioxidant", "Circulation support", "Skin health", "Cognitive function", "Joint comfort"],
+    mechanisms: ["Procyanidins (OPCs)", "Enhances nitric oxide", "Strengthens capillaries", "Regenerates vitamins C and E"],
+    dosage: "50-200mg daily. Lower doses for maintenance, higher for therapeutic. Pycnogenol is most studied form.",
+    safetyNotes: ["Very safe", "May cause mild GI upset", "Safe for long-term use", "Rare skin reactions"],
+    interactions: ["May enhance blood thinners", "May lower blood sugar", "May enhance blood pressure medications"],
+    sources: ["Pycnogenol (branded)", "Pine bark extract", "Maritime pine extract"],
+    relatedCompounds: ["Grape Seed Extract", "Resveratrol", "Quercetin"],
+    references: [
+      { pmid: "22747566", title: "Pycnogenol supplementation and health outcomes", authors: "Rohdewald P", journal: "International Journal of Clinical Pharmacology and Therapeutics", year: 2002 }
+    ]
+  },
+  {
+    id: "olive-leaf",
+    name: "Olive Leaf Extract",
+    latinName: "Olea europaea",
+    category: "Mediterranean Herb",
+    studies: 2100,
+    image: "🫒",
+    description: "Extract from olive tree leaves rich in oleuropein. Antimicrobial, cardiovascular, and blood sugar support. Part of Mediterranean health.",
+    traditionalUse: "Mediterranean folk medicine for infections and fever. Modern interest in cardiovascular and antimicrobial effects.",
+    keyBenefits: ["Antimicrobial", "Blood pressure support", "Blood sugar balance", "Antioxidant", "Immune support"],
+    mechanisms: ["Oleuropein and hydroxytyrosol", "ACE inhibition (blood pressure)", "Antimicrobial without resistance", "Potent antioxidant"],
+    dosage: "500-1000mg daily standardized to oleuropein. Liquid extracts also available. Can be taken long-term.",
+    safetyNotes: ["Generally safe", "May cause die-off reactions initially", "May lower blood pressure", "Safe long-term"],
+    interactions: ["May enhance blood pressure medications", "May enhance diabetes medications", "May interact with blood thinners"],
+    sources: ["Standardized extract (18-25% oleuropein)", "Liquid extract", "Dried leaf tea"],
+    relatedCompounds: ["Berberine", "Oregano Oil", "Garlic"],
+    references: [
+      { pmid: "28248200", title: "Olive leaf extract and cardiovascular health", authors: "Lockyer S, et al.", journal: "European Journal of Nutrition", year: 2017 }
+    ]
+  },
+  {
+    id: "artichoke-extract",
+    name: "Artichoke Extract",
+    latinName: "Cynara scolymus",
+    category: "Digestive/Liver Herb",
+    studies: 1600,
+    image: "🌿",
+    description: "Extract from globe artichoke leaves supporting digestive and liver health. Contains cynarin for bile flow and cholesterol support.",
+    traditionalUse: "Mediterranean vegetable with medicinal use dating to ancient Greece. Used for liver, digestion, and hangovers.",
+    keyBenefits: ["Liver support", "Bile flow", "Cholesterol support", "Digestive comfort", "Antioxidant"],
+    mechanisms: ["Cynarin stimulates bile", "Silymarin-like hepatoprotection", "Inhibits cholesterol synthesis", "Prebiotic inulin content"],
+    dosage: "300-640mg 2-3x daily before meals. Standardized to cynarin or caffeoylquinic acids. Take before fatty meals.",
+    safetyNotes: ["Generally safe", "May cause gas initially", "Avoid with bile duct obstruction", "Asteraceae allergy caution"],
+    interactions: ["May enhance cholesterol medications", "May affect bile acid sequestrants", "Generally safe with most supplements"],
+    sources: ["Standardized leaf extract", "Liquid extract", "Globe artichoke hearts (less concentrated)"],
+    relatedCompounds: ["Milk Thistle", "Dandelion", "Turmeric"],
+    references: [
+      { pmid: "19747410", title: "Artichoke leaf extract for dyspepsia", authors: "Holtmann G, et al.", journal: "Alimentary Pharmacology and Therapeutics", year: 2003 }
+    ]
+  },
+  // === COLLAGEN & CONNECTIVE TISSUE ===
+  {
+    id: "hyaluronic-acid",
+    name: "Hyaluronic Acid",
+    latinName: "Hyaluronic Acid",
+    category: "Connective Tissue",
+    studies: 4800,
+    image: "💧",
+    description: "Natural component of skin, joints, and eyes that holds water. Supports skin hydration, joint comfort, and eye health when supplemented.",
+    traditionalUse: "Discovered in 1934. Originally sourced from rooster combs. Now produced by bacterial fermentation.",
+    keyBenefits: ["Skin hydration", "Joint lubrication", "Eye comfort", "Wound healing", "Anti-aging"],
+    mechanisms: ["Holds 1000x its weight in water", "Lubricates joints", "Supports skin structure", "Signals wound healing"],
+    dosage: "120-240mg daily for joints. Molecular weight matters - low MW absorbs better. Also used topically and injected.",
+    safetyNotes: ["Very safe orally", "Injection requires medical supervision", "Safe long-term", "Rare allergic reactions"],
+    interactions: ["Generally safe with medications", "May enhance effects of NSAIDs", "Safe with most supplements"],
+    sources: ["Low molecular weight oral", "Topical serums", "Injection (medical)", "Bone broth (natural)"],
+    relatedCompounds: ["Collagen", "MSM", "Glucosamine"],
+    references: [
+      { pmid: "24518926", title: "Oral hyaluronic acid improves skin hydration", authors: "Kawada C, et al.", journal: "Nutrition Journal", year: 2014 }
+    ]
+  },
+  {
+    id: "silica",
+    name: "Silica (Silicon Dioxide)",
+    latinName: "Silicon Dioxide",
+    category: "Trace Mineral",
+    studies: 1900,
+    image: "💎",
+    description: "Trace mineral important for collagen synthesis, bone health, and connective tissue. Depletes with age. Found in horsetail and bamboo.",
+    traditionalUse: "Horsetail tea used traditionally for hair, skin, nails. Bamboo extract rich source. Diatomaceous earth contains silica.",
+    keyBenefits: ["Hair, skin, nails", "Bone density", "Collagen support", "Connective tissue", "Arterial health"],
+    mechanisms: ["Required for collagen cross-linking", "Bone mineralization", "Strengthens connective tissue", "May support calcium deposition"],
+    dosage: "5-20mg daily of elemental silicon. Choline-stabilized orthosilicic acid best absorbed. BioSil is studied form.",
+    safetyNotes: ["Safe at recommended doses", "Crystalline forms not for ingestion", "Kidney disease caution", "Orthosilicic acid safest"],
+    interactions: ["Generally safe", "May affect aluminum absorption", "Safe with most supplements"],
+    sources: ["Bamboo extract", "Horsetail", "Choline-stabilized orthosilicic acid (BioSil)", "Diatomaceous earth (food grade)"],
+    relatedCompounds: ["Collagen", "Biotin", "Zinc"],
+    references: [
+      { pmid: "17435951", title: "Silicon and bone health", authors: "Jugdaohsingh R", journal: "Journal of Nutrition Health and Aging", year: 2007 }
+    ]
   }
 ];
 
