@@ -408,6 +408,104 @@ const PubMedSearchPanel = ({
           <p className="text-xs text-muted-foreground text-center pt-4 border-t border-border">
             Data sourced from PubMed®, a service of the National Library of Medicine (NLM).
           </p>
+
+          {/* AI-Assisted Search Button - Show when results are low */}
+          {results.total_count < 20 && query.trim() && !showAIAssist && (
+            <div className="mt-4 p-4 rounded-lg bg-gradient-to-r from-primary/5 to-primary/10 border border-primary/20">
+              <div className="flex items-center justify-between gap-4">
+                <div className="flex items-center gap-3">
+                  <div className="p-2 rounded-full bg-primary/10">
+                    <Sparkles className="w-5 h-5 text-primary" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-medium text-foreground">Need more insights?</p>
+                    <p className="text-xs text-muted-foreground">Let AI help you explore this topic and suggest better search terms</p>
+                  </div>
+                </div>
+                <Button 
+                  onClick={handleAISearch} 
+                  disabled={aiLoading}
+                  size="sm"
+                  className="gap-2"
+                  data-testid="ai-search-btn"
+                >
+                  {aiLoading ? (
+                    <>
+                      <Loader2 className="w-4 h-4 animate-spin" />
+                      Searching...
+                    </>
+                  ) : (
+                    <>
+                      <Bot className="w-4 h-4" />
+                      Ask AI Assistant
+                    </>
+                  )}
+                </Button>
+              </div>
+            </div>
+          )}
+
+          {/* AI-Assisted Search Results */}
+          {showAIAssist && aiResult && (
+            <div className="mt-4 p-5 rounded-xl bg-gradient-to-br from-primary/5 via-background to-primary/5 border border-primary/20" data-testid="ai-search-results">
+              <div className="flex items-center gap-2 mb-4">
+                <div className="p-1.5 rounded-full bg-primary/10">
+                  <Bot className="w-4 h-4 text-primary" />
+                </div>
+                <h3 className="font-semibold text-foreground">AI Research Assistant</h3>
+                <Badge variant="secondary" className="text-xs">Powered by GPT-5.2</Badge>
+              </div>
+              
+              {/* AI Summary */}
+              <div className="mb-4 p-3 rounded-lg bg-card border border-border">
+                <p className="text-sm text-muted-foreground leading-relaxed">{aiResult.ai_summary}</p>
+              </div>
+              
+              {/* Suggested Search Terms */}
+              {aiResult.suggested_terms.length > 0 && (
+                <div className="mb-4">
+                  <p className="text-xs font-medium text-muted-foreground mb-2">Try these search terms:</p>
+                  <div className="flex flex-wrap gap-2">
+                    {aiResult.suggested_terms.map((term, idx) => (
+                      <Button
+                        key={idx}
+                        variant="outline"
+                        size="sm"
+                        onClick={() => handleAISuggestionClick(term)}
+                        className="text-xs"
+                      >
+                        <Search className="w-3 h-3 mr-1" />
+                        {term}
+                      </Button>
+                    ))}
+                  </div>
+                </div>
+              )}
+              
+              {/* Related Topics */}
+              {aiResult.related_topics.length > 0 && (
+                <div>
+                  <p className="text-xs font-medium text-muted-foreground mb-2">Related research topics:</p>
+                  <div className="flex flex-wrap gap-2">
+                    {aiResult.related_topics.map((topic, idx) => (
+                      <Badge 
+                        key={idx} 
+                        variant="secondary" 
+                        className="cursor-pointer hover:bg-primary/20 transition-colors"
+                        onClick={() => handleAISuggestionClick(topic)}
+                      >
+                        {topic}
+                      </Badge>
+                    ))}
+                  </div>
+                </div>
+              )}
+              
+              <p className="text-[10px] text-muted-foreground mt-4 pt-3 border-t border-border">
+                AI-generated information should be verified with primary sources. This is not medical advice.
+              </p>
+            </div>
+          )}
         </div>
       )}
     </div>
