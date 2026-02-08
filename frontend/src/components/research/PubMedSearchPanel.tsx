@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Search, Loader2, Database, ChevronLeft, ChevronRight, Filter, X, Calendar } from "lucide-react";
+import { Search, Loader2, Database, ChevronLeft, ChevronRight, Filter, X, Calendar, Lightbulb } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { usePubMedSearch, STUDY_TYPE_OPTIONS, SearchFilters } from "@/hooks/usePubMedSearch";
