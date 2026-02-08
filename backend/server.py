@@ -502,7 +502,8 @@ async def send_weekly_digest_email(subscriber_email: str, articles: list, topic:
 # ====================
 
 @api_router.post("/auth/register", response_model=TokenResponse, status_code=status.HTTP_201_CREATED)
-async def register(user_data: UserCreate):
+@limiter.limit("5/minute")
+async def register(request: Request, user_data: UserCreate):
     """Register a new user"""
     # Check if user exists
     existing_user = await db.users.find_one({"email": user_data.email})
@@ -522,7 +523,8 @@ async def register(user_data: UserCreate):
         "email": user_data.email,
         "hashed_password": hashed_password,
         "created_at": created_at,
-        "is_active": True
+        "is_active": True,
+        "email_verified": False
     }
     
     await db.users.insert_one(user_doc)
@@ -541,7 +543,8 @@ async def register(user_data: UserCreate):
     }
 
 @api_router.post("/auth/login", response_model=TokenResponse)
-async def login(user_data: UserLogin):
+@limiter.limit("10/minute")
+async def login(request: Request, user_data: UserLogin):
     """Login user"""
     user = await db.users.find_one({"email": user_data.email})
     
