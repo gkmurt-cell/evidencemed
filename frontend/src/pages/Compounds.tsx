@@ -235,8 +235,9 @@ const Compounds = () => {
                   <span className="text-[10px] text-muted-foreground">{compound.studies.toLocaleString()}+ studies</span>
                 </Link>
               ))}
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Main Content */}
         <div className="container mx-auto px-4 pb-4 lg:pb-6">
