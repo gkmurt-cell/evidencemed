@@ -170,6 +170,32 @@ class InviteCodeResponse(BaseModel):
     created_at: str
     expires_at: str
 
+# Password Reset Models
+class PasswordResetRequest(BaseModel):
+    email: EmailStr
+
+class PasswordResetConfirm(BaseModel):
+    token: str
+    new_password: str = Field(..., min_length=6)
+
+# Email Verification Models
+class EmailVerificationRequest(BaseModel):
+    token: str
+
+# PubMed Search with Filters
+class PubMedSearchFilters(BaseModel):
+    query: str
+    date_from: Optional[str] = None  # YYYY/MM/DD format
+    date_to: Optional[str] = None
+    study_type: Optional[str] = None  # clinical_trial, meta_analysis, review, randomized_controlled_trial
+    max_results: int = 20
+
+# Weekly Digest Models
+class DigestPreview(BaseModel):
+    articles: List[dict]
+    topic: str
+    generated_at: str
+
 # ====================
 # Auth Utilities
 # ====================
