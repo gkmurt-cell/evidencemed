@@ -166,7 +166,7 @@ const ConditionPage = () => {
           <div className="bg-primary/5 py-12">
             <div className="container mx-auto px-4">
               <Link 
-                to="/#conditions" 
+                to="/conditions" 
                 className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary mb-6 transition-colors"
               >
                 <ArrowLeft className="w-4 h-4" />
