@@ -267,6 +267,26 @@ const PubMedSearchPanel = ({
         </div>
       )}
 
+      {/* Spell Correction Suggestion */}
+      {results?.suggestion && !isLoading && (
+        <div className="flex items-center gap-2 p-3 rounded-lg bg-amber-500/10 border border-amber-500/30" data-testid="spell-suggestion">
+          <Lightbulb className="w-4 h-4 text-amber-600 dark:text-amber-400 shrink-0" />
+          <span className="text-sm text-muted-foreground">Did you mean:</span>
+          <button
+            onClick={() => {
+              setQuery(results.suggestion!);
+              search(results.suggestion!, maxResults, 1, filters);
+              onSearchChange?.(results.suggestion!);
+            }}
+            className="text-sm font-medium text-primary hover:underline focus:outline-none focus:underline"
+            data-testid="spell-suggestion-link"
+          >
+            "{results.suggestion}"
+          </button>
+          <span className="text-sm text-muted-foreground">?</span>
+        </div>
+      )}
+
       {/* Results */}
       {results && !isLoading && (
         <div className="space-y-4">
