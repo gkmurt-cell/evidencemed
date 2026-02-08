@@ -688,18 +688,52 @@ async def verify_email(data: EmailVerificationRequest):
 # ====================
 
 @api_router.get("/pubmed/search", response_model=PubMedSearchResponse)
-async def search_pubmed(query: str, max_results: int = 20):
-    """Search PubMed database using NCBI E-utilities API"""
+async def search_pubmed(
+    query: str, 
+    max_results: int = 20,
+    date_from: Optional[str] = None,
+    date_to: Optional[str] = None,
+    study_type: Optional[str] = None
+):
+    """Search PubMed database using NCBI E-utilities API with optional filters"""
     
     if not query.strip():
         return {"articles": [], "total_count": 0, "query": query}
+    
+    # Build enhanced query with filters
+    search_query = query
+    
+    # Add date filter
+    if date_from or date_to:
+        date_filter = ""
+        if date_from and date_to:
+            date_filter = f" AND ({date_from}:{date_to}[dp])"
+        elif date_from:
+            date_filter = f" AND ({date_from}:3000[dp])"
+        elif date_to:
+            date_filter = f" AND (1900:{date_to}[dp])"
+        search_query += date_filter
+    
+    # Add study type filter
+    study_type_filters = {
+        "clinical_trial": " AND Clinical Trial[pt]",
+        "meta_analysis": " AND Meta-Analysis[pt]",
+        "review": " AND Review[pt]",
+        "randomized_controlled_trial": " AND Randomized Controlled Trial[pt]",
+        "systematic_review": " AND Systematic Review[pt]",
+        "case_report": " AND Case Reports[pt]",
+        "observational": " AND (Observational Study[pt] OR Cohort Studies[mh])"
+    }
+    
+    if study_type and study_type in study_type_filters:
+        search_query += study_type_filters[study_type]
     
     try:
         # Step 1: Search for article IDs
         search_url = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi"
         search_params = {
             "db": "pubmed",
-            "term": query,
+            "term": search_query,
             "retmax": max_results,
             "retmode": "json",
             "sort": "relevance"
