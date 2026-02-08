@@ -295,6 +295,122 @@ class EvidenceMedAPITester:
         
         return success1 and success2
 
+    def test_institutional_trial_request(self):
+        """Test institutional trial request endpoint"""
+        trial_data = {
+            "institution_name": "Test University Medical Center",
+            "institution_type": "university",
+            "department": "Integrative Medicine",
+            "contact_name": "Dr. Test User",
+            "contact_email": "test@university.edu",
+            "number_of_users": "11-50",
+            "message": "We are interested in institutional access for our research team."
+        }
+        
+        success, response = self.run_test(
+            "Institutional Trial Request",
+            "POST",
+            "institutional/trial-request",
+            201,
+            data=trial_data
+        )
+        
+        if success and response:
+            required_fields = ['id', 'institution_name', 'contact_email', 'status', 'created_at']
+            missing_fields = [field for field in required_fields if not response.get(field)]
+            
+            if missing_fields:
+                print(f"   ⚠ Missing fields in response: {missing_fields}")
+            else:
+                print("   ✓ All required fields present in response")
+                
+            if response.get('status') == 'pending':
+                print("   ✓ Trial request status set to pending")
+            else:
+                print(f"   ⚠ Unexpected status: {response.get('status')}")
+        
+        return success
+
+    def test_research_digest_subscription(self):
+        """Test research digest subscription endpoint"""
+        digest_data = {
+            "email": f"digest_test_{int(time.time())}@test.com",
+            "frequency": "weekly",
+            "topics": ["curcumin", "ashwagandha", "vitamin D"]
+        }
+        
+        success, response = self.run_test(
+            "Research Digest Subscription",
+            "POST",
+            "digest/subscribe",
+            201,
+            data=digest_data
+        )
+        
+        if success and response:
+            required_fields = ['id', 'email', 'frequency', 'topics', 'status', 'created_at']
+            missing_fields = [field for field in required_fields if not response.get(field)]
+            
+            if missing_fields:
+                print(f"   ⚠ Missing fields in response: {missing_fields}")
+            else:
+                print("   ✓ All required fields present in response")
+                
+            if response.get('status') == 'active':
+                print("   ✓ Subscription status set to active")
+            else:
+                print(f"   ⚠ Unexpected status: {response.get('status')}")
+                
+            if response.get('frequency') == 'weekly':
+                print("   ✓ Frequency set correctly")
+            else:
+                print(f"   ⚠ Unexpected frequency: {response.get('frequency')}")
+        
+        return success
+
+    def test_duplicate_digest_subscription(self):
+        """Test duplicate digest subscription (should update existing)"""
+        # Use same email as previous test
+        test_email = "duplicate_test@test.com"
+        
+        # First subscription
+        digest_data1 = {
+            "email": test_email,
+            "frequency": "weekly",
+            "topics": ["curcumin"]
+        }
+        
+        success1, response1 = self.run_test(
+            "First Digest Subscription",
+            "POST",
+            "digest/subscribe",
+            201,
+            data=digest_data1
+        )
+        
+        # Second subscription with same email (should update)
+        digest_data2 = {
+            "email": test_email,
+            "frequency": "weekly",
+            "topics": ["ashwagandha", "vitamin D"]
+        }
+        
+        success2, response2 = self.run_test(
+            "Duplicate Digest Subscription (Update)",
+            "POST",
+            "digest/subscribe",
+            201,
+            data=digest_data2
+        )
+        
+        if success2 and response2:
+            if response2.get('topics') == ["ashwagandha", "vitamin D"]:
+                print("   ✓ Topics updated correctly on duplicate subscription")
+            else:
+                print(f"   ⚠ Topics not updated: {response2.get('topics')}")
+        
+        return success1 and success2
+
     def run_all_tests(self):
         """Run all API tests"""
         print("🚀 Starting EvidenceMed API Tests")
