@@ -117,7 +117,79 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Legal Links */}
+          {/* Institutions Links */}
+          <div>
+            <h4 className="font-semibold text-foreground mb-4">Institutions</h4>
+            <ul className="space-y-3">
+              {footerLinks.institutions.map((link) => (
+                <li key={link.name}>
+                  {link.isLink ? (
+                    <Link
+                      to={link.href}
+                      className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      {link.name}
+                    </Link>
+                  ) : (
+                    <a
+                      href={link.href}
+                      className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      {link.name}
+                    </a>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="mt-12 pt-8 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-sm text-muted-foreground">
+            © {currentYear} EvidenceMed Archive. All rights reserved.
+          </p>
+          <p className="text-sm text-muted-foreground">
+            Research aggregated from PubMed, NIH, and peer-reviewed journals.
+          </p>
+        </div>
+
+        {/* Legal Links - Move to bottom */}
+        <div className="mt-8 pt-6 border-t border-border">
+          <h4 className="font-semibold text-foreground mb-4 text-center">Legal</h4>
+          <ul className="flex flex-wrap justify-center gap-x-6 gap-y-2">
+            {footerLinks.legal.map((link) => (
+              <li key={link.name}>
+                {link.href === "#disclaimer" ? (
+                  <a
+                    href="#disclaimer"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      document.querySelector('.bg-muted\\/70')?.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                    className="text-sm text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
+                  >
+                    {link.name}
+                  </a>
+                ) : link.isLink ? (
+                  <Link
+                    to={link.href}
+                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    {link.name}
+                  </Link>
+                ) : (
+                  <a
+                    href={link.href}
+                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    {link.name}
+                  </a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
           <div>
             <h4 className="font-semibold text-foreground mb-4">Legal</h4>
             <ul className="space-y-3">
