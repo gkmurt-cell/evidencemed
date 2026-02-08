@@ -33,13 +33,13 @@ export const RelatedLinks = ({ title, links }: RelatedLinksProps) => {
   
   return (
     <div className="mt-4 pt-4 border-t border-border">
-      {title && <p className="text-sm font-medium text-muted-foreground mb-2">{title}</p>}
-      <div className="flex flex-wrap gap-2">
+      {title && <p className="text-sm font-semibold text-muted-foreground mb-3">{title}</p>}
+      <div className="flex flex-wrap gap-3">
         {links.map((link, idx) => (
           <Link 
             key={idx}
             to={link.href}
-            className="text-xs text-primary hover:underline"
+            className="text-sm font-semibold text-primary hover:text-primary/80 hover:underline transition-colors"
           >
             {link.label}
           </Link>
