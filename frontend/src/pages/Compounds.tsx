@@ -141,6 +141,18 @@ const Compounds = () => {
     return results;
   }, [searchQuery, categoryFilter]);
 
+  // Get spell suggestion when search has few/no results
+  const spellSuggestion = useMemo(() => {
+    if (!searchQuery.trim() || filteredCompounds.length > 0) return null;
+    return getCompoundSuggestion(searchQuery, compoundsData);
+  }, [searchQuery, filteredCompounds.length]);
+
+  const handleSuggestionClick = () => {
+    if (spellSuggestion) {
+      setSearchQuery(spellSuggestion);
+    }
+  };
+
   return (
     <>
       <Helmet>
