@@ -11,7 +11,11 @@ import {
   Send,
   Calendar,
   Building2,
-  Key
+  Key,
+  Newspaper,
+  ExternalLink,
+  Loader2,
+  Clock
 } from "lucide-react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -47,6 +51,22 @@ interface TrialRequest {
   created_at: string;
 }
 
+interface DigestArticle {
+  pmid: string;
+  title: string;
+  authors: string[];
+  journal: string;
+  year: string;
+  abstract: string;
+  pubmed_url: string;
+}
+
+interface DigestPreview {
+  articles: DigestArticle[];
+  topic: string;
+  generated_at: string;
+}
+
 // Admin emails - in production this would be from backend
 const ADMIN_EMAILS = ["admin@evidencemed.com", "test@evidencemed.com"];
 
@@ -59,6 +79,12 @@ const AdminDashboard = () => {
   const [trialRequests, setTrialRequests] = useState<TrialRequest[]>([]);
   const [isGenerating, setIsGenerating] = useState(false);
   const [copiedCode, setCopiedCode] = useState<string | null>(null);
+  
+  // Digest state
+  const [digestPreview, setDigestPreview] = useState<DigestPreview | null>(null);
+  const [loadingDigest, setLoadingDigest] = useState(false);
+  const [sendingDigest, setSendingDigest] = useState(false);
+  const [testEmail, setTestEmail] = useState("");
   
   // New invite form
   const [newInvite, setNewInvite] = useState({
@@ -100,6 +126,88 @@ const AdminDashboard = () => {
       }
     } catch (error) {
       console.error("Failed to fetch trial requests:", error);
+    }
+  };
+
+  const fetchDigestPreview = async () => {
+    setLoadingDigest(true);
+    try {
+      const response = await fetch(`${API_URL}/api/digest/preview`);
+      if (response.ok) {
+        const data = await response.json();
+        setDigestPreview(data);
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to load digest preview",
+        variant: "destructive",
+      });
+    } finally {
+      setLoadingDigest(false);
+    }
+  };
+
+  const sendTestDigest = async () => {
+    if (!testEmail) {
+      toast({
+        title: "Error",
+        description: "Please enter an email address",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setSendingDigest(true);
+    try {
+      const response = await fetch(`${API_URL}/api/digest/send-test?email=${encodeURIComponent(testEmail)}`, {
+        method: "POST",
+      });
+
+      if (response.ok) {
+        toast({
+          title: "Test Digest Sent",
+          description: `Digest sent to ${testEmail}`,
+        });
+        setTestEmail("");
+      } else {
+        throw new Error("Failed to send");
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to send test digest. Check if RESEND_API_KEY is configured.",
+        variant: "destructive",
+      });
+    } finally {
+      setSendingDigest(false);
+    }
+  };
+
+  const sendDigestToAll = async () => {
+    setSendingDigest(true);
+    try {
+      const response = await fetch(`${API_URL}/api/digest/send-all`, {
+        method: "POST",
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        toast({
+          title: "Digest Sent",
+          description: data.message,
+        });
+      } else {
+        throw new Error("Failed to send");
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to send digest to subscribers",
+        variant: "destructive",
+      });
+    } finally {
+      setSendingDigest(false);
     }
   };
 
@@ -225,7 +333,7 @@ const AdminDashboard = () => {
               <div className="flex items-center justify-between">
                 <div>
                   <h1 className="font-serif text-2xl font-semibold text-foreground">Admin Dashboard</h1>
-                  <p className="text-muted-foreground">Manage invite codes and trial requests</p>
+                  <p className="text-muted-foreground">Manage invite codes, trial requests, and weekly digest</p>
                 </div>
                 <Badge variant="outline" className="bg-primary/10 text-primary">
                   <Key className="w-3 h-3 mr-1" />
@@ -293,6 +401,151 @@ const AdminDashboard = () => {
                   {isGenerating ? <RefreshCw className="w-4 h-4 animate-spin" /> : <Key className="w-4 h-4 mr-2" />}
                   Generate Code
                 </Button>
+              </div>
+            </div>
+          </section>
+
+          {/* Weekly Digest Preview */}
+          <section className="py-6 border-b border-border">
+            <div className="container mx-auto px-4">
+              <div className="flex items-center justify-between mb-4">
+                <h2 className="font-serif text-lg font-semibold text-foreground flex items-center gap-2">
+                  <Newspaper className="w-5 h-5 text-primary" />
+                  Weekly Research Digest
+                </h2>
+                <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <Clock className="w-4 h-4" />
+                  Scheduled: Every Monday 9:00 AM UTC
+                </div>
+              </div>
+
+              <div className="grid lg:grid-cols-3 gap-6">
+                {/* Preview Panel */}
+                <div className="lg:col-span-2 border border-border rounded-lg p-4">
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="font-medium">Digest Preview</h3>
+                    <Button variant="outline" size="sm" onClick={fetchDigestPreview} disabled={loadingDigest}>
+                      {loadingDigest ? (
+                        <Loader2 className="w-4 h-4 animate-spin" />
+                      ) : (
+                        <>
+                          <RefreshCw className="w-4 h-4 mr-2" />
+                          Load Preview
+                        </>
+                      )}
+                    </Button>
+                  </div>
+
+                  {!digestPreview && !loadingDigest && (
+                    <p className="text-muted-foreground text-center py-8">
+                      Click "Load Preview" to see the latest digest content
+                    </p>
+                  )}
+
+                  {loadingDigest && (
+                    <div className="text-center py-8">
+                      <Loader2 className="w-6 h-6 animate-spin mx-auto mb-2 text-primary" />
+                      <p className="text-muted-foreground">Fetching latest research...</p>
+                    </div>
+                  )}
+
+                  {digestPreview && !loadingDigest && (
+                    <div className="space-y-3 max-h-96 overflow-y-auto">
+                      <p className="text-sm text-muted-foreground mb-2">
+                        Topic: <span className="font-medium text-foreground">{digestPreview.topic}</span> · 
+                        {digestPreview.articles.length} articles · 
+                        Generated {new Date(digestPreview.generated_at).toLocaleString()}
+                      </p>
+                      {digestPreview.articles.map((article) => (
+                        <div key={article.pmid} className="p-3 bg-muted/30 rounded border border-border/50">
+                          <a 
+                            href={article.pubmed_url} 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="font-medium text-sm hover:text-primary line-clamp-2 flex items-start gap-1"
+                          >
+                            {article.title}
+                            <ExternalLink className="w-3 h-3 flex-shrink-0 mt-0.5" />
+                          </a>
+                          <p className="text-xs text-muted-foreground mt-1">
+                            {article.authors.slice(0, 2).join(", ")}{article.authors.length > 2 ? " et al." : ""} · 
+                            {article.journal} ({article.year})
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+
+                {/* Actions Panel */}
+                <div className="space-y-4">
+                  {/* Send Test Email */}
+                  <div className="border border-border rounded-lg p-4">
+                    <h3 className="font-medium mb-3">Send Test Digest</h3>
+                    <div className="space-y-3">
+                      <Input
+                        type="email"
+                        placeholder="your@email.com"
+                        value={testEmail}
+                        onChange={(e) => setTestEmail(e.target.value)}
+                      />
+                      <Button 
+                        className="w-full" 
+                        variant="outline"
+                        onClick={sendTestDigest}
+                        disabled={sendingDigest || !testEmail}
+                      >
+                        {sendingDigest ? (
+                          <Loader2 className="w-4 h-4 animate-spin mr-2" />
+                        ) : (
+                          <Send className="w-4 h-4 mr-2" />
+                        )}
+                        Send Test
+                      </Button>
+                    </div>
+                  </div>
+
+                  {/* Send to All Subscribers */}
+                  <div className="border border-border rounded-lg p-4">
+                    <h3 className="font-medium mb-3">Broadcast Digest</h3>
+                    <p className="text-sm text-muted-foreground mb-3">
+                      Send the weekly digest to all active subscribers immediately.
+                    </p>
+                    <Button 
+                      className="w-full"
+                      onClick={sendDigestToAll}
+                      disabled={sendingDigest}
+                    >
+                      {sendingDigest ? (
+                        <Loader2 className="w-4 h-4 animate-spin mr-2" />
+                      ) : (
+                        <Mail className="w-4 h-4 mr-2" />
+                      )}
+                      Send to All Subscribers
+                    </Button>
+                  </div>
+
+                  {/* Info */}
+                  <div className="bg-muted/30 rounded-lg p-4">
+                    <h4 className="text-sm font-medium mb-2">Automation Status</h4>
+                    <div className="space-y-2 text-sm">
+                      <div className="flex items-center justify-between">
+                        <span className="text-muted-foreground">Cron Job</span>
+                        <Badge variant="outline" className="bg-emerald-500/10 text-emerald-600 border-emerald-500/20">
+                          Active
+                        </Badge>
+                      </div>
+                      <div className="flex items-center justify-between">
+                        <span className="text-muted-foreground">Schedule</span>
+                        <span>Mon 9:00 UTC</span>
+                      </div>
+                      <div className="flex items-center justify-between">
+                        <span className="text-muted-foreground">Email Service</span>
+                        <span>Resend</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </section>
