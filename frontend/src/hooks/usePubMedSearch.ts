@@ -176,7 +176,7 @@ export function getStudyType(publicationTypes: string[]): { type: string; color:
 
 // Study type options for filters
 export const STUDY_TYPE_OPTIONS = [
-  { value: "", label: "All Study Types" },
+  { value: "all", label: "All Study Types" },
   { value: "randomized_controlled_trial", label: "Randomized Controlled Trials" },
   { value: "clinical_trial", label: "Clinical Trials" },
   { value: "meta_analysis", label: "Meta-Analyses" },
