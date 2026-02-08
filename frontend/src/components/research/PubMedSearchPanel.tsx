@@ -191,7 +191,7 @@ const PubMedSearchPanel = ({
                   <div>
                     <label className="text-sm font-medium mb-1.5 block">Study Type</label>
                     <Select 
-                      value={filters.studyType || ""} 
+                      value={filters.studyType || "all"} 
                       onValueChange={(v) => handleFilterChange("studyType", v)}
                     >
                       <SelectTrigger data-testid="study-type-filter">
