@@ -76,11 +76,12 @@ Transform the EvidenceMed build from Lovable into a high-authority Institutional
 - Add password reset functionality
 - Implement email verification for new accounts
 - Add rate limiting for API endpoints
+- Connect Research Alerts to backend for email notifications
 
 ### P2 (Medium Priority)
-- Add "Research Alerts" feature for saved searches
 - Implement user profile with saved articles
 - Add citation export (BibTeX, RIS, APA)
+- Add search filters for PubMed (date range, study type)
 
 ### P3 (Low Priority/Future)
 - Social sharing for research articles
