@@ -228,6 +228,9 @@ class UserProfileResponse(BaseModel):
     email_verified: bool
     tier: Optional[str] = None
     institution_name: Optional[str] = None
+    is_verified_practitioner: bool = False
+    practitioner_credentials: Optional[str] = None
+    practitioner_specialty: Optional[str] = None
     search_history: List[SearchHistoryEntry]
     saved_articles: List[SavedArticle]
     stats: dict
