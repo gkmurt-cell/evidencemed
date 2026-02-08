@@ -250,7 +250,7 @@ const Profile = () => {
                     <h1 className="font-serif text-2xl font-semibold text-foreground">
                       {profile?.email || user.email}
                     </h1>
-                    <div className="flex items-center gap-3 mt-1 text-sm text-muted-foreground">
+                    <div className="flex items-center gap-3 mt-1 text-sm text-muted-foreground flex-wrap">
                       {profile?.email_verified ? (
                         <span className="flex items-center gap-1 text-emerald-600">
                           <CheckCircle className="w-3 h-3" /> Verified
@@ -259,6 +259,12 @@ const Profile = () => {
                         <span className="flex items-center gap-1 text-amber-600">
                           <XCircle className="w-3 h-3" /> Unverified
                         </span>
+                      )}
+                      {profile?.is_verified_practitioner && (
+                        <Badge className="bg-emerald-500/10 text-emerald-600 border-emerald-500/30">
+                          <Shield className="w-3 h-3 mr-1" />
+                          {profile.practitioner_credentials} • {profile.practitioner_specialty}
+                        </Badge>
                       )}
                       {profile?.tier && (
                         <Badge variant="secondary" className="capitalize">
@@ -274,7 +280,14 @@ const Profile = () => {
                     </div>
                   </div>
                 </div>
-                <div className="flex gap-2">
+                <div className="flex gap-2 flex-wrap">
+                  {!profile?.is_verified_practitioner && (
+                    <PractitionerVerification
+                      token={localStorage.getItem("evidencemed_token") || ""}
+                      currentStatus={verificationStatus || undefined}
+                      onVerificationSubmitted={fetchVerificationStatus}
+                    />
+                  )}
                   <Button variant="outline" size="sm" onClick={fetchProfile}>
                     <RefreshCw className="w-4 h-4 mr-2" />
                     Refresh
@@ -290,7 +303,7 @@ const Profile = () => {
           {/* Stats */}
           <section className="py-6 border-b border-border">
             <div className="container mx-auto px-4">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
                 <div className="p-4 bg-card border border-border rounded-lg">
                   <p className="text-2xl font-semibold text-foreground">
                     {profile?.stats.saved_articles_count || 0}
@@ -307,6 +320,15 @@ const Profile = () => {
                   <p className="text-sm text-muted-foreground flex items-center gap-1">
                     <Search className="w-3 h-3" />
                     Total Searches
+                  </p>
+                </div>
+                <div className="p-4 bg-card border border-border rounded-lg">
+                  <p className="text-2xl font-semibold text-foreground">
+                    {profile?.stats.annotations_count || 0}
+                  </p>
+                  <p className="text-sm text-muted-foreground flex items-center gap-1">
+                    <MessageSquare className="w-3 h-3" />
+                    Annotations
                   </p>
                 </div>
                 <div className="p-4 bg-card border border-border rounded-lg">
