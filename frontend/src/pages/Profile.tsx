@@ -13,7 +13,9 @@ import {
   Mail,
   CheckCircle,
   XCircle,
-  RefreshCw
+  RefreshCw,
+  Shield,
+  MessageSquare
 } from "lucide-react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -21,6 +23,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useAuth } from "@/hooks/useAuth";
 import { useToast } from "@/hooks/use-toast";
+import PractitionerVerification from "@/components/practitioners/PractitionerVerification";
 
 const API_URL = process.env.REACT_APP_BACKEND_URL || "";
 
@@ -46,6 +49,21 @@ interface SavedArticle {
   saved_at: string;
 }
 
+interface VerificationStatus {
+  status: string;
+  verification?: {
+    id: string;
+    license_number: string;
+    license_state: string;
+    specialty: string;
+    credentials: string;
+    status: string;
+    submitted_at: string;
+    reviewed_at?: string;
+    rejection_reason?: string;
+  };
+}
+
 interface UserProfile {
   id: string;
   email: string;
@@ -53,11 +71,15 @@ interface UserProfile {
   email_verified: boolean;
   tier?: string;
   institution_name?: string;
+  is_verified_practitioner?: boolean;
+  practitioner_credentials?: string;
+  practitioner_specialty?: string;
   search_history: SearchHistoryEntry[];
   saved_articles: SavedArticle[];
   stats: {
     total_searches: number;
     saved_articles_count: number;
+    annotations_count?: number;
     member_since: string;
     last_search?: string;
   };
@@ -69,12 +91,32 @@ const Profile = () => {
   const [profile, setProfile] = useState<UserProfile | null>(null);
   const [loadingProfile, setLoadingProfile] = useState(true);
   const [activeTab, setActiveTab] = useState<"saved" | "history">("saved");
+  const [verificationStatus, setVerificationStatus] = useState<VerificationStatus | null>(null);
 
   useEffect(() => {
     if (user) {
       fetchProfile();
+      fetchVerificationStatus();
     }
   }, [user]);
+
+  const fetchVerificationStatus = async () => {
+    try {
+      const token = localStorage.getItem("auth_token");
+      if (!token) return;
+
+      const response = await fetch(`${API_URL}/api/practitioners/my-status`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        setVerificationStatus(data);
+      }
+    } catch (error) {
+      console.error("Failed to fetch verification status:", error);
+    }
+  };
 
   const fetchProfile = async () => {
     setLoadingProfile(true);
