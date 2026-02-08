@@ -4,6 +4,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { RightSidebar } from "@/components/layout/RightSidebar";
 import EducationalDisclaimer from "@/components/layout/EducationalDisclaimer";
+import { Badge } from "@/components/ui/badge";
 import { 
   Zap, 
   Leaf, 
@@ -17,7 +18,12 @@ import {
   FileText,
   ChevronDown,
   ChevronUp,
-  ArrowUp
+  ArrowUp,
+  ArrowRight,
+  Sun,
+  Moon,
+  Flame,
+  Droplets
 } from "lucide-react";
 import { useState } from "react";
 import { ScrollArea } from "@/components/ui/scroll-area";
