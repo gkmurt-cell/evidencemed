@@ -79,12 +79,6 @@ export function usePubMedSearch() {
 
       const data = await response.json();
       
-      console.log("PubMed API response:", { 
-        total: data.total_count, 
-        articlesCount: data.articles?.length,
-        firstArticle: data.articles?.[0]?.title 
-      });
-      
       // Map to expected format
       const result: PubMedSearchResult = {
         articles: data.articles.map((a: any) => ({
@@ -94,10 +88,9 @@ export function usePubMedSearch() {
         })),
         total_count: data.total_count,
         query: data.query,
-        suggestion: data.suggestion || null,  // Include spell correction suggestion
+        suggestion: data.suggestion || null,
       };
 
-      console.log("Setting results:", { articlesInResult: result.articles.length });
       setResults(result);
       setCurrentPage(page);
       setIsLoading(false);
