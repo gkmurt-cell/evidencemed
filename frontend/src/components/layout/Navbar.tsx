@@ -210,6 +210,12 @@ const Navbar = () => {
                   <DropdownMenuItem className="text-muted-foreground">
                     {user.email}
                   </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <Link to="/profile" className="flex items-center">
+                      <User className="w-4 h-4 mr-2" />
+                      My Profile
+                    </Link>
+                  </DropdownMenuItem>
                   <DropdownMenuItem onClick={signOut} className="text-destructive">
                     <LogOut className="w-4 h-4 mr-2" />
                     Sign Out
