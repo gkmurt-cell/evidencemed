@@ -204,6 +204,40 @@ class DigestPreview(BaseModel):
     topic: str
     generated_at: str
 
+# User Profile & Search History Models
+class SearchHistoryEntry(BaseModel):
+    id: str
+    query: str
+    filters: Optional[dict] = None
+    results_count: int
+    searched_at: str
+
+class SavedArticle(BaseModel):
+    pmid: str
+    title: str
+    authors: List[str]
+    journal: str
+    year: str
+    saved_at: str
+
+class UserProfileResponse(BaseModel):
+    id: str
+    email: str
+    created_at: str
+    email_verified: bool
+    tier: Optional[str] = None
+    institution_name: Optional[str] = None
+    search_history: List[SearchHistoryEntry]
+    saved_articles: List[SavedArticle]
+    stats: dict
+
+class SaveArticleRequest(BaseModel):
+    pmid: str
+    title: str
+    authors: List[str]
+    journal: str
+    year: str
+
 # ====================
 # Auth Utilities
 # ====================
