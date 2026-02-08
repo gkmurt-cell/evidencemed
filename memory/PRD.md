@@ -309,3 +309,11 @@ Transform the EvidenceMed build from Lovable into a high-authority Institutional
   - Navbar link added
   - API: GET /api/practitioners/directory, GET /api/practitioners/specialties
 
+### Phase 13 (Feb 2026) - Bug Fixes & Content Updates
+- ✅ Fixed: "Most Researched Compounds" section now only shows on main /compounds page, not on category pages like Essential Minerals
+- ✅ Fixed: Integrative Therapies page route restored at /therapies and /integrative-therapies
+- ✅ Added: 5 new Essential Minerals (Manganese, Molybdenum, Phosphorus, Silicon, Sulfur) - now 15 total
+- ✅ Verified: Spell correction working on PubMed search (backend thefuzz library)
+- ✅ Verified: Spell correction working on Compounds search (frontend Levenshtein algorithm)
+- ✅ Verified: Compact tile layout without large gaps (13.5px gap in grid)
+
