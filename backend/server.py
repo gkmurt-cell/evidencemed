@@ -1434,10 +1434,14 @@ async def get_user_profile(token: str):
         {"_id": 0}
     ).sort("saved_at", -1).to_list(100)
     
+    # Get annotation count
+    annotation_count = await db.compound_annotations.count_documents({"author_id": user_id})
+    
     # Calculate stats
     stats = {
         "total_searches": await db.search_history.count_documents({"user_id": user_id}),
         "saved_articles_count": len(saved_articles),
+        "annotations_count": annotation_count,
         "member_since": user.get("created_at", ""),
         "last_search": search_history[0]["searched_at"] if search_history else None
     }
@@ -1449,6 +1453,9 @@ async def get_user_profile(token: str):
         "email_verified": user.get("email_verified", False),
         "tier": user.get("tier"),
         "institution_name": user.get("institution_name"),
+        "is_verified_practitioner": user.get("is_verified_practitioner", False),
+        "practitioner_credentials": user.get("practitioner_credentials"),
+        "practitioner_specialty": user.get("practitioner_specialty"),
         "search_history": search_history,
         "saved_articles": saved_articles,
         "stats": stats
