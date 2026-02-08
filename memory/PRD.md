@@ -246,3 +246,25 @@ Transform the EvidenceMed build from Lovable into a high-authority Institutional
     - Border radius: rounded-xl → rounded-lg
 - ✅ Better laptop/desktop UX - users can see more content without excessive scrolling
 
+### Phase 11 (Feb 2026) - AI-Powered Search & Additional Features
+- ✅ Spell Correction on ALL Search Bars:
+  - Compounds page: Client-side Levenshtein distance algorithm
+  - PubMed search: Server-side `thefuzz` library with medical terms dictionary
+  - Shows "Did you mean: [suggestion]?" for both search types
+- ✅ iHerb Added to Member Resources:
+  - Added as "Dispensary" type resource
+  - URL: https://www.iherb.com/
+  - Description: Global retailer for supplements with third-party testing
+- ✅ Research Page Background Image:
+  - Hero section now shows visible background image
+  - Gradient overlay: from-background/95 via-background/85 to-background/70
+- ✅ AI-Powered Search Fallback (GPT-5.2):
+  - Integration: OpenAI GPT-5.2 via Emergent LLM Key
+  - Trigger: Appears when PubMed returns < 20 results
+  - Features:
+    - AI summary of the research topic
+    - Suggested alternative search terms (clickable buttons)
+    - Related research topics (clickable badges)
+  - Disclaimer: "AI-generated information should be verified with primary sources"
+  - Badge: "Powered by GPT-5.2"
+
