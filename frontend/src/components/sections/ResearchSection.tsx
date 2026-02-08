@@ -162,7 +162,6 @@ const ResearchSection = () => {
               { href: "/methodology", label: "Editorial Standards" },
             ]}
           />
-          <DemoDisclaimer compact className="mb-4" />
           <EducationalDisclaimer />
         </div>
 
