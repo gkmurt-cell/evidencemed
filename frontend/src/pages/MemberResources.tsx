@@ -159,6 +159,14 @@ const trustedResources: TrustedResource[] = [
     url: "https://www.ifm.org/",
     description: "Educational organization advancing functional medicine approach to healthcare.",
     type: "Organization"
+  },
+  // Dispensary & Supplement Sources
+  {
+    id: "21",
+    title: "iHerb",
+    url: "https://www.iherb.com/",
+    description: "Global retailer offering a wide selection of supplements, natural products, and health foods with third-party testing.",
+    type: "Dispensary"
   }
 ];
 
