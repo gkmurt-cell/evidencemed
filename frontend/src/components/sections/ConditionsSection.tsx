@@ -221,7 +221,6 @@ const ConditionsSection = () => {
               { href: "/methodology", label: "Editorial Methodology" },
             ]}
           />
-          <DemoDisclaimer compact className="mb-4" />
           <EducationalDisclaimer />
         </div>
 
