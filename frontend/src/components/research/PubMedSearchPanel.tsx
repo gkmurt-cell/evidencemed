@@ -71,13 +71,14 @@ const PubMedSearchPanel = ({
     }
   }, [initialQuery]);
 
-  // Auto-search if condition is provided
+  // Auto-search if condition is provided (runs once on mount)
   useEffect(() => {
     if (condition) {
-      console.log("PubMedSearchPanel: Auto-searching for condition:", condition);
-      searchByCondition(condition, maxResults, 1, filters);
+      setQuery(condition);
+      search(condition, maxResults, 1, {});
     }
-  }, [condition, maxResults, searchByCondition, filters]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [condition]);
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
