@@ -16,6 +16,7 @@ import uuid
 from datetime import datetime, timezone, timedelta
 from passlib.context import CryptContext
 import jwt
+from jwt.exceptions import InvalidTokenError as JWTError
 import httpx
 
 ROOT_DIR = Path(__file__).parent
