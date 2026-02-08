@@ -132,6 +132,44 @@ const Research = () => {
     setCurrentSearchQuery(topic);
   };
 
+  // Weekly Research Digest subscription
+  const [digestEmail, setDigestEmail] = useState("");
+  const [isSubscribing, setIsSubscribing] = useState(false);
+
+  const handleDigestSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!digestEmail.trim()) return;
+
+    setIsSubscribing(true);
+    try {
+      const response = await fetch(`${API_URL}/api/digest/subscribe`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: digestEmail,
+          frequency: "weekly",
+          topics: alerts.filter(a => a.enabled).map(a => a.query)
+        }),
+      });
+
+      if (!response.ok) throw new Error("Subscription failed");
+
+      toast({
+        title: "Subscribed!",
+        description: "You'll receive our weekly research digest every Monday.",
+      });
+      setDigestEmail("");
+    } catch (error) {
+      toast({
+        title: "Subscription Error",
+        description: "Please try again or contact support.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubscribing(false);
+    }
+  };
+
   return (
     <>
       <Helmet>
