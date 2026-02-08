@@ -74,13 +74,26 @@ Transform the EvidenceMed build from Lovable into a high-authority Institutional
   - Editorial standards and compliance information
   - Enterprise access features (IP Auth, SSO, API, LTI)
 - ✅ Institutional Pricing page (/institutional-pricing):
-  - Three tiers: Academic ($2,400/yr), Clinical ($4,800/yr), Enterprise (Custom)
-  - 30-day free trial for all plans
-  - Trial signup form with institution details
-  - FAQ section
+  - Individual plans: Starter ($5/mo), Professional ($19/mo), Institution (Custom)
+  - User-based institutional tiers: Starter (1-10), Standard (11-50), Enterprise (51+)
+  - Feature comparison table
+  - 7-day free trial for Professional plan
+  - Trial signup form connected to backend API
   - Page has noindex for subtle discovery
 - ✅ Footer updated with "Institutions" section
 - ✅ Member Resources links to Practitioner Repository (subtle)
+
+### Phase 5 (Jan 2026) - Backend APIs & Weekly Digest
+- ✅ Backend API endpoints added:
+  - POST /api/institutional/trial-request - Store institutional trial requests
+  - POST /api/digest/subscribe - Subscribe to weekly research digest
+  - DELETE /api/digest/unsubscribe - Unsubscribe from digest
+  - POST /api/alerts - Create research alerts (backend storage)
+  - GET /api/alerts - Get user's research alerts
+  - DELETE /api/alerts/{id} - Delete research alert
+- ✅ Weekly Research Digest subscription form on Research page
+- ✅ Trial signup form connected to real backend API
+- ✅ All forms show proper success/error feedback
 
 ## API Endpoints
 - `POST /api/auth/register` - User registration
