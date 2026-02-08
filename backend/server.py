@@ -2067,7 +2067,7 @@ async def get_compound_annotations(
 @api_router.post("/annotations/{annotation_id}/helpful")
 async def mark_annotation_helpful(
     annotation_id: str,
-    current_user: dict = Depends(get_current_user)
+    current_user: dict = Depends(get_current_user_from_header)
 ):
     """Mark an annotation as helpful"""
     user_id = current_user["id"]
