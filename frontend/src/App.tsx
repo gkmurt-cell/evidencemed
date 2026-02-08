@@ -21,6 +21,8 @@ import AdvisoryBoard from "@/pages/AdvisoryBoard";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
 import MemberResources from "@/pages/MemberResources";
+import PractitionerRepository from "@/pages/PractitionerRepository";
+import InstitutionalAccess from "@/pages/InstitutionalAccess";
 import NotFound from "@/pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -51,6 +53,8 @@ const App = () => (
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               <Route path="/terms-of-service" element={<TermsOfService />} />
               <Route path="/member-resources" element={<MemberResources />} />
+              <Route path="/practitioner-repository" element={<PractitionerRepository />} />
+              <Route path="/institutional-access" element={<InstitutionalAccess />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>
