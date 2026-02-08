@@ -25,7 +25,8 @@ import {
   Activity,
   Zap,
   Target,
-  ExternalLink
+  ExternalLink,
+  Moon
 } from "lucide-react";
 
 // Five Elements data
