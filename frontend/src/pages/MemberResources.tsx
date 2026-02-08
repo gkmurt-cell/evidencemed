@@ -317,6 +317,23 @@ const MemberResources = () => {
               </div>
             </div>
           </section>
+
+          {/* Practitioner Resources - Subtle link */}
+          <section className="py-8 border-t border-border">
+            <div className="container mx-auto px-4">
+              <div className="flex items-center justify-between flex-wrap gap-4">
+                <p className="text-sm text-muted-foreground">
+                  Healthcare professional? Access our curated supplier directory and reference library.
+                </p>
+                <Link 
+                  to="/practitioner-repository" 
+                  className="text-sm text-primary hover:underline"
+                >
+                  Practitioner Repository →
+                </Link>
+              </div>
+            </div>
+          </section>
         </main>
 
         <Footer />
