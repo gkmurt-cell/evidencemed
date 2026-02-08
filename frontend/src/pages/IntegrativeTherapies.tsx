@@ -730,22 +730,238 @@ const IntegrativeTherapies = () => {
                   </Link>
 
                   {/* Unani Medicine */}
-                  <div className="bg-card border border-border rounded-xl p-5 hover:shadow-lg hover:border-teal-500/30 transition-all duration-300">
+                  <Link 
+                    to="/unani"
+                    className="group bg-card border border-border rounded-xl p-5 hover:shadow-lg hover:border-teal-500/30 transition-all duration-300"
+                  >
                     <div className="flex items-center gap-3 mb-3">
                       <div className="w-10 h-10 rounded-lg bg-teal-500/10 flex items-center justify-center">
                         <Moon className="w-5 h-5 text-teal-500" />
                       </div>
-                      <h3 className="font-serif text-lg font-semibold text-foreground">Unani Medicine</h3>
+                      <h3 className="font-serif text-lg font-semibold text-foreground group-hover:text-teal-600 transition-colors">Unani Medicine</h3>
                     </div>
                     <p className="text-sm text-muted-foreground mb-3">
                       Greco-Arabic medical tradition focusing on the four humors. Uses herbal medicines, dietary regulation, and lifestyle modifications.
                     </p>
-                    <div className="flex flex-wrap gap-1.5">
+                    <div className="flex flex-wrap gap-1.5 mb-3">
                       <Badge variant="outline" className="text-xs">Four Humors</Badge>
                       <Badge variant="outline" className="text-xs">Herbal</Badge>
                       <Badge variant="outline" className="text-xs">Dietary</Badge>
                     </div>
-                  </div>
+                    <div className="flex items-center gap-2 text-teal-600 text-sm font-medium group-hover:gap-3 transition-all">
+                      Explore Unani <ArrowRight className="w-4 h-4" />
+                    </div>
+                  </Link>
+
+                  {/* Functional Medicine */}
+                  <Link 
+                    to="/functional-medicine"
+                    className="group bg-card border border-border rounded-xl p-5 hover:shadow-lg hover:border-purple-500/30 transition-all duration-300"
+                  >
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center">
+                        <Zap className="w-5 h-5 text-purple-500" />
+                      </div>
+                      <h3 className="font-serif text-lg font-semibold text-foreground group-hover:text-purple-600 transition-colors">Functional Medicine</h3>
+                    </div>
+                    <p className="text-sm text-muted-foreground mb-3">
+                      Systems-based approach addressing root causes of disease through personalized, patient-centered care.
+                    </p>
+                    <div className="flex flex-wrap gap-1.5 mb-3">
+                      <Badge variant="outline" className="text-xs">Root Cause</Badge>
+                      <Badge variant="outline" className="text-xs">Personalized</Badge>
+                      <Badge variant="outline" className="text-xs">Systems Biology</Badge>
+                    </div>
+                    <div className="flex items-center gap-2 text-purple-600 text-sm font-medium group-hover:gap-3 transition-all">
+                      Explore Functional Medicine <ArrowRight className="w-4 h-4" />
+                    </div>
+                  </Link>
+
+                  {/* Aromatherapy */}
+                  <Link 
+                    to="/aromatherapy"
+                    className="group bg-card border border-border rounded-xl p-5 hover:shadow-lg hover:border-pink-500/30 transition-all duration-300"
+                  >
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-10 h-10 rounded-lg bg-pink-500/10 flex items-center justify-center">
+                        <Droplets className="w-5 h-5 text-pink-500" />
+                      </div>
+                      <h3 className="font-serif text-lg font-semibold text-foreground group-hover:text-pink-600 transition-colors">Aromatherapy</h3>
+                    </div>
+                    <p className="text-sm text-muted-foreground mb-3">
+                      Therapeutic use of essential oils for physical, emotional, and spiritual well-being.
+                    </p>
+                    <div className="flex flex-wrap gap-1.5 mb-3">
+                      <Badge variant="outline" className="text-xs">Essential Oils</Badge>
+                      <Badge variant="outline" className="text-xs">Mood</Badge>
+                      <Badge variant="outline" className="text-xs">Wellness</Badge>
+                    </div>
+                    <div className="flex items-center gap-2 text-pink-600 text-sm font-medium group-hover:gap-3 transition-all">
+                      Explore Aromatherapy <ArrowRight className="w-4 h-4" />
+                    </div>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Therapeutic Approaches Section */}
+          <section className="py-8 lg:py-12 bg-gradient-to-b from-secondary/20 to-background">
+            <div className="container mx-auto px-4">
+              <div className="max-w-5xl mx-auto">
+                <div className="text-center mb-8">
+                  <h2 className="font-serif text-2xl md:text-3xl font-semibold text-foreground mb-3">
+                    Therapeutic Approaches
+                  </h2>
+                  <p className="text-muted-foreground max-w-2xl mx-auto">
+                    Specialized modalities for specific aspects of health and healing
+                  </p>
+                </div>
+
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {/* Energy Healing */}
+                  <Link 
+                    to="/energy-healing"
+                    className="group bg-card border border-border rounded-xl p-5 hover:shadow-lg hover:border-violet-500/30 transition-all duration-300"
+                  >
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-10 h-10 rounded-lg bg-violet-500/10 flex items-center justify-center">
+                        <Zap className="w-5 h-5 text-violet-500" />
+                      </div>
+                      <h3 className="font-serif text-lg font-semibold text-foreground group-hover:text-violet-600 transition-colors">Energy Healing</h3>
+                    </div>
+                    <p className="text-sm text-muted-foreground mb-3">
+                      Biofield therapies including Reiki, Qigong, Pranic Healing, and Therapeutic Touch.
+                    </p>
+                    <div className="flex flex-wrap gap-1.5 mb-3">
+                      <Badge variant="outline" className="text-xs">Reiki</Badge>
+                      <Badge variant="outline" className="text-xs">Qigong</Badge>
+                      <Badge variant="outline" className="text-xs">Chakras</Badge>
+                    </div>
+                    <div className="flex items-center gap-2 text-violet-600 text-sm font-medium group-hover:gap-3 transition-all">
+                      Explore Energy Healing <ArrowRight className="w-4 h-4" />
+                    </div>
+                  </Link>
+
+                  {/* Mind-Body Medicine */}
+                  <Link 
+                    to="/mind-body"
+                    className="group bg-card border border-border rounded-xl p-5 hover:shadow-lg hover:border-teal-500/30 transition-all duration-300"
+                  >
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-10 h-10 rounded-lg bg-teal-500/10 flex items-center justify-center">
+                        <Brain className="w-5 h-5 text-teal-500" />
+                      </div>
+                      <h3 className="font-serif text-lg font-semibold text-foreground group-hover:text-teal-600 transition-colors">Mind-Body Medicine</h3>
+                    </div>
+                    <p className="text-sm text-muted-foreground mb-3">
+                      Meditation, breathwork, yoga, tai chi, biofeedback, and hypnotherapy practices.
+                    </p>
+                    <div className="flex flex-wrap gap-1.5 mb-3">
+                      <Badge variant="outline" className="text-xs">Meditation</Badge>
+                      <Badge variant="outline" className="text-xs">Yoga</Badge>
+                      <Badge variant="outline" className="text-xs">Breathwork</Badge>
+                    </div>
+                    <div className="flex items-center gap-2 text-teal-600 text-sm font-medium group-hover:gap-3 transition-all">
+                      Explore Mind-Body <ArrowRight className="w-4 h-4" />
+                    </div>
+                  </Link>
+
+                  {/* Bodywork */}
+                  <Link 
+                    to="/bodywork"
+                    className="group bg-card border border-border rounded-xl p-5 hover:shadow-lg hover:border-amber-500/30 transition-all duration-300"
+                  >
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-10 h-10 rounded-lg bg-amber-500/10 flex items-center justify-center">
+                        <Hand className="w-5 h-5 text-amber-500" />
+                      </div>
+                      <h3 className="font-serif text-lg font-semibold text-foreground group-hover:text-amber-600 transition-colors">Bodywork & Manual Therapy</h3>
+                    </div>
+                    <p className="text-sm text-muted-foreground mb-3">
+                      Massage, chiropractic, osteopathy, structural integration, and movement therapies.
+                    </p>
+                    <div className="flex flex-wrap gap-1.5 mb-3">
+                      <Badge variant="outline" className="text-xs">Massage</Badge>
+                      <Badge variant="outline" className="text-xs">Chiropractic</Badge>
+                      <Badge variant="outline" className="text-xs">Craniosacral</Badge>
+                    </div>
+                    <div className="flex items-center gap-2 text-amber-600 text-sm font-medium group-hover:gap-3 transition-all">
+                      Explore Bodywork <ArrowRight className="w-4 h-4" />
+                    </div>
+                  </Link>
+
+                  {/* Nutritional Therapy */}
+                  <Link 
+                    to="/nutrition"
+                    className="group bg-card border border-border rounded-xl p-5 hover:shadow-lg hover:border-green-500/30 transition-all duration-300"
+                  >
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-10 h-10 rounded-lg bg-green-500/10 flex items-center justify-center">
+                        <Leaf className="w-5 h-5 text-green-500" />
+                      </div>
+                      <h3 className="font-serif text-lg font-semibold text-foreground group-hover:text-green-600 transition-colors">Nutritional Therapy</h3>
+                    </div>
+                    <p className="text-sm text-muted-foreground mb-3">
+                      Therapeutic diets, functional nutrition, and food-as-medicine approaches.
+                    </p>
+                    <div className="flex flex-wrap gap-1.5 mb-3">
+                      <Badge variant="outline" className="text-xs">Diets</Badge>
+                      <Badge variant="outline" className="text-xs">Nutrients</Badge>
+                      <Badge variant="outline" className="text-xs">Functional</Badge>
+                    </div>
+                    <div className="flex items-center gap-2 text-green-600 text-sm font-medium group-hover:gap-3 transition-all">
+                      Explore Nutrition <ArrowRight className="w-4 h-4" />
+                    </div>
+                  </Link>
+
+                  {/* Sound Therapy */}
+                  <Link 
+                    to="/sound-therapy"
+                    className="group bg-card border border-border rounded-xl p-5 hover:shadow-lg hover:border-indigo-500/30 transition-all duration-300"
+                  >
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-10 h-10 rounded-lg bg-indigo-500/10 flex items-center justify-center">
+                        <Waves className="w-5 h-5 text-indigo-500" />
+                      </div>
+                      <h3 className="font-serif text-lg font-semibold text-foreground group-hover:text-indigo-600 transition-colors">Sound & Vibrational Therapy</h3>
+                    </div>
+                    <p className="text-sm text-muted-foreground mb-3">
+                      Singing bowls, tuning forks, gong therapy, music therapy, and brainwave entrainment.
+                    </p>
+                    <div className="flex flex-wrap gap-1.5 mb-3">
+                      <Badge variant="outline" className="text-xs">Sound Baths</Badge>
+                      <Badge variant="outline" className="text-xs">Music Therapy</Badge>
+                      <Badge variant="outline" className="text-xs">Frequencies</Badge>
+                    </div>
+                    <div className="flex items-center gap-2 text-indigo-600 text-sm font-medium group-hover:gap-3 transition-all">
+                      Explore Sound Therapy <ArrowRight className="w-4 h-4" />
+                    </div>
+                  </Link>
+
+                  {/* Hydrotherapy */}
+                  <Link 
+                    to="/hydrotherapy"
+                    className="group bg-card border border-border rounded-xl p-5 hover:shadow-lg hover:border-cyan-500/30 transition-all duration-300"
+                  >
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-10 h-10 rounded-lg bg-cyan-500/10 flex items-center justify-center">
+                        <Droplets className="w-5 h-5 text-cyan-500" />
+                      </div>
+                      <h3 className="font-serif text-lg font-semibold text-foreground group-hover:text-cyan-600 transition-colors">Hydrotherapy</h3>
+                    </div>
+                    <p className="text-sm text-muted-foreground mb-3">
+                      Water-based therapies including contrast therapy, balneotherapy, aquatic exercise, and float therapy.
+                    </p>
+                    <div className="flex flex-wrap gap-1.5 mb-3">
+                      <Badge variant="outline" className="text-xs">Hot/Cold</Badge>
+                      <Badge variant="outline" className="text-xs">Float Tanks</Badge>
+                      <Badge variant="outline" className="text-xs">Aquatic PT</Badge>
+                    </div>
+                    <div className="flex items-center gap-2 text-cyan-600 text-sm font-medium group-hover:gap-3 transition-all">
+                      Explore Hydrotherapy <ArrowRight className="w-4 h-4" />
+                    </div>
+                  </Link>
                 </div>
               </div>
             </div>
