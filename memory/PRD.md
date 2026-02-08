@@ -144,6 +144,18 @@ Transform the EvidenceMed build from Lovable into a high-authority Institutional
   - POST /api/digest/send-test - Send test digest email
   - POST /api/digest/send-all - Send to all subscribers (for scheduled jobs)
   - Email templates with article summaries
+- ✅ Admin Dashboard Weekly Digest Section:
+  - Digest Preview panel with Load Preview button
+  - Shows topic, article count, and generation timestamp
+  - Article list with titles, authors, journals, and PubMed links
+  - Send Test Digest to specific email
+  - Broadcast Digest to all subscribers button
+  - Schedule indicator (Monday 9:00 AM UTC)
+- ✅ Cron Job Scripts:
+  - /app/backend/cron/weekly_digest.py - Python cron script
+  - /app/backend/scripts/send_weekly_digest.sh - Bash script for external schedulers
+- ✅ Fixed duplicate Legal sections in footer
+- ✅ Cleaned up old /app/src folder (leftover from Vite migration)
 
 ## API Endpoints
 - `POST /api/auth/register` - User registration (open)
