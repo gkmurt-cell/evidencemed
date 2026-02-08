@@ -609,6 +609,162 @@ async def delete_research_alert(alert_id: str, token: str):
     
     return {"message": "Alert deleted"}
 
+# ====================
+# Admin Invite Code Routes
+# ====================
+
+def generate_invite_code_string() -> str:
+    """Generate a random invite code"""
+    import random
+    import string
+    chars = string.ascii_uppercase + string.digits
+    return ''.join(random.choices(chars, k=8))
+
+class UserRegisterWithInvite(BaseModel):
+    email: EmailStr
+    password: str = Field(..., min_length=6)
+    invite_code: str
+
+@api_router.post("/admin/invite-codes", response_model=InviteCodeResponse, status_code=status.HTTP_201_CREATED)
+async def create_invite_code(data: InviteCodeCreate):
+    """Create a new invite code (admin only)"""
+    code_id = str(uuid.uuid4())
+    code_string = generate_invite_code_string()
+    created_at = datetime.now(timezone.utc)
+    expires_at = created_at + timedelta(days=data.trial_days)
+    
+    code_doc = {
+        "id": code_id,
+        "code": code_string,
+        "email": data.email,
+        "institution_name": data.institution_name,
+        "tier": data.tier,
+        "trial_days": data.trial_days,
+        "used": False,
+        "used_by": None,
+        "created_at": created_at.isoformat(),
+        "expires_at": expires_at.isoformat()
+    }
+    
+    await db.invite_codes.insert_one(code_doc)
+    
+    logger.info(f"New invite code created: {code_string} for {data.email or data.institution_name or 'general'}")
+    
+    return {
+        "id": code_id,
+        "code": code_string,
+        "email": data.email,
+        "institution_name": data.institution_name,
+        "tier": data.tier,
+        "trial_days": data.trial_days,
+        "used": False,
+        "used_by": None,
+        "created_at": created_at.isoformat(),
+        "expires_at": expires_at.isoformat()
+    }
+
+@api_router.get("/admin/invite-codes", response_model=List[InviteCodeResponse])
+async def get_invite_codes():
+    """Get all invite codes (admin only)"""
+    codes = await db.invite_codes.find({}, {"_id": 0}).to_list(1000)
+    return codes
+
+@api_router.delete("/admin/invite-codes/{code_id}")
+async def delete_invite_code(code_id: str):
+    """Delete an invite code (admin only)"""
+    result = await db.invite_codes.delete_one({"id": code_id})
+    
+    if result.deleted_count == 0:
+        raise HTTPException(status_code=404, detail="Invite code not found")
+    
+    return {"message": "Invite code deleted"}
+
+@api_router.post("/admin/validate-invite-code")
+async def validate_invite_code(code: str):
+    """Validate an invite code without using it"""
+    invite = await db.invite_codes.find_one({"code": code}, {"_id": 0})
+    
+    if not invite:
+        raise HTTPException(status_code=404, detail="Invalid invite code")
+    
+    if invite.get("used"):
+        raise HTTPException(status_code=400, detail="Invite code already used")
+    
+    expires_at = datetime.fromisoformat(invite["expires_at"])
+    if datetime.now(timezone.utc) > expires_at:
+        raise HTTPException(status_code=400, detail="Invite code has expired")
+    
+    return {
+        "valid": True,
+        "tier": invite.get("tier"),
+        "trial_days": invite.get("trial_days"),
+        "institution_name": invite.get("institution_name")
+    }
+
+@api_router.post("/auth/register-with-invite", response_model=TokenResponse, status_code=status.HTTP_201_CREATED)
+async def register_with_invite(user_data: UserRegisterWithInvite):
+    """Register a new user with an invite code"""
+    # Validate invite code first
+    invite = await db.invite_codes.find_one({"code": user_data.invite_code})
+    
+    if not invite:
+        raise HTTPException(status_code=400, detail="Invalid invite code")
+    
+    if invite.get("used"):
+        raise HTTPException(status_code=400, detail="Invite code already used")
+    
+    expires_at = datetime.fromisoformat(invite["expires_at"])
+    if datetime.now(timezone.utc) > expires_at:
+        raise HTTPException(status_code=400, detail="Invite code has expired")
+    
+    # Check if user exists
+    existing_user = await db.users.find_one({"email": user_data.email})
+    if existing_user:
+        raise HTTPException(
+            status_code=status.HTTP_409_CONFLICT,
+            detail="Email already registered"
+        )
+    
+    # Create user
+    user_id = str(uuid.uuid4())
+    hashed_password = get_password_hash(user_data.password)
+    created_at = datetime.now(timezone.utc).isoformat()
+    
+    user_doc = {
+        "id": user_id,
+        "email": user_data.email,
+        "hashed_password": hashed_password,
+        "created_at": created_at,
+        "is_active": True,
+        "tier": invite.get("tier", "starter"),
+        "institution_name": invite.get("institution_name"),
+        "trial_expires_at": (datetime.now(timezone.utc) + timedelta(days=invite.get("trial_days", 7))).isoformat(),
+        "role": "user"
+    }
+    
+    await db.users.insert_one(user_doc)
+    
+    # Mark invite code as used
+    await db.invite_codes.update_one(
+        {"code": user_data.invite_code},
+        {"$set": {"used": True, "used_by": user_id, "used_at": created_at}}
+    )
+    
+    # Create token
+    access_token = create_access_token(data={"sub": user_id, "email": user_data.email})
+    
+    logger.info(f"New user registered with invite code: {user_data.email}")
+    
+    return {
+        "access_token": access_token,
+        "token_type": "bearer",
+        "user": {
+            "id": user_id,
+            "email": user_data.email,
+            "created_at": created_at
+        }
+    }
+
 # Include the router
 app.include_router(api_router)
 
