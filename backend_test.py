@@ -435,6 +435,11 @@ class EvidenceMedAPITester:
         # Status endpoints
         self.test_status_endpoints()
         
+        # NEW: Institutional and Digest endpoints
+        self.test_institutional_trial_request()
+        self.test_research_digest_subscription()
+        self.test_duplicate_digest_subscription()
+        
         # Print summary
         print("\n" + "=" * 60)
         print(f"📊 Test Summary: {self.tests_passed}/{self.tests_run} tests passed")
