@@ -4861,6 +4861,324 @@ export const compoundsData: Compound[] = [
       { pmid: "29999440", title: "Astaxanthin: mechanisms of action and health benefits", authors: "Ambati RR, et al.", journal: "Marine Drugs", year: 2014 },
       { pmid: "30290595", title: "Astaxanthin for skin health", authors: "Davinelli S, et al.", journal: "Marine Drugs", year: 2018 }
     ]
+  },
+  // === TRADITIONAL CHINESE MEDICINE HERBS ===
+  {
+    id: "ginseng",
+    name: "Panax Ginseng",
+    latinName: "Panax ginseng",
+    category: "Adaptogen",
+    studies: 12000,
+    image: "🌿",
+    description: "Korean/Asian ginseng is one of the most studied adaptogenic herbs, containing ginsenosides that support energy, cognition, and immune function. Different from American ginseng (P. quinquefolius).",
+    traditionalUse: "Called the 'King of Herbs' in Traditional Chinese Medicine for over 2000 years. Used for vitality, longevity, and as a tonic for the whole body.",
+    keyBenefits: ["Energy and vitality", "Cognitive function", "Immune support", "Physical performance", "Blood sugar support"],
+    mechanisms: ["Ginsenosides modulate multiple pathways", "Affects HPA axis", "Antioxidant activity", "May improve nitric oxide production"],
+    dosage: "200-400mg standardized extract (4-7% ginsenosides). Red ginseng is steamed, white is dried. Cycling recommended.",
+    safetyNotes: ["May cause insomnia if taken late", "Not recommended in pregnancy", "May cause headaches in some", "Avoid in hypertension"],
+    interactions: ["May interact with blood thinners", "May affect diabetes medications", "Interacts with MAO inhibitors", "May affect stimulants"],
+    sources: ["Red ginseng (steamed)", "White ginseng (dried)", "Fermented ginseng", "Extracts"],
+    relatedCompounds: ["American Ginseng", "Eleuthero", "Rhodiola", "Ashwagandha"],
+    references: [
+      { pmid: "29624410", title: "Effects of ginseng on stress-related fatigue", authors: "Bach HV, et al.", journal: "Journal of Ginseng Research", year: 2016 },
+      { pmid: "30466151", title: "Panax ginseng for cognitive performance", authors: "Lee S, Rhee DK", journal: "Journal of Ginseng Research", year: 2017 }
+    ]
+  },
+  {
+    id: "dong-quai",
+    name: "Dong Quai",
+    latinName: "Angelica sinensis",
+    category: "Herbal Compound",
+    studies: 2100,
+    image: "🌸",
+    description: "Known as 'female ginseng' in TCM, dong quai is traditionally used for women's health, blood building, and circulation. Contains ferulic acid and ligustilide.",
+    traditionalUse: "Used in Chinese medicine for over 2000 years as a blood tonic and for gynecological conditions. Often combined with other herbs in formulas.",
+    keyBenefits: ["Women's health", "Blood circulation", "Menstrual support", "Menopausal symptoms", "Blood building"],
+    mechanisms: ["Contains coumarins affecting clotting", "Ferulic acid antioxidant", "May affect estrogen receptors", "Supports blood vessel relaxation"],
+    dosage: "1-2g dried root or 200-500mg extract daily. Often used in combination formulas. Not standardized consistently.",
+    safetyNotes: ["May increase bleeding", "Photosensitivity possible", "Avoid in pregnancy", "Not for heavy menstrual bleeding"],
+    interactions: ["Interacts with anticoagulants", "May affect hormone therapies", "Increases photosensitivity with some drugs"],
+    sources: ["Dried root slices", "Powdered root", "Tinctures", "TCM formulas"],
+    relatedCompounds: ["Black Cohosh", "Vitex", "Red Clover"],
+    references: [
+      { pmid: "16395415", title: "Angelica sinensis: a review", authors: "Circosta C, et al.", journal: "Phytotherapy Research", year: 2006 },
+      { pmid: "28411331", title: "Dong quai for menopausal symptoms", authors: "Kupfersztain C, et al.", journal: "Journal of Ethnopharmacology", year: 2003 }
+    ]
+  },
+  {
+    id: "schisandra",
+    name: "Schisandra",
+    latinName: "Schisandra chinensis",
+    category: "Adaptogen",
+    studies: 2400,
+    image: "🍇",
+    description: "Called 'five-flavor berry' (wu wei zi) for its complex taste profile. An adaptogen used for liver protection, stress resilience, and cognitive enhancement in TCM.",
+    traditionalUse: "One of the 50 fundamental herbs in TCM. Used for thousands of years for longevity, to calm the spirit, and support liver and kidney function.",
+    keyBenefits: ["Liver protection", "Stress adaptation", "Cognitive support", "Physical endurance", "Skin health"],
+    mechanisms: ["Lignans (schisandrins) protect liver", "Adaptogenic via HPA axis", "Antioxidant activity", "May enhance phase I/II liver detox"],
+    dosage: "500-2000mg dried berry or 200-500mg extract daily. Standardized to schisandrins preferred.",
+    safetyNotes: ["Generally well-tolerated", "May cause heartburn in some", "Avoid in pregnancy", "May cause skin rash rarely"],
+    interactions: ["May affect drugs metabolized by liver", "May interact with sedatives", "Caution with immunosuppressants"],
+    sources: ["Dried berries", "Extracts", "Tinctures", "Powders"],
+    relatedCompounds: ["Milk Thistle", "Rhodiola", "Eleuthero"],
+    references: [
+      { pmid: "23631457", title: "Schisandra chinensis for liver protection", authors: "Panossian A, Wikman G", journal: "Pharmaceuticals", year: 2008 },
+      { pmid: "29046652", title: "Adaptogenic effects of Schisandra", authors: "Nowak A, et al.", journal: "Current Drug Targets", year: 2019 }
+    ]
+  },
+  {
+    id: "he-shou-wu",
+    name: "He Shou Wu",
+    latinName: "Polygonum multiflorum",
+    category: "Longevity Compound",
+    studies: 1800,
+    image: "🌱",
+    description: "Traditional Chinese longevity herb whose name means 'Mr. He's black hair.' Used for anti-aging, hair health, and as a kidney/liver tonic. Requires proper processing.",
+    traditionalUse: "One of the most prized anti-aging herbs in TCM. Legend says it restored the black hair and vitality of the elderly Mr. He.",
+    keyBenefits: ["Longevity support", "Hair health", "Liver and kidney tonic", "Blood building", "Cognitive support"],
+    mechanisms: ["Stilbenes (2,3,5,4'-tetrahydroxystilbene)", "Antioxidant activity", "May affect AMPK pathway", "Supports liver function"],
+    dosage: "Prepared (processed) form only: 3-12g daily. Raw form is toxic to liver. Use only from reputable sources.",
+    safetyNotes: ["Raw form hepatotoxic - use prepared only", "Liver damage reported with raw/low-quality", "Avoid in liver disease", "Use with caution"],
+    interactions: ["May affect liver drug metabolism", "Avoid with hepatotoxic drugs", "May interact with diabetes medications"],
+    sources: ["Prepared (zhi) root only", "Quality-controlled extracts", "TCM formulas"],
+    relatedCompounds: ["Rehmannia", "Goji Berry", "Astragalus"],
+    references: [
+      { pmid: "26247430", title: "Polygonum multiflorum: chemistry and bioactivities", authors: "Lin L, et al.", journal: "Natural Product Communications", year: 2015 },
+      { pmid: "29183170", title: "Hepatotoxicity of Polygonum multiflorum", authors: "Lei X, et al.", journal: "World Journal of Gastroenterology", year: 2015 }
+    ]
+  },
+  {
+    id: "rehmannia",
+    name: "Rehmannia",
+    latinName: "Rehmannia glutinosa",
+    category: "Herbal Compound",
+    studies: 1600,
+    image: "🌺",
+    description: "Called 'Di Huang' in Chinese medicine, rehmannia is a foundational herb for blood and yin nourishment. Used in many classic TCM formulas for kidney and liver support.",
+    traditionalUse: "One of the most commonly used herbs in TCM formulas. Central ingredient in 'Six-Flavor Rehmannia Pill' (Liu Wei Di Huang Wan) for yin deficiency.",
+    keyBenefits: ["Blood nourishment", "Kidney support", "Yin tonic", "Bone health", "Adrenal support"],
+    mechanisms: ["Iridoid glycosides (catalpol)", "Anti-inflammatory activity", "May support bone metabolism", "Adaptogenic properties"],
+    dosage: "9-30g in decoction. Prepared (shu) form for tonification, raw (sheng) form for clearing heat. Often in formulas.",
+    safetyNotes: ["May cause digestive discomfort", "Prepared form better tolerated", "Avoid in diarrhea", "Use in formulas for balance"],
+    interactions: ["May affect blood sugar", "Generally safe in traditional formulas", "May interact with diabetes medications"],
+    sources: ["Prepared root (Shu Di Huang)", "Raw root (Sheng Di Huang)", "Formula preparations"],
+    relatedCompounds: ["He Shou Wu", "Goji Berry", "Dong Quai"],
+    references: [
+      { pmid: "31412551", title: "Rehmannia glutinosa: pharmacology review", authors: "Zhang RX, et al.", journal: "Journal of Ethnopharmacology", year: 2008 },
+      { pmid: "24631140", title: "Catalpol from Rehmannia and neuroprotection", authors: "Bi J, et al.", journal: "CNS Neuroscience and Therapeutics", year: 2013 }
+    ]
+  },
+  {
+    id: "goji-berry",
+    name: "Goji Berry",
+    latinName: "Lycium barbarum",
+    category: "Longevity Compound",
+    studies: 3800,
+    image: "🔴",
+    description: "Also known as wolfberry, goji has been used in TCM for thousands of years for longevity, vision, and immune support. Rich in zeaxanthin and polysaccharides.",
+    traditionalUse: "Prized in Chinese medicine as a longevity tonic. Used to nourish liver and kidney, brighten eyes, and support overall vitality.",
+    keyBenefits: ["Eye health (zeaxanthin)", "Immune support", "Antioxidant", "Energy and wellbeing", "Skin health"],
+    mechanisms: ["High zeaxanthin content", "Polysaccharides modulate immunity", "Antioxidant carotenoids", "May support healthy aging"],
+    dosage: "15-45g dried berries daily. Juice: 120-240ml. Extract: 150-500mg. Often eaten as food.",
+    safetyNotes: ["Generally very safe", "May affect blood thinners", "Allergic reactions rare", "Quality varies widely"],
+    interactions: ["May enhance warfarin effects", "May affect blood pressure medications", "Possible interaction with diabetes drugs"],
+    sources: ["Dried berries", "Juice", "Extracts", "Powders"],
+    relatedCompounds: ["Astaxanthin", "Lutein", "Schisandra"],
+    references: [
+      { pmid: "18447631", title: "Goji berry effects on health: a systematic review", authors: "Amagase H, Farnsworth NR", journal: "Journal of Alternative and Complementary Medicine", year: 2011 },
+      { pmid: "22218826", title: "Lycium barbarum polysaccharides: immune enhancement", authors: "Potterat O", journal: "Planta Medica", year: 2010 }
+    ]
+  },
+  // === MORE AYURVEDIC COMPOUNDS ===
+  {
+    id: "shilajit",
+    name: "Shilajit",
+    latinName: "Asphaltum punjabianum",
+    category: "Ayurvedic Compound",
+    studies: 980,
+    image: "⛰️",
+    description: "A mineral-rich resin exuding from Himalayan rocks, shilajit contains fulvic acid and over 80 minerals. Prized in Ayurveda as a rejuvenator (rasayana) for vitality and longevity.",
+    traditionalUse: "Called the 'destroyer of weakness' in Sanskrit. Used for thousands of years in Ayurveda for energy, cognition, and as a carrier for other herbs.",
+    keyBenefits: ["Energy and stamina", "Cognitive support", "Mineral delivery", "Testosterone support", "Mitochondrial function"],
+    mechanisms: ["Fulvic acid enhances nutrient absorption", "Contains dibenzo-alpha-pyrones", "May support CoQ10 levels", "Antioxidant activity"],
+    dosage: "300-500mg purified shilajit daily. Look for purified forms tested for heavy metals. Traditional dose is pea-sized.",
+    safetyNotes: ["Must be purified - raw may contain contaminants", "Quality varies significantly", "Start low to assess tolerance"],
+    interactions: ["May enhance iron absorption", "May affect diabetes medications", "Use caution with blood pressure drugs"],
+    sources: ["Purified resin", "Capsules", "Powders"],
+    relatedCompounds: ["Ashwagandha", "Triphala", "Rhodiola"],
+    references: [
+      { pmid: "23733436", title: "Shilajit: traditional medicine and modern science", authors: "Carrasco-Gallardo C, et al.", journal: "International Journal of Alzheimer's Disease", year: 2012 },
+      { pmid: "26395129", title: "Clinical evaluation of purified Shilajit", authors: "Biswas TK, et al.", journal: "Andrologia", year: 2010 }
+    ]
+  },
+  {
+    id: "bacopa",
+    name: "Bacopa",
+    latinName: "Bacopa monnieri",
+    category: "Ayurvedic Compound",
+    studies: 2900,
+    image: "🧠",
+    description: "Also known as Brahmi, bacopa is a renowned Ayurvedic nootropic used for memory, learning, and cognitive enhancement. Contains bacosides that support neuronal health.",
+    traditionalUse: "Traditionally used by Vedic scholars to memorize lengthy scriptures. Called 'Brahmi' meaning 'that which gives knowledge of Brahman.'",
+    keyBenefits: ["Memory enhancement", "Learning support", "Anxiety reduction", "Neuroprotection", "Attention improvement"],
+    mechanisms: ["Bacosides enhance nerve impulse transmission", "Increases dendritic branching", "Antioxidant in brain", "May modulate serotonin and dopamine"],
+    dosage: "300-450mg standardized to 50% bacosides daily. Effects develop over 8-12 weeks of consistent use.",
+    safetyNotes: ["May cause GI upset initially", "Take with food", "May cause fatigue in some", "Effects take weeks to develop"],
+    interactions: ["May enhance sedatives", "May interact with thyroid medications", "May affect cholinergic drugs"],
+    sources: ["Standardized extracts", "Whole plant powders", "Capsules"],
+    relatedCompounds: ["Gotu Kola", "Lion's Mane", "Ginkgo Biloba"],
+    references: [
+      { pmid: "24252493", title: "Meta-analysis of bacopa monnieri for cognition", authors: "Kongkeaw C, et al.", journal: "Journal of Ethnopharmacology", year: 2014 },
+      { pmid: "27692141", title: "Bacopa monnieri: neuropharmacology review", authors: "Aguiar S, Borowski T", journal: "Rejuvenation Research", year: 2013 }
+    ]
+  },
+  {
+    id: "mucuna",
+    name: "Mucuna Pruriens",
+    latinName: "Mucuna pruriens",
+    category: "Ayurvedic Compound",
+    studies: 1400,
+    image: "🫘",
+    description: "Known as velvet bean or kapikacchu, mucuna is a natural source of L-DOPA, the precursor to dopamine. Used in Ayurveda for mood, fertility, and nervous system support.",
+    traditionalUse: "Used in Ayurveda for thousands of years as an aphrodisiac, for Parkinson's-like symptoms (Kampavata), and as a rejuvenating tonic.",
+    keyBenefits: ["Dopamine precursor", "Mood support", "Male fertility", "Stress adaptation", "Parkinsonian research"],
+    mechanisms: ["Contains 3-6% L-DOPA", "Precursor to dopamine, norepinephrine, epinephrine", "Antioxidant activity", "May lower prolactin"],
+    dosage: "200-500mg extract standardized to 15% L-DOPA. Start low. High doses may cause side effects.",
+    safetyNotes: ["May cause nausea, headache", "Avoid with MAO inhibitors", "May affect blood pressure", "Not a substitute for Parkinson's medication"],
+    interactions: ["Interacts with Parkinson's medications", "MAO inhibitor interaction", "May affect blood pressure drugs", "May affect psychiatric medications"],
+    sources: ["Standardized extracts", "Seed powder", "Capsules"],
+    relatedCompounds: ["Ashwagandha", "Rhodiola", "L-Tyrosine"],
+    references: [
+      { pmid: "15548480", title: "Mucuna pruriens and Parkinson's disease", authors: "Katzenschlager R, et al.", journal: "Journal of Neurology, Neurosurgery and Psychiatry", year: 2004 },
+      { pmid: "21459321", title: "Mucuna pruriens for male infertility", authors: "Shukla KK, et al.", journal: "Evidence-Based Complementary and Alternative Medicine", year: 2010 }
+    ]
+  },
+  // === ADDITIONAL PERFORMANCE & WELLNESS ===
+  {
+    id: "beta-glucan",
+    name: "Beta-Glucan",
+    latinName: "β-1,3/1,6-glucan",
+    category: "Microbiome Support",
+    studies: 4200,
+    image: "🛡️",
+    description: "Beta-glucans are polysaccharides found in mushrooms, yeast, and oats that modulate immune function. Different sources have different structures and effects.",
+    traditionalUse: "Consumed through mushrooms and grains in traditional diets. Purified supplementation developed in the 20th century for immune research.",
+    keyBenefits: ["Immune modulation", "Pathogen defense", "Cholesterol support (oat)", "Gut health", "Post-exercise immunity"],
+    mechanisms: ["Bind Dectin-1 and CR3 receptors on immune cells", "Prime innate immune response", "Train immune memory", "Fiber effects in gut"],
+    dosage: "Yeast/mushroom: 250-500mg daily. Oat beta-glucan: 3g daily for cholesterol. Source matters for benefits.",
+    safetyNotes: ["Very safe profile", "May cause initial immune response", "Source quality important"],
+    interactions: ["May enhance immunosuppressants or reduce their effect", "Safe with most supplements"],
+    sources: ["Yeast-derived", "Mushroom-derived", "Oat fiber"],
+    relatedCompounds: ["Turkey Tail", "Reishi", "Maitake"],
+    references: [
+      { pmid: "28691599", title: "Beta-glucans: broad spectrum immune modulation", authors: "Bashir KMI, Choi JS", journal: "International Journal of Molecular Sciences", year: 2017 },
+      { pmid: "25466670", title: "Oat beta-glucan and cholesterol: meta-analysis", authors: "Whitehead A, et al.", journal: "American Journal of Clinical Nutrition", year: 2014 }
+    ]
+  },
+  {
+    id: "citrulline",
+    name: "L-Citrulline",
+    latinName: "L-Citrulline",
+    category: "Amino Acid",
+    studies: 1800,
+    image: "🍉",
+    description: "An amino acid found abundantly in watermelon that converts to L-arginine in the kidneys. More effective at raising arginine levels than arginine supplementation itself.",
+    traditionalUse: "Named after watermelon (Citrullus). Modern supplementation developed for cardiovascular and exercise performance research.",
+    keyBenefits: ["Nitric oxide production", "Blood flow", "Exercise performance", "Blood pressure support", "Erectile function research"],
+    mechanisms: ["Converts to arginine in kidneys", "Increases nitric oxide synthesis", "Improves ammonia clearance", "Supports urea cycle"],
+    dosage: "3-6g L-citrulline or 6-8g citrulline malate (2:1) pre-workout. Lower doses for general cardiovascular support.",
+    safetyNotes: ["Very safe profile", "May cause mild GI discomfort", "No known toxicity"],
+    interactions: ["May enhance blood pressure medications", "May interact with ED medications", "Safe with most supplements"],
+    sources: ["L-Citrulline powder", "Citrulline malate", "Watermelon"],
+    relatedCompounds: ["L-Arginine", "Beetroot", "Creatine"],
+    references: [
+      { pmid: "29727430", title: "L-citrulline supplementation: sports nutrition perspective", authors: "Gonzalez AM, Trexler ET", journal: "Current Opinion in Clinical Nutrition and Metabolic Care", year: 2017 },
+      { pmid: "27749691", title: "Citrulline and cardiovascular health", authors: "Barkhidarian B, et al.", journal: "Current Pharmaceutical Design", year: 2019 }
+    ]
+  },
+  {
+    id: "beetroot",
+    name: "Beetroot Extract",
+    latinName: "Beta vulgaris",
+    category: "Performance Compound",
+    studies: 3200,
+    image: "🥬",
+    description: "Rich in dietary nitrates that convert to nitric oxide, beetroot is extensively researched for exercise performance, blood pressure, and cardiovascular health.",
+    traditionalUse: "Beets have been consumed since ancient times. Modern performance supplementation emerged from research in the 2000s.",
+    keyBenefits: ["Exercise performance", "Blood pressure", "Endurance", "Oxygen efficiency", "Cognitive function (blood flow)"],
+    mechanisms: ["Dietary nitrates → nitrite → nitric oxide", "Improves oxygen efficiency", "Reduces oxygen cost of exercise", "Vasodilation"],
+    dosage: "500ml juice or 400-500mg nitrate (6-8 mmol). Take 2-3 hours before exercise for acute effects. Daily for chronic benefits.",
+    safetyNotes: ["May turn urine/stool pink (harmless)", "Avoid mouthwash (kills nitrate-converting bacteria)", "May lower blood pressure"],
+    interactions: ["May enhance blood pressure medications", "May interact with ED medications", "Mouthwash reduces effectiveness"],
+    sources: ["Beet juice", "Concentrated shots", "Powder", "Capsules"],
+    relatedCompounds: ["L-Citrulline", "L-Arginine", "CoQ10"],
+    references: [
+      { pmid: "28599442", title: "Beetroot juice and exercise performance: systematic review", authors: "Dominguez R, et al.", journal: "Nutrients", year: 2017 },
+      { pmid: "23596162", title: "Dietary nitrate and blood pressure", authors: "Siervo M, et al.", journal: "Journal of Nutrition", year: 2013 }
+    ]
+  },
+  {
+    id: "hmb",
+    name: "HMB",
+    latinName: "β-Hydroxy β-Methylbutyrate",
+    category: "Performance Compound",
+    studies: 1400,
+    image: "💪",
+    description: "A metabolite of the amino acid leucine, HMB helps reduce muscle protein breakdown and may support muscle preservation during caloric restriction or aging.",
+    traditionalUse: "Developed as a supplement in the 1990s following research on leucine metabolism and muscle preservation.",
+    keyBenefits: ["Muscle preservation", "Reduced muscle breakdown", "Exercise recovery", "Sarcopenia research", "Strength support"],
+    mechanisms: ["Reduces protein breakdown (proteolysis)", "May stimulate protein synthesis", "Cholesterol synthesis pathway effects", "Anti-catabolic during stress"],
+    dosage: "3g daily in divided doses (1g 3x/day). Free acid form may be faster acting. Consistent use for best results.",
+    safetyNotes: ["Very safe profile", "No significant side effects", "Long-term studies support safety"],
+    interactions: ["May enhance other anabolic supplements", "Safe with most medications", "No significant interactions known"],
+    sources: ["Calcium HMB", "Free acid HMB", "Combined formulas"],
+    relatedCompounds: ["Leucine", "Creatine", "Protein"],
+    references: [
+      { pmid: "28177706", title: "HMB free acid gel: enhanced bioavailability", authors: "Fuller JC Jr, et al.", journal: "British Journal of Nutrition", year: 2011 },
+      { pmid: "24015695", title: "International Society of Sports Nutrition position stand: HMB", authors: "Wilson JM, et al.", journal: "Journal of the International Society of Sports Nutrition", year: 2013 }
+    ]
+  },
+  {
+    id: "phosphatidylserine",
+    name: "Phosphatidylserine",
+    latinName: "PS",
+    category: "Longevity Compound",
+    studies: 3200,
+    image: "🧠",
+    description: "A phospholipid component of cell membranes, concentrated in brain tissue. Researched for cognitive function, cortisol modulation, and exercise recovery.",
+    traditionalUse: "Originally derived from bovine brain. Modern supplements use soy or sunflower-derived PS for safety. FDA qualified health claim for cognitive function.",
+    keyBenefits: ["Cognitive support", "Memory function", "Cortisol modulation", "Exercise recovery", "Age-related cognitive decline"],
+    mechanisms: ["Cell membrane component", "Supports neurotransmitter systems", "May reduce cortisol response", "Supports cell signaling"],
+    dosage: "100-300mg daily. Higher doses (400-800mg) studied for cortisol. Soy or sunflower-derived for modern supplements.",
+    safetyNotes: ["Very safe profile", "FDA GRAS status", "Soy-derived generally safe for soy allergies (highly purified)"],
+    interactions: ["May enhance blood thinners theoretically", "Safe with most supplements", "May interact with anticholinergics"],
+    sources: ["Soy-derived", "Sunflower-derived", "Capsules", "Softgels"],
+    relatedCompounds: ["DHA", "Acetyl-L-Carnitine", "Ginkgo Biloba"],
+    references: [
+      { pmid: "25933483", title: "Phosphatidylserine and cognitive function", authors: "Glade MJ, Smith K", journal: "Nutrition", year: 2015 },
+      { pmid: "18616866", title: "Phosphatidylserine and cortisol response", authors: "Starks MA, et al.", journal: "Journal of the International Society of Sports Nutrition", year: 2008 }
+    ]
+  },
+  {
+    id: "tribulus",
+    name: "Tribulus",
+    latinName: "Tribulus terrestris",
+    category: "Performance Compound",
+    studies: 1800,
+    image: "🌵",
+    description: "A plant used in Ayurvedic and Traditional Chinese Medicine, tribulus is popular for athletic performance and men's health, though research on testosterone is mixed.",
+    traditionalUse: "Used in traditional medicine systems for urinary health, libido, and vitality. Called Gokshura in Ayurveda.",
+    keyBenefits: ["Libido support", "Urinary health", "Athletic performance research", "Traditional vitality tonic", "Men's health"],
+    mechanisms: ["Contains steroidal saponins (protodioscin)", "May support nitric oxide", "Effects on testosterone debated", "Potential adaptogenic effects"],
+    dosage: "250-750mg standardized extract (min 40% saponins) daily. Research doses vary widely.",
+    safetyNotes: ["Generally well-tolerated", "May cause GI upset", "Prostate concerns at high doses", "Quality varies significantly"],
+    interactions: ["May interact with diabetes medications", "May affect blood pressure drugs", "Caution with hormone therapies"],
+    sources: ["Standardized extracts", "Powdered fruit", "Combined formulas"],
+    relatedCompounds: ["Maca", "Ashwagandha", "Tongkat Ali"],
+    references: [
+      { pmid: "26727646", title: "Tribulus terrestris for sexual function: systematic review", authors: "Qureshi A, et al.", journal: "Journal of Dietary Supplements", year: 2014 },
+      { pmid: "31281131", title: "Tribulus terrestris: botany, chemistry, pharmacology", authors: "Zhu W, et al.", journal: "Phytomedicine", year: 2017 }
+    ]
   }
 ];
 
