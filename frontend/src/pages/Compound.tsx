@@ -32,6 +32,7 @@ import PRISMAMethodology from "@/components/compound/PRISMAMethodology";
 import CompoundJsonLd from "@/components/compound/CompoundJsonLd";
 import AuthorityReferences from "@/components/compound/AuthorityReferences";
 import CompoundAnnotations from "@/components/practitioners/CompoundAnnotations";
+import WhereToBuy from "@/components/compound/WhereToBuy";
 import { useAuth } from "@/hooks/useAuth";
 
 const API_URL = process.env.REACT_APP_BACKEND_URL || "";
