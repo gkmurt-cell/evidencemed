@@ -118,6 +118,11 @@ Transform the EvidenceMed build from Lovable into a high-authority Institutional
   - Invite code field with real-time validation
   - Shows code validity, tier, trial days, and institution
   - Disabled submit until code is valid
+- ✅ Email Notification System (Resend integration):
+  - Welcome email sent to users upon registration with invite code
+  - Admin notification email sent when new trial requests are submitted
+  - Non-blocking async email sending
+- ✅ Fixed duplicate Legal sections in footer
 
 ## API Endpoints
 - `POST /api/auth/register` - User registration (open)
