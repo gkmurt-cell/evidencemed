@@ -658,22 +658,28 @@ const IntegrativeTherapies = () => {
                   </Link>
 
                   {/* Traditional Chinese Medicine */}
-                  <div className="bg-card border border-border rounded-xl p-5 hover:shadow-lg hover:border-rose-500/30 transition-all duration-300">
+                  <Link 
+                    to="/tcm"
+                    className="group bg-card border border-border rounded-xl p-5 hover:shadow-lg hover:border-rose-500/30 transition-all duration-300"
+                  >
                     <div className="flex items-center gap-3 mb-3">
                       <div className="w-10 h-10 rounded-lg bg-rose-500/10 flex items-center justify-center">
                         <Flame className="w-5 h-5 text-rose-500" />
                       </div>
-                      <h3 className="font-serif text-lg font-semibold text-foreground">Traditional Chinese Medicine</h3>
+                      <h3 className="font-serif text-lg font-semibold text-foreground group-hover:text-rose-600 transition-colors">Traditional Chinese Medicine</h3>
                     </div>
                     <p className="text-sm text-muted-foreground mb-3">
                       Ancient healing system using acupuncture, herbal formulas, qi gong, and dietary therapy to restore balance and flow of vital energy (Qi).
                     </p>
-                    <div className="flex flex-wrap gap-1.5">
+                    <div className="flex flex-wrap gap-1.5 mb-3">
                       <Badge variant="outline" className="text-xs">Acupuncture</Badge>
                       <Badge variant="outline" className="text-xs">Herbal Formulas</Badge>
                       <Badge variant="outline" className="text-xs">Qi Gong</Badge>
                     </div>
-                  </div>
+                    <div className="flex items-center gap-2 text-rose-600 text-sm font-medium group-hover:gap-3 transition-all">
+                      Explore TCM <ArrowRight className="w-4 h-4" />
+                    </div>
+                  </Link>
 
                   {/* Naturopathy */}
                   <div className="bg-card border border-border rounded-xl p-5 hover:shadow-lg hover:border-emerald-500/30 transition-all duration-300">
