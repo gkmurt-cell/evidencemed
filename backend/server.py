@@ -2102,7 +2102,7 @@ async def mark_annotation_helpful(
 @api_router.delete("/annotations/{annotation_id}")
 async def delete_annotation(
     annotation_id: str,
-    current_user: dict = Depends(get_current_user)
+    current_user: dict = Depends(get_current_user_from_header)
 ):
     """Delete an annotation (only by author or admin)"""
     user_id = current_user["id"]
