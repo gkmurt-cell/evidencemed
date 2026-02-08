@@ -422,6 +422,43 @@ const Research = () => {
                     </p>
                   </div>
                 )}
+
+                {/* Weekly Research Digest */}
+                <div className="mt-6 pt-6 border-t border-border">
+                  <div className="flex items-center gap-2 mb-3">
+                    <Mail className="w-4 h-4 text-primary" />
+                    <h4 className="font-medium text-sm">Weekly Research Digest</h4>
+                  </div>
+                  <p className="text-xs text-muted-foreground mb-3">
+                    Get a curated summary of new integrative medicine research delivered to your inbox every Monday.
+                  </p>
+                  <form onSubmit={handleDigestSubscribe} className="space-y-2">
+                    <Input
+                      type="email"
+                      placeholder="your@email.com"
+                      value={digestEmail}
+                      onChange={(e) => setDigestEmail(e.target.value)}
+                      className="text-sm h-9"
+                      required
+                    />
+                    <Button 
+                      type="submit" 
+                      size="sm" 
+                      className="w-full" 
+                      disabled={isSubscribing}
+                    >
+                      {isSubscribing ? "Subscribing..." : (
+                        <>
+                          <Send className="w-3 h-3 mr-2" />
+                          Subscribe Free
+                        </>
+                      )}
+                    </Button>
+                  </form>
+                  <p className="text-xs text-muted-foreground text-center mt-2">
+                    No spam. Unsubscribe anytime.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
