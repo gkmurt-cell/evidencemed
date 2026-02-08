@@ -544,8 +544,144 @@ async def get_current_user(token: str):
     return {
         "id": user["id"],
         "email": user["email"],
-        "created_at": user.get("created_at", "")
+        "created_at": user.get("created_at", ""),
+        "email_verified": user.get("email_verified", False)
     }
+
+# ====================
+# Password Reset Routes
+# ====================
+
+@api_router.post("/auth/forgot-password")
+async def forgot_password(data: PasswordResetRequest):
+    """Request a password reset email"""
+    user = await db.users.find_one({"email": data.email})
+    
+    # Always return success to prevent email enumeration
+    if not user:
+        return {"message": "If an account exists with this email, you will receive a password reset link."}
+    
+    # Generate reset token
+    reset_token = str(uuid.uuid4())
+    expires_at = datetime.now(timezone.utc) + timedelta(hours=1)
+    
+    # Store reset token
+    await db.password_resets.insert_one({
+        "user_id": user["id"],
+        "email": data.email,
+        "token": reset_token,
+        "expires_at": expires_at.isoformat(),
+        "used": False,
+        "created_at": datetime.now(timezone.utc).isoformat()
+    })
+    
+    # Send reset email (non-blocking)
+    asyncio.create_task(send_password_reset_email(data.email, reset_token))
+    
+    logger.info(f"Password reset requested for: {data.email}")
+    
+    return {"message": "If an account exists with this email, you will receive a password reset link."}
+
+@api_router.post("/auth/reset-password")
+async def reset_password(data: PasswordResetConfirm):
+    """Reset password using token"""
+    # Find valid reset token
+    reset_doc = await db.password_resets.find_one({
+        "token": data.token,
+        "used": False
+    })
+    
+    if not reset_doc:
+        raise HTTPException(status_code=400, detail="Invalid or expired reset token")
+    
+    # Check expiration
+    expires_at = datetime.fromisoformat(reset_doc["expires_at"])
+    if datetime.now(timezone.utc) > expires_at:
+        raise HTTPException(status_code=400, detail="Reset token has expired")
+    
+    # Update user password
+    new_hash = get_password_hash(data.new_password)
+    await db.users.update_one(
+        {"id": reset_doc["user_id"]},
+        {"$set": {"hashed_password": new_hash, "updated_at": datetime.now(timezone.utc).isoformat()}}
+    )
+    
+    # Mark token as used
+    await db.password_resets.update_one(
+        {"token": data.token},
+        {"$set": {"used": True, "used_at": datetime.now(timezone.utc).isoformat()}}
+    )
+    
+    logger.info(f"Password reset completed for user: {reset_doc['user_id']}")
+    
+    return {"message": "Password has been reset successfully"}
+
+# ====================
+# Email Verification Routes
+# ====================
+
+@api_router.post("/auth/send-verification")
+async def send_verification(token: str):
+    """Send email verification to current user"""
+    payload = verify_token(token)
+    user_id = payload.get("sub")
+    
+    if not user_id:
+        raise HTTPException(status_code=401, detail="Invalid token")
+    
+    user = await db.users.find_one({"id": user_id})
+    if not user:
+        raise HTTPException(status_code=404, detail="User not found")
+    
+    if user.get("email_verified"):
+        return {"message": "Email already verified"}
+    
+    # Generate verification token
+    verification_token = str(uuid.uuid4())
+    expires_at = datetime.now(timezone.utc) + timedelta(hours=24)
+    
+    # Store verification token
+    await db.email_verifications.update_one(
+        {"user_id": user_id},
+        {"$set": {
+            "user_id": user_id,
+            "email": user["email"],
+            "token": verification_token,
+            "expires_at": expires_at.isoformat(),
+            "created_at": datetime.now(timezone.utc).isoformat()
+        }},
+        upsert=True
+    )
+    
+    # Send verification email
+    asyncio.create_task(send_verification_email(user["email"], verification_token))
+    
+    return {"message": "Verification email sent"}
+
+@api_router.post("/auth/verify-email")
+async def verify_email(data: EmailVerificationRequest):
+    """Verify email using token"""
+    verification = await db.email_verifications.find_one({"token": data.token})
+    
+    if not verification:
+        raise HTTPException(status_code=400, detail="Invalid verification token")
+    
+    expires_at = datetime.fromisoformat(verification["expires_at"])
+    if datetime.now(timezone.utc) > expires_at:
+        raise HTTPException(status_code=400, detail="Verification token has expired")
+    
+    # Update user
+    await db.users.update_one(
+        {"id": verification["user_id"]},
+        {"$set": {"email_verified": True, "verified_at": datetime.now(timezone.utc).isoformat()}}
+    )
+    
+    # Delete verification token
+    await db.email_verifications.delete_one({"token": data.token})
+    
+    logger.info(f"Email verified for user: {verification['user_id']}")
+    
+    return {"message": "Email verified successfully"}
 
 # ====================
 # PubMed Search Routes
