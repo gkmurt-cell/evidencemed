@@ -163,6 +163,58 @@ const AdminDashboard = () => {
     }
   };
 
+  const fetchPractitionerVerifications = async () => {
+    try {
+      const response = await fetch(`${API_URL}/api/admin/practitioner-verifications`);
+      if (response.ok) {
+        const data = await response.json();
+        setVerifications(data);
+      }
+    } catch (error) {
+      console.error("Failed to fetch verifications:", error);
+    }
+  };
+
+  const handleReviewVerification = async (status: "approved" | "rejected") => {
+    if (!selectedVerification) return;
+    
+    setProcessingReview(true);
+    try {
+      const response = await fetch(
+        `${API_URL}/api/admin/practitioner-verifications/${selectedVerification.id}`,
+        {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            status,
+            rejection_reason: status === "rejected" ? rejectionReason : null,
+          }),
+        }
+      );
+
+      if (response.ok) {
+        toast({
+          title: status === "approved" ? "Verification Approved" : "Verification Rejected",
+          description: `Practitioner ${selectedVerification.user_email} has been ${status}.`,
+        });
+        fetchPractitionerVerifications();
+        setReviewDialogOpen(false);
+        setSelectedVerification(null);
+        setRejectionReason("");
+      } else {
+        throw new Error("Failed to process verification");
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to process verification request",
+        variant: "destructive",
+      });
+    } finally {
+      setProcessingReview(false);
+    }
+  };
+
   const fetchDigestPreview = async () => {
     setLoadingDigest(true);
     try {
