@@ -141,7 +141,7 @@ const InstitutionalAccess = () => {
                 </p>
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                   <Button size="lg" asChild>
-                    <a href="mailto:institutions@evidencemed.com">Request Institutional Access</a>
+                    <Link to="/institutional-pricing">View Plans & Pricing</Link>
                   </Button>
                   <Button variant="outline" size="lg" asChild>
                     <Link to="/methodology">View Our Standards</Link>
