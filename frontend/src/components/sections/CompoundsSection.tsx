@@ -108,20 +108,31 @@ const compounds = [
 
 const CompoundsSection = () => {
   return (
-    <section id="compounds" className="pt-6 lg:pt-8 pb-10 lg:pb-16 bg-background">
-      <div className="container mx-auto px-4">
+    <section id="compounds" className="pt-4 lg:pt-6 pb-8 lg:pb-12 bg-background relative overflow-hidden">
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 opacity-[0.03] pointer-events-none"
+        style={{
+          backgroundImage: `url('https://images.unsplash.com/photo-1708667027894-6e9481ae1baf?w=1200&q=60')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+        }}
+      />
+      
+      <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-secondary text-secondary-foreground text-sm font-medium mb-4">
+        <div className="max-w-3xl mx-auto text-center mb-8">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-secondary text-secondary-foreground text-sm font-medium mb-3">
             <Leaf className="w-4 h-4 inline mr-1" />
             Natural Compounds
           </span>
-          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground mb-6">
+          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground mb-4">
             Herbal & Functional
             <br />
             <span className="text-muted-foreground">Medicine Library</span>
           </h2>
-          <p className="text-lg text-muted-foreground mb-4">
+          <p className="text-lg text-muted-foreground mb-3">
             Comprehensive research profiles for herbs, nutraceuticals, and functional mushrooms. 
             Each entry includes traditional use context, mechanistic research summaries, and published 
             safety considerations.
@@ -134,46 +145,46 @@ const CompoundsSection = () => {
               { href: "/methodology", label: "Editorial Methodology" },
             ]}
           />
-          <EducationalDisclaimer />
+          <EducationalDisclaimer compact />
         </div>
 
         {/* Compounds Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
           {compounds.map((compound) => (
             <Link
               key={compound.name}
               to={`/compound/${compound.name.toLowerCase().replace(/['\s]/g, '-').replace(/--/g, '-')}`}
-              className="group relative p-6 rounded-xl bg-card border border-border hover:border-primary/30 hover:shadow-medium transition-all duration-300 cursor-pointer overflow-hidden"
+              className="group relative p-4 rounded-xl bg-card border border-border hover:border-primary/30 hover:shadow-medium transition-all duration-300 cursor-pointer overflow-hidden"
             >
               {/* Background Decoration */}
-              <div className="absolute top-4 right-4 text-6xl opacity-10 group-hover:opacity-20 transition-opacity">
+              <div className="absolute top-3 right-3 text-5xl opacity-10 group-hover:opacity-20 transition-opacity">
                 {compound.image}
               </div>
 
               <div className="relative">
-                <span className="inline-block px-2.5 py-1 rounded-full bg-secondary text-xs font-medium text-secondary-foreground mb-3">
+                <span className="inline-block px-2 py-0.5 rounded-full bg-secondary text-xs font-medium text-secondary-foreground mb-2">
                   {compound.category}
                 </span>
-                <h3 className="font-serif text-xl font-semibold text-foreground mb-1 group-hover:text-primary transition-colors">
+                <h3 className="font-serif text-lg font-semibold text-foreground mb-0.5 group-hover:text-primary transition-colors">
                   {compound.name}
                 </h3>
-                <p className="text-sm text-muted-foreground italic mb-4">
+                <p className="text-sm text-muted-foreground italic mb-3">
                   {compound.latinName}
                 </p>
 
                 {/* Research Highlights */}
-                <div className="flex flex-wrap gap-2 mb-4">
+                <div className="flex flex-wrap gap-1.5 mb-3">
                   {compound.highlights.map((highlight) => (
                     <span
                       key={highlight}
-                      className="px-2 py-1 rounded bg-muted text-xs text-muted-foreground"
+                      className="px-2 py-0.5 rounded bg-muted text-xs text-muted-foreground"
                     >
                       {highlight}
                     </span>
                   ))}
                 </div>
 
-                <div className="flex items-center justify-between pt-4 border-t border-border">
+                <div className="flex items-center justify-between pt-3 border-t border-border">
                   <span className="text-sm font-medium text-primary">
                     {compound.studies} studies
                   </span>
