@@ -1953,6 +1953,113 @@ async def review_verification_request(
     return {"message": f"Verification {review.status}", "verification_id": verification_id}
 
 # ====================
+# Practitioner Directory Routes
+# ====================
+
+class PractitionerProfile(BaseModel):
+    id: str
+    display_name: str
+    credentials: str
+    specialty: str
+    institution: Optional[str] = None
+    bio: Optional[str] = None
+    verified_at: str
+    annotation_count: int = 0
+
+@api_router.get("/practitioners/directory", response_model=List[PractitionerProfile])
+async def get_practitioner_directory(
+    specialty: Optional[str] = None,
+    credentials: Optional[str] = None,
+    search: Optional[str] = None
+):
+    """Get directory of verified practitioners"""
+    
+    # Find all verified practitioners
+    query = {"is_verified_practitioner": True}
+    
+    users = await db.users.find(query, {"_id": 0, "hashed_password": 0}).to_list(1000)
+    
+    # Also get verification details for bio
+    verifications = {}
+    all_verifications = await db.practitioner_verifications.find(
+        {"status": "approved"}, 
+        {"_id": 0}
+    ).to_list(1000)
+    
+    for v in all_verifications:
+        verifications[v["user_id"]] = v
+    
+    # Build practitioner profiles
+    practitioners = []
+    for user in users:
+        user_id = user.get("id")
+        verification = verifications.get(user_id, {})
+        
+        practitioner_specialty = user.get("practitioner_specialty", "")
+        practitioner_credentials = user.get("practitioner_credentials", "")
+        
+        # Apply filters
+        if specialty and specialty.lower() not in practitioner_specialty.lower():
+            continue
+        if credentials and credentials.lower() != practitioner_credentials.lower():
+            continue
+        
+        # Search filter
+        if search:
+            search_lower = search.lower()
+            searchable = f"{practitioner_specialty} {practitioner_credentials} {verification.get('institution', '')} {verification.get('bio', '')}".lower()
+            if search_lower not in searchable:
+                continue
+        
+        # Count annotations
+        annotation_count = await db.compound_annotations.count_documents({"author_id": user_id})
+        
+        # Generate display name (use email prefix or institution)
+        email = user.get("email", "")
+        display_name = verification.get("institution") or email.split("@")[0].replace(".", " ").title()
+        
+        practitioners.append({
+            "id": user_id,
+            "display_name": display_name,
+            "credentials": practitioner_credentials,
+            "specialty": practitioner_specialty,
+            "institution": verification.get("institution"),
+            "bio": verification.get("bio"),
+            "verified_at": user.get("practitioner_verified_at", ""),
+            "annotation_count": annotation_count
+        })
+    
+    # Sort by annotation count (most active first)
+    practitioners.sort(key=lambda x: x["annotation_count"], reverse=True)
+    
+    return practitioners
+
+@api_router.get("/practitioners/specialties")
+async def get_practitioner_specialties():
+    """Get list of specialties with practitioner counts"""
+    
+    # Get all verified practitioners
+    users = await db.users.find(
+        {"is_verified_practitioner": True},
+        {"practitioner_specialty": 1}
+    ).to_list(1000)
+    
+    # Count by specialty
+    specialty_counts = {}
+    for user in users:
+        specialty = user.get("practitioner_specialty", "Other")
+        specialty_counts[specialty] = specialty_counts.get(specialty, 0) + 1
+    
+    # Convert to list and sort
+    specialties = [
+        {"specialty": k, "count": v}
+        for k, v in specialty_counts.items()
+    ]
+    specialties.sort(key=lambda x: x["count"], reverse=True)
+    
+    return specialties
+
+# ====================
 # Compound Annotations Routes
 # ====================
 
