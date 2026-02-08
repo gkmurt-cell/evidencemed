@@ -350,22 +350,6 @@ export function RightSidebar({ variant = "split", relatedCategory }: RightSideba
             </div>
           </CollapsibleContent>
         </Collapsible>
-
-        {/* Shop Link - Simple CTA to Shop page */}
-        <div className="p-4 bg-gradient-to-br from-primary/5 to-accent/5">
-          <div className="flex items-center gap-2 text-primary mb-2">
-            <ShoppingBag className="h-5 w-5" />
-            <h3 className="font-heading font-semibold text-base">Shop & Resources</h3>
-          </div>
-          <p className="text-xs text-muted-foreground mb-3">
-            Books, supplements, videos & educational materials
-          </p>
-          <Link to="/merch">
-            <Button size="sm" className="w-full rounded-full">
-              Browse Shop
-            </Button>
-          </Link>
-        </div>
       </div>
     </aside>
   );
