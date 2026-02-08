@@ -18,6 +18,7 @@ export interface PubMedSearchResult {
   articles: PubMedArticle[];
   total_count: number;
   query: string;
+  suggestion?: string | null;  // Spell correction suggestion
 }
 
 export interface SearchFilters {
