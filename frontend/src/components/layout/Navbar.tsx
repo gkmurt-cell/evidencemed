@@ -57,10 +57,10 @@ const navDropdowns: Record<string, { name: string; href: string }[]> = {
   "Integrative Therapies": [
     { name: "Ayurveda", href: "/ayurveda" },
     { name: "Chinese Medicine (TCM)", href: "/tcm" },
+    { name: "Naturopathic Medicine", href: "/naturopathy" },
+    { name: "Homeopathy", href: "/homeopathy" },
     { name: "Acupuncture & Energy", href: "/therapies#energetic" },
     { name: "Mind-Body Practices", href: "/therapies#psychotherapy" },
-    { name: "Herbal Medicine", href: "/therapies#herbal" },
-    { name: "Bodywork & Manual", href: "/therapies#bodywork" },
     { name: "Explore All Therapies", href: "/therapies" },
   ],
 };
