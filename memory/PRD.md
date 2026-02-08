@@ -112,6 +112,53 @@ Transform the 'EvidenceMed' build from Lovable platform into a high-authority In
 - [x] Added 10 new Western/Naturopathic herbs (total compounds now 169):
   - Echinacea, St. John's Wort, Saw Palmetto, Black Cohosh, Hawthorn
   - Valerian, Ginkgo Biloba, Kava, Andrographis, Milk Thistle
+- [x] Created Functional Medicine page (`/functional-medicine`)
+- [x] Created Aromatherapy page (`/aromatherapy`) with essential oil categories
+
+### Major Content Expansion (Feb 8, 2026 - Latest)
+- [x] Created Unani Medicine page (`/unani`) with:
+  - Four Humors (Akhlat) theory with interactive cards
+  - Six Essential Factors (Asbab-e-Sitta Zarooriya)
+  - Treatment Methods (Ilaj)
+  - Classical Unani Formulations
+  - Historical Pioneers (Hippocrates, Ibn Sina, Al-Razi)
+- [x] Created Energy Healing page (`/energy-healing`) with:
+  - 6 Modalities: Reiki, Qigong, Pranic Healing, Therapeutic Touch, Healing Touch, Polarity
+  - Complete Chakra System guide (7 chakras)
+  - Research Evidence summary
+- [x] Created Mind-Body Medicine page (`/mind-body`) with:
+  - 6 Core Practices: Meditation, Breathwork, Yoga, Tai Chi, Biofeedback, Hypnotherapy
+  - Psychoneuroimmunology concepts
+  - Expressive & Creative Therapies (Art, Music, Dance, Drama, Writing)
+- [x] Created Bodywork & Manual Therapies page (`/bodywork`) with:
+  - 6 Categories: Massage, Chiropractic, Osteopathy, Structural Integration, Movement, Energy-Based
+  - 40+ specific modalities with descriptions
+  - Evidence table by condition
+  - Safety considerations
+- [x] Created Nutritional Therapy page (`/nutrition`) with:
+  - 6 Therapeutic Diets: Mediterranean, Anti-Inflammatory, Elimination, Low FODMAP, Ketogenic, Plant-Based
+  - Essential Nutrients guide (Omega-3s, Vitamins, Minerals, B-Vitamins)
+  - Functional Nutrition Testing
+  - Practitioner types explained
+- [x] Created Sound & Vibrational Therapy page (`/sound-therapy`) with:
+  - 6 Modalities: Singing Bowls, Tuning Forks, Gong Therapy, Voice/Toning, Binaural Beats, Music Therapy
+  - Frequency Reference Guide (Solfeggio, 432 Hz, etc.)
+  - Brainwave states (Delta, Theta, Alpha, Beta, Gamma)
+  - Research Evidence summary
+- [x] Created Hydrotherapy page (`/hydrotherapy`) with:
+  - 4 Categories: Temperature Therapies, Therapeutic Bathing, Aquatic Exercise, Specialized
+  - 25+ specific modalities
+  - Evidence by condition table
+  - Safety guidelines
+- [x] Updated Integrative Therapies page with new "Therapeutic Approaches" section featuring all new pages
+- [x] Made Unani Medicine card clickable (was previously static)
+- [x] Added 20 new compounds (total now 198):
+  - Minerals: Iodine, Boron, Molybdenum, Manganese
+  - Amino Acids: Glycine, Taurine, L-Carnitine, Citrulline
+  - Specialized: PQQ, NMN, Spermidine, Fisetin
+  - Herbal: Schisandra, Mucuna, Cordyceps Militaris
+  - Extracts: Pine Bark (Pycnogenol), Olive Leaf, Artichoke
+  - Connective Tissue: Hyaluronic Acid, Silica
 
 ## Navigation Structure
 
