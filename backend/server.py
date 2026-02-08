@@ -1258,6 +1258,155 @@ async def send_digest_to_all_subscribers():
         raise HTTPException(status_code=500, detail=f"Failed to send digests: {str(e)}")
 
 # ====================
+# User Profile Routes
+# ====================
+
+@api_router.get("/user/profile")
+async def get_user_profile(token: str):
+    """Get user profile with search history and saved articles"""
+    payload = verify_token(token)
+    user_id = payload.get("sub")
+    
+    if not user_id:
+        raise HTTPException(status_code=401, detail="Invalid token")
+    
+    user = await db.users.find_one({"id": user_id}, {"_id": 0, "hashed_password": 0})
+    if not user:
+        raise HTTPException(status_code=404, detail="User not found")
+    
+    # Get search history (last 50)
+    search_history = await db.search_history.find(
+        {"user_id": user_id}, 
+        {"_id": 0}
+    ).sort("searched_at", -1).limit(50).to_list(50)
+    
+    # Get saved articles
+    saved_articles = await db.saved_articles.find(
+        {"user_id": user_id}, 
+        {"_id": 0}
+    ).sort("saved_at", -1).to_list(100)
+    
+    # Calculate stats
+    stats = {
+        "total_searches": await db.search_history.count_documents({"user_id": user_id}),
+        "saved_articles_count": len(saved_articles),
+        "member_since": user.get("created_at", ""),
+        "last_search": search_history[0]["searched_at"] if search_history else None
+    }
+    
+    return {
+        "id": user.get("id"),
+        "email": user.get("email"),
+        "created_at": user.get("created_at", ""),
+        "email_verified": user.get("email_verified", False),
+        "tier": user.get("tier"),
+        "institution_name": user.get("institution_name"),
+        "search_history": search_history,
+        "saved_articles": saved_articles,
+        "stats": stats
+    }
+
+@api_router.post("/user/search-history")
+async def add_search_history(token: str, query: str, results_count: int = 0, filters: Optional[dict] = None):
+    """Add a search to user's history"""
+    payload = verify_token(token)
+    user_id = payload.get("sub")
+    
+    if not user_id:
+        raise HTTPException(status_code=401, detail="Invalid token")
+    
+    history_entry = {
+        "id": str(uuid.uuid4()),
+        "user_id": user_id,
+        "query": query,
+        "filters": filters,
+        "results_count": results_count,
+        "searched_at": datetime.now(timezone.utc).isoformat()
+    }
+    
+    await db.search_history.insert_one(history_entry)
+    
+    return {"message": "Search added to history", "id": history_entry["id"]}
+
+@api_router.delete("/user/search-history/{entry_id}")
+async def delete_search_history(entry_id: str, token: str):
+    """Delete a search history entry"""
+    payload = verify_token(token)
+    user_id = payload.get("sub")
+    
+    result = await db.search_history.delete_one({"id": entry_id, "user_id": user_id})
+    
+    if result.deleted_count == 0:
+        raise HTTPException(status_code=404, detail="History entry not found")
+    
+    return {"message": "Search history entry deleted"}
+
+@api_router.delete("/user/search-history")
+async def clear_search_history(token: str):
+    """Clear all search history"""
+    payload = verify_token(token)
+    user_id = payload.get("sub")
+    
+    await db.search_history.delete_many({"user_id": user_id})
+    
+    return {"message": "Search history cleared"}
+
+@api_router.post("/user/saved-articles")
+async def save_article(token: str, article: SaveArticleRequest):
+    """Save an article to user's collection"""
+    payload = verify_token(token)
+    user_id = payload.get("sub")
+    
+    if not user_id:
+        raise HTTPException(status_code=401, detail="Invalid token")
+    
+    # Check if already saved
+    existing = await db.saved_articles.find_one({"user_id": user_id, "pmid": article.pmid})
+    if existing:
+        raise HTTPException(status_code=400, detail="Article already saved")
+    
+    saved_article = {
+        "id": str(uuid.uuid4()),
+        "user_id": user_id,
+        "pmid": article.pmid,
+        "title": article.title,
+        "authors": article.authors,
+        "journal": article.journal,
+        "year": article.year,
+        "saved_at": datetime.now(timezone.utc).isoformat()
+    }
+    
+    await db.saved_articles.insert_one(saved_article)
+    
+    return {"message": "Article saved", "id": saved_article["id"]}
+
+@api_router.delete("/user/saved-articles/{pmid}")
+async def unsave_article(pmid: str, token: str):
+    """Remove an article from saved collection"""
+    payload = verify_token(token)
+    user_id = payload.get("sub")
+    
+    result = await db.saved_articles.delete_one({"pmid": pmid, "user_id": user_id})
+    
+    if result.deleted_count == 0:
+        raise HTTPException(status_code=404, detail="Saved article not found")
+    
+    return {"message": "Article removed from saved"}
+
+@api_router.get("/user/saved-articles")
+async def get_saved_articles(token: str):
+    """Get user's saved articles"""
+    payload = verify_token(token)
+    user_id = payload.get("sub")
+    
+    articles = await db.saved_articles.find(
+        {"user_id": user_id}, 
+        {"_id": 0}
+    ).sort("saved_at", -1).to_list(100)
+    
+    return {"articles": articles, "count": len(articles)}
+
+# ====================
 # Admin Invite Code Routes
 # ====================
 
