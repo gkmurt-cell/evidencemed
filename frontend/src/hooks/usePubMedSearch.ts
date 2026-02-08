@@ -88,6 +88,7 @@ export function usePubMedSearch() {
         })),
         total_count: data.total_count,
         query: data.query,
+        suggestion: data.suggestion || null,  // Include spell correction suggestion
       };
 
       setResults(result);
