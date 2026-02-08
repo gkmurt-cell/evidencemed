@@ -159,28 +159,25 @@ Transform the EvidenceMed build from Lovable into a high-authority Institutional
 ## Prioritized Backlog
 
 ### P0 (Critical)
-- None currently
+- None currently - all critical features implemented
 
-### P1 (High Priority)
-- Apply compact UI refinements globally (tiles-to-headings, horizontal stats)
-- Implement Weekly Research Digest email sending (email service integration)
-- Add password reset functionality
-- Implement email verification for new accounts
+### P1 (High Priority)  
+- Apply compact UI refinements globally (tiles-to-headings, horizontal stats) - partially done
+- Add rate limiting for API endpoints
+- Implement user profile page with saved articles
 
 ### P2 (Medium Priority)
-- Add rate limiting for API endpoints
-- Connect Research Alerts to backend for email notifications
-- Implement user profile with saved articles
+- Connect Research Alerts to backend for real email notifications
 - Add citation export (BibTeX, RIS, APA)
-- Add search filters for PubMed (date range, study type)
+- Social sharing for research articles
+- User search history dashboard
 
 ### P3 (Low Priority/Future)
-- Social sharing for research articles
 - Collaborative annotation feature
 - API access for institutional partners
+- Advanced analytics dashboard
 
 ## Next Tasks
-1. Apply compact UI refinements globally across all pages
-2. Integrate email service for Weekly Research Digest
-3. Implement password reset flow with email
-4. Add more filtering options for PubMed search (date range, study type)
+1. Apply compact UI refinements to remaining pages (Conditions, Member Resources, etc.)
+2. Add rate limiting to prevent API abuse
+3. Create user profile page with search history and saved articles
