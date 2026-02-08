@@ -78,6 +78,19 @@ const App = () => (
               <Route path="/homeopathy" element={<Homeopathy />} />
               <Route path="/functional-medicine" element={<FunctionalMedicine />} />
               <Route path="/aromatherapy" element={<Aromatherapy />} />
+              <Route path="/unani" element={<UnaniMedicine />} />
+              <Route path="/unani-medicine" element={<UnaniMedicine />} />
+              <Route path="/energy-healing" element={<EnergyHealing />} />
+              <Route path="/mind-body" element={<MindBodyMedicine />} />
+              <Route path="/mind-body-medicine" element={<MindBodyMedicine />} />
+              <Route path="/bodywork" element={<BodyworkTherapies />} />
+              <Route path="/manual-therapy" element={<BodyworkTherapies />} />
+              <Route path="/nutrition" element={<NutritionalTherapy />} />
+              <Route path="/nutritional-therapy" element={<NutritionalTherapy />} />
+              <Route path="/sound-therapy" element={<SoundTherapy />} />
+              <Route path="/sound-healing" element={<SoundTherapy />} />
+              <Route path="/hydrotherapy" element={<Hydrotherapy />} />
+              <Route path="/water-therapy" element={<Hydrotherapy />} />
               <Route path="/methodology" element={<EditorialMethodology />} />
               <Route path="/editorial-methodology" element={<EditorialMethodology />} />
               <Route path="/advisory-board" element={<AdvisoryBoard />} />
