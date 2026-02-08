@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ExternalLink, FileText, FlaskConical, Users, TestTube, AlertTriangle, Shield, Link2, Filter, Leaf, Heart, Pill, BarChart3 } from "lucide-react";
 import EducationalDisclaimer from "@/components/layout/EducationalDisclaimer";
-import DemoDisclaimer from "@/components/layout/DemoDisclaimer";
 import { RelatedLinks } from "@/components/ui/explore-more-link";
 import { StudyTypeIcon, StudyCountBar, EvidenceTierIcon } from "@/components/research/EvidenceVisuals";
 import { cn } from "@/lib/utils";
