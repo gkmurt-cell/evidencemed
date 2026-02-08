@@ -17,6 +17,7 @@ import CompoundPage from "@/pages/Compound";
 import ConditionPage from "@/pages/Condition";
 import ConditionsPage from "@/pages/Conditions";
 import IntegrativeTherapies from "@/pages/IntegrativeTherapies";
+import Ayurveda from "@/pages/Ayurveda";
 import EditorialMethodology from "@/pages/EditorialMethodology";
 import AdvisoryBoard from "@/pages/AdvisoryBoard";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
@@ -57,6 +58,7 @@ const App = () => (
               <Route path="/condition/:id" element={<ConditionPage />} />
               <Route path="/therapies" element={<IntegrativeTherapies />} />
               <Route path="/integrative-therapies" element={<IntegrativeTherapies />} />
+              <Route path="/ayurveda" element={<Ayurveda />} />
               <Route path="/methodology" element={<EditorialMethodology />} />
               <Route path="/editorial-methodology" element={<EditorialMethodology />} />
               <Route path="/advisory-board" element={<AdvisoryBoard />} />
