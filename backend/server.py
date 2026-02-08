@@ -116,6 +116,7 @@ class PubMedSearchResponse(BaseModel):
     articles: List[PubMedArticle]
     total_count: int
     query: str
+    suggestion: Optional[str] = None  # Spell correction suggestion
 
 # Institutional Trial Request Model
 class InstitutionalTrialRequest(BaseModel):
