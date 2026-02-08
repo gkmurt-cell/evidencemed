@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo, useState, useEffect } from "react";
 import { useParams, Link, useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import {
@@ -31,11 +31,39 @@ import COIDisclosure from "@/components/compound/COIDisclosure";
 import PRISMAMethodology from "@/components/compound/PRISMAMethodology";
 import CompoundJsonLd from "@/components/compound/CompoundJsonLd";
 import AuthorityReferences from "@/components/compound/AuthorityReferences";
+import CompoundAnnotations from "@/components/practitioners/CompoundAnnotations";
+import { useAuth } from "@/hooks/useAuth";
+
+const API_URL = process.env.REACT_APP_BACKEND_URL || "";
 
 const CompoundPage = () => {
   const { id } = useParams<{ id: string }>();
   const location = useLocation();
   const compound = id ? getCompoundById(id) : undefined;
+  const { user } = useAuth();
+  const [isVerifiedPractitioner, setIsVerifiedPractitioner] = useState(false);
+
+  // Fetch user's practitioner status
+  useEffect(() => {
+    const fetchPractitionerStatus = async () => {
+      const token = localStorage.getItem("evidencemed_token");
+      if (!token) return;
+
+      try {
+        const response = await fetch(`${API_URL}/api/practitioners/my-status`, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        if (response.ok) {
+          const data = await response.json();
+          setIsVerifiedPractitioner(data.status === "approved" || data.verification?.status === "approved");
+        }
+      } catch (error) {
+        console.error("Failed to fetch practitioner status:", error);
+      }
+    };
+
+    fetchPractitionerStatus();
+  }, [user]);
 
   // Determine back link based on compound category
   const getBackLink = () => {
