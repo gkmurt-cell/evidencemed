@@ -9,7 +9,7 @@ import pytest
 import requests
 import os
 
-BASE_URL = os.environ.get('REACT_APP_BACKEND_URL', 'https://researchmed.preview.emergentagent.com')
+BASE_URL = os.environ.get('REACT_APP_BACKEND_URL', 'https://evidence-hub-30.preview.emergentagent.com')
 
 class TestSpellCorrection:
     """Test spell correction on PubMed search"""
