@@ -1,23 +1,36 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-import { Mail, Lock } from "lucide-react";
+import { Mail, Lock, Key, CheckCircle, AlertCircle } from "lucide-react";
 import { z } from "zod";
 import { useAuth } from "@/hooks/useAuth";
+
+const API_URL = process.env.REACT_APP_BACKEND_URL || "";
 
 const emailSchema = z.string().email("Please enter a valid email address");
 const passwordSchema = z.string().min(6, "Password must be at least 6 characters");
 
+interface InviteValidation {
+  valid: boolean;
+  tier?: string;
+  trial_days?: number;
+  institution_name?: string;
+}
+
 const Auth = () => {
+  const [searchParams] = useSearchParams();
   const [isLogin, setIsLogin] = useState(true);
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [errors, setErrors] = useState<{ email?: string; password?: string }>({});
+  const [inviteCode, setInviteCode] = useState(searchParams.get("code") || "");
+  const [inviteValidation, setInviteValidation] = useState<InviteValidation | null>(null);
+  const [validatingCode, setValidatingCode] = useState(false);
+  const [errors, setErrors] = useState<{ email?: string; password?: string; inviteCode?: string }>({});
   
   const navigate = useNavigate();
   const { toast } = useToast();
@@ -29,8 +42,37 @@ const Auth = () => {
     }
   }, [user, navigate]);
 
+  // Validate invite code when it changes
+  useEffect(() => {
+    if (inviteCode && inviteCode.length >= 8 && !isLogin) {
+      validateInviteCode(inviteCode);
+    } else {
+      setInviteValidation(null);
+    }
+  }, [inviteCode, isLogin]);
+
+  const validateInviteCode = async (code: string) => {
+    setValidatingCode(true);
+    try {
+      const response = await fetch(`${API_URL}/api/admin/validate-invite-code?code=${code}`);
+      if (response.ok) {
+        const data = await response.json();
+        setInviteValidation(data);
+        setErrors(prev => ({ ...prev, inviteCode: undefined }));
+      } else {
+        const error = await response.json();
+        setInviteValidation(null);
+        setErrors(prev => ({ ...prev, inviteCode: error.detail }));
+      }
+    } catch {
+      setInviteValidation(null);
+    } finally {
+      setValidatingCode(false);
+    }
+  };
+
   const validateForm = (): boolean => {
-    const newErrors: { email?: string; password?: string } = {};
+    const newErrors: { email?: string; password?: string; inviteCode?: string } = {};
     
     const emailResult = emailSchema.safeParse(email);
     if (!emailResult.success) {
@@ -40,6 +82,11 @@ const Auth = () => {
     const passwordResult = passwordSchema.safeParse(password);
     if (!passwordResult.success) {
       newErrors.password = passwordResult.error.errors[0].message;
+    }
+
+    // Invite code is required for registration
+    if (!isLogin && !inviteCode) {
+      newErrors.inviteCode = "Invite code is required for registration";
     }
     
     setErrors(newErrors);
@@ -70,19 +117,37 @@ const Auth = () => {
           navigate("/member-resources");
         }
       } else {
-        const { error } = await signUp(email, password);
-        if (error) {
-          toast({
-            title: "Registration Error",
-            description: error,
-            variant: "destructive",
-          });
-        } else {
+        // Register with invite code
+        const response = await fetch(`${API_URL}/api/auth/register-with-invite`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            email,
+            password,
+            invite_code: inviteCode
+          })
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          // Store token and update auth state
+          localStorage.setItem("evidencemed_token", data.access_token);
+          localStorage.setItem("evidencemed_user", JSON.stringify(data.user));
+          
           toast({
             title: "Account created!",
             description: "Welcome to EvidenceMed Archive.",
           });
-          navigate("/member-resources");
+          
+          // Force page reload to update auth state
+          window.location.href = "/member-resources";
+        } else {
+          const error = await response.json();
+          toast({
+            title: "Registration Error",
+            description: error.detail || "Failed to create account",
+            variant: "destructive",
+          });
         }
       }
     } finally {
@@ -115,10 +180,59 @@ const Auth = () => {
             <p className="text-muted-foreground text-center mb-6">
               {isLogin 
                 ? "Sign in to access member resources" 
-                : "Create an account to access the full archive"}
+                : "Enter your invite code to create an account"}
             </p>
 
             <form onSubmit={handleSubmit} className="space-y-4">
+              {/* Invite Code - Only for registration */}
+              {!isLogin && (
+                <div>
+                  <Label htmlFor="inviteCode" className="flex items-center gap-2 mb-2">
+                    <Key className="w-4 h-4" />
+                    Invite Code
+                  </Label>
+                  <div className="relative">
+                    <Input
+                      id="inviteCode"
+                      type="text"
+                      placeholder="Enter your invite code"
+                      value={inviteCode}
+                      onChange={(e) => {
+                        setInviteCode(e.target.value.toUpperCase());
+                        if (errors.inviteCode) setErrors({ ...errors, inviteCode: undefined });
+                      }}
+                      className={`uppercase font-mono ${errors.inviteCode ? "border-destructive" : inviteValidation?.valid ? "border-emerald-500" : ""}`}
+                      data-testid="auth-invite-code-input"
+                    />
+                    {validatingCode && (
+                      <span className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground text-sm">
+                        Checking...
+                      </span>
+                    )}
+                    {inviteValidation?.valid && (
+                      <CheckCircle className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-emerald-500" />
+                    )}
+                  </div>
+                  {errors.inviteCode && (
+                    <p className="text-sm text-destructive mt-1 flex items-center gap-1">
+                      <AlertCircle className="w-3 h-3" />
+                      {errors.inviteCode}
+                    </p>
+                  )}
+                  {inviteValidation?.valid && (
+                    <div className="mt-2 p-3 bg-emerald-500/10 border border-emerald-500/20 rounded-lg">
+                      <p className="text-sm text-emerald-700 dark:text-emerald-400 font-medium">
+                        Valid invite code
+                      </p>
+                      <p className="text-xs text-muted-foreground mt-1">
+                        {inviteValidation.institution_name && `Institution: ${inviteValidation.institution_name} · `}
+                        Tier: {inviteValidation.tier} · {inviteValidation.trial_days} day trial
+                      </p>
+                    </div>
+                  )}
+                </div>
+              )}
+
               <div>
                 <Label htmlFor="email" className="flex items-center gap-2 mb-2">
                   <Mail className="w-4 h-4" />
@@ -167,7 +281,7 @@ const Auth = () => {
                 type="submit" 
                 className="w-full" 
                 size="lg" 
-                disabled={loading}
+                disabled={loading || (!isLogin && !inviteValidation?.valid)}
                 data-testid="auth-submit-btn"
               >
                 {loading ? "Please wait..." : isLogin ? "Sign In" : "Create Account"}
@@ -180,15 +294,26 @@ const Auth = () => {
                 onClick={() => {
                   setIsLogin(!isLogin);
                   setErrors({});
+                  setInviteValidation(null);
                 }}
                 className="text-sm text-primary hover:underline"
                 data-testid="auth-toggle-btn"
               >
                 {isLogin 
-                  ? "Don't have an account? Sign up" 
+                  ? "Have an invite code? Create account" 
                   : "Already have an account? Sign in"}
               </button>
             </div>
+
+            {!isLogin && (
+              <p className="mt-4 text-xs text-center text-muted-foreground">
+                Need an invite code? Contact your institution administrator or{" "}
+                <a href="/institutional-pricing" className="text-primary hover:underline">
+                  request institutional access
+                </a>
+                .
+              </p>
+            )}
           </div>
 
           {/* Back to home */}
