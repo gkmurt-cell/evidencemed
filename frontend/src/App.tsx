@@ -22,6 +22,7 @@ import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
 import MemberResources from "@/pages/MemberResources";
 import PractitionerRepository from "@/pages/PractitionerRepository";
+import PractitionerDirectory from "@/pages/PractitionerDirectory";
 import InstitutionalAccess from "@/pages/InstitutionalAccess";
 import InstitutionalPricing from "@/pages/InstitutionalPricing";
 import AdminDashboard from "@/pages/AdminDashboard";
