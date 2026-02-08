@@ -3952,6 +3952,305 @@ export const compoundsData: Compound[] = [
       { pmid: "12851125", title: "Sulfur-containing amino acids: an overview", authors: "Parcell S", journal: "Alternative Medicine Review", year: 2002 },
       { pmid: "16309928", title: "Methylsulfonylmethane (MSM) in osteoarthritis", authors: "Kim LS, et al.", journal: "Osteoarthritis Cartilage", year: 2006 }
     ]
+  },
+  // Additional Functional Mushrooms
+  {
+    id: "turkey-tail",
+    name: "Turkey Tail",
+    latinName: "Trametes versicolor",
+    category: "Functional Mushroom",
+    studies: 4200,
+    image: "🍄",
+    description: "Turkey tail is a medicinal mushroom extensively researched for its polysaccharopeptides (PSP, PSK) and their immune-modulating and potential anti-cancer properties.",
+    traditionalUse: "Used in traditional Chinese medicine (Yun Zhi) and Japanese medicine (Kawaratake) for centuries to support immune function and as an adjunct cancer therapy.",
+    keyBenefits: ["Immune system support", "Gut microbiome health", "Antioxidant activity", "Cancer research applications", "Respiratory health support"],
+    mechanisms: ["Beta-glucans activate immune cells (NK cells, macrophages)", "PSK and PSP have immunomodulatory effects", "Prebiotic effects on gut bacteria", "May enhance conventional cancer treatments"],
+    dosage: "Research doses: 1-3g dried mushroom or 1-2g extract daily. Cancer studies often use higher doses under medical supervision.",
+    safetyNotes: ["Generally well-tolerated", "May cause digestive discomfort in some", "Should not replace conventional cancer treatment"],
+    interactions: ["May interact with immunosuppressants", "Possible additive effects with chemotherapy", "Consult healthcare provider before use with cancer treatments"],
+    sources: ["Supplements", "Dried mushroom powder", "Teas", "Tinctures"],
+    relatedCompounds: ["Reishi", "Maitake", "Shiitake"],
+    references: [
+      { pmid: "22536281", title: "Trametes versicolor mushroom immune therapy in breast cancer", authors: "Torkelson CJ, et al.", journal: "ISRN Oncology", year: 2012 },
+      { pmid: "28760164", title: "Coriolus versicolor supplementation in HPV patients", authors: "Donatini B", journal: "Frontiers in Oncology", year: 2014 }
+    ]
+  },
+  {
+    id: "shiitake",
+    name: "Shiitake",
+    latinName: "Lentinula edodes",
+    category: "Functional Mushroom",
+    studies: 8500,
+    image: "🍄",
+    description: "Shiitake is one of the most studied medicinal mushrooms, containing lentinan (a beta-glucan) and eritadenine, with research on immune function, cardiovascular health, and anti-tumor properties.",
+    traditionalUse: "Cultivated in Asia for over 1000 years as both food and medicine. Traditional use for enhancing vitality, circulation, and longevity.",
+    keyBenefits: ["Immune system enhancement", "Cardiovascular health support", "Cholesterol management", "Anti-viral properties", "Skin health"],
+    mechanisms: ["Lentinan stimulates immune cell activity", "Eritadenine may lower cholesterol", "Beta-glucans activate macrophages and NK cells", "Contains compounds with anti-viral activity"],
+    dosage: "Culinary: regular consumption as food. Supplements: 1-3g dried mushroom or equivalent extract daily.",
+    safetyNotes: ["Safe as food", "Rare shiitake dermatitis from raw consumption", "May cause digestive upset in sensitive individuals"],
+    interactions: ["May have additive effects with cholesterol medications", "Theoretical interaction with immunosuppressants"],
+    sources: ["Fresh mushrooms", "Dried mushrooms", "Supplements", "Extracts"],
+    relatedCompounds: ["Maitake", "Reishi", "Turkey Tail"],
+    references: [
+      { pmid: "25866155", title: "Consuming Lentinula edodes (Shiitake) Mushrooms Daily Improves Human Immunity", authors: "Dai X, et al.", journal: "Journal of the American College of Nutrition", year: 2015 },
+      { pmid: "16428086", title: "Antiviral activities of various water and methanol soluble substances from shiitake mushroom", authors: "Rincao VP, et al.", journal: "Antiviral Research", year: 2012 }
+    ]
+  },
+  {
+    id: "maitake",
+    name: "Maitake",
+    latinName: "Grifola frondosa",
+    category: "Functional Mushroom",
+    studies: 3800,
+    image: "🍄",
+    description: "Maitake, known as 'hen of the woods', contains D-fraction and other beta-glucans studied for immune modulation, blood sugar regulation, and potential anti-cancer effects.",
+    traditionalUse: "Highly valued in Japanese traditional medicine for promoting health and vitality. The name means 'dancing mushroom' due to the joy of finding it.",
+    keyBenefits: ["Blood sugar support", "Immune modulation", "Weight management research", "Cholesterol support", "Anti-tumor research"],
+    mechanisms: ["D-fraction enhances immune cell activity", "May improve insulin sensitivity", "Beta-glucans activate macrophages", "SX-fraction studied for blood sugar effects"],
+    dosage: "As food: regular consumption. Supplements: 1-3g daily or 0.5-1mg/kg D-fraction in studies.",
+    safetyNotes: ["Generally safe as food", "May lower blood sugar - monitor if diabetic", "May affect blood pressure"],
+    interactions: ["May enhance effects of diabetes medications", "Possible interaction with blood pressure medications", "May affect warfarin metabolism"],
+    sources: ["Fresh mushrooms", "Dried mushrooms", "D-fraction extracts", "Supplements"],
+    relatedCompounds: ["Shiitake", "Reishi", "Lion's Mane"],
+    references: [
+      { pmid: "19145563", title: "Maitake D-Fraction: Healing and Preventive Potential for Cancer", authors: "Konno S", journal: "Journal of Orthomolecular Medicine", year: 2009 },
+      { pmid: "12946773", title: "Anti-diabetic effect of maitake mushroom", authors: "Hong L, et al.", journal: "Journal of Nutritional Science and Vitaminology", year: 2007 }
+    ]
+  },
+  // Additional Amino Acids
+  {
+    id: "taurine",
+    name: "Taurine",
+    latinName: "2-aminoethanesulfonic acid",
+    category: "Amino Acid",
+    studies: 18000,
+    image: "💧",
+    description: "Taurine is a conditionally essential amino acid abundant in heart, brain, and retina. It supports cardiovascular function, neurological health, and cellular osmoregulation.",
+    traditionalUse: "Named after Taurus (bull) as first isolated from ox bile. Recognized for its role in bile salt formation and various physiological processes.",
+    keyBenefits: ["Cardiovascular support", "Neurological function", "Eye health", "Exercise performance", "Blood sugar regulation"],
+    mechanisms: ["Regulates calcium in cardiac muscle", "Antioxidant through hypotaurine", "Modulates neurotransmitter activity", "Supports bile acid conjugation", "Osmoregulation in cells"],
+    dosage: "Typical doses: 500mg-3g daily. Energy drinks contain 1-2g. Higher doses used in some cardiovascular studies.",
+    safetyNotes: ["Generally well-tolerated", "Very high doses may cause digestive upset", "Long-term high-dose safety not fully established"],
+    interactions: ["May enhance effects of blood pressure medications", "Possible interaction with lithium", "May affect caffeine metabolism"],
+    sources: ["Meat", "Fish", "Dairy", "Energy drinks", "Supplements"],
+    relatedCompounds: ["L-Carnitine", "Glycine", "Beta-Alanine"],
+    references: [
+      { pmid: "22855206", title: "The potential of taurine in cardiovascular disease", authors: "Schaffer SW, et al.", journal: "Amino Acids", year: 2014 },
+      { pmid: "29063803", title: "Taurine supplementation and exercise performance", authors: "Waldron M, et al.", journal: "Sports Medicine", year: 2018 }
+    ]
+  },
+  {
+    id: "glycine",
+    name: "Glycine",
+    latinName: "Aminoacetic acid",
+    category: "Amino Acid",
+    studies: 25000,
+    image: "💧",
+    description: "Glycine is the simplest amino acid, serving as a neurotransmitter, collagen component, and key player in glutathione synthesis, sleep, and metabolic regulation.",
+    traditionalUse: "Essential for collagen production - the most abundant protein in the body. Researched extensively for sleep quality and various metabolic functions.",
+    keyBenefits: ["Sleep quality improvement", "Collagen synthesis", "Glutathione production", "Neurotransmitter function", "Blood sugar support"],
+    mechanisms: ["Inhibitory neurotransmitter in CNS", "Required for collagen triple helix", "Precursor to glutathione", "Glycine receptor modulation promotes sleep", "Involved in creatine synthesis"],
+    dosage: "Sleep: 3g before bed. General: 3-5g daily. Higher doses used in some metabolic studies.",
+    safetyNotes: ["Very safe amino acid", "May cause mild sedation", "Rare reports of digestive upset at high doses"],
+    interactions: ["May enhance effects of sleep medications", "Theoretically may interact with clozapine", "Generally minimal drug interactions"],
+    sources: ["Bone broth", "Collagen", "Gelatin", "Meat", "Fish", "Supplements"],
+    relatedCompounds: ["Collagen", "NAC", "L-Theanine"],
+    references: [
+      { pmid: "17337674", title: "Glycine ingestion improves subjective sleep quality", authors: "Inagawa K, et al.", journal: "Sleep and Biological Rhythms", year: 2006 },
+      { pmid: "22293292", title: "Role of glycine in memory and cognition", authors: "File SE, et al.", journal: "Neuroscience and Biobehavioral Reviews", year: 2012 }
+    ]
+  },
+  {
+    id: "beta-alanine",
+    name: "Beta-Alanine",
+    latinName: "β-Alanine",
+    category: "Amino Acid",
+    studies: 4500,
+    image: "💪",
+    description: "Beta-alanine is a non-essential amino acid that combines with histidine to form carnosine, a compound that buffers acid in muscles during high-intensity exercise.",
+    traditionalUse: "Popularized as a sports supplement in the 2000s after research demonstrated its role in muscle carnosine synthesis and exercise performance.",
+    keyBenefits: ["Exercise performance", "Muscle endurance", "Fatigue reduction", "High-intensity exercise support", "Carnosine synthesis"],
+    mechanisms: ["Rate-limiting precursor for carnosine", "Carnosine buffers hydrogen ions in muscle", "May improve calcium sensitivity in muscle fibers", "Antioxidant effects through carnosine"],
+    dosage: "Standard dose: 2-5g daily, often divided to minimize paresthesia. Loading phase sometimes used.",
+    safetyNotes: ["Causes harmless tingling (paresthesia) at higher doses", "Generally well-tolerated", "Long-term safety established in studies"],
+    interactions: ["May compete with taurine for absorption", "No significant drug interactions known", "Safe to combine with creatine"],
+    sources: ["Meat", "Poultry", "Fish", "Supplements"],
+    relatedCompounds: ["Carnosine", "L-Histidine", "Creatine"],
+    references: [
+      { pmid: "20479615", title: "Beta-alanine supplementation and performance", authors: "Hobson RM, et al.", journal: "Amino Acids", year: 2012 },
+      { pmid: "26008714", title: "International Society of Sports Nutrition position stand on beta-alanine", authors: "Trexler ET, et al.", journal: "Journal of the International Society of Sports Nutrition", year: 2015 }
+    ]
+  },
+  // Additional Flavonoids
+  {
+    id: "apigenin",
+    name: "Apigenin",
+    latinName: "4',5,7-trihydroxyflavone",
+    category: "Flavonoid",
+    studies: 6500,
+    image: "🌼",
+    description: "Apigenin is a flavonoid found in chamomile, parsley, and celery, researched for its anxiolytic effects, potential neuroprotection, and interaction with GABA receptors.",
+    traditionalUse: "Component of chamomile traditionally used for relaxation and sleep. Found in many plants used historically for calming effects.",
+    keyBenefits: ["Anxiety reduction", "Sleep support", "Neuroprotection research", "Anti-inflammatory effects", "Antioxidant activity"],
+    mechanisms: ["Binds to GABA-A benzodiazepine receptors", "CD38 inhibition (NAD+ preservation)", "Antioxidant through multiple pathways", "May modulate inflammatory cytokines"],
+    dosage: "Chamomile tea provides low doses. Supplements: 50-500mg. Research doses vary widely.",
+    safetyNotes: ["Generally well-tolerated", "May cause sedation at higher doses", "Chamomile may cause allergic reactions in some"],
+    interactions: ["May enhance sedative medications", "Theoretical CYP interactions", "May affect blood clotting"],
+    sources: ["Chamomile", "Parsley", "Celery", "Thyme", "Supplements"],
+    relatedCompounds: ["Quercetin", "Luteolin", "L-Theanine"],
+    references: [
+      { pmid: "27436753", title: "Apigenin: A natural molecule with potential anxiolytic properties", authors: "Salehi B, et al.", journal: "Phytotherapy Research", year: 2019 },
+      { pmid: "30458356", title: "Apigenin and CD38 inhibition", authors: "Escande C, et al.", journal: "Cell Metabolism", year: 2013 }
+    ]
+  },
+  {
+    id: "luteolin",
+    name: "Luteolin",
+    latinName: "3',4',5,7-tetrahydroxyflavone",
+    category: "Flavonoid",
+    studies: 5800,
+    image: "🌿",
+    description: "Luteolin is a flavonoid with potent anti-inflammatory and neuroprotective properties, found in celery, peppers, and various herbs. Researched for brain health and allergy modulation.",
+    traditionalUse: "Found in plants traditionally used for their anti-inflammatory properties. Component of perilla and other herbs in Asian traditional medicine.",
+    keyBenefits: ["Neuroprotection", "Anti-inflammatory effects", "Mast cell stabilization", "Antioxidant activity", "Cognitive support research"],
+    mechanisms: ["Inhibits NF-kB inflammatory pathway", "Crosses blood-brain barrier", "Stabilizes mast cells (anti-allergy)", "Antioxidant through multiple mechanisms"],
+    dosage: "Research doses: 10-100mg daily. Often combined with quercetin. Food sources provide variable amounts.",
+    safetyNotes: ["Generally well-tolerated", "May affect drug metabolism", "Limited human safety data at high doses"],
+    interactions: ["May inhibit CYP enzymes", "Possible interaction with chemotherapy drugs", "May affect estrogen metabolism"],
+    sources: ["Celery", "Peppers", "Thyme", "Peppermint", "Perilla", "Supplements"],
+    relatedCompounds: ["Apigenin", "Quercetin", "Rutin"],
+    references: [
+      { pmid: "27340105", title: "Luteolin as an anti-inflammatory and neuroprotective agent", authors: "Nabavi SF, et al.", journal: "Brain Research Bulletin", year: 2015 },
+      { pmid: "23573120", title: "Luteolin inhibits mast cells for allergy", authors: "Theoharides TC, et al.", journal: "Immunological Reviews", year: 2013 }
+    ]
+  },
+  // Additional Herbal Compounds
+  {
+    id: "milk-thistle",
+    name: "Milk Thistle",
+    latinName: "Silybum marianum",
+    category: "Herbal Compound",
+    studies: 12000,
+    image: "🌸",
+    description: "Milk thistle contains silymarin, a complex of flavonolignans (primarily silybin) extensively studied for liver protection, detoxification support, and antioxidant effects.",
+    traditionalUse: "Used for over 2000 years for liver and gallbladder disorders. Named for the milky white veins on its leaves.",
+    keyBenefits: ["Liver protection", "Detoxification support", "Antioxidant activity", "Blood sugar support", "Cholesterol management"],
+    mechanisms: ["Silymarin stabilizes hepatocyte membranes", "Promotes glutathione synthesis", "Inhibits inflammatory pathways in liver", "May stimulate liver cell regeneration"],
+    dosage: "Standardized extracts: 200-400mg silymarin daily. Often divided into 2-3 doses. Phospholipid complexes may improve absorption.",
+    safetyNotes: ["Generally well-tolerated", "May cause mild digestive upset", "Allergic reactions rare but possible in ragweed-sensitive individuals"],
+    interactions: ["May affect CYP enzymes", "Possible interaction with diabetes medications", "May interact with certain chemotherapy drugs"],
+    sources: ["Supplements (standardized extract)", "Seeds", "Tea (less potent)"],
+    relatedCompounds: ["NAC", "Artichoke Extract", "Dandelion"],
+    references: [
+      { pmid: "20564545", title: "Silymarin in liver diseases: systematic review", authors: "Abenavoli L, et al.", journal: "World Journal of Gastroenterology", year: 2010 },
+      { pmid: "27517806", title: "Milk thistle and liver protection mechanisms", authors: "Gillessen A, Schmidt HH", journal: "Gastroenterology Research and Practice", year: 2020 }
+    ]
+  },
+  {
+    id: "valerian",
+    name: "Valerian",
+    latinName: "Valeriana officinalis",
+    category: "Herbal Compound",
+    studies: 8500,
+    image: "🌿",
+    description: "Valerian root is one of the most studied herbal sedatives, containing valerenic acid and other compounds that interact with GABA pathways to promote relaxation and sleep.",
+    traditionalUse: "Used since ancient Greek and Roman times for nervousness and insomnia. Hippocrates described its therapeutic uses.",
+    keyBenefits: ["Sleep quality improvement", "Anxiety reduction", "Relaxation support", "Muscle relaxation", "Stress management"],
+    mechanisms: ["Valerenic acid modulates GABA-A receptors", "Inhibits GABA breakdown", "Contains GABA itself", "Adenosine receptor activity"],
+    dosage: "Sleep: 300-600mg extract 30-60 minutes before bed. Anxiety: 200-400mg 2-3 times daily. Effects may take 2-4 weeks.",
+    safetyNotes: ["Generally well-tolerated", "May cause morning grogginess", "Vivid dreams reported by some", "Long-term safety established"],
+    interactions: ["May enhance sedative medications", "Possible interaction with alcohol", "May affect anesthesia - discontinue before surgery"],
+    sources: ["Root extracts", "Teas", "Tinctures", "Capsules"],
+    relatedCompounds: ["Lemon Balm", "Passionflower", "Hops"],
+    references: [
+      { pmid: "16298537", title: "Valerian for sleep: systematic review and meta-analysis", authors: "Bent S, et al.", journal: "American Journal of Medicine", year: 2006 },
+      { pmid: "25136882", title: "Valerenic acid inhibits GABA breakdown", authors: "Khom S, et al.", journal: "Neuropharmacology", year: 2007 }
+    ]
+  },
+  {
+    id: "passionflower",
+    name: "Passionflower",
+    latinName: "Passiflora incarnata",
+    category: "Herbal Compound",
+    studies: 3200,
+    image: "🌺",
+    description: "Passionflower is a calming herb containing flavonoids like chrysin and vitexin, traditionally used for anxiety, insomnia, and nervous restlessness.",
+    traditionalUse: "Used by Native Americans for wounds and as a sedative. Adopted into European herbal medicine in the 16th century.",
+    keyBenefits: ["Anxiety reduction", "Sleep support", "Nervous tension relief", "GABA modulation", "Menopausal symptom support"],
+    mechanisms: ["Chrysin binds GABA-A receptors", "MAO inhibition", "Flavonoids modulate neurotransmitters", "May increase brain GABA levels"],
+    dosage: "Extract: 250-500mg daily. Tea: 1-2 cups. Often combined with valerian or lemon balm for enhanced effects.",
+    safetyNotes: ["Generally well-tolerated", "May cause drowsiness", "Avoid during pregnancy", "May cause dizziness in some"],
+    interactions: ["May enhance sedatives and anxiolytics", "Possible interaction with MAO inhibitors", "May affect blood pressure medications"],
+    sources: ["Extracts", "Teas", "Tinctures", "Dried herb"],
+    relatedCompounds: ["Valerian", "Lemon Balm", "Kava"],
+    references: [
+      { pmid: "11679026", title: "Passionflower in the treatment of generalized anxiety", authors: "Akhondzadeh S, et al.", journal: "Journal of Clinical Pharmacy and Therapeutics", year: 2001 },
+      { pmid: "21294203", title: "Passionflower for anxiety: a review", authors: "Miroddi M, et al.", journal: "Phytomedicine", year: 2013 }
+    ]
+  },
+  {
+    id: "lemon-balm",
+    name: "Lemon Balm",
+    latinName: "Melissa officinalis",
+    category: "Herbal Compound",
+    studies: 4100,
+    image: "🍋",
+    description: "Lemon balm is a calming herb from the mint family, containing rosmarinic acid and flavonoids, studied for cognitive enhancement, anxiety relief, and antiviral properties.",
+    traditionalUse: "Used in traditional European medicine since the Middle Ages for lifting spirits and promoting sleep. Known as the 'elixir of life' by Paracelsus.",
+    keyBenefits: ["Anxiety and stress relief", "Cognitive support", "Sleep quality", "Digestive comfort", "Antiviral activity"],
+    mechanisms: ["Rosmarinic acid has GABAergic effects", "Inhibits GABA transaminase", "Acetylcholinesterase inhibition", "Antioxidant activity"],
+    dosage: "Tea: 1.5-4.5g dried leaves. Extract: 300-600mg daily. Often combined with other calming herbs.",
+    safetyNotes: ["Very safe and well-tolerated", "May affect thyroid function at very high doses", "Safe during pregnancy at culinary doses"],
+    interactions: ["May enhance sedative medications", "Theoretical thyroid medication interaction", "May affect glaucoma medications"],
+    sources: ["Fresh leaves", "Dried herb", "Extracts", "Teas", "Essential oil"],
+    relatedCompounds: ["Valerian", "Passionflower", "Holy Basil"],
+    references: [
+      { pmid: "14669258", title: "Modulation of mood and cognitive performance following acute administration of Melissa officinalis", authors: "Kennedy DO, et al.", journal: "Pharmacology Biochemistry and Behavior", year: 2002 },
+      { pmid: "22207209", title: "A review of the bioactivity and potential health benefits of Melissa officinalis", authors: "Shakeri A, et al.", journal: "Journal of Evidence-Based Complementary and Alternative Medicine", year: 2016 }
+    ]
+  },
+  // Additional Popular Compounds
+  {
+    id: "saw-palmetto",
+    name: "Saw Palmetto",
+    latinName: "Serenoa repens",
+    category: "Herbal Compound",
+    studies: 5200,
+    image: "🌴",
+    description: "Saw palmetto berry extract is widely used for prostate health, containing fatty acids and phytosterols that may inhibit 5-alpha reductase and support urinary function.",
+    traditionalUse: "Native Americans used saw palmetto berries for urinary and reproductive system issues. Introduced to Western medicine in the late 1800s.",
+    keyBenefits: ["Prostate health support", "Urinary symptom relief (BPH)", "Hair loss research", "5-alpha reductase inhibition", "Anti-inflammatory effects"],
+    mechanisms: ["May inhibit 5-alpha reductase", "Blocks DHT binding to androgen receptors", "Anti-inflammatory prostaglandin effects", "May induce apoptosis in prostate cells"],
+    dosage: "Standardized extract: 160mg twice daily or 320mg once daily. Look for 85-95% fatty acid content.",
+    safetyNotes: ["Generally well-tolerated", "Rare digestive upset", "May affect PSA test results", "Not for use by women or children"],
+    interactions: ["May interact with hormone therapies", "Possible interaction with anticoagulants", "May affect finasteride/dutasteride"],
+    sources: ["Berry extracts", "Softgels", "Capsules"],
+    relatedCompounds: ["Stinging Nettle Root", "Pygeum", "Beta-Sitosterol"],
+    references: [
+      { pmid: "22551013", title: "Serenoa repens for benign prostatic hyperplasia: Cochrane review", authors: "Tacklind J, et al.", journal: "Cochrane Database of Systematic Reviews", year: 2012 },
+      { pmid: "28930506", title: "Saw palmetto extract mechanisms", authors: "Pais P", journal: "Current Medicinal Chemistry", year: 2016 }
+    ]
+  },
+  {
+    id: "elderberry",
+    name: "Elderberry",
+    latinName: "Sambucus nigra",
+    category: "Herbal Immune Support",
+    studies: 2800,
+    image: "🫐",
+    description: "Elderberry is a traditional remedy rich in anthocyanins and flavonoids, studied extensively for immune support and its potential to reduce cold and flu duration and severity.",
+    traditionalUse: "Used for centuries in European folk medicine for colds, flu, and fever. Known as the 'medicine chest of the country people.'",
+    keyBenefits: ["Immune system support", "Cold and flu symptom reduction", "Antioxidant activity", "Anti-inflammatory effects", "Respiratory health"],
+    mechanisms: ["Anthocyanins have antiviral activity", "May prevent viral entry into cells", "Stimulates cytokine production", "Antioxidant through flavonoids"],
+    dosage: "Syrup: 15ml (adults) 4 times daily during illness. Extract: 175-300mg daily. Lozenges: as directed.",
+    safetyNotes: ["Cooked berries are safe", "Raw berries, bark, leaves are toxic", "May overstimulate immune system in autoimmune conditions"],
+    interactions: ["May interact with immunosuppressants", "Theoretical diabetes medication interaction", "May affect diuretic medications"],
+    sources: ["Syrup", "Extracts", "Lozenges", "Gummies", "Teas"],
+    relatedCompounds: ["Echinacea", "Vitamin C", "Zinc"],
+    references: [
+      { pmid: "30670267", title: "Elderberry supplementation reduces cold duration and symptoms", authors: "Hawkins J, et al.", journal: "Complementary Therapies in Medicine", year: 2019 },
+      { pmid: "15080016", title: "Randomized study of the efficacy and safety of oral elderberry extract in flu", authors: "Zakay-Rones Z, et al.", journal: "Journal of International Medical Research", year: 2004 }
+    ]
   }
 ];
 
