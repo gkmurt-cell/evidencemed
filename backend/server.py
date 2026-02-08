@@ -1056,6 +1056,160 @@ async def delete_research_alert(alert_id: str, token: str):
     return {"message": "Alert deleted"}
 
 # ====================
+# Weekly Digest Routes
+# ====================
+
+@api_router.post("/digest/send-test")
+async def send_test_digest(email: str):
+    """Send a test digest email (admin only)"""
+    # Fetch recent research articles
+    try:
+        search_url = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi"
+        search_params = {
+            "db": "pubmed",
+            "term": "(integrative medicine OR complementary medicine OR natural compounds) AND 2024[dp]",
+            "retmax": 10,
+            "retmode": "json",
+            "sort": "date"
+        }
+        
+        async with httpx.AsyncClient(timeout=30.0) as client:
+            search_response = await client.get(search_url, params=search_params)
+            search_data = search_response.json()
+        
+        id_list = search_data.get("esearchresult", {}).get("idlist", [])
+        
+        if id_list:
+            fetch_url = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi"
+            fetch_params = {
+                "db": "pubmed",
+                "id": ",".join(id_list),
+                "retmode": "xml"
+            }
+            
+            async with httpx.AsyncClient(timeout=30.0) as client:
+                fetch_response = await client.get(fetch_url, params=fetch_params)
+                xml_content = fetch_response.text
+            
+            articles = parse_pubmed_xml(xml_content)
+        else:
+            articles = []
+        
+        # Send digest email
+        await send_weekly_digest_email(email, articles, "Integrative Medicine")
+        
+        return {"message": f"Test digest sent to {email}", "articles_count": len(articles)}
+        
+    except Exception as e:
+        logger.error(f"Failed to send test digest: {e}")
+        raise HTTPException(status_code=500, detail=f"Failed to send digest: {str(e)}")
+
+@api_router.get("/digest/preview")
+async def preview_digest():
+    """Preview weekly digest content (for admin)"""
+    try:
+        search_url = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi"
+        search_params = {
+            "db": "pubmed",
+            "term": "(integrative medicine OR complementary medicine OR natural compounds) AND 2024[dp]",
+            "retmax": 10,
+            "retmode": "json",
+            "sort": "date"
+        }
+        
+        async with httpx.AsyncClient(timeout=30.0) as client:
+            search_response = await client.get(search_url, params=search_params)
+            search_data = search_response.json()
+        
+        id_list = search_data.get("esearchresult", {}).get("idlist", [])
+        
+        if id_list:
+            fetch_url = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi"
+            fetch_params = {
+                "db": "pubmed",
+                "id": ",".join(id_list),
+                "retmode": "xml"
+            }
+            
+            async with httpx.AsyncClient(timeout=30.0) as client:
+                fetch_response = await client.get(fetch_url, params=fetch_params)
+                xml_content = fetch_response.text
+            
+            articles = parse_pubmed_xml(xml_content)
+        else:
+            articles = []
+        
+        return {
+            "articles": articles,
+            "topic": "Integrative Medicine",
+            "generated_at": datetime.now(timezone.utc).isoformat()
+        }
+        
+    except Exception as e:
+        logger.error(f"Failed to preview digest: {e}")
+        raise HTTPException(status_code=500, detail=f"Failed to preview: {str(e)}")
+
+@api_router.post("/digest/send-all")
+async def send_digest_to_all_subscribers():
+    """Send weekly digest to all active subscribers (scheduled job endpoint)"""
+    # Fetch all active subscribers
+    subscribers = await db.digest_subscriptions.find({"status": "active"}, {"_id": 0}).to_list(10000)
+    
+    if not subscribers:
+        return {"message": "No active subscribers", "sent_count": 0}
+    
+    # Fetch articles
+    try:
+        search_url = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi"
+        search_params = {
+            "db": "pubmed",
+            "term": "(integrative medicine OR complementary medicine OR natural compounds) AND 2024[dp]",
+            "retmax": 10,
+            "retmode": "json",
+            "sort": "date"
+        }
+        
+        async with httpx.AsyncClient(timeout=30.0) as client:
+            search_response = await client.get(search_url, params=search_params)
+            search_data = search_response.json()
+        
+        id_list = search_data.get("esearchresult", {}).get("idlist", [])
+        
+        if id_list:
+            fetch_url = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi"
+            fetch_params = {
+                "db": "pubmed",
+                "id": ",".join(id_list),
+                "retmode": "xml"
+            }
+            
+            async with httpx.AsyncClient(timeout=30.0) as client:
+                fetch_response = await client.get(fetch_url, params=fetch_params)
+                xml_content = fetch_response.text
+            
+            articles = parse_pubmed_xml(xml_content)
+        else:
+            articles = []
+        
+        # Send to all subscribers (non-blocking)
+        sent_count = 0
+        for subscriber in subscribers:
+            asyncio.create_task(send_weekly_digest_email(
+                subscriber["email"], 
+                articles, 
+                "Integrative Medicine"
+            ))
+            sent_count += 1
+        
+        logger.info(f"Weekly digest sent to {sent_count} subscribers")
+        
+        return {"message": f"Digest being sent to {sent_count} subscribers", "sent_count": sent_count}
+        
+    except Exception as e:
+        logger.error(f"Failed to send digests: {e}")
+        raise HTTPException(status_code=500, detail=f"Failed to send digests: {str(e)}")
+
+# ====================
 # Admin Invite Code Routes
 # ====================
 
