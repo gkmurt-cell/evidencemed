@@ -1977,7 +1977,7 @@ async def get_optional_current_user(authorization: Optional[str] = Header(None))
 async def create_annotation(
     compound_id: str,
     data: CompoundAnnotationCreate,
-    current_user: dict = Depends(get_current_user)
+    current_user: dict = Depends(get_current_user_from_header)
 ):
     """Create an annotation on a compound page"""
     user_id = current_user["id"]
