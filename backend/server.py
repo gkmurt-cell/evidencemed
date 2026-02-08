@@ -200,6 +200,116 @@ def verify_token(token: str) -> dict:
         raise HTTPException(status_code=401, detail="Invalid token")
 
 # ====================
+# Email Utilities
+# ====================
+
+async def send_email(to_email: str, subject: str, html_content: str) -> bool:
+    """Send email using Resend API (non-blocking)"""
+    if not resend_client:
+        logger.warning(f"Email not sent (no API key): {subject} to {to_email}")
+        return False
+    
+    try:
+        params = {
+            "from": SENDER_EMAIL,
+            "to": [to_email],
+            "subject": subject,
+            "html": html_content
+        }
+        await asyncio.to_thread(resend_client.Emails.send, params)
+        logger.info(f"Email sent: {subject} to {to_email}")
+        return True
+    except Exception as e:
+        logger.error(f"Failed to send email: {str(e)}")
+        return False
+
+async def send_welcome_email(user_email: str, institution_name: Optional[str] = None, tier: str = "starter"):
+    """Send welcome email to new user"""
+    institution_text = f" on behalf of <strong>{institution_name}</strong>" if institution_name else ""
+    
+    html_content = f"""
+    <div style="font-family: Georgia, serif; max-width: 600px; margin: 0 auto; padding: 20px;">
+        <div style="text-align: center; margin-bottom: 30px;">
+            <div style="display: inline-block; width: 50px; height: 50px; background-color: #1e3a5f; border-radius: 8px; line-height: 50px; color: white; font-size: 24px; font-weight: bold;">E</div>
+            <h1 style="color: #1e3a5f; margin: 10px 0 0 0;">EvidenceMed Archive</h1>
+        </div>
+        
+        <h2 style="color: #333;">Welcome to EvidenceMed</h2>
+        
+        <p style="color: #555; line-height: 1.6;">
+            Your account has been successfully created{institution_text}. You now have access to our institutional research archive 
+            featuring evidence-based research on integrative and complementary medicine.
+        </p>
+        
+        <div style="background-color: #f5f5f5; padding: 15px; border-radius: 8px; margin: 20px 0;">
+            <p style="margin: 0; color: #333;"><strong>Account Details:</strong></p>
+            <p style="margin: 5px 0; color: #555;">Email: {user_email}</p>
+            <p style="margin: 5px 0; color: #555;">Tier: {tier.capitalize()}</p>
+        </div>
+        
+        <p style="color: #555; line-height: 1.6;">
+            <strong>What you can access:</strong>
+        </p>
+        <ul style="color: #555; line-height: 1.8;">
+            <li>Live PubMed research search</li>
+            <li>Curated bibliography of trusted resources</li>
+            <li>Member-only research alerts</li>
+            <li>Practitioner repository</li>
+        </ul>
+        
+        <div style="text-align: center; margin: 30px 0;">
+            <a href="https://medresearch-4.preview.emergentagent.com/member-resources" 
+               style="display: inline-block; background-color: #1e3a5f; color: white; padding: 12px 30px; text-decoration: none; border-radius: 6px; font-weight: bold;">
+                Access Member Resources
+            </a>
+        </div>
+        
+        <p style="color: #888; font-size: 12px; text-align: center; margin-top: 40px; border-top: 1px solid #eee; padding-top: 20px;">
+            © {datetime.now().year} EvidenceMed Archive. All rights reserved.<br>
+            This email was sent because you registered for an EvidenceMed account.
+        </p>
+    </div>
+    """
+    
+    await send_email(user_email, "Welcome to EvidenceMed Archive", html_content)
+
+async def send_admin_notification_trial_request(request_data: dict):
+    """Send notification to admin when new trial request is submitted"""
+    html_content = f"""
+    <div style="font-family: Georgia, serif; max-width: 600px; margin: 0 auto; padding: 20px;">
+        <div style="text-align: center; margin-bottom: 30px;">
+            <div style="display: inline-block; width: 50px; height: 50px; background-color: #1e3a5f; border-radius: 8px; line-height: 50px; color: white; font-size: 24px; font-weight: bold;">E</div>
+            <h1 style="color: #1e3a5f; margin: 10px 0 0 0;">EvidenceMed Admin</h1>
+        </div>
+        
+        <h2 style="color: #333;">New Trial Request</h2>
+        
+        <div style="background-color: #f0f7ff; padding: 20px; border-radius: 8px; border-left: 4px solid #1e3a5f;">
+            <p style="margin: 0 0 10px 0; color: #333;"><strong>Institution:</strong> {request_data.get('institution_name', 'N/A')}</p>
+            <p style="margin: 0 0 10px 0; color: #555;"><strong>Type:</strong> {request_data.get('institution_type', 'N/A')}</p>
+            <p style="margin: 0 0 10px 0; color: #555;"><strong>Department:</strong> {request_data.get('department', 'N/A')}</p>
+            <p style="margin: 0 0 10px 0; color: #555;"><strong>Contact:</strong> {request_data.get('contact_name', 'N/A')}</p>
+            <p style="margin: 0 0 10px 0; color: #555;"><strong>Email:</strong> {request_data.get('contact_email', 'N/A')}</p>
+            <p style="margin: 0 0 10px 0; color: #555;"><strong>Users:</strong> {request_data.get('number_of_users', 'N/A')}</p>
+            {f"<p style='margin: 0; color: #555;'><strong>Message:</strong> {request_data.get('message')}</p>" if request_data.get('message') else ""}
+        </div>
+        
+        <div style="text-align: center; margin: 30px 0;">
+            <a href="https://medresearch-4.preview.emergentagent.com/admin" 
+               style="display: inline-block; background-color: #1e3a5f; color: white; padding: 12px 30px; text-decoration: none; border-radius: 6px; font-weight: bold;">
+                Go to Admin Dashboard
+            </a>
+        </div>
+        
+        <p style="color: #888; font-size: 12px; text-align: center;">
+            Submitted: {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}
+        </p>
+    </div>
+    """
+    
+    await send_email(ADMIN_EMAIL, f"New Trial Request: {request_data.get('institution_name', 'Unknown')}", html_content)
+
+# ====================
 # Auth Routes
 # ====================
 
