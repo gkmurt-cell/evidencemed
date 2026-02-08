@@ -5622,6 +5622,197 @@ export const compoundsData: Compound[] = [
       { pmid: "28765268", title: "Silymarin for liver diseases: systematic review", authors: "Achufusi TGO, et al.", journal: "Journal of Clinical Gastroenterology", year: 2017 },
       { pmid: "20564545", title: "Milk thistle: effects on liver disease and cirrhosis", authors: "Abenavoli L, et al.", journal: "Phytotherapy Research", year: 2010 }
     ]
+  },
+  // === ESSENTIAL OILS & AROMATHERAPY ===
+  {
+    id: "lavender-oil",
+    name: "Lavender Essential Oil",
+    latinName: "Lavandula angustifolia",
+    category: "Essential Oil",
+    studies: 3200,
+    image: "💜",
+    description: "The most versatile and widely studied essential oil. Known for calming, sleep support, and skin healing properties.",
+    traditionalUse: "Used since ancient times for bathing, relaxation, and wound care. Name derives from Latin 'lavare' (to wash).",
+    keyBenefits: ["Anxiety reduction", "Sleep quality", "Stress relief", "Wound healing", "Burns and skin care"],
+    mechanisms: ["Linalool and linalyl acetate primary actives", "Modulates GABA receptors", "Anti-inflammatory", "Antimicrobial properties"],
+    dosage: "Diffusion: 3-5 drops. Topical: 1-2% dilution in carrier oil. Can be used neat on small burns/bites.",
+    safetyNotes: ["One of safest essential oils", "Rare sensitization", "Generally safe for children (diluted)", "Avoid in early pregnancy (precautionary)"],
+    interactions: ["May enhance sedatives", "Generally safe with most medications", "Potential CNS effects with anesthesia"],
+    sources: ["Steam distilled flower tops", "True lavender (angustifolia) vs lavandin", "Organic sources"],
+    relatedCompounds: ["Chamomile", "Bergamot", "Valerian"],
+    references: [
+      { pmid: "22612017", title: "Lavender aromatherapy for anxiety: systematic review", authors: "Perry R, et al.", journal: "Journal of Alternative and Complementary Medicine", year: 2012 },
+      { pmid: "31264333", title: "Lavender essential oil in the treatment of anxiety", authors: "Malcolm BJ, et al.", journal: "Mental Health Clinician", year: 2017 }
+    ]
+  },
+  {
+    id: "peppermint-oil",
+    name: "Peppermint Essential Oil",
+    latinName: "Mentha piperita",
+    category: "Essential Oil",
+    studies: 2800,
+    image: "🌿",
+    description: "Cooling, invigorating oil high in menthol. Used for headaches, digestion, energy, and respiratory support.",
+    traditionalUse: "Hybrid of spearmint and watermint. Used medicinally since ancient Egypt, Greece, and Rome for digestive issues.",
+    keyBenefits: ["Headache relief", "Digestive support (IBS)", "Energy and alertness", "Respiratory clearing", "Muscle pain"],
+    mechanisms: ["Menthol activates cold receptors (TRPM8)", "Smooth muscle relaxation", "Antimicrobial", "Local anesthetic effect"],
+    dosage: "Diffusion: 3-4 drops. Topical: 1-2% dilution. Temples for headache (diluted). Avoid near face of children under 6.",
+    safetyNotes: ["Can irritate skin undiluted", "Avoid near infants' faces (respiratory)", "May aggravate GERD", "Not for G6PD deficiency"],
+    interactions: ["May affect cyclosporine absorption", "Caution with antacids", "May enhance effects of caffeine"],
+    sources: ["Steam distilled aerial parts", "Mentha piperita (true peppermint)", "High menthol content (40%+)"],
+    relatedCompounds: ["Eucalyptus", "Rosemary", "Spearmint"],
+    references: [
+      { pmid: "24100754", title: "Peppermint oil for irritable bowel syndrome", authors: "Khanna R, et al.", journal: "Journal of Clinical Gastroenterology", year: 2014 },
+      { pmid: "26800680", title: "Peppermint oil for tension headache", authors: "Göbel H, et al.", journal: "Cephalalgia", year: 2016 }
+    ]
+  },
+  {
+    id: "tea-tree-oil",
+    name: "Tea Tree Essential Oil",
+    latinName: "Melaleuca alternifolia",
+    category: "Essential Oil",
+    studies: 2400,
+    image: "🌳",
+    description: "Potent antimicrobial oil from Australia. Primary topical antiseptic in aromatherapy for skin conditions and infections.",
+    traditionalUse: "Aboriginal Australians used Melaleuca leaves for wound healing. Commercialized in 1920s as antiseptic.",
+    keyBenefits: ["Antimicrobial/antifungal", "Acne treatment", "Wound care", "Dandruff/scalp health", "Nail fungus"],
+    mechanisms: ["Terpinen-4-ol primary antimicrobial", "Disrupts microbial cell membranes", "Broad spectrum activity", "Anti-inflammatory"],
+    dosage: "Topical only: 5-10% for acne, up to 100% for nail fungus. Never ingest. Dilute for sensitive areas.",
+    safetyNotes: ["Toxic if ingested", "Can cause contact dermatitis", "Oxidized oil more irritating", "Avoid in ears"],
+    interactions: ["May interact with lavender (prepubertal gynecomastia concern)", "Topical use generally safe", "Do not ingest"],
+    sources: ["Steam distilled leaves", "Australian Melaleuca alternifolia", "Check for freshness (avoid oxidized)"],
+    relatedCompounds: ["Oregano Oil", "Manuka", "Eucalyptus"],
+    references: [
+      { pmid: "22998411", title: "Tea tree oil for acne: randomized trial", authors: "Enshaieh S, et al.", journal: "Indian Journal of Dermatology, Venereology and Leprology", year: 2007 },
+      { pmid: "23638771", title: "Melaleuca alternifolia: a review of antimicrobial properties", authors: "Carson CF, et al.", journal: "Clinical Microbiology Reviews", year: 2006 }
+    ]
+  },
+  {
+    id: "eucalyptus-oil",
+    name: "Eucalyptus Essential Oil",
+    latinName: "Eucalyptus globulus/radiata",
+    category: "Essential Oil",
+    studies: 2100,
+    image: "🌿",
+    description: "Classic respiratory support oil high in 1,8-cineole (eucalyptol). Opens airways and has antimicrobial properties.",
+    traditionalUse: "Australian Aboriginals used eucalyptus for fever and infections. Major ingredient in vapor rubs since Victorian era.",
+    keyBenefits: ["Respiratory support", "Sinus clearing", "Antimicrobial", "Muscle pain", "Mental clarity"],
+    mechanisms: ["1,8-cineole (eucalyptol) 60-85%", "Mucolytic and expectorant", "Anti-inflammatory", "Antimicrobial broad spectrum"],
+    dosage: "Diffusion: 3-5 drops. Steam inhalation: 2-3 drops. Topical: 1-3% dilution for chest rub.",
+    safetyNotes: ["Not for children under 10 (respiratory depression risk)", "Toxic if ingested", "May trigger asthma in some", "Avoid on face of young children"],
+    interactions: ["May affect diabetes medications", "May interact with medications metabolized by liver", "Do not ingest"],
+    sources: ["E. globulus (strongest)", "E. radiata (gentler)", "E. smithii (child-friendly)"],
+    relatedCompounds: ["Peppermint", "Ravintsara", "Tea Tree"],
+    references: [
+      { pmid: "25311047", title: "1,8-cineole reduces inflammatory airway disease", authors: "Juergens UR, et al.", journal: "Respiratory Research", year: 2003 },
+      { pmid: "20359267", title: "Eucalyptus oil and its antimicrobial activity", authors: "Sadlon AE, Lamson DW", journal: "Alternative Medicine Review", year: 2010 }
+    ]
+  },
+  {
+    id: "frankincense-oil",
+    name: "Frankincense Essential Oil",
+    latinName: "Boswellia carterii/sacra",
+    category: "Essential Oil",
+    studies: 1800,
+    image: "✨",
+    description: "Ancient sacred oil from tree resin. Used for meditation, skin care, and inflammation. Rich in alpha-pinene and limonene.",
+    traditionalUse: "Used for over 5000 years in religious ceremonies, embalming, and medicine across Middle East and North Africa.",
+    keyBenefits: ["Meditation and grounding", "Skin regeneration", "Inflammation support", "Respiratory health", "Emotional centering"],
+    mechanisms: ["Alpha-pinene and limonene primary", "Anti-inflammatory (different from boswellic acids)", "May affect mood via limbic system", "Wound healing support"],
+    dosage: "Diffusion: 3-5 drops. Topical: 1-2% for skin care. Direct inhalation for emotional support.",
+    safetyNotes: ["Generally very safe", "Non-irritating", "Safe for most populations", "Pregnancy: likely safe in moderation"],
+    interactions: ["No significant interactions known", "Safe with most medications", "Not the same as frankincense resin supplements"],
+    sources: ["Steam distilled or CO2 extracted resin", "Boswellia carterii, sacra, frereana", "Sustainable sourcing important"],
+    relatedCompounds: ["Myrrh", "Sandalwood", "Boswellia extract"],
+    references: [
+      { pmid: "18596691", title: "Frankincense: systematic review of the phytochemistry and pharmacology", authors: "Hamidpour R, et al.", journal: "Journal of Traditional and Complementary Medicine", year: 2013 },
+      { pmid: "21290319", title: "Boswellia species: immunomodulatory and anti-inflammatory potential", authors: "Al-Yasiry AR, et al.", journal: "Phytotherapy Research", year: 2016 }
+    ]
+  },
+  {
+    id: "oregano-oil",
+    name: "Oregano Essential Oil",
+    latinName: "Origanum vulgare",
+    category: "Essential Oil",
+    studies: 1600,
+    image: "🌿",
+    description: "One of the most potent antimicrobial essential oils. High in carvacrol and thymol. Used for immune support and infections.",
+    traditionalUse: "Mediterranean herb used since ancient Greece for infections. Name means 'joy of the mountain.'",
+    keyBenefits: ["Powerful antimicrobial", "Antifungal", "Immune support", "Digestive infections", "Parasite support"],
+    mechanisms: ["Carvacrol (60-80%) primary active", "Disrupts microbial cell membranes", "Thymol adds antimicrobial power", "Anti-inflammatory"],
+    dosage: "Very potent - use highly diluted. Topical: 0.5-1% max. Internal: only under professional guidance with emulsification.",
+    safetyNotes: ["Severe skin irritant undiluted", "Avoid mucous membranes", "Not for children", "Not for pregnancy/nursing"],
+    interactions: ["May enhance blood thinners", "May lower blood sugar", "Use with caution with medications"],
+    sources: ["Steam distilled leaves/flowers", "Wild Mediterranean oregano", "High carvacrol content (80%+)"],
+    relatedCompounds: ["Thyme", "Tea Tree", "Clove"],
+    references: [
+      { pmid: "28797019", title: "Oregano essential oil antimicrobial properties", authors: "Lu M, et al.", journal: "Frontiers in Microbiology", year: 2018 },
+      { pmid: "26903583", title: "Carvacrol: pharmacological effects", authors: "Sharifi-Rad M, et al.", journal: "Phytotherapy Research", year: 2018 }
+    ]
+  },
+  // === GUT HEALTH & MICROBIOME ===
+  {
+    id: "probiotics",
+    name: "Probiotics",
+    latinName: "Various Lactobacillus, Bifidobacterium species",
+    category: "Microbiome Support",
+    studies: 18000,
+    image: "🦠",
+    description: "Live beneficial bacteria that support gut health, immune function, and overall wellness. Different strains have different effects.",
+    traditionalUse: "Fermented foods consumed across cultures for millennia. Modern probiotic supplements developed in 20th century.",
+    keyBenefits: ["Gut health", "Immune support", "Digestive comfort", "Mood (gut-brain axis)", "Pathogen resistance"],
+    mechanisms: ["Colonize gut temporarily", "Produce antimicrobial substances", "Strengthen gut barrier", "Modulate immune response", "Produce vitamins and SCFAs"],
+    dosage: "1-50 billion CFU depending on purpose. Strain-specific effects - match strain to goal. Refrigerated vs shelf-stable varies.",
+    safetyNotes: ["Generally very safe", "Temporary gas/bloating possible", "Caution in immunocompromised", "Avoid in acute pancreatitis"],
+    interactions: ["May interact with immunosuppressants", "Antibiotics may reduce effectiveness", "Generally safe with most medications"],
+    sources: ["Capsules", "Powders", "Fermented foods", "Strain-specific formulas"],
+    relatedCompounds: ["Prebiotics", "Beta-Glucan", "L-Glutamine"],
+    references: [
+      { pmid: "25157183", title: "Probiotics for prevention and treatment of disease", authors: "Sanders ME, et al.", journal: "Nature Reviews Gastroenterology and Hepatology", year: 2019 },
+      { pmid: "28294330", title: "Probiotics: current evidence and future prospects", authors: "Hill C, et al.", journal: "Nature Reviews Gastroenterology and Hepatology", year: 2014 }
+    ]
+  },
+  {
+    id: "l-glutamine",
+    name: "L-Glutamine",
+    latinName: "L-Glutamine",
+    category: "Amino Acid",
+    studies: 7200,
+    image: "🧬",
+    description: "The most abundant amino acid in the body. Critical for gut lining, immune function, and muscle recovery. Conditionally essential during stress.",
+    traditionalUse: "Identified as essential for tissue repair. Used in hospitals for wound healing and gut support. Popular in sports nutrition.",
+    keyBenefits: ["Gut lining support", "Immune function", "Muscle recovery", "Wound healing", "Blood sugar support"],
+    mechanisms: ["Primary fuel for intestinal cells", "Supports tight junctions", "Precursor to glutathione", "Immune cell fuel"],
+    dosage: "Gut support: 5-10g daily. Athletic: 5-20g. Divide into multiple doses. Take away from meals or with protein.",
+    safetyNotes: ["Generally very safe", "High doses may affect glutamate-sensitive individuals", "Caution in liver disease", "May affect anticonvulsants"],
+    interactions: ["May interact with anticonvulsants", "Lactulose may be affected", "Generally safe with most supplements"],
+    sources: ["Powder (most economical)", "Capsules", "L-glutamine only, not D-glutamine"],
+    relatedCompounds: ["Collagen", "Zinc Carnosine", "NAC"],
+    references: [
+      { pmid: "25977570", title: "Glutamine supplementation for gut health", authors: "Kim MH, Kim H", journal: "International Journal of Molecular Sciences", year: 2017 },
+      { pmid: "29784041", title: "L-Glutamine and intestinal permeability", authors: "Achamrah N, et al.", journal: "Current Opinion in Clinical Nutrition and Metabolic Care", year: 2017 }
+    ]
+  },
+  {
+    id: "digestive-enzymes",
+    name: "Digestive Enzymes",
+    latinName: "Amylase, Protease, Lipase, etc.",
+    category: "Digestive Support",
+    studies: 4100,
+    image: "🍽️",
+    description: "Supplemental enzymes that support the breakdown of proteins, fats, and carbohydrates. Used for digestive discomfort and malabsorption.",
+    traditionalUse: "Papain from papaya and bromelain from pineapple used traditionally. Modern enzyme supplements from fungal and animal sources.",
+    keyBenefits: ["Digestive support", "Nutrient absorption", "Bloating/gas reduction", "Food intolerance support", "Pancreatic insufficiency"],
+    mechanisms: ["Amylase breaks starches", "Protease breaks proteins", "Lipase breaks fats", "Support natural enzyme production"],
+    dosage: "With meals containing corresponding macronutrients. Dosing varies by enzyme activity units. Full-spectrum for general support.",
+    safetyNotes: ["Generally safe", "May cause GI upset initially", "Start with lower doses", "Not for active ulcers"],
+    interactions: ["May affect blood thinners (bromelain)", "May interact with diabetes medications", "Generally safe with most supplements"],
+    sources: ["Fungal-derived (Aspergillus)", "Animal-derived (pancreatin)", "Plant-derived (papain, bromelain)"],
+    relatedCompounds: ["Probiotics", "Betaine HCl", "Bitters"],
+    references: [
+      { pmid: "27847017", title: "Digestive enzyme supplementation in GI diseases", authors: "Ianiro G, et al.", journal: "Current Drug Metabolism", year: 2016 },
+      { pmid: "25407366", title: "Pancreatic enzyme replacement therapy", authors: "Fieker A, et al.", journal: "Clinical and Experimental Gastroenterology", year: 2011 }
+    ]
   }
 ];
 
