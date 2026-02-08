@@ -795,6 +795,171 @@ const AdminDashboard = () => {
               )}
             </div>
           </section>
+
+          {/* Practitioner Verifications */}
+          <section className="py-6 border-t border-border">
+            <div className="container mx-auto px-4">
+              <div className="flex items-center justify-between mb-4">
+                <h2 className="font-serif text-lg font-semibold text-foreground flex items-center gap-2">
+                  <Shield className="w-5 h-5 text-primary" />
+                  Practitioner Verifications ({verifications.filter(v => v.status === "pending").length} pending)
+                </h2>
+                <Button variant="outline" size="sm" onClick={fetchPractitionerVerifications}>
+                  <RefreshCw className="w-4 h-4 mr-2" />
+                  Refresh
+                </Button>
+              </div>
+
+              {verifications.length === 0 ? (
+                <p className="text-muted-foreground text-center py-8">No verification requests yet.</p>
+              ) : (
+                <div className="grid gap-3">
+                  {verifications.map((verification) => (
+                    <div 
+                      key={verification.id} 
+                      className={`p-4 bg-card border rounded-lg ${
+                        verification.status === "pending" 
+                          ? "border-amber-500/30 bg-amber-500/5" 
+                          : "border-border"
+                      }`}
+                    >
+                      <div className="flex items-start justify-between gap-4">
+                        <div className="flex-1">
+                          <div className="flex items-center gap-2 flex-wrap mb-2">
+                            <Badge className="bg-primary/10 text-primary border-primary/20">
+                              {verification.credentials}
+                            </Badge>
+                            <span className="font-medium">{verification.specialty}</span>
+                            {verification.status === "pending" && (
+                              <Badge variant="outline" className="bg-amber-500/10 text-amber-600 border-amber-500/30">
+                                <Clock className="w-3 h-3 mr-1" />
+                                Pending Review
+                              </Badge>
+                            )}
+                            {verification.status === "approved" && (
+                              <Badge className="bg-emerald-500/10 text-emerald-600 border-emerald-500/30">
+                                <CheckCircle className="w-3 h-3 mr-1" />
+                                Approved
+                              </Badge>
+                            )}
+                            {verification.status === "rejected" && (
+                              <Badge variant="destructive" className="bg-red-500/10 text-red-600 border-red-500/30">
+                                <XCircle className="w-3 h-3 mr-1" />
+                                Rejected
+                              </Badge>
+                            )}
+                          </div>
+                          <p className="text-sm text-muted-foreground">
+                            <span className="font-medium text-foreground">{verification.user_email}</span>
+                            {" • "}License: {verification.license_number} ({verification.license_state})
+                            {verification.institution && ` • ${verification.institution}`}
+                          </p>
+                          <p className="text-xs text-muted-foreground mt-1">
+                            Submitted: {new Date(verification.submitted_at).toLocaleDateString()}
+                            {verification.reviewed_at && ` • Reviewed: ${new Date(verification.reviewed_at).toLocaleDateString()}`}
+                          </p>
+                        </div>
+                        {verification.status === "pending" && (
+                          <div className="flex items-center gap-2">
+                            <Button
+                              size="sm"
+                              className="bg-emerald-600 hover:bg-emerald-700"
+                              onClick={() => {
+                                setSelectedVerification(verification);
+                                setReviewDialogOpen(true);
+                              }}
+                            >
+                              <CheckCircle className="w-4 h-4 mr-1" />
+                              Review
+                            </Button>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          </section>
+
+          {/* Review Dialog */}
+          <Dialog open={reviewDialogOpen} onOpenChange={setReviewDialogOpen}>
+            <DialogContent>
+              <DialogHeader>
+                <DialogTitle>Review Practitioner Verification</DialogTitle>
+                <DialogDescription>
+                  Review the credentials for {selectedVerification?.user_email}
+                </DialogDescription>
+              </DialogHeader>
+
+              {selectedVerification && (
+                <div className="space-y-4 mt-4">
+                  <div className="p-4 rounded-lg bg-muted/50">
+                    <div className="grid grid-cols-2 gap-3 text-sm">
+                      <div>
+                        <span className="text-muted-foreground">Credentials:</span>
+                        <p className="font-medium">{selectedVerification.credentials}</p>
+                      </div>
+                      <div>
+                        <span className="text-muted-foreground">Specialty:</span>
+                        <p className="font-medium">{selectedVerification.specialty}</p>
+                      </div>
+                      <div>
+                        <span className="text-muted-foreground">License:</span>
+                        <p className="font-medium">{selectedVerification.license_number}</p>
+                      </div>
+                      <div>
+                        <span className="text-muted-foreground">State:</span>
+                        <p className="font-medium">{selectedVerification.license_state}</p>
+                      </div>
+                      {selectedVerification.institution && (
+                        <div className="col-span-2">
+                          <span className="text-muted-foreground">Institution:</span>
+                          <p className="font-medium">{selectedVerification.institution}</p>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label>Rejection Reason (if rejecting)</Label>
+                    <Textarea
+                      placeholder="Enter reason for rejection..."
+                      value={rejectionReason}
+                      onChange={(e) => setRejectionReason(e.target.value)}
+                    />
+                  </div>
+
+                  <div className="flex justify-end gap-3 pt-2">
+                    <Button
+                      variant="destructive"
+                      onClick={() => handleReviewVerification("rejected")}
+                      disabled={processingReview}
+                    >
+                      {processingReview ? (
+                        <Loader2 className="w-4 h-4 animate-spin mr-2" />
+                      ) : (
+                        <XCircle className="w-4 h-4 mr-2" />
+                      )}
+                      Reject
+                    </Button>
+                    <Button
+                      className="bg-emerald-600 hover:bg-emerald-700"
+                      onClick={() => handleReviewVerification("approved")}
+                      disabled={processingReview}
+                    >
+                      {processingReview ? (
+                        <Loader2 className="w-4 h-4 animate-spin mr-2" />
+                      ) : (
+                        <CheckCircle className="w-4 h-4 mr-2" />
+                      )}
+                      Approve
+                    </Button>
+                  </div>
+                </div>
+              )}
+            </DialogContent>
+          </Dialog>
         </main>
 
         <Footer />
