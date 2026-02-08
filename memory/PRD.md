@@ -124,38 +124,41 @@ Transform the EvidenceMed build from Lovable into a high-authority Institutional
   - Non-blocking async email sending
 - ✅ Fixed duplicate Legal sections in footer
 
-### Phase 7 (Feb 2026) - Complete Backlog Implementation
-- ✅ Password Reset Flow:
-  - POST /api/auth/forgot-password - Send reset link
-  - POST /api/auth/reset-password - Update password with token
-  - Frontend forgot password / reset password UI in Auth page
-  - Tokens expire in 1 hour
-- ✅ Email Verification:
-  - POST /api/auth/send-verification - Send verification email
-  - POST /api/auth/verify-email - Verify with token
-  - User email_verified flag in database
-- ✅ PubMed Search Filters:
-  - date_from and date_to year filters
-  - study_type filter (RCT, Clinical Trial, Meta-Analysis, Review, Observational, Case Report)
-  - Collapsible filter panel in search UI
-  - Apply/Clear filters functionality
-- ✅ Weekly Research Digest:
-  - GET /api/digest/preview - Preview digest content
-  - POST /api/digest/send-test - Send test digest email
-  - POST /api/digest/send-all - Send to all subscribers (for scheduled jobs)
-  - Email templates with article summaries
-- ✅ Admin Dashboard Weekly Digest Section:
-  - Digest Preview panel with Load Preview button
-  - Shows topic, article count, and generation timestamp
-  - Article list with titles, authors, journals, and PubMed links
-  - Send Test Digest to specific email
-  - Broadcast Digest to all subscribers button
-  - Schedule indicator (Monday 9:00 AM UTC)
-- ✅ Cron Job Scripts:
-  - /app/backend/cron/weekly_digest.py - Python cron script
-  - /app/backend/scripts/send_weekly_digest.sh - Bash script for external schedulers
-- ✅ Fixed duplicate Legal sections in footer
-- ✅ Cleaned up old /app/src folder (leftover from Vite migration)
+### Phase 8 (Feb 2026) - Complete Remaining Backlog
+- ✅ Rate Limiting:
+  - 5 requests/minute on /api/auth/register
+  - 10 requests/minute on /api/auth/login
+  - 30 requests/minute on /api/pubmed/search
+  - Uses slowapi library with proper error handling
+- ✅ User Profile Page (/profile):
+  - User avatar with email and verification status
+  - Stats cards: Saved Articles, Total Searches, Member Since, Last Search
+  - Tabbed interface: Saved Articles | Search History
+  - Delete individual items or clear all history
+  - Links to re-run searches from history
+- ✅ Search History Tracking:
+  - POST /api/user/search-history - Add search entry
+  - DELETE /api/user/search-history/{id} - Remove entry
+  - DELETE /api/user/search-history - Clear all
+  - Stores query, filters, results count, timestamp
+- ✅ Saved Articles:
+  - POST /api/user/saved-articles - Save article
+  - DELETE /api/user/saved-articles/{pmid} - Remove article
+  - GET /api/user/saved-articles - List all saved
+  - Save button on every article card
+- ✅ Citation Export (BibTeX, RIS, APA):
+  - Copy to clipboard: APA, BibTeX, RIS formats
+  - Download files: .bib and .ris formats
+  - Dropdown menu on each article card
+- ✅ Social Sharing:
+  - Twitter share with article title and link
+  - LinkedIn share
+  - Email share with subject and body
+  - Copy link to clipboard
+  - Dropdown menu on each article card
+- ✅ Navbar Profile Link:
+  - User dropdown shows "My Profile" link
+  - Direct access to /profile page
 
 ## API Endpoints
 - `POST /api/auth/register` - User registration (open)
