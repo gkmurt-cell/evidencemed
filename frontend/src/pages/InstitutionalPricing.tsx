@@ -200,24 +200,52 @@ const InstitutionalPricing = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500));
+    const API_URL = process.env.REACT_APP_BACKEND_URL || "";
 
-    toast({
-      title: "Quote Request Submitted",
-      description: "Our team will contact you within 24 hours with a custom quote.",
-    });
+    try {
+      const response = await fetch(`${API_URL}/api/institutional/trial-request`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          institution_name: quoteForm.institutionName,
+          institution_type: quoteForm.institutionType,
+          department: quoteForm.department,
+          contact_name: quoteForm.contactName,
+          contact_email: quoteForm.contactEmail,
+          number_of_users: quoteForm.numberOfUsers,
+          message: quoteForm.message,
+        }),
+      });
 
-    setQuoteForm({
-      institutionName: "",
-      department: "",
-      contactName: "",
-      contactEmail: "",
-      numberOfUsers: "",
-      institutionType: "",
-      message: "",
-    });
-    setIsSubmitting(false);
+      if (!response.ok) {
+        throw new Error("Failed to submit request");
+      }
+
+      toast({
+        title: "Quote Request Submitted",
+        description: "Our team will contact you within 24 hours with a custom quote.",
+      });
+
+      setQuoteForm({
+        institutionName: "",
+        department: "",
+        contactName: "",
+        contactEmail: "",
+        numberOfUsers: "",
+        institutionType: "",
+        message: "",
+      });
+    } catch (error) {
+      toast({
+        title: "Submission Error",
+        description: "There was an error submitting your request. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const scrollToInstitutional = () => {
