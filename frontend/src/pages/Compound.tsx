@@ -316,6 +316,16 @@ const CompoundPage = () => {
                 </section>
               )}
 
+              {/* Professional Annotations Section */}
+              <section className="bg-card border border-border rounded-lg p-4">
+                <CompoundAnnotations
+                  compoundId={compound.id}
+                  compoundName={compound.name}
+                  token={localStorage.getItem("evidencemed_token") || undefined}
+                  isVerifiedPractitioner={isVerifiedPractitioner}
+                />
+              </section>
+
               {/* Scientific References with Citation Export */}
               {compound.references && compound.references.length > 0 && (
                 <div>
