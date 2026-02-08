@@ -11,7 +11,9 @@ import {
   TestTube, 
   ExternalLink,
   Trash2,
-  Check
+  Check,
+  Mail,
+  Send
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -23,6 +25,8 @@ import PubMedSearchPanel from "@/components/research/PubMedSearchPanel";
 import { useAuth } from "@/hooks/useAuth";
 import { useToast } from "@/hooks/use-toast";
 import researchHeroImage from "@/assets/research-hero-library.jpg";
+
+const API_URL = process.env.REACT_APP_BACKEND_URL || "";
 
 // Research statistics
 const researchStats = [
