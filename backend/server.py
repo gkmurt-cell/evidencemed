@@ -733,12 +733,15 @@ async def verify_email(data: EmailVerificationRequest):
 # ====================
 
 @api_router.get("/pubmed/search", response_model=PubMedSearchResponse)
+@limiter.limit("30/minute")
 async def search_pubmed(
+    request: Request,
     query: str, 
     max_results: int = 20,
     date_from: Optional[str] = None,
     date_to: Optional[str] = None,
-    study_type: Optional[str] = None
+    study_type: Optional[str] = None,
+    user_id: Optional[str] = None  # Optional user ID for search history
 ):
     """Search PubMed database using NCBI E-utilities API with optional filters"""
     
