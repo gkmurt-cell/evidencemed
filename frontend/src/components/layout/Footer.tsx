@@ -50,6 +50,19 @@ const Footer = () => {
         </div>
       </div>
 
+      {/* Affiliate Disclosure */}
+      <div className="bg-amber-500/5 border-b border-amber-500/20">
+        <div className="container mx-auto px-4 py-4">
+          <div className="max-w-4xl mx-auto">
+            <p className="text-xs text-muted-foreground text-center leading-relaxed">
+              <strong className="text-amber-700 dark:text-amber-400">Affiliate Disclosure:</strong> Some links on this site may be affiliate links to products, books, 
+              or resources not available through practitioner dispensaries. If you make a purchase through these links, we may receive a small commission at no additional 
+              cost to you. This helps support our research archive. We only recommend products and resources we believe are valuable for educational purposes.
+            </p>
+          </div>
+        </div>
+      </div>
+
       <div className="container mx-auto px-4 py-12 lg:py-16">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12">
           {/* Brand Column */}
