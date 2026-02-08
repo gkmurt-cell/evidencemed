@@ -55,6 +55,8 @@ const App = () => (
               <Route path="/compound/:id" element={<CompoundPage />} />
               <Route path="/conditions" element={<ConditionsPage />} />
               <Route path="/condition/:id" element={<ConditionPage />} />
+              <Route path="/therapies" element={<IntegrativeTherapies />} />
+              <Route path="/integrative-therapies" element={<IntegrativeTherapies />} />
               <Route path="/methodology" element={<EditorialMethodology />} />
               <Route path="/editorial-methodology" element={<EditorialMethodology />} />
               <Route path="/advisory-board" element={<AdvisoryBoard />} />
