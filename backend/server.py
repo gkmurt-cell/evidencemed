@@ -1840,7 +1840,7 @@ async def submit_verification_request(
     }
 
 @api_router.get("/practitioners/my-status")
-async def get_my_verification_status(current_user: dict = Depends(get_current_user)):
+async def get_my_verification_status(current_user: dict = Depends(get_current_user_from_header)):
     """Get current user's practitioner verification status"""
     user_id = current_user["id"]
     
