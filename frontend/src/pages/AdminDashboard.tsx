@@ -112,6 +112,13 @@ const AdminDashboard = () => {
   const [sendingDigest, setSendingDigest] = useState(false);
   const [testEmail, setTestEmail] = useState("");
   
+  // Practitioner verification state
+  const [verifications, setVerifications] = useState<PractitionerVerification[]>([]);
+  const [selectedVerification, setSelectedVerification] = useState<PractitionerVerification | null>(null);
+  const [rejectionReason, setRejectionReason] = useState("");
+  const [reviewDialogOpen, setReviewDialogOpen] = useState(false);
+  const [processingReview, setProcessingReview] = useState(false);
+  
   // New invite form
   const [newInvite, setNewInvite] = useState({
     email: "",
@@ -128,6 +135,7 @@ const AdminDashboard = () => {
     if (isAdmin) {
       fetchInviteCodes();
       fetchTrialRequests();
+      fetchPractitionerVerifications();
     }
   }, [isAdmin]);
 
