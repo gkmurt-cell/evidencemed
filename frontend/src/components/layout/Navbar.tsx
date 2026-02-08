@@ -93,12 +93,12 @@ const Navbar = () => {
     }
   };
 
-  // Simplified navigation - Research, Methodology, Member Resources
+  // Main navigation - Original build headings
   const navLinks = [
-    { name: "Research", href: "/research", isLink: true },
-    { name: "Practitioners", href: "/practitioners", isLink: true },
-    { name: "Methodology", href: "/methodology", isLink: true },
-    { name: "Member Resources", href: "/member-resources", isLink: true },
+    { name: "Medical Conditions", href: "/conditions", isLink: true },
+    { name: "Research Library", href: "/research", isLink: true },
+    { name: "Natural Compounds", href: "/compounds", isLink: true },
+    { name: "Integrative Therapies", href: "/therapies", isLink: true },
   ];
 
   return (

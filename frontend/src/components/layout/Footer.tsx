@@ -10,6 +10,7 @@ const Footer = () => {
       { name: "Natural Compounds", href: "/compounds", isLink: true },
     ],
     methodology: [
+      { name: "Methodology", href: "/methodology", isLink: true },
       { name: "Editorial Standards", href: "/methodology", isLink: true },
       { name: "Advisory Board", href: "/advisory-board", isLink: true },
       { name: "About", href: "/about", isLink: true },
@@ -17,6 +18,8 @@ const Footer = () => {
     institutions: [
       { name: "Institutional Access", href: "/institutional-access", isLink: true },
       { name: "For Practitioners", href: "/practitioner-repository", isLink: true },
+      { name: "Practitioner Directory", href: "/practitioners", isLink: true },
+      { name: "Member Resources", href: "/member-resources", isLink: true },
     ],
     legal: [
       { name: "Medical Disclaimer", href: "#disclaimer" },
