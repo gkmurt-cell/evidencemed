@@ -24,6 +24,7 @@ import MemberResources from "@/pages/MemberResources";
 import PractitionerRepository from "@/pages/PractitionerRepository";
 import InstitutionalAccess from "@/pages/InstitutionalAccess";
 import InstitutionalPricing from "@/pages/InstitutionalPricing";
+import AdminDashboard from "@/pages/AdminDashboard";
 import NotFound from "@/pages/NotFound";
 
 const queryClient = new QueryClient();
