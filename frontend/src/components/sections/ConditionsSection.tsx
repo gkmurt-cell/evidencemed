@@ -5,7 +5,6 @@ import { Input } from "@/components/ui/input";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { ArrowRight, Brain, Heart, Activity, Pill, Dna, Shield, Zap, Bone, Sparkles, Wind, Stethoscope, Baby, Eye, Ear, Smile, Droplets, LucideIcon, Search, X, Leaf, BookOpen } from "lucide-react";
 import EducationalDisclaimer from "@/components/layout/EducationalDisclaimer";
-import DemoDisclaimer from "@/components/layout/DemoDisclaimer";
 import { RelatedLinks } from "@/components/ui/explore-more-link";
 
 interface Condition {
