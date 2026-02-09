@@ -8,6 +8,7 @@ const Footer = () => {
       { name: "Conditions Database", href: "/conditions", isLink: true },
       { name: "Research Library", href: "/research", isLink: true },
       { name: "Natural Compounds", href: "/compounds", isLink: true },
+      { name: "Resources & Bibliography", href: "/resources", isLink: true },
     ],
     methodology: [
       { name: "Methodology", href: "/methodology", isLink: true },
@@ -25,6 +26,7 @@ const Footer = () => {
       { name: "Medical Disclaimer", href: "#disclaimer" },
       { name: "Privacy Policy", href: "/privacy-policy", isLink: true },
       { name: "Terms of Service", href: "/terms-of-service", isLink: true },
+      { name: "Sitemap", href: "/sitemap", isLink: true },
     ],
   };
 
