@@ -800,6 +800,30 @@ const IntegrativeTherapies = () => {
                       Explore Aromatherapy <ArrowRight className="w-4 h-4" />
                     </div>
                   </Link>
+
+                  {/* Sai Vibrionics */}
+                  <Link 
+                    to="/sai-vibrionics"
+                    className="group bg-card border border-border rounded-xl p-5 hover:shadow-lg hover:border-indigo-500/30 transition-all duration-300"
+                  >
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-10 h-10 rounded-lg bg-indigo-500/10 flex items-center justify-center">
+                        <Waves className="w-5 h-5 text-indigo-500" />
+                      </div>
+                      <h3 className="font-serif text-lg font-semibold text-foreground group-hover:text-indigo-600 transition-colors">Sai Vibrionics</h3>
+                    </div>
+                    <p className="text-sm text-muted-foreground mb-3">
+                      Drugless healing using subtle vibrations to balance energy centers, chakras, and meridians.
+                    </p>
+                    <div className="flex flex-wrap gap-1.5 mb-3">
+                      <Badge variant="outline" className="text-xs">Vibrational</Badge>
+                      <Badge variant="outline" className="text-xs">Energy</Badge>
+                      <Badge variant="outline" className="text-xs">Free Service</Badge>
+                    </div>
+                    <div className="flex items-center gap-2 text-indigo-600 text-sm font-medium group-hover:gap-3 transition-all">
+                      Explore Sai Vibrionics <ArrowRight className="w-4 h-4" />
+                    </div>
+                  </Link>
                 </div>
               </div>
             </div>
