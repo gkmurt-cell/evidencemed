@@ -96,6 +96,7 @@ const Index = () => {
             {/* Primary: Research-focused content */}
             <ResearchSection />
             <ConditionsSection />
+            <ModalitiesSection />
             <VitaminsSection />
             <CompoundsSection />
           </main>
