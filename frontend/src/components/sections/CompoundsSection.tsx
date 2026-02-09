@@ -185,9 +185,15 @@ const CompoundsSection = () => {
                 </div>
 
                 <div className="flex items-center justify-between pt-3 border-t border-border">
-                  <span className="text-sm font-medium text-primary">
+                  <a 
+                    href={`https://pubmed.ncbi.nlm.nih.gov/?term=${encodeURIComponent(compound.name + " " + compound.latinName)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="text-sm font-medium text-primary hover:underline"
+                  >
                     {compound.studies} studies
-                  </span>
+                  </a>
                   <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all" />
                 </div>
               </div>
