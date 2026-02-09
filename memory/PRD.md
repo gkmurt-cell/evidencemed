@@ -214,3 +214,6 @@ Transform the 'EvidenceMed' build from Lovable platform into a high-authority In
 - [x] Enhanced SEO with JSON-LD structured data (Organization, Website, MedicalWebPage)
 - [x] Added meta tags for Twitter Cards and Open Graph
 - [x] Updated Footer with links to Resources and Sitemap
+- [x] Created Sai Vibrionics page (`/sai-vibrionics`) - vibrational energy healing modality
+- [x] Added Modalities Section to landing page with 15 linked therapies
+- [x] Updated IntegrativeTherapies page with Sai Vibrionics
