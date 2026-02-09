@@ -7,6 +7,7 @@ import ConditionsSection from "@/components/sections/ConditionsSection";
 import ResearchSection from "@/components/sections/ResearchSection";
 import CompoundsSection from "@/components/sections/CompoundsSection";
 import VitaminsSection from "@/components/sections/VitaminsSection";
+import ModalitiesSection from "@/components/sections/ModalitiesSection";
 
 const Index = () => {
   return (
