@@ -2329,6 +2329,55 @@ Format your response as JSON with keys: "summary", "alternative_terms" (array), 
         logger.error(f"AI search error: {e}")
         raise HTTPException(status_code=500, detail=f"AI search failed: {str(e)}")
 
+
+# XML Sitemap for SEO (accessible via /api/sitemap.xml)
+@api_router.get("/sitemap.xml")
+async def xml_sitemap():
+    """Generate XML sitemap for search engines"""
+    from fastapi.responses import Response
+    
+    base_url = "https://evidencemed.com"
+    
+    pages = [
+        {"loc": "/", "priority": "1.0", "changefreq": "weekly"},
+        {"loc": "/about", "priority": "0.6", "changefreq": "monthly"},
+        {"loc": "/search", "priority": "0.8", "changefreq": "weekly"},
+        {"loc": "/resources", "priority": "0.7", "changefreq": "monthly"},
+        {"loc": "/research", "priority": "0.9", "changefreq": "daily"},
+        {"loc": "/conditions", "priority": "0.9", "changefreq": "weekly"},
+        {"loc": "/compounds", "priority": "0.9", "changefreq": "weekly"},
+        {"loc": "/therapies", "priority": "0.8", "changefreq": "weekly"},
+        {"loc": "/ayurveda", "priority": "0.7", "changefreq": "monthly"},
+        {"loc": "/tcm", "priority": "0.7", "changefreq": "monthly"},
+        {"loc": "/naturopathy", "priority": "0.7", "changefreq": "monthly"},
+        {"loc": "/homeopathy", "priority": "0.7", "changefreq": "monthly"},
+        {"loc": "/unani", "priority": "0.7", "changefreq": "monthly"},
+        {"loc": "/functional-medicine", "priority": "0.7", "changefreq": "monthly"},
+        {"loc": "/aromatherapy", "priority": "0.7", "changefreq": "monthly"},
+        {"loc": "/energy-healing", "priority": "0.7", "changefreq": "monthly"},
+        {"loc": "/mind-body", "priority": "0.7", "changefreq": "monthly"},
+        {"loc": "/bodywork", "priority": "0.7", "changefreq": "monthly"},
+        {"loc": "/nutrition", "priority": "0.7", "changefreq": "monthly"},
+        {"loc": "/sound-therapy", "priority": "0.7", "changefreq": "monthly"},
+        {"loc": "/hydrotherapy", "priority": "0.7", "changefreq": "monthly"},
+        {"loc": "/methodology", "priority": "0.6", "changefreq": "monthly"},
+        {"loc": "/advisory-board", "priority": "0.5", "changefreq": "monthly"},
+        {"loc": "/practitioners", "priority": "0.7", "changefreq": "weekly"},
+        {"loc": "/privacy-policy", "priority": "0.3", "changefreq": "yearly"},
+        {"loc": "/terms-of-service", "priority": "0.3", "changefreq": "yearly"},
+    ]
+    
+    xml_content = '<?xml version="1.0" encoding="UTF-8"?>\n'
+    xml_content += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+    
+    for page in pages:
+        xml_content += f'  <url>\n    <loc>{base_url}{page["loc"]}</loc>\n    <changefreq>{page["changefreq"]}</changefreq>\n    <priority>{page["priority"]}</priority>\n  </url>\n'
+    
+    xml_content += '</urlset>'
+    
+    return Response(content=xml_content, media_type="application/xml")
+
+
 # Include the router
 app.include_router(api_router)
 
