@@ -31,6 +31,7 @@ import NutritionalTherapy from "@/pages/NutritionalTherapy";
 import SoundTherapy from "@/pages/SoundTherapy";
 import Hydrotherapy from "@/pages/Hydrotherapy";
 import Resources from "@/pages/Resources";
+import Sitemap from "@/pages/Sitemap";
 import EditorialMethodology from "@/pages/EditorialMethodology";
 import AdvisoryBoard from "@/pages/AdvisoryBoard";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
