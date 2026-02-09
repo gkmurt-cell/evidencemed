@@ -2332,13 +2332,13 @@ Format your response as JSON with keys: "summary", "alternative_terms" (array), 
 # Include the router
 app.include_router(api_router)
 
-# XML Sitemap for SEO
-@app.get("/sitemap.xml")
+# XML Sitemap for SEO (accessible via /api/sitemap.xml)
+@api_router.get("/sitemap.xml")
 async def xml_sitemap():
     """Generate XML sitemap for search engines"""
     from fastapi.responses import Response
     
-    base_url = os.environ.get('FRONTEND_URL', 'https://evidencemed.com')
+    base_url = "https://evidencemed.com"
     
     pages = [
         # Main pages
