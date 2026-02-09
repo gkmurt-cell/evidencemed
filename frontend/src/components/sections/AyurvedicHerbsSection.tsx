@@ -256,9 +256,15 @@ const AyurvedicHerbsSection = () => {
                     {/* Footer */}
                     <div className="flex items-center justify-between pt-3 border-t border-border mt-auto">
                       <div className="flex items-center gap-2">
-                        <span className="text-xs font-medium text-primary">
+                        <a 
+                          href={`https://pubmed.ncbi.nlm.nih.gov/?term=${encodeURIComponent(herb.name + " " + herb.altName)}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                          className="text-xs font-medium text-primary hover:underline"
+                        >
                           {herb.studies} studies
-                        </span>
+                        </a>
                         <span className="text-xs text-muted-foreground">•</span>
                         <span className="text-xs text-muted-foreground">
                           {herb.keyBenefit}
