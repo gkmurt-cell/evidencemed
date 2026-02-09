@@ -1216,10 +1216,15 @@ const IntegrativeTherapies = () => {
                             <h3 className="font-serif text-xl font-semibold text-foreground">
                               {treatment.name}
                             </h3>
-                            <div className="flex items-center gap-1 text-xs font-medium text-white bg-emerald-500 px-2.5 py-1 rounded-full">
+                            <a 
+                              href={`https://pubmed.ncbi.nlm.nih.gov/?term=${encodeURIComponent(treatment.name)}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="flex items-center gap-1 text-xs font-medium text-white bg-emerald-500 hover:bg-emerald-600 px-2.5 py-1 rounded-full transition-colors"
+                            >
                               <FileText className="w-3 h-3" />
                               {treatment.studies} studies
-                            </div>
+                            </a>
                           </div>
                           
                           <p className="text-muted-foreground mb-4">
