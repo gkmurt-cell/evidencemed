@@ -94,7 +94,7 @@ const WhereToBuy = ({ compoundName, latinName, category }: WhereToBuyProps) => {
       <div className="mb-4">
         <h3 className="text-xs font-medium text-muted-foreground mb-2">Supplement Sources</h3>
         <div className="grid grid-cols-2 gap-2">
-          {affiliateLinks.map((link) => (
+          {affiliateLinks.slice(0, 6).map((link) => (
             <a
               key={link.name}
               href={link.url}
