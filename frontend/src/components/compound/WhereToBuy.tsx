@@ -20,22 +20,34 @@ const getAffiliateLinks = (compoundName: string, latinName?: string) => {
       description: "Supplements & natural products"
     },
     {
-      name: "Amazon",
-      url: `https://www.amazon.com/s?k=${searchTerm}+supplement`,
-      logo: "📦",
-      description: "Wide selection & reviews"
-    },
-    {
-      name: "Vitacost",
-      url: `https://www.vitacost.com/search?t=${searchTerm}`,
-      logo: "💊",
-      description: "Health & wellness products"
+      name: "Fullscript",
+      url: `https://fullscript.com/search?q=${searchTerm}`,
+      logo: "💼",
+      description: "Practitioner dispensary"
     },
     {
       name: "Thorne",
       url: `https://www.thorne.com/search?q=${searchTerm}`,
       logo: "🔬",
       description: "Practitioner-grade supplements"
+    },
+    {
+      name: "Pure Encapsulations",
+      url: `https://www.pureencapsulations.com/catalogsearch/result/?q=${searchTerm}`,
+      logo: "⚗️",
+      description: "Hypoallergenic formulas"
+    },
+    {
+      name: "Life Extension",
+      url: `https://www.lifeextension.com/search?q=${searchTerm}`,
+      logo: "🧬",
+      description: "Research-backed formulas"
+    },
+    {
+      name: "Amazon",
+      url: `https://www.amazon.com/s?k=${searchTerm}+supplement`,
+      logo: "📦",
+      description: "Wide selection & reviews"
     },
   ];
 };
