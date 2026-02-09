@@ -60,6 +60,7 @@ const sitemapSections = [
       { name: "Nutritional Therapy", path: "/nutrition" },
       { name: "Sound & Vibrational Therapy", path: "/sound-therapy" },
       { name: "Hydrotherapy", path: "/hydrotherapy" },
+      { name: "Sai Vibrionics", path: "/sai-vibrionics" },
     ]
   },
   {
