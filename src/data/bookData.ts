@@ -440,6 +440,23 @@ export const allBooks: BookEntry[] = [
       { name: "Barnes & Noble", url: "https://www.barnesandnoble.com/w/lost-connections-johann-hari/1126602647", type: "retailer" },
     ],
   },
+
+  // General Health
+  {
+    id: "26",
+    title: "Medical Medium",
+    author: "Anthony William",
+    description: "A guide to the root causes of chronic and mystery illness, exploring the role of hidden viruses, toxic heavy metals, and healing foods in restoring health.",
+    image: "https://images.unsplash.com/photo-1476275466078-4007374efbbe?w=300&h=400&fit=crop",
+    researchReference: "Popular health reference on chronic illness",
+    category: "nutrition",
+    isbn: "978-1401948320",
+    year: 2015,
+    sources: [
+      { name: "Amazon", url: "https://www.amazon.com/dp/1401948324?tag=evidencemed1-20", type: "retailer" },
+      { name: "Barnes & Noble", url: "https://www.barnesandnoble.com/w/medical-medium-anthony-william/1121240564", type: "retailer" },
+    ],
+  },
 ];
 
 export function getBooksByCategory(categoryId: string): BookEntry[] {
