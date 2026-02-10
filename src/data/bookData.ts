@@ -45,7 +45,7 @@ export const allBooks: BookEntry[] = [
     isbn: "978-1250066114",
     year: 2015,
     sources: [
-      { name: "Amazon", url: "https://www.amazon.com/dp/1250066115", type: "retailer" },
+      { name: "Amazon", url: "https://www.amazon.com/dp/1250066115?tag=evidencemed1-20", type: "retailer" },
       { name: "Mayo Clinic Store", url: "https://mcpress.mayoclinic.org", type: "publisher" },
       { name: "PubMed References", url: "https://pubmed.ncbi.nlm.nih.gov/?term=greger+nutrition+disease+prevention", type: "academic" },
     ],
@@ -61,7 +61,7 @@ export const allBooks: BookEntry[] = [
     isbn: "978-1941631560",
     year: 2016,
     sources: [
-      { name: "Amazon", url: "https://www.amazon.com/dp/1941631568", type: "retailer" },
+      { name: "Amazon", url: "https://www.amazon.com/dp/1941631568?tag=evidencemed1-20", type: "retailer" },
       { name: "Barnes & Noble", url: "https://www.barnesandnoble.com/w/the-china-study-t-colin-campbell/1100171677", type: "retailer" },
       { name: "PubMed References", url: "https://pubmed.ncbi.nlm.nih.gov/?term=campbell+china+study+nutrition", type: "academic" },
     ],
@@ -77,7 +77,7 @@ export const allBooks: BookEntry[] = [
     isbn: "978-0916764203",
     year: 2009,
     sources: [
-      { name: "Amazon", url: "https://www.amazon.com/dp/0916764206", type: "retailer" },
+      { name: "Amazon", url: "https://www.amazon.com/dp/0916764206?tag=evidencemed1-20", type: "retailer" },
       { name: "Price-Pottenger Foundation", url: "https://price-pottenger.org", type: "publisher" },
     ],
   },
@@ -93,7 +93,7 @@ export const allBooks: BookEntry[] = [
     isbn: "978-1490359793",
     year: 2013,
     sources: [
-      { name: "Amazon", url: "https://www.amazon.com/dp/0646402978", type: "retailer" },
+      { name: "Amazon", url: "https://www.amazon.com/dp/0646402978?tag=evidencemed1-20", type: "retailer" },
       { name: "AbeBooks", url: "https://www.abebooks.com/9780646402970/Take-Control-Health-Escape-Sickness-0646402978/plp", type: "retailer" },
       { name: "Booktopia", url: "https://www.booktopia.com.au/take-control-of-your-health-and-escape-the-sickness-industry-elaine-hollingsworth/book/9781490359793.html", type: "retailer" },
     ],
@@ -111,7 +111,7 @@ export const allBooks: BookEntry[] = [
     isbn: "978-1451694970",
     year: 2013,
     sources: [
-      { name: "Amazon", url: "https://www.amazon.com/dp/1451694970", type: "retailer" },
+      { name: "Amazon", url: "https://www.amazon.com/dp/1451694970?tag=evidencemed1-20", type: "retailer" },
       { name: "Barnes & Noble", url: "https://www.barnesandnoble.com/w/the-immune-system-recovery-plan-susan-blum/1113764513", type: "retailer" },
       { name: "NIH Bookshelf", url: "https://www.ncbi.nlm.nih.gov/books/?term=autoimmune+functional+medicine", type: "academic" },
     ],
@@ -127,7 +127,7 @@ export const allBooks: BookEntry[] = [
     isbn: "978-1583335543",
     year: 2014,
     sources: [
-      { name: "Amazon", url: "https://www.amazon.com/dp/1583335544", type: "retailer" },
+      { name: "Amazon", url: "https://www.amazon.com/dp/1583335544?tag=evidencemed1-20", type: "retailer" },
       { name: "PubMed References", url: "https://pubmed.ncbi.nlm.nih.gov/?term=wahls+protocol+multiple+sclerosis", type: "academic" },
     ],
   },
@@ -144,7 +144,7 @@ export const allBooks: BookEntry[] = [
     isbn: "978-0062268747",
     year: 2014,
     sources: [
-      { name: "Amazon", url: "https://www.amazon.com/dp/0062268740", type: "retailer" },
+      { name: "Amazon", url: "https://www.amazon.com/dp/0062268740?tag=evidencemed1-20", type: "retailer" },
       { name: "MSKCC Reference", url: "https://www.mskcc.org/cancer-care/diagnosis-treatment/symptom-management/integrative-medicine", type: "academic" },
       { name: "PubMed References", url: "https://pubmed.ncbi.nlm.nih.gov/?term=radical+remission+cancer", type: "academic" },
     ],
@@ -160,7 +160,7 @@ export const allBooks: BookEntry[] = [
     isbn: "978-0670021642",
     year: 2009,
     sources: [
-      { name: "Amazon", url: "https://www.amazon.com/dp/0670021644", type: "retailer" },
+      { name: "Amazon", url: "https://www.amazon.com/dp/0670021644?tag=evidencemed1-20", type: "retailer" },
       { name: "Cochrane Reviews", url: "https://www.cochranelibrary.com/search?searchBy=6&searchText=integrative+oncology", type: "academic" },
     ],
   },
@@ -175,7 +175,7 @@ export const allBooks: BookEntry[] = [
     isbn: "978-1603586863",
     year: 2017,
     sources: [
-      { name: "Amazon", url: "https://www.amazon.com/dp/1603586865", type: "retailer" },
+      { name: "Amazon", url: "https://www.amazon.com/dp/1603586865?tag=evidencemed1-20", type: "retailer" },
       { name: "PubMed References", url: "https://pubmed.ncbi.nlm.nih.gov/?term=metabolic+approach+cancer+ketogenic", type: "academic" },
     ],
   },
@@ -190,7 +190,7 @@ export const allBooks: BookEntry[] = [
     isbn: "978-1603587297",
     year: 2017,
     sources: [
-      { name: "Amazon", url: "https://www.amazon.com/dp/1603587292", type: "retailer" },
+      { name: "Amazon", url: "https://www.amazon.com/dp/1603587292?tag=evidencemed1-20", type: "retailer" },
       { name: "PubMed References", url: "https://pubmed.ncbi.nlm.nih.gov/?term=warburg+effect+cancer+metabolism", type: "academic" },
     ],
   },
@@ -205,7 +205,7 @@ export const allBooks: BookEntry[] = [
     isbn: "978-1476739991",
     year: 2014,
     sources: [
-      { name: "Amazon", url: "https://www.amazon.com/dp/1476739994", type: "retailer" },
+      { name: "Amazon", url: "https://www.amazon.com/dp/1476739994?tag=evidencemed1-20", type: "retailer" },
       { name: "NCI Reference", url: "https://www.cancer.gov/research", type: "academic" },
     ],
   },
@@ -220,7 +220,7 @@ export const allBooks: BookEntry[] = [
     isbn: "978-1401955601",
     year: 2018,
     sources: [
-      { name: "Amazon", url: "https://www.amazon.com/dp/1401955606", type: "retailer" },
+      { name: "Amazon", url: "https://www.amazon.com/dp/1401955606?tag=evidencemed1-20", type: "retailer" },
       { name: "MSKCC Integrative Medicine", url: "https://www.mskcc.org/cancer-care/diagnosis-treatment/symptom-management/integrative-medicine", type: "academic" },
       { name: "PubMed References", url: "https://pubmed.ncbi.nlm.nih.gov/?term=integrative+oncology+naturopathic", type: "academic" },
     ],
@@ -253,7 +253,7 @@ export const allBooks: BookEntry[] = [
     isbn: "978-0735216204",
     year: 2017,
     sources: [
-      { name: "Amazon", url: "https://www.amazon.com/dp/0735216207", type: "retailer" },
+      { name: "Amazon", url: "https://www.amazon.com/dp/0735216207?tag=evidencemed1-20", type: "retailer" },
       { name: "PubMed References", url: "https://pubmed.ncbi.nlm.nih.gov/?term=bredesen+alzheimer+reversal+protocol", type: "academic" },
       { name: "NIH ODS", url: "https://ods.od.nih.gov/factsheets/list-all/", type: "academic" },
     ],
@@ -269,7 +269,7 @@ export const allBooks: BookEntry[] = [
     isbn: "978-0316234801",
     year: 2013,
     sources: [
-      { name: "Amazon", url: "https://www.amazon.com/dp/0316234800", type: "retailer" },
+      { name: "Amazon", url: "https://www.amazon.com/dp/0316234800?tag=evidencemed1-20", type: "retailer" },
       { name: "Google Books", url: "https://books.google.com/books?id=gxHfAAAAQBAJ", type: "retailer" },
     ],
   },
@@ -286,7 +286,7 @@ export const allBooks: BookEntry[] = [
     isbn: "978-1501191978",
     year: 2019,
     sources: [
-      { name: "Amazon", url: "https://www.amazon.com/dp/1501191977", type: "retailer" },
+      { name: "Amazon", url: "https://www.amazon.com/dp/1501191977?tag=evidencemed1-20", type: "retailer" },
       { name: "PubMed References", url: "https://pubmed.ncbi.nlm.nih.gov/?term=sinclair+NAD+aging+sirtuin", type: "academic" },
       { name: "ClinicalTrials.gov", url: "https://clinicaltrials.gov/search?term=NMN+aging", type: "academic" },
     ],
@@ -302,7 +302,7 @@ export const allBooks: BookEntry[] = [
     isbn: "978-0593236598",
     year: 2023,
     sources: [
-      { name: "Amazon", url: "https://www.amazon.com/dp/0593236599", type: "retailer" },
+      { name: "Amazon", url: "https://www.amazon.com/dp/0593236599?tag=evidencemed1-20", type: "retailer" },
       { name: "Mayo Clinic", url: "https://www.mayoclinic.org/healthy-lifestyle", type: "academic" },
     ],
   },
@@ -319,7 +319,7 @@ export const allBooks: BookEntry[] = [
     isbn: "978-0609801284",
     year: 1999,
     sources: [
-      { name: "Amazon", url: "https://www.amazon.com/dp/0609801287", type: "retailer" },
+      { name: "Amazon", url: "https://www.amazon.com/dp/0609801287?tag=evidencemed1-20", type: "retailer" },
       { name: "WHO Monographs", url: "https://www.who.int/traditional-complementary-integrative-medicine", type: "academic" },
       { name: "EMA Herbal Monographs", url: "https://www.ema.europa.eu/en/human-regulatory-overview/herbal-medicinal-products", type: "academic" },
     ],
@@ -337,7 +337,7 @@ export const allBooks: BookEntry[] = [
     isbn: "978-0892817498",
     year: 2003,
     sources: [
-      { name: "Amazon", url: "https://www.amazon.com/dp/0892817496", type: "retailer" },
+      { name: "Amazon", url: "https://www.amazon.com/dp/0892817496?tag=evidencemed1-20", type: "retailer" },
       { name: "EMA Herbal Monographs", url: "https://www.ema.europa.eu/en/human-regulatory-overview/herbal-medicinal-products", type: "academic" },
       { name: "WHO Monographs", url: "https://www.who.int/publications/i/item/9789241547024", type: "academic" },
     ],
@@ -353,7 +353,7 @@ export const allBooks: BookEntry[] = [
     isbn: "978-0451205100",
     year: 2003,
     sources: [
-      { name: "Amazon", url: "https://www.amazon.com/dp/0451205103", type: "retailer" },
+      { name: "Amazon", url: "https://www.amazon.com/dp/0451205103?tag=evidencemed1-20", type: "retailer" },
       { name: "Natural Medicines Database", url: "https://naturalmedicines.therapeuticresearch.com", type: "academic" },
     ],
   },
@@ -370,7 +370,7 @@ export const allBooks: BookEntry[] = [
     isbn: "978-0062290748",
     year: 2014,
     sources: [
-      { name: "Amazon", url: "https://www.amazon.com/dp/0062290746", type: "retailer" },
+      { name: "Amazon", url: "https://www.amazon.com/dp/0062290746?tag=evidencemed1-20", type: "retailer" },
       { name: "IFM Reference", url: "https://www.ifm.org", type: "publisher" },
       { name: "PubMed References", url: "https://pubmed.ncbi.nlm.nih.gov/?term=functional+medicine+chronic+disease", type: "academic" },
     ],
@@ -388,7 +388,7 @@ export const allBooks: BookEntry[] = [
     isbn: "978-0593084564",
     year: 2020,
     sources: [
-      { name: "Amazon", url: "https://www.amazon.com/dp/059308456X", type: "retailer" },
+      { name: "Amazon", url: "https://www.amazon.com/dp/059308456X?tag=evidencemed1-20", type: "retailer" },
       { name: "PubMed References", url: "https://pubmed.ncbi.nlm.nih.gov/?term=gut+microbiome+fiber+diversity", type: "academic" },
     ],
   },
@@ -403,7 +403,7 @@ export const allBooks: BookEntry[] = [
     isbn: "978-0143108085",
     year: 2015,
     sources: [
-      { name: "Amazon", url: "https://www.amazon.com/dp/0143108085", type: "retailer" },
+      { name: "Amazon", url: "https://www.amazon.com/dp/0143108085?tag=evidencemed1-20", type: "retailer" },
       { name: "Barnes & Noble", url: "https://www.barnesandnoble.com/w/the-good-gut-justin-sonnenburg/1120767606", type: "retailer" },
     ],
   },
@@ -420,7 +420,7 @@ export const allBooks: BookEntry[] = [
     isbn: "978-0143127741",
     year: 2014,
     sources: [
-      { name: "Amazon", url: "https://www.amazon.com/dp/0143127748", type: "retailer" },
+      { name: "Amazon", url: "https://www.amazon.com/dp/0143127748?tag=evidencemed1-20", type: "retailer" },
       { name: "PubMed References", url: "https://pubmed.ncbi.nlm.nih.gov/?term=van+der+kolk+trauma+treatment", type: "academic" },
       { name: "Cochrane Library", url: "https://www.cochranelibrary.com/search?searchBy=6&searchText=trauma+therapy", type: "academic" },
     ],
@@ -436,7 +436,7 @@ export const allBooks: BookEntry[] = [
     isbn: "978-1632868305",
     year: 2018,
     sources: [
-      { name: "Amazon", url: "https://www.amazon.com/dp/163286830X", type: "retailer" },
+      { name: "Amazon", url: "https://www.amazon.com/dp/163286830X?tag=evidencemed1-20", type: "retailer" },
       { name: "Barnes & Noble", url: "https://www.barnesandnoble.com/w/lost-connections-johann-hari/1126602647", type: "retailer" },
     ],
   },
