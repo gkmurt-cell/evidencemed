@@ -376,7 +376,7 @@ const supplements: Supplement[] = [
     type: "Mitochondrial Support",
     description: "Active form of Coenzyme Q10 for mitochondrial energy production and cardiovascular support.",
     researchReference: "Mortensen et al., 2014 — Q-SYMBIO heart failure trial",
-    affiliateUrl: "https://www.amazon.com/dp/B0058HWJ5K?tag=evidencemed1-20",
+    affiliateUrl: "https://www.amazon.com/dp/B073VL4WKN?tag=evidencemed1-20",
     image: "❤️",
     category: "Essential"
   },
