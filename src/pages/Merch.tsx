@@ -308,7 +308,7 @@ const supplements: Supplement[] = [
     type: "Adaptogen",
     description: "Arctic root adaptogen studied for fatigue reduction, stress resilience, and exercise performance.",
     researchReference: "Darbinyan et al., 2000 — mental fatigue under stress",
-    affiliateUrl: "https://www.amazon.com/dp/B0013OQEO0?tag=evidencemed1-20",
+    affiliateUrl: "https://www.amazon.com/dp/B06VWPPBCV?tag=evidencemed1-20",
     image: "🌸",
     category: "Stress"
   },
