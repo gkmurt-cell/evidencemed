@@ -138,7 +138,7 @@ const supplements: Supplement[] = [
     type: "Anti-inflammatory",
     description: "Turmeric extract standardized to 95% curcuminoids with piperine for enhanced bioavailability.",
     researchReference: "2000+ published studies on curcumin bioactivity",
-    affiliateUrl: "https://www.amazon.com/dp/B00VSVKJ8I?tag=evidencemed1-20",
+    affiliateUrl: "https://www.amazon.com/dp/B01DBTFO98?tag=evidencemed1-20",
     image: "🟡",
     category: "Inflammation"
   },
