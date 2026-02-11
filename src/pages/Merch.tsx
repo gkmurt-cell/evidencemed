@@ -369,7 +369,7 @@ const supplements: Supplement[] = [
     type: "Phospholipid",
     description: "Cell membrane phospholipid supporting cognitive function, cortisol modulation, and memory.",
     researchReference: "Kato-Kataoka et al., 2010 — cognitive function in elderly",
-    affiliateUrl: "https://www.amazon.com/dp/B00020IP9G?tag=evidencemed1-20",
+    affiliateUrl: "https://www.amazon.com/dp/B01N26G89C?tag=evidencemed1-20",
     image: "💡",
     category: "Cognitive"
   },
