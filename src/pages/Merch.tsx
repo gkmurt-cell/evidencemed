@@ -411,7 +411,7 @@ const supplements: Supplement[] = [
     type: "Resin Extract",
     description: "5-LOX inhibitor from Indian frankincense. Studied for joint inflammation and IBD.",
     researchReference: "Ammon, 2006 — anti-inflammatory mechanisms",
-    affiliateUrl: "https://www.amazon.com/dp/B0013OQGNO?tag=evidencemed1-20",
+    affiliateUrl: "https://www.amazon.com/dp/B0B9HPJYWZ?tag=evidencemed1-20",
     image: "🌳",
     category: "Inflammation"
   },
