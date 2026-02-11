@@ -1130,12 +1130,8 @@ export default function Merch() {
             </div>
           </section>
 
-          {/* Affiliate Disclosure - Understated */}
-          <section className="py-4 bg-muted/30 border-b border-border">
-            <div className="container mx-auto px-4">
-              <AffiliateDisclosureBanner />
-            </div>
-          </section>
+
+
 
           {/* Products Section with Tabs */}
           <section className="py-12">
@@ -1241,11 +1237,8 @@ export default function Merch() {
 
                   {/* Supplement Shop Section - grouped by category */}
                   <div>
-                    <div className="flex items-center gap-2 mb-2">
-                      <Pill className="h-5 w-5 text-muted-foreground" />
-                      <h2 className="font-serif text-xl font-medium text-foreground">Supplement Shop</h2>
-                    </div>
-                    <p className="text-sm text-muted-foreground mb-4">
+                    <h2 className="font-serif text-3xl md:text-4xl font-semibold text-foreground mb-2">Supplement Shop</h2>
+                    <p className="text-sm text-muted-foreground mb-6">
                       Research-backed supplements organized by health category
                     </p>
                     <SupplementCategoryNav activeCategory={activeShopCategory} onCategoryClick={setActiveShopCategory} />
@@ -1343,7 +1336,7 @@ export default function Merch() {
                 {/* Supplement Shop Tab */}
                 <TabsContent value="supplements">
                   <div className="mb-6">
-                    <h2 className="font-serif text-xl font-medium text-foreground mb-1">Supplement Shop</h2>
+                    <h2 className="font-serif text-3xl md:text-4xl font-semibold text-foreground mb-2">Supplement Shop</h2>
                     <p className="text-sm text-muted-foreground">Research-backed supplements organized by health category</p>
                   </div>
                   <SupplementCategoryNav activeCategory={activeShopCategory} onCategoryClick={setActiveShopCategory} />
@@ -1392,6 +1385,13 @@ export default function Merch() {
                   )}
                 </TabsContent>
               </Tabs>
+            </div>
+          </section>
+
+          {/* Affiliate Disclosure */}
+          <section className="py-4 bg-muted/30 border-t border-border">
+            <div className="container mx-auto px-4">
+              <AffiliateDisclosureBanner />
             </div>
           </section>
 
