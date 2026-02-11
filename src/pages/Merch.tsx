@@ -29,6 +29,32 @@ import antiInflammatoryImg from "@/assets/shop/anti-inflammatory.jpg";
 import performanceImg from "@/assets/shop/performance.jpg";
 import structuralImg from "@/assets/shop/structural.jpg";
 
+import bottleCognitive from "@/assets/shop/bottles/cognitive.jpg";
+import bottleImmune from "@/assets/shop/bottles/immune.jpg";
+import bottleEssential from "@/assets/shop/bottles/essential.jpg";
+import bottleStress from "@/assets/shop/bottles/stress.jpg";
+import bottleGut from "@/assets/shop/bottles/gut.jpg";
+import bottleMetabolic from "@/assets/shop/bottles/metabolic.jpg";
+import bottleLongevity from "@/assets/shop/bottles/longevity.jpg";
+import bottleHormonal from "@/assets/shop/bottles/hormonal.jpg";
+import bottleInflammation from "@/assets/shop/bottles/inflammation.jpg";
+import bottlePerformance from "@/assets/shop/bottles/performance.jpg";
+import bottleStructural from "@/assets/shop/bottles/structural.jpg";
+
+const categoryBottleImages: Record<string, string> = {
+  Cognitive: bottleCognitive,
+  Immune: bottleImmune,
+  Essential: bottleEssential,
+  Stress: bottleStress,
+  Gut: bottleGut,
+  Metabolic: bottleMetabolic,
+  Longevity: bottleLongevity,
+  Hormonal: bottleHormonal,
+  Inflammation: bottleInflammation,
+  Performance: bottlePerformance,
+  Structural: bottleStructural,
+};
+
 // ============ DATA TYPES ============
 
 // Book type now imported from bookData.ts
@@ -842,12 +868,19 @@ function BookCard({ book }: { book: BookEntry }) {
 }
 
 function SupplementCard({ supplement }: { supplement: Supplement }) {
+  const bottleImg = categoryBottleImages[supplement.category];
   return (
-    <article className="group bg-card rounded-lg border border-border p-4 hover:border-primary/30 transition-colors">
-      <div className="flex items-start gap-3">
-        {/* Simple icon instead of product image */}
-        <div className="w-10 h-10 rounded bg-muted/50 flex items-center justify-center flex-shrink-0">
-          <Leaf className="h-5 w-5 text-muted-foreground" />
+    <article className="group bg-card rounded-lg border border-border overflow-hidden hover:border-primary/30 transition-colors">
+      <div className="flex items-start gap-3 p-4">
+        {/* Product bottle image */}
+        <div className="w-16 h-20 rounded bg-muted/30 flex-shrink-0 overflow-hidden">
+          {bottleImg ? (
+            <img src={bottleImg} alt={supplement.name} className="w-full h-full object-cover" loading="lazy" />
+          ) : (
+            <div className="w-full h-full flex items-center justify-center">
+              <Leaf className="h-5 w-5 text-muted-foreground" />
+            </div>
+          )}
         </div>
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2 mb-1">
