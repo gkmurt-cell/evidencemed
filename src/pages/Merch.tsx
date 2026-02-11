@@ -870,7 +870,12 @@ function BookCard({ book }: { book: BookEntry }) {
 function SupplementCard({ supplement }: { supplement: Supplement }) {
   const bottleImg = categoryBottleImages[supplement.category];
   return (
-    <article className="group bg-card rounded-lg border border-border overflow-hidden hover:border-primary/30 transition-colors">
+    <a
+      href={supplement.affiliateUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group block bg-card rounded-lg border border-border overflow-hidden hover:border-primary/30 hover:shadow-md transition-all"
+    >
       <div className="flex items-start gap-3 p-4">
         {/* Product bottle image */}
         <div className="w-16 h-20 rounded bg-muted/30 flex-shrink-0 overflow-hidden">
@@ -899,18 +904,13 @@ function SupplementCard({ supplement }: { supplement: Supplement }) {
               {supplement.researchReference}
             </p>
           )}
-          <a
-            href={supplement.affiliateUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-primary transition-colors"
-          >
-            <span>Reference sources</span>
+          <span className="inline-flex items-center gap-1 text-xs text-muted-foreground group-hover:text-primary transition-colors">
+            <span>View product</span>
             <ExternalLink className="h-3 w-3" />
-          </a>
+          </span>
         </div>
       </div>
-    </article>
+    </a>
   );
 }
 
