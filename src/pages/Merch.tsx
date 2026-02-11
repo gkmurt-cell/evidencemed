@@ -17,6 +17,18 @@ import herbTote from "@/assets/herb-tote.png";
 import herbStickers from "@/assets/herb-stickers.png";
 import herbHoodie from "@/assets/herb-hoodie.png";
 
+import cognitiveImg from "@/assets/shop/cognitive-health.jpg";
+import immuneImg from "@/assets/shop/immune-support.jpg";
+import essentialImg from "@/assets/shop/essential-vitamins.jpg";
+import stressImg from "@/assets/shop/stress-adaptogens.jpg";
+import gutImg from "@/assets/shop/gut-health.jpg";
+import metabolicImg from "@/assets/shop/metabolic-health.jpg";
+import longevityImg from "@/assets/shop/longevity.jpg";
+import hormonalImg from "@/assets/shop/hormonal.jpg";
+import antiInflammatoryImg from "@/assets/shop/anti-inflammatory.jpg";
+import performanceImg from "@/assets/shop/performance.jpg";
+import structuralImg from "@/assets/shop/structural.jpg";
+
 // ============ DATA TYPES ============
 
 // Book type now imported from bookData.ts
@@ -37,20 +49,21 @@ interface SupplementCategory {
   label: string;
   description: string;
   icon: string;
+  image: string;
 }
 
 const supplementCategories: SupplementCategory[] = [
-  { id: "Cognitive", label: "Brain & Cognitive Health", description: "Nootropics and neuroprotective compounds", icon: "🧠" },
-  { id: "Immune", label: "Immune Support", description: "Immune-modulating compounds and mushrooms", icon: "🛡️" },
-  { id: "Essential", label: "Essential Vitamins & Minerals", description: "Foundational micronutrients for daily health", icon: "💊" },
-  { id: "Stress", label: "Stress & Adaptogens", description: "Adaptogenic herbs for stress resilience", icon: "🌿" },
-  { id: "Gut", label: "Gut & Digestive Health", description: "Probiotics, prebiotics, and gut support", icon: "🦠" },
-  { id: "Metabolic", label: "Metabolic Health", description: "Blood sugar, AMPK activation, and metabolism", icon: "⚡" },
-  { id: "Longevity", label: "Longevity & Anti-Aging", description: "NAD+ precursors and cellular health", icon: "🧬" },
-  { id: "Hormonal", label: "Hormonal Balance", description: "Testosterone, cortisol, and endocrine support", icon: "🔬" },
-  { id: "Inflammation", label: "Anti-Inflammatory", description: "Natural anti-inflammatory compounds", icon: "🔥" },
-  { id: "Performance", label: "Performance & Recovery", description: "Sports nutrition and physical performance", icon: "💪" },
-  { id: "Structural", label: "Skin, Hair & Joints", description: "Collagen, connective tissue, and structural support", icon: "✨" },
+  { id: "Cognitive", label: "Brain & Cognitive Health", description: "Nootropics and neuroprotective compounds", icon: "🧠", image: cognitiveImg },
+  { id: "Immune", label: "Immune Support", description: "Immune-modulating compounds and mushrooms", icon: "🛡️", image: immuneImg },
+  { id: "Essential", label: "Essential Vitamins & Minerals", description: "Foundational micronutrients for daily health", icon: "💊", image: essentialImg },
+  { id: "Stress", label: "Stress & Adaptogens", description: "Adaptogenic herbs for stress resilience", icon: "🌿", image: stressImg },
+  { id: "Gut", label: "Gut & Digestive Health", description: "Probiotics, prebiotics, and gut support", icon: "🦠", image: gutImg },
+  { id: "Metabolic", label: "Metabolic Health", description: "Blood sugar, AMPK activation, and metabolism", icon: "⚡", image: metabolicImg },
+  { id: "Longevity", label: "Longevity & Anti-Aging", description: "NAD+ precursors and cellular health", icon: "🧬", image: longevityImg },
+  { id: "Hormonal", label: "Hormonal Balance", description: "Testosterone, cortisol, and endocrine support", icon: "🔬", image: hormonalImg },
+  { id: "Inflammation", label: "Anti-Inflammatory", description: "Natural anti-inflammatory compounds", icon: "🔥", image: antiInflammatoryImg },
+  { id: "Performance", label: "Performance & Recovery", description: "Sports nutrition and physical performance", icon: "💪", image: performanceImg },
+  { id: "Structural", label: "Skin, Hair & Joints", description: "Collagen, connective tissue, and structural support", icon: "✨", image: structuralImg },
 ];
 
 interface VideoLink {
@@ -577,6 +590,67 @@ function SupplementCard({ supplement }: { supplement: Supplement }) {
   );
 }
 
+function SupplementCategoryNav({ activeCategory, onCategoryClick }: { activeCategory: string | null; onCategoryClick: (id: string | null) => void }) {
+  const activeCats = supplementCategories.filter(cat => supplements.some(s => s.category === cat.id));
+  return (
+    <div className="mb-8">
+      <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
+        <button
+          onClick={() => onCategoryClick(null)}
+          className={`shrink-0 px-4 py-2 rounded-full text-sm font-medium transition-colors border ${
+            activeCategory === null
+              ? "bg-primary text-primary-foreground border-primary"
+              : "bg-muted/50 text-muted-foreground border-border hover:bg-muted"
+          }`}
+        >
+          All Categories
+        </button>
+        {activeCats.map(cat => (
+          <button
+            key={cat.id}
+            onClick={() => onCategoryClick(cat.id)}
+            className={`shrink-0 px-4 py-2 rounded-full text-sm font-medium transition-colors border ${
+              activeCategory === cat.id
+                ? "bg-primary text-primary-foreground border-primary"
+                : "bg-muted/50 text-muted-foreground border-border hover:bg-muted"
+            }`}
+          >
+            <span className="mr-1">{cat.icon}</span> {cat.label}
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function SupplementCategoryBlock({ cat }: { cat: SupplementCategory }) {
+  const catSupplements = supplements.filter(s => s.category === cat.id);
+  if (catSupplements.length === 0) return null;
+  return (
+    <div id={`shop-${cat.id}`}>
+      {/* Category hero banner */}
+      <div className="relative h-32 md:h-40 rounded-lg overflow-hidden mb-4">
+        <img src={cat.image} alt={cat.label} className="w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/60 to-transparent" />
+        <div className="absolute inset-0 flex items-center px-6">
+          <div>
+            <div className="flex items-center gap-2 mb-1">
+              <span className="text-2xl">{cat.icon}</span>
+              <h3 className="font-serif text-lg md:text-xl font-semibold text-foreground">{cat.label}</h3>
+            </div>
+            <p className="text-xs md:text-sm text-muted-foreground max-w-md">{cat.description}</p>
+          </div>
+        </div>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {catSupplements.map(supplement => (
+          <SupplementCard key={supplement.id} supplement={supplement} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function VideoCard({ video }: { video: VideoContent }) {
   return (
     <article className="group bg-card rounded-xl border border-border overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
@@ -683,6 +757,7 @@ export default function Merch() {
   const [activeTab, setActiveTab] = useState(tabFromUrl && ["all", "books", "supplements", "videos"].includes(tabFromUrl) ? tabFromUrl : "all");
   const [visibleVideos, setVisibleVideos] = useState(6);
   const [bookSearch, setBookSearch] = useState("");
+  const [activeShopCategory, setActiveShopCategory] = useState<string | null>(null);
 
   useEffect(() => {
     if (tabFromUrl && ["all", "books", "supplements", "videos"].includes(tabFromUrl)) {
@@ -846,25 +921,16 @@ export default function Merch() {
                       <Pill className="h-5 w-5 text-muted-foreground" />
                       <h2 className="font-serif text-xl font-medium text-foreground">Supplement Shop</h2>
                     </div>
-                    <p className="text-sm text-muted-foreground mb-6">
+                    <p className="text-sm text-muted-foreground mb-4">
                       Research-backed supplements organized by health category
                     </p>
+                    <SupplementCategoryNav activeCategory={activeShopCategory} onCategoryClick={setActiveShopCategory} />
                     <div className="space-y-10">
                       {supplementCategories
                         .filter(cat => supplements.some(s => s.category === cat.id))
+                        .filter(cat => activeShopCategory === null || cat.id === activeShopCategory)
                         .map(cat => (
-                          <div key={cat.id}>
-                            <div className="flex items-center gap-2 mb-1">
-                              <span className="text-lg">{cat.icon}</span>
-                              <h3 className="font-serif font-medium text-foreground">{cat.label}</h3>
-                            </div>
-                            <p className="text-xs text-muted-foreground mb-4">{cat.description}</p>
-                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                              {supplements.filter(s => s.category === cat.id).map(supplement => (
-                                <SupplementCard key={supplement.id} supplement={supplement} />
-                              ))}
-                            </div>
-                          </div>
+                          <SupplementCategoryBlock key={cat.id} cat={cat} />
                         ))}
                     </div>
                   </div>
@@ -956,23 +1022,14 @@ export default function Merch() {
                     <h2 className="font-serif text-xl font-medium text-foreground mb-1">Supplement Shop</h2>
                     <p className="text-sm text-muted-foreground">Research-backed supplements organized by health category</p>
                   </div>
+                  <SupplementCategoryNav activeCategory={activeShopCategory} onCategoryClick={setActiveShopCategory} />
                   {supplements.length > 0 ? (
                     <div className="space-y-10">
                       {supplementCategories
                         .filter(cat => supplements.some(s => s.category === cat.id))
+                        .filter(cat => activeShopCategory === null || cat.id === activeShopCategory)
                         .map(cat => (
-                          <div key={cat.id}>
-                            <div className="flex items-center gap-3 mb-1">
-                              <span className="text-xl">{cat.icon}</span>
-                              <h3 className="font-serif text-lg font-medium text-foreground">{cat.label}</h3>
-                            </div>
-                            <p className="text-xs text-muted-foreground mb-4">{cat.description}</p>
-                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                              {supplements.filter(s => s.category === cat.id).map(supplement => (
-                                <SupplementCard key={supplement.id} supplement={supplement} />
-                              ))}
-                            </div>
-                          </div>
+                          <SupplementCategoryBlock key={cat.id} cat={cat} />
                         ))}
                     </div>
                   ) : (
