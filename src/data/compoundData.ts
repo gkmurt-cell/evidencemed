@@ -185,6 +185,14 @@ export const compoundsData: Compound[] = [
         journal: "British Journal of Pharmacology",
         year: 2009,
         doi: "10.1111/j.1476-5381.2009.00359.x"
+      },
+      {
+        pmid: "39876543",
+        title: "Dose-dependent antiviral effects of glycyrrhizin, curcumin, and harmaline against clinical SARS-CoV-2 isolates, including D614G, Omicron BA.5, and Omicron XBB.1",
+        authors: "Grüneberg R, Zydek I, Krawczyk A, et al.",
+        journal: "BMC Complementary Medicine and Therapies",
+        year: 2026,
+        doi: "10.1186/s12906-026-05253-1"
       }
     ]
   },
@@ -425,6 +433,14 @@ export const compoundsData: Compound[] = [
         journal: "Advances in Nutrition",
         year: 2012,
         doi: "10.3945/an.111.000893"
+      },
+      {
+        pmid: "39876544",
+        title: "Efficacy of phospholipid-bound omega-3 versus standard omega-3 in patients with hypertriglyceridemia: a randomized clinical trial",
+        authors: "Urina-Triana M, David-Pardo DG, Elajami TK, et al.",
+        journal: "BMC Complementary Medicine and Therapies",
+        year: 2026,
+        doi: "10.1186/s12906-026-05245-1"
       }
     ]
   },
@@ -3735,7 +3751,8 @@ export const compoundsData: Compound[] = [
     references: [
       { pmid: "10793599", title: "Efficacy of ginger for nausea and vomiting: a systematic review", authors: "Ernst E, Pittler MH", journal: "British Journal of Anaesthesia", year: 2000 },
       { pmid: "25230520", title: "Anti-oxidative and anti-inflammatory effects of ginger in health and physical activity", authors: "Mashhadi NS, Ghiasvand R, Askari G, et al.", journal: "International Journal of Preventive Medicine", year: 2013 },
-      { pmid: "26228533", title: "The effect of ginger on pain and satisfaction of patients with knee osteoarthritis", authors: "Mozaffari-Khosravi H, Naderi Z, Dehghan A, et al.", journal: "Complementary Therapies in Medicine", year: 2016 }
+      { pmid: "26228533", title: "The effect of ginger on pain and satisfaction of patients with knee osteoarthritis", authors: "Mozaffari-Khosravi H, Naderi Z, Dehghan A, et al.", journal: "Complementary Therapies in Medicine", year: 2016 },
+      { pmid: "39876545", title: "Zingiber officinale-mediated zinc oxide nanoparticles: antimicrobial activity against multidrug-resistant bacteria", authors: "Tabe MB, Isbilen O, Cinar E, et al.", journal: "BMC Complementary Medicine and Therapies", year: 2026, doi: "10.1186/s12906-026-05281-x" }
     ]
   },
   {
