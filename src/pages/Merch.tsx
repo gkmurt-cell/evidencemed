@@ -494,7 +494,7 @@ const supplements: Supplement[] = [
     type: "Testosterone Support",
     description: "Nigerian shrub stem extract studied for luteinizing hormone and testosterone elevation.",
     researchReference: "Yakubu et al., 2005 — androgenic effects",
-    affiliateUrl: "https://www.amazon.com/dp/B0BPVL8S53?tag=evidencemed1-20",
+    affiliateUrl: "https://www.amazon.com/dp/B0CWPQ8MFW?tag=evidencemed1-20",
     image: "🌿",
     category: "Hormonal"
   },
