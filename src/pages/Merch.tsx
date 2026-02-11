@@ -238,7 +238,7 @@ const supplements: Supplement[] = [
     type: "Functional Mushroom",
     description: "Ganoderma lucidum dual-extract for immune modulation, sleep support, and stress adaptation.",
     researchReference: "Wachtel-Galor et al., 2011 — immunomodulation review",
-    affiliateUrl: "https://www.amazon.com/dp/B078SJ9F8S?tag=evidencemed1-20",
+    affiliateUrl: "https://www.amazon.com/dp/B07D32VNLP?tag=evidencemed1-20",
     image: "🍄",
     category: "Immune"
   },
