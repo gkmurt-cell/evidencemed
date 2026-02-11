@@ -1114,21 +1114,8 @@ export default function Merch() {
         <Navbar />
         
         <main className="flex-1 pt-16 lg:pt-20">
-          {/* Header - Bibliography style, not storefront */}
-          <section className="py-12 border-b border-border">
-            <div className="container mx-auto px-4">
-              <div className="max-w-3xl">
-                <h1 className="font-serif text-3xl md:text-4xl font-semibold text-foreground mb-4">
-                  Reference Library
-                </h1>
-                <p className="text-muted-foreground leading-relaxed">
-                  Curated materials for further reading and research. Books, compounds, and educational 
-                  lectures referenced in our content or relevant to integrative health research. 
-                  Resources are listed for informational purposes.
-                </p>
-              </div>
-            </div>
-          </section>
+
+
 
 
 
