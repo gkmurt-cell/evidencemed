@@ -258,7 +258,7 @@ const supplements: Supplement[] = [
     type: "Mineral Complex",
     description: "Himalayan fulvic acid mineral complex studied for mitochondrial energy and testosterone.",
     researchReference: "Pandit et al., 2016 — testosterone and spermatogenesis",
-    affiliateUrl: "https://www.amazon.com/dp/B0C3V61VG5?tag=evidencemed1-20",
+    affiliateUrl: "https://www.amazon.com/dp/B0C85ZQYG3?tag=evidencemed1-20",
     image: "🏔️",
     category: "Hormonal"
   },
