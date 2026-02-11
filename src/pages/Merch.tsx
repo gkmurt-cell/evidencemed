@@ -629,7 +629,7 @@ const supplements: Supplement[] = [
     type: "Essential Mineral",
     description: "Trace mineral essential for thyroid function, glutathione peroxidase, and DNA synthesis.",
     researchReference: "Rayman, 2012 — selenium and health review",
-    affiliateUrl: "https://www.amazon.com/dp/B0019GXOWA?tag=evidencemed1-20",
+    affiliateUrl: "https://www.amazon.com/dp/B00B5N9IDQ?tag=evidencemed1-20",
     image: "🔶",
     category: "Essential"
   },
