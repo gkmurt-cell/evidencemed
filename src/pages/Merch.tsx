@@ -1,6 +1,6 @@
-import { useState, useMemo, useCallback } from "react";
+import { useState, useMemo, useCallback, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { ExternalLink, ShoppingBag, Leaf, BookOpen, Video, Play, Package, AlertTriangle, Pill, Filter, ChevronDown, Search, Youtube, GraduationCap } from "lucide-react";
@@ -678,10 +678,17 @@ function EmptyState({ category }: { category: string }) {
 // ============ MAIN COMPONENT ============
 
 export default function Merch() {
-  const [activeTab, setActiveTab] = useState("all");
+  const [searchParams] = useSearchParams();
+  const tabFromUrl = searchParams.get("tab");
+  const [activeTab, setActiveTab] = useState(tabFromUrl && ["all", "books", "supplements", "videos"].includes(tabFromUrl) ? tabFromUrl : "all");
   const [visibleVideos, setVisibleVideos] = useState(6);
   const [bookSearch, setBookSearch] = useState("");
 
+  useEffect(() => {
+    if (tabFromUrl && ["all", "books", "supplements", "videos"].includes(tabFromUrl)) {
+      setActiveTab(tabFromUrl);
+    }
+  }, [tabFromUrl]);
   const { filteredBooks, suggestion, correctedQuery } = useFuzzyBookSearch(bookSearch);
 
   const applySuggestion = useCallback(() => {

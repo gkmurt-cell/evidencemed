@@ -126,8 +126,9 @@ const Navbar = () => {
   };
 
   const resourcesDropdown = [
-    { name: "Reference Library & Shop", href: "/merch", icon: ShoppingBag, description: "Books, supplements & educational resources" },
-    { name: "Pricing & Plans", href: "/pricing", icon: BookOpen, description: "Individual, professional & institutional plans", isLink: true },
+    { name: "Books", href: "/merch?tab=books", icon: BookOpen, description: "Medical reference books & health guides" },
+    { name: "Supplement Dispensary", href: "/merch?tab=supplements", icon: Leaf, description: "Research-backed supplements by health category" },
+    { name: "Pricing & Plans", href: "/pricing", icon: ShoppingBag, description: "Individual, professional & institutional plans", isLink: true },
   ];
 
   return (
