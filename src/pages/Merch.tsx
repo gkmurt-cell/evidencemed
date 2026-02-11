@@ -639,7 +639,7 @@ const supplements: Supplement[] = [
     type: "Essential Mineral",
     description: "Gentle chelated iron with superior absorption and minimal GI side effects.",
     researchReference: "Milman et al., 2014 — iron bisglycinate vs ferrous sulfate",
-    affiliateUrl: "https://www.amazon.com/dp/B001F0R5C4?tag=evidencemed1-20",
+    affiliateUrl: "https://www.amazon.com/dp/B0CHK4DW54?tag=evidencemed1-20",
     image: "🩸",
     category: "Essential"
   },
