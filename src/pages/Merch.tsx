@@ -348,7 +348,7 @@ const supplements: Supplement[] = [
     type: "Trace Mineral",
     description: "Essential trace mineral for bone metabolism, hormone regulation, and cognitive function.",
     researchReference: "Newnham, 1994 — arthritis and boron essentiality",
-    affiliateUrl: "https://www.amazon.com/dp/B000BV1O7E?tag=evidencemed1-20",
+    affiliateUrl: "https://www.amazon.com/dp/B0BBY9TXSB?tag=evidencemed1-20",
     image: "🪨",
     category: "Essential"
   },
