@@ -330,6 +330,297 @@ const supplements: Supplement[] = [
     image: "🪨",
     category: "Essential"
   },
+  // ---- Additional Cognitive ----
+  {
+    id: "25",
+    name: "Bacopa Monnieri",
+    type: "Nootropic Herb",
+    description: "Ayurvedic herb with bacosides studied for memory consolidation and attention in 12-week trials.",
+    researchReference: "Calabrese et al., 2008 — systematic review of cognitive effects",
+    affiliateUrl: "https://www.amazon.com/dp/B0B1BTPCR5?tag=evidencemed1-20",
+    image: "🧠",
+    category: "Cognitive"
+  },
+  {
+    id: "26",
+    name: "Phosphatidylserine (PS)",
+    type: "Phospholipid",
+    description: "Cell membrane phospholipid supporting cognitive function, cortisol modulation, and memory.",
+    researchReference: "Kato-Kataoka et al., 2010 — cognitive function in elderly",
+    affiliateUrl: "https://www.amazon.com/dp/B00020IP9G?tag=evidencemed1-20",
+    image: "💡",
+    category: "Cognitive"
+  },
+  {
+    id: "27",
+    name: "CDP-Choline (Citicoline)",
+    type: "Nootropic",
+    description: "Precursor to acetylcholine and phosphatidylcholine. Studied for focus, memory, and neuroprotection.",
+    researchReference: "McGlade et al., 2012 — attention and psychomotor speed",
+    affiliateUrl: "https://www.amazon.com/dp/B003XNACWG?tag=evidencemed1-20",
+    image: "⚡",
+    category: "Cognitive"
+  },
+  // ---- Additional Stress ----
+  {
+    id: "28",
+    name: "Holy Basil (Tulsi)",
+    type: "Adaptogen",
+    description: "Sacred Ayurvedic herb studied for cortisol regulation, anxiety, and metabolic stress.",
+    researchReference: "Cohen, 2014 — human efficacy and safety review",
+    affiliateUrl: "https://www.amazon.com/dp/B0006NZPGA?tag=evidencemed1-20",
+    image: "🌱",
+    category: "Stress"
+  },
+  {
+    id: "29",
+    name: "Lemon Balm (Melissa officinalis)",
+    type: "Calming Herb",
+    description: "GABA-transaminase inhibitor studied for anxiety reduction, sleep quality, and calm focus.",
+    researchReference: "Cases et al., 2011 — anxiolytic effects in humans",
+    affiliateUrl: "https://www.amazon.com/dp/B0013OQIJY?tag=evidencemed1-20",
+    image: "🍋",
+    category: "Stress"
+  },
+  // ---- Additional Inflammation ----
+  {
+    id: "30",
+    name: "Boswellia Serrata",
+    type: "Resin Extract",
+    description: "5-LOX inhibitor from Indian frankincense. Studied for joint inflammation and IBD.",
+    researchReference: "Ammon, 2006 — anti-inflammatory mechanisms",
+    affiliateUrl: "https://www.amazon.com/dp/B0013OQGNO?tag=evidencemed1-20",
+    image: "🌳",
+    category: "Inflammation"
+  },
+  {
+    id: "31",
+    name: "Ginger Extract (Zingiber officinale)",
+    type: "Anti-inflammatory",
+    description: "COX-2 inhibitor with gingerols and shogaols. Studied for pain, nausea, and inflammation.",
+    researchReference: "Terry et al., 2011 — anti-inflammatory review",
+    affiliateUrl: "https://www.amazon.com/dp/B0019LTGOU?tag=evidencemed1-20",
+    image: "🫚",
+    category: "Inflammation"
+  },
+  {
+    id: "32",
+    name: "Palmitoylethanolamide (PEA)",
+    type: "Endocannabinoid",
+    description: "Endogenous fatty acid amide with analgesic and anti-inflammatory properties via PPAR-α activation.",
+    researchReference: "Petrosino & Di Marzo, 2017 — PEA and neuroinflammation",
+    affiliateUrl: "https://www.amazon.com/dp/B08LQYSV5R?tag=evidencemed1-20",
+    image: "🧪",
+    category: "Inflammation"
+  },
+  // ---- Additional Longevity ----
+  {
+    id: "33",
+    name: "Resveratrol (Trans-Resveratrol)",
+    type: "Polyphenol",
+    description: "SIRT1 activator from grape skins. Studied for cardiovascular protection and cellular aging.",
+    researchReference: "Baur et al., 2006 — resveratrol and sirtuins",
+    affiliateUrl: "https://www.amazon.com/dp/B005CT56FU?tag=evidencemed1-20",
+    image: "🍇",
+    category: "Longevity"
+  },
+  {
+    id: "34",
+    name: "Spermidine",
+    type: "Polyamine",
+    description: "Autophagy-inducing polyamine studied for cellular renewal and healthy aging.",
+    researchReference: "Eisenberg et al., 2009 — autophagy and longevity",
+    affiliateUrl: "https://www.amazon.com/dp/B09BFN1VKG?tag=evidencemed1-20",
+    image: "🔬",
+    category: "Longevity"
+  },
+  {
+    id: "35",
+    name: "Fisetin",
+    type: "Senolytic Flavonoid",
+    description: "Potent senolytic compound from strawberries studied for clearing senescent cells.",
+    researchReference: "Yousefzadeh et al., 2018 — senolytic activity in vivo",
+    affiliateUrl: "https://www.amazon.com/dp/B07K2MX5FQ?tag=evidencemed1-20",
+    image: "🍓",
+    category: "Longevity"
+  },
+  // ---- Additional Metabolic ----
+  {
+    id: "36",
+    name: "Chromium Picolinate",
+    type: "Trace Mineral",
+    description: "Insulin-sensitizing trace mineral studied for glucose tolerance and carbohydrate metabolism.",
+    researchReference: "Anderson, 1998 — chromium in insulin signaling",
+    affiliateUrl: "https://www.amazon.com/dp/B0013OXA3U?tag=evidencemed1-20",
+    image: "🔩",
+    category: "Metabolic"
+  },
+  {
+    id: "37",
+    name: "Cinnamon Extract (Ceylon)",
+    type: "Botanical",
+    description: "True cinnamon extract studied for insulin sensitivity and fasting blood glucose reduction.",
+    researchReference: "Davis & Yokoyama, 2011 — cinnamon and type 2 diabetes",
+    affiliateUrl: "https://www.amazon.com/dp/B002RWUNYM?tag=evidencemed1-20",
+    image: "🫙",
+    category: "Metabolic"
+  },
+  // ---- Additional Hormonal ----
+  {
+    id: "38",
+    name: "Fadogia Agrestis",
+    type: "Testosterone Support",
+    description: "Nigerian shrub stem extract studied for luteinizing hormone and testosterone elevation.",
+    researchReference: "Yakubu et al., 2005 — androgenic effects",
+    affiliateUrl: "https://www.amazon.com/dp/B09R4H3QY3?tag=evidencemed1-20",
+    image: "🌿",
+    category: "Hormonal"
+  },
+  {
+    id: "39",
+    name: "DIM (Diindolylmethane)",
+    type: "Estrogen Modulator",
+    description: "Cruciferous vegetable metabolite supporting healthy estrogen metabolism via 2-OH pathway.",
+    researchReference: "Thomson et al., 2016 — estrogen metabolism in women",
+    affiliateUrl: "https://www.amazon.com/dp/B000FGWDTK?tag=evidencemed1-20",
+    image: "🥦",
+    category: "Hormonal"
+  },
+  // ---- Additional Performance ----
+  {
+    id: "40",
+    name: "Beta-Alanine",
+    type: "Amino Acid",
+    description: "Carnosine precursor buffering muscle acidity. Studied for endurance and high-intensity performance.",
+    researchReference: "Hobson et al., 2012 — meta-analysis on exercise capacity",
+    affiliateUrl: "https://www.amazon.com/dp/B00EYMPZHM?tag=evidencemed1-20",
+    image: "🏋️",
+    category: "Performance"
+  },
+  {
+    id: "41",
+    name: "Citrulline Malate",
+    type: "Amino Acid",
+    description: "Nitric oxide precursor enhancing blood flow, exercise performance, and recovery.",
+    researchReference: "Pérez-Guisado & Jakeman, 2010 — resistance exercise performance",
+    affiliateUrl: "https://www.amazon.com/dp/B00EYDJNQW?tag=evidencemed1-20",
+    image: "🍉",
+    category: "Performance"
+  },
+  {
+    id: "42",
+    name: "Tart Cherry Extract",
+    type: "Recovery Aid",
+    description: "Rich in anthocyanins studied for exercise recovery, sleep quality, and uric acid reduction.",
+    researchReference: "Howatson et al., 2010 — marathon recovery trial",
+    affiliateUrl: "https://www.amazon.com/dp/B004ISVNHA?tag=evidencemed1-20",
+    image: "🍒",
+    category: "Performance"
+  },
+  // ---- Additional Gut ----
+  {
+    id: "43",
+    name: "L-Glutamine",
+    type: "Amino Acid",
+    description: "Primary fuel for intestinal epithelial cells. Studied for gut permeability and mucosal repair.",
+    researchReference: "Rao & Samak, 2012 — intestinal barrier function",
+    affiliateUrl: "https://www.amazon.com/dp/B00E7GV8JK?tag=evidencemed1-20",
+    image: "🧬",
+    category: "Gut"
+  },
+  {
+    id: "44",
+    name: "Psyllium Husk (Organic)",
+    type: "Prebiotic Fiber",
+    description: "Soluble fiber supporting gut motility, microbiome diversity, and cholesterol reduction.",
+    researchReference: "McRorie, 2015 — clinical guide to soluble fiber",
+    affiliateUrl: "https://www.amazon.com/dp/B0013OW2KS?tag=evidencemed1-20",
+    image: "🌾",
+    category: "Gut"
+  },
+  {
+    id: "45",
+    name: "Saccharomyces Boulardii",
+    type: "Probiotic Yeast",
+    description: "Beneficial yeast probiotic studied for antibiotic-associated diarrhea and C. difficile prevention.",
+    researchReference: "McFarland, 2010 — meta-analysis on efficacy",
+    affiliateUrl: "https://www.amazon.com/dp/B0013OW8H4?tag=evidencemed1-20",
+    image: "🍞",
+    category: "Gut"
+  },
+  // ---- Additional Structural ----
+  {
+    id: "46",
+    name: "Hyaluronic Acid",
+    type: "Glycosaminoglycan",
+    description: "Naturally occurring molecule for joint lubrication, skin hydration, and wound healing.",
+    researchReference: "Oe et al., 2016 — oral HA and skin moisture",
+    affiliateUrl: "https://www.amazon.com/dp/B003ENGBA0?tag=evidencemed1-20",
+    image: "💧",
+    category: "Structural"
+  },
+  {
+    id: "47",
+    name: "MSM (Methylsulfonylmethane)",
+    type: "Sulfur Compound",
+    description: "Organic sulfur for joint flexibility, connective tissue support, and exercise recovery.",
+    researchReference: "Butawan et al., 2017 — MSM review for joint health",
+    affiliateUrl: "https://www.amazon.com/dp/B0013OXD56?tag=evidencemed1-20",
+    image: "🦴",
+    category: "Structural"
+  },
+  {
+    id: "48",
+    name: "Biotin (High-Dose)",
+    type: "B-Vitamin",
+    description: "10,000 mcg biotin for hair growth, nail strength, and keratin infrastructure support.",
+    researchReference: "Patel et al., 2017 — biotin and hair/nail outcomes",
+    affiliateUrl: "https://www.amazon.com/dp/B004LLIKVU?tag=evidencemed1-20",
+    image: "💅",
+    category: "Structural"
+  },
+  // ---- Additional Immune ----
+  {
+    id: "49",
+    name: "Elderberry Extract (Sambucus)",
+    type: "Berry Extract",
+    description: "Anthocyanin-rich berry studied for reducing duration and severity of upper respiratory infections.",
+    researchReference: "Tiralongo et al., 2016 — air-traveler immune trial",
+    affiliateUrl: "https://www.amazon.com/dp/B0013OUSTE?tag=evidencemed1-20",
+    image: "🫐",
+    category: "Immune"
+  },
+  {
+    id: "50",
+    name: "N-Acetyl Cysteine (NAC)",
+    type: "Amino Acid Derivative",
+    description: "Glutathione precursor with mucolytic, antioxidant, and liver-protective properties.",
+    researchReference: "Atkuri et al., 2007 — NAC and glutathione pathways",
+    affiliateUrl: "https://www.amazon.com/dp/B0013OVZLQ?tag=evidencemed1-20",
+    image: "🛡️",
+    category: "Immune"
+  },
+  // ---- Additional Essential ----
+  {
+    id: "51",
+    name: "Selenium (Selenomethionine)",
+    type: "Essential Mineral",
+    description: "Trace mineral essential for thyroid function, glutathione peroxidase, and DNA synthesis.",
+    researchReference: "Rayman, 2012 — selenium and health review",
+    affiliateUrl: "https://www.amazon.com/dp/B0019GXOWA?tag=evidencemed1-20",
+    image: "🔶",
+    category: "Essential"
+  },
+  {
+    id: "52",
+    name: "Iron Bisglycinate",
+    type: "Essential Mineral",
+    description: "Gentle chelated iron with superior absorption and minimal GI side effects.",
+    researchReference: "Milman et al., 2014 — iron bisglycinate vs ferrous sulfate",
+    affiliateUrl: "https://www.amazon.com/dp/B001F0R5C4?tag=evidencemed1-20",
+    image: "🩸",
+    category: "Essential"
+  },
 ];
 
 const videoContent: VideoContent[] = [
