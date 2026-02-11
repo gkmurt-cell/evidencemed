@@ -128,7 +128,7 @@ const supplements: Supplement[] = [
     type: "Adaptogen",
     description: "Full-spectrum root extract, clinically studied at 600mg/day for stress and cortisol modulation.",
     researchReference: "Randomized trials on cortisol reduction (Chandrasekhar et al., 2012)",
-    affiliateUrl: "https://www.amazon.com/dp/B0BXRMQHYF?tag=evidencemed1-20",
+    affiliateUrl: "https://www.amazon.com/dp/B07S76M4D5?tag=evidencemed1-20",
     image: "🌿",
     category: "Stress"
   },
@@ -148,7 +148,7 @@ const supplements: Supplement[] = [
     type: "Longevity",
     description: "NAD+ precursor supporting cellular energy metabolism and sirtuin activation.",
     researchReference: "Sinclair lab research at Harvard Medical School",
-    affiliateUrl: "https://www.amazon.com/dp/B0B72BGGLR?tag=evidencemed1-20",
+    affiliateUrl: "https://www.amazon.com/dp/B0FV281D99?tag=evidencemed1-20",
     image: "🧬",
     category: "Longevity"
   },
@@ -158,7 +158,7 @@ const supplements: Supplement[] = [
     type: "Functional Mushroom",
     description: "Immune-supporting polysaccharides (PSK/PSP) from Trametes versicolor.",
     researchReference: "NIH-funded studies on PSK immunomodulation",
-    affiliateUrl: "https://www.amazon.com/dp/B07B4GCPC8?tag=evidencemed1-20",
+    affiliateUrl: "https://www.amazon.com/dp/B0053DR1EM?tag=evidencemed1-20",
     image: "🍄",
     category: "Immune"
   },
@@ -168,7 +168,7 @@ const supplements: Supplement[] = [
     type: "Essential Vitamin",
     description: "Synergistic formula directing calcium to bones. D3 5000 IU with K2 as MK-7.",
     researchReference: "Meta-analyses on vitamin D deficiency and cardiovascular outcomes",
-    affiliateUrl: "https://www.amazon.com/dp/B00TRLPYHI?tag=evidencemed1-20",
+    affiliateUrl: "https://www.amazon.com/dp/B00XHK9SEO?tag=evidencemed1-20",
     image: "☀️",
     category: "Essential"
   },
@@ -198,7 +198,7 @@ const supplements: Supplement[] = [
     type: "Alkaloid",
     description: "Plant alkaloid studied for AMPK activation, glucose metabolism, and gut microbiome modulation.",
     researchReference: "Yin et al., 2008 — metabolic syndrome meta-analysis",
-    affiliateUrl: "https://www.amazon.com/dp/B07HCLFQZF?tag=evidencemed1-20",
+    affiliateUrl: "https://www.amazon.com/dp/B08HHQWBBZ?tag=evidencemed1-20",
     image: "🌱",
     category: "Metabolic"
   },
@@ -208,7 +208,7 @@ const supplements: Supplement[] = [
     type: "Adaptogen",
     description: "Standardized root extract studied for testosterone support and cortisol reduction.",
     researchReference: "Talbott et al., 2013 — stress hormones and mood",
-    affiliateUrl: "https://www.amazon.com/dp/B0BPYTF8LY?tag=evidencemed1-20",
+    affiliateUrl: "https://www.amazon.com/dp/B07TTDFXFV?tag=evidencemed1-20",
     image: "🌴",
     category: "Hormonal"
   },
@@ -228,7 +228,7 @@ const supplements: Supplement[] = [
     type: "Flavonoid",
     description: "Enhanced-absorption quercetin with phospholipid complex. Zinc ionophore and immune modulator.",
     researchReference: "Li et al., 2016 — immune and antiviral mechanisms",
-    affiliateUrl: "https://www.amazon.com/dp/B08Y5LFP2M?tag=evidencemed1-20",
+    affiliateUrl: "https://www.amazon.com/dp/B0797DQTVZ?tag=evidencemed1-20",
     image: "🧅",
     category: "Immune"
   },
@@ -258,7 +258,7 @@ const supplements: Supplement[] = [
     type: "Mineral Complex",
     description: "Himalayan fulvic acid mineral complex studied for mitochondrial energy and testosterone.",
     researchReference: "Pandit et al., 2016 — testosterone and spermatogenesis",
-    affiliateUrl: "https://www.amazon.com/dp/B09C5PK844?tag=evidencemed1-20",
+    affiliateUrl: "https://www.amazon.com/dp/B0C3V61VG5?tag=evidencemed1-20",
     image: "🏔️",
     category: "Hormonal"
   },
@@ -298,7 +298,7 @@ const supplements: Supplement[] = [
     type: "Marine Superfood",
     description: "Chondrus crispus providing 92 of 102 essential minerals. Thyroid and gut health support.",
     researchReference: "Liu et al., 2015 — marine polysaccharides and prebiotic effects",
-    affiliateUrl: "https://www.amazon.com/dp/B08QCRZ2QN?tag=evidencemed1-20",
+    affiliateUrl: "https://www.amazon.com/dp/B0DBXK87D8?tag=evidencemed1-20",
     image: "🌊",
     category: "Gut"
   },
@@ -359,7 +359,7 @@ const supplements: Supplement[] = [
     type: "Nootropic Herb",
     description: "Ayurvedic herb with bacosides studied for memory consolidation and attention in 12-week trials.",
     researchReference: "Calabrese et al., 2008 — systematic review of cognitive effects",
-    affiliateUrl: "https://www.amazon.com/dp/B0B1BTPCR5?tag=evidencemed1-20",
+    affiliateUrl: "https://www.amazon.com/dp/B07D6VBXFY?tag=evidencemed1-20",
     image: "🧠",
     category: "Cognitive"
   },
@@ -379,7 +379,7 @@ const supplements: Supplement[] = [
     type: "Nootropic",
     description: "Precursor to acetylcholine and phosphatidylcholine. Studied for focus, memory, and neuroprotection.",
     researchReference: "McGlade et al., 2012 — attention and psychomotor speed",
-    affiliateUrl: "https://www.amazon.com/dp/B003XNACWG?tag=evidencemed1-20",
+    affiliateUrl: "https://www.amazon.com/dp/B01A3BED8U?tag=evidencemed1-20",
     image: "⚡",
     category: "Cognitive"
   },
@@ -421,7 +421,7 @@ const supplements: Supplement[] = [
     type: "Anti-inflammatory",
     description: "COX-2 inhibitor with gingerols and shogaols. Studied for pain, nausea, and inflammation.",
     researchReference: "Terry et al., 2011 — anti-inflammatory review",
-    affiliateUrl: "https://www.amazon.com/dp/B0019LTGOU?tag=evidencemed1-20",
+    affiliateUrl: "https://www.amazon.com/dp/B0756FW8RL?tag=evidencemed1-20",
     image: "🫚",
     category: "Inflammation"
   },
@@ -431,7 +431,7 @@ const supplements: Supplement[] = [
     type: "Endocannabinoid",
     description: "Endogenous fatty acid amide with analgesic and anti-inflammatory properties via PPAR-α activation.",
     researchReference: "Petrosino & Di Marzo, 2017 — PEA and neuroinflammation",
-    affiliateUrl: "https://www.amazon.com/dp/B08LQYSV5R?tag=evidencemed1-20",
+    affiliateUrl: "https://www.amazon.com/dp/B07RCCHJBV?tag=evidencemed1-20",
     image: "🧪",
     category: "Inflammation"
   },
@@ -442,7 +442,7 @@ const supplements: Supplement[] = [
     type: "Polyphenol",
     description: "SIRT1 activator from grape skins. Studied for cardiovascular protection and cellular aging.",
     researchReference: "Baur et al., 2006 — resveratrol and sirtuins",
-    affiliateUrl: "https://www.amazon.com/dp/B005CT56FU?tag=evidencemed1-20",
+    affiliateUrl: "https://www.amazon.com/dp/B08QBXMHRT?tag=evidencemed1-20",
     image: "🍇",
     category: "Longevity"
   },
@@ -452,7 +452,7 @@ const supplements: Supplement[] = [
     type: "Polyamine",
     description: "Autophagy-inducing polyamine studied for cellular renewal and healthy aging.",
     researchReference: "Eisenberg et al., 2009 — autophagy and longevity",
-    affiliateUrl: "https://www.amazon.com/dp/B09BFN1VKG?tag=evidencemed1-20",
+    affiliateUrl: "https://www.amazon.com/dp/B08KSGPNWL?tag=evidencemed1-20",
     image: "🔬",
     category: "Longevity"
   },
@@ -462,7 +462,7 @@ const supplements: Supplement[] = [
     type: "Senolytic Flavonoid",
     description: "Potent senolytic compound from strawberries studied for clearing senescent cells.",
     researchReference: "Yousefzadeh et al., 2018 — senolytic activity in vivo",
-    affiliateUrl: "https://www.amazon.com/dp/B07K2MX5FQ?tag=evidencemed1-20",
+    affiliateUrl: "https://www.amazon.com/dp/B0CKQTW37B?tag=evidencemed1-20",
     image: "🍓",
     category: "Longevity"
   },
@@ -473,7 +473,7 @@ const supplements: Supplement[] = [
     type: "Trace Mineral",
     description: "Insulin-sensitizing trace mineral studied for glucose tolerance and carbohydrate metabolism.",
     researchReference: "Anderson, 1998 — chromium in insulin signaling",
-    affiliateUrl: "https://www.amazon.com/dp/B0013OXA3U?tag=evidencemed1-20",
+    affiliateUrl: "https://www.amazon.com/dp/B0019LPNLK?tag=evidencemed1-20",
     image: "🔩",
     category: "Metabolic"
   },
@@ -483,7 +483,7 @@ const supplements: Supplement[] = [
     type: "Botanical",
     description: "True cinnamon extract studied for insulin sensitivity and fasting blood glucose reduction.",
     researchReference: "Davis & Yokoyama, 2011 — cinnamon and type 2 diabetes",
-    affiliateUrl: "https://www.amazon.com/dp/B002RWUNYM?tag=evidencemed1-20",
+    affiliateUrl: "https://www.amazon.com/dp/B08FK82Q31?tag=evidencemed1-20",
     image: "🫙",
     category: "Metabolic"
   },
@@ -494,7 +494,7 @@ const supplements: Supplement[] = [
     type: "Testosterone Support",
     description: "Nigerian shrub stem extract studied for luteinizing hormone and testosterone elevation.",
     researchReference: "Yakubu et al., 2005 — androgenic effects",
-    affiliateUrl: "https://www.amazon.com/dp/B09R4H3QY3?tag=evidencemed1-20",
+    affiliateUrl: "https://www.amazon.com/dp/B0BPVL8S53?tag=evidencemed1-20",
     image: "🌿",
     category: "Hormonal"
   },
@@ -504,7 +504,7 @@ const supplements: Supplement[] = [
     type: "Estrogen Modulator",
     description: "Cruciferous vegetable metabolite supporting healthy estrogen metabolism via 2-OH pathway.",
     researchReference: "Thomson et al., 2016 — estrogen metabolism in women",
-    affiliateUrl: "https://www.amazon.com/dp/B000FGWDTK?tag=evidencemed1-20",
+    affiliateUrl: "https://www.amazon.com/dp/B006KL4TYG?tag=evidencemed1-20",
     image: "🥦",
     category: "Hormonal"
   },
@@ -515,7 +515,7 @@ const supplements: Supplement[] = [
     type: "Amino Acid",
     description: "Carnosine precursor buffering muscle acidity. Studied for endurance and high-intensity performance.",
     researchReference: "Hobson et al., 2012 — meta-analysis on exercise capacity",
-    affiliateUrl: "https://www.amazon.com/dp/B00EYMPZHM?tag=evidencemed1-20",
+    affiliateUrl: "https://www.amazon.com/dp/B00MWE8WAM?tag=evidencemed1-20",
     image: "🏋️",
     category: "Performance"
   },
@@ -525,7 +525,7 @@ const supplements: Supplement[] = [
     type: "Amino Acid",
     description: "Nitric oxide precursor enhancing blood flow, exercise performance, and recovery.",
     researchReference: "Pérez-Guisado & Jakeman, 2010 — resistance exercise performance",
-    affiliateUrl: "https://www.amazon.com/dp/B00EYDJNQW?tag=evidencemed1-20",
+    affiliateUrl: "https://www.amazon.com/dp/B00EYDJTRE?tag=evidencemed1-20",
     image: "🍉",
     category: "Performance"
   },
@@ -535,7 +535,7 @@ const supplements: Supplement[] = [
     type: "Recovery Aid",
     description: "Rich in anthocyanins studied for exercise recovery, sleep quality, and uric acid reduction.",
     researchReference: "Howatson et al., 2010 — marathon recovery trial",
-    affiliateUrl: "https://www.amazon.com/dp/B004ISVNHA?tag=evidencemed1-20",
+    affiliateUrl: "https://www.amazon.com/dp/B07TD6KJS3?tag=evidencemed1-20",
     image: "🍒",
     category: "Performance"
   },
@@ -546,7 +546,7 @@ const supplements: Supplement[] = [
     type: "Amino Acid",
     description: "Primary fuel for intestinal epithelial cells. Studied for gut permeability and mucosal repair.",
     researchReference: "Rao & Samak, 2012 — intestinal barrier function",
-    affiliateUrl: "https://www.amazon.com/dp/B00E7GV8JK?tag=evidencemed1-20",
+    affiliateUrl: "https://www.amazon.com/dp/B002FJY3W0?tag=evidencemed1-20",
     image: "🧬",
     category: "Gut"
   },
@@ -556,7 +556,7 @@ const supplements: Supplement[] = [
     type: "Prebiotic Fiber",
     description: "Soluble fiber supporting gut motility, microbiome diversity, and cholesterol reduction.",
     researchReference: "McRorie, 2015 — clinical guide to soluble fiber",
-    affiliateUrl: "https://www.amazon.com/dp/B0013OW2KS?tag=evidencemed1-20",
+    affiliateUrl: "https://www.amazon.com/dp/B00JDOAKRM?tag=evidencemed1-20",
     image: "🌾",
     category: "Gut"
   },
@@ -566,7 +566,7 @@ const supplements: Supplement[] = [
     type: "Probiotic Yeast",
     description: "Beneficial yeast probiotic studied for antibiotic-associated diarrhea and C. difficile prevention.",
     researchReference: "McFarland, 2010 — meta-analysis on efficacy",
-    affiliateUrl: "https://www.amazon.com/dp/B0013OW8H4?tag=evidencemed1-20",
+    affiliateUrl: "https://www.amazon.com/dp/B0719BVG2Q?tag=evidencemed1-20",
     image: "🍞",
     category: "Gut"
   },
@@ -577,7 +577,7 @@ const supplements: Supplement[] = [
     type: "Glycosaminoglycan",
     description: "Naturally occurring molecule for joint lubrication, skin hydration, and wound healing.",
     researchReference: "Oe et al., 2016 — oral HA and skin moisture",
-    affiliateUrl: "https://www.amazon.com/dp/B003ENGBA0?tag=evidencemed1-20",
+    affiliateUrl: "https://www.amazon.com/dp/B085F2TJGL?tag=evidencemed1-20",
     image: "💧",
     category: "Structural"
   },
@@ -587,7 +587,7 @@ const supplements: Supplement[] = [
     type: "Sulfur Compound",
     description: "Organic sulfur for joint flexibility, connective tissue support, and exercise recovery.",
     researchReference: "Butawan et al., 2017 — MSM review for joint health",
-    affiliateUrl: "https://www.amazon.com/dp/B0013OXD56?tag=evidencemed1-20",
+    affiliateUrl: "https://www.amazon.com/dp/B000NU2L4A?tag=evidencemed1-20",
     image: "🦴",
     category: "Structural"
   },
@@ -597,7 +597,7 @@ const supplements: Supplement[] = [
     type: "B-Vitamin",
     description: "10,000 mcg biotin for hair growth, nail strength, and keratin infrastructure support.",
     researchReference: "Patel et al., 2017 — biotin and hair/nail outcomes",
-    affiliateUrl: "https://www.amazon.com/dp/B004LLIKVU?tag=evidencemed1-20",
+    affiliateUrl: "https://www.amazon.com/dp/B0C5S39L5X?tag=evidencemed1-20",
     image: "💅",
     category: "Structural"
   },
@@ -608,7 +608,7 @@ const supplements: Supplement[] = [
     type: "Berry Extract",
     description: "Anthocyanin-rich berry studied for reducing duration and severity of upper respiratory infections.",
     researchReference: "Tiralongo et al., 2016 — air-traveler immune trial",
-    affiliateUrl: "https://www.amazon.com/dp/B0013OUSTE?tag=evidencemed1-20",
+    affiliateUrl: "https://www.amazon.com/dp/B005P0UZL4?tag=evidencemed1-20",
     image: "🫐",
     category: "Immune"
   },
@@ -618,7 +618,7 @@ const supplements: Supplement[] = [
     type: "Amino Acid Derivative",
     description: "Glutathione precursor with mucolytic, antioxidant, and liver-protective properties.",
     researchReference: "Atkuri et al., 2007 — NAC and glutathione pathways",
-    affiliateUrl: "https://www.amazon.com/dp/B0013OVZLQ?tag=evidencemed1-20",
+    affiliateUrl: "https://www.amazon.com/dp/B0046HIBSQ?tag=evidencemed1-20",
     image: "🛡️",
     category: "Immune"
   },
