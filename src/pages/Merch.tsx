@@ -29,30 +29,74 @@ import antiInflammatoryImg from "@/assets/shop/anti-inflammatory.jpg";
 import performanceImg from "@/assets/shop/performance.jpg";
 import structuralImg from "@/assets/shop/structural.jpg";
 
-import bottleCognitive from "@/assets/shop/bottles/cognitive.jpg";
-import bottleImmune from "@/assets/shop/bottles/immune.jpg";
-import bottleEssential from "@/assets/shop/bottles/essential.jpg";
-import bottleStress from "@/assets/shop/bottles/stress.jpg";
-import bottleGut from "@/assets/shop/bottles/gut.jpg";
-import bottleMetabolic from "@/assets/shop/bottles/metabolic.jpg";
-import bottleLongevity from "@/assets/shop/bottles/longevity.jpg";
-import bottleHormonal from "@/assets/shop/bottles/hormonal.jpg";
-import bottleInflammation from "@/assets/shop/bottles/inflammation.jpg";
-import bottlePerformance from "@/assets/shop/bottles/performance.jpg";
-import bottleStructural from "@/assets/shop/bottles/structural.jpg";
+// Per-product bottle images
+import bottleLionsMane from "@/assets/shop/bottles/lions-mane.jpg";
+import bottleAshwagandha from "@/assets/shop/bottles/ashwagandha.jpg";
+import bottleCurcumin from "@/assets/shop/bottles/curcumin.jpg";
+import bottleNmn from "@/assets/shop/bottles/nmn.jpg";
+import bottleTurkeyTail from "@/assets/shop/bottles/turkey-tail.jpg";
+import bottleVitD3K2 from "@/assets/shop/bottles/vitamin-d3-k2.jpg";
+import bottleMagnesium from "@/assets/shop/bottles/magnesium.jpg";
+import bottleOmega3 from "@/assets/shop/bottles/omega3.jpg";
+import bottleBerberine from "@/assets/shop/bottles/berberine.jpg";
+import bottleTongkatAli from "@/assets/shop/bottles/tongkat-ali.jpg";
+import bottleLTheanine from "@/assets/shop/bottles/l-theanine.jpg";
+import bottleQuercetin from "@/assets/shop/bottles/quercetin.jpg";
+import bottleReishi from "@/assets/shop/bottles/reishi.jpg";
+import bottleCreatine from "@/assets/shop/bottles/creatine.jpg";
+import bottleShilajit from "@/assets/shop/bottles/shilajit.jpg";
+import bottleProbiotics from "@/assets/shop/bottles/probiotics.jpg";
+import bottleZinc from "@/assets/shop/bottles/zinc.jpg";
+import bottleCollagen from "@/assets/shop/bottles/collagen.jpg";
+import bottleSeaMoss from "@/assets/shop/bottles/sea-moss.jpg";
+import bottleRhodiola from "@/assets/shop/bottles/rhodiola.jpg";
+import bottleAlphaLipoic from "@/assets/shop/bottles/alpha-lipoic.jpg";
+import bottleCoq10 from "@/assets/shop/bottles/coq10.jpg";
+import bottleSpirulina from "@/assets/shop/bottles/spirulina.jpg";
+import bottleBoron from "@/assets/shop/bottles/boron.jpg";
+import bottleBacopa from "@/assets/shop/bottles/bacopa.jpg";
+import bottlePhosphatidylserine from "@/assets/shop/bottles/phosphatidylserine.jpg";
+import bottleCiticoline from "@/assets/shop/bottles/citicoline.jpg";
+import bottleHolyBasil from "@/assets/shop/bottles/holy-basil.jpg";
+import bottleLemonBalm from "@/assets/shop/bottles/lemon-balm.jpg";
+import bottleBoswellia from "@/assets/shop/bottles/boswellia.jpg";
+import bottleGinger from "@/assets/shop/bottles/ginger.jpg";
+import bottlePea from "@/assets/shop/bottles/pea.jpg";
+import bottleResveratrol from "@/assets/shop/bottles/resveratrol.jpg";
+import bottleSpermidine from "@/assets/shop/bottles/spermidine.jpg";
+import bottleFisetin from "@/assets/shop/bottles/fisetin.jpg";
+import bottleChromium from "@/assets/shop/bottles/chromium.jpg";
+import bottleCinnamon from "@/assets/shop/bottles/cinnamon.jpg";
+import bottleFadogia from "@/assets/shop/bottles/fadogia.jpg";
+import bottleDim from "@/assets/shop/bottles/dim.jpg";
+import bottleBetaAlanine from "@/assets/shop/bottles/beta-alanine.jpg";
+import bottleCitrulline from "@/assets/shop/bottles/citrulline.jpg";
+import bottleTartCherry from "@/assets/shop/bottles/tart-cherry.jpg";
+import bottleGlutamine from "@/assets/shop/bottles/glutamine.jpg";
+import bottlePsyllium from "@/assets/shop/bottles/psyllium.jpg";
+import bottleSBoulardii from "@/assets/shop/bottles/s-boulardii.jpg";
+import bottleHyaluronic from "@/assets/shop/bottles/hyaluronic.jpg";
+import bottleMsm from "@/assets/shop/bottles/msm.jpg";
+import bottleBiotin from "@/assets/shop/bottles/biotin.jpg";
+import bottleElderberry from "@/assets/shop/bottles/elderberry.jpg";
+import bottleNac from "@/assets/shop/bottles/nac.jpg";
+import bottleSelenium from "@/assets/shop/bottles/selenium.jpg";
+import bottleIron from "@/assets/shop/bottles/iron.jpg";
 
-const categoryBottleImages: Record<string, string> = {
-  Cognitive: bottleCognitive,
-  Immune: bottleImmune,
-  Essential: bottleEssential,
-  Stress: bottleStress,
-  Gut: bottleGut,
-  Metabolic: bottleMetabolic,
-  Longevity: bottleLongevity,
-  Hormonal: bottleHormonal,
-  Inflammation: bottleInflammation,
-  Performance: bottlePerformance,
-  Structural: bottleStructural,
+const productBottleImages: Record<string, string> = {
+  "1": bottleLionsMane, "2": bottleAshwagandha, "3": bottleCurcumin, "4": bottleNmn,
+  "5": bottleTurkeyTail, "6": bottleVitD3K2, "7": bottleMagnesium, "8": bottleOmega3,
+  "9": bottleBerberine, "10": bottleTongkatAli, "11": bottleLTheanine, "12": bottleQuercetin,
+  "13": bottleReishi, "14": bottleCreatine, "15": bottleShilajit, "16": bottleProbiotics,
+  "17": bottleZinc, "18": bottleCollagen, "19": bottleSeaMoss, "20": bottleRhodiola,
+  "21": bottleAlphaLipoic, "22": bottleCoq10, "23": bottleSpirulina, "24": bottleBoron,
+  "25": bottleBacopa, "26": bottlePhosphatidylserine, "27": bottleCiticoline, "28": bottleHolyBasil,
+  "29": bottleLemonBalm, "30": bottleBoswellia, "31": bottleGinger, "32": bottlePea,
+  "33": bottleResveratrol, "34": bottleSpermidine, "35": bottleFisetin, "36": bottleChromium,
+  "37": bottleCinnamon, "38": bottleFadogia, "39": bottleDim, "40": bottleBetaAlanine,
+  "41": bottleCitrulline, "42": bottleTartCherry, "43": bottleGlutamine, "44": bottlePsyllium,
+  "45": bottleSBoulardii, "46": bottleHyaluronic, "47": bottleMsm, "48": bottleBiotin,
+  "49": bottleElderberry, "50": bottleNac, "51": bottleSelenium, "52": bottleIron,
 };
 
 // ============ DATA TYPES ============
@@ -868,7 +912,7 @@ function BookCard({ book }: { book: BookEntry }) {
 }
 
 function SupplementCard({ supplement }: { supplement: Supplement }) {
-  const bottleImg = categoryBottleImages[supplement.category];
+  const bottleImg = productBottleImages[supplement.id];
   return (
     <a
       href={supplement.affiliateUrl}
