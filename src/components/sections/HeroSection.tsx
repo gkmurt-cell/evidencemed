@@ -171,7 +171,7 @@ const HeroSection = () => {
           <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold text-primary-foreground leading-tight mb-6 animate-fade-up delay-100">
             Research-Backed
             <br />
-            <span className="opacity-90">Alternative Medicine</span>
+            <span className="opacity-90">Integrative & Alternative Medicine</span>
           </h1>
 
           {/* Subtitle */}
