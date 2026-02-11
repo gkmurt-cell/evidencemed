@@ -126,7 +126,7 @@ const Navbar = () => {
   };
 
   const resourcesDropdown = [
-    { name: "Educational Shop", href: "/merch", icon: ShoppingBag, description: "Books & branded items" },
+    { name: "Reference Library & Shop", href: "/merch", icon: ShoppingBag, description: "Books, supplements & educational resources" },
     { name: "Pricing & Plans", href: "/pricing", icon: BookOpen, description: "Individual, professional & institutional plans", isLink: true },
   ];
 

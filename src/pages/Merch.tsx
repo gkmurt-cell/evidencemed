@@ -32,6 +32,27 @@ interface Supplement {
   category: string;
 }
 
+interface SupplementCategory {
+  id: string;
+  label: string;
+  description: string;
+  icon: string;
+}
+
+const supplementCategories: SupplementCategory[] = [
+  { id: "Cognitive", label: "Brain & Cognitive Health", description: "Nootropics and neuroprotective compounds", icon: "🧠" },
+  { id: "Immune", label: "Immune Support", description: "Immune-modulating compounds and mushrooms", icon: "🛡️" },
+  { id: "Essential", label: "Essential Vitamins & Minerals", description: "Foundational micronutrients for daily health", icon: "💊" },
+  { id: "Stress", label: "Stress & Adaptogens", description: "Adaptogenic herbs for stress resilience", icon: "🌿" },
+  { id: "Gut", label: "Gut & Digestive Health", description: "Probiotics, prebiotics, and gut support", icon: "🦠" },
+  { id: "Metabolic", label: "Metabolic Health", description: "Blood sugar, AMPK activation, and metabolism", icon: "⚡" },
+  { id: "Longevity", label: "Longevity & Anti-Aging", description: "NAD+ precursors and cellular health", icon: "🧬" },
+  { id: "Hormonal", label: "Hormonal Balance", description: "Testosterone, cortisol, and endocrine support", icon: "🔬" },
+  { id: "Inflammation", label: "Anti-Inflammatory", description: "Natural anti-inflammatory compounds", icon: "🔥" },
+  { id: "Performance", label: "Performance & Recovery", description: "Sports nutrition and physical performance", icon: "💪" },
+  { id: "Structural", label: "Skin, Hair & Joints", description: "Collagen, connective tissue, and structural support", icon: "✨" },
+];
+
 interface VideoLink {
   label: string;
   url: string;
@@ -732,7 +753,7 @@ export default function Merch() {
                       value="supplements" 
                       className="rounded-full data-[state=active]:bg-emerald-500 data-[state=active]:text-white"
                     >
-                      <Leaf className="h-4 w-4 mr-1" /> Supplements
+                      <Pill className="h-4 w-4 mr-1" /> Supplement Shop
                     </TabsTrigger>
                     <TabsTrigger 
                       value="videos" 
@@ -812,19 +833,32 @@ export default function Merch() {
                     )}
                   </div>
 
-                  {/* Compounds Section */}
+                  {/* Supplement Shop Section - grouped by category */}
                   <div>
                     <div className="flex items-center gap-2 mb-2">
-                      <Leaf className="h-5 w-5 text-muted-foreground" />
-                      <h2 className="font-serif text-xl font-medium text-foreground">Researched Compounds</h2>
+                      <Pill className="h-5 w-5 text-muted-foreground" />
+                      <h2 className="font-serif text-xl font-medium text-foreground">Supplement Shop</h2>
                     </div>
                     <p className="text-sm text-muted-foreground mb-6">
-                      Substances with documented research referenced in our database
+                      Research-backed supplements organized by health category
                     </p>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                      {supplements.map((supplement) => (
-                        <SupplementCard key={supplement.id} supplement={supplement} />
-                      ))}
+                    <div className="space-y-10">
+                      {supplementCategories
+                        .filter(cat => supplements.some(s => s.category === cat.id))
+                        .map(cat => (
+                          <div key={cat.id}>
+                            <div className="flex items-center gap-2 mb-1">
+                              <span className="text-lg">{cat.icon}</span>
+                              <h3 className="font-serif font-medium text-foreground">{cat.label}</h3>
+                            </div>
+                            <p className="text-xs text-muted-foreground mb-4">{cat.description}</p>
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                              {supplements.filter(s => s.category === cat.id).map(supplement => (
+                                <SupplementCard key={supplement.id} supplement={supplement} />
+                              ))}
+                            </div>
+                          </div>
+                        ))}
                     </div>
                   </div>
 
@@ -909,20 +943,33 @@ export default function Merch() {
                   )}
                 </TabsContent>
 
-                {/* Compounds Tab */}
+                {/* Supplement Shop Tab */}
                 <TabsContent value="supplements">
                   <div className="mb-6">
-                    <h2 className="font-serif text-xl font-medium text-foreground mb-1">Researched Compounds</h2>
-                    <p className="text-sm text-muted-foreground">Substances with documented research referenced in our database</p>
+                    <h2 className="font-serif text-xl font-medium text-foreground mb-1">Supplement Shop</h2>
+                    <p className="text-sm text-muted-foreground">Research-backed supplements organized by health category</p>
                   </div>
                   {supplements.length > 0 ? (
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                      {supplements.map((supplement) => (
-                        <SupplementCard key={supplement.id} supplement={supplement} />
-                      ))}
+                    <div className="space-y-10">
+                      {supplementCategories
+                        .filter(cat => supplements.some(s => s.category === cat.id))
+                        .map(cat => (
+                          <div key={cat.id}>
+                            <div className="flex items-center gap-3 mb-1">
+                              <span className="text-xl">{cat.icon}</span>
+                              <h3 className="font-serif text-lg font-medium text-foreground">{cat.label}</h3>
+                            </div>
+                            <p className="text-xs text-muted-foreground mb-4">{cat.description}</p>
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                              {supplements.filter(s => s.category === cat.id).map(supplement => (
+                                <SupplementCard key={supplement.id} supplement={supplement} />
+                              ))}
+                            </div>
+                          </div>
+                        ))}
                     </div>
                   ) : (
-                    <EmptyState category="compounds" />
+                    <EmptyState category="supplements" />
                   )}
                 </TabsContent>
 
