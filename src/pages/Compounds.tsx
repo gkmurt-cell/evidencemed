@@ -97,10 +97,10 @@ const Compounds = () => {
   return (
     <>
       <Helmet>
-        <title>Natural Compounds Library | EvidenceMed - Herbal Medicine Research</title>
+        <title>Natural Compounds Library | EvidenceMed - Integrative Medicine Research</title>
         <meta
           name="description"
-          content="Browse our comprehensive library of natural compounds, herbs, and nutraceuticals with research summaries, safety information, and study references."
+          content="Browse our comprehensive library of natural compounds, herbs, and nutraceuticals used in integrative medicine. Research summaries, safety information, and study references."
         />
       </Helmet>
 

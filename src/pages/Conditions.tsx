@@ -133,10 +133,10 @@ const Conditions = () => {
   return (
     <>
       <Helmet>
-        <title>200+ Health Conditions Library | EvidenceMed</title>
+        <title>200+ Health Conditions Library | EvidenceMed - Integrative Medicine</title>
         <meta
           name="description"
-          content="Browse our comprehensive library of 200+ health conditions with evidence-based research. Filter by category, search conditions, and explore integrative therapy studies."
+          content="Browse our comprehensive library of 200+ health conditions with evidence-based integrative medicine research. Filter by category, search conditions, and explore complementary therapy studies."
         />
       </Helmet>
 
