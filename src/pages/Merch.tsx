@@ -338,7 +338,7 @@ const supplements: Supplement[] = [
     type: "Superfood",
     description: "Blue-green algae rich in phycocyanin, protein, and B-vitamins. Antioxidant and anti-inflammatory.",
     researchReference: "Deng & Chow, 2010 — hypolipidemic and antioxidant effects",
-    affiliateUrl: "https://www.amazon.com/dp/B0039ITKFY?tag=evidencemed1-20",
+    affiliateUrl: "https://www.amazon.com/dp/B0CB96KGXW?tag=evidencemed1-20",
     image: "🌿",
     category: "Immune"
   },
