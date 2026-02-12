@@ -943,8 +943,8 @@ function SupplementCategoryNav({ activeCategory, onCategoryClick }: { activeCate
   );
 }
 
-function SupplementCategoryBlock({ cat }: { cat: SupplementCategory }) {
-  const catSupplements = supplements.filter(s => s.category === cat.id);
+function SupplementCategoryBlock({ cat, items }: { cat: SupplementCategory; items?: Supplement[] }) {
+  const catSupplements = items ? items.filter(s => s.category === cat.id) : supplements.filter(s => s.category === cat.id);
   if (catSupplements.length === 0) return null;
   return (
     <div id={`shop-${cat.id}`}>
@@ -1078,6 +1078,17 @@ export default function Merch() {
   const [visibleVideos, setVisibleVideos] = useState(6);
   const [bookSearch, setBookSearch] = useState("");
   const [activeShopCategory, setActiveShopCategory] = useState<string | null>(null);
+  const [suppSearch, setSuppSearch] = useState("");
+
+  const filteredSupplements = useMemo(() => {
+    if (!suppSearch.trim()) return supplements;
+    const q = suppSearch.toLowerCase();
+    return supplements.filter(s =>
+      s.name.toLowerCase().includes(q) ||
+      s.type.toLowerCase().includes(q) ||
+      s.description.toLowerCase().includes(q)
+    );
+  }, [suppSearch]);
 
   useEffect(() => {
     if (tabFromUrl && ["all", "books", "supplements", "videos"].includes(tabFromUrl)) {
@@ -1225,12 +1236,22 @@ export default function Merch() {
                       Research-backed supplements organized by health category
                     </p>
                     <SupplementCategoryNav activeCategory={activeShopCategory} onCategoryClick={setActiveShopCategory} />
+                    <div className="relative mb-6">
+                      <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                      <Input
+                        type="text"
+                        placeholder="Search supplements by name, type..."
+                        value={suppSearch}
+                        onChange={(e) => setSuppSearch(e.target.value)}
+                        className="pl-10"
+                      />
+                    </div>
                     <div className="space-y-10">
                       {supplementCategories
-                        .filter(cat => supplements.some(s => s.category === cat.id))
+                        .filter(cat => filteredSupplements.some(s => s.category === cat.id))
                         .filter(cat => activeShopCategory === null || cat.id === activeShopCategory)
                         .map(cat => (
-                          <SupplementCategoryBlock key={cat.id} cat={cat} />
+                          <SupplementCategoryBlock key={cat.id} cat={cat} items={filteredSupplements} />
                         ))}
                     </div>
                   </div>
@@ -1323,13 +1344,23 @@ export default function Merch() {
                     <p className="text-sm text-muted-foreground">Research-backed supplements organized by health category</p>
                   </div>
                   <SupplementCategoryNav activeCategory={activeShopCategory} onCategoryClick={setActiveShopCategory} />
-                  {supplements.length > 0 ? (
+                  <div className="relative mb-6">
+                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                    <Input
+                      type="text"
+                      placeholder="Search supplements by name, type..."
+                      value={suppSearch}
+                      onChange={(e) => setSuppSearch(e.target.value)}
+                      className="pl-10"
+                    />
+                  </div>
+                  {filteredSupplements.length > 0 ? (
                     <div className="space-y-10">
                       {supplementCategories
-                        .filter(cat => supplements.some(s => s.category === cat.id))
+                        .filter(cat => filteredSupplements.some(s => s.category === cat.id))
                         .filter(cat => activeShopCategory === null || cat.id === activeShopCategory)
                         .map(cat => (
-                          <SupplementCategoryBlock key={cat.id} cat={cat} />
+                          <SupplementCategoryBlock key={cat.id} cat={cat} items={filteredSupplements} />
                         ))}
                     </div>
                   ) : (
