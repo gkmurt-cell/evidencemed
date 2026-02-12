@@ -921,11 +921,11 @@ function SupplementCard({ supplement }: { supplement: Supplement }) {
   );
 }
 
-function SupplementCategoryNav({ activeCategory, onCategoryClick }: { activeCategory: string | null; onCategoryClick: (id: string | null) => void }) {
+function SupplementCategoryNav({ activeCategory, onCategoryClick, searchValue, onSearchChange }: { activeCategory: string | null; onCategoryClick: (id: string | null) => void; searchValue: string; onSearchChange: (val: string) => void }) {
   const activeCats = supplementCategories.filter(cat => supplements.some(s => s.category === cat.id));
   return (
     <div className="mb-8">
-      <div className="flex flex-wrap gap-2 pb-2">
+      <div className="flex flex-wrap gap-2 pb-2 items-center">
         <button
           onClick={() => onCategoryClick(null)}
           className={`shrink-0 px-4 py-2 rounded-full text-sm font-medium transition-colors border ${
@@ -949,6 +949,16 @@ function SupplementCategoryNav({ activeCategory, onCategoryClick }: { activeCate
             <span className="mr-1">{cat.icon}</span> {cat.label}
           </button>
         ))}
+        <div className="relative shrink-0">
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-muted-foreground" />
+          <Input
+            type="text"
+            placeholder="Search supplements..."
+            value={searchValue}
+            onChange={(e) => onSearchChange(e.target.value)}
+            className="h-9 pl-9 pr-3 w-48 rounded-full text-sm"
+          />
+        </div>
       </div>
     </div>
   );
@@ -1246,17 +1256,7 @@ export default function Merch() {
                     <p className="text-sm text-muted-foreground mb-6">
                       Research-backed supplements organized by health category
                     </p>
-                    <SupplementCategoryNav activeCategory={activeShopCategory} onCategoryClick={setActiveShopCategory} />
-                    <div className="relative mb-6">
-                      <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-                      <Input
-                        type="text"
-                        placeholder="Search supplements by name, type..."
-                        value={suppSearch}
-                        onChange={(e) => setSuppSearch(e.target.value)}
-                        className="pl-10"
-                      />
-                    </div>
+                    <SupplementCategoryNav activeCategory={activeShopCategory} onCategoryClick={setActiveShopCategory} searchValue={suppSearch} onSearchChange={setSuppSearch} />
                     <div className="space-y-10">
                       {supplementCategories
                         .filter(cat => filteredSupplements.some(s => s.category === cat.id))
@@ -1354,17 +1354,7 @@ export default function Merch() {
                     <h2 className="font-serif text-3xl md:text-4xl font-semibold text-foreground mb-2">Supplement Shop</h2>
                     <p className="text-sm text-muted-foreground">Research-backed supplements organized by health category</p>
                   </div>
-                  <SupplementCategoryNav activeCategory={activeShopCategory} onCategoryClick={setActiveShopCategory} />
-                  <div className="relative mb-6">
-                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-                    <Input
-                      type="text"
-                      placeholder="Search supplements by name, type..."
-                      value={suppSearch}
-                      onChange={(e) => setSuppSearch(e.target.value)}
-                      className="pl-10"
-                    />
-                  </div>
+                  <SupplementCategoryNav activeCategory={activeShopCategory} onCategoryClick={setActiveShopCategory} searchValue={suppSearch} onSearchChange={setSuppSearch} />
                   {filteredSupplements.length > 0 ? (
                     <div className="space-y-10">
                       {supplementCategories
