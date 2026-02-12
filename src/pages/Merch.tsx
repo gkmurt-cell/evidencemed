@@ -45,6 +45,8 @@ const bottleFileNames: Record<string, string> = {
   "45": "s-boulardii", "46": "hyaluronic", "47": "msm", "48": "biotin",
   "49": "elderberry", "50": "nac", "51": "selenium", "52": "iron",
   "53": "betaine-hcl",
+  "54": "l-arginine", "55": "l-carnitine", "56": "pqq", "57": "vitamin-c",
+  "58": "spm-active", "59": "phytomulti", "60": "ultraflora", "61": "estrovera",
 };
 
 const getBottleUrl = (id: string) => {
@@ -653,6 +655,88 @@ const supplements: Supplement[] = [
     affiliateUrl: "https://www.amazon.com/dp/B0CHK4DW54?tag=evidencemed1-20",
     image: "🩸",
     category: "Essential"
+  },
+  // ---- NOW Foods Best Sellers ----
+  {
+    id: "54",
+    name: "L-Arginine (Double Strength)",
+    type: "Amino Acid",
+    description: "Nitric oxide precursor supporting cardiovascular function, blood flow, and exercise capacity.",
+    researchReference: "Bode-Böger et al., 1998 — L-arginine and endothelial NO synthesis",
+    affiliateUrl: "https://www.amazon.com/dp/B0BSLYX7B7?tag=evidencemed1-20",
+    image: "💓",
+    category: "Performance"
+  },
+  {
+    id: "55",
+    name: "L-Carnitine (Carnipure®)",
+    type: "Amino Acid Derivative",
+    description: "Fatty acid transporter into mitochondria for energy metabolism and exercise recovery.",
+    researchReference: "Fielding et al., 2018 — L-carnitine and mitochondrial function",
+    affiliateUrl: "https://www.amazon.com/dp/B001B4JQP4?tag=evidencemed1-20",
+    image: "🔋",
+    category: "Metabolic"
+  },
+  {
+    id: "56",
+    name: "PQQ (Pyrroloquinoline Quinone)",
+    type: "Mitochondrial Cofactor",
+    description: "Redox cofactor supporting mitochondrial biogenesis, neuroprotection, and cellular energy.",
+    researchReference: "Harris et al., 2013 — PQQ and mitochondrial biogenesis in humans",
+    affiliateUrl: "https://www.amazon.com/dp/B00NY343XA?tag=evidencemed1-20",
+    image: "⚡",
+    category: "Longevity"
+  },
+  {
+    id: "57",
+    name: "Vitamin C (with Rose Hips)",
+    type: "Essential Vitamin",
+    description: "Sustained-release ascorbic acid with rose hips for immune defense, collagen synthesis, and antioxidant protection.",
+    researchReference: "Carr & Maggini, 2017 — vitamin C and immune function",
+    affiliateUrl: "https://www.amazon.com/dp/B0013P1GD6?tag=evidencemed1-20",
+    image: "🍊",
+    category: "Immune"
+  },
+  // ---- Metagenics Best Sellers ----
+  {
+    id: "58",
+    name: "SPM Active (Pro-Resolving Mediators)",
+    type: "Specialized Lipid",
+    description: "Omega-3-derived SPMs supporting the body's natural inflammation resolution pathways.",
+    researchReference: "Serhan, 2014 — pro-resolving mediators in inflammation",
+    affiliateUrl: "https://www.amazon.com/dp/B019FYPYRA?tag=evidencemed1-20",
+    image: "🧬",
+    category: "Inflammation"
+  },
+  {
+    id: "59",
+    name: "PhytoMulti (Phytonutrient Multi)",
+    type: "Multivitamin",
+    description: "Practitioner-grade multivitamin with 13 concentrated plant extracts for cellular health and healthy aging.",
+    researchReference: "Minich & Bland, 2013 — phytonutrients and chronic disease",
+    affiliateUrl: "https://www.amazon.com/dp/B00ESWBE1U?tag=evidencemed1-20",
+    image: "🌈",
+    category: "Essential"
+  },
+  {
+    id: "60",
+    name: "UltraFlora Balance (Dual-Strain)",
+    type: "Clinical Probiotic",
+    description: "Practitioner-formulated dual-strain probiotic with L. acidophilus NCFM and B. lactis Bi-07 for gut-immune support.",
+    researchReference: "Leyer et al., 2009 — NCFM/Bi-07 pediatric immune trial",
+    affiliateUrl: "https://www.amazon.com/dp/B004GLCX2M?tag=evidencemed1-20",
+    image: "🦠",
+    category: "Gut"
+  },
+  {
+    id: "61",
+    name: "Estrovera (ERr 731® Rhubarb)",
+    type: "Menopause Support",
+    description: "Hormone-free rhapontic rhubarb extract clinically studied for hot flashes, night sweats, and mood.",
+    researchReference: "Heger et al., 2006 — ERr 731 menopausal symptom trial",
+    affiliateUrl: "https://www.amazon.com/dp/B005NKRJWE?tag=evidencemed1-20",
+    image: "🌸",
+    category: "Hormonal"
   },
 ];
 
