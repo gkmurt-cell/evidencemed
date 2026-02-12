@@ -44,6 +44,7 @@ const bottleFileNames: Record<string, string> = {
   "41": "citrulline", "42": "tart-cherry", "43": "glutamine", "44": "psyllium",
   "45": "s-boulardii", "46": "hyaluronic", "47": "msm", "48": "biotin",
   "49": "elderberry", "50": "nac", "51": "selenium", "52": "iron",
+  "53": "betaine-hcl",
 };
 
 const getBottleUrl = (id: string) => {
@@ -568,6 +569,16 @@ const supplements: Supplement[] = [
     researchReference: "McFarland, 2010 — meta-analysis on efficacy",
     affiliateUrl: "https://www.amazon.com/dp/B0719BVG2Q?tag=evidencemed1-20",
     image: "🍞",
+    category: "Gut"
+  },
+  {
+    id: "53",
+    name: "Betaine HCl",
+    type: "Digestive Aid",
+    description: "Supplemental hydrochloric acid for gastric pH optimization and protein digestion support.",
+    researchReference: "Yago et al., 2013 — gastric re-acidification in hypochlorhydria",
+    affiliateUrl: "https://www.amazon.com/dp/B001GALLGG?tag=evidencemed1-20",
+    image: "🧪",
     category: "Gut"
   },
   // ---- Additional Structural ----
