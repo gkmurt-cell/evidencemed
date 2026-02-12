@@ -577,7 +577,7 @@ const supplements: Supplement[] = [
     type: "Digestive Aid",
     description: "Supplemental hydrochloric acid for gastric pH optimization and protein digestion support.",
     researchReference: "Yago et al., 2013 — gastric re-acidification in hypochlorhydria",
-    affiliateUrl: "https://www.amazon.com/dp/B001GALLGG?tag=evidencemed1-20",
+    affiliateUrl: "https://www.amazon.com/dp/B000M4CD2C?tag=evidencemed1-20",
     image: "🧪",
     category: "Gut"
   },
