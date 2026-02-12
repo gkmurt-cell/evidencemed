@@ -1,5 +1,9 @@
 import { Helmet } from "react-helmet-async";
-import { Sparkles, BookOpen, ShoppingBag } from "lucide-react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Sparkles, BookOpen, ShoppingBag, Search } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import InstitutionalTrustBanner from "@/components/sections/InstitutionalTrustBanner";
@@ -19,6 +23,16 @@ import { MobileResourceDrawer } from "@/components/mobile/MobileResourceDrawer";
 import { InlinePromoCard } from "@/components/mobile/InlinePromoCard";
 
 const Index = () => {
+  const [searchQuery, setSearchQuery] = useState("");
+  const navigate = useNavigate();
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      navigate(`/search?q=${encodeURIComponent(searchQuery.trim())}`);
+    }
+  };
+
   return (
     <>
       <Helmet>
@@ -63,6 +77,28 @@ const Index = () => {
         <div className="pt-16 lg:pt-20">
           {/* Hero Section - Full Width */}
           <HeroSection />
+          
+          {/* Search Bar */}
+          <div className="bg-primary/5 py-8">
+            <div className="container mx-auto px-4">
+              <form onSubmit={handleSearch} className="max-w-2xl mx-auto">
+                <div className="relative">
+                  <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+                  <Input
+                    type="text"
+                    placeholder="Search conditions, compounds, therapies..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="w-full h-14 pl-12 pr-24 text-lg rounded-xl"
+                  />
+                  <Button type="submit" className="absolute right-2 top-1/2 -translate-y-1/2">
+                    Search
+                  </Button>
+                </div>
+              </form>
+            </div>
+          </div>
+
           <InstitutionalTrustBanner />
           
           {/* Content with Sidebar */}
