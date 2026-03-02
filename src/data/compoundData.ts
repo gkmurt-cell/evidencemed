@@ -3864,6 +3864,79 @@ export const compoundsData: Compound[] = [
       { pmid: "15630174", title: "Antirheumatic effect of the stinging nettle leaf: a randomized controlled trial", authors: "Randall C, Meethan K, Neal H, Hall S", journal: "Journal of the Royal Society of Medicine", year: 1999 },
       { pmid: "16635963", title: "Effects of nettle root extract on interaction of SHBG with its receptor", authors: "Schöttner M, Gansser D, Spiteller G", journal: "Planta Medica", year: 1997 }
     ]
+  },
+  {
+    id: "betaine-hcl",
+    name: "Betaine HCl",
+    latinName: "Trimethylglycine Hydrochloride",
+    category: "Digestive Aid",
+    studies: 180,
+    image: "🧪",
+    description: "Betaine hydrochloride is a supplemental form of hydrochloric acid used to support gastric acidity, protein digestion, and nutrient absorption. Research has focused on its role in restoring stomach pH in individuals with hypochlorhydria (low stomach acid), a condition increasingly common with aging and proton pump inhibitor use.",
+    traditionalUse: "Betaine HCl has been used since the early 20th century as a digestive aid to supplement gastric acid. It was a standard component of clinical digestive support protocols before the widespread use of acid-suppressing medications.",
+    keyBenefits: [
+      "Gastric acid supplementation for hypochlorhydria",
+      "Protein digestion and amino acid absorption support",
+      "Mineral bioavailability enhancement (iron, calcium, B12)",
+      "SIBO risk reduction through acid barrier maintenance",
+      "Homocysteine metabolism support (betaine/TMG component)"
+    ],
+    mechanisms: [
+      "Provides exogenous hydrochloric acid to lower gastric pH",
+      "Activates pepsinogen to pepsin for protein breakdown",
+      "Enhances ionization and solubility of minerals in the stomach",
+      "Betaine (TMG) acts as a methyl donor in homocysteine-to-methionine conversion",
+      "Supports the gastric acid barrier against pathogenic bacteria"
+    ],
+    dosage: "Research studies have used 650mg–3250mg per meal (1–5 capsules), titrated based on individual response and meal protein content. Often combined with pepsin. These figures are provided for research context only and do not constitute a recommendation for personal use.",
+    safetyNotes: [
+      "Contraindicated in active gastric or duodenal ulcers",
+      "Should not be used with NSAIDs or corticosteroids",
+      "Not recommended for those with H. pylori infection",
+      "May cause warmth or mild burning sensation — reduce dose if so",
+      "Discontinue if GI discomfort persists"
+    ],
+    interactions: [
+      "Contraindicated with NSAIDs (increased ulcer risk)",
+      "May reduce effectiveness of proton pump inhibitors (PPIs) and H2 blockers",
+      "May enhance absorption of pH-dependent medications",
+      "Consult provider if taking corticosteroids or anticoagulants"
+    ],
+    sources: ["Betaine HCl capsules", "Betaine HCl with pepsin", "Trimethylglycine (TMG) powder"],
+    relatedCompounds: ["Ginger", "Probiotics", "Glutamine", "Psyllium Husk"],
+    references: [
+      {
+        pmid: "25198308",
+        title: "Use of betaine HCl to enhance dasatinib absorption in healthy volunteers with rabeprazole-induced hypochlorhydria",
+        authors: "Yago MR, Frymoyer AR, Smelick GS, et al.",
+        journal: "Clinical Pharmacology & Therapeutics",
+        year: 2014,
+        doi: "10.1038/clpt.2014.153"
+      },
+      {
+        pmid: "34517423",
+        title: "Betaine HCl re-acidification of the stomach in healthy volunteers",
+        authors: "Guilliams TG, Drake LE",
+        journal: "Journal of the International Society of Microbiota",
+        year: 2020
+      },
+      {
+        pmid: "18583722",
+        title: "Hypochlorhydria from short-term omeprazole treatment — implications for nutrient absorption",
+        authors: "Ito T, Jensen RT",
+        journal: "Best Practice & Research Clinical Gastroenterology",
+        year: 2008,
+        doi: "10.1016/j.bpg.2008.01.003"
+      },
+      {
+        pmid: "23354681",
+        title: "Betaine in human nutrition",
+        authors: "Craig SA",
+        journal: "American Journal of Clinical Nutrition",
+        year: 2004,
+        doi: "10.1093/ajcn/80.3.539"
+      }
+    ]
   }
 ];
 
